@@ -1,0 +1,2 @@
+REGARDS Developpment manual
+===========================
