@@ -31,26 +31,26 @@ Then fill the configuration properties needed by the installer.
 4\. Cloud installation
 ----------------------
 
-The cloud installation allow you to install the REGARDS product components in **multiples physical or virtual host**. The only requirement is that all the host could communicate throught **HTTPS protocol**.
+The cloud installation allow you to install the REGARDS product components in **multiples physical or virtual host**. The only requirement is that all the hosts could communicate throught **HTTPS protocol**.
 
-To do so, run the IzPack installation package on each host and select the compoent(s) you want to install on each one.
+To do so, run the IzPack installation package on each host and select the component(s) you want to install on each one.
 
 With this installation system you can install **multiple instances of each microservice**. In the first place you can install one instance of each needed microservice and if the performances of the system are to low, you can install more instances later.
 
-**NOTE :** You always need to install and configure the Configuration serveur first. For a cloud installation, the table bellow explain the mandatory components and the installation order.
+**NOTE :** You always need to install and configure the Configuration server first. For a cloud installation, the table bellow explain the mandatory components and the installation order.
 
-| Component                | Mandatory | Installation Order | Max instances | Description                                                                          |
-|--------------------------|-----------|--------------------|---------------|--------------------------------------------------------------------------------------|
-| **Configuration server** | true      | 1                  | 1             | The configuration Server provide configuration parameters for all REGARDS components |
-| **Eureka server**        | true      | 2                  | 1             | Provide the adress registry for all the REGARDS comonents                            |
-| **Gateway**              | true      |                    | 1             | Provide a unique and secure entry point for all the REGARDS services                 |
-| **Frontend**             | false     |                    | 1             | Provide WEB interfaces to access REGARDS services                                    |
-| **Microservices**        | false     |                    | unlimited     | Provide the REGARDS fonctionalities                                                  |
+| Component                | Mandatory | Installation Order | Max instances | Description                                                          |
+|--------------------------|-----------|--------------------|---------------|----------------------------------------------------------------------|
+| **Configuration server** | true      | 1                  | 1             | Provide configuration parameters for all REGARDS components          |
+| **Eureka server**        | true      | 2                  | 1             | Provide the adress registry for all the REGARDS components           |
+| **Gateway**              | true      |                    | 1             | Provide a unique and secure entry point for all the REGARDS services |
+| **Frontend**             | false     |                    | 1             | Provide WEB interfaces to access REGARDS services                    |
+| **Microservices**        | false     |                    | unlimited     | Provide the REGARDS fonctionalities                                  |
 
 5\. REGARDS Components configuration
 ------------------------------------
 
-On each host you want to install on or more REGARDS component you will be asked to provide the installation directory :
+On each host you want to install one or more REGARDS component you will be asked to provide the installation directory :
 
 <img src="./images/installation/select-directory.png" width="400">
 
@@ -58,33 +58,33 @@ After that, you'll need to configure all the components you selected for the ins
 
 ### 5\.1 Configuration server
 
-The configuration server is the first component to install, it provides the global configuration parameters to all REGARDS component. It only needs a starter port.
+The configuration server is the first component to install, it provides the global configuration parameters to all REGARDS components. It only needs a starter port.
 
 ### 5\.2 Eureka server
 
-The eureka server is the second component to install, it provides the globale components registry. This server is access by all REGARDS components to know the adress of other ones.  
+The Eureka server is the second component to install, it provides the global components registry. This server is access by all REGARDS components to know the adresses of other ones.  
 It needs a starter port and the adress of the configuration server
 
 ### 5\.3 Gateway
 
-The Gateway is the secured entry point to the REGARDS system. It assure the authentication system by providing an authentication Service Provider (SP) and redirect the REGARDS services request to the installed micro-services.  
-This component assure the load-balancing of the request to redirect requests to the less-worked microservice.
+The Gateway is the secured entry point to the REGARDS system. It assure the authentication system by providing an authentication Service Provider (SP) and redirect the REGARDS services requests to the installed microservices.  
+This component assure the load-balancing in order to redirect requests to the currently less-used microservice.
 
 ### 5\.4 Frontend
 
-The Frontend component provide the WEB interfaces to administrate and use the REGARDS fonctionnalities. This component is not mandatory, you can either access all the REGARDS functionnalities by REST requests to the Gateway server with a tool like **Curl**
+The Frontend component provides the WEB interfaces to administrate and use the REGARDS fonctionnalities. This component is not mandatory, you can either access all the REGARDS functionnalities by REST requests to the Gateway server with a tool like **Curl**
 
 <img src="./images/installation/frontend.png" width="400">
 
 ### 5\.5 Microservices
 
-When select the installation of microservices, the next configuration screen ask yu for which microserice and how many instances you want.
+When you select the installation of microservices, the next configuration screen ask you for which microserice and how many instances you want to install.
 
 <img src="./images/installation/microservices.png" width="400">
 
 Next you have to configure for each selected microservice :  
 - Starter port(s)  
-- Number of istance  
+- Number of istances  
 - Specifics configuration parameters
 
 Exemple for the archival storage microservice configuration :
