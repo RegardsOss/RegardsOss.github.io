@@ -39,13 +39,13 @@ With this installation system you can install **multiple instances of each micro
 
 **NOTE :** You always need to install and configure the Configuration server first. For a cloud installation, the table bellow explain the mandatory components and the installation order.
 
-| Component                | Mandatory | Installation Order | Max instances | Description                                                          |
-|--------------------------|-----------|--------------------|---------------|----------------------------------------------------------------------|
-| **Configuration server** | true      | 1                  | 1             | Provide configuration parameters for all REGARDS components          |
-| **Eureka server**        | true      | 2                  | 1             | Provide the adress registry for all the REGARDS components           |
-| **Gateway**              | true      |                    | 1             | Provide a unique and secure entry point for all the REGARDS services |
-| **Frontend**             | false     |                    | 1             | Provide WEB interfaces to access REGARDS services                    |
-| **Microservices**        | false     |                    | unlimited     | Provide the REGARDS fonctionalities                                  |
+| Component                | Mandatory                               | Installation Order | Mulitple instances                      | Description                                                          |
+|--------------------------|-----------------------------------------|--------------------|-----------------------------------------|----------------------------------------------------------------------|
+| **Configuration server** | <img src="./images/ok.png" width="40">  | 1                  | <img src="./images/nok.png" width="40"> | Provide configuration parameters for all REGARDS components          |
+| **Eureka server**        | <img src="./images/ok.png" width="40">  | 2                  | <img src="./images/nok.png" width="40"> | Provide the adress registry for all the REGARDS components           |
+| **Gateway**              | <img src="./images/ok.png" width="40">  |                    | <img src="./images/nok.png" width="40"> | Provide a unique and secure entry point for all the REGARDS services |
+| **Frontend**             | <img src="./images/nok.png" width="40"> |                    | <img src="./images/nok.png" width="40"> | Provide WEB interfaces to access REGARDS services                    |
+| **Microservices**        | <img src="./images/nok.png" width="40"> |                    | <img src="./images/ok.png" width="40">  | Provide the REGARDS fonctionalities                                  |
 
 5\. REGARDS Components configuration
 ------------------------------------
