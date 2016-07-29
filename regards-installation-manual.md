@@ -5,7 +5,7 @@ REGARDS Installation manual
 ----------------------------
 
 You can download the **REGARDS installer package** from our github page https://github.com/RegardsOss/RegardsOss.github.io  
-The installer is a **IzPack** package.
+The installer is a **IzPack** package ( http://izpack.org/ ).
 
 To run the REGARDS installer, run the command :  
  <code> java -jar REGARDS-OSS-Installer-1.0.0.jar </code>
@@ -68,7 +68,7 @@ It needs a starter port and the adress of the configuration server
 ### 5\.3 Gateway
 
 The Gateway is the secured entry point to the REGARDS system. It assure the authentication system by providing an authentication Service Provider (SP) and redirect the REGARDS services requests to the installed microservices.  
-This component assure the load-balancing in order to redirect requests to the currently less-used microservice.
+This component assure the load-balancing in order to redirect requests to the less current use microservice.
 
 ### 5\.4 Frontend
 
