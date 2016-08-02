@@ -93,3 +93,8 @@ Next you have to implement every needed interface methods from the main plugin c
 
 4\. Create a new frontend plugin
 --------------------------------
+
+To create a new frontend plugin you have to generate a new npm project and import the REGARDS plugins common source codes.
+
+5\. Contribute to REGARDS
+-------------------------
