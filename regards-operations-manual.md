@@ -17,4 +17,4 @@ Overview
 3\. Consult logs
 ----------------
 
-TODO : depuis le DCP...
+Every log from the REGARDS microservices are thrown throught SYSLOG protocol.
