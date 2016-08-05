@@ -17,7 +17,7 @@ TODO.
 2\. Monitor Eureka server (console)
 -----------------------------------
 
-The Eureka Registry can me monitored throught an IHM only available from the host server at the address : http://<host>:<eureka-port>/.
+The Eureka Registry can be monitored throught an IHM only available from the host server at the address : http://<host>:<eureka-port>/.
 
 This interface display all microservices currently in activity and shows many stats about them. The bellow exemple display the interface in a test environnement with two actives mircroserices.
 
