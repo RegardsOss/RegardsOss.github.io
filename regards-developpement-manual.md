@@ -9,6 +9,9 @@ Overview
 3.	Create a new microservice plugin
 4.	Create a new frontend plugin
 5.	Contribute to REGARDS
+6.  Import a project into Eclipse IDE
+7.  Import a project into Netbeans IDE
+8.  Import a project into IntelliJ IDEA
 
 1\. Developpment contexts
 -------------------------
@@ -16,7 +19,7 @@ Overview
 1\.1. Backend
 -------------
 
-REGARDS allow developpers to extends the REGARDS backend functionnalities by creating their own :  
+REGARDS allows developpers to extends the REGARDS backend functionnalities by creating their own :  
 - **Microservice** : In order to add new functionalities to REGARDS system throught new REST endpoints  
 - **Microservice plugin** : In order to extend microservices functionalities throught defined extension points for each REGARDS Microservice
 
@@ -29,7 +32,7 @@ You need a developpment environment with :
 1\.2.Frontend
 -------------
 
-REGARDS allow developpers to extends REGARDS Frontend functionnalities by creating their own :  
+REGARDS allows developpers to extends REGARDS Frontend functionnalities by creating their own :  
 - **IHM service plugin** : In order to add new functionalities availables from the consultables data id the project user IHM.  
 - **IHM search criterion widget** : In order to add new criterion types in REGARDS search forms.  
 - **IHM Module plugin** : In order to add a totaly new bundle of functionalities
