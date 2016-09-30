@@ -1,4 +1,10 @@
-# Development installation
+---
+layout: classic-docs
+title: Development installation
+short-title: Development installation and build
+categories:
+  - frontend
+---
 
 Open the webapp folder with a terminal:
 

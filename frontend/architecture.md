@@ -1,8 +1,14 @@
-# rs-access
+---
+layout: classic-docs
+title: Frontend Architecture
+short-title: Frontend Architecture
+categories:
+  - frontend
+---
 
 The REGARDS frontend is divided in several modules.
 
-## Utils modules
+# Utils modules
 
 They provide services to build the core of the app. These modules are cross-application (admin application, front application, user application).
 
@@ -21,7 +27,7 @@ They provide services to build the core of the app. These modules are cross-appl
 - store-utils:<br>
   Instead of using the default pattern of Redux, (provides a single file that contains all selectors of the application that uncombine the store foreach selector), we created the class BasicSelector to handle the uncombination of the store-utils inside the selector itself.
 
-## View modules
+# View modules
 
 - components<br>
   This package provides React components to handle forms, buttons...
@@ -33,7 +39,7 @@ They provide services to build the core of the app. These modules are cross-appl
 
 - theme Provide services related to the theme
 
-## Data modules
+# Data modules
 
 - api This package contains the normalizr logic to map entities inside the API result.
 

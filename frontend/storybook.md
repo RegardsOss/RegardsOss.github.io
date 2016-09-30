@@ -1,4 +1,10 @@
-# Purpose
+---
+layout: classic-docs
+title: Storybook
+short-title: Storybook
+categories:
+  - frontend
+---
 
 The storybook provides a simple way to:
 
