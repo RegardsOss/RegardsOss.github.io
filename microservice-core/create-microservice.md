@@ -6,39 +6,35 @@ categories:
   - microservice-core
 ---
 
-Once you have created the microservice container, you have to create modules.
+To create a new microservice you have to create a new maven project with the microservice-archetype. To do so :
 
-To add a new module to your microservice you have to add a new maven module with the module-archetype. To do so :
-
-- Open the root folder of the microservice
+- Clone the git rs-microservice repository<br>
 
 ```bash
-cd myMicroService
+git clone https://<user>@thor.si.c-s.fr/git/rs-microservice
 ```
 
-- Generate a new module
+- Compile and install the maven project<br>
 
 ```bash
+cd rs-microservice
+mvn clean install
+```
+
+- Generate the new microservice in another folder than rs-microservice thanks to the maven project archetype:
+
+```bash
+mkdir ../my-micro-service
+cd ../my-micro-service
 mvn archetype:generate -DarchetypeCatalog=local
 ```
 
-Choose the right archetype(fr.cnes.regards.modules:module-archetype) and enter requested field as follow :
+You have many archetype proposed to you, under the format `number: [local|remote] -> archetype_group_id:archetype_artifact_id (archetype_description)` find the line `X: local -> fr.cnes.regards.microservices:microservice-archetype (Microservice creation archetype)` and enter `X` where X is the actual number of the microservice creation archetype. Then enter the requested fields as follow :
 
-- groupId : `fr.cnes.regards.modules`
-- artifactId : the module name in camel case, e.g. microModules
+- groupId : `fr.cnes.regards.microservices`
+- artifactId : the microservice name in camel case, e.g. myMicroService
 - version : press enter to apply default value
 - package : press enter to apply default value
-- Add the following dependency to `bootstrap-myMicroservice/pom.xml` file:
-
-For instance, with the module artifact id "myModule" :
-
-```xml
-<dependency>
-    <groupId>fr.cnes.regards.modules.myModule</groupId>
-    <artifactId>myModule-rest</artifactId>
-    <version>1.0-SNAPSHOT</version>
-  </dependency>
-```
 
 # Test the microservice
 
