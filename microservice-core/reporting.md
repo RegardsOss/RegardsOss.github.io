@@ -1,26 +1,24 @@
 ---
-layout: classic-docs 
-title: Requirement report 
-short-title: Requirement report 
+layout: classic-docs
+title: Requirement report
+short-title: Requirement report
 categories:
   - microservice-core
 ---
 
-Prerequisites
-=============
+# Prerequisites
 
 Automatic reporting collection is running with **JUnit tests**.
 
-Report annotation
-=================
+# Report annotation
 
 Add dependency to test artifact (if not already defined) :
 
 ```xml
 <dependency>
   <groupId>fr.cnes.regards.microservices</groupId>
-	<artifactId>microservice-core-test</artifactId>
-	<scope>test</scope>
+    <artifactId>microservice-core-test</artifactId>
+    <scope>test</scope>
 </dependency>
 ```
 
@@ -40,8 +38,7 @@ Use :
 
 to describe the unit test.
 
-Sample
-======
+# Sample
 
 ```java
 @Requirement("REGARDS_DSL_DAM_MOD_010")
@@ -52,8 +49,7 @@ public void testSomething() {
 }
 ```
 
-How to generate requirement reports?
-====================================
+# How to generate requirement reports?
 
 Maven test plugins has to be configured to add a specific reporting listener.
 
@@ -95,13 +91,11 @@ Maven test plugins has to be configured to add a specific reporting listener.
 </pluginManagement>
 ```
 
-Where reports are generated?
-============================
+# Where reports are generated?
 
 Reports are generated in maven default build directory (i.e. target) under **requirement-reports** directory. A report starts with **RQMT-** prefix and is saved as an XML file.
 
-How to generate an aggregated report
-====================================
+# How to generate an aggregated report
 
 Use REGARDS **Maven report plugin**.
 

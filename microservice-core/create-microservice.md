@@ -1,54 +1,10 @@
 ---
 layout: classic-docs
-title: Generate a new microservice or module
-short-title: Generate microservices
+title: Generate a new microservice
+short-title: Generate microservice
 categories:
   - microservice-core
 ---
-
-# Development context
-
-REGARDS Microservices are REST services exposed by a Jetty web server contained in a Spring boot application and composed of modules. Each microservice is a Maven project aggregating Maven modules. There is two modules by default: one responsible for running the microservice and one responsible for business. In case a microservice needs to be composed by more than one business module, a module archetype is available.
-
-Requirements for development:
-
-- git client 1.8
-- maven 3.x
-- JDK 1.8
-
-# Create a new microservice
-
-To create a new microservice you have to create a new maven project with the microservice-archetype. To do so :
-
-- Clone the git rs-microservice repository<br>
-
-```bash
-git clone https://<user>@thor.si.c-s.fr/git/rs-microservice
-```
-
-- Compile and install the maven project<br>
-
-```bash
-cd rs-microservice
-mvn clean install
-```
-
-- Generate the new microservice in another folder than rs-microservice thanks to the maven project archetype:
-
-```bash
-mkdir ../my-micro-service
-cd ../my-micro-service
-mvn archetype:generate -DarchetypeCatalog=local
-```
-
-You have many archetype proposed to you, under the format `number: [local|remote] -> archetype_group_id:archetype_artifact_id (archetype_description)` find the line `X: local -> fr.cnes.regards.microservices:microservice-archetype (Microservice creation archetype)` and enter `X` where X is the actual number of the microservice creation archetype. Then enter the requested fields as follow :
-
-- groupId : `fr.cnes.regards.microservices`
-- artifactId : the microservice name in camel case, e.g. myMicroService
-- version : press enter to apply default value
-- package : press enter to apply default value
-
-# Create a new module
 
 Once you have created the microservice container, you have to create modules.
 
@@ -133,5 +89,3 @@ Each microservice offers the features :
 - Access to the Cloud Config Server to centralize configurations properties
 - Allows CORS requests
 - Swagger Interface : <http://address:port/swagger-ui.html>
-
-# Troubleshooting
