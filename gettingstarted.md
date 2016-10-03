@@ -2,6 +2,6 @@
 layout: classic-category
 title: Getting started
 categories:
-  - gettingstarted
+  - getting-started
 description: Getting started
 ---

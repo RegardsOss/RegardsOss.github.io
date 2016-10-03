@@ -1,9 +1,9 @@
 ---
 layout: classic-docs
-title: Microservices core
-short-title: Microservices
+title: Generate a new microservice or module
+short-title: Generate microservices
 categories:
-  - gettingstarted
+  - microservice-core
 ---
 
 # Development context
