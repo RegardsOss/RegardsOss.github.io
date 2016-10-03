@@ -103,7 +103,7 @@ Reports are generated in maven default build directory (i.e. target) under **req
 How to generate an aggregated report
 ====================================
 
-Use REGARDS \**Maven report plugin".
+Use REGARDS **Maven report plugin**.
 
 From the root directory of your microservice :
 
