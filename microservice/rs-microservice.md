@@ -30,12 +30,14 @@ git clone https://<user>@thor.si.c-s.fr/git/rs-microservice
 
 ```bash
 cd rs-microservice
-  mvn clean install
+mvn clean install
 ```
 
-- Generate the new microservice maven project thanks to one of the following method:
+- Generate the new microservice in another folder than rs-microservice thanks to the maven project archetype:
 
 ```bash
+mkdir ../my-micro-service
+cd ../my-micro-service
 mvn archetype:generate -DarchetypeCatalog=local
 ```
 
@@ -59,8 +61,6 @@ mvn archetype:generate \
   -DartifactId=<camelCaseMicroserviceArtifactId?> \
   -DarchetypeRepository=</path/to/git/repo/rs-microservice/microservice-archetype/target?>
 ```
-
-**NOTE** : You better create the microservice in another folder than rs-microservice. Otherwise if you delete your microservice you will need to clean the `rs-microservice/pom.xml`.
 
 # Create the first module
 
