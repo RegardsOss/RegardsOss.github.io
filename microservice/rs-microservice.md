@@ -43,60 +43,35 @@ mvn archetype:generate -DarchetypeCatalog=local
 
 You have many archetype proposed to you, under the format `number: [local|remote] -> archetype_group_id:archetype_artifact_id (archetype_description)` find the line `X: local -> fr.cnes.regards.microservices:microservice-archetype (Microservice creation archetype)` and enter `X` where X is the actual number of the microservice creation archetype. Then enter the requested fields as follow :
 
-- groupId : fr.cnes.regards.microservices
-- artifactId :
-
-  <camelcasemicroserviceartifactid?> (e.g. myMicroService)</camelcasemicroserviceartifactid?>
-
+- groupId : `fr.cnes.regards.microservices`
+- artifactId : the microservice name in camel case, e.g. myMicroService
 - version : press enter to apply default value
-
 - package : press enter to apply default value
 
-```bash
-mvn archetype:generate \
-  -DarchetypeGroupId=fr.cnes.regards.microservices \
-  -DarchetypeArtifactId=microservice-archetype \
-  -DarchetypeVersion=0.0.1 \
-  -DgroupId=fr.cnes.regards.microservices \
-  -DartifactId=<camelCaseMicroserviceArtifactId?> \
-  -DarchetypeRepository=</path/to/git/repo/rs-microservice/microservice-archetype/target?>
-```
-
-# Create the first module
+# Create a new module
 
 Once you have created the microservice container, you have to create modules.
 
 To add a new module to your microservice you have to add a new maven module with the module-archetype. To do so :
 
-- Go to microservice folder and generate a module
+- Open the root folder of the microservice
 
 ```bash
-cd <camelCaseMicroserviceArtifactId?>
-  mvn archetype:generate -DarchetypeCatalog=local
+cd myMicroService
+```
+
+- Generate a new module
+
+```bash
+mvn archetype:generate -DarchetypeCatalog=local
 ```
 
 Choose the right archetype(fr.cnes.regards.modules:module-archetype) and enter requested field as follow :
 
-- groupId : fr.cnes.regards.modules
-- artifactId :
-
-  <camelcasemoduleartifactid?> (e.g. myModule)</camelcasemoduleartifactid?>
-
+- groupId : `fr.cnes.regards.modules`
+- artifactId : the module name in camel case, e.g. microModules
 - version : press enter to apply default value
-
 - package : press enter to apply default value
-
-```bash
-mvn archetype:generate
-  -DarchetypeGroupId=fr.cnes.regards.modules
-  -DarchetypeArtifactId=module-archetype
-  -DarchetypeVersion=0.0.1
-  -DgroupId=my.module
-  -DartifactId=<camelCaseModuleArtifactId?> \
-  -DarchetypeRepository=</path/to/git/repo/
-  rs-microservice/module-archetype/target?>
-```
-
 - Add the following dependency to `bootstrap-myMicroservice/pom.xml` file:
 
 For instance, with the module artifact id "myModule" :
