@@ -46,7 +46,9 @@ Issue |    Date    |    Reasons for change
     2. [React](#1-react)
 
     3. [Redux](#2-redux)
+
     4. [Material-UI](#3-material-ui)
+
     5. [Lodash](#4-lodash)
 
     6. [Compile time frontend](#2-compile-time-frontend)
@@ -68,8 +70,11 @@ Issue |    Date    |    Reasons for change
     2. [Java](#1-java)
 
     3. [Spring Framework](#2-spring-framework)
+
     4. [Spring Boot](#3-spring-boot)
+
     5. [Spring Cloud Netflix](#4-spring-cloud-netflix)
+
     6. [Spring Cloud Config](#5-spring-cloud-config)
     7. [Spring Cloud Security](#6-spring-cloud-security)
     8. [Spring Cloud Bus](#7-spring-cloud-bus)
@@ -90,6 +95,7 @@ Issue |    Date    |    Reasons for change
     19. [Jenkins](#1-jenkins)
 
     20. [Sonar](#2-sonar)
+
     21. [Selenium](#3-selenium)
 
 ## 1\. Introduction
