@@ -1,8 +1,11 @@
 ---
+layout: classic-docs
+title: Frontend Architecture
+short-title: Frontend Architecture categories:
+categories:
+  - frontend
+---
 
-layout: classic-docs title: Frontend Architecture short-title: Frontend Architecture categories:
-
--	frontend ----------
 
 The REGARDS frontend is divided in several modules.
 
@@ -54,3 +57,5 @@ Modules
 =======
 
 This package contains all dependency modules for the three applications admin, user and portal. Each module is independent.
+ons admin, user and portal. Each module is independent.
+ns admin, user and portal. Each module is independent.
