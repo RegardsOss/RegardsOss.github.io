@@ -23,7 +23,7 @@ The Eureka Registry can be monitored throught an IHM only available from the hos
 
 This interface display all microservices currently in activity and shows many stats about them. The bellow exemple display the interface in a test environnement with two actives mircroserices.
 
-![](./images/operations/EurekaConsole.png)
+![](/assets/images/operations/EurekaConsole.png)
 
 # 4\. Monitore RabbitMQ Message server (console)
 
