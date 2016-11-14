@@ -1,9 +1,9 @@
 ---
 layout: classic-docs
-title: Frontend Architecture
-short-title: Frontend Architecture categories:
+title: Quick start with REGARDS
+short-title: Quick start REGARDS
 categories:
-  - frontend
+  - getting-started
 ---
 
 
