@@ -6,7 +6,7 @@ categories:
   - frontend
 ---
 
-###
+### Purpose
 
 Modules are created by node using `package.json` files. The rs-access `package.json` express several internal dependencies. That allows us to:
 

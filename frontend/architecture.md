@@ -1,7 +1,7 @@
 ---
 layout: classic-docs
-title: Frontend Architecture
-short-title: Frontend Architecture categories:
+title: Architecture
+short-title: Architecture categories:
 categories:
   - frontend
 ---

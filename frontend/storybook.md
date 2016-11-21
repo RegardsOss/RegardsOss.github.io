@@ -10,7 +10,7 @@ The storybook provides a simple way to:
 
 - visualize different states of your UI components faster and easier
 - isolate React components from the real frontend
-- build a static version of the storybook easily
+- build a static version of useable components that does not require a running backend
 
 # Definition of Done
 
