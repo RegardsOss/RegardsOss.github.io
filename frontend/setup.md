@@ -1,7 +1,7 @@
 ---
 layout: classic-docs
-title: Setup and build
-short-title: Development setup and build
+title: Development setup and build
+short-title: Setup and build
 categories:
   - frontend
 ---

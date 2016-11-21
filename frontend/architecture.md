@@ -6,8 +6,8 @@ categories:
   - frontend
 ---
 
-
 The REGARDS frontend is divided in several modules.
+
 ### Business modules
 
 This folder contains all business modules for these applications: admin, user and portal.
@@ -24,7 +24,6 @@ portal
 ```
 
 Each module is independent.
-
 
 ### Components modules
 
