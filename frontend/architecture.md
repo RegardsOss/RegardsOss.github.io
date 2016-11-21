@@ -8,54 +8,68 @@ categories:
 
 
 The REGARDS frontend is divided in several modules.
+### Business modules
 
-Components modules
-==================
+This folder contains all business modules for these applications: admin, user and portal.
+
+```
+admin
+│   admin-data-management
+│   admin-project-management
+│   admin-user-management
+│   ...
+user
+│   ...
+portal
+```
+
+Each module is independent.
+
+
+### Components modules
 
 This package provides **React** components to handle forms, buttons...
 
-Data modules
-============
+### Data/api modules
 
--	api This package contains the normalizr logic to map entities inside the API result.
+This package contains the [normalizr](https://github.com/paularmstrong/normalizr) logic to map entities from an API result using a Schema.
 
--	models Provides all typings interface of the application
-
-Utils modules
-=============
+### Utils modules
 
 They provide services to build the core of the app. These modules are cross-application (admin application, front application, user application).
 
--	access-rights:  
-	Receive from the API the list of available actions for the current user and provides utilities to manipulate that data.
+#### access-rights
 
--	authentication:  
-	Interact with the API to authenticate users.
+Receive from the API the list of available actions for the current user and provides utilities to manipulate that data.
 
--	display-control:  
-	Interact with the API and provide a service that display on the HMI an element only if the user has the correct right
+#### authentication
 
--	i18n:  
-	Provides services related to internationalization
+Interact with the API to authenticate users.
 
--	injector:  
-	Provide a react component injector that injects for you this.context.(i18n && theme) into child.props.(i18n && theme)
+#### display-control
 
--	plugins:  
-	Contains the PluginActions and PluginReducers which allow to load plugins if any. Contains the PluginComponent which allow to display a given loaded plugins.
+Interact with the API and provide a service that display on the HMI an element only if the user has the correct right
 
--	store-utils:  
-	Instead of using the default pattern of Redux, (provides a single file that contains all selectors of the application that uncombine the store foreach selector), we created the class BasicSelector to handle the uncombination of the store-utils inside the selector itself.
+#### i18n
 
--	store:  
-	Create the resulting store injected in the app
+Provides services related to internationalization
 
--	theme:  
-	Provide services related to the theme
+#### injector
 
-Modules
-=======
+Provide a react component injector that injects for you this.context.(i18n && theme) into child.props.(i18n && theme)
 
-This package contains all dependency modules for the three applications admin, user and portal. Each module is independent.
-ons admin, user and portal. Each module is independent.
-ns admin, user and portal. Each module is independent.
+#### plugins
+
+Contains the PluginActions and PluginReducers which allow to load plugins if any. Contains the PluginComponent which allow to display a given loaded plugins.
+
+#### store-utils
+
+Instead of using the default pattern of Redux, (provides a single file that contains all selectors of the application that uncombine the store foreach selector), we created the class BasicSelector to handle the uncombination of the store-utils inside the selector itself.
+
+#### store
+
+Create the resulting store injected in the app
+
+#### 	theme
+
+Provide services related to the theme
