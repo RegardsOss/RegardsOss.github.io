@@ -9,4 +9,4 @@ categories:
 
 ### Exceptions
 
-![](./images/core/ExceptionHierarchie.png)
+![](/assets/images/core/ExceptionHierarchie.png)

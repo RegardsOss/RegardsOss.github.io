@@ -8,4 +8,4 @@ categories:
 
 ## Upgrade Regards core on breaking change
 
-![](./images/core/UpgradeRegardsVersion.png)
+![](/assets/images/core/UpgradeRegardsVersion.png)

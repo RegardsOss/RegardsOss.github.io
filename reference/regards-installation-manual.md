@@ -26,7 +26,7 @@ To run the REGARDS installer, run the command :<br>
 The monolitic installation of the REGARDS product consist in installing all parts of the system on the **same physical or virtual host**.<br>
 To do so, run the installer package and select the installation of all the componennts :
 
-![](./images/installation/full-install.png)
+![](/assets/images/installation/full-install.png)
 
 Then fill the configuration properties needed by the installer.
 
@@ -42,17 +42,17 @@ With this installation system you can install **multiple instances of each micro
 
 Component                | Mandatory             | Installation Order | Mulitple instances    | Description
 ------------------------ | --------------------- | ------------------ | --------------------- | --------------------------------------------------------------------
-**Configuration server** | ![](./images/ok.png)  | 1                  | ![](./images/nok.png) | Provide configuration parameters for all REGARDS components
-**Eureka server**        | ![](./images/ok.png)  | 2                  | ![](./images/nok.png) | Provide the adress registry for all the REGARDS components
-**Gateway**              | ![](./images/ok.png)  |                    | ![](./images/nok.png) | Provide a unique and secure entry point for all the REGARDS services
-**Frontend**             | ![](./images/nok.png) |                    | ![](./images/nok.png) | Provide WEB interfaces to access REGARDS services
-**Microservices**        | ![](./images/nok.png) |                    | ![](./images/ok.png)  | Provide the REGARDS fonctionalities
+**Configuration server** | ![](/assets/images/ok.png)  | 1                  | ![](/assets/images/nok.png) | Provide configuration parameters for all REGARDS components
+**Eureka server**        | ![](/assets/images/ok.png)  | 2                  | ![](/assets/images/nok.png) | Provide the adress registry for all the REGARDS components
+**Gateway**              | ![](/assets/images/ok.png)  |                    | ![](/assets/images/nok.png) | Provide a unique and secure entry point for all the REGARDS services
+**Frontend**             | ![](/assets/images/nok.png) |                    | ![](/assets/images/nok.png) | Provide WEB interfaces to access REGARDS services
+**Microservices**        | ![](/assets/images/nok.png) |                    | ![](/assets/images/ok.png)  | Provide the REGARDS fonctionalities
 
 # 5\. REGARDS Components configuration
 
 On each host you want to install one or more REGARDS component you will be asked to provide the installation directory :
 
-![](./images/installation/select-directory.png)
+![](/assets/images/installation/select-directory.png)
 
 After that, you'll need to configure all the components you selected for the installation on the current host.
 
@@ -74,13 +74,13 @@ This component assure the load-balancing in order to redirect requests to the le
 
 The Frontend component provides the WEB interfaces to administrate and use the REGARDS fonctionnalities. This component is not mandatory, you can either access all the REGARDS functionnalities by REST requests to the Gateway server with a tool like **Curl**
 
-![](./images/installation/frontend.png)
+![](/assets/images/installation/frontend.png)
 
 ## 5.5 Microservices
 
 When you select the installation of microservices, the next configuration screen ask you for which microserice and how many instances you want to install.
 
-![](./images/installation/microservices.png)
+![](/assets/images/installation/microservices.png)
 
 Next you have to configure for each selected microservice :
 
@@ -90,7 +90,7 @@ Next you have to configure for each selected microservice :
 
 Exemple for the archival storage microservice configuration :
 
-![](./images/installation/archival-storage.png)
+![](/assets/images/installation/archival-storage.png)
 
 # 6\. Run REGARDS System
 
