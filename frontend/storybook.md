@@ -18,11 +18,10 @@ A DoD is a clear and concise list of requirements for the team to call a task co
 
 For storybooks, we need to:
 
-- let the user change the Theme
-- let the user change the (i18n) language to English and French
-- the component is readeable with both light theme and the dark theme
+- let the user change the Theme (light theme and the dark theme) and the (i18n) language to English and French
 - provides unit components - just a piece of news for example
 - composition containers - to show the global layout
+- Let the user edits props
 
 # Install
 

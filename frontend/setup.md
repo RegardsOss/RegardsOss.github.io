@@ -15,7 +15,6 @@ cd path/to/folder/webapp/
 Execute the following to link submodules inside `path/to/folder/webapp/web_modules/[data|modules|utils|view]/**` to the npm global user folder and then inside `webapp/node_modules/@regardsoss`
 
 ```
-chmod +x ./scripts/bootstrap.sh
 npm run bootstrap
 ```
 
@@ -42,13 +41,13 @@ npm build:production
 To run the frontend - then opens your browser at <http://localhost:3333/> :
 
 ```
-npm run start
+npm start
 ```
 
 To run tests - creates a report in `path/to/folder/webapp/reports/mocha/` folder:
 
 ```
-npm run test
+npm test
 ```
 
 To run storybook - then opens your browser at <http://localhost:6006/>
@@ -88,24 +87,6 @@ npm update
 
 When release, we hope to use the platform <https://greenkeeper.io/> to prevent drawback.
 
-## Update Typings
-
-Typings from Typescript are outdated every ~3 weeks. At the end of `npm install`, if you encouter the following:
-
-```
-> rm -rf typings && typings install
-
-typings WARN deprecated 2016-09-25: "registry:dt/node#6.0.0+20160919063032" is deprecated (updated, replaced or removed)
-```
-
-You can update that Typing with the following command:
-
-```
-npm run typings dt~node
-```
-
-You need to provides the `dt~` prefix to specify that you want to update using the [DefinitelyTyped](https://github.com/DefinitelyTyped/DefinitelyTyped) repository.
-
 # Webpack build pipelines
 
 Webpack offers several services to simplify our workflow.
@@ -114,7 +95,7 @@ Webpack offers several services to simplify our workflow.
 
 All webpack configurations inherits from the common configuration.
 
-- the main files of this REGARDS-frontend is `src/main.tsx`
+- the main files of this REGARDS-frontend is `src/main.js`
 - webpack resolves dependencies inside web_modules folder and inside node_modules.
 - when a dependency is required by a package, webpack fallback to the node_modules of the frontend app
 - Typescript files are handled using a pipeline that
