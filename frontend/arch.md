@@ -1,7 +1,7 @@
 ---
 layout: classic-docs
-title: archic
-short-title: archi
+title: Architecture
+short-title: Architecture
 categories:
   - frontend
 ---
