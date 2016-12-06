@@ -38,29 +38,38 @@ npm build:production
 
 # Run options
 
-To run the frontend - then opens your browser at <http://localhost:3333/> :
+### Run the frontend :
 
 ```
 npm start
 ```
 
-To run tests - creates a report in `path/to/folder/webapp/reports/mocha/` folder:
+Then opens your browser at [http://localhost:3333/](http://localhost:3333/)  
+
+### Run tests :
+
+It creates a report in `path/to/folder/webapp/reports/mocha/` folder:
 
 ```
 npm test
 ```
 
-To run storybook - then opens your browser at <http://localhost:6006/>
-
-```
-npm run storybook:start
-```
+### Run test:coverage :
 
 To run tests with coverage - creates coverage reports (lcov, xunit) inside `path/to/folder/webapp/reports/coverage/` folder:
 
 ```
 npm run test:coverage
 ```
+
+### Run storybook :
+
+Then opens your browser at <http://localhost:6006/>
+
+```
+npm run storybook:start
+```
+### Build storybook :
 
 To export a static storybook inside `path/to/folder/webapp/reports/storybook/` folder:
 
@@ -70,9 +79,6 @@ npm run storybook:build
 
 # Know issues
 
-- JSDoc is not compatible with Typescript
-- Sonar is not compatible with Typescript
-- mocha-webpack fails to create HTML coverage files with Typescript
 - `npm run bootstrap` is not cross platform and cannot be executed on Windows (except on Windows 10 Bash)
 
 # Update
@@ -98,9 +104,5 @@ All webpack configurations inherits from the common configuration.
 - the main files of this REGARDS-frontend is `src/main.js`
 - webpack resolves dependencies inside web_modules folder and inside node_modules.
 - when a dependency is required by a package, webpack fallback to the node_modules of the frontend app
-- Typescript files are handled using a pipeline that
-
-  - first use ts-loader to translate Typescript into ES6
-  - then bable translates ES6 into ES5
-
-- css, js, json, jpg, woff, ttf, eot, svg are handled by their corresponding handler
+- js, jsx, css, js, json, jpg, woff, ttf, eot, svg are handled by their corresponding handler
+- React is provided globally on all `jsx` files
