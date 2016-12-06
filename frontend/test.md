@@ -30,3 +30,25 @@ portal
 ```
 
 Each module is independent.
+
+--------
+
+### Components modules
+
+This package provides **React** components to handle forms, buttons...
+
+### Data
+
+#### api modules
+
+This package contains the [normalizr](https://github.com/paularmstrong/normalizr) logic to map entities from an API result using a Schema into what we put in the store.
+
+```
+GIVE AN EXAMPLE HERE
+```
+#### Models
+
+
+#### store
+
+Create the intial store injected in the app and add store middlewares
