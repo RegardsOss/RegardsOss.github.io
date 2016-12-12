@@ -8,6 +8,8 @@ categories:
 
 ![](/assets/images/jpa/jpa.png)
 
+![](/assets/images/security/security.png)
+
 Every microservice generated with the "microservice-archetype" use the "jpa-multitenant-regards" module to handle connection to databases.
 
 To do so, every microservice include a "remote-tenant-resolver" module which is used to communicate with the central "administration-service".  
