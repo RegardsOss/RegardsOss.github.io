@@ -6,6 +6,8 @@ categories:
   - microservice-core
 ---
 
+## Microservices security endpoints initialization
+
 ![](/assets/images/security/security.png)
 
 Every microservice generated with the "microservice-archetype" use the "security-regards" module to handle secured access to his endpoints.  
@@ -21,4 +23,14 @@ At startup the security-regards module is initialized with the here-under steps 
 
 The configuration of a microservice endpoints consists to defined which user Roles are allowed to access the endpoints. This configuration can be update with the resourcesController of the administration service.  
 
+## User roles
+
+Here under is the list of default Roles created at application startup.  
+The **Five first ones** are standard roles which can be assigned to every users of the system.  
+The **"Instance Admin"** Role, is a virtual role assigned to the unique instance administrator user. The instance administrator user is the only one created by default in the Regards system.  
+The **"System"** Role, is a virtual role as the "Instance Role" except no user can be assigned to this Role. this Role is only used my microservices themselves to communicate with each others.  
+
+![](/assets/images/security/roles.png)
+
+The two specific roles "Instance Admin" and "System" are associated to the associated security voters "IInstanceAdminAccessVoter" and "IRoleSysAccessVoter". Those two voters are defined in each microservice to allow all access to each endpoints. Nevertheless, it is possible to override theme to handle specifics access to those two roles.
 
