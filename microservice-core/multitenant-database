@@ -1,0 +1,23 @@
+---
+layout: classic-docs
+title: Microservice multitenant database
+short-title: Multitenant Database
+categories:
+  - microservice-core
+---
+
+![](/assets/images/jpa/jpa.png)
+
+Every microservice generated with the "microservice-archetype" use the "jpa-multitenant-regards" module to handle connection to databases.
+
+To do so, every microservice include a "remote-tenant-resolver" module which is used to communicate with the central "administration-service".  
+The only exception is for microservice "administration" which includes a "local-tenant-resolver" to use internal services instead of Rest controllers.
+
+At startup the "jpa-multitenant-regards" module is initialized with the here-under steps :
+1. Retrieve all tenants
+2. For each tenants retrieve microservices database connections.
+3. Create the pool of connections.
+4. Listen to tenant and connection event to handle a new project or an update on an existing connection.  
+
+
+
