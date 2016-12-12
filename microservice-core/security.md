@@ -6,8 +6,6 @@ categories:
   - microservice-core
 ---
 
-## Microservices security endpoints initialization
-
 ![](/assets/images/security/security.png)
 
 Every microservice generated with the "microservice-archetype" use the "security-regards" module to handle secured access to his endpoints.  
