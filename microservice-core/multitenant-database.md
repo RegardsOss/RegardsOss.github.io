@@ -26,26 +26,30 @@ At startup the "jpa-multitenant-regards" module is initialized with the here-und
 At startup if a microservice database connections are not configured in the administration microservice, then a default project is initialized with default database connections. This project and connections are defined in the main "application.properties "file of the microservice. The available configuration values are :
 
 Disable JPA multitenant support  (default true if not present)  
-**regards.jpa.multitenant.enabled**=true  
+**regards.jpa.multitenant.enabled**=true
+
 Activate embedded mode with HSQLDB  
-**regards.jpa.multitenant.embedded**=true  
+**regards.jpa.multitenant.embedded**=true
+
 Path for embedded databases files  
-**regards.jpa.multitenant.embeddedPath**=target  
+**regards.jpa.multitenant.embeddedPath**=target
+
 Not mandatory if embedded mode is activated  
-**regards.jpa.multitenant.dialect**=org.hibernate.dialect.PostgreSQLDialect  
-database user name for tenant <x>  
-**regards.jpa.multitenant.tenants[<x>].name**=example  
-database url for tenant <x> (Not mandatory if embedded mode is activated)  
-**regards.jpa.multitenant.tenants[<x>].url**=jdbc:postgresql://localhost:5432/test1   
-database user name for tenant <x> (Not mandatory if embedded mode is activated)  
-**regards.jpa.multitenant.tenants[<x>].userName**=postgres  
-database user password for tenant <x> (Not mandatory if embedded mode is activated)  
-**regards.jpa.multitenant.tenants[<x>].password**=postgres  
-database driver for tenant <x> (Not mandatory if embedded mode is activated)  
-**regards.jpa.multitenant.tenants[<x>].driverClassName**=org.postgresql.Driver # Not mandatory if embedded mode is activated
+**regards.jpa.multitenant.dialect**=org.hibernate.dialect.PostgreSQLDialect
+
+database user name for tenant x<br>
+**regards.jpa.multitenant.tenants[x].name**=example
+
+database url for tenant x (Not mandatory if embedded mode is activated)
+**regards.jpa.multitenant.tenants[x].url**=jdbc:postgresql://localhost:5432/test1
+
+database user name for tenant x (Not mandatory if embedded mode is activated)  
+**regards.jpa.multitenant.tenants[x].userName**=postgres
+
+database user password for tenant x (Not mandatory if embedded mode is activated)  
+**regards.jpa.multitenant.tenants[x].password**=postgres  
+
+database driver for tenant x (Not mandatory if embedded mode is activated)  
+**regards.jpa.multitenant.tenants[x].driverClassName**=org.postgresql.Driver
 
 **x** : Integer value for tenant index starting with 0.
- 
-
-
-
