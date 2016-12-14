@@ -13,9 +13,15 @@ categories:
 regards.gson.scan-prefix=fr.cnes.regards
 ```
 
+To avoid conflict between Jackson and GSON with SPRING, set the following property :
+
+```properties
+spring.http.converters.preferred-json-mapper=gson
+```
+
 # 2\. Autoconfiguration
 
-Starter exposes a bean **GsonHttpMessageConverter** that has to be injected in Spring MVC web configuration.
+Starter autoconfigures a **GsonHttpMessageConverter** automatically injected in available HTTP message converters.
 
 GSON is customize through **GsonBuilder** to :
 
@@ -50,3 +56,7 @@ You optionnaly can specify the discriminator name in **Gsonable** and the discri
 Init an instance of **PolymorphicTypeAdapterFactory** or a subclasses and **registerSubtype** on it.
 
 **Sub type can be registered even if factory has already been created at runtime.**
+
+# 6. Use exclusion strategy
+
+Just annotate field with **GsonIgnore** to exclude a particular field.
