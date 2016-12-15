@@ -30,7 +30,7 @@ GSON is customize through **GsonBuilder** to :
 - dynamically register Spring **TypeAdapterFactory** annotated with **GsonTypeAdapterFactoryBean** or Spring **Component**,
 - add an exclusion strategy based on **GSonIgnore** annotation,
 - add a **PathAdapter** for **Path** class,
-- add a SpringFox adapter factory if [Swagger starter](../swagger-starter) is on the classpath.
+- add a SpringFox adapter factory if [Swagger starter](/regards-framework/swagger-starter) is on the classpath.
 
 # 3\. How to
 

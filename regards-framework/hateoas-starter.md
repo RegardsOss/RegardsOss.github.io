@@ -11,7 +11,7 @@ categories:
 Nothing to configure at the moment.
 
 Dependency :
-- [Security starter](../security-starter)
+- [Security starter](/regards-framework/security-starter)
 
 > WARNING : at the moment, this starter only accepts **@RequestMapping** annotation to work fine.
 
