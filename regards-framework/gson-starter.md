@@ -32,7 +32,7 @@ GSON is customize through **GsonBuilder** to :
 - add a **PathAdapter** for **Path** class,
 - add a SpringFox adapter factory if [Swagger starter](../swagger-starter.md) is on the classpath.
 
-# 3\. How to register a custom factory
+# 3\. How to
 
 ## 3.1. How to register a custom factory
 
