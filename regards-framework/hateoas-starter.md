@@ -6,7 +6,20 @@ categories:
   - regards-framework
 ---
 
-WARNING : at the moment, this starter only accepts **@RequestMapping** annotation to work fine.
+# 1\. Configuration
+
+Nothing to configure at the moment.
+
+Dependency :
+- [Security starter](security-starter.md)
+
+> WARNING : at the moment, this starter only accepts **@RequestMapping** annotation to work fine.
+
+# 2\. Autoconfiguration
+
+Starter autoconfigures an **IResourceService** that helps to expose HATEAOS links according to security access configuration.
+
+# 3\. How to
 
 If your controller manages a single POJO, implements **IResourceController<T>**.
 

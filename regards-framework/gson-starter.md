@@ -29,9 +29,12 @@ GSON is customize through **GsonBuilder** to :
 - dynamically register **TypeAdapterFactory** annotated with **GsonTypeAdapterFactory**,
 - dynamically register Spring **TypeAdapterFactory** annotated with **GsonTypeAdapterFactoryBean** or Spring **Component**,
 - add an exclusion strategy based on **GSonIgnore** annotation,
-- add a **PathAdapter** for **Path** class.
+- add a **PathAdapter** for **Path** class,
+- add a SpringFox adapter factory if [Swagger starter](swagger-starter.md) is on the classpath.
 
 # 3\. How to register a custom factory
+
+## 3.1. How to register a custom factory
 
 - With **GsonTypeAdapterFactory** annotation
 
@@ -41,7 +44,7 @@ This annotation allows to register automatically a **TypeAdapterFactory** with a
 
 Useful for Spring based factories allowing dependency injection. The factory must implement GSON **TypeAdapterFactory**.
 
-# 4\. How to use polymorphic element (de)serialization
+## 3.2. How to use polymorphic element (de)serialization
 
 - With **Gsonable** annotation on a base hierarchy type
 
@@ -51,12 +54,12 @@ You optionnaly can specify the discriminator name in **Gsonable** and the discri
 
 - Creating a sub class of **PolymorphicTypeAdapterFactory** and registering it with annotation
 
-# 5\. How to instanciate polymorphic factory
+## 3.3. How to instanciate polymorphic factory
 
 Init an instance of **PolymorphicTypeAdapterFactory** or a subclasses and **registerSubtype** on it.
 
 **Sub type can be registered even if factory has already been created at runtime.**
 
-# 6. Use exclusion strategy
+## 3.4. How to use exclusion strategy
 
 Just annotate field with **GsonIgnore** to exclude a particular field.
