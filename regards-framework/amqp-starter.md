@@ -170,6 +170,22 @@ To poll an object from the message broker, you can use **Poller** class and it's
     }
 ```
 
+## 3.4\. How to choose AmqpCommunicationMode
+
+`AmqpCommunicationMode` is an enumeration used to handle communications mode according to rabbitmq implementation of broadcast.
+
+For broadcasting an message towards multiple instances of subscribers or pollers, you should use `AmqpCommunicationMode.ONE_TO_MANY`.
+
+If you just want the message to be consumed by one of the subscribers/pollers, then you should use `AmqpCommunicationMode.ONE_TO_ONE`.
+
+## 3.5\. How to choose AmqpCommunicationTarget
+
+`AmqpCommunicationTarget` is an enumeration used to handle scope of the communications.
+
+If you want to send a message to other modules from your microservice, you should use `AmqpCommunicationTarget.INTERNAL`.
+
+If you want to send a message to other modules outside of your microservice, you should use `AmqpCommunicationTarget.EXTERNAL`.
+
 # 4\. Constraints on the used rabbitmq
 
 ## 4.1\. Regards namespace for rabbitmq
