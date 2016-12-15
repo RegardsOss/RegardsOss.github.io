@@ -11,7 +11,7 @@ categories:
 Nothing to configure at the moment.
 
 Dependency :
-- [Security starter](../security-starter.md)
+- [Security starter](../security-starter)
 
 > WARNING : at the moment, this starter only accepts **@RequestMapping** annotation to work fine.
 
