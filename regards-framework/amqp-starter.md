@@ -24,11 +24,11 @@ regards.amqp.management.port= 15672 # port of the managing plugin of the broker
 
 Starter autoconfigures:
 
-- **IRabbitVirtualHostUtils** responsible to handle HTTP REST API of the message broker, for now only rabbitmq.
-- **RegardsAmqpAdmin** responsible to administrate the message broker(create queues, exchanges, bindings)
-- **RabbitAdmin** responsible to send and receive message from the right tenant using **RegardsSimpleRoutingConnectionFactory**
+- **IRabbitVirtualHostUtils** responsible for handling HTTP REST API of the message broker, for now only rabbitmq.
+- **RegardsAmqpAdmin** responsible for administrating the message broker(create queues, exchanges, bindings)
+- **RabbitAdmin** responsible for sending and receive message from the right tenant using **RegardsSimpleRoutingConnectionFactory**
 - **RegardsSimpleRoutingConnectionFactory** responsible to administrate connections to the message broker
-- **Poller** responsible for any poll request from the message broker to the application. It is the bean to `Autowired` when you want to poll messages.
+- **Poller** responsible for any polling request from the message broker to the application. It is the bean to `Autowired` when you want to poll messages.
 - **Subscriber** responsible for any subscribing to the message broker. This is the bean to `Autowired` when you want to subscribe to an object.
 - **IPublisher** responsible for any publishing from the application to the message broker. This is the bean to `Autowired` when you want to send messages to other microservices
 
