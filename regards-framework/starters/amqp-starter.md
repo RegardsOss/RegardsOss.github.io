@@ -3,7 +3,7 @@ layout: classic-docs
 title: AMQP starter
 short-title: AMQP starter
 categories:
-  - regards-framework
+  - starters
 ---
 
 # 1\. Configuration
