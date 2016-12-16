@@ -26,9 +26,12 @@ $ docker-compose up -d
 
 http://localhost:8888/rs-admin/default : returns the configuration for the corresponding microservice name
 
-| Gateway         | Registry       | Config         | phppgadmin     | postgres       | rabbitmq           |
-| ----------------|:--------------:| :-------------:| :-------------:| :-------------:| :-----------------:|
-| localhost:8000  | localhost:8761 | localhost:8888 | localhost:5080 | localhost:5432 | 5672 & 15672(Admin)|
+- Gateway: localhost:8000
+- Registry: localhost:8761
+- Config: localhost:8888
+- phppgadmin: localhost:5080
+- postgres: localhost:5432
+- rabbitmq: localhost:5672 and localhost:15672
 
 ### Logs
 
