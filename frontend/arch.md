@@ -23,6 +23,7 @@ admin
 │   admin-user-management
     |     admin-user-projectuser-management
     |     admin-user-role-management
+    |     admin-user-role-resource-access-management
 │   admin-database-management
 │   ...
 user
