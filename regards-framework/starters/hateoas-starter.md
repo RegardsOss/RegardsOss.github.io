@@ -2,7 +2,6 @@
 layout: classic-docs
 title: HATEOAS starter
 short-title: HATEOAS starter
-categories: [starters]
 ---
 
 # 1\. Configuration

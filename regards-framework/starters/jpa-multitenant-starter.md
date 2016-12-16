@@ -2,7 +2,6 @@
 layout: classic-docs
 title: JPA multitenant starter
 short-title: JPA multitenant starter
-categories: [starters]
 ---
 
 # Configuration

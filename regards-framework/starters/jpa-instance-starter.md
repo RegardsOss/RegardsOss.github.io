@@ -2,7 +2,6 @@
 layout: classic-docs
 title: JPA instance starter
 short-title: JPA instance starter
-categories: [starters]
 ---
 
 # Configuration

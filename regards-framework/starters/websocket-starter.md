@@ -2,7 +2,6 @@
 layout: classic-docs
 title: Web socket starter
 short-title: Web socket starter
-categories: [starters]
 ---
 
 ```properties

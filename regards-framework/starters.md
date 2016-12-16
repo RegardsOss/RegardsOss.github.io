@@ -2,7 +2,8 @@
 layout: classic-docs
 title: REGARDS framework starters
 short-title: Starters
-categories: [regards-framework, starters]
+categories:
+  - regards-framework
 ---
 
 # Starters

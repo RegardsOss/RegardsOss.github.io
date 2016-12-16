@@ -2,7 +2,6 @@
 layout: classic-docs
 title: GSON starter
 short-title: GSON starter
-categories: [starters]
 ---
 
 # 1\. Configuration

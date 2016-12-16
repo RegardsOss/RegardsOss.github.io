@@ -2,8 +2,6 @@
 layout: classic-docs
 title: AMQP starter
 short-title: AMQP starter
-categories:
-  - starters
 ---
 
 # 1\. Configuration
