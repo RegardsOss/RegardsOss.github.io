@@ -17,6 +17,7 @@ admin
 │   admin-data-management
     |     admin-data-model-management
     |     admin-data-dataset-management
+    |     admin-data-attributemodel-management
 │   admin-project-management
 │   admin-account-management
 │   admin-user-management
