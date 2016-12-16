@@ -2,8 +2,7 @@
 layout: classic-docs
 title: Security starter
 short-title: Security starter
-categories:
-  - regards-framework
+categories: [starters]
 ---
 
 # Default configuration

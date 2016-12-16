@@ -2,8 +2,7 @@
 layout: classic-docs
 title: Swagger starter
 short-title: Swagger starter
-categories:
-  - regards-framework
+categories: [starters]
 ---
 
 Pre-requisite:

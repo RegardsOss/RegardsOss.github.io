@@ -2,8 +2,7 @@
 layout: classic-docs
 title: Cloud starter
 short-title: Cloud starter
-categories:
-  - regards-framework
+categories: [starters]
 ---
 
 # Configuration

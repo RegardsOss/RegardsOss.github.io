@@ -2,8 +2,7 @@
 layout: classic-docs
 title: HATEOAS starter
 short-title: HATEOAS starter
-categories:
-  - regards-framework
+categories: [starters]
 ---
 
 # 1\. Configuration
