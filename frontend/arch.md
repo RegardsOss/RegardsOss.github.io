@@ -20,6 +20,7 @@ admin
     |     admin-data-attributemodel-management
 │   admin-project-management
 │   admin-account-management
+│   admin-database-management
 │   admin-user-management
     |     admin-user-projectuser-management
     |     admin-user-role-management
