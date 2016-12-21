@@ -22,5 +22,6 @@ Available starters :
   - [Microservice starter](/regards-framework/starters/microservice-starter/)
   - [Module starter](/regards-framework/starters/module-starter/)
   - [Security starter](/regards-framework/starters/security-starter/)
+  - [Plugins starter](/regards-framework/starters/plugins-starter/)
   - [Swagger starter](/regards-framework/starters/swagger-starter/)
   - [Web socket starter](/regards-framework/starters/websocket-starter/)
