@@ -21,6 +21,7 @@ Available starters :
   - [JPA multitenant starter](/regards-framework/starters/jpa-multitenant-starter/)
   - [Microservice starter](/regards-framework/starters/microservice-starter/)
   - [Module starter](/regards-framework/starters/module-starter/)
+  - [Multitenant starter](/regards-framework/starters/multitenant-starter/)
   - [Security starter](/regards-framework/starters/security-starter/)
   - [Swagger starter](/regards-framework/starters/swagger-starter/)
   - [Web socket starter](/regards-framework/starters/websocket-starter/)
