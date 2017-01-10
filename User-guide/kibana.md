@@ -1,3 +1,11 @@
+---
+layout: classic-docs
+title: Kibana user guide
+short-title: Kibana user guide
+categories:
+  - reference
+---
+
 # Kibana 5 simplified user guide
 
 This is a small and simple guide to be able to use kibana, for further information, check the [official documentation](https://www.elastic.co/guide/en/kibana/current/index.html).
