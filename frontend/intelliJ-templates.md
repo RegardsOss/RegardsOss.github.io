@@ -10,17 +10,19 @@ This page propose intelliJ templates to create new files in IntelliJ with some b
 
 ### Set up a template
 
-Right click anywhere in project tree to open the context menu. Select 'New > Edit file templates'.
-Use the templates provided below or create new ones here
+Right click anywhere in project tree to open the context menu. Select 'New > Edit file templates'.  
+Use the templates provided below or create new ones in templates view - see picture below.  
+
+![](/assets/images/frontend/intelliJ-templates/create.png)
 
 ### React component test template
 
 #### Definition
 
-**Name**: React
-**extension**: jsx
-**Reformat according to style**: yes
-**Enabled live templates**: yes
+- **Name**: React
+- **extension**: jsx
+- **Reformat according to style**: yes
+- **Enabled live templates**: yes
 
 #### Variables at creation
 
@@ -35,27 +37,27 @@ Use the templates provided below or create new ones here
  * LICENSE_PLACEHOLDER
  */
   
- /**
-  * ${comment}
-  */
- class ${NAME} extends Component{
+/**
+ * ${comment}
+ */
+class ${NAME} extends Component{
+
+  static propTypes = {
+  
+  }
+
+  static defaultProps = {
+
+  }
+
+  render(){
+    return (
+     <div>Component</div>
+    )
+  }
+}
  
-    static propTypes = {
-    
-    }
-    
-    static defaultProps = {
-    
-    }
-    
-    render(){
-         return (
-            <div>Component</div>
-            )
-        }
- }
- 
- export default ${NAME}
+export default ${NAME}
 
 ```
 
@@ -63,10 +65,10 @@ Use the templates provided below or create new ones here
 
 #### Definition
 
-**Name**: React Test 
-**extension**: test.jsx
-**Reformat according to style**: yes
-**Enabled live templates**: yes
+- **Name**: React Test 
+- **extension**: test.jsx
+- **Reformat according to style**: yes
+- **Enabled live templates**: yes
 
 #### Variables at creation
 
