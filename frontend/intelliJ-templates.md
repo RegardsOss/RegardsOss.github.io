@@ -13,6 +13,8 @@ This page propose intelliJ templates to create new files in IntelliJ with some b
 Right click anywhere in project tree to open the context menu. Select 'New > Edit file templates'.
 Use the templates provided below or create new ones here
 
+### React component test template
+
 #### Definition
 
 **Name**: React
