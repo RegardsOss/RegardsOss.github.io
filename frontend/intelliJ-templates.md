@@ -40,7 +40,7 @@ Use the templates provided below or create new ones in templates view - see pict
 /**
  * ${comment}
  */
-class ${NAME} extends Component{
+class ${NAME} extends React.Component{
 
   static propTypes = {
   
@@ -52,7 +52,7 @@ class ${NAME} extends Component{
 
   render(){
     return (
-     <div>Component</div>
+      <div>Component</div>
     )
   }
 }
