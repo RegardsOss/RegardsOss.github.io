@@ -28,6 +28,9 @@ admin
 │   admin-database-management
 │   ...
 user
+|   modules
+    |    archival-storage-aip-status
+    |    archival-storage-plugins-monitoring
 │   ...
 portal
 ```
