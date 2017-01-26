@@ -85,6 +85,7 @@ export default ${NAME}
 import { shallow } from 'enzyme'
 import { expect, assert } from 'chai'
 import sinon from 'sinon'
+import { IntlStub } from '@regardsoss/tests-helpers'
 import ${NAME} from '../../src/components/${NAME}'
 
 import styles from '../../src/styles/styles'
@@ -103,9 +104,7 @@ describe('[${MODULE_NAME}] Testing ${NAME}', () => {
     assert.isDefined(${NAME})
   })
   const context = {
-    intl: {
-      formatMessage: (message) => message,
-    },
+    intl: IntlStub,
     muiTheme: {
       palette: {
       },
