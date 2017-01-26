@@ -65,7 +65,7 @@ export default ${NAME}
 
 #### Definition
 
-- **Name**: React Test 
+- **Name**: React - Component test 
 - **extension**: test.jsx
 - **Reformat according to style**: yes
 - **Enabled live templates**: yes
@@ -84,11 +84,21 @@ export default ${NAME}
  */
 import { shallow } from 'enzyme'
 import { expect, assert } from 'chai'
+import sinon from 'sinon'
 import ${NAME} from '../../src/components/${NAME}'
 
 import styles from '../../src/styles/styles'
 
 describe('[${MODULE_NAME}] Testing ${NAME}', () => {
+  // Since react will console.error propType warnings, that which we'd rather have
+  // as errors, we use sinon.js to stub it into throwing these warning as errors
+  // instead.
+  before(() => {
+    sinon.stub(console, 'error', (warning) => { throw new Error(warning) })
+  })
+  after(() => {
+    console.error.restore()
+  })
   it('should exists', () => {
     assert.isDefined(${NAME})
   })
@@ -115,6 +125,101 @@ describe('[${MODULE_NAME}] Testing ${NAME}', () => {
 
 })
 
-
 ```
 
+### React messages test template
+
+#### Definition
+
+- **Name**: React messages test 
+- **extension**: test.js
+- **Reformat according to style**: yes
+- **Enabled live templates**: yes
+
+#### Variables at creation
+
+- Name: file name (enter 'messages' here by default)
+- MODULE_NAME: Name of the parent module (for test console output)
+
+#### Template
+
+```javascript
+
+/**
+ * LICENSE_PLACEHOLDER
+ */
+import { assert } from 'chai'
+import { keys } from 'lodash'
+import MessagesEN from '../../src/i18n/messages.en.i18n'
+import MessagesFR from '../../src/i18n/messages.fr.i18n'
+
+describe('[${MODULE_NAME}] Testing i18n', () => {
+  it('should exist', () => {
+    assert.isDefined(MessagesEN)
+    assert.isDefined(MessagesFR)
+  })
+  it('should define same sentences', () => {
+    assert.deepEqual(keys(MessagesFR), keys(MessagesEN))
+  })
+})
+
+```
+### Redux entity test template
+
+#### Definition
+
+- **Name**: Redux entity test 
+- **extension**: test.js
+- **Reformat according to style**: yes
+- **Enabled live templates**: yes
+
+#### Variables at creation
+
+- Name: file name, enter here the model name to test (like 'Collection' for CollectionActions / CollectionReducers / CollectionSelectors)
+- MODULE_NAME: Name of the parent module (for test console output)
+
+#### Template
+
+```javascript
+
+/**
+ * LICENSE_PLACEHOLDER
+ */
+import { ReduxEntityTester } from '@regardsoss/tests-helpers'
+import { ${NAME} } from '@regardsoss/model'
+import ${NAME}Actions from '../../src/model/${NAME}Actions'
+import ${NAME}Reducers from '../../src/model/${NAME}Reducers'
+import ${NAME}Selectors from '../../src/model/${NAME}Selectors'
+
+const backendServerResultList = {
+  content: [{
+    content: {
+      id: 1,
+    },
+    links: [],
+  }],
+  metadata: {
+    number: '0',
+    size: '100',
+    totalElements: 1,
+  },
+  links: [],
+}
+// URL options and parameters
+const options = {}
+
+const entityTester = new ReduxEntityTester(${NAME}Actions, ${NAME}Reducers, ${NAME}Selectors, React.PropTypes.objectOf(${NAME}).isRequired, backendServerResultList, options)
+
+describe('[${MODULE_NAME}] Testing model ${NAME}', () => {
+  before(() => {
+    entityTester.beforeAll()
+  })
+  after(() => {
+    entityTester.afterAll()
+  })
+  it('should retrieve the list of items, reduce it, and store it within the store.', (done) => {
+    entityTester.runTests(done)
+  })
+})
+
+```
