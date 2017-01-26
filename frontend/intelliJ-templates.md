@@ -15,19 +15,19 @@ Use the templates provided below or create new ones in templates view - see pict
 
 ![](/assets/images/frontend/intelliJ-templates/create.png)
 
-### React component test template
+### React component template
 
 #### Definition
 
-- **Name**: React
+- **Name**: React component
 - **extension**: jsx
 - **Reformat according to style**: yes
 - **Enabled live templates**: yes
 
 #### Variables at creation
 
-- Name: container / component name
-- Comment: container / component description
+- **Name**: File name, use the container's / component's name to create, like 'BubbleSandwitchComponent' or 'ApplePieContainer'
+- **Comment**: container / component description
 
 #### Template
 
@@ -65,15 +65,15 @@ export default ${NAME}
 
 #### Definition
 
-- **Name**: React - Component test 
+- **Name**: React component test 
 - **extension**: test.jsx
 - **Reformat according to style**: yes
 - **Enabled live templates**: yes
 
 #### Variables at creation
 
-- Name: name of the container / component to test
-- MODULE_NAME: Name of the parent module (for test console output)
+- **Name**: File name, use the container's / component's name to test, like 'BubbleSandwitchComponent' or 'ApplePieContainer'
+- **MODULE_NAME**: Name of the parent module (for test console output)
 
 #### Template
 
@@ -138,8 +138,8 @@ describe('[${MODULE_NAME}] Testing ${NAME}', () => {
 
 #### Variables at creation
 
-- Name: file name (enter 'messages' here by default)
-- MODULE_NAME: Name of the parent module (for test console output)
+- **Name**: File name, enter 'messages' here (to create 'messages.test.js')
+- **MODULE_NAME**: Name of the parent module (for test console output)
 
 #### Template
 
@@ -175,8 +175,8 @@ describe('[${MODULE_NAME}] Testing i18n', () => {
 
 #### Variables at creation
 
-- Name: file name, enter here the model name to test (like 'Collection' for CollectionActions / CollectionReducers / CollectionSelectors)
-- MODULE_NAME: Name of the parent module (for test console output)
+- **Name**: File name, enter here the model name to test (like 'Collection' for CollectionActions / CollectionReducers / CollectionSelectors)
+- **MODULE_NAME**: Name of the parent module (for test console output)
 
 #### Template
 
