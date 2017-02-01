@@ -14,17 +14,23 @@ This folder contains all business modules for these applications: admin, user an
 
 ```
 admin
+│   admin-project-management
+│   admin-account-management
+│   admin-database-management
 │   admin-data-management
     |     admin-data-model-management
     |     admin-data-dataset-management
-│   admin-project-management
-│   admin-account-management
+    |     admin-data-attributemodel-management
 │   admin-user-management
     |     admin-user-projectuser-management
     |     admin-user-role-management
+    |     admin-user-role-resource-access-management
 │   admin-database-management
 │   ...
 user
+|   modules
+    |    archival-storage-aip-status
+    |    archival-storage-plugins-monitoring
 │   ...
 portal
 ```
