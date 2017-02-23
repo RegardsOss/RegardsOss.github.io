@@ -14,6 +14,9 @@ Add starter dependency to your POM (version depends on the REGARDS BOM)
 </dependency>
 ```
 
+Dependency :
+- [Multitenant starter](/regards-framework/starters/multitenant-starter/)
+
 ```properties
 # RabbitMQ server adresses - the amqp starter can only handle one address
 spring.rabbitmq.addresses=localhost:5672
@@ -47,6 +50,11 @@ Starter autoconfigures:
 - `IPublisher` responsible for any publishing from the application to the message broker. This is the bean to `Autowired` when you want to send messages to other microservices.
 
 # 3\. How to
+
+AMQP starter runs in a multitenant context so it relies on multitenant tenant resolution :
+- A subscriber automatically subscribes to each tenant for an event using `ITenantResolver`.
+- A publisher automatically publishes an event on current tenant using `IRuntimeTenantResolver`.
+- A poller automatically polls an event on current tenant using `IRuntimeTenantResolver`.
 
 ## 3.1\. How to publish a message
 
@@ -151,14 +159,8 @@ NOTE : binding and unbinding are thread safe.
 private IPoller poller;
 
 public void simplePollMessage() {
-  try {
-    String tenant = "tenant";
-    poller.bind(tenant);
-    TenantWrapper<PollMessage> wrapper = poller.poll(tenant, PollMessage.class);
-    // Do something with the message
-  } finally {
-    poller.unbind();
-  }
+  TenantWrapper<PollMessage> wrapper = poller.poll(PollMessage.class);
+  // Do something with the message
 }
 ```
 
@@ -171,16 +173,8 @@ Polling supports transaction through Spring `Transactional` annotation.
 private IPoller poller;
 
 public void pollMessageInTransaction() {
-  try {
-    String tenant = "tenant";
-    // Bind tenant before transaction
-    poller.bind(tenant);
-    TenantWrapper<PollMessage> wrapper = doPollMessage();
-    // Do something with the message
-  } finally {
-    // Unbind after transaction
-    poller.unbind();
-  }
+  TenantWrapper<PollMessage> wrapper = doPollMessage();
+  // Do something with the message
 }
 
 @Transactional(rollbackFor = Exception.class)

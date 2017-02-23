@@ -19,7 +19,36 @@ regards.tenant=tenant1
 
 Starter autoconfigures beans :
 - `ITenantResolver` to retrieve list of tenants,
+
+```java
+@FunctionalInterface
+public interface ITenantResolver {
+
+    Set<String> getAllTenants();
+}
+```
 - `IThreadTenantResolver` to retrieve request tenant at runtime.
+
+```java
+public interface IRuntimeTenantResolver {
+
+    /**
+     *
+     * @return runtime tenant
+     */
+    String getTenant();
+
+    /**
+     * Force runtime tenant to a specific value
+     *
+     * @param pTenant
+     *            tenatn
+     */
+    void forceTenant(String pTenant);
+}
+```
+
+Note : on production, the implementation of `IRuntimeTenantResolver` must be **thread safe**.
 
 # 3\. How to
 
