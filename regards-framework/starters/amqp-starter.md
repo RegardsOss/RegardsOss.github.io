@@ -40,6 +40,7 @@ regards.amqp.management.port=15672
 
 # Enable AMQP transaction manager if no  external transaction manager is available
 regards.amqp.internal.transaction=false
+```
 
 # 2\. Autoconfiguration
 
@@ -168,27 +169,19 @@ public void simplePollMessage() {
 }
 ```
 
-### Transactional polling
+## 3.4. Transaction
 
-Polling supports transaction through Spring `Transactional` annotation.
+Transaction is supported through classic Spring `Transactional` annotation while publishing and polling message.
 
-```java
-@Autowired
-private IPoller poller;
+If en error occurs in a transaction, a message to publish won't be published and a message to poll won't be acknowledge and will be returned to the broker. 
 
-public void pollMessageInTransaction() {
-  TenantWrapper<PollMessage> wrapper = doPollMessage();
-  // Do something with the message
-}
+### External transaction
 
-@Transactional(rollbackFor = Exception.class)
-public TenantWrapper<PollMessage> doPollMessage() {
-  TenantWrapper<PollMessage> wrapper = poller.poll(tenant, PollMessage.class);
-  // Do something with the message (for instance, store the message in database)
-  // If exception occurs, message is returned to the broker
-  return wrapper;
-}
-```
+If a `PlatformTransactionManager` is on the classpath, AMQP will automatically synchronize its behaviour with an existing transaction.
+
+### Internal transaction
+
+If no external `PlatformTransactionManager` exists, you can enable internal one with related property.
 
 # 4\. Constraints on the used rabbitmq
 
