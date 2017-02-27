@@ -17,6 +17,12 @@ You need to create a docker network to launch the REGARDS backend on your comput
 docker network create --driver bridge regards_network --subnet 10.11.1.0/24
 ```
 
+You also need to change the value of `max_map_count` of your system to be able to run ElasticSearch:
+```
+grep vm.max_map_count /etc/sysctl.conf
+vm.max_map_count=262144
+```
+
 ### Run REGARDS
 
 ```bash
