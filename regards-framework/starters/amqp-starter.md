@@ -18,24 +18,28 @@ Dependency :
 - [Multitenant starter](/regards-framework/starters/multitenant-starter/)
 
 ```properties
-# RabbitMQ server adresses - the amqp starter can only handle one address
-spring.rabbitmq.addresses=localhost:5672
+# RabbitMQ host
+spring.rabbitmq.host=localhost
+# RabbitMQ port.
+spring.rabbitmq.port=5672
 # Property indicating the username used to connect and manage the broker, for the
-# amqp starter, this user must have permissions to add virtual hosts and permissions
-spring.rabbitmq.username=guest
-# password of the user
-spring.rabbitmq.password=guest
+# AMQP starter, this user must have permissions to add virtual hosts and permissions
+spring.rabbitmq.username=
+# Password of the user
+spring.rabbitmq.password=
 
 # Microservice type identifier (used to restrict event cast)
-regards.amqp.microservice.type-identifier=myMicroservice
+regards.amqp.microservice.type-identifier=
 # Microservice instance identifier (used for event broadcasting).
 # Must be unique by microservice type to ensure all instances will receive an event
-regards.amqp.microservice.instance-identifier=myMicroservice1
+regards.amqp.microservice.instance-identifier=
 
-# Virtual host management address
+# Virtual host management host
 regards.amqp.management.host=localhost
 regards.amqp.management.port=15672
-```
+
+# Enable AMQP transaction manager if no  external transaction manager is available
+regards.amqp.internal.transaction=false
 
 # 2\. Autoconfiguration
 
