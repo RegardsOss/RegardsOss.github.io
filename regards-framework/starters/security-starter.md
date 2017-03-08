@@ -4,23 +4,29 @@ title: Security starter
 short-title: Security starter
 ---
 
-# Default configuration
+# 1\. Configuration
+
+Add starter dependency to your POM (version depends on the REGARDS BOM)
+```xml
+<dependency>
+  <groupId>fr.cnes.regards.framework</groupId>
+  <artifactId>security-regards-starter</artifactId>
+</dependency>
+```
+
+Dependency :
+- [Multitenant starter](/regards-framework/starters/multitenant-starter/)
 
 ```properties
-jwt.secret=MTIzNDU2Nzg5 # Secret key
+# Authorize instance admin to access all endpoints
+regards.security.instance.voter.enabled=false
+# Authorize system to access all endpoints
+regards.security.system.voter.enabled=false
+# JSON Web Token secret key
+jwt.secret=
+
 ```
 
-# Customize security endpoints filters
+# 2\. Autoconfiguration
 
-In a @Configuration file define your bean as follow :
-
-```java
-@Bean
-public ICustomWebSecurityConfiguration customTSecurityEndpointsConfiguration() {
-            return new CustomWebSecurityConfiguration();
-}
-
-public class CustomWebSecurityConfiguration implements ICustomWebSecurityConfiguration {
-...
-}
-```
+TODO : explain auto configuration

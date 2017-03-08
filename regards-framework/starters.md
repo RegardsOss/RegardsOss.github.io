@@ -15,6 +15,7 @@ Available starters :
 
   - [AMQP starter](/regards-framework/starters/amqp-starter/)
   - [Cloud starter](/regards-framework/starters/cloud-starter/)
+  - [Feign starter](/regards-framework/starters/feign-starter/)
   - [GSON starter](/regards-framework/starters/gson-starter/)
   - [HATEOAS starter](/regards-framework/starters/hateoas-starter/)
   - [JPA instance starter](/regards-framework/starters/jpa-instance-starter/)
