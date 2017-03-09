@@ -22,6 +22,8 @@ Dependency :
 regards.security.instance.voter.enabled=false
 # Authorize system to access all endpoints
 regards.security.system.voter.enabled=false
+# Authorize project admin to access all endpoints
+regards.security.project.admin.voter.enabled=false
 # JSON Web Token secret key
 jwt.secret=
 
