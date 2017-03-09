@@ -28,6 +28,7 @@ Dependency :
 Starter autoconfigures:
 
 - `FeignSecurityManager` to manage security token injection into request headers.
+- Enable automatic client discovery in package `fr.cnes.regards` (unless `test` profile is activated - see 3.4)
 
 # 3\. How to
 
@@ -72,4 +73,16 @@ Use `FeignClientBuilder`, `TokenClientProvider` and `FeignSecurityManager` to in
 ```java
 MyClient client = FeignClientBuilder.build(new TokenClientProvider<>(MyClient.class,
         "url", feignSecurityManager));
+```
+
+## 3.5\. How to mock Feign
+
+Feign starter allows to disable client discovery. To do so, run the tests in a `test` profile (use `@ActiveProfiles` ) and mock your clients as you wish (using stub, Mockito, etc.).
+
+If you set your own annotation on a configuration class, we recommend to add profile annotation as follow to be able to mock client in test profile :
+
+```java
+@Profile("!test")
+@Configuration
+@EnableFeignClients("your.package")
 ```
