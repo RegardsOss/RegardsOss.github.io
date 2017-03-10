@@ -16,10 +16,15 @@ To run the REGARDS installer, run the command :<br>
 
 # 2\. Requirements
 
-1. Java JRE 1.8
-2. RabbitMQ Server
-3. Database PostgresSQL
-4. ElasticSearch
+- Java JRE 1.8
+- RabbitMQ Server
+
+  - The server and the management plugin
+  - A user having rights to create virtual hosts and to add rights to other users on the broker.
+
+- Database PostgresSQL
+
+- ElasticSearch
 
 # 3\. Monolitic Installation
 
@@ -40,8 +45,8 @@ With this installation system you can install **multiple instances of each micro
 
 **NOTE :** You always need to install and configure the Configuration server first. For a cloud installation, the table bellow explain the mandatory components and the installation order.
 
-Component                | Mandatory             | Installation Order | Mulitple instances    | Description
------------------------- | --------------------- | ------------------ | --------------------- | --------------------------------------------------------------------
+Component                | Mandatory                   | Installation Order | Mulitple instances          | Description
+------------------------ | --------------------------- | ------------------ | --------------------------- | --------------------------------------------------------------------
 **Configuration server** | ![](/assets/images/ok.png)  | 1                  | ![](/assets/images/nok.png) | Provide configuration parameters for all REGARDS components
 **Eureka server**        | ![](/assets/images/ok.png)  | 2                  | ![](/assets/images/nok.png) | Provide the adress registry for all the REGARDS components
 **Gateway**              | ![](/assets/images/ok.png)  |                    | ![](/assets/images/nok.png) | Provide a unique and secure entry point for all the REGARDS services
