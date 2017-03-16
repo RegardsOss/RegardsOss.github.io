@@ -19,11 +19,11 @@ Dependency :
 
 ```properties
 # Authorize instance admin to access all endpoints
-regards.security.instance.voter.enabled=false
+regards.security.instance.voter.enabled=true
 # Authorize system to access all endpoints
-regards.security.system.voter.enabled=false
+regards.security.system.voter.enabled=true
 # Authorize project admin to access all endpoints
-regards.security.project.admin.voter.enabled=false
+regards.security.project.admin.voter.enabled=true
 # JSON Web Token secret key
 jwt.secret=
 
