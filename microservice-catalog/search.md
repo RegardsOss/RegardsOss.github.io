@@ -20,11 +20,11 @@ GET /search
 ```
 
 #### Parameters
-- `q`: The search keywords, for example `altitude:[1000 TO 2000] OR name:sensor-*`. Required.
-- `facets`: The array of attribute names.
-- `page`: Page you want to retrieve, 0 indexed and defaults to 0.
-- `size`: Size of the page you want to retrieve, defaults to 20.
-- `sort`: Properties that should be sorted by in the format `property,property(,ASC/DESC)`. Default sort direction is ascending. Use multiple `sort` parameters if you want to switch directions, e.g. `?sort=firstname&sort=lastname,asc.`
+- `q` : The search keywords, for example `altitude:[1000 TO 2000] OR name:sensor-*`. Required.
+- `facets` : The array of attribute names.
+- `page` : Page you want to retrieve, 0 indexed and defaults to 0.
+- `size` : Size of the page you want to retrieve, defaults to 20.
+- `sort` : Properties that should be sorted by in the format `property,property(,ASC/DESC)`. Default sort direction is ascending. Use multiple `sort` parameters if you want to switch directions, e.g. `?sort=firstname&sort=lastname,asc.`
 
 
 Note: Consider using this search only if necessary, for a typed search will always achieve better speed performance.
@@ -45,11 +45,11 @@ GET /documents/search
 ```
 
 #### Parameters
-- `q`: The search keywords, for example `altitude:[1000 TO 2000] OR name:sensor-\*`. Required.
-- `facets`: The array of attribute names. Optional and only available when searching on dataobjects.
-- `page`: Page you want to retrieve, 0 indexed and defaults to 0.
-- `size`: Size of the page you want to retrieve, defaults to 20.
-- `sort`: Properties that should be sorted by in the format `property,property(,ASC/DESC)`. Default sort direction is ascending. Use multiple `sort` parameters if you want to switch directions, e.g. `?sort=firstname&sort=lastname,asc.`
+- `q` : The search keywords, for example `altitude:[1000 TO 2000] OR name:sensor-\*`. Required.
+- `facets` : The array of attribute names. Optional and only available when searching on dataobjects.
+- `page` : Page you want to retrieve, 0 indexed and defaults to 0.
+- `size` : Size of the page you want to retrieve, defaults to 20.
+- `sort` : Properties that should be sorted by in the format `property,property(,ASC/DESC)`. Default sort direction is ascending. Use multiple `sort` parameters if you want to switch directions, e.g. `?sort=firstname&sort=lastname,asc.`
 
 ### URN search
 It will return the item of passed URN (the unique identifier of the resource).
@@ -67,7 +67,7 @@ GET /documents/{urn}
 ```
 
 #### Path variables
-- `urn`: The URN of the resource.
+- `urn` : The URN of the resource.
 
 For example the following request
 ```
@@ -95,11 +95,11 @@ GET /dataobjects/dataset/search
 It performs a search over **dataobjects** and returns their **linked datasets**.
 
 #### Parameters
-- `q`: The search keywords, for example `altitude:[1000 TO 2000] OR name:sensor-*`. Required.
-- `facets`: The array of attribute names.
-- `page`: Page you want to retrieve, 0 indexed and defaults to 0.
-- `size`: Size of the page you want to retrieve, defaults to 20.
-- `sort`: Properties that should be sorted by in the format `property,property(,ASC/DESC)`. Default sort direction is ascending. Use multiple `sort` parameters if you want to switch directions, e.g. `?sort=firstname&sort=lastname,asc.`
+- `q` : The search keywords, for example `altitude:[1000 TO 2000] OR name:sensor-*`. Required.
+- `facets` : The array of attribute names.
+- `page` : Page you want to retrieve, 0 indexed and defaults to 0.
+- `size` : Size of the page you want to retrieve, defaults to 20.
+- `sort` : Properties that should be sorted by in the format `property,property(,ASC/DESC)`. Default sort direction is ascending. Use multiple `sort` parameters if you want to switch directions, e.g. `?sort=firstname&sort=lastname,asc.`
 
 ### How to build a query
 
@@ -135,19 +135,19 @@ The API supports multiple character wildcard searches within single terms (not w
 ##### Wildcard trailing
 To search for test, tests or tester, you can use the search:
 
-`test\*`
+`test*`
 
 ##### Wildcard leading
 To search for test, \_test or second_test, use the search:
 
-`\*test`
+`*test`
 
 Note: The use of this search is discouraged because of poor performance.
 
 ##### Wildcard around
 To search for my_test_2, use the search:
 
-`\*test*`
+`*test*`
 
 #### Range Searches
 Range Queries allow one to match items whose field(s) values are between the lower and upper bound specified by the Range Query.
@@ -187,7 +187,7 @@ or
 The AND operator matches items where both terms exist anywhere in the text of a single document. This is equivalent to an intersection using sets. The symbol && can be used in place of the word AND.
 
 To search for items which title contain "uranus" and which author is "neptune" use the query:
-`title:"uranus" AND author:"neptune"
+`title:"uranus" AND author:"neptune"`
 
 #### Escaping special characters
 The API supports escaping special characters that are part of the query syntax. The current list special characters are :
@@ -196,4 +196,17 @@ The API supports escaping special characters that are part of the query syntax. 
 
 To escape these character use the \ before the character. For example to search for (1+1):2 use the query:
 
-`\\(1\\+1\\)\\:2`
+`\(1\+1\)\:2`
+
+|-----------------+------------+-----------------+----------------|
+| Default aligned |Left aligned| Center aligned  | Right aligned  |
+|-----------------|:-----------|:---------------:|---------------:|
+| First body part |Second cell | Third cell      | fourth cell    |
+| Second line     |foo         | **strong**      | baz            |
+| Third line      |quux        | baz             | bar            |
+|-----------------+------------+-----------------+----------------|
+| Second body     |            |                 |                |
+| 2 line          |            |                 |                |
+|=================+============+=================+================|
+| Footer row      |            |                 |                |
+|-----------------+------------+-----------------+----------------|
