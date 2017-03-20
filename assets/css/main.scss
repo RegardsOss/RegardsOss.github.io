@@ -74,7 +74,7 @@ div.article-container{
 	padding: 30px 43px 0;
 	width: 75%;
 }
-	article{	
+	article{
 		h2,
 		h3,
 		h4,
@@ -157,7 +157,7 @@ div.align-center{
 
 // Homepage
 body.homepage{
-	
+
 	article{
 		display: flex;
 		flex-wrap: wrap;
@@ -171,13 +171,28 @@ body.homepage{
 		.logo{
 			width: 60px;
 		}
-	
+
 		h2{
 			font-size: 1.5rem;
 		}
-	
+
 		li a{
 			font-size: 0.875rem;
 		}
 	}
+}
+
+// Tables
+table{
+    border-collapse: collapse;
+    border-spacing: 0;
+    border:2px solid #ff0000;
+}
+
+th{
+    border:2px solid #000000;
+}
+
+td{
+    border:1px solid #000000;
 }
