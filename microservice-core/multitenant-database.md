@@ -38,7 +38,7 @@ Not mandatory if embedded mode is activated
 **regards.jpa.multitenant.dialect**=org.hibernate.dialect.PostgreSQLDialect
 
 database user name for tenant x<br>
-**regards.jpa.multitenant.tenants[x].name**=example
+**regards.jpa.multitenant.tenants[x].tenant**=example
 
 database url for tenant x (Not mandatory if embedded mode is activated)
 **regards.jpa.multitenant.tenants[x].url**=jdbc:postgresql://localhost:5432/test1
