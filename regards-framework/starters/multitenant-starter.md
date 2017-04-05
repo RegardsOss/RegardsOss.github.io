@@ -6,13 +6,20 @@ short-title: Multitenant starter
 
 # 1\. Configuration
 
-For default behaviour :
+For default behaviour, only available for test purpose :
 
 ```properties
 # Static list of tenants
 regards.tenants=tenant1,tenant2
 # Static request tenant
 regards.tenant=tenant1
+```
+
+To manage a list of tenant at bootstrap from static configuration :
+
+```properties
+# Static bootstrap tenants
+regards.bootstrap-tenants=project1
 ```
 
 # 2\. Autoconfiguration
@@ -60,3 +67,12 @@ Just inject beans in your component.
 
 Create your own `ITenantResolver` bean to implement your own tenant retrieval.
 Create your own `IThreadTenantResolver` bean to implement your own runtime tenant retrieval.
+
+## 3.3. How to handle bootstrap tenants
+
+Just autowired following property class to access bootstrap tenants.
+
+```java
+@Autowired
+private MultitenantBootstrapProperties bootstrapProperties;
+```

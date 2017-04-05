@@ -17,6 +17,9 @@ Add starter dependency to your POM (version depends on the REGARDS BOM)
 Dependency :
 - [Multitenant starter](/regards-framework/starters/multitenant-starter/)
 
+Prerequisites :
+- AMQP starts needs admin access on the server
+
 ```properties
 # RabbitMQ host
 spring.rabbitmq.host=localhost
@@ -50,9 +53,14 @@ Starter autoconfigures:
 - `RegardsAmqpAdmin` to administrate the message broker(create queues, exchanges, bindings with proper names)
 - `RabbitAdmin` to send and receive message from the right tenant using `MultitenantSimpleRoutingConnectionFactory`
 - `MultitenantSimpleRoutingConnectionFactory` to manage virtual host connections
+
+For working with tenant messages or events :
+
 - `IPoller` responsible for any polling request from the message broker to the application. It is the bean to `Autowired` when you want to poll messages.
 - `ISubscriber` responsible for any subscribing to the message broker. This is the bean to `Autowired` when you want to subscribe to an object.
 - `IPublisher` responsible for any publishing from the application to the message broker. This is the bean to `Autowired` when you want to send messages to other microservices.
+
+For working with instance messages or events, you have to use `IInstancePoller`, `IInstanceSubscriber` and `IInstancePublisher`.
 
 # 3\. How to
 
@@ -173,7 +181,7 @@ public void simplePollMessage() {
 
 Transaction is supported through classic Spring `Transactional` annotation while publishing and polling message.
 
-If en error occurs in a transaction, a message to publish won't be published and a message to poll won't be acknowledge and will be returned to the broker. 
+If en error occurs in a transaction, a message to publish won't be published and a message to poll won't be acknowledge and will be returned to the broker.
 
 ### External transaction
 
