@@ -20,6 +20,9 @@ Dependency :
 ```properties
 # Authorize instance admin to access all endpoints
 regards.security.instance.voter.enabled=true
+# Authorize instance public to access public endpoints
+regards.security.instance.voter.enabled=true
+regards.instance.tenant.name=instance
 # Authorize system to access all endpoints
 regards.security.system.voter.enabled=true
 # Authorize project admin to access all endpoints
