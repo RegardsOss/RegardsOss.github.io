@@ -29,8 +29,11 @@ regards.security.system.voter.enabled=true
 regards.security.project.admin.voter.enabled=true
 # JSON Web Token secret key
 jwt.secret=
+# Authorize CORS Request for given addresses. Split character ','. Empty list authorize CORS Request from all origins.
+regards.cors.requests.authorized.clients.addresses=
 
 ```
+
 
 # 2\. Autoconfiguration
 
