@@ -58,7 +58,11 @@ By default, `FeignSecurityManager` propagates user token in Feign request from s
 
 To call an endpoint as system, you must inform `FeignSecurityManager` before process request.
 
+If you act as a daemon and you have to manage tenant in **system** client call, use `IRuntimeTenantResolver` to force the right tenant.
+
 ```java
+// Optionnaly specify working tenant (thread safe action)
+runtimeTenantResolver.forceTenant("tenant");
 // Enable system call as follow (thread safe action)
 FeignSecurityManager.asSystem();
 // Process client request ...

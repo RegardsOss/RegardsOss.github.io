@@ -18,8 +18,8 @@ regards.tenant=tenant1
 To manage a list of tenant at bootstrap from static configuration :
 
 ```properties
-# Static bootstrap tenants
-regards.bootstrap-tenants=project1
+# Static bootstrap tenants (comma separated)
+regards.bootstrap-tenants=
 ```
 
 # 2\. Autoconfiguration
@@ -34,7 +34,7 @@ public interface ITenantResolver {
     Set<String> getAllTenants();
 }
 ```
-- `IThreadTenantResolver` to retrieve request tenant at runtime.
+- `IRuntimeTenantResolver` to retrieve request tenant at runtime.
 
 ```java
 public interface IRuntimeTenantResolver {
@@ -66,7 +66,7 @@ Just inject beans in your component.
 ## 3.2. How to override default behaviour
 
 Create your own `ITenantResolver` bean to implement your own tenant retrieval.
-Create your own `IThreadTenantResolver` bean to implement your own runtime tenant retrieval.
+Create your own `IRuntimeTenantResolver` bean to implement your own runtime tenant retrieval.
 
 ## 3.3. How to handle bootstrap tenants
 
