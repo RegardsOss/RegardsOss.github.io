@@ -14,6 +14,7 @@ TODO explain
 Available starters :
 
   - [AMQP starter](/regards-framework/starters/amqp-starter/)
+  - [AMQP monitoring starter](/regards-framework/starters/amqp-monitoring-starter/)
   - [Cloud starter](/regards-framework/starters/cloud-starter/)
   - [Feign starter](/regards-framework/starters/feign-starter/)
   - [GSON starter](/regards-framework/starters/gson-starter/)
