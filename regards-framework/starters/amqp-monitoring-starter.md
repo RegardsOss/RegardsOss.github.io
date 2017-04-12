@@ -44,7 +44,7 @@ To publish **LogEvent** to the **Metrics** module, it is necessary to add the lo
 
 The `RegardsAmqpAppenderFilter` defined a list of package for which each log should be publish to the **Metrics** module.
 
-## 4.2. How to log events to SYSLOG
+## 4.2\. How to log events to SYSLOG
 ```xml
 <include resource="fr/cnes/regards/framework/logbackappender/defaults.xml" />
 
@@ -57,11 +57,12 @@ The `RegardsAmqpAppenderFilter` defined a list of package for which each log sho
 
 <root level="info">
   <appender-ref ref="SYSLOG" />
-</root>```
+</root>
+```
 
-The pattern **SYSLOG_PATTERN** is defined in ``fr/cnes/regards/framework/logbackappender/defaults.xml``.
+The pattern **SYSLOG_PATTERN** is defined in `fr/cnes/regards/framework/logbackappender/defaults.xml`.
 
-## 4.3. How to log security events to SYSLOG
+## 4.3\. How to log security events to SYSLOG
 ```xml
 <include resource="fr/cnes/regards/framework/logbackappender/defaults.xml" />
 
@@ -78,4 +79,4 @@ The pattern **SYSLOG_PATTERN** is defined in ``fr/cnes/regards/framework/logback
 </logger>
 ```
 
-The pattern **SYSLOG_SECURITY_PATTERN** is defined in ``fr/cnes/regards/framework/logbackappender/defaults.xml``.
+The pattern **SYSLOG_SECURITY_PATTERN** is defined in `fr/cnes/regards/framework/logbackappender/defaults.xml`.
