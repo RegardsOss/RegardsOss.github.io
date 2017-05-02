@@ -1,0 +1,132 @@
+body {
+  color: #555; }
+
+div.main-body {
+  overflow: auto; }
+
+div.main-body {
+  display: flex; }
+
+#nav-button {
+  display: none; }
+
+nav.sidebar {
+  border-right: 1px solid #CCC;
+  background-color: #FBFBFB;
+  padding: 30px 20px 20px;
+  width: 25%; }
+  nav.sidebar a {
+    display: block;
+    padding: 5px 10px;
+    font-size: 0.875rem; }
+  nav.sidebar > ul > li > a {
+    padding: 14px 10px;
+    color: #333;
+    font-size: 1.125rem; }
+  nav.sidebar li.active > a {
+    font-weight: bold; }
+
+#site-search {
+  padding-bottom: 30px; }
+  #site-search input {
+    margin: 0;
+    padding: 0 1em; }
+
+#search-results {
+  position: absolute;
+  top: 54%;
+  right: 10%;
+  left: 10%; }
+
+#search-results li span {
+  padding: 3px 20px; }
+
+div.article-container {
+  float: left;
+  padding: 30px 43px 0;
+  width: 75%; }
+
+article h2 a,
+article h3 a,
+article h4 a,
+article h5 a,
+article h6 a {
+  padding-left: 5px; }
+  article h2 a:hover,
+  article h3 a:hover,
+  article h4 a:hover,
+  article h5 a:hover,
+  article h6 a:hover {
+    text-decoration: none; }
+article h2 i.fa-link,
+article h3 i.fa-link,
+article h4 i.fa-link,
+article h5 i.fa-link,
+article h6 i.fa-link {
+  display: none;
+  font-size: smaller; }
+article h2[id]:before,
+article h3[id]:before,
+article h4[id]:before,
+article h5[id]:before,
+article h6[id]:before {
+  display: block;
+  content: " ";
+  margin-top: -71px;
+  height: 71px;
+  visibility: hidden; }
+article h1 {
+  font-size: 2.25rem; }
+article h2 {
+  font-size: 2rem; }
+article h3 {
+  margin-top: 10px;
+  font-size: 1.5rem; }
+article h4 {
+  font-size: 1.2rem; }
+article img {
+  margin: 15px 0;
+  max-width: 100%; }
+article span.align-center {
+  display: block;
+  text-align: center; }
+  article span.align-center img {
+    max-width: 90%; }
+article .embed-responsive {
+  margin-bottom: 15px; }
+article .license-notice {
+  margin: 0 auto;
+  padding-bottom: 20px;
+  width: 70%;
+  text-align: center;
+  font-size: smaller; }
+
+div.align-center img {
+  max-width: 90%;
+  text-align: center; }
+
+body.homepage article {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%; }
+body.homepage div.category-section {
+  padding: 15px 10px 20px;
+  width: 50%;
+  text-align: center; }
+  body.homepage div.category-section .logo {
+    width: 60px; }
+  body.homepage div.category-section h2 {
+    font-size: 1.5rem; }
+  body.homepage div.category-section li a {
+    font-size: 0.875rem; }
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+  border: 2px solid #ff0000; }
+
+th {
+  border: 2px solid #000000; }
+
+td {
+  border: 1px solid #000000; }

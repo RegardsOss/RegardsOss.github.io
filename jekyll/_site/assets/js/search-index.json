@@ -1,0 +1,608 @@
+{
+	
+	
+		"srf":{
+			"title": "Software Reuse File",
+			"searchable-url": "/SRF/",
+			"categories": "how-to",
+			"url": "/SRF/",
+			"content": "|           Name            | Company |  Responsibility            ———–      :———————–:      :—–:      :————–: Written by      Xavier-Alexandre Brochard      CSSI      Development Team Verified by                    Approved by                    Document Status Sheet            Issue      Date      Reasons for change                  00      2016-07-28      Creation of the document                                   Table of contents      Introduction    Purpose of the document  Scope  Document structure  References1. [Applicable and Reference documents](#1-applicable-and-reference-documents)2. [Definitions](#2-definitions)      Third party products and required software licenses        General  1. [Free license categorization and meaning](#1-free-license-categorization-and-meaning)2. [Impact of free licenses on customers](#2-impact-of-free-licenses-on-customers)  Frontend1. [Runtime frontend](#1-runtime-frontend)2. [React](#1-react)3. [Redux](#2-redux)4. [Material-UI](#3-material-ui)5. [Lodash](#4-lodash)6. [Compile time frontend](#2-compile-time-frontend)7. [Webpack](#1-webpack)8. [TypeScript](#2-typescript)9. [Testing frontend](#3-testing-frontend)10. [Mocha](#1-mocha)11. [Chai](#2-chai)  Backend1. [Runtime backend](#1-runtime-backend)2. [Java](#1-java)3. [Spring Framework](#2-spring-framework)4. [Spring Boot](#3-spring-boot)5. [Spring Cloud Netflix](#4-spring-cloud-netflix)6. [Spring Cloud Config](#5-spring-cloud-config)7. [Spring Cloud Security](#6-spring-cloud-security)8. [Spring Cloud Bus](#7-spring-cloud-bus)9. [Spring Cloud Feign](#8-spring-cloud-feign)10. [Spring HATEOAS](#9-spring-hateoas)11. [Izpack](#10-izpack)12. [Elasticsearch](#11-elasticsearch)13. [FITS Java library](#12-fits-java-library)14. [SiTools2](#13-sitools2)15. [SIPAD-NG](#14-sipad-ng)16. [Compile time backend](#2-compile-time-backend)17. [Apache Maven](#1-apache-maven)18. [Testing backend](#3-testing-backend)19. [Jenkins](#1-jenkins)20. [Sonar](#2-sonar)21. [Selenium](#3-selenium)1. Introduction1. Purpose of the documentThis document, Software Reuse File (SRF), describes any item of software, which it proposes for reuse.It explains the reason why the software is proposed for reuse, where and the extent to which the software would be integrated in the software deliverables, the ownership of the software item and the license conditions on which the software could be used by the CNES or a third party during the contract, and after the contract’s conclusion.2. ScopeThe document describes the software to be re-used in the frontend application during the pre-development phase (proof-of-concepts phase) of REGARDS.For the sake of simplicity, only the most significant COTS will be described here.3. Document structureThe document is structured as follows:  This chapter gives the purpose and the structure of the document and the list of references: applicable and reference documents and definitions.  Chapter 2 provides in a first part a detailed depiction of the free licenses categorization and impacts on users, and in a second part an analysis of the 3rd party products reused in REGARDS.4. References1. Applicable and Reference documentsApplicable and reference documents are:            Reference      Acronym      Title      Version      Date                  SGDS-SL-12100-0002-CS      TODO      DOSSIER DE SPECIFICATION LOGICIEL REGARDS      01      25/03/2016              SGDS-CP-12200-0010-CS      TODO      Dossier de Conception Préliminaire du REGARDS      00      01/06/2016      2. DefinitionsTODO2. Third party products and required software licensesThis chapter provides an analysis of the 3rd party products reused in the REGARDS.This chapter also identifies required Software Licenses, and lists all the development and documentation production tools.However, before describing these elements, we introduce a reminder on free license products, in order to categorise the impact on any actor and other third party use during and after the project.1. General1. Free license categorization and meaningFree license are generally classified into the following three main categories, according to ascending permissivity:  Strong copyleft licenses (GPL, CeCILL)  Weak copyleft licenses (LGPL)  Permissive licenses (BSD, MIT, ApacheAll these licenses categories share some general features. They all allow free use regardless of domain or country. They all allow redistribution. They all allow modification. They all allow distribution of the modifications (these are known as the four freedoms of free software). The categories differ in how redistributed code can be licensed if someone decides to exercise his right to redistribute.Strong copyleft licenses like GPL or CeCILL mandates that derived products are redistributed under the same terms as the original FOSS component that is used to build the product. This means that an image processing filter built using a CeCILL licensed library will also be subject to the same CeCILL license. This characteristic of the strong copyleft licenses is sometimes known as a “reciprocal” property: if one uses code from someone under a copyleft license for building a product, one will also distribute this product under the same license so other people can also build something else on top of it.Weak copyleft licenses like LGPL, EPL or CeCILL-C are similar in spirit but the license spreading feature can be limited to modification of the original code. As an example, if an image processing filter uses an LGPL based library and is linked to it using dynamic linking only, then only the changes to the library must be distributed under the terms of the LGPL and the complete program can be distributed under other license terms if desired. So the “weak” term refers to the fact license reciprocity is more limited.Permissive licenses like MIT, BSD or Apache licenses do not mandate any licensing terms for derived product. This means an image processing filter built using an Apache license library can be distributed under any licenses terms, even if the original Apache code itself has been modified.As seen, copyleft notion has to deal with distribution agreement. It is better identified as a “reciprocal” effect but may sometimes be negatively referred to as “viral propagation”, “infection” or “contamination” in some cases. For instance, let’s consider a project which includes any amount of source code from free licensed product “A” and there is a need to make changes to some part of source code, corresponding to additional code “A’ “, on the one hand, plus a need to add a wrapping layer “B”, on the other hand. “A” + “A’ “ + “B” aiming to create a new “Alpha” application. “Alpha” product diffusion license can be chosen only according to “A” original license itself as explained hereafter:  whenever “A” is distributed under the terms of a strong copyleft license, the entire new or modified pieces of code (“A’ “ in this example) or derived work (“B”) becomes subject to the terms of the original license,  Whenever “A” is distributed under the terms of a weak copyleft license, in some cases only modified work becomes subject to the terms of the original license. Thus, whereas “A” and “A’ “ will be subject to the terms of “A” original license, yet “B” may be submitted to another kind of license. Some conditions must be fulfilled in such a case: if both “A” and “A’ “ are part of a dynamically linked library and the final user is given the capability of replacing “A+A’ “ in order to introduce his own modification ““A+A’+A’’ “, then “B” may be distributed under a different license. On the other side, if both “A” and “A’ “ are part of a statically linked library, then “B” should be distributed under the terms of the same license. Exact conditions of distribution are described within the license terms themselves. A careful attention must be paid onto the distribution license version, either LGPL v2.1 or LGPL v3, which differ on this point  whenever “A” is distributed under the terms of a permissive license, then “A’ “ and “B” may be distributed under any kind of license, in fact, even “A” can be relicensed if neededDistribution licenses type depends on two major characteristics.First, the kind of distribution of a given license is conditioned by the intention or not to have it distributed to third parties or not. Thus, whenever developers use a given product, even modified, for private usage (private may be understood even within a firm), the derived product may be kept private and secret and need no specific license itself. However, whenever it is intended to distribute the product to third parties, then either updated or derived products should be distributed under free licenses as well.Moreover, whenever one intends to distribute pieces of code under the terms of a copyleft license, then this distribution may be strictly limited to the product recipient alone. It is not mandatory to publish it on internet or to deliver it back to the original product former authors or community. Yet exception may be found in some cases (see later).2. Impact of free licenses on customersCustomers may be led to change their distribution policy for some products originally developed for their own internal use with no initial intention to have them shared or edited. Whenever they decide later on to have these products finally distributed to other space agencies for instance or industrial, they have to reconsider the licensing terms of the included free software components.In order to make this kind of distribution policy changes possible, one way is to avoid using strong copyleft components even for internal products. This prevents expensive developments to get rid of some restrictive COTS for instance and replace them by more permissive equivalent.Therefore, CS proposes, when possible, to avoid strong copyleft COTS usage within its developments, such as GPL, AGPL, CeCILL and prefer weak copyleft (res. permissive license) such as LGPL, CeCILL-C (res. CeCILL-B, BSD, MIT, Apache).Using weak copyleft licenses products without any change enables to guarantee that no code developed within the project should fall under distribution rules that may get incompatible to related intellectual property laws.2. Frontend1. Runtime frontend1. ReactFeature             | Value            :—————————–:      ———————————————————————————————————————————————————————————– Name      React Main features      React is a component-based JavaScript library for building user interfaces. Developer/Ownership      Facebook, Inc. Licencing conditions      Open source - BSD License Industrial Property Constraints      Redistribution and use in source and binary forms, with or without modification, are permitted provided those conditions. Version      15.0.2 Languages      JavaScript, C++, TypeScript, CoffeScript, Python, C      2. ReduxFeature             | Value            :—————————–:      ————————————————————————————————————————————————————————— Name      Redux Main features      Redux is a predictable state container for JavaScript apps. Developer/Ownership      Dan Abramov Licencing conditions      Open source - MIT License (MIT) Industrial Property Constraints      Permission is granted, free of charge, to deal in the Software without restriction, subject to those conditions Version      3.5.2 Languages      JavaScript, TypeScript      3. Material-UIFeature             | Value            :—————————–:      ——————————————————————————————————————————————————————————– Name      Material-UI Main features      Material-UI is a set of React components that implement Google’s Material Design specification. Developer/Ownership      Call-Em-All Licencing conditions      Open source - MIT License (MIT) Industrial Property Constraints      Permission is granted, free of charge, to deal in the Software without restriction, subject to those conditions Version      0.15.2 Languages      JavaScript      4. LodashFeature             | Value            :—————————–:      ———————————————————————————————————————————————————————— Name      Lodash Main features      Lodash is a JavaScript utility library delivering modularity, performance, &amp; extras. Developer/Ownership      jQuery Foundation and other contributors Licencing conditions      Open source - MIT License (MIT) Industrial Property Constraints      Permission is granted, free of charge, to deal in the Software without restriction, subject to those conditions Version      4.13.1 Languages      JavaScript      2. Compile time frontend1. WebpackFeature             | Value            :—————————–:      ——————————————————————————————————————————————————————————————————— Name      Webpack Main features      Webpack is a bundler for modules. The main purpose is to bundle JavaScript files for usage in a browser, yet it is also capable of transforming, bundling, or packaging just about any resource or asset. Developer/Ownership      Tobias Koppers Licencing conditions      Open soure - MIT License (MIT) Industrial Property Constraints      Permission is granted, free of charge, to deal in the Software without restriction, subject to those conditions Version      1.13.1 Languages      JavaScript      2. TypeScriptFeature             | Value            :—————————–:      —————————————————————————————————————————————————————————————————————————————————————— Name      TypeScript Main features      TypeScript is a language (a typed superset of JavaScript) for application-scale JavaScript. TypeScript adds optional types, classes, and modules to JavaScript. TypeScript compiles to readable, standards-based JavaScript. Developer/Ownership      Microsoft Licencing conditions      Open source - Apache License Industrial Property Constraints      Perpetual, worldwide, non-exclusive, no-charge, royalty-free, irrevocable copyright license to reproduce, prepare Derivative Works of, publicly display, publicly perform, sublicense, and distribute the Work and such Derivative Works in Source or Object form. Version      2.0.0 Languages      TypeScript      3. Testing frontend1. MochaFeature             | Value            :—————————–:      ———————————————————————————————————————————————————————— Name      Mocha Main features      Mocha is a feature-rich JavaScript test framework running on Node.js and in the browser. Developer/Ownership      TJ Holowaychuk Licencing conditions      Open source - MIT License (MIT) Industrial Property Constraints      Permission is granted, free of charge, to deal in the Software without restriction, subject to those conditions Version      3.0.0-2 Languages      JavaScript, HTML      2. ChaiFeature             | Value            :—————————–:      ———————————————————————————————————————————————————- Name      Chai Main features      Chai is an assertion framework for node.js and the browser that can be paired with any testing framework. Developer/Ownership      Jake Luer Licencing conditions      Open source - MIT License (MIT) Industrial Property Constraints      Permission is granted, free of charge, to deal in the Software without restriction, subject to those conditions Version      3.5.0 Languages      JavaScript      3. Backend1. Runtime backend1. JavaFeature             | Value            :—————————–:      ——————————————————————————————————————————————————————————————————————————- Name      Java Main features      Java is a general-purpose computer programming language. Developer/Ownership      Oracle Licencing conditions      GNU GPL Industrial Property Constraints      Redistribution and use in source and binary forms, with or without modification, are permitted provided those conditions. Version      8 Languages      C++,C      2. Spring FrameworkFeature             | Value            :—————————–:      —————————————————————————————————————————————————————————- Name      Spring Main features      The Spring Framework provides a comprehensive programming and configuration model for modern Java-based enterprise applications - on any kind of deployment platform. Developer/Ownership      Pivotal Licencing conditions      Apache license, version 2 Industrial Property Constraints      Redistribution and use in source and binary forms, with or without modification, are permitted provided those conditions. Version      4.3.2 Languages      Java      3. Spring BootFeature             | Value            :—————————–:      —————————————————————————————————————————————————————————————————- Name      Spring Boot Main features      Spring Boot makes it easy to create stand-alone, production-grade Spring based Applications Developer/Ownership      Pivotal Licencing conditions      Apache license, version 2 Industrial Property Constraints      Redistribution and use in source and binary forms, with or without modification, are permitted provided those conditions. Version      1.4.0 Languages      Java      4. Spring Cloud NetflixFeature             | Value            :—————————–:      ———————————————————————————————————————————————————————————————————- Name      Spring Cloud Netflix Main features      Spring Cloud focuses on providing good out of box experience for typical use cases and extensibility mechanism. Developer/Ownership      Pivotal Licencing conditions      Apache license, version 2 Industrial Property Constraints      Redistribution and use in source and binary forms, with or without modification, are permitted provided those conditions. Version      4.3.2 Languages      Java      5. Spring Cloud ConfigFeature             | Value            :—————————–:      ——————————————————————————————————————————————————————————————————— Name      Spring Cloud Config Main features      Spring Cloud Config provides server and client-side support for externalized configuration in a distributed system. Developer/Ownership      Pivotal Licencing conditions      Apache license, version 2 Industrial Property Constraints      Redistribution and use in source and binary forms, with or without modification, are permitted provided those conditions. Version      1.2.0 Languages      Java      6. Spring Cloud SecurityFeature             | Value            :—————————–:      ———————————————————————————————————————————————————————————————————– Name      Spring Cloud Security Main features      Spring Cloud Security offers a set of primitives for building secure applications and services. Developer/Ownership      Pivotal Licencing conditions      Apache license, version 2 Industrial Property Constraints      Redistribution and use in source and binary forms, with or without modification, are permitted provided those conditions. Version      1.1.3 Languages      Java      7. Spring Cloud BusFeature             | Value            :—————————–:      —————————————————————————————————————————————————————————————————— Name      Spring Cloud Bus Main features      Spring Cloud Bus links nodes of a distributed system with a lightweight message broker. Developer/Ownership      Pivotal Licencing conditions      Apache license, version 2 Industrial Property Constraints      Redistribution and use in source and binary forms, with or without modification, are permitted provided those conditions. Version      1.1.1 Language      Java      8. Spring Cloud FeignFeature             | Value            :—————————–:      —————————————————————————————————————————————————————————- Name      Spring Cloud Feign Main features      Library to support implementing representations for hyper-text driven REST web services. Developer/Ownership      Pivotal Licencing conditions      Apache license, version 2 Industrial Property Constraints      Redistribution and use in source and binary forms, with or without modification, are permitted provided those conditions. Version      8.18.0 Languages      Java      9. Spring HATEOASFeature             | Value            :—————————–:      —————————————————————————————————————————————————————————- Name      Spring HATEOAS Main features      Library to support implementing representations for hyper-text driven REST web services. Developer/Ownership      Pivotal Licencing conditions      Apache license, version 2 Industrial Property Constraints      Redistribution and use in source and binary forms, with or without modification, are permitted provided those conditions. Version      0.20.0 Language      Java      10. IzPackFeature             | Value            :—————————–:      —————————————————————————————————————————————————————————- Name      IzPack Main features      IzPack is a one-stop solution for packaging, distributing and deploying applications. Developer/Ownership      Open source software Licencing conditions      Apache license, version 2 Industrial Property Constraints      Redistribution and use in source and binary forms, with or without modification, are permitted provided those conditions. Version      5.0.9 Languages      Java      11. ElasticsearchFeature             | Value            :—————————–:      —————————————————————————————————————————————————————————- Name      Elasticsearch Main features      Open source, distributed, RESTful search engine built on top of Lucene. Developer/Ownership      Elastic Licencing conditions      Apache license, version 2 Industrial Property Constraints      Redistribution and use in source and binary forms, with or without modification, are permitted provided those conditions. Version      5.0.9 Language      Java      12. FITS Java libraryFeature             | Value            :—————————–:      ————————————————————————————————————————————————————————— Name      FITS I/O Java Library Main features      Pure java Java library for reading and writing FITS files Developer/Ownership      NASA and International Astronomical Union Licencing conditions      LGPL, version 3 Industrial Property Constraints      Redistribution and use in source and binary forms, with or without modification, are permitted provided those conditions. Version      1.15.1 Languages      Java      13. SiTools2Feature             | Value            :—————————–:      ————————————————————————————————————————————————————————— Name      SiTools2 Main features      SiTools2 provides a self-manageable data access layer deployed on already existing scientific laboratory databases. Developer/Ownership      CNES Licencing conditions      GPL, version 3 Industrial Property Constraints      Redistribution and use in source and binary forms, with or without modification, are permitted provided those conditions. Version      1.15.1 Languages      Java      14. SIPAD-NGFeature             | Value            :—————————–:      ————————— Name      SIPAD-NG Main features      Archival Information System Developer/Ownership      CNES Licencing conditions      No specific licence Industrial Property Constraints      No constraints Version      5.6 Languages      Java      2. Compile time backend1. Apache MavenFeature             | Value            :—————————–:      —————————————————————————————————————————————————————————- Name      Apache Maven Main features      Maven is a software project management and comprehension tool. Developer/Ownership      Apache Software Foundation Licencing conditions      Apache license, version 2 Industrial Property Constraints      Redistribution and use in source and binary forms, with or without modification, are permitted provided those conditions. Version      3.3.3 Languages      Java      3. Testing1. JenkinsFeature             | Value            :—————————–:      ————————————————————————————————————————————————————————— Name      Jenkins Main features      Jenkins is a continuous integration server, allowing you to automatically monitor source repositories, build software and run tests. Developer/Ownership      SonarSource Licencing conditions      LGPL, version 3 Industrial Property Constraints      Redistribution and use in source and binary forms, with or without modification, are permitted provided those conditions. Version      2.7 Languages      JavaScript, Java      2. SonarQubeFeature             | Value            :—————————–:      ————————————————————————————————————————————————————————— Name      SonarQube Main features      SonarQube is an open platform to manage code quality. Developer/Ownership      SonarSource Licencing conditions      LGPL, version 3 Industrial Property Constraints      Redistribution and use in source and binary forms, with or without modification, are permitted provided those conditions. Version      6.0 Languages      JavaScript, Java      3. SeleniumFeature             | Value            :—————————–:      —————————————————————————————————————————————————————————- Name      SeleniumHQ Main features      Selenium is a suite of tools to automate web browsers across many platforms. Developer/Ownership      Apache Software Foundation Licencing conditions      Apache license, version 2 Industrial Property Constraints      Redistribution and use in source and binary forms, with or without modification, are permitted provided those conditions. Version      2.53.1 Languages      JavaScript, Java      "
+		}
+		,
+	
+	
+	
+		"user-guide-kibana":{
+			"title": "Kibana user guide",
+			"searchable-url": "/User-guide/kibana/",
+			"categories": "reference",
+			"url": "/User-guide/kibana/",
+			"content": "Kibana 5 simplified user guideThis is a small and simple guide to be able to use kibana, for further information, check the official documentation.Selecting an index on ElasticsearchBefore editing dashboards, we have to select the index on which we want to work. To do so, go to the “Management” page then “index pattern”:Then add a new index and provide usefull information(index name and time-field name):Selecting the time interval on which to workby default, kibana opens up and present informations on the last 15 min, this can be change to get relative or absolute interval. On the upper right corner, clic on “Last 15 Minutes” and then select the interval you want:Creating a dashboardTo obtain a dashboard, you need visualizations. To create a visualization you need to restraint the data you want. To do so, you can either restraint in just for this visualization or use a saved search that already restraint the data.Creating a saved searchOn the “Discovery” interface, you can see the data from your index. You can restraint the data seen thanks to a lucene request:In this case, we only wants document of type(_type) “User”. Then you can save this search in order to create visualizations.Creating a visualizationOn the “Visualize” Interface, Kibana will guide you:Editing the dashboardOnce you have created all your visualizations, you can aggregate them on a dashboard (“Dashboard” Interface):"
+		}
+		,
+	
+	
+	
+		"backend-rs-microservice":{
+			"title": "Microservices core",
+			"searchable-url": "/backend/rs-microservice/",
+			"categories": "gettingstarted",
+			"url": "/backend/rs-microservice/",
+			"content": "Development contextREGARDS Microservices are REST services exposed by a Jetty web server contained in a Spring boot application and composed of modules. Each microservice is a Maven project aggregating Maven modules. There is two modules by default: one responsible for running the microservice and one responsible for business. In case a microservice needs to be composed by more than one business module, a module archetype is available.Requirements for development:  git client 1.8  maven 3.x  JDK 1.8Create a new microserviceTo create a new microservice you have to create a new maven project with the microservice-archetype. To do so :  Clone the git rs-microservice repositorygit clone https://&lt;user&gt;@thor.si.c-s.fr/git/rs-microservice      Compile and install the maven project    cd rs-microservicemvn clean install            Generate the new microservice maven project thanks to one of the following method:  mvn archetype:generate -DarchetypeCatalog=localYou have many archetype proposed to you, under the format number: [local|remote] -&gt; archetype_group_id:archetype_artifact_id (archetype_description) find the line X: local -&gt; fr.cnes.regards.microservices:microservice-archetype (Microservice creation archetype) and enter X where X is the actual number of the microservice creation archetype. Then enter the requested fields as follow :  groupId : fr.cnes.regards.microservices      artifactId :    &lt;camelcasemicroserviceartifactid?&gt; (e.g. myMicroService)&lt;/camelcasemicroserviceartifactid?&gt;        version : press enter to apply default value    package : press enter to apply default valuemvn archetype:generate \\  -DarchetypeGroupId=fr.cnes.regards.microservices \\  -DarchetypeArtifactId=microservice-archetype \\  -DarchetypeVersion=0.0.1 \\  -DgroupId=fr.cnes.regards.microservices \\  -DartifactId=&lt;camelCaseMicroserviceArtifactId?&gt; \\  -DarchetypeRepository=&lt;/path/to/git/repo/rs-microservice/microservice-archetype/target?&gt;NOTE : You better create the microservice in another folder than rs-microservice. Otherwise if you delete your microservice you will need to clean the rs-microservice/pom.xml.Create the first moduleOnce you have created the microservice container, you have to create modules.To add a new module to your microservice you have to add a new maven module with the module-archetype. To do so :  Go to microservice folder and generate a modulecd &lt;camelCaseMicroserviceArtifactId?&gt;  mvn archetype:generate -DarchetypeCatalog=localChoose the right archetype(fr.cnes.regards.modules:module-archetype) and enter requested field as follow :  groupId : fr.cnes.regards.modules      artifactId :    &lt;camelcasemoduleartifactid?&gt; (e.g. myModule)&lt;/camelcasemoduleartifactid?&gt;        version : press enter to apply default value    package : press enter to apply default valuemvn archetype:generate  -DarchetypeGroupId=fr.cnes.regards.modules  -DarchetypeArtifactId=module-archetype  -DarchetypeVersion=0.0.1  -DgroupId=my.module  -DartifactId=&lt;camelCaseModuleArtifactId?&gt; \\  -DarchetypeRepository=&lt;/path/to/git/repo/  rs-microservice/module-archetype/target?&gt;  Add the following dependency to bootstrap-myMicroservice/pom.xml file:For instance, with the module artifact id “myModule” :&lt;dependency&gt;    &lt;groupId&gt;fr.cnes.regards.modules.myModule&lt;/groupId&gt;    &lt;artifactId&gt;myModule-rest&lt;/artifactId&gt;    &lt;version&gt;1.0-SNAPSHOT&lt;/version&gt;  &lt;/dependency&gt;Test the microserviceBy default the microservice archetype expose an exemple REST Controller on http://localhost:3333To change the microservice configuration modify the myMicroService/bootstrap-myMicroService/src/main/resources/application.yml file.To compile the new microservice :cd myMicroServicemvn clean installTo run the new microservice :cd myMicroService/bootstrap-myMicroservicemvn spring-boot:runTo authenticate :curl -X \"POST\" http://acme:acmesecret@localhost:3333/oauth/token \\-d grant_type=password \\-d username=[admin|user] -d password=[admin|user]API exemple access :curl http://localhost:3333/api/greeting/ -H \"Authorization: Bearer &lt;user_acces_token&gt;\"curl http://localhost:3333/api/me/ -H \"Authorization: Bearer &lt;admin_acces_token&gt;\"Swagger UI access : http://localhost:3333/swagger-ui.htmlNOTE : To add new REST resource follow exemple on file myModule/myModule-rest/src/main/java/fr/cnes/regards/modules/myModule/GreetingsController.javaCommon featuresEach microservice offers the features :  OAuth2 authentication : http://address:port/oauth/token  REST Resources authorization access by user ROLES  Access to the Cloud Eureka Registry client to communicate with others microservices  Access to the Cloud Config Server to centralize configurations properties  Allows CORS requests  Swagger Interface : http://address:port/swagger-ui.htmlTroubleshooting"
+		}
+		,
+	
+	
+	
+		"documentation":{
+			"title": "User Documentation",
+			"searchable-url": "/documentation/",
+			"categories": "documentation",
+			"url": "/documentation/",
+			"content": ""
+		}
+		,
+	
+	
+	
+		"frontend":{
+			"title": "Frontend",
+			"searchable-url": "/frontend/",
+			"categories": "frontend",
+			"url": "/frontend/",
+			"content": ""
+		}
+		,
+	
+	
+	
+		"frontend-arch":{
+			"title": "Architecture",
+			"searchable-url": "/frontend/arch/",
+			"categories": "frontend",
+			"url": "/frontend/arch/",
+			"content": "The REGARDS frontend is divided in several modules.Business modulesThis folder contains all business modules for these applications: admin, user and portal.admin│   admin-project-management│   admin-account-management│   admin-database-management│   admin-data-management    |     admin-data-model-management    |     admin-data-dataset-management    |     admin-data-attributemodel-management│   admin-user-management    |     admin-user-projectuser-management    |     admin-user-role-management    |     admin-user-role-resource-access-management│   admin-database-management│   ...user|   modules    |    archival-storage-aip-status    |    archival-storage-plugins-monitoring│   ...portalEach module is independent.Components modulesThis package provides React components to handle forms, buttons…Dataapi modulesThis package contains the normalizr logic to map entities from an API result using a Schema into what we put in the store.GIVE AN EXAMPLE HEREModelsstoreCreate the intial store injected in the app and add store middlewaresUtils modulesThey provide services to build the core of the app. These modules are cross-application (admin application, front application, user application).access-rightsReceive from the API the list of available actions for the current user and provides utilities to manipulate that data.authenticationInteract with the API to authenticate users. Provides some helper to authenticate the user, get his state,…display-controlProvide ready to use React components to show/hide a component depending on a logic. Available modules: HateoasDisplayDecoratorform-utilsProvides ready to use internationalized, React components and helpers, validation methods and everything related to forms logic.i18nProvides services related to internationalizationinjectorProvide a react component injector that injects for you this.context.(i18n &amp;&amp; theme) into child.props.(i18n &amp;&amp; theme)pluginsContains the PluginActions and PluginReducers which allow to load plugins if any. Contains the PluginComponent which allow to display a given loaded plugins.store-utilsInstead of using the default pattern of Redux, (provides a single file that contains all selectors of the application that uncombine the store foreach selector), we created the class BasicSelector to handle the uncombination of the store-utils inside the selector itself.We also created a BasicListActions and BasicListReducers to catch most of the CRUD for a entity type.themeProvide services related to the theme"
+		}
+		,
+	
+	
+	
+		"frontend-intellij-templates":{
+			"title": "IntelliJ templates",
+			"searchable-url": "/frontend/intelliJ-templates/",
+			"categories": "frontend",
+			"url": "/frontend/intelliJ-templates/",
+			"content": "This page propose intelliJ templates to create new files in IntelliJ with some boilerplate already defined - time win!Set up a templateRight click anywhere in project tree to open the context menu. Select ‘New &gt; Edit file templates’.Use the templates provided below or create new ones in templates view - see picture below.React component templateDefinition  Name: React component  extension: jsx  Reformat according to style: yes  Enabled live templates: yesVariables at creation  Name: File name, use the container’s / component’s name to create, like ‘BubbleSandwitchComponent’ or ‘ApplePieContainer’  Comment: container / component descriptionTemplate/** * LICENSE_PLACEHOLDER */  /** * ${comment} */class ${NAME} extends React.Component{  static propTypes = {    }  static defaultProps = {  }  render(){    return (      &lt;div&gt;Component&lt;/div&gt;    )  }} export default ${NAME}React component test templateDefinition  Name: React component test  extension: test.jsx  Reformat according to style: yes  Enabled live templates: yesVariables at creation  Name: File name, use the container’s / component’s name to test, like ‘BubbleSandwitchComponent’ or ‘ApplePieContainer’  MODULE_NAME: Name of the parent module (for test console output)Template/** * LICENSE_PLACEHOLDER */import { shallow } from 'enzyme'import { expect, assert } from 'chai'import sinon from 'sinon'import { IntlStub } from '@regardsoss/tests-helpers'import ${NAME} from '../../src/components/${NAME}'import styles from '../../src/styles/styles'describe('[${MODULE_NAME}] Testing ${NAME}', () =&gt; {  // Since react will console.error propType warnings, that which we'd rather have  // as errors, we use sinon.js to stub it into throwing these warning as errors  // instead.  before(() =&gt; {    sinon.stub(console, 'error', (warning) =&gt; { throw new Error(warning) })  })  after(() =&gt; {    console.error.restore()  })  it('should exists', () =&gt; {    assert.isDefined(${NAME})  })  const context = {    intl: IntlStub,    muiTheme: {      palette: {      },    },    moduleTheme: styles({}),  }  // TODO test some rendering  it('Render properly', () =&gt; {    const props = {    }    const enzymeWrapper = shallow(&lt;${NAME} {...props} /&gt;, { context })    // TODO something like that    expect(enzymeWrapper.find(AComponent)).to.have.length(ALENGTH)    // TODO or something like that    assert.isFalse(enzymeWrapper.find(AComponent).props().isLoading, 'Loading should be false')  })})React messages test templateDefinition  Name: React messages test  extension: test.js  Reformat according to style: yes  Enabled live templates: yesVariables at creation  Name: File name, enter ‘messages’ here (to create ‘messages.test.js’)  MODULE_NAME: Name of the parent module (for test console output)Template/** * LICENSE_PLACEHOLDER */import { assert } from 'chai'import { keys } from 'lodash'import MessagesEN from '../../src/i18n/messages.en.i18n'import MessagesFR from '../../src/i18n/messages.fr.i18n'describe('[${MODULE_NAME}] Testing i18n', () =&gt; {  it('should exist', () =&gt; {    assert.isDefined(MessagesEN)    assert.isDefined(MessagesFR)  })  it('should define same sentences', () =&gt; {    assert.deepEqual(keys(MessagesFR), keys(MessagesEN))  })})Redux entity test templateDefinition  Name: Redux entity test  extension: test.js  Reformat according to style: yes  Enabled live templates: yesVariables at creation  Name: File name, enter here the model name to test (like ‘Collection’ for CollectionActions / CollectionReducers / CollectionSelectors)  MODULE_NAME: Name of the parent module (for test console output)Template/** * LICENSE_PLACEHOLDER */import { ReduxEntityTester } from '@regardsoss/tests-helpers'import { ${NAME} } from '@regardsoss/model'import ${NAME}Actions from '../../src/model/${NAME}Actions'import ${NAME}Reducers from '../../src/model/${NAME}Reducers'import ${NAME}Selectors from '../../src/model/${NAME}Selectors'const backendServerResultList = {  content: [{    content: {      id: 1,    },    links: [],  }],  metadata: {    number: '0',    size: '100',    totalElements: 1,  },  links: [],}// URL options and parametersconst options = {}const entityTester = new ReduxEntityTester(${NAME}Actions, ${NAME}Reducers, ${NAME}Selectors, React.PropTypes.objectOf(${NAME}).isRequired, backendServerResultList, options)describe('[${MODULE_NAME}] Testing model ${NAME}', () =&gt; {  before(() =&gt; {    entityTester.beforeAll()  })  after(() =&gt; {    entityTester.afterAll()  })  it('should retrieve the list of items, reduce it, and store it within the store.', (done) =&gt; {    entityTester.runTests(done)  })})"
+		}
+		,
+	
+	
+	
+		"frontend-modules":{
+			"title": "Modules",
+			"searchable-url": "/frontend/modules/",
+			"categories": "frontend",
+			"url": "/frontend/modules/",
+			"content": "PurposeModules are created by node using package.json files. The rs-access package.json express several internal dependencies. That allows us to:  provides cleanner interfaces with the minimal list of exposed services  these dependencies are accessible from the outside using the module name @regardsoss/&lt;module name&gt; instead of using only ES6 paths (between 2 modules)  expressing dependency inside the package.json of a module is not mandatory, because Webpack provides a dependnecy fallback, so when a module requires smth that is a expressed inside the package.json, webpack uses the node_modules of the global app instead.Create a new module  add the corresponding new module inside package.json\"dependencies\": {    [..]    \"@regardsoss/&lt;module name&gt;\": \"0.0.1\",  }      Now create the corresponding module    cd &lt;module type&gt;mkdir &lt;module name&gt; &amp;&amp; cd &lt;module name&gt;touch package.json readme.md src/main.js tests/main.ts            Add the following to package.json  {  \"name\": \"@regardsoss/&lt;module name&gt;\",  \"version\": \"0.0.1\",  \"private\": true,  \"description\": \"\",  \"main\": \"src/main.js\",  \"author\": \"CS-SI\",  \"license\": \"GPL-v3\"}  To let you develop your new module with the auto-reload, you need to create a npm link between webapp/node_modules/@regardsoss/&lt;your new module&gt; with your source folder. Edit the file scripts/bootstrap.sh file with the following:npm link web_modules/&lt;module type&gt;/&lt;module name&gt;If you don’t need auto reload, you can build your module with cd web_modules/&lt;module type&gt;/&lt;module name&gt; &amp;&amp; npm install @regardsoss/&lt;module name&gt; -g"
+		}
+		,
+	
+	
+	
+		"frontend-plugins":{
+			"title": "Plugins",
+			"searchable-url": "/frontend/plugins/",
+			"categories": "frontend",
+			"url": "/frontend/plugins/",
+			"content": "All plugins in plugins/ directory have to be React components. See the maven project frontend-plugins to see plugin exemple HelloWorldPlugin"
+		}
+		,
+	
+	
+	
+		"frontend-setup":{
+			"title": "Development setup and build",
+			"searchable-url": "/frontend/setup/",
+			"categories": "frontend",
+			"url": "/frontend/setup/",
+			"content": "Open the webapp folder with a terminal:cd path/to/folder/webapp/Execute the following to link submodules inside path/to/folder/webapp/web_modules/[data|modules|utils|view]/** to the npm global user folder and then inside webapp/node_modules/@regardsossnpm run bootstrapNow, you can install dependencies and devDependenciesnpm installNota: By the end of the year, when npm release a correct fix to npm preinstall, the npm run-script bootstrap will be renamed into preinstall and npm install would be sufficient.Production installationcd path/to/folder/webapp/chmod +x ./scripts/bootstrap.shnpm run bootstrapnpm install --only=productionnpm build:productionRun optionsRun the frontend :npm startThen opens your browser at http://localhost:3333/Run tests :It creates a report in path/to/folder/webapp/reports/mocha/ folder:npm testRun test:coverage :To run tests with coverage - creates coverage reports (lcov, xunit) inside path/to/folder/webapp/reports/coverage/ folder:npm run test:coverageRun storybook :Then opens your browser at http://localhost:6006/npm run storybook:startBuild storybook :To export a static storybook inside path/to/folder/webapp/reports/storybook/ folder:npm run storybook:buildKnow issues  npm run bootstrap is not cross platform and cannot be executed on Windows (except on Windows 10 Bash)UpdateUpdate dependencies and devDependenciesExecute the following:npm updateWhen release, we hope to use the platform https://greenkeeper.io/ to prevent drawback.Webpack build pipelinesWebpack offers several services to simplify our workflow.Webpack common configurationAll webpack configurations inherits from the common configuration.  the main files of this REGARDS-frontend is src/main.js  webpack resolves dependencies inside web_modules folder and inside node_modules.  when a dependency is required by a package, webpack fallback to the node_modules of the frontend app  js, jsx, css, js, json, jpg, woff, ttf, eot, svg are handled by their corresponding handler  React is provided globally on all jsx files"
+		}
+		,
+	
+	
+	
+		"frontend-storybook":{
+			"title": "Storybook",
+			"searchable-url": "/frontend/storybook/",
+			"categories": "frontend",
+			"url": "/frontend/storybook/",
+			"content": "The storybook provides a simple way to:  visualize different states of your UI components faster and easier  isolate React components from the real frontend  build a static version of useable components that does not require a running backendDefinition of DoneA DoD is a clear and concise list of requirements for the team to call a task complete.For storybooks, we need to:  let the user change the Theme (light theme and the dark theme) and the (i18n) language to English and French  provides unit components - just a piece of news for example  composition containers - to show the global layout  Let the user edits propsInstallFollow frontend dev installation.PlaceholderWhy using lorem lipsum content instead of real content ?It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).Some resources that we use  images placeholders  CNES website  CDDP Archives  http://fr.lipsum.com/"
+		}
+		,
+	
+	
+	
+		"getting-started":{
+			"title": "Getting started",
+			"searchable-url": "/getting-started/",
+			"categories": "getting-started",
+			"url": "/getting-started/",
+			"content": ""
+		}
+		,
+	
+	
+	
+		"getting-started-run-regards":{
+			"title": "How to start REGARDS with docker ?",
+			"searchable-url": "/getting-started/run-regards/",
+			"categories": "getting-started",
+			"url": "/getting-started/run-regards/",
+			"content": "You can run the REGARDS ecosystem easily by using docker and docker-compose.Keep in mind that this configuration shall not be used in a production environnement.RequirementsYou need to create a docker network to launch the REGARDS backend on your computer.docker network create --driver bridge regards_network --subnet 10.11.1.0/24You also need to change the value of max_map_count of your system to be able to run ElasticSearch. If the following command returns nothing, you need to configure your system:grep vm.max_map_count /etc/sysctl.confNothing returned ? Run the following command (to avoid to reboot your computer):sudo sysctl -w vm.max_map_count=262144Finally, execute the following command to save that setting on your computer forever:echo \"vm.max_map_count=262144\" &gt;&gt; /etc/sysctl.confRun REGARDS$ cd regards/docker/$ docker-compose up -dhttp://localhost:8888/rs-admin/default : returns the configuration for the corresponding microservice name  Gateway: localhost:8000  Registry: localhost:8761  Config: localhost:8888  phppgadmin: localhost:5080  postgres: localhost:5432  rabbitmq: localhost:5672 and localhost:15672Logsdocker-compose logs -fStopdocker-compose downUpdateIf you want to update these Docker images, you need to run the following command:docker-compose pullCleanStop all containersdocker stop $(docker ps -a -q)Delete all stopped containersdocker rm $(docker ps -a -q)"
+		}
+		,
+	
+	
+	
+		"installation":{
+			"title": "Installation",
+			"searchable-url": "/installation/",
+			"categories": "installation",
+			"url": "/installation/",
+			"content": ""
+		}
+		,
+	
+	
+	
+		"microservice-admin":{
+			"title": "Microservice admin",
+			"searchable-url": "/microservice-admin/",
+			"categories": "microservice-admin",
+			"url": "/microservice-admin/",
+			"content": ""
+		}
+		,
+	
+	
+	
+		"microservice-catalog":{
+			"title": "Microservice Catalog",
+			"searchable-url": "/microservice-catalog/",
+			"categories": "microservice-catalog",
+			"url": "/microservice-catalog/",
+			"content": ""
+		}
+		,
+	
+	
+	
+		"microservice-catalog-search":{
+			"title": "REGARDS Search API",
+			"searchable-url": "/microservice-catalog/search/",
+			"categories": "microservice-catalog",
+			"url": "/microservice-catalog/search/",
+			"content": "The Search API is part of REGARDS’s REST API. It allows users to find specific items in the catalog (for example all data objects between a certain range data, all datasets starting with “sensor-“, etc).It is tied to the connected user’s tenant, so requestable items will only be those of his/her project.EndpointsThe following list is exhaustive.Polymorphic searchPerforms a search over collections, datasets, dataobjects and documents, and will return all matching elements, regardless of the type.GET /searchParameters  q : The search keywords, for example altitude:[1000 TO 2000] OR name:sensor-*. Required.  facets : The array of attribute names.  page : Page you want to retrieve, 0 indexed and defaults to 0.  size : Size of the page you want to retrieve, defaults to 20.  sort : Properties that should be sorted by in the format property,property(,ASC/DESC). Default sort direction is ascending. Use multiple sort parameters if you want to switch directions, e.g. ?sort=firstname&amp;sort=lastname,asc.Note: Consider using this search only if necessary, for a typed search will always achieve better speed performance.Typed searchPerforms a search over a specific type, either collections, datasets, dataobjects or documents, and will return all matching elements.GET /collections/searchGET /datasets/searchGET /dataobjects/searchGET /documents/searchParameters  q : The search keywords, for example altitude:[1000 TO 2000] OR name:sensor-\\*. Required.  facets : The array of attribute names. Optional and only available when searching on dataobjects.  page : Page you want to retrieve, 0 indexed and defaults to 0.  size : Size of the page you want to retrieve, defaults to 20.  sort : Properties that should be sorted by in the format property,property(,ASC/DESC). Default sort direction is ascending. Use multiple sort parameters if you want to switch directions, e.g. ?sort=firstname&amp;sort=lastname,asc.URN searchIt will return the item of passed URN (the unique identifier of the resource).GET /collections/{urn}GET /datasets/{urn}GET /dataobjects/{urn}GET /documents/{urn}Path variables  urn : The URN of the resource.For example the following requestHTTP Method = GETRequest URI = /collections/URN:AIP:COLLECTION:PROJECT:11d4c99f-ed24-4b70-8f85-74f0ac05ed5e:V1will return the following result:{\t\"content\": {\t\t\"ipId\": \"URN:AIP:COLLECTION:PROJECT:375dc298-87d5-49f8-9a38-2456edd16918:V1\",\t\t\"label\": \"my collection\",\t\t\"tags\": [],\t\t\"groups\": []\t},\t\"links\": []}Joint searchThis search is different from the others because it performs a search over a type, and will return the associated items of an other type. For now, only the following joint search is available:GET /dataobjects/dataset/searchIt performs a search over dataobjects and returns their linked datasets.Parameters  q : The search keywords, for example altitude:[1000 TO 2000] OR name:sensor-*. Required.  facets : The array of attribute names.  page : Page you want to retrieve, 0 indexed and defaults to 0.  size : Size of the page you want to retrieve, defaults to 20.  sort : Properties that should be sorted by in the format property,property(,ASC/DESC). Default sort direction is ascending. Use multiple sort parameters if you want to switch directions, e.g. ?sort=firstname&amp;sort=lastname,asc.How to build a queryThe query syntax follows the OpenSearch standard.TermsA query is broken up into terms and operators. There are two types of terms: Single Terms and Phrases.A Single Term is a single word such as \"test\".A Phrase is a group of words surrounded by double quotes such as \"hello dolly\".Multiple terms can be combined together with Boolean operators to form a more complex query (see below).FieldsWhen performing a search you must specify a field. The available fields are those in the model of the searched type.You search to a field by typing the field name followed by a colon “:” and then the term you are looking for.For example, if you want to find the document entitled “The Right Way” which contains the text “don’t go this way”, you should enter:title:\"The Right Way\" AND text:goNote: The field is only valid for the term that it directly precedes, so the querytitle:Do it rightwill only find “Do” in the title field.Wildcard SearchesThe API supports multiple character wildcard searches within single terms (not within phrase queries). To perform a multiple character wildcard search use the “*” symbol.Wildcard trailingTo search for test, tests or tester, you can use the search:test*Wildcard leadingTo search for test, _test or second_test, use the search:*testNote: The use of this search is discouraged because of poor performance.Wildcard aroundTo search for my_test_2, use the search:*test*Range SearchesRange Queries allow one to match items whose field(s) values are between the lower and upper bound specified by the Range Query.Range Queries can be inclusive or exclusive of the upper and lower bounds. Inclusive range queries are denoted by square brackets (“[” and “]”). Exclusive range queries are denoted by curly brackets (“{“ and “}”).NumberThe API support range searches on numbers. According to the expected model’s attribute type, the value will be parsed as an integer, a double, a long or a float.altitude:{0 TO 2000}This will find all items whose altitude attribute are between 0 and 2000, but not including 0 and 2000.DateThe API supports range searches on dates. The expected date format is a date-time without a time-zone in the ISO-8601 calendar system, such as 2007-12-03T10:15:30.date:[2007-12-03T10:15:30 TO 2007-12-03T11:15:30]This will find items whose date fields have values between 03/12/2007 at 10:15:30 and 03/12/2007 at 11:15:30, inclusive.Boolean operatorsBoolean operators allow terms to be combined through logic operators.ORThe OR operator is the default conjunction operator. This means that if there is no Boolean operator between two terms, the OR operator is used. The OR operator links two terms and finds a matching document if either of the terms exist in a document. This is equivalent to a union using sets. The symbol || can be used in place of the word OR.To search for items which title contain either “uranus” or “neptune” use the query:title:uranus OR title:neptuneortitle:(uranus OR neptune)ANDThe AND operator matches items where both terms exist anywhere in the text of a single document. This is equivalent to an intersection using sets. The symbol &amp;&amp; can be used in place of the word AND.To search for items which title contain “uranus” and which author is “neptune” use the query:title:\"uranus\" AND author:\"neptune\"Escaping special charactersThe API supports escaping special characters that are part of the query syntax. The current list special characters are :+ - &amp;&amp; || ! ( ) { } [ ] ^ \" ~ * ? : \\ /To escape these character use the \\ before the character. For example to search for (1+1):2 use the query:\\(1\\+1\\)\\:2"
+		}
+		,
+	
+	
+	
+		"microservice-core":{
+			"title": "Microservice core",
+			"searchable-url": "/microservice-core/",
+			"categories": "microservice-core",
+			"url": "/microservice-core/",
+			"content": ""
+		}
+		,
+	
+	
+	
+		"microservice-core-annotations":{
+			"title": "Annotations",
+			"searchable-url": "/microservice-core/annotations/",
+			"categories": "microservice-core",
+			"url": "/microservice-core/annotations/",
+			"content": "DomainDomain annotations provide a simple way to validate objects :  when an object is deserialized inside a controller method  before being saved in the DatabaseSupported list of annotationsIntegers and floats  @NotNull  @Min(0)"
+		}
+		,
+	
+	
+	
+		"microservice-core-configuration-files":{
+			"title": "Configurations files",
+			"searchable-url": "/microservice-core/configuration-files/",
+			"categories": "microservice-core",
+			"url": "/microservice-core/configuration-files/",
+			"content": "All microservices depends on several configuration files. Here is an overview of each of them.LogsThe configuration file for the microservice Logger can be found inside myMicroService/bootstrap-myMicroservice/src/main/resources/logback.xml.To change the verbosity, replace the value of label inside &lt;root level=\"test\"&gt; to one of the following: debug, info, warn and error."
+		}
+		,
+	
+	
+	
+		"microservice-core-create-microservice":{
+			"title": "Generate a new microservice",
+			"searchable-url": "/microservice-core/create-microservice/",
+			"categories": "microservice-core",
+			"url": "/microservice-core/create-microservice/",
+			"content": "To create a new microservice you have to create a new maven project with the microservice-archetype. To do so :  Clone the git rs-microservice repositorygit clone https://&lt;user&gt;@thor.si.c-s.fr/git/rs-microservice  Compile and install the maven projectcd rs-microservicemvn clean install  Generate the new microservice in another folder than rs-microservice thanks to the maven project archetype:mkdir ../my-micro-servicecd ../my-micro-servicemvn archetype:generate -DarchetypeCatalog=localYou have many archetype proposed to you, under the format number: [local|remote] -&gt; archetype_group_id:archetype_artifact_id (archetype_description) find the line X: local -&gt; fr.cnes.regards.microservices:microservice-archetype (Microservice creation archetype) and enter X where X is the actual number of the microservice creation archetype. Then enter the requested fields as follow :  groupId : fr.cnes.regards.microservices  artifactId : the microservice name in camel case, e.g. myMicroService  version : press enter to apply default value  package : press enter to apply default valueTest the microserviceBy default the microservice archetype expose an exemple REST Controller on http://localhost:3333To change the microservice configuration modify the myMicroService/bootstrap-myMicroService/src/main/resources/application.yml file.To compile the new microservice :cd myMicroServicemvn clean installTo run the new microservice :cd myMicroService/bootstrap-myMicroservicemvn spring-boot:runTo authenticate :curl -X \"POST\" http://acme:acmesecret@localhost:3333/oauth/token \\-d grant_type=password \\-d username=[admin|user] -d password=[admin|user]API exemple access :curl http://localhost:3333/api/greeting/ -H \"Authorization: Bearer &lt;user_acces_token&gt;\"curl http://localhost:3333/api/me/ -H \"Authorization: Bearer &lt;admin_acces_token&gt;\"Swagger UI access : http://localhost:3333/swagger-ui.htmlNOTE : To add new REST resource follow exemple on file myModule/myModule-rest/src/main/java/fr/cnes/regards/modules/myModule/GreetingsController.javaCommon featuresEach microservice offers the features :  OAuth2 authentication : http://address:port/oauth/token  REST Resources authorization access by user ROLES  Access to the Cloud Eureka Registry client to communicate with others microservices  Access to the Cloud Config Server to centralize configurations properties  Allows CORS requests  Swagger Interface : http://address:port/swagger-ui.html"
+		}
+		,
+	
+	
+	
+		"microservice-core-create-module":{
+			"title": "Generate a new microservice module",
+			"searchable-url": "/microservice-core/create-module/",
+			"categories": "microservice-core",
+			"url": "/microservice-core/create-module/",
+			"content": "Once you have created the microservice container, you have to create modules.To add a new module to your microservice you have to add a new maven module with the module-archetype. To do so :  Open the root folder of the microservicecd myMicroService  Generate a new modulemvn archetype:generate -DarchetypeCatalog=localChoose the right archetype (fr.cnes.regards.modules:module-archetype) and enter requested field as follow :  groupId : fr.cnes.regards.modules  artifactId : the module name in camel case, e.g. microModules  version : press enter to apply default value  package : press enter to apply default value  Add the following dependency to bootstrap-myMicroservice/pom.xml file:For instance, with the module artifact id “myModule” :&lt;dependency&gt;    &lt;groupId&gt;fr.cnes.regards.modules.myModule&lt;/groupId&gt;    &lt;artifactId&gt;myModule-rest&lt;/artifactId&gt;    &lt;version&gt;1.0-SNAPSHOT&lt;/version&gt;  &lt;/dependency&gt;"
+		}
+		,
+	
+	
+	
+		"microservice-core-dependencies":{
+			"title": "Dependencies",
+			"searchable-url": "/microservice-core/dependencies/",
+			"categories": "microservice-core",
+			"url": "/microservice-core/dependencies/",
+			"content": "Upgrade Regards core on breaking change"
+		}
+		,
+	
+	
+	
+		"microservice-core-exceptions":{
+			"title": "Reusable classes",
+			"searchable-url": "/microservice-core/exceptions/",
+			"categories": "microservice-core",
+			"url": "/microservice-core/exceptions/",
+			"content": "Exceptions"
+		}
+		,
+	
+	
+	
+		"microservice-core-introduction":{
+			"title": "Microservice core introduction",
+			"searchable-url": "/microservice-core/introduction/",
+			"categories": "microservice-core",
+			"url": "/microservice-core/introduction/",
+			"content": "REGARDS Microservices are REST services exposed by a Jetty web server contained in a Spring boot application and composed of modules. Each microservice is a Maven project aggregating Maven modules. There is two modules by default: one responsible for running the microservice and one responsible for business. In case a microservice needs to be composed by more than one business module, a module archetype is available.Requirements for development:  git client 1.8  maven 3.x  JDK 1.8Common featuresEach microservice offers the features :  OAuth2 authentication : http://address:port/oauth/token  REST Resources authorization access by user ROLES  Access to the Cloud Eureka Registry client to communicate with others microservices  Access to the Cloud Config Server to centralize configurations properties  Allows CORS requests  Swagger Interface : http://address:port/swagger-ui.html"
+		}
+		,
+	
+	
+	
+		"microservice-core-multitenant-database":{
+			"title": "Microservice multitenant database",
+			"searchable-url": "/microservice-core/multitenant-database/",
+			"categories": "microservice-core",
+			"url": "/microservice-core/multitenant-database/",
+			"content": "OverallEvery microservice generated with the “microservice-archetype” use the “jpa-multitenant-regards” module to handle connection to databases.To do so, every microservice include a “remote-tenant-resolver” module which is used to communicate with the central “administration-service”.The only exception is for microservice “administration” which includes a “local-tenant-resolver” to use internal services instead of Rest controllers.At startup the “jpa-multitenant-regards” module is initialized with the here-under steps :  Retrieve all tenants  For each tenants retrieve microservices database connections.  Create the pool of connections.  Listen to tenant and connection event to handle a new project or an update on an existing connection.Initial and static configurationAt startup if a microservice database connections are not configured in the administration microservice, then a default project is initialized with default database connections. This project and connections are defined in the main “application.properties “file of the microservice. The available configuration values are :Disable JPA multitenant support  (default true if not present)regards.jpa.multitenant.enabled=trueActivate embedded mode with HSQLDBregards.jpa.multitenant.embedded=truePath for embedded databases filesregards.jpa.multitenant.embeddedPath=targetNot mandatory if embedded mode is activatedregards.jpa.multitenant.dialect=org.hibernate.dialect.PostgreSQLDialectdatabase user name for tenant xregards.jpa.multitenant.tenants[x].tenant=exampledatabase url for tenant x (Not mandatory if embedded mode is activated)regards.jpa.multitenant.tenants[x].url=jdbc:postgresql://localhost:5432/test1database user name for tenant x (Not mandatory if embedded mode is activated)regards.jpa.multitenant.tenants[x].userName=postgresdatabase user password for tenant x (Not mandatory if embedded mode is activated)regards.jpa.multitenant.tenants[x].password=postgresdatabase driver for tenant x (Not mandatory if embedded mode is activated)regards.jpa.multitenant.tenants[x].driverClassName=org.postgresql.Driverx : Integer value for tenant index starting with 0."
+		}
+		,
+	
+	
+	
+		"microservice-core-reporting":{
+			"title": "Requirement report",
+			"searchable-url": "/microservice-core/reporting/",
+			"categories": "microservice-core",
+			"url": "/microservice-core/reporting/",
+			"content": "PrerequisitesAutomatic reporting collection is running with JUnit tests.Report annotationAdd dependency to test artifact (if not already defined) :&lt;dependency&gt;  &lt;groupId&gt;fr.cnes.regards.microservices&lt;/groupId&gt;    &lt;artifactId&gt;microservice-core-test&lt;/artifactId&gt;    &lt;scope&gt;test&lt;/scope&gt;&lt;/dependency&gt;Use :@Requirement(\"DSL_REQUIREMENT?\")many times to identify all requirements associated to your test.Use :@Purpose(\"Purpose of your test?\")to describe the unit test.Sample@Requirement(\"REGARDS_DSL_DAM_MOD_010\")@Requirement(\"REGARDS_DSL_DAM_MOD_020\")@Purpose(\"Get model attributes to manage data models\")@Testpublic void testSomething() {}How to generate requirement reports?Maven test plugins has to be configured to add a specific reporting listener.&lt;plugins&gt;  &lt;plugin&gt;    &lt;groupId&gt;org.apache.maven.plugins&lt;/groupId&gt;    &lt;artifactId&gt;maven-failsafe-plugin&lt;/artifactId&gt;    &lt;configuration&gt;      &lt;properties&gt;        &lt;property&gt;          &lt;name&gt;listener&lt;/name&gt;          &lt;value&gt;fr.cnes.regards.microservices.core.test.report.RequirementMatrixReportListener&lt;/value&gt;        &lt;/property&gt;      &lt;/properties&gt;    &lt;/configuration&gt;    &lt;executions&gt;      &lt;execution&gt;        &lt;goals&gt;          &lt;goal&gt;integration-test&lt;/goal&gt;          &lt;goal&gt;verify&lt;/goal&gt;        &lt;/goals&gt;      &lt;/execution&gt;    &lt;/executions&gt;  &lt;/plugin&gt;  &lt;plugin&gt;    &lt;groupId&gt;org.apache.maven.plugins&lt;/groupId&gt;    &lt;artifactId&gt;maven-surefire-plugin&lt;/artifactId&gt;    &lt;configuration&gt;      &lt;properties&gt;        &lt;property&gt;          &lt;name&gt;listener&lt;/name&gt;          &lt;value&gt;fr.cnes.regards.microservices.core.test.report.RequirementMatrixReportListener&lt;/value&gt;        &lt;/property&gt;      &lt;/properties&gt;    &lt;/configuration&gt;  &lt;/plugin&gt;&lt;/plugins&gt;&lt;/pluginManagement&gt;Where reports are generated?Reports are generated in maven default build directory (i.e. target) under requirement-reports directory. A report starts with RQMT- prefix and is saved as an XML file.How to generate an aggregated reportUse REGARDS Maven report plugin.From the root directory of your microservice :mvn fr.cnes.regards.microservices:report-maven-plugin:1.0-SNAPSHOT:gen --non-recursiveAn XLSX file (Windows office document) is created under target directory."
+		}
+		,
+	
+	
+	
+		"microservice-core-security":{
+			"title": "Microservice security initialization",
+			"searchable-url": "/microservice-core/security/",
+			"categories": "microservice-core",
+			"url": "/microservice-core/security/",
+			"content": "Every microservice generated with the “microservice-archetype” use the security-regards module to handle secured access to his endpoints.To do so, every microservice include a remote-tenant-resolver module which is used to communicate with the central “administration-service”.The only exception is for microservice “administration” which includes a “local-tenant-resolver” to use internal services instead of REST controllers.At startup the security-regards module is initialized with the here-under steps :  Get all tenants  For each tenants register his endpoints to the administration service. At this step, the administration service merge the default configuration of the endpoints supplied by the microservice and the saved configuration of endpoints.  Retrieve for each tenants his endpoints configuration.  Listen for event to update the endpoints configuration. This event is send by the administration microservice at every single change on the endpoints configuration.The configuration of a microservice endpoints consists to defined which user Roles are allowed to access the endpoints. This configuration can be update with the resourcesController of the administration service.User rolesHere under is the list of default roles created at application startup.The Five first ones are standard roles which can be assigned to every users of the system.The Instance Admin role is a virtual role assigned to the unique instance administrator user. The instance administrator user is the only one created by default in the Regards system.The System role is a virtual role as the Instance Role except no user can be assigned to this role. This role is only used by microservices themselves to communicate with each others.The two specific roles Instance Admin and System are associated to the associated security voters IInstanceAdminAccessVoter and *IRoleSysAccessVoter. Those two voters are defined in each microservice to allow all access to each endpoints. Nevertheless, it is possible to override theme to handle specifics access to those two roles."
+		}
+		,
+	
+	
+	
+		"microservice-dam":{
+			"title": "Microservice core",
+			"searchable-url": "/microservice-dam/",
+			"categories": "microservice-dam",
+			"url": "/microservice-dam/",
+			"content": ""
+		}
+		,
+	
+	
+	
+		"microservice-gateway":{
+			"title": "Microservice Gateway",
+			"searchable-url": "/microservice-gateway/",
+			"categories": "microservice-gateway",
+			"url": "/microservice-gateway/",
+			"content": ""
+		}
+		,
+	
+	
+	
+		"microservice-gateway-authentication":{
+			"title": "Microservice Gateway Authentication modes",
+			"searchable-url": "/microservice-gateway/authentication/",
+			"categories": "microservice-gateway",
+			"url": "/microservice-gateway/authentication/",
+			"content": "The microservice gateway is in charge of the user’s authentication process. This process is divided in two main modes :  REGARDS Internal authentication with possible multiples Identities Providers  External Authentication with possible multiples Service ProvidersREGARDS Internal AuthenticationAvailable implementations are the plugins which implements “IAuthenticationPlugin” in the module “authentication-plugins”.External Authentication ModeAvailable implementations are the plugins which implements “IServiceProviderPlugin” in the module “authentication-plugins”.The Kerberos Service Provider PluginFor the Kerberos Service Provider Plugin, this technical requirement is mandatory :  Java Cryptography Extension (JCE) is installed on microservice gateway system host."
+		}
+		,
+	
+	
+	
+		"privacy-security":{
+			"title": "Privacy security",
+			"searchable-url": "/privacy-security/",
+			"categories": "privacy-security",
+			"url": "/privacy-security/",
+			"content": ""
+		}
+		,
+	
+	
+	
+		"reference":{
+			"title": "Reference",
+			"searchable-url": "/reference/",
+			"categories": "reference",
+			"url": "/reference/",
+			"content": ""
+		}
+		,
+	
+	
+	
+		"reference-regards-developpement-manual":{
+			"title": "REGARDS Developpment manual",
+			"searchable-url": "/reference/regards-developpement-manual/",
+			"categories": "reference",
+			"url": "/reference/regards-developpement-manual/",
+			"content": "Overview  Developpment contexts  Create a new microservice  Create a new microservice plugin  Create a new frontend plugin  Contribute to REGARDS  Import a project into Eclipse IDE  Import a project into Netbeans IDE  Import a project into IntelliJ IDEA1. Developpment contexts1.1. BackendREGARDS allows developpers to extends the REGARDS backend functionnalities by creating their own :  Microservice : In order to add new functionalities to REGARDS system throught new REST endpoints  Microservice plugin : In order to extend microservices functionalities throught defined extension points for each REGARDS MicroserviceRequirements : You need a developpment environment with :  Java 1.8  Maven 3+  Git client1.2.FrontendREGARDS allows developpers to extends REGARDS Frontend functionnalities by creating their own :  IHM service plugin : In order to add new functionalities availables from the consultables data id the project user IHM.  IHM search criterion widget : In order to add new criterion types in REGARDS search forms.  IHM Module plugin : In order to add a totaly new bundle of functionalitiesRequirements : You need a developpment environment with :  npm 4+  Git client2. Create a new microserviceTo create a new microservice you have to create a new maven project with the microservice-archetype. To do so :  Clone the git rs-microservice repository git clone &lt;https://user@thor.si.c-s.fr/git/rs-microservice&gt;  Compile and install the maven project cd rs-microservice mvn clean install  Generate the new microservice maven project `mvn archetype:generate -DarchetypeGroupId=fr.cnes.regards.microservices -DarchetypeArtifactId=rs-microservices-archetype -DarchetypeVersion=0.0.1 -DgroupId=my.microservice-DartifactId=myMicroService-DarchetypeRepository=/path/to/git/repo/rs-microservice/archetype/target`By default the microservice archetype expose an exemple Rest Controller on http://localhost:7777 To change the microservice configuration modify thesrc/main/resources/application.ymlfile.To run the new microservice : cd myMicroService mvn spring-boot:runTo authenticate : curl -X \"POST\" acme:acmesecret@localhost:7777/oauth/token -d grant_type=password -d username=public -d password=publicAPI exemple access : curl &lt;http://localhost:7777/api/greeting/&gt; -H \"Authorization: Bearer token\" curl &lt;http://localhost:7777/api/me/&gt; -H \"Authorization: Bearer token\"Swagger UI access : http://localhost:7777/swagger-ui.htmlNOTE : To add new Rest resource follow exemple on filesrc/main/java/GreetingController.java3. Create a new Microservice plugin3.1 Available plugin types            Microservice      Plugin Types                  Access      None              Administration      None              ArchivalStorage      - Representation : Manage AIP from request MIME type            SecurityDelegation : Manage AIP access authorization        AllocationStrategy : Manage stockage strategy for an AIP        DataStorage : Manage data storage system        CheckFileAccess : Manage access rights by storage directory                                FilePattern : Catalog          - Representation : Manage response format from request MIME type                          Filter : Add filter to requested datas                                Service : Add treatements to datas associated to a given dataset DataManagement          - CalculationModel : Add a calculation rule for an AIP attribute                          DBConnection : DataBase connector        DataSourceConnection : Manage search requests in a datasource        DataExtraction : Extract metadata from AIP        CheckDataAccess : Manage AIP referenced data files access rights                                Converter : Add a converter to search requests results DataProvider          - ScanDirectory : Manage how to find SIP original files                          DataReader : Read input files to generate SIP        ValidateData : Validate input files        GenerateSIP : Create SIP metadata from input file(s)        PostProcessSIP : Add specific treatment to a generated SIP                                SIPWriter : Write generated SIP into a specific file format Ingestion          - RequestReader : Manage SIP formats                          SipReader : Read SIP content        Validation : Validate SIP        Generate: Generate AIP parameters from SIP                                Tag : Add TAG(s) to generated AIP Order          - PriorityOrderScoring : Plugin to manage priority order of sub-commands Processing          - Processing : Plugin to define datas treatements                      Representation : Manage response format from request MIME type3.2 Create a new pluginTo create a new plugin you have to create a new maven project with the microservice-plugin-archetype. To do so :  Clone the git rs-microservice repository git clone &lt;https://user@thor.si.c-s.fr/git/rs-microservice&gt;  Compile and install the maven project cd rs-microservice mvn clean install  Generate the new plugin maven project `mvn archetype:generate -DarchetypeGroupId=fr.cnes.regards.microservices.plugins -DarchetypeArtifactId=rs-microservices-plugins-archetype -DarchetypeVersion=0.0.1 -DgroupId=my.microservice.plugin-DartifactId=myMicroServicePlugin-DarchetypeRepository=/path/to/git/repo/rs-microservice/pluginArchetype/target -DpluginType=existingPluginType`NOTE : ExistingPluginType is a plugin type from the previous given list.Next you have to implement every needed interface methods from the main plugin class to add your plugin implementation.4. Create a new frontend pluginTo create a new frontend plugin you have to generate a new npm project using the Yeoman tool.  Install yo and the regards-frontend-plugin generator npm install yo git+&lt;https://github.com/RegardsOss/frontend/generator-regards-plugin.git&gt;  Generate a new plugin instance yo regards-pluginHere under is the plugin project files tree generated by the Yeoman generator :Since your new plugin is created, you have to implement your plugin functionalities into the main React.Component from the main.js file. It is this component that is displayed by the frontend core.This React component is connected to the application ‘Store’, so the plugin can access any loaded datas from the frontend core application.The ‘build’ directory conains the generated plugin in javascript ES5. this is this files that need to be placed in the ‘Plugins’ directory of the frontend webapp.5. Contribute to REGARDSYou can share your REGARDS developpments to the REGARDS community by sending a pull request on our github with your package. Your request will be checked as soon as possible by our maintenance team."
+		}
+		,
+	
+	
+	
+		"reference-regards-installation-manual":{
+			"title": "REGARDS Installation manual",
+			"searchable-url": "/reference/regards-installation-manual/",
+			"categories": "reference",
+			"url": "/reference/regards-installation-manual/",
+			"content": "1. Download REGARDS ProductYou can download the REGARDS installer package from our github page https://github.com/RegardsOss/RegardsOss.github.ioThe installer is a IzPack package ( http://izpack.org/ ).To run the REGARDS installer, run the command :java -jar REGARDS-OSS-Installer-1.0.0.jar2. Requirements  Java JRE 1.8      RabbitMQ Server          The server and the management plugin      A user having rights to create virtual hosts and to add rights to other users on the broker.            Database PostgresSQL    ElasticSearch3. Monolitic InstallationThe monolitic installation of the REGARDS product consist in installing all parts of the system on the same physical or virtual host.To do so, run the installer package and select the installation of all the componennts :Then fill the configuration properties needed by the installer.4. Cloud installationThe cloud installation allow you to install the REGARDS product components in multiples physical or virtual host. The only requirement is that all the hosts could communicate throught HTTPS protocol.To do so, run the IzPack installation package on each host and select the component(s) you want to install on each one.With this installation system you can install multiple instances of each microservice. In the first place you can install one instance of each needed microservice and if the performances of the system are to low, you can install more instances later.NOTE : You always need to install and configure the Configuration server first. For a cloud installation, the table bellow explain the mandatory components and the installation order.            Component      Mandatory      Installation Order      Mulitple instances      Description                  Configuration server            1            Provide configuration parameters for all REGARDS components              Eureka server            2            Provide the adress registry for all the REGARDS components              Gateway                         Provide a unique and secure entry point for all the REGARDS services              Frontend                         Provide WEB interfaces to access REGARDS services              Microservices                         Provide the REGARDS fonctionalities      5. REGARDS Components configurationOn each host you want to install one or more REGARDS component you will be asked to provide the installation directory :After that, you’ll need to configure all the components you selected for the installation on the current host.5.1 Configuration serverThe configuration server is the first component to install, it provides the global configuration parameters to all REGARDS components. It only needs a starter port.5.2 Eureka serverThe Eureka server is the second component to install, it provides the global components registry. This server is access by all REGARDS components to know the adresses of other ones.It needs a starter port and the adress of the configuration server5.3 GatewayThe Gateway is the secured entry point to the REGARDS system. It assure the authentication system by providing an authentication Service Provider (SP) and redirect the REGARDS services requests to the installed microservices.This component assure the load-balancing in order to redirect requests to the less current use microservice.5.4 FrontendThe Frontend component provides the WEB interfaces to administrate and use the REGARDS fonctionnalities. This component is not mandatory, you can either access all the REGARDS functionnalities by REST requests to the Gateway server with a tool like Curl5.5 MicroservicesWhen you select the installation of microservices, the next configuration screen ask you for which microserice and how many instances you want to install.Next you have to configure for each selected microservice :  Starter port(s)  Number of istances  Specifics configuration parametersExemple for the archival storage microservice configuration :6. Run REGARDS SystemTo run the REGARDS system, you have to run each component independly with the only condition to run Configuration server first and Eureka server next.cd {regards_intall_pall}&lt;br&gt; ./runConfigServer.sh&lt;br&gt; ./runEurekaServer.sh&lt;br&gt; ./runGateway.sh&lt;br&gt; ./runFrontend.sh&lt;br&gt; ./runMicroservice.sh [microservice-name]"
+		}
+		,
+	
+	
+	
+		"reference-regards-operations-manual":{
+			"title": "REGARDS Operations manual",
+			"searchable-url": "/reference/regards-operations-manual/",
+			"categories": "reference",
+			"url": "/reference/regards-operations-manual/",
+			"content": "Overview  Monitor Zull routing and load balancing (console)  Monitor Eureka server (console)  Monitor RabitMQ Message server  Consult logs1. Monitor Zull routing and load balancing (console)TODO.2. Monitor Eureka server (console)The Eureka Registry can be monitored throught an IHM only available from the host server at the address : http://{host}:{eureka-port}/.This interface display all microservices currently in activity and shows many stats about them. The bellow exemple display the interface in a test environnement with two actives mircroserices.4. Monitore RabbitMQ Message server (console)TOD.3. Consult logsEvery log from the REGARDS microservices are thrown throught SYSLOG protocol."
+		}
+		,
+	
+	
+	
+		"reference-regards-user-manual":{
+			"title": "REGARDS User manual",
+			"searchable-url": "/reference/regards-user-manual/",
+			"categories": "reference",
+			"url": "/reference/regards-user-manual/",
+			"content": "===================Overview      Manage Instance    Create new project  Add administrator to project  Configure Portal interface      Manage microservices        Manage projects    Manage users  Manage roles  Manage authentication methods  Manage microservices  Manage Data sources  Manage Data access rights  Configure Admin interface  Configure User interface  Manage news      Manage search forms        Search and consult datas        Order datas        … atas    …"
+		}
+		,
+	
+	
+	
+		"regards-framework":{
+			"title": "REGARDS framework",
+			"searchable-url": "/regards-framework/",
+			"categories": "regards-framework",
+			"url": "/regards-framework/",
+			"content": ""
+		}
+		,
+	
+	
+	
+		"regards-framework-starters":{
+			"title": "REGARDS framework starters",
+			"searchable-url": "/regards-framework/starters/",
+			"categories": "regards-framework",
+			"url": "/regards-framework/starters/",
+			"content": "StartersTODO explainAvailable starters :  AMQP starter  AMQP monitoring starter  Cloud starter  Feign starter  GSON starter  HATEOAS starter  JPA instance starter  JPA multitenant starter  Microservice starter  Module starter  Multitenant starter  Security starter  Plugins starter  Swagger starter  Web socket starter"
+		}
+		,
+	
+	
+	
+		"regards-framework-starters-amqp-monitoring-starter":{
+			"title": "AMQP monitoring starter",
+			"searchable-url": "/regards-framework/starters/amqp-monitoring-starter/",
+			"categories": "",
+			"url": "/regards-framework/starters/amqp-monitoring-starter/",
+			"content": "1. ConfigurationAdd starter dependency to your POM (version depends on the REGARDS BOM)&lt;dependency&gt;  &lt;groupId&gt;fr.cnes.regards.framework&lt;/groupId&gt;  &lt;artifactId&gt;amqp-monitoring-regards-starter&lt;/artifactId&gt;&lt;/dependency&gt;2. AutoconfigurationStarter autoconfigures:  regardsAmqpAppender is a logback appender. It is responsible to publish some LogEvent to a publisher for the current tenant.  IMonitoringLogEvent is used subcribe to LogEvent form all known tenants.3. The Metrics moduleThe Metrics module define a subscriber to subscribe to the LogEvent publish for all the tenants. And for each tenant, each LogEvent are persisted to the tenant’s database. The LogEventHandler implements ILogEventHandler and define a method handle.4. How to4.1. How to publish LogEvent to the Metrics moduleTo publish LogEvent to the Metrics module, it is necessary to add the logback appender regardsAmqpAppender to the logback.xml file. This is done in logback.xml file from each microservice’s bootstrap.&lt;appender name=\"regardsAmqpAppender\"  class=\"ch.qos.logback.ext.spring.DelegatingLogbackAppender\"&gt;  &lt;filter    class=\"fr.cnes.regards.framework.logbackappender.RegardsAmqpAppenderFilter\"&gt;    &lt;level&gt;INFO&lt;/level&gt;  &lt;/filter&gt;&lt;/appender&gt;&lt;logger name=\"fr.cnes.regards\" level=\"INFO\" additivity=\"true\"&gt;  &lt;appender-ref ref=\"regardsAmqpAppender\" /&gt;&lt;/logger&gt;The RegardsAmqpAppenderFilter defined a list of package for which each log should be publish to the Metrics module.4.2. How to log events to SYSLOG&lt;include resource=\"fr/cnes/regards/framework/logbackappender/defaults.xml\" /&gt;&lt;appender name=\"SYSLOG\" class=\"ch.qos.logback.classic.net.SyslogAppender\"&gt;  &lt;syslogHost&gt;localhost&lt;/syslogHost&gt;  &lt;facility&gt;LOCAL0&lt;/facility&gt;  &lt;suffixPattern&gt;${SYSLOG_PATTERN}&lt;/suffixPattern&gt;  &lt;port&gt;514&lt;/port&gt;&lt;/appender&gt;&lt;root level=\"info\"&gt;  &lt;appender-ref ref=\"SYSLOG\" /&gt;&lt;/root&gt;The pattern SYSLOG_PATTERN is defined in fr/cnes/regards/framework/logbackappender/defaults.xml.4.3. How to log security events to SYSLOG&lt;include resource=\"fr/cnes/regards/framework/logbackappender/defaults.xml\" /&gt;&lt;appender name=\"SYSLOG-SECU\" class=\"ch.qos.logback.classic.net.SyslogAppender\"&gt;  &lt;syslogHost&gt;localhost&lt;/syslogHost&gt;  &lt;facility&gt;LOCAL1&lt;/facility&gt;  &lt;suffixPattern&gt;${SYSLOG_SECURITY_PATTERN}&lt;/suffixPattern&gt;  &lt;port&gt;514&lt;/port&gt;&lt;/appender&gt;&lt;!-- Log the user request authentication --&gt;&lt;logger name=\"fr.cnes.regards.framework.authentication\" level=\"INFO\"&gt;  &lt;appender-ref ref=\"SYSLOG-SECU\" /&gt;&lt;/logger&gt;The pattern SYSLOG_SECURITY_PATTERN is defined in fr/cnes/regards/framework/logbackappender/defaults.xml."
+		}
+		,
+	
+	
+	
+		"regards-framework-starters-amqp-starter":{
+			"title": "AMQP starter",
+			"searchable-url": "/regards-framework/starters/amqp-starter/",
+			"categories": "",
+			"url": "/regards-framework/starters/amqp-starter/",
+			"content": "1. ConfigurationAdd starter dependency to your POM (version depends on the REGARDS BOM)&lt;dependency&gt;  &lt;groupId&gt;fr.cnes.regards.framework&lt;/groupId&gt;  &lt;artifactId&gt;amqp-regards-starter&lt;/artifactId&gt;&lt;/dependency&gt;Dependency :  Multitenant starterPrerequisites :  AMQP starts needs admin access on the server# RabbitMQ hostspring.rabbitmq.host=localhost# RabbitMQ port.spring.rabbitmq.port=5672# Property indicating the username used to connect and manage the broker, for the# AMQP starter, this user must have permissions to add virtual hosts and permissionsspring.rabbitmq.username=# Password of the userspring.rabbitmq.password=# Microservice type identifier (used to restrict event cast)regards.amqp.microservice.type-identifier=# Microservice instance identifier (used for event broadcasting).# Must be unique by microservice type to ensure all instances will receive an eventregards.amqp.microservice.instance-identifier=# Virtual host management hostregards.amqp.management.host=localhostregards.amqp.management.port=15672# Enable AMQP transaction manager if no  external transaction manager is availableregards.amqp.internal.transaction=false2. AutoconfigurationStarter autoconfigures:  IRabbitVirtualHostAdmin to manage virtual hosts. Only RabbitMQ implementation exists at the moment.  RegardsAmqpAdmin to administrate the message broker(create queues, exchanges, bindings with proper names)  RabbitAdmin to send and receive message from the right tenant using MultitenantSimpleRoutingConnectionFactory  MultitenantSimpleRoutingConnectionFactory to manage virtual host connectionsFor working with tenant messages or events :  IPoller responsible for any polling request from the message broker to the application. It is the bean to Autowired when you want to poll messages.  ISubscriber responsible for any subscribing to the message broker. This is the bean to Autowired when you want to subscribe to an object.  IPublisher responsible for any publishing from the application to the message broker. This is the bean to Autowired when you want to send messages to other microservices.For working with instance messages or events, you have to use IInstancePoller, IInstanceSubscriber and IInstancePublisher.3. How toAMQP starter runs in a multitenant context so it relies on multitenant tenant resolution :  A subscriber automatically subscribes to each tenant for an event using ITenantResolver.  A publisher automatically publishes an event on current tenant using IRuntimeTenantResolver.  A poller automatically polls an event on current tenant using IRuntimeTenantResolver.3.1. How to publish a messageTo publish a message on the broker, you have to use the IPublisher interface and its publish methods.Broadcast a messageFirst, create the message (i.e. a simple POJO) implementing ISubscribable.Annotate this message with @Event and define the target of the event :  ALL to broadcast to all subscribers,  MICROSERVICE to only broadcast to instances of the same microservice type.@Event(target = Target.ALL)public class HelloMessage implements ISubscribable {}Then publish the message :@Autowiredprivate IPublisher publisher;public void publishHello() {   HelloMessage message = new HelloMessage();   publisher.publish(message);}Working message (unicast)Working message is stored in a working queue and is consumed synchronously on-demand.First, create the message implementing IPollable.Annotate this message with @Event and define the target of the event :  ALL to be polled by any microservice instance,  MICROSERVICE to only be polled by an instance of the same microservice type.A message is only handled by a single poller (i.e. worker).@Event(target = Target.ALL)public class PollMessage implements IPollable {}Then publish the message :@Autowiredprivate IPublisher publisher;public void publishHello() {   PollMessage message = new PollMessage();   publisher.publish(message);}NOTE: IPublish manages message priority. Just define the priority in the publish method.3.2. How to subscribe to an ISubscribable messageTo subscribe to a message, you have to use the ISubscriber interface and its subscribeTo method.First, create a message handler implementing IHandler to listen to the message:public class HelloHandler implements IHandler&lt;HelloMessage&gt; {  @Override  public void handle(TenantWrapper&lt;HelloMessage&gt; pWrapper) {      // Retrieve your message      HelloMessage message = pWrapper.getContent();      // Do something  }}Then subscribe to the message :@Autowiredprivate ISubscriber subscriber;public void subscribeToHello() {   subscriber.subscribeTo(HelloMessage.class, new HelloHandler());}NOTE: you can stop listener using unsubscribeFrom method.3.3. How to poll an IPollable messageSimple pollingTo poll a message, you have to use the IPoller interface and its poll method.While polling, you have to manage tenant connection resolution through bind and unbind methods.In order to guarantee unbinding, you have to use a try-finally block.NOTE : binding and unbinding are thread safe.@Autowiredprivate IPoller poller;public void simplePollMessage() {  TenantWrapper&lt;PollMessage&gt; wrapper = poller.poll(PollMessage.class);  // Do something with the message}3.4. TransactionTransaction is supported through classic Spring Transactional annotation while publishing and polling message.If en error occurs in a transaction, a message to publish won’t be published and a message to poll won’t be acknowledge and will be returned to the broker.External transactionIf a PlatformTransactionManager is on the classpath, AMQP will automatically synchronize its behaviour with an existing transaction.Internal transactionIf no external PlatformTransactionManager exists, you can enable internal one with related property.4. Constraints on the used rabbitmq4.1. Regards namespace for rabbitmqAll virtual hosts defined and used by REGARDS are prefixed by “regards”.4.2. Purpose of AMQP clientThe only purpose of the AMQP client is to handle the multi tenancy communication with the message broker. That means creating virtual hosts on the broker dynamically to ensure that each tenant’s communications are isolated from the others. Therefore, the user used by the application to interact with rabbitmq has to have privileges to create and modify virtual hosts."
+		}
+		,
+	
+	
+	
+		"regards-framework-starters-cloud-starter":{
+			"title": "Cloud starter",
+			"searchable-url": "/regards-framework/starters/cloud-starter/",
+			"categories": "",
+			"url": "/regards-framework/starters/cloud-starter/",
+			"content": "Configurationregards.cloud.enabled=false # Disable cloud support"
+		}
+		,
+	
+	
+	
+		"regards-framework-starters-feign-starter":{
+			"title": "Feign starter",
+			"searchable-url": "/regards-framework/starters/feign-starter/",
+			"categories": "",
+			"url": "/regards-framework/starters/feign-starter/",
+			"content": "1. ConfigurationAdd starter dependency to your POM (version depends on the REGARDS BOM)&lt;dependency&gt;  &lt;groupId&gt;fr.cnes.regards.framework&lt;/groupId&gt;  &lt;artifactId&gt;feign-regards-starter&lt;/artifactId&gt;&lt;/dependency&gt;Dependency :  Multitenant starter  Security utils to manage Json Web Tokens# See multitenant starter properties# Security utils needs JWT secret2. AutoconfigurationStarter autoconfigures:  FeignSecurityManager to manage security token injection into request headers.  Enable automatic client discovery in package fr.cnes.regards (unless test profile is activated - see 3.4)3. How to3.1. How to create a clientCreate a Spring MVC interface annotated with RestClient :@RestClient(name = \"targetMicroserviceName\")public interface IHelloClient {    @RequestMapping(method = RequestMethod.GET, value = \"/hello\")    ResponseEntity&lt;Hello&gt; getHello();}3.2. How to use a clientImporting Feign starter in your pom.xml, all classes annotated with RestClient are automatically discovered in package fr.cnes.regards.So, you can @Autowired it in your service.If client is in a different package, use @EnableFeignClients in a configuration class to declare this package.3.3. How to make a system (i.e. internal) callBy default, FeignSecurityManager propagates user token in Feign request from security holder.To call an endpoint as system, you must inform FeignSecurityManager before process request.If you act as a daemon and you have to manage tenant in system client call, use IRuntimeTenantResolver to force the right tenant.// Optionnaly specify working tenant (thread safe action)runtimeTenantResolver.forceTenant(\"tenant\");// Enable system call as follow (thread safe action)FeignSecurityManager.asSystem();// Process client request ...// Disable system call if necessary after client request(s)FeignSecurityManager.reset();3.4. How to create a client programmaticallyUse FeignClientBuilder, TokenClientProvider and FeignSecurityManager to init one :MyClient client = FeignClientBuilder.build(new TokenClientProvider&lt;&gt;(MyClient.class,        \"url\", feignSecurityManager));3.5. How to mock FeignFeign starter allows to disable client discovery. To do so, run the tests in a test profile (use @ActiveProfiles ) and mock your clients as you wish (using stub, Mockito, etc.).If you set your own annotation on a configuration class, we recommend to add profile annotation as follow to be able to mock client in test profile :@Profile(\"!test\")@Configuration@EnableFeignClients(\"your.package\")"
+		}
+		,
+	
+	
+	
+		"regards-framework-starters-gson-starter":{
+			"title": "GSON starter",
+			"searchable-url": "/regards-framework/starters/gson-starter/",
+			"categories": "",
+			"url": "/regards-framework/starters/gson-starter/",
+			"content": "1. Configuration# Scan package for Gsonable annotationregards.gson.scan-prefix=fr.cnes.regardsTo avoid conflict between Jackson and GSON with SPRING, set the following property :spring.http.converters.preferred-json-mapper=gson2. AutoconfigurationStarter autoconfigures a GsonHttpMessageConverter automatically injected in available HTTP message converters.GSON is customize through GsonBuilder to :  dynamically create adapter factories for Gsonable element (polymorphic factories),  dynamically register TypeAdapterFactory annotated with GsonTypeAdapterFactory,  dynamically register Spring TypeAdapterFactory annotated with GsonTypeAdapterFactoryBean or Spring Component,  add an exclusion strategy based on GSonIgnore annotation,  add a PathAdapter for Path class,  add a SpringFox adapter factory if Swagger starter is on the classpath.3. How to3.1. How to register a custom factory  With GsonTypeAdapterFactory annotationThis annotation allows to register automatically a TypeAdapterFactory with a no arg constructor.  With GsonTypeAdapterFactoryBean or Component annotationUseful for Spring based factories allowing dependency injection. The factory must implement GSON TypeAdapterFactory.3.2. How to use polymorphic element (de)serialization  With Gsonable annotation on a base hierarchy typeThis annotation allows to register a dynamically created PolymorphicTypeAdapterFactory.You optionnaly can specify the discriminator name in Gsonable and the discriminator values on sub types through GsonDiscriminator.  Creating a sub class of PolymorphicTypeAdapterFactory and registering it with annotation3.3. How to instanciate polymorphic factoryInit an instance of PolymorphicTypeAdapterFactory or a subclasses and registerSubtype on it.Sub type can be registered even if factory has already been created at runtime.3.4. How to use exclusion strategyJust annotate field with GsonIgnore to exclude a particular field."
+		}
+		,
+	
+	
+	
+		"regards-framework-starters-hateoas-starter":{
+			"title": "HATEOAS starter",
+			"searchable-url": "/regards-framework/starters/hateoas-starter/",
+			"categories": "",
+			"url": "/regards-framework/starters/hateoas-starter/",
+			"content": "1. ConfigurationNothing to configure at the moment.Dependency :  Security starter  WARNING : at the moment, this starter only accepts @RequestMapping annotation to work fine.2. AutoconfigurationStarter autoconfigures an IResourceService that helps to expose HATEAOS links according to security access configuration.3. How toIf your controller manages a single POJO, implements **IResourceController**.In its toResource method, define all links using an autowired IResourceService regardless security authorization. Only authorized links will be really exposed.Sample :@RestController@RequestMapping(\"/pojos\")public class MyPojoController implements IResourceController&lt;MyPojo&gt; {\t...\t@Autowired\tprivate IResourceService resourceService;\t...    @ResourceAccess(description = \"List all pojos\")    @GetMapping    public ResponseEntity&lt;List&lt;Resource&lt;MyPojo&gt;&gt;&gt; getPojos() {        final List&lt;MyPojo&gt; pojos = ...        return ResponseEntity.ok(toResources(pojos));    }\t...    @ResourceAccess(description = \"Get a pojo\")    @GetMapping(\"/{pPojoId}\")    public ResponseEntity&lt;Resource&lt;MyPojo&gt;&gt; getPojo(@PathVariable Long pPojoId) {        final MyPojo pojo = ...        return ResponseEntity.ok(toResource(pojo));    }\t...\t@Override    public Resource&lt;MyPojo&gt; toResource(MyPojo pPojo) {        final Resource&lt;MyPojo&gt; resource = resourceService.toResource(pPojo);        resourceService.addLink(resource, this.getClass(), \"getPojo\", LinkRels.SELF,                                MethodParamFactory.build(Long.class, pPojo.getId()));        ...        return resource;    }}"
+		}
+		,
+	
+	
+	
+		"regards-framework-starters-jpa-instance-starter":{
+			"title": "JPA instance starter",
+			"searchable-url": "/regards-framework/starters/jpa-instance-starter/",
+			"categories": "",
+			"url": "/regards-framework/starters/jpa-instance-starter/",
+			"content": "Configuration# Disable JPA instance supportregards.jpa.instance.enabled=falseregards.jpa.instance.embedded=true # Activate embedded mode with HSQLDBregards.jpa.instance.embeddedPath=target # Path for embedded databases filesregards.jpa.instance.dialect=org.hibernate.dialect.PostgreSQLDialect # Not mandatory if embedded mode is activatedregards.jpa.instance.datasource.url=jdbc:postgresql://localhost:5432/postgres # Not mandatory if embedded mode is activatedregards.jpa.instance.datasource.username=postgres # Not mandatory if embedded mode is activatedregards.jpa.instance.datasource.password=postgres # Not mandatory if embedded mode is activatedregards.jpa.instance.datasource.driverClassName=org.postgresql.Driver # Not mandatory if embedded mode is activatedUsageTo use Instance DAO, you have to annotate all your JPA Repositories and Entities with @InstanceEntity. Only those are used by the jpa-instance starter.Use transaction with instance"
+		}
+		,
+	
+	
+	
+		"regards-framework-starters-jpa-multitenant-starter":{
+			"title": "JPA multitenant starter",
+			"searchable-url": "/regards-framework/starters/jpa-multitenant-starter/",
+			"categories": "",
+			"url": "/regards-framework/starters/jpa-multitenant-starter/",
+			"content": "1. ConfigurationAdd starter dependency to your POM (version depends on the REGARDS BOM)&lt;dependency&gt;  &lt;groupId&gt;fr.cnes.regards.framework&lt;/groupId&gt;  &lt;artifactId&gt;jpa-multitenant-starter&lt;/artifactId&gt;&lt;/dependency&gt;Dependency :  Multitenant starter  AMQP starterregards.jpa.multitenant.enabled=false # Disable JPA multitenant supportregards.jpa.multitenant.embedded=true # Activate embedded mode with HSQLDBregards.jpa.multitenant.embeddedPath=target # Path for embedded databases filesregards.jpa.multitenant.dialect=org.hibernate.dialect.PostgreSQLDialect # Not mandatory if embedded mode is activatedregards.jpa.multitenant.tenants[&lt;x&gt;].tenant=exampleregards.jpa.multitenant.tenants[&lt;x&gt;].url=jdbc:postgresql://localhost:5432/test1 # Not mandatory if embedded mode is activatedregards.jpa.multitenant.tenants[&lt;x&gt;].userName=postgres # Not mandatory if embedded mode is activatedregards.jpa.multitenant.tenants[&lt;x&gt;].password=postgres # Not mandatory if embedded mode is activatedregards.jpa.multitenant.tenants[&lt;x&gt;].driverClassName=org.postgresql.Driver # Not mandatory if embedded mode is activated&lt;x&gt; : Integer value for tenant index starting with 0.2. AutoconfigurationStarter :  manages all tenant connections for the current microservice,Following endpoints are supplied to monitor datasources :  /regards/{tenant}/datasource/test to test tenant datasource,  /regards/{tenant}/datasource/status to check in production datasource status (pooled connections).3. How to3.1. How to manage repository by tenantJPA repositories have no specifities in your source code. Starter purpose is only to route request to the right datasource.To do so, multitenant router use IRuntimeTenantResolver from Multitenant starter transparently.3.2. How to avoid transaction manager conflictYou can annotated your service or test with the following meta annotation to manage transaction if multiple managers exist else you can use classic Transactional:@MultitenantTransactional3.3. How to test datasourceTODO explain test module"
+		}
+		,
+	
+	
+	
+		"regards-framework-starters-microservice-starter":{
+			"title": "Microservice starter",
+			"searchable-url": "/regards-framework/starters/microservice-starter/",
+			"categories": "",
+			"url": "/regards-framework/starters/microservice-starter/",
+			"content": "TODO"
+		}
+		,
+	
+	
+	
+		"regards-framework-starters-module-starter":{
+			"title": "Module starter",
+			"searchable-url": "/regards-framework/starters/module-starter/",
+			"categories": "",
+			"url": "/regards-framework/starters/module-starter/",
+			"content": "TODO"
+		}
+		,
+	
+	
+	
+		"regards-framework-starters-multitenant-starter":{
+			"title": "Multitenant starter",
+			"searchable-url": "/regards-framework/starters/multitenant-starter/",
+			"categories": "",
+			"url": "/regards-framework/starters/multitenant-starter/",
+			"content": "1. ConfigurationFor default behaviour, only available for test purpose :# Static list of tenantsregards.tenants=tenant1,tenant2# Static request tenantregards.tenant=tenant1To manage a list of tenant at bootstrap from static configuration :# Static bootstrap tenants (comma separated)regards.bootstrap-tenants=2. AutoconfigurationStarter autoconfigures beans :  ITenantResolver to retrieve list of tenants,@FunctionalInterfacepublic interface ITenantResolver {    Set&lt;String&gt; getAllTenants();}  IRuntimeTenantResolver to retrieve request tenant at runtime.public interface IRuntimeTenantResolver {    /**     *     * @return runtime tenant     */    String getTenant();    /**     * Force runtime tenant to a specific value     *     * @param pTenant     *            tenatn     */    void forceTenant(String pTenant);}Note : on production, the implementation of IRuntimeTenantResolver must be thread safe.3. How to3.1. How to useJust inject beans in your component.3.2. How to override default behaviourCreate your own ITenantResolver bean to implement your own tenant retrieval.Create your own IRuntimeTenantResolver bean to implement your own runtime tenant retrieval.3.3. How to handle bootstrap tenantsJust autowired following property class to access bootstrap tenants.@Autowiredprivate MultitenantBootstrapProperties bootstrapProperties;"
+		}
+		,
+	
+	
+	
+		"regards-framework-starters-plugins-starter":{
+			"title": "Plugins starter",
+			"searchable-url": "/regards-framework/starters/plugins-starter/",
+			"categories": "",
+			"url": "/regards-framework/starters/plugins-starter/",
+			"content": "1. Configuration# Scan packages for Plugin and PluginInterface annotationsregards.plugins.packages-to-scan=fr.cnes.regards.plugins,fr.cnes.regards.plugins.utilsIt is possible to add a new package to scan by using the the method addPluginPackage from the PluginService.2. Autoconfiguration3. How to3.1. How to define a new plugin’s typeBefore to create a new Plugin, it is mandatory to define the corresponding plugin’s type. To do so, it constits to define a contract, defined by an interface. Defining an interface is similar to create a new class with the annotation PluginInterface.@PluginInterface(description = \"hello sample plugin interface\")public interface ISamplePlugin {    String echo(String pMessage);    int add(int pFirst, int pSecond);}3.2. How to define a new PluginTo define a new Plugin, it constits to define a new class that implements a PluginInterface with the annotation Plugin.@Plugin(author = \"CSSI\", description = \"Sample plugin test\", id = \"aSamplePlugin\", version = \"12345-6789-11\")public class SamplePlugin implements ISamplePlugin {    @PluginParameter(description = \"string parameter\", name = \"a suffix paramereter\")    private String suffix;    @PluginParameter(description = \"int parameter\", name = \"a coeff parameter\")    private Integer coef;    @PluginParameter(description = \"boolean parameter\", name = \"a boolean parameter\")    private Boolean isActive;    @Override    public String echo(final String pMessage) {        final StringBuffer str = new StringBuffer();        if (this.isActive) {            str.append(this.getClass().getName() + \" -&gt; \" + pMessage + \" - \" + this.suffix);        } else {            str.append(this.getClass().getName() + \":is not active\");        }        return str.toString();    }    @Override    public int add(final int pFist, final int pSecond) {        final int res = this.coef * (pFist + pSecond);        LOGGER.info(\"add result : \" + res);        return res;    }    @PluginInit    private void aInit() {        LOGGER.info(\"Init method call : \" + this.getClass().getName() + \"suffixe:\" + this.suffix + \"|active:\"                + this.isActive + \"|coeff:\" + this.coef);    }}As we can see in the above example, a Plugin used the specific annotations :  PluginParameter : this annotation is used to define an attribute as a parameter of the Plugin It should be noted that a PluginParameter can be a primitive data type, but also a Plugin.  PluginInit : this annotation is used to defined a method to execute before to create an instance of the Plugin3.3 How to use the REGARDS plugin’s moduleTo used a Plugin, it is necessary to created a PluginConfiguration to defined the plugin’s parameter.The REGARDS’s module plugins provide all the methods to managed the Plugin. It can be done with the PluginService in a REGARDS Java module, or with the REST API provided by the PluginController.3.4 How to interact with plugins updatesYou can be aware of plugin configuration modification by listening via AMQP to PluginConfigurationEvent. PluginConfigurationEvent contains the following attributes:  pluginConfId: the plugin configuration id  pluginType: the interface name the configuration is related to  action: the action at the origin of the event : CREATE, ACTIVATE, DESACTIVATE, DELETE"
+		}
+		,
+	
+	
+	
+		"regards-framework-starters-security-starter":{
+			"title": "Security starter",
+			"searchable-url": "/regards-framework/starters/security-starter/",
+			"categories": "",
+			"url": "/regards-framework/starters/security-starter/",
+			"content": "1. ConfigurationAdd starter dependency to your POM (version depends on the REGARDS BOM)&lt;dependency&gt;  &lt;groupId&gt;fr.cnes.regards.framework&lt;/groupId&gt;  &lt;artifactId&gt;security-regards-starter&lt;/artifactId&gt;&lt;/dependency&gt;Dependency :  Multitenant starter# Authorize instance admin to access all endpointsregards.security.instance.voter.enabled=true# Authorize instance public to access public endpointsregards.security.instance.voter.enabled=trueregards.instance.tenant.name=instance# Authorize system to access all endpointsregards.security.system.voter.enabled=true# Authorize project admin to access all endpointsregards.security.project.admin.voter.enabled=true# JSON Web Token secret keyjwt.secret=# Authorize CORS Request for given addresses. Split character ','. Empty list authorize CORS Request from all origins.regards.cors.requests.authorized.clients.addresses=2. AutoconfigurationTODO : explain auto configuration"
+		}
+		,
+	
+	
+	
+		"regards-framework-starters-swagger-starter":{
+			"title": "Swagger starter",
+			"searchable-url": "/regards-framework/starters/swagger-starter/",
+			"categories": "",
+			"url": "/regards-framework/starters/swagger-starter/",
+			"content": "Pre-requisite:server.address=localhost # Spring boot server addressserver.port=8080 # Spring boot server portregards.swagger.enabled=false # Disable swagger supportregards.swagger.api-name=API name # API nameregards.swagger.api-title=API title # API titleregards.swagger.api-description=API description # API descriptionregards.swagger.api-license=API license # API licenseregards.swagger.api-version=API version # API version"
+		}
+		,
+	
+	
+	
+		"regards-framework-starters-websocket-starter":{
+			"title": "Web socket starter",
+			"searchable-url": "/regards-framework/starters/websocket-starter/",
+			"categories": "",
+			"url": "/regards-framework/starters/websocket-starter/",
+			"content": "regards.websocket.enabled=false # Disable web socket support"
+		}
+		,
+	
+	
+	
+		"troubleshooting":{
+			"title": "Trouble shooting",
+			"searchable-url": "/troubleshooting/",
+			"categories": "troubleshooting",
+			"url": "/troubleshooting/",
+			"content": ""
+		}
+		
+	
+	
+}

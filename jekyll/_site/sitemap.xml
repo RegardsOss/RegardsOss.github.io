@@ -1,0 +1,444 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+	
+		<url>
+			<loc>http://localhost:4000/SRF/</loc>
+			<changefreq>monthly</changefreq>
+			<lastmod>2016-04-04T14:00:00-07:00</lastmod>
+		</url>
+	
+
+	
+		<url>
+			<loc>http://localhost:4000/User-guide/kibana/</loc>
+			<changefreq>monthly</changefreq>
+			<lastmod>2016-04-04T14:00:00-07:00</lastmod>
+		</url>
+	
+
+	
+		<url>
+			<loc>http://localhost:4000/backend/rs-microservice/</loc>
+			<changefreq>monthly</changefreq>
+			<lastmod>2016-04-04T14:00:00-07:00</lastmod>
+		</url>
+	
+
+	
+		<url>
+			<loc>http://localhost:4000/documentation/</loc>
+			<changefreq>monthly</changefreq>
+			<lastmod>2016-04-04T14:00:00-07:00</lastmod>
+		</url>
+	
+
+	
+		<url>
+			<loc>http://localhost:4000/frontend/</loc>
+			<changefreq>monthly</changefreq>
+			<lastmod>2016-04-04T14:00:00-07:00</lastmod>
+		</url>
+	
+
+	
+		<url>
+			<loc>http://localhost:4000/frontend/arch/</loc>
+			<changefreq>monthly</changefreq>
+			<lastmod>2016-04-04T14:00:00-07:00</lastmod>
+		</url>
+	
+
+	
+		<url>
+			<loc>http://localhost:4000/frontend/intelliJ-templates/</loc>
+			<changefreq>monthly</changefreq>
+			<lastmod>2016-04-04T14:00:00-07:00</lastmod>
+		</url>
+	
+
+	
+		<url>
+			<loc>http://localhost:4000/frontend/modules/</loc>
+			<changefreq>monthly</changefreq>
+			<lastmod>2016-04-04T14:00:00-07:00</lastmod>
+		</url>
+	
+
+	
+		<url>
+			<loc>http://localhost:4000/frontend/plugins/</loc>
+			<changefreq>monthly</changefreq>
+			<lastmod>2016-04-04T14:00:00-07:00</lastmod>
+		</url>
+	
+
+	
+		<url>
+			<loc>http://localhost:4000/frontend/setup/</loc>
+			<changefreq>monthly</changefreq>
+			<lastmod>2016-04-04T14:00:00-07:00</lastmod>
+		</url>
+	
+
+	
+		<url>
+			<loc>http://localhost:4000/frontend/storybook/</loc>
+			<changefreq>monthly</changefreq>
+			<lastmod>2016-04-04T14:00:00-07:00</lastmod>
+		</url>
+	
+
+	
+		<url>
+			<loc>http://localhost:4000/getting-started/</loc>
+			<changefreq>monthly</changefreq>
+			<lastmod>2016-04-04T14:00:00-07:00</lastmod>
+		</url>
+	
+
+	
+		<url>
+			<loc>http://localhost:4000/getting-started/run-regards/</loc>
+			<changefreq>monthly</changefreq>
+			<lastmod>2016-04-04T14:00:00-07:00</lastmod>
+		</url>
+	
+
+	
+		<url>
+			<loc>http://localhost:4000/installation/</loc>
+			<changefreq>monthly</changefreq>
+			<lastmod>2016-04-04T14:00:00-07:00</lastmod>
+		</url>
+	
+
+	
+		<url>
+			<loc>http://localhost:4000/microservice-admin/</loc>
+			<changefreq>monthly</changefreq>
+			<lastmod>2016-04-04T14:00:00-07:00</lastmod>
+		</url>
+	
+
+	
+		<url>
+			<loc>http://localhost:4000/microservice-catalog/</loc>
+			<changefreq>monthly</changefreq>
+			<lastmod>2016-04-04T14:00:00-07:00</lastmod>
+		</url>
+	
+
+	
+		<url>
+			<loc>http://localhost:4000/microservice-catalog/search/</loc>
+			<changefreq>monthly</changefreq>
+			<lastmod>2016-04-04T14:00:00-07:00</lastmod>
+		</url>
+	
+
+	
+		<url>
+			<loc>http://localhost:4000/microservice-core/</loc>
+			<changefreq>monthly</changefreq>
+			<lastmod>2016-04-04T14:00:00-07:00</lastmod>
+		</url>
+	
+
+	
+		<url>
+			<loc>http://localhost:4000/microservice-core/annotations/</loc>
+			<changefreq>monthly</changefreq>
+			<lastmod>2016-04-04T14:00:00-07:00</lastmod>
+		</url>
+	
+
+	
+		<url>
+			<loc>http://localhost:4000/microservice-core/configuration-files/</loc>
+			<changefreq>monthly</changefreq>
+			<lastmod>2016-04-04T14:00:00-07:00</lastmod>
+		</url>
+	
+
+	
+		<url>
+			<loc>http://localhost:4000/microservice-core/create-microservice/</loc>
+			<changefreq>monthly</changefreq>
+			<lastmod>2016-04-04T14:00:00-07:00</lastmod>
+		</url>
+	
+
+	
+		<url>
+			<loc>http://localhost:4000/microservice-core/create-module/</loc>
+			<changefreq>monthly</changefreq>
+			<lastmod>2016-04-04T14:00:00-07:00</lastmod>
+		</url>
+	
+
+	
+		<url>
+			<loc>http://localhost:4000/microservice-core/dependencies/</loc>
+			<changefreq>monthly</changefreq>
+			<lastmod>2016-04-04T14:00:00-07:00</lastmod>
+		</url>
+	
+
+	
+		<url>
+			<loc>http://localhost:4000/microservice-core/exceptions/</loc>
+			<changefreq>monthly</changefreq>
+			<lastmod>2016-04-04T14:00:00-07:00</lastmod>
+		</url>
+	
+
+	
+		<url>
+			<loc>http://localhost:4000/microservice-core/introduction/</loc>
+			<changefreq>monthly</changefreq>
+			<lastmod>2016-04-04T14:00:00-07:00</lastmod>
+		</url>
+	
+
+	
+		<url>
+			<loc>http://localhost:4000/microservice-core/multitenant-database/</loc>
+			<changefreq>monthly</changefreq>
+			<lastmod>2016-04-04T14:00:00-07:00</lastmod>
+		</url>
+	
+
+	
+		<url>
+			<loc>http://localhost:4000/microservice-core/reporting/</loc>
+			<changefreq>monthly</changefreq>
+			<lastmod>2016-04-04T14:00:00-07:00</lastmod>
+		</url>
+	
+
+	
+		<url>
+			<loc>http://localhost:4000/microservice-core/security/</loc>
+			<changefreq>monthly</changefreq>
+			<lastmod>2016-04-04T14:00:00-07:00</lastmod>
+		</url>
+	
+
+	
+		<url>
+			<loc>http://localhost:4000/microservice-dam/</loc>
+			<changefreq>monthly</changefreq>
+			<lastmod>2016-04-04T14:00:00-07:00</lastmod>
+		</url>
+	
+
+	
+		<url>
+			<loc>http://localhost:4000/microservice-gateway/</loc>
+			<changefreq>monthly</changefreq>
+			<lastmod>2016-04-04T14:00:00-07:00</lastmod>
+		</url>
+	
+
+	
+		<url>
+			<loc>http://localhost:4000/microservice-gateway/authentication/</loc>
+			<changefreq>monthly</changefreq>
+			<lastmod>2016-04-04T14:00:00-07:00</lastmod>
+		</url>
+	
+
+	
+		<url>
+			<loc>http://localhost:4000/privacy-security/</loc>
+			<changefreq>monthly</changefreq>
+			<lastmod>2016-04-04T14:00:00-07:00</lastmod>
+		</url>
+	
+
+	
+		<url>
+			<loc>http://localhost:4000/reference/</loc>
+			<changefreq>monthly</changefreq>
+			<lastmod>2016-04-04T14:00:00-07:00</lastmod>
+		</url>
+	
+
+	
+		<url>
+			<loc>http://localhost:4000/reference/regards-developpement-manual/</loc>
+			<changefreq>monthly</changefreq>
+			<lastmod>2016-04-04T14:00:00-07:00</lastmod>
+		</url>
+	
+
+	
+		<url>
+			<loc>http://localhost:4000/reference/regards-installation-manual/</loc>
+			<changefreq>monthly</changefreq>
+			<lastmod>2016-04-04T14:00:00-07:00</lastmod>
+		</url>
+	
+
+	
+		<url>
+			<loc>http://localhost:4000/reference/regards-operations-manual/</loc>
+			<changefreq>monthly</changefreq>
+			<lastmod>2016-04-04T14:00:00-07:00</lastmod>
+		</url>
+	
+
+	
+		<url>
+			<loc>http://localhost:4000/reference/regards-user-manual/</loc>
+			<changefreq>monthly</changefreq>
+			<lastmod>2016-04-04T14:00:00-07:00</lastmod>
+		</url>
+	
+
+	
+		<url>
+			<loc>http://localhost:4000/regards-framework/</loc>
+			<changefreq>monthly</changefreq>
+			<lastmod>2016-04-04T14:00:00-07:00</lastmod>
+		</url>
+	
+
+	
+		<url>
+			<loc>http://localhost:4000/regards-framework/starters/</loc>
+			<changefreq>monthly</changefreq>
+			<lastmod>2016-04-04T14:00:00-07:00</lastmod>
+		</url>
+	
+
+	
+		<url>
+			<loc>http://localhost:4000/regards-framework/starters/amqp-monitoring-starter/</loc>
+			<changefreq>monthly</changefreq>
+			<lastmod>2016-04-04T14:00:00-07:00</lastmod>
+		</url>
+	
+
+	
+		<url>
+			<loc>http://localhost:4000/regards-framework/starters/amqp-starter/</loc>
+			<changefreq>monthly</changefreq>
+			<lastmod>2016-04-04T14:00:00-07:00</lastmod>
+		</url>
+	
+
+	
+		<url>
+			<loc>http://localhost:4000/regards-framework/starters/cloud-starter/</loc>
+			<changefreq>monthly</changefreq>
+			<lastmod>2016-04-04T14:00:00-07:00</lastmod>
+		</url>
+	
+
+	
+		<url>
+			<loc>http://localhost:4000/regards-framework/starters/feign-starter/</loc>
+			<changefreq>monthly</changefreq>
+			<lastmod>2016-04-04T14:00:00-07:00</lastmod>
+		</url>
+	
+
+	
+		<url>
+			<loc>http://localhost:4000/regards-framework/starters/gson-starter/</loc>
+			<changefreq>monthly</changefreq>
+			<lastmod>2016-04-04T14:00:00-07:00</lastmod>
+		</url>
+	
+
+	
+		<url>
+			<loc>http://localhost:4000/regards-framework/starters/hateoas-starter/</loc>
+			<changefreq>monthly</changefreq>
+			<lastmod>2016-04-04T14:00:00-07:00</lastmod>
+		</url>
+	
+
+	
+		<url>
+			<loc>http://localhost:4000/regards-framework/starters/jpa-instance-starter/</loc>
+			<changefreq>monthly</changefreq>
+			<lastmod>2016-04-04T14:00:00-07:00</lastmod>
+		</url>
+	
+
+	
+		<url>
+			<loc>http://localhost:4000/regards-framework/starters/jpa-multitenant-starter/</loc>
+			<changefreq>monthly</changefreq>
+			<lastmod>2016-04-04T14:00:00-07:00</lastmod>
+		</url>
+	
+
+	
+		<url>
+			<loc>http://localhost:4000/regards-framework/starters/microservice-starter/</loc>
+			<changefreq>monthly</changefreq>
+			<lastmod>2016-04-04T14:00:00-07:00</lastmod>
+		</url>
+	
+
+	
+		<url>
+			<loc>http://localhost:4000/regards-framework/starters/module-starter/</loc>
+			<changefreq>monthly</changefreq>
+			<lastmod>2016-04-04T14:00:00-07:00</lastmod>
+		</url>
+	
+
+	
+		<url>
+			<loc>http://localhost:4000/regards-framework/starters/multitenant-starter/</loc>
+			<changefreq>monthly</changefreq>
+			<lastmod>2016-04-04T14:00:00-07:00</lastmod>
+		</url>
+	
+
+	
+		<url>
+			<loc>http://localhost:4000/regards-framework/starters/plugins-starter/</loc>
+			<changefreq>monthly</changefreq>
+			<lastmod>2016-04-04T14:00:00-07:00</lastmod>
+		</url>
+	
+
+	
+		<url>
+			<loc>http://localhost:4000/regards-framework/starters/security-starter/</loc>
+			<changefreq>monthly</changefreq>
+			<lastmod>2016-04-04T14:00:00-07:00</lastmod>
+		</url>
+	
+
+	
+		<url>
+			<loc>http://localhost:4000/regards-framework/starters/swagger-starter/</loc>
+			<changefreq>monthly</changefreq>
+			<lastmod>2016-04-04T14:00:00-07:00</lastmod>
+		</url>
+	
+
+	
+		<url>
+			<loc>http://localhost:4000/regards-framework/starters/websocket-starter/</loc>
+			<changefreq>monthly</changefreq>
+			<lastmod>2016-04-04T14:00:00-07:00</lastmod>
+		</url>
+	
+
+	
+		<url>
+			<loc>http://localhost:4000/troubleshooting/</loc>
+			<changefreq>monthly</changefreq>
+			<lastmod>2016-04-04T14:00:00-07:00</lastmod>
+		</url>
+	
+
+</urlset>
