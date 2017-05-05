@@ -33,7 +33,11 @@ GSON is customize through **GsonBuilder** to :
 
 # 3\. How to
 
-## 3.1. How to register a custom factory
+## 3.1\. How to use dependency injection in a type adapter
+
+If you annotate your custom type adapter with **GsonTypeAdapterBean** annotation, you will be able to use Spring dependency injection in your type adapter.
+
+## 3.2\. How to register a custom factory
 
 - With **GsonTypeAdapterFactory** annotation
 
@@ -43,7 +47,7 @@ This annotation allows to register automatically a **TypeAdapterFactory** with a
 
 Useful for Spring based factories allowing dependency injection. The factory must implement GSON **TypeAdapterFactory**.
 
-## 3.2. How to use polymorphic element (de)serialization
+## 3.3\. How to use polymorphic element (de)serialization
 
 - With **Gsonable** annotation on a base hierarchy type
 
@@ -53,12 +57,12 @@ You optionnaly can specify the discriminator name in **Gsonable** and the discri
 
 - Creating a sub class of **PolymorphicTypeAdapterFactory** and registering it with annotation
 
-## 3.3. How to instanciate polymorphic factory
+## 3.4\. How to instanciate polymorphic factory
 
 Init an instance of **PolymorphicTypeAdapterFactory** or a subclasses and **registerSubtype** on it.
 
 **Sub type can be registered even if factory has already been created at runtime.**
 
-## 3.4. How to use exclusion strategy
+## 3.5\. How to use exclusion strategy
 
 Just annotate field with **GsonIgnore** to exclude a particular field.
