@@ -6,11 +6,54 @@ categories:
   - frontend
 ---
 
-The REGARDS frontend is divided in several modules.
+The REGARDS frontend is divided in several NPM modules, each one has a `package.json` defining the name of the module in the application. It allows us to import a module using his name instead of using a relative path.
+
+```
+import { configureStore } from '@regardsoss/store' // Good
+import { configureStore } from '../web_modules/data/store/src/main.js' // It works, but that's a bad practice
+```
+
+### Overall architecture
+
+```
+├── webapp                                    # REGARDS Frontend folder
+    ├── conf                                  # Store browser global variables not merged in the build
+    |  ├── staticConfiguration.js             # Global variables defined on prod
+    |  └── staticConfiguration.dev.js         # Global variables defined on dev
+    ├── reports                               # Local reports
+    |  ├── coverage                           # Coverage report
+    |  ├── mocha                              # Test report
+    |  └── mocha                              # Storybook static website
+    ├── scripts                               # Shell scripts (Linux only) that our package.json refers to
+    |  └── bootstrap.sh                       # Create NPM links between modules / node system folder / main app
+    ├── src                                   # Application root folder
+    |  ├── main.jsx                           # The first file read in the app
+    |  ├── rootReducer.js                     # Load the Redux tree
+    |  └── rootRouter.js                      # Load the react-router logic
+    ├── tests                                 # tests related to the folder ./src
+    ├── web_modules                           # Contains all @regardsoss modules
+    |  ├── business-common                    # Reusable business logic
+    |  ├── business-modules                   # Modules related to the admin app
+    |  ├── components                         # Reusable React components
+    |  ├── data                               # PropTypes & everything to interact with the backend server
+    |  ├── modules                            # Modules related to the portal/user app
+    |  ├── utils                              # REGARDS "generic" toolkit we've build
+    |  └── vendors                            # Libraries fork we've done
+    ├── package.json                          # Define npm scripts and list all dependencies
+    ├── webpack.common.config.js              # Webpack generic behavior
+    ├── webpack.dev.config.js                 # Webpack generic behavior in dev mode
+    ├── webpack.dev.preprod.config.js         # Used when running the app in dev
+    ├── webpack.coverage.config.js            # Used when covering the app in test mode
+    ├── webpack.test.config.js                # Used when running test
+    ├── webpack.dll.config.js                 # Webpack generic DLL behavior
+    ├── webpack.dev.dll.config.js             # Used to generate DLL in dev (fast hot reload)
+    ├── webpack.prod.dll.config.js            # Used to generate DLL in prod (by plugins)
+    └── webpack.common.config.js              # Webpack generic
+```
 
 ### Business modules
 
-This folder contains all business modules for these applications: admin, user and portal.
+This folder contains all business modules for the admin applications.
 
 ```
 admin
