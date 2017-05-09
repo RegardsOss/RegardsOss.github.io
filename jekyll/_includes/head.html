@@ -1,0 +1,15 @@
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+	<meta name="description" content="{% if page.description %}{{ page.description | strip_html | strip_newlines | truncate: 160 }}{% else %}{{ site.description }}{% endif %}">
+	<link rel="canonical" href="{{ page.url | replace:'index.html','' | prepend: site.baseurl }}">
+	<link rel="alternate" type="application/rss+xml" title="{{ site.title }}" href="{{ "/feed.xml" | prepend: site.baseurl }}">
+	<link href="https://madmimi.com/assets/img/webforms/attention-3f0b1cabd87dca30797f398cb21e85c0.gif" rel="icon" type="image/png" />
+	<link rel="stylesheet" href="{{ "/assets/css/site.css" | prepend: site.baseurl }}" />
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" />
+	<!-- End  -->
+	<link rel="stylesheet" href="{{ "/assets/css/main.css" | prepend: site.baseurl }}" />
+	<link rel='stylesheet' href="{{ "/assets/css/mobile.css" | prepend: site.baseurl }}" media="screen and (max-width: 800px)" />
+	<title>{% if page.title %}{{ page.title | escape }} - REGARDS{% else %}{{ site.title | escape }} - REGARDS{% endif %}</title>
+</head>
