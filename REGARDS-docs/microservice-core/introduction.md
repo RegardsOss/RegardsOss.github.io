@@ -24,3 +24,4 @@ Each microservice offers the features :
 - Access to the Cloud Config Server to centralize configurations properties
 - Allows CORS requests
 - Swagger Interface : <http://address:port/swagger-ui.html>
+- Handle maintenance mode.
