@@ -18,7 +18,7 @@ To run the REGARDS installer, run the command :<br>
 
 For any backend component:
 - Java JRE 1.8
-- Database PostgresSQL
+- Database PostgreSQL
 - RabbitMQ Server
   - The server and the management plugin
   - A user having rights to create virtual hosts and to add rights to other users on the broker.
@@ -43,7 +43,7 @@ To do so, select the first option when you are asked to choose how to install th
 
 # 4\. Cloud installation
 
-The cloud installation allow you to install the REGARDS product components in **multiples physical or virtual host**. The only requirement is that all the hosts could communicate throught **HTTPS protocol**.
+The cloud installation allows you to install the REGARDS product components in **multiples physical or virtual host**. The only requirement is that all the hosts could communicate throught **HTTPS protocol**.
 
 To do so, run the IzPack installation package on each host and select the second option when you are asked to choose how to install the system :
 
@@ -91,8 +91,7 @@ The Frontend component provides the WEB interfaces to administrate and use the R
 
 For any other selected component(s), you will have to configure :
 
-- Starter port(s)
-- Number of istances
+- Each instance `host` and `port`
 - Specifics configuration parameters
 
 Exemple for the archival storage microservice configuration :
