@@ -29,7 +29,7 @@ REGARDS allows developpers to extends the REGARDS backend functionnalities by cr
 **Requirements :** You need a developpment environment with :
 
 - Java 1.8
-- Maven 3+
+- Maven 3.3.1+
 - Git client
 
 # 1.2.Frontend
