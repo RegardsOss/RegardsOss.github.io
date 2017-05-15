@@ -8,72 +8,78 @@ categories:
 
 # 1\. Download REGARDS Product
 
-You can download the **REGARDS installer package** from our github page <https://github.com/RegardsOss/RegardsOss.github.io><br>
-The installer is a **IzPack** package ( <http://izpack.org/> ).
+You can download the **REGARDS installer package** from [our github page](https://github.com/RegardsOss/RegardsOss.github.io).  
+The installer is an [**IzPack** package](http://izpack.org/).
 
 To run the REGARDS installer, run the command :<br>
 `java -jar REGARDS-OSS-Installer-1.0.0.jar`
 
 # 2\. Requirements
 
+For any backend component:
 - Java JRE 1.8
+- Database PostgresSQL
 - RabbitMQ Server
-
   - The server and the management plugin
   - A user having rights to create virtual hosts and to add rights to other users on the broker.
 
-- Database PostgresSQL
-
+Only for component `Data Management`:
 - ElasticSearch
+
+# 3\. Installation directory
+On each host you want to install one or more REGARDS component you will be asked to provide the installation directory :
+
+![](/assets/images/installation/select-directory.png)
+
+Afterwards, you will need be prompted to choose how you want to install the software on the current host.
 
 # 3\. Monolitic Installation
 
-The monolitic installation of the REGARDS product consist in installing all parts of the system on the **same physical or virtual host**.<br>
-To do so, run the installer package and select the installation of all the componennts :
+The monolitic installation of the REGARDS product consists in installing all parts of the system on the **same physical or virtual host**.  
 
-![](/assets/images/installation/full-install.png)
+To do so, select the first option when you are asked to choose how to install the system :
 
-Then fill the configuration properties needed by the installer.
+![](/assets/images/installation/monolithic-installation.png)
 
 # 4\. Cloud installation
 
 The cloud installation allow you to install the REGARDS product components in **multiples physical or virtual host**. The only requirement is that all the hosts could communicate throught **HTTPS protocol**.
 
-To do so, run the IzPack installation package on each host and select the component(s) you want to install on each one.
+To do so, run the IzPack installation package on each host and select the second option when you are asked to choose how to install the system :
+
+![](/assets/images/installation/cloud-installation.png)
+
+Then select the component(s) you want to install.
 
 With this installation system you can install **multiple instances of each microservice**. In the first place you can install one instance of each needed microservice and if the performances of the system are to low, you can install more instances later.
 
-**NOTE :** You always need to install and configure the Configuration server first. For a cloud installation, the table bellow explain the mandatory components and the installation order.
+**NOTE :** You can install any component in any order, **but** you always need to start and configure the Configuration server first. For a cloud installation, the table bellow explain the mandatory components and the start order.
 
-Component                | Mandatory                   | Installation Order | Mulitple instances          | Description
------------------------- | --------------------------- | ------------------ | --------------------------- | --------------------------------------------------------------------
-**Configuration server** | ![](/assets/images/ok.png)  | 1                  | ![](/assets/images/nok.png) | Provide configuration parameters for all REGARDS components
-**Eureka server**        | ![](/assets/images/ok.png)  | 2                  | ![](/assets/images/nok.png) | Provide the adress registry for all the REGARDS components
-**Gateway**              | ![](/assets/images/ok.png)  |                    | ![](/assets/images/nok.png) | Provide a unique and secure entry point for all the REGARDS services
-**Frontend**             | ![](/assets/images/nok.png) |                    | ![](/assets/images/nok.png) | Provide WEB interfaces to access REGARDS services
-**Microservices**        | ![](/assets/images/nok.png) |                    | ![](/assets/images/ok.png)  | Provide the REGARDS fonctionalities
+Component                | Mandatory                   | Start Order | Mulitple instances          | Description
+------------------------ | :-------------------------: | :---------: | :-------------------------: | --------------------------------------------------------------------
+**Frontend**             | ![](/assets/images/nok.png) |             | ![](/assets/images/nok.png) | Provide WEB interfaces to access REGARDS services
+**Configuration**        | ![](/assets/images/ok.png)  | 1           | ![](/assets/images/nok.png) | Provide configuration parameters for all REGARDS components
+**Registry**             | ![](/assets/images/ok.png)  | 2           | ![](/assets/images/nok.png) | Provide the adress registry for all the REGARDS components
+**Gateway**              | ![](/assets/images/ok.png)  |             | ![](/assets/images/nok.png) | Provide a unique and secure entry point for all the REGARDS services
+**Other components**     | ![](/assets/images/nok.png) |             | ![](/assets/images/ok.png)  | Provide the REGARDS functionalities
 
 # 5\. REGARDS Components configuration
 
-On each host you want to install one or more REGARDS component you will be asked to provide the installation directory :
+After that, you will need to configure all the components you selected for the installation on the current host.
 
-![](/assets/images/installation/select-directory.png)
+## 5.1 Configuration
 
-After that, you'll need to configure all the components you selected for the installation on the current host.
+The configuration server is the first component to start, it provides the global configuration parameters to all REGARDS components. It only needs a starter port.
 
-## 5.1 Configuration server
+## 5.2 Registry
 
-The configuration server is the first component to install, it provides the global configuration parameters to all REGARDS components. It only needs a starter port.
-
-## 5.2 Eureka server
-
-The Eureka server is the second component to install, it provides the global components registry. This server is access by all REGARDS components to know the adresses of other ones.<br>
-It needs a starter port and the adress of the configuration server
+The Registry server is the second component to start, it provides the global components registry. This server is access by all REGARDS components to know the adresses of other ones.<br>
+It needs a starter port and the adress of the configuration server.
 
 ## 5.3 Gateway
 
-The Gateway is the secured entry point to the REGARDS system. It assure the authentication system by providing an authentication Service Provider (SP) and redirect the REGARDS services requests to the installed microservices.<br>
-This component assure the load-balancing in order to redirect requests to the less current use microservice.
+The Gateway is the secured entry point to the REGARDS system. It ensures the authentication system by providing an authentication Service Provider (SP) and redirect the REGARDS services requests to the installed microservices.<br>
+This component also handles load-balancing in order to redirect requests to the least requested instance of a microservice.
 
 ## 5.4 Frontend
 
@@ -81,13 +87,9 @@ The Frontend component provides the WEB interfaces to administrate and use the R
 
 ![](/assets/images/installation/frontend.png)
 
-## 5.5 Microservices
+## 5.5 Other components
 
-When you select the installation of microservices, the next configuration screen ask you for which microserice and how many instances you want to install.
-
-![](/assets/images/installation/microservices.png)
-
-Next you have to configure for each selected microservice :
+For any other selected component(s), you will have to configure :
 
 - Starter port(s)
 - Number of istances
@@ -95,10 +97,20 @@ Next you have to configure for each selected microservice :
 
 Exemple for the archival storage microservice configuration :
 
-![](/assets/images/installation/archival-storage.png)
+![](/assets/images/installation/admin.png)
 
-# 6\. Run REGARDS System
+# 6\. Start the system
+To run the REGARDS system, you must use the shell commands available in the `{install_dir}/REGARDS/sbin`.
 
-To run the REGARDS system, you have to run each component independly with the only condition to run Configuration server first and Eureka server next.
+- If you chose the monolithic installation, you can start the whole system in a single command with
+`{install_dir}/REGARDS/sbin/microservice_regards.sh start`
+- If you chose the cloud installation, you have to run each component independly with the only condition to run Configuration server first and Registry server next:
+`{install_dir}/REGARDS/sbin/microservice_regards.sh {component_name} start`
 
-`cd {regards_intall_pall}<br> ./runConfigServer.sh<br> ./runEurekaServer.sh<br> ./runGateway.sh<br> ./runFrontend.sh<br> ./runMicroservice.sh [microservice-name]`
+# 7\. Check the components status
+You can check if a given component is currently running with following command:
+`{install_dir}/REGARDS/sbin/microservice_regards.sh {component_name} status`
+
+# 7\. Stop the components
+You can stop a given component with following command:
+`{install_dir}/REGARDS/sbin/microservice_regards.sh {component_name} stop`
