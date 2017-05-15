@@ -43,7 +43,7 @@ To do so, select the first option when you are asked to choose how to install th
 
 # 4\. Cloud installation
 
-The cloud installation allows you to install the REGARDS product components in **multiples physical or virtual host**. The only requirement is that all the hosts could communicate throught **HTTPS protocol**.
+The cloud installation allows you to install the REGARDS product components in **multiple physical or virtual hosts**. The only requirement is that all the hosts could communicate throught **HTTPS protocol**.
 
 To do so, run the IzPack installation package on each host and select the second option when you are asked to choose how to install the system :
 
