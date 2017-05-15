@@ -110,6 +110,6 @@ To run the REGARDS system, you must use the shell commands available in the `{in
 You can check if a given component is currently running with following command:
 `{install_dir}/REGARDS/sbin/microservice_regards.sh {component_name} status`
 
-# 7\. Stop the components
+# 8\. Stop the components
 You can stop a given component with following command:
 `{install_dir}/REGARDS/sbin/microservice_regards.sh {component_name} stop`
