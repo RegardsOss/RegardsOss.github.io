@@ -100,17 +100,46 @@ Exemple for the archival storage microservice configuration :
 ![](/assets/images/installation/admin.png)
 
 # 6\. Start the system
-To run the REGARDS system, you must use the shell commands available in the `{install_dir}/REGARDS/sbin`.
 
-- If you chose the monolithic installation, you can start the whole system in a single command with
-`{install_dir}/REGARDS/sbin/microservice_regards.sh start`
-- If you chose the cloud installation, you have to run each component independly with the only condition to run Configuration server first and Registry server next:
-`{install_dir}/REGARDS/sbin/microservice_regards.sh {component_name} start`
+In order to start REGARDS, you will have to run specific commands.
+
+- If the `Security Level` you chose was `Enforce`
+  - and you installed **all** the components, you can start the whole system in a single command:
+  ```shell
+  sudo {install_dir}/REGARDS/sbin/microservice_regards.sh start
+  ```
+  - and you installed **some** components, you will need to start each component installed with the following command (remember to always begin with `Config` and `Registry`):
+  ```shell
+  sudo {install_dir}/REGARDS/sbin/microservice_regards.sh -t {component_name} start
+  ```
+
+- If the `Security Level` you chose was `Standard`, you will need to start each component installed with the following command (again, remember to always begin with `Config` and `Registry`):
+```shell
+{install_dir}/REGARDS/bin/start_microservice.sh -t {component_name}
+```
 
 # 7\. Check the components status
-You can check if a given component is currently running with following command:
-`{install_dir}/REGARDS/sbin/microservice_regards.sh {component_name} status`
+You can check if a given component is currently running.
+
+- If the `Security Level` you chose was `Enforce`, use the command:
+  ```shell
+  sudo {install_dir}/REGARDS/sbin/microservice_regards.sh -t {component_name} status
+  ```
+
+- If the `Security Level` you chose was `Standard`, you will need to start each component installed with the following command (again, remember to always begin with `Config` and `Registry`):
+```shell
+{install_dir}/REGARDS/bin/status_microservice.sh -t {component_name}
+```
 
 # 8\. Stop the components
-You can stop a given component with following command:
-`{install_dir}/REGARDS/sbin/microservice_regards.sh {component_name} stop`
+You can stop a given component which is currently running.
+
+- If the `Security Level` you chose was `Enforce`, use the command:
+  ```shell
+  sudo {install_dir}/REGARDS/sbin/microservice_regards.sh -t {component_name} stop
+  ```
+
+- If the `Security Level` you chose was `Standard`, you will need to start each component installed with the following command (again, remember to always begin with `Config` and `Registry`):
+```shell
+{install_dir}/REGARDS/bin/stop_microservice.sh -t {component_name}
+```
