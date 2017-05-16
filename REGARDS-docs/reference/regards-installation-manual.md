@@ -55,11 +55,12 @@ With this installation system you can install **multiple instances of each micro
 
 **NOTE :** You can install any component in any order, **but** you always need to start and configure the Configuration server first. For a cloud installation, the table bellow explain the mandatory components and the start order.
 
-Component                | Mandatory                   | Start Order | Mulitple instances          | Description
+Component                | Mandatory                   | Start Order | Multiple instances          | Description
 ------------------------ | :-------------------------: | :---------: | :-------------------------: | --------------------------------------------------------------------
 **Frontend**             | ![](/assets/images/nok.png) |             | ![](/assets/images/nok.png) | Provide WEB interfaces to access REGARDS services
 **Configuration**        | ![](/assets/images/ok.png)  | 1           | ![](/assets/images/nok.png) | Provide configuration parameters for all REGARDS components
 **Registry**             | ![](/assets/images/ok.png)  | 2           | ![](/assets/images/nok.png) | Provide the adress registry for all the REGARDS components
+**Admin**                | ![](/assets/images/ok.png)  | 3           | ![](/assets/images/nok.png) | Provide the administration features of the system
 **Gateway**              | ![](/assets/images/ok.png)  |             | ![](/assets/images/nok.png) | Provide a unique and secure entry point for all the REGARDS services
 **Other components**     | ![](/assets/images/nok.png) |             | ![](/assets/images/ok.png)  | Provide the REGARDS functionalities
 
