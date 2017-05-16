@@ -31,29 +31,21 @@ On each host you want to install one or more REGARDS component you will be asked
 
 ![](/assets/images/installation/select-directory.png)
 
-Afterwards, you will need be prompted to choose how you want to install the software on the current host.
-
-# 3\. Monolitic Installation
-
-The monolitic installation of the REGARDS product consists in installing all parts of the system on the **same physical or virtual host**.  
-
-To do so, select the first option when you are asked to choose how to install the system :
-
-![](/assets/images/installation/monolithic-installation.png)
+Afterwards, you will need be prompted to choose the different components you wish to install.
 
 # 4\. Cloud installation
 
 The cloud installation allows you to install the REGARDS product components in **multiple physical or virtual hosts**. The only requirement is that all the hosts could communicate throught **HTTPS protocol**.
 
-To do so, run the IzPack installation package on each host and select the second option when you are asked to choose how to install the system :
-
-![](/assets/images/installation/cloud-installation.png)
-
-Then select the component(s) you want to install.
-
 With this installation system you can install **multiple instances of each microservice**. In the first place you can install one instance of each needed microservice and if the performances of the system are to low, you can install more instances later.
 
-**NOTE :** You can install any component in any order, **but** you always need to start and configure the Configuration server first. For a cloud installation, the table bellow explain the mandatory components and the start order.
+Choose the components you want to install on the current host, then let the installer guide you through the preliminary configuration steps :
+
+![](/assets/images/installation/packs.png)
+
+**NOTE :** If you choose not to install the Configuration server, you will have to provide an existing Configuration server so that components you are currently installing can connect to it.
+
+**NOTE :** You can install any component in any order and wherever you want, **but** you always need to start the Configuration server first and the Registry server second. The table bellow lists the mandatory components and the start order.
 
 Component                | Mandatory                   | Start Order | Multiple instances          | Description
 ------------------------ | :-------------------------: | :---------: | :-------------------------: | --------------------------------------------------------------------
@@ -63,6 +55,7 @@ Component                | Mandatory                   | Start Order | Multiple 
 **Admin**                | ![](/assets/images/ok.png)  | 3           | ![](/assets/images/nok.png) | Provide the administration features of the system
 **Gateway**              | ![](/assets/images/ok.png)  |             | ![](/assets/images/nok.png) | Provide a unique and secure entry point for all the REGARDS services
 **Other components**     | ![](/assets/images/nok.png) |             | ![](/assets/images/ok.png)  | Provide the REGARDS functionalities
+
 
 # 5\. REGARDS Components configuration
 
