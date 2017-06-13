@@ -117,6 +117,9 @@ Multiple terms can be combined together with Boolean operators to form a more co
 #### Fields
 When performing a search you must specify a field. The available fields are those in the model of the searched type.
 
+- Static fields: `label`, `model.name`, `lastUpdate`, `creationDate`, `tags`, `entityType`
+- Dynamic fields: `[fragmentName].[attributeName]` (fragment name is mandatory)
+
 You search to a field by typing the field name followed by a colon ":" and then the term you are looking for.
 
 For example, if you want to find the document entitled "The Right Way" which contains the text "don't go this way", you should enter:
