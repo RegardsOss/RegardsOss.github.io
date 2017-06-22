@@ -23,4 +23,8 @@ regards.jpa.instance.disableInstanceEntityAnnotation # Used to use instance star
 
 To use Instance DAO, you have to annotate all your JPA Repositories and Entities with @InstanceEntity. Only those are used by the jpa-instance starter.
 
+# disableInstanceEntityAnnotation
+
+Used to disable usage of InstanceEntity annotation. Only use this option if you don't use the jpa-multitenant-starter.
+
 ## Use transaction with instance
