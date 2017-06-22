@@ -8,7 +8,7 @@ short-title: JPA instance starter
 
 ```properties
 # Disable JPA instance support
-regards.jpa.instance.enabled=false
+regards.jpa.instance.enabled=false # disable JPA instance support
 regards.jpa.instance.embedded=true # Activate embedded mode with HSQLDB
 regards.jpa.instance.embeddedPath=target # Path for embedded databases files
 regards.jpa.instance.dialect=org.hibernate.dialect.PostgreSQLDialect # Not mandatory if embedded mode is activated
@@ -16,6 +16,7 @@ regards.jpa.instance.datasource.url=jdbc:postgresql://localhost:5432/postgres # 
 regards.jpa.instance.datasource.username=postgres # Not mandatory if embedded mode is activated
 regards.jpa.instance.datasource.password=postgres # Not mandatory if embedded mode is activated
 regards.jpa.instance.datasource.driverClassName=org.postgresql.Driver # Not mandatory if embedded mode is activated
+regards.jpa.instance.disableInstanceEntityAnnotation # Used to use instance starter alone without jpa-multitenant-starter.
 ```
 
 # Usage
