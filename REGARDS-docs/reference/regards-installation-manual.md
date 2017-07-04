@@ -45,7 +45,7 @@ Choose the components you want to install on the current host, then let the inst
 
 **NOTE :** If you choose not to install the Configuration server, you will have to provide an existing Configuration server so that components you are currently installing can connect to it.
 
-**NOTE :** You can install any component in any order and wherever you want, **but** you always need to start the Configuration server first and the Registry server second. The table bellow lists the mandatory components and the start order.
+**NOTE :** You can install any component in any order and wherever you want, **but** you always need to start the Configuration server first, the Registry server second and the Admin server third. The table bellow lists the mandatory components and the start order.
 
 Component                | Mandatory                   | Start Order | Multiple instances          | Description
 ------------------------ | :-------------------------: | :---------: | :-------------------------: | --------------------------------------------------------------------
@@ -67,7 +67,7 @@ The configuration server is the first component to start, it provides the global
 
 ## 5.2 Registry
 
-The Registry server is the second component to start, it provides the global components registry. This server is access by all REGARDS components to know the adresses of other ones.<br>
+The Registry server is the second component to start, it provides the global components registry. This server is accessed by all REGARDS components to retrieve the adresses of other ones.<br>
 It needs a starter port and the adress of the configuration server.
 
 ## 5.3 Gateway
@@ -86,9 +86,9 @@ The Frontend component provides the WEB interfaces to administrate and use the R
 For any other selected component(s), you will have to configure :
 
 - Each instance `host` and `port`
-- Specifics configuration parameters
+- Specific configuration parameters
 
-Exemple for the archival storage microservice configuration :
+Exemple for the Administration microservice configuration :
 
 ![](/assets/images/installation/admin.png)
 
@@ -97,11 +97,11 @@ Exemple for the archival storage microservice configuration :
 In order to start REGARDS, you will have to run specific commands.
 
 - If the `Security Level` you chose was `Enforce`
-  - and you installed **all** the components, you can start the whole system in a single command:
+  - and you installed **all** the components on the current host, you can start the whole system in a single command:
   ```shell
   sudo {install_dir}/REGARDS/sbin/microservice_regards.sh start
   ```
-  - and you installed **some** components, you will need to start each component installed with the following command (remember to always begin with `Config` and `Registry`):
+  - and you installed **some** components on the current host, you will need to start each component installed with the following command (remember to always begin with `Config` and `Registry`):
   ```shell
   sudo {install_dir}/REGARDS/sbin/microservice_regards.sh -t {component_name} start
   ```
