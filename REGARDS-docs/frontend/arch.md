@@ -23,7 +23,7 @@ import { configureStore } from '../web_modules/data/store/src/main.js' // It wor
     ├── reports                               # Local reports
     |  ├── coverage                           # Coverage report
     |  ├── mocha                              # Test report
-    |  └── mocha                              # Storybook static website
+    |  └── storybook                              # Storybook static website
     ├── scripts                               # Shell scripts (Linux only) that our package.json refers to
     |  └── bootstrap.sh                       # Create NPM links between modules / node system folder / main app
     ├── src                                   # Application root folder
@@ -40,45 +40,52 @@ import { configureStore } from '../web_modules/data/store/src/main.js' // It wor
     |  ├── utils                              # REGARDS "generic" toolkit we've build
     |  └── vendors                            # Libraries fork we've done
     ├── package.json                          # Define npm scripts and list all dependencies
-    ├── webpack.common.config.js              # Webpack generic behavior
-    ├── webpack.dev.config.js                 # Webpack generic behavior in dev mode
     ├── webpack.dev.preprod.config.js         # Used when running the app in dev
     ├── webpack.coverage.config.js            # Used when covering the app in test mode
     ├── webpack.test.config.js                # Used when running test
-    ├── webpack.dll.config.js                 # Webpack generic DLL behavior
+    ├── webpack.prod.config.js                # Used to build the prod app
     ├── webpack.dev.dll.config.js             # Used to generate DLL in dev (fast hot reload)
-    ├── webpack.prod.dll.config.js            # Used to generate DLL in prod (by plugins)
+    ├── webpack.prod.core.dll.config.js       # Used to generate DLL in prod (by plugins)
+    ├── webpack.prod.coreoss.dll.config.js    # Used to generate DLL in prod (by plugins)
     └── webpack.common.config.js              # Webpack generic
 ```
 
 ### Business modules
 
-This folder contains all business modules for the admin applications.
+This folder mainly contains all business modules for the admin app, but also store the portal and user app starter.
 
 ```
-admin
-│   admin-project-management
-│   admin-account-management
-│   admin-database-management
-│   admin-data-management
-    |     admin-data-model-management
-    |     admin-data-dataset-management
-    |     admin-data-attributemodel-management
-│   admin-user-management
-    |     admin-user-projectuser-management
-    |     admin-user-role-management
-    |     admin-user-role-resource-access-management
-│   admin-database-management
-│   ...
-user
-|   modules
-    |    archival-storage-aip-status
-    |    archival-storage-plugins-monitoring
-│   ...
-portal
+├── portal                                              # Portal app starter
+├── user                                                # User app starter
+└── admin                                               # Admin app starter
+    ├── admin-data-management                           # Data (rs-dam tenant)
+        ├── admin-data-attributemodel-management        # Attribute model
+        ├── admin-data-collection-management            # Collection 
+        ├── admin-data-connection-management            # Connection 
+        ├── admin-data-dataset-management               # Dataset 
+        ├── admin-data-datasource-management            # Datasource 
+        ├── admin-data-fragment-management              # Fragment 
+        ├── admin-data-model-management                 # Model 
+        └── admin-data-modelattribute-management        # Model attribute association
+    ├── admin-microservice-management                   # Java Plugins and microservice lifecycle
+    ├── admin-project-management                        # Project (rs-admin instance)
+    ├── admin-account-management                        # Account (rs-admin instance)
+    ├── admin-ui-management                             # User interface (rs-access-*)
+        ├── admin-ui-module-management                  # UI Modules configuration
+        ├── admin-ui-plugin-management                  # UI Plugin
+        ├── admin-ui-layout-management                  # UI Layout
+        ├── admin-ui-service-management                 # UI Plugin services
+        └── admin-ui-theme-management                   # UI Theme
+    ├── admin-user-management                           # User configuration (rs-admin tenant)
+        ├── admin-user-projectuser-management           # Project User 
+        ├── admin-user-role-management                  # Role
+        └── admin-user-role-resource-access-management  # REST resource authorisation per role
+    └── admin-accessright-management                    # Data access rights (rs-dam tenant)
+        ├── admin-accessright-accessgroup-management    # Data access groups
+        └── admin-accessright-dataaccess-management     # Data access rights per group 
 ```
 
-Each module is independent.
+Each module is independent and **shall** not import each other.
 
 --------
 

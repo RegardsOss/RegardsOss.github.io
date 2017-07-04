@@ -37,6 +37,8 @@ vm.max_map_count=262144" >> /etc/sysctl.conf
 
 ```bash
 $ cd regards/docker/
+$ docker-compose up -d rs_kibana rs_postgres rs_rabbitmq
+$ docker-compose up -d rs_authentication
 $ docker-compose up -d
 ```
 
