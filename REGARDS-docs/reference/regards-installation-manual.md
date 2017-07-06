@@ -14,6 +14,19 @@ The installer is an [**IzPack** package](http://izpack.org/).
 To run the REGARDS installer, run the command :<br>
 `java -jar REGARDS-OSS-Installer.jar`
 
+It is possible to install REGARDS in an automatic mode, run the command:<br>
+`java -jar REGARDS-OSS-Installer.jar auto-install-values.xml`<br>
+the file **auto-install-values.xml** to used can be generated at the end of the manual installation. But this generated file does not contain all the password, it is necessary to add the password manually in the file, before to run the command.
+
+### Prerequesites
+Before to install REGARDS, this requirements are necessary :
+- groovy 1.8.9
+```shell
+which groovy
+/usr/bin/groovy
+```
+- Java JRE 1.8
+
 # 2\. Requirements
 
 For any backend component:
@@ -25,13 +38,6 @@ For any backend component:
 
 For components `Data Management` and `Catalog`:
 - ElasticSearch 5.4.2
-
-# 3\. Installation directory
-On each host you want to install one or more REGARDS component you will be asked to provide the installation directory :
-
-![](/assets/images/installation/select-directory.png)
-
-Afterwards, you will need be prompted to choose the different components you wish to install.
 
 ### Prerequesites
 If you want to install the component with limited access rights (ie `Security Level` to `Enforce`), you need to create users and groups:
@@ -55,6 +61,13 @@ chown :regards /opt/regards
 chmod 1770 /opt/regards
 ```
 In this case the installation folder should be, for example : **/opt/regards/folderInstallation**
+
+# 3\. Installation directory
+On each host you want to install one or more REGARDS component you will be asked to provide the installation directory :
+
+![](/assets/images/installation/select-directory.png)
+
+Afterwards, you will need be prompted to choose the different components you wish to install.
 
 # 4\. Cloud installation
 
