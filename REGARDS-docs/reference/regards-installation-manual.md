@@ -18,13 +18,13 @@ To run the REGARDS installer, run the command :<br>
 
 For any backend component:
 - Java JRE 1.8
-- Database PostgreSQL
-- RabbitMQ Server
+- Database PostgreSQL 9.4+
+- RabbitMQ Server 3.6+
   - The server and the management plugin
   - A user having rights to create virtual hosts and to add rights to other users on the broker.
 
-Only for component `Data Management`:
-- ElasticSearch
+For components `Data Management` and `Catalog`:
+- ElasticSearch 5.4.2
 
 # 3\. Installation directory
 On each host you want to install one or more REGARDS component you will be asked to provide the installation directory :
@@ -33,8 +33,8 @@ On each host you want to install one or more REGARDS component you will be asked
 
 Afterwards, you will need be prompted to choose the different components you wish to install.
 
-### Prerequesite
-If you want to install the component with limited access rights (ie `Security Level` to `Enforce`), you need to create users and groupes:
+### Prerequesites
+If you want to install the component with limited access rights (ie `Security Level` to `Enforce`), you need to create users and groups:
 ```shell
 groupadd regards
 groupadd rsins
@@ -108,7 +108,7 @@ The Frontend component provides the WEB interfaces to administrate and use the R
 
 For any other selected component(s), you will have to configure :
 
-- Each instance `host` and `port`
+- Each instance `port`
 - Specific configuration parameters
 
 Exemple for the Administration microservice configuration :
