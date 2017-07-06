@@ -12,7 +12,7 @@ You can download the **REGARDS installer package** from [our github page](https:
 The installer is an [**IzPack** package](http://izpack.org/).
 
 To run the REGARDS installer, run the command :<br>
-`java -jar REGARDS-OSS-Installer-1.0.0.jar`
+`java -jar REGARDS-OSS-Installer.jar`
 
 # 2\. Requirements
 
@@ -33,6 +33,29 @@ On each host you want to install one or more REGARDS component you will be asked
 
 Afterwards, you will need be prompted to choose the different components you wish to install.
 
+### Prerequesite
+If you want to install the component with limited access rights (ie `Security Level` to `Enforce`), you need to create users and groupes:
+```shell
+groupadd regards
+groupadd rsins
+groupadd rsexec
+groupadd rsadmin
+groupadd rsrun
+useradd rsins -g rsins -G regards,rsexec,rsadmin,rsrun
+printf 'rsins\nrsinsPassword\n' | passwd rsins
+useradd rsadmin -g regards -G rsadmin,rsrun
+printf 'rsadmin\nrsadminPassword\n' | passwd rsadmin
+useradd regards --no-create-home --shell=/sbin/nologin -g regards -G rsexec,rsrun
+```
+
+And you need to create the installation folder with the good access rights:
+```shell
+mkdir /opt/regards
+chown :regards /opt/regards
+chmod 1770 /opt/regards
+```
+In this case the installation folder should be, for example : **/opt/regards/folderInstallation**
+
 # 4\. Cloud installation
 
 The cloud installation allows you to install the REGARDS product components in **multiple physical or virtual hosts**. The only requirement is that all the hosts could communicate throught **HTTPS protocol**.
@@ -49,12 +72,12 @@ Choose the components you want to install on the current host, then let the inst
 
 Component                | Mandatory                   | Start Order | Multiple instances          | Description
 ------------------------ | :-------------------------: | :---------: | :-------------------------: | --------------------------------------------------------------------
-**Frontend**             | ![](/assets/images/nok.png) |             | ![](/assets/images/nok.png) | Provide WEB interfaces to access REGARDS services
-**Configuration**        | ![](/assets/images/ok.png)  | 1           | ![](/assets/images/nok.png) | Provide configuration parameters for all REGARDS components
-**Registry**             | ![](/assets/images/ok.png)  | 2           | ![](/assets/images/nok.png) | Provide the adress registry for all the REGARDS components
-**Admin**                | ![](/assets/images/ok.png)  | 3           | ![](/assets/images/nok.png) | Provide the administration features of the system
-**Gateway**              | ![](/assets/images/ok.png)  |             | ![](/assets/images/nok.png) | Provide a unique and secure entry point for all the REGARDS services
-**Other components**     | ![](/assets/images/nok.png) |             | ![](/assets/images/ok.png)  | Provide the REGARDS functionalities
+**Frontend**             | ![](/assets/images/nok.png) | **4**       | ![](/assets/images/nok.png) | Provide WEB interfaces to access REGARDS services
+**Configuration**        | ![](/assets/images/ok.png)  | **1**       | ![](/assets/images/nok.png) | Provide configuration parameters for all REGARDS components
+**Registry**             | ![](/assets/images/ok.png)  | **2**       | ![](/assets/images/nok.png) | Provide the adress registry for all the REGARDS components
+**Admin**                | ![](/assets/images/ok.png)  | **3**       | ![](/assets/images/nok.png) | Provide the administration features of the system
+**Gateway**              | ![](/assets/images/ok.png)  | **3**       | ![](/assets/images/nok.png) | Provide a unique and secure entry point for all the REGARDS services
+**Other components**     | ![](/assets/images/nok.png) | **4**       | ![](/assets/images/ok.png)  | Provide the REGARDS functionalities
 
 
 # 5\. REGARDS Components configuration
@@ -77,7 +100,7 @@ This component also handles load-balancing in order to redirect requests to the 
 
 ## 5.4 Frontend
 
-The Frontend component provides the WEB interfaces to administrate and use the REGARDS fonctionnalities. This component is not mandatory, you can either access all the REGARDS functionnalities by REST requests to the Gateway server with a tool like **Curl**
+The Frontend component provides the WEB interfaces to administrate and use the REGARDS fonctionnalities. This component is not mandatory, you can either access all the REGARDS functionnalities by REST requests to the Gateway server with a tool like **curl**
 
 ![](/assets/images/installation/frontend.png)
 
@@ -101,12 +124,20 @@ In order to start REGARDS, you will have to run specific commands.
   ```shell
   sudo {install_dir}/REGARDS/sbin/microservice_regards.sh start
   ```
-  - and you installed **some** components on the current host, you will need to start each component installed with the following command (remember to always begin with `Config` and `Registry`):
+
+    Previously, it is necessary to add this command to the **sudoers** configuration file:
+  ```shell
+  vi /etc/sudoers.d/regards
+  rsadmin      ALL=(root)       NOPASSWD: {install_dir}/REGARDS/sbin/microservice_regards.sh
+  ```
+
+  - and you installed **some** components on the current host, you will need to start each component installed with the following command (remember to always begin the components in the good start order):
   ```shell
   sudo {install_dir}/REGARDS/sbin/microservice_regards.sh -t {component_name} start
   ```
 
-- If the `Security Level` you chose was `Standard`, you will need to start each component installed with the following command (again, remember to always begin with `Config` and `Registry`):
+
+- If the `Security Level` you chose was `Standard`, you will need to start each component installed with the following command (remember to always begin the components in the good start order):
 ```shell
 {install_dir}/REGARDS/bin/start_microservice.sh -t {component_name}
 ```
@@ -119,7 +150,7 @@ You can check if a given component is currently running.
   sudo {install_dir}/REGARDS/sbin/microservice_regards.sh -t {component_name} status
   ```
 
-- If the `Security Level` you chose was `Standard`, you will need to start each component installed with the following command (again, remember to always begin with `Config` and `Registry`):
+- If the `Security Level` you chose was `Standard`, use the following command (remember to always begin the components in the good start order):
 ```shell
 {install_dir}/REGARDS/bin/status_microservice.sh -t {component_name}
 ```
@@ -132,7 +163,7 @@ You can stop a given component which is currently running.
   sudo {install_dir}/REGARDS/sbin/microservice_regards.sh -t {component_name} stop
   ```
 
-- If the `Security Level` you chose was `Standard`, you will need to start each component installed with the following command (again, remember to always begin with `Config` and `Registry`):
+- If the `Security Level` you chose was `Standard`, use the following command (remember to always begin the components in the good start order):
 ```shell
 {install_dir}/REGARDS/bin/stop_microservice.sh -t {component_name}
 ```
