@@ -2,8 +2,7 @@
 title: "Regards Documentation"
 email: soon@cnes.com
 description: > # this means to ignore newlines until "baseurl:"
-  The documentation site for RegardsOss, the framework and a 
-  set of plugins to build scientific archives.
+  The documentation site for RegardsOss, an open source software to build scientific archives.
 
 url: "http://localhost:4040" # the base hostname & protocol for your site
 baseurl: "" # the subpath of your site, e.g. /blog
