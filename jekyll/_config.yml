@@ -1,13 +1,13 @@
 # Site settings
-title: "CircleCI Documentation"
-email: docs@cirleci.com
+title: "Regards Documentation"
+email: soon@cnes.com
 description: > # this means to ignore newlines until "baseurl:"
-  The documentation site for CircleCI, the fastest testing platform on the
-  Internet.
+  The documentation site for RegardsOss, the framework and a 
+  set of plugins to build scientific archives.
 
 url: "http://localhost:4040" # the base hostname & protocol for your site
 baseurl: "" # the subpath of your site, e.g. /blog
-gh_url: "https://github.com/circleci/circleci-docs"
+gh_url: "https://github.com/RegardsOss/RegardsOss.github.io"
 
 markdown: kramdown
 kramdown:
@@ -17,9 +17,6 @@ collections:
   docs:
     output: true
     permalink: /:path/
-
-twitter_username: circleci
-github_username:  circleci
 
 defaults:
   -
