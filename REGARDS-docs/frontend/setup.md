@@ -71,6 +71,13 @@ To run tests with coverage - creates coverage reports (lcov, xunit) inside `path
 npm run test:coverage
 ```
 
+### Lint :
+
+You shall lint the entire app [using our Eslint](/frontend-modules/eslint-config-es6-rules) before commiting:
+```
+npm run lint:fix
+```
+
 # Know issues
 
 - `npm run bootstrap` is not cross platform and cannot be executed on Windows (except on Windows 10 Bash)
