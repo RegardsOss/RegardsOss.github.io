@@ -6,7 +6,20 @@ categories:
   - frontend
 ---
 
-Open the webapp folder with a terminal:
+# Requirements
+
+You shall
+- use Linux or macOS
+- be root on your computer
+- having npm version between v3 and v4
+- having node version between v6 and v7
+
+The latest version of npm (v5) and node (v8) are not stable enough to be used with REGARDS. But their issues will be fixed, the npm run-script `bootstrap` will be renamed into `preinstall` and `npm install` will be sufficient.
+
+
+# Local installation
+
+Clone the `rs-frontend` repository and open the webapp folder with your terminal:
 
 ```
 cd path/to/folder/webapp/
@@ -24,15 +37,13 @@ Now, you can install dependencies and devDependencies
 npm install
 ```
 
-_Nota: By the end of the year_, when npm release a correct fix to `npm preinstall`, the `npm run-script bootstrap` will be renamed into `preinstall` and `npm install` would be sufficient.
-
 # Production installation
 
 ```
 cd path/to/folder/webapp/
 chmod +x ./scripts/bootstrap.sh
 npm run bootstrap
-npm install --only=production
+npm install
 npm build:production
 ```
 
