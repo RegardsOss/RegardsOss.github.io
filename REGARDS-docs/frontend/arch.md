@@ -1,7 +1,7 @@
 ---
 layout: classic-docs
-title: Architecture
-short-title: Architecture
+title: Architecture & Overall presentation
+short-title: Architecture and presentation
 categories:
   - frontend
 ---
