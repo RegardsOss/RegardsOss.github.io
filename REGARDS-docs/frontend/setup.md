@@ -37,14 +37,7 @@ Now, you can install dependencies, devDependencies and compile all required webp
 npm install
 ```
 
-# Production installation
-
-```
-cd path/to/folder/webapp/
-npm run bootstrap
-npm install
-npm build:production
-```
+**Congratulation**, you're now ready to launch the frontend.
 
 # Run options
 
@@ -55,6 +48,12 @@ npm start
 ```
 
 Then opens your browser at [http://localhost:3333/](http://localhost:3333/)  
+
+### Production build
+
+```
+npm build:production
+```
 
 ### Run tests :
 
@@ -72,19 +71,11 @@ To run tests with coverage - creates coverage reports (lcov, xunit) inside `path
 npm run test:coverage
 ```
 
-### Run storybook :
+### Lint :
 
-Then opens your browser at <http://localhost:6006/>
-
+You shall lint the entire app [using our Eslint](/frontend-modules/eslint-config-es6-rules) before commiting:
 ```
-npm run storybook:start
-```
-### Build storybook :
-
-To export a static storybook inside `path/to/folder/webapp/reports/storybook/` folder:
-
-```
-npm run storybook:build
+npm run lint:fix
 ```
 
 # Know issues
@@ -92,18 +83,6 @@ npm run storybook:build
 - `npm run bootstrap` is not cross platform and cannot be executed on Windows (except on Windows 10 Bash)
 - `./scripts/bootstrap.sh` is not executable? Run the following command: `chmod +x ./scripts/bootstrap.sh`
 
-
-# Update
-
-## Update dependencies and devDependencies
-
-Execute the following:
-
-```
-npm update
-```
-
-When release, we hope to use the platform <https://greenkeeper.io/> to prevent drawback.
 
 # Webpack build pipelines
 
