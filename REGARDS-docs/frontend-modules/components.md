@@ -1,6 +1,6 @@
 ---
 layout: classic-docs
-title: @regardsoss/components
+title: regardsoss/components
 short-title: Components
 categories:
   - frontend-modules
