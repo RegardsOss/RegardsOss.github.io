@@ -14,24 +14,24 @@ You shall
 - having npm version between v3 and v4
 - having node version between v6 and v7
 
-The latest version of npm (v5) and node (v8) are not stable enough to be used with REGARDS. But their issues will be fixed, the npm run-script `bootstrap` will be renamed into `preinstall` and `npm install` will be sufficient.
+The latest version of npm (v5) and node (v8) are not stable enough to be used with REGARDS. But when their issues will be fixed, the npm run-script `bootstrap` will be renamed into `preinstall` and `npm install` will be sufficient.
 
 
 # Local installation
 
-Clone the `rs-frontend` repository and open the webapp folder with your terminal:
+Clone the `rs-frontend` repository and open the webapp folder using your terminal:
 
 ```
 cd path/to/folder/webapp/
 ```
 
-Execute the following to link submodules inside `path/to/folder/webapp/web_modules/[data|modules|utils|view]/**` to the npm global user folder and then inside `webapp/node_modules/@regardsoss`
+Execute the following to link submodules inside `path/to/folder/webapp/web_modules/[data|modules|utils|...]/**` to the npm global user folder and then inside `webapp/node_modules/@regardsoss`. It allows you to edit these npm modules with auto reload.
 
 ```
 npm run bootstrap
 ```
 
-Now, you can install dependencies and devDependencies
+Now, you can install dependencies, devDependencies and compile all required webpack DLL:
 
 ```
 npm install
@@ -41,7 +41,6 @@ npm install
 
 ```
 cd path/to/folder/webapp/
-chmod +x ./scripts/bootstrap.sh
 npm run bootstrap
 npm install
 npm build:production
@@ -91,6 +90,8 @@ npm run storybook:build
 # Know issues
 
 - `npm run bootstrap` is not cross platform and cannot be executed on Windows (except on Windows 10 Bash)
+- `./scripts/bootstrap.sh` is not executable? Run the following command: `chmod +x ./scripts/bootstrap.sh`
+
 
 # Update
 
