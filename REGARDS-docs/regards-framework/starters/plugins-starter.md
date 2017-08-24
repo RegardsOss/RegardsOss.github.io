@@ -81,7 +81,7 @@ As we can see in the above example, a **Plugin** used the specific annotations :
 
 ## 3.3 How to use the REGARDS plugin's module
 
-To used a **Plugin**, it is necessary to created a **PluginConfiguration** to defined the plugin's parameter.
+To use a **Plugin**, it is necessary to create a **PluginConfiguration** to define the plugin's parameters.
 
 The REGARDS's module plugins provide all the methods to managed the **Plugin**. It can be done with the **PluginService** in a REGARDS Java module, or with the REST API provided by the **PluginController**.
 
