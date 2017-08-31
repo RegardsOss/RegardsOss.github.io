@@ -131,11 +131,13 @@ Where:
 
 * `q`: *{string}* That field contains the open search query to retrieve elements
 * `entityType`: *{string}* That field contains the current entity type, as one of the enumated values ENTITY_TYPES_ENUM, exported as a field of `DamDomain`, from `@regardsoss/domain`
+* `excludedIpIds`: *{array(string)}* That field contains the IP IDs of elements that user de-selected in query
 * `getFetchAction`: *{function}* For target type QUERY, method signature is `(pageIndex: (optional) number, pageSize: (optional) number) => (dipatchableAction:object)`.  
- *Warning: Removing page index and page size will result in fetching all elements at once. As there may be a lot, it is probably way better to fetch it in many pages. You can compute the total number of pages using `entitiesCount` common target field*
- *Warning 1: Removing page index and page size will result in fetching all elements at once. As there may be a lot, it is probably way better to fetch it in many pages. You can compute the total number of pages using `entitiesCount` common target field*  
- *Warning 2: There is a current limitation on the number of entities that can be fetched. So far it is blocked at 10 000 entities.*
+ *Warning 1: Removing page index and page size will result in fetching all elements at once. As there may be a lot, it is probably way better to fetch it in many pages. You can compute the total number of pages using `entitiesCount` common target field*
+ *Warning 2: Removing page index and page size will result in fetching all elements at once. As there may be a lot, it is probably way better to fetch it in many pages. You can compute the total number of pages using `entitiesCount` common target field*  
+ *Warning 3: Fetch actions will retrieve **every query element**. When using that result, it is required to verify in excludedIpIds array if the entity has been excluded by the user.*
+ *Warning 4: There is a current limitation on the number of entities that can be fetched. So far it is blocked at 10 000 entities.*
 
 ## Going further
 
-The React container ExampleContainer, from *webapp/plugin/services/example*, in *rs-frontend* repository illustrates using the plugin service configuration and target to show entities partitions. It uses `getReducePromise` to avoid handling manually the target types when fetching data. Reading that example code may be a good starting point from here!
+The React container ExampleContainer, from *webapp/plugin/services/example*, in *rs-frontend* repository illustrates using the plugin service configuration and target to show entities partitions. It uses `getReducePromise` to avoid handling manually the target types when fetching data, recovering data through actions, test react components... Reading that example code may be a good starting point from here.
