@@ -12,7 +12,7 @@ Modules are created by node using `package.json` files. The rs-access `package.j
 
 - provides cleanner interfaces with the minimal list of exposed services
 - these dependencies are accessible from the outside using the module name `@regardsoss/<module name>` instead of using only ES6 paths (between 2 modules)
-- expressing dependency inside the package.json of a module is not mandatory, because Webpack provides a dependnecy fallback, so when a module requires smth that is a expressed inside the package.json, webpack uses the node_modules of the global app instead.
+- expressing dependency inside the package.json of a module is not mandatory, because Webpack provides a dependency fallback, so when a module requires smth that is a expressed inside the package.json, webpack uses the node_modules of the global app instead.
 
 ### Create a new module
 
@@ -43,7 +43,7 @@ Modules are created by node using `package.json` files. The rs-access `package.j
   "description": "",
   "main": "src/main.js",
   "author": "CS-SI",
-  "license": "GPL-v3"
+  "license": "GPL-3.0"
 }
 ```
 
@@ -53,4 +53,4 @@ Modules are created by node using `package.json` files. The rs-access `package.j
 npm link web_modules/<module type>/<module name>
 ```
 
-If you don't need auto reload, you can build your module with `cd web_modules/<module type>/<module name> && npm install @regardsoss/<module name> -g`
+On the other hand, if you don't need Webpack auto reload, you can add your module with `npm  install <module path>`

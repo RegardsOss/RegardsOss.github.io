@@ -43,6 +43,11 @@
   index: frontend-modules
   icon: "/assets/img/icons/how-to.svg"
 
+- name: "Frontend plugins"
+  slug: frontend-plugins
+  index: frontend-plugins
+  icon: "/assets/img/icons/how-to.svg"
+
 - name: "Troubleshooting"
   slug: troubleshooting
   index: troubleshooting

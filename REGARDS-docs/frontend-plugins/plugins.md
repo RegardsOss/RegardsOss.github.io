@@ -1,13 +1,56 @@
 ---
 layout: classic-docs
-title: Plugins
-short-title: Plugins
+title: Plugins overview
+short-title: Plugins overview
 categories:
   - frontend
 ---
 
+A plugin is a piece of Javascript file that can be added dynamically in the user interface. 
+The main advantage is to allow operators to create dedicated HMI depending of the type of data manipulated 
+on the project, instead of creating your own fork of rs-frontend just to fits your project needs.
 
-## Plugin code structure
+There is currently two types of plugins :
+ - criterions: Used in the search form, this type of plugin allows users to create a search filter for a single attribute.
+ - services: Used in the search result table, they provide additionnals interactions with data they are associated to. You can ask several values from the user before displaying your service in a popup.
+
+Note that frontend plugins are not designed in the same way than backend plugins.
+
+## Compile your plugin
+
+To compile your plugin you need to setup the rs-frontend repository and to install it. 
+When the frontend is installed, you have created Webpack DLL that will be used by plugins to : 
+- reduce the compilation duration - DLL are precompiled dependencies
+- we provide a DLL named `coreoss` that contains some `@regardsoss/` dependencies, so you can reuse the code from rs-frontend
+
+After setting the core.bundle.js, you can run the here under command to build the plugin
+
+```bash
+$ npm run build:watch
+$ npm run build
+```
+
+### Test your plugin
+
+```bash
+$ npm run test 
+```
+
+### Lint your plugin
+
+```bash
+$ npm run lint:fix 
+```
+
+### Deploy plugin into regards 
+
+After compiling your plugin you have a plugin.js file. Copy this file in the `/plugins` repository of the `rs-frontend microservice`.
+Trough the administrator interface you can add the plugin from the "User interface / Plugins" menu.  
+Indicate your plugin path like `/plugins/sample/plugin.js` and save plugin.  
+
+At this step, your plugin is ready to be used.
+
+## Plugin overall code structure
 
 .  
  ├── src  
@@ -19,8 +62,10 @@ categories:
  |   ├── plugin-info.js  : Plugin definition  
  |   └── reducer.js      : Redux reducers    
  ├── tests  
- ├── package.json    : Npm plugin description file  
- └── README.md  
+ ├── package.json        : Npm plugin description file  
+ ├── README.md  
+ └── webpack.<mode>.js   : Npm plugin description file  
+
  
 ## Plugin entry point
 
@@ -177,36 +222,3 @@ parseOpenSearchQuery = (parameterName, openSearchQuery) => {
      return null
   }
 ```
-
-## Compile your plugin
-
-To compile your plugin you need the regards core.bundle.js. This bundle is a dependency in the webpack.config.js
-```
- manifest: require(`${__dirname}/../../../dist/prod/core-manifest.json`),
-```
-
-After setting the core.bundle.js, you can run the here under command to build the plugin
-
-```bash
-$ npm run build 
-```
-
-### Test your plugin
-
-```bash
-$ npm run test 
-```
-
-### Lint your plugin
-
-```bash
-$ npm run lint:fix 
-```
-
-### Deploy plugin into regards 
-
-After compiling your plugin you have a plugin.js file. Copy this file in the `/plugins` repository of the `rs-frontend microservice`.
-Trough the administrator interface you can add the plugin from the "User interface / Plugins" menu.  
-Indicate your plugin path like `/plugins/sample/plugin.js` and save plugin.  
-
-At this step, your plugin is ready to be used.

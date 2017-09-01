@@ -33,7 +33,9 @@ echo "
 vm.max_map_count=262144" >> /etc/sysctl.conf
 ```
 
-### Run REGARDS
+### Run REGARDS 
+
+#### Bootstrap
 
 ```bash
 $ cd regards/docker/
@@ -42,14 +44,26 @@ $ docker-compose up -d rs_authentication
 $ docker-compose up -d
 ```
 
-http://localhost:8888/rs-admin/default : returns the configuration for the corresponding microservice name
+#### Microservices adresses
 
-- Gateway: localhost:8000
-- Registry: localhost:8761
-- Config: localhost:8888
+- rs-ateway: localhost:9030
+- rs-registry: localhost:9032
+- rs-config: localhost:9031
+- rs-authentication: localhost:9034
+- rs_admin: localhost:9033
+- rs_dam: localhost:9035
+- rs_catalog: localhost:9036
+- rs_access_instance: localhost:9040
+- rs_access_project: localhost:9041
+- rs_frontend: localhost:9020
+
+#### Tools
+
 - phppgadmin: localhost:5080
 - postgres: localhost:5432
-- rabbitmq: localhost:5672 and localhost:15672
+- rs_rabbitmq: localhost:5672 and localhost:16672
+- rs_kibana: localhost:5601 
+- rs_maildev: localhost:5081
 
 ### Logs
 
@@ -57,9 +71,13 @@ http://localhost:8888/rs-admin/default : returns the configuration for the corre
 docker-compose logs -f
 ```
 
+```bash
+docker-compose logs -f --tail=200 rs_dam
+```
+
 ### Stop
 
-```
+```bash
 docker-compose down
 ```
 
@@ -67,18 +85,18 @@ docker-compose down
 
 If you want to update these Docker images, you need to run the following command:   
 
-```
+```bash
 docker-compose pull
 ```
 
 ### Clean
 
 Stop all containers  
-```
+```bash
 docker stop $(docker ps -a -q)
 ```
 
 Delete all stopped containers  
-```
+```bash
 docker rm $(docker ps -a -q)
 ```
