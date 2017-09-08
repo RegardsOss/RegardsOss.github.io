@@ -64,10 +64,8 @@ becomes _FAILED_ (provided stacktrace used to indicate JobInfo failed error is t
 
 ### Events ###
 
-Each important status change is notified with AMQP broadcast events :
-
-- 
-
+Some (important) status changes are notified with an AMQP broadcast event (`JobEvent`) :
+_ABORTED_, _FAILED_, _RUNNING_, _SUCCEEDED_.
 
 
 ## Completion ##
@@ -84,4 +82,28 @@ This is said, to avoid database saturation, this value is updated into database 
 configurable with _regards.jobs.completion.update.rate.ms_ property). 
 
 # Tasks #
+
+In order to chain jobs, to execute Job1 only when Job2 and Job3 are finished for example, reliant tasks exists.
+
+## Principle ##
+
+The principle of reliant tasks is to provide all complex chain management into objects from rs-microservice and let 
+user just define its specific microservice behavior  in its own entities (which inherit provided ones).
+
+## Conception ##
+
+`AbstractReliantTask` is an abstract parameterized entity (mapped on _t_task_ table with a _JOINED_ inheritance strategy) 
+having :
+    - an optional **OneToOne** relation to a `JobInfo`,
+    - a **ManyToMany** relation to  several parameterized `AbstractReliantTask` (this specifies the dependence between
+    these tasks and the current one).
+    
+Of course, this is implementing a tree structure that needs to stopped. `LeafTask` inherits `AbstractReliantTask` to
+specify a task without reliant tasks.
+
+## Specific microservice implementation ##
+
+Here is Order example :
+
+![](/assets/images/core/OrderMapping.png)
 
