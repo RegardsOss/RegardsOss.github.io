@@ -94,9 +94,9 @@ user just define its specific microservice behavior  in its own entities (which 
 
 `AbstractReliantTask` is an abstract parameterized entity (mapped on _t_task_ table with a _JOINED_ inheritance strategy) 
 having :
-    - an optional **OneToOne** relation to a `JobInfo`,
-    - a **ManyToMany** relation to  several parameterized `AbstractReliantTask` (this specifies the dependence between
-    these tasks and the current one).
+    - an optional **OneToOne** relation to a `JobInfo` (mapped with association table _t_task_job_info_),
+    - a **ManyToMany** relation to  several parameterized `AbstractReliantTask` (mapped with association table 
+    _ta_tasks_reliant_tasks_) (this specifies the dependence between these tasks and the current one).
     
 Of course, this is implementing a tree structure that needs to stopped. `LeafTask` inherits `AbstractReliantTask` to
 specify a task without reliant tasks.
@@ -106,4 +106,32 @@ specify a task without reliant tasks.
 Here is Order example :
 
 ![](/assets/images/core/OrderMapping.png)
+
+An order contains one task per dataset, each of that contains several files tasks. A files task is a task responsible of
+retrieving several files from rs_storage. This retrieval is done thanks to a job.
+
+In this case, `AbstractReliantTask` is responsible to provide progress advancement and dependencies between dataset 
+tasks and files tasks, user doesn't need to think about this.
+
+In term of mapping, `DatasetTask` is mapped to _t_dataset_task_ and `FilesTask` to _t_files_tasks_, these two tables are 
+joined to _t_task_ with a foreign key.
+This permit to add specific properties to these 2 entities being completely independent to ones defined into 
+rs_microservice.
+
+Finally, `Order`, which is the root entity, is mapped to _t_order_ table and defines following `NamedEntityGraph` :
+```@NamedEntityGraph(name = "graph.order",
+           attributeNodes = @NamedAttributeNode(value = "datasetTasks", subgraph = "graph.order.datasetTasks"),
+           subgraphs = { @NamedSubgraph(name = "graph.order.datasetTasks",
+                   attributeNodes = @NamedAttributeNode(value = "reliantTasks")) })
+```
+sub graph depth is only 1 because tree has a depth of one and thanks to the use of LeafTask which avoids trying to 
+access reliantTask lazy persistent set (which is empty but throws a lazy exception when accessed).
+Please, keep that in mind when creating your own entity structure.
+
+Simple `IOrderRepository` example (to avoid multiple **select** and load entire tree with one request) :
+```public interface IOrderRepository extends JpaRepository<Order, Long> {
+       @EntityGraph("graph.order")
+       Order findOneById(Long id);
+   }
+```
 
