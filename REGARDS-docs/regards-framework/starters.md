@@ -26,5 +26,6 @@ Available starters :
   - [Multitenant starter](/regards-framework/starters/multitenant-starter/)
   - [Security starter](/regards-framework/starters/security-starter/)
   - [Plugins starter](/regards-framework/starters/plugins-starter/)
+  - [STAF starter](/regards-framework/starters/staf-starter/)
   - [Swagger starter](/regards-framework/starters/swagger-starter/)
   - [Web socket starter](/regards-framework/starters/websocket-starter/)
