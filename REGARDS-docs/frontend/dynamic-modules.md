@@ -7,7 +7,6 @@ categories:
 ---
 
 ## Description
-This directory contains all lazy loadable modules of the REGARDS application.  
 
 A lazy loadable module is a plugable module that you can use where you want on the `User project` and `Portal` interfaces,
 allowing you to customize the style, how the module will be displayed...
@@ -17,7 +16,7 @@ and send it back to users browsing `User project` and `Portal` interfaces.
 
 ## End admin usage
 
-To use REGARDS modules in the HMI, you first need to configure `Application layout` and sections.  
+To use REGARDS modules in the IHM, you first need to configure `Application layout` and sections.  
 Then you will be able to load modules inside sections with custom configuration if required.  
 
 ## Module list
@@ -38,7 +37,29 @@ Here is the list of available modules :
 
 ## Create a new module
 
-To be plugged with the application, each `@regardsoss-modules` has to export in its `main.js` file an object containing :
+
+You can create a new module using the yeoman generator `generator-regards-ui-module` provided with sources into "webapp/yeoman/generator-regards-ui-module".  
+
+```bash
+$ cd webapp/yeoman
+$ npm install -g yo
+$ npm install -g ./generator-regards-ui-module
+$ cd ../web_modules/modules
+$ yo regards-ui-module
+```
+After the last command, informations will be asked for the new module to generate.    
+After the process is over, the all source architecture of a module is iniatialized with some simple exemples.
+
+<b>Important :</b>  
+Modules are not set as plugin into REGARDS yet. So to be able to use a new module into the REGARDS frontend, you have to : 
+ - Add your module to the list of linked regards modules into the "webapp/scripts/boostrap.sh" script. : 
+ ```bash
+ npm link web_modules/modules/new-module-name
+ ```
+ - Add your module to the list of depencies into the main "webapp/package.json" : "@regardsoss-modules/new-module-name": "<module version>"
+ - Add your module to the list of available modules. To do so, update the file "webapp/web_modules/utils/modules/src/ModulesManager.js" to add your new moudle into the `AVAILABLE_MODULES` variable. Each value in this variable reference the name of the module as it is defined in the webapck dependencies. So to add the new module "@regardsoss-modules/myModule", just add "myModule" into the `AVAILABLE_MODULES` variable.
+
+To understand the main architecture of a pluggable module see the main.js file :
 
 ```javascript
 export default {
@@ -56,6 +77,15 @@ export default {
   dependencies,
 }
 ```
+
+<b> For developers </b> :
+The regards frontend is developped in Javascript language with the `React` and `Redux` libraries. If you want to learn how to use this libraries you can view the here under videos from egghead :
+  - React : https://egghead.io/courses/react-native-fundamentals
+  - Redux : https://egghead.io/courses/getting-started-with-redux
+
+Nevertheless, a module can be developped without this libraries. The only obligation is to always return React components from the main.js for ModuleContainer and AdminContainer but the code into this components can be any javascript.
+
+To match with the general UI design we recommend to use Material-ui librabry (see http://www.material-ui.com/).
 
 ### AdminContainer
 
@@ -299,4 +329,15 @@ export default {
 }
 
 ```
+
+### Test yout module
+
+To test your module you can run the webapp with a mocked back-end. To do so use the here under command from the "webapp" directory.
+```bash
+npm run start:withmock
+```
+
+To access the frontend webapp fo to "http://localhost:3333" address with your favorite web browser.  
+To initialize your new module go to "http://localhost:3333/admin/<project>/ui/module/user/create".  
+To view your initialized new module go to "http://localhost:3333/user/<project>".   
 
