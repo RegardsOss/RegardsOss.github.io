@@ -110,7 +110,7 @@ Map<Path, URL> rawArchivedFiles = stafController.getRawFilesArchived(preparedFil
 
 ## 2\.3 To restore files
 
-Note : The restoration can be asynchronous. So to handle file well restored, the STAFController us a IClientCollectListener object. After each restoration success or fail the IClientCollectListener is notify.
+Note : The restoration can be asynchronous. So to handle files well restored, the STAFController uses a IClientCollectListener object. After each restoration success or fail the IClientCollectListener is notified.
 
 ```java
 // List of STAF URL of files to restore.
