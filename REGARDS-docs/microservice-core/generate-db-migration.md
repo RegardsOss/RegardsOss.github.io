@@ -1,5 +1,5 @@
 ---
-layout: classic-category
+layout: classic-docs
 title: Generate Database Migration
 short-title: Database migration
 categories:
