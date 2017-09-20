@@ -145,6 +145,8 @@ This folder contains all _dynamic_ modules, ie all modules that can be configure
 1. `search-graph`: Allows browsing catalog collections and datasets
 1. `search-results`: Displays catalog datasets and dataobjects
 
+You can get additionnal informations [here](/frontend/modules/dynamic-modules/)  
+
 ### Utils modules
 This folder holds modules providing high level services, tools and components shared by all application interfaces (admininistration, user application and portal application).
 

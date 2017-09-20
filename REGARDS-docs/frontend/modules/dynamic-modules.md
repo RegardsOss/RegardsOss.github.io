@@ -6,10 +6,9 @@ short-title: Lazy modules
 
 ## Description
 
-A lazy loadable module is a plugable module that you can use where you want on the `User project` and `Portal` interfaces,
-allowing you to customize the style, how the module will be displayed...
+A lazy loadable module is a plugable module that you can use where you want on the `User project` and `Portal` interfaces, allowing you to customize the style, how the module will be displayed...
 
-Microservices `rs-access-instance` and `rs-access-project` stores the configuration of each modules
+Microservices `rs-access-instance` and `rs-access-project` store the configuration of each modules
 and send it back to users browsing `User project` and `Portal` interfaces.
 
 ## End admin usage
@@ -24,7 +23,9 @@ Here is the list of available modules :
 
   | Module         | Description                       |
   |----------------|-----------------------------------|
-  | authentication | Add the authentication functionalities |
+  | archival-storage-aip-status | **Not ready in REGARDS V1** Displays AIP storage jobs status |
+  | archival-storage-plugins-monitoring | **Not ready in REGARDS V1** Displays AIP plugins storage capacities and remaining spaces. |
+  | authentication | Provides the authentication functionalities (connexion, account creation, password reset...) |
   | home-page      | Display a configured home-page as dialog |
   | licenses       | Display the project license inside a dialog after user authentication |
   | menu           | Display the main menu of the interface |
@@ -32,6 +33,7 @@ Here is the list of available modules :
   | search-form    | Display a search form and allow to consult results |
   | search-results | Display the result of the given REGARDS catalog opensearch request |
   | search-graph   | Allow define a collection tree and allow to navigate into in order to consult datasets contents |
+
 
 ## Create a new module
 
