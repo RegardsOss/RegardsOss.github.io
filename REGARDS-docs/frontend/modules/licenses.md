@@ -1,7 +1,7 @@
 ---
 layout: classic-docs
-title: @regardsoss/licenses
-short-title: @regardsoss/licenses
+title: Frontend - Dynamic module : licenses
+short-title: licenses
 ---
 
 ## Description

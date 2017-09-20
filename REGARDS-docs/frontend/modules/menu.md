@@ -1,7 +1,7 @@
 ---
 layout: classic-docs
-title: @regardsoss/menu
-short-title: @regardsoss/menu
+title: Frontend - Dynamic module : menu
+short-title: menu
 ---
 
 ## Description

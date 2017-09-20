@@ -1,7 +1,7 @@
 ---
 layout: classic-docs
-title: @regardsoss/projects-list
-short-title: @regardsoss/projects-list
+title: Frontend - Dynamic module : projects-list
+short-title: projects-list
 ---
 
 ## Description

@@ -1,7 +1,7 @@
 ---
 layout: classic-docs
-title: @regardsoss/search-form
-short-title: @regardsoss/search-form
+title: Frontend - Dynamic module : search-form
+short-title: search-form
 ---
 
 ## Description

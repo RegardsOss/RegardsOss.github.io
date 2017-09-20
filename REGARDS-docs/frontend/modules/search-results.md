@@ -1,7 +1,7 @@
 ---
 layout: classic-docs
-title: @regardsoss/search-results
-short-title: @regardsoss/search-results
+title: Frontend - Dynamic module : search-results
+short-title: search-results
 ---
 
 ## Description

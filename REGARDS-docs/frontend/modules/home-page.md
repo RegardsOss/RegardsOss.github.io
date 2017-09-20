@@ -1,7 +1,7 @@
 ---
 layout: classic-docs
-title: @regardsoss/home-page
-short-title: @regardsoss/home-page
+title: Frontend - Dynamic module : home-page
+short-title: home-page
 ---
 
 ## Description

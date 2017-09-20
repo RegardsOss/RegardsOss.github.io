@@ -1,7 +1,7 @@
 ---
 layout: classic-docs
-title: @regardsoss/search-graph
-short-title: @regardsoss/search-graph
+title: Frontend - Dynamic module : search-graph
+short-title: search-graph
 ---
 
 ## Description

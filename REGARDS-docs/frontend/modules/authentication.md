@@ -1,7 +1,7 @@
 ---
 layout: classic-docs
-title: @regardsoss/authentication
-short-title: @regardsoss/authentication
+title: Frontend - Dynamic module : authentication
+short-title: authentication
 ---
 
 
