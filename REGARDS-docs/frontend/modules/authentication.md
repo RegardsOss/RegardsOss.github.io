@@ -1,6 +1,6 @@
 ---
 layout: classic-docs
-title: Frontend - Dynamic module : authentication
+title: Frontend - Dynamic module authentication
 short-title: authentication
 ---
 

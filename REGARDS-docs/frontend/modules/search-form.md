@@ -1,6 +1,6 @@
 ---
 layout: classic-docs
-title: Frontend - Dynamic module : search-form
+title: Frontend - Dynamic module search-form
 short-title: search-form
 ---
 
@@ -45,13 +45,13 @@ This module as a dynamic configurable module exposes is own :
 
 # Internationalization
 
-  All displayed labels are defined in two languages (English and French) and are avaible from the i18n repository.
+All displayed labels are defined in two languages (English and French) and are avaible from the i18n repository.
   
 # Usage
 
-  To display a dynamic module as the current one you have to use the here under code :
+To display a dynamic module as the current one you have to use the here under code :
    
-  ```javascript
+```javascript
     render() {
     const moduleConfiguration = {
        type: 'search-form',
@@ -66,7 +66,7 @@ This module as a dynamic configurable module exposes is own :
           />
       )
     }
-  ```
+```
   
   
   
