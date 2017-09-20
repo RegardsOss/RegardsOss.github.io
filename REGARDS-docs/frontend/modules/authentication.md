@@ -17,7 +17,6 @@ This module is used to manage :
   
 ## Module structure
 
- .  
  ├── src  
  |   ├──  
  |   ├── clients         : Define all backend clients needed to request/send information  
@@ -48,15 +47,15 @@ This module as a dynamic configurable module exposes is own :
   - messagesDir      : Messages and labels internationalization directory (default : 'modules/menu/src/i18n')
   - dependencies     : The needed resources (backend enpoints) to display each part of the module
 
-# Internationalization
+## Internationalization
 
-  All displayed labels are defined in two languages (English and French) and are avaible from the i18n repository.
+All displayed labels are defined in two languages (English and French) and are avaible from the i18n repository.
   
-# Usage
+## Usage
 
   To display a dynamic module as the current one you have to use the here under code :
    
-  ```javascript
+```javascript
     render() {
     const moduleConfiguration = {
        type: 'authentication',
@@ -71,7 +70,4 @@ This module as a dynamic configurable module exposes is own :
           />
       )
     }
-  ```
-  
-  
-  
+```
