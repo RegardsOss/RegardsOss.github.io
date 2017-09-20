@@ -6,15 +6,15 @@ short-title: Lazy modules
 
 ## Description
 
-A lazy loadable module is a plugable module that you can use where you want on the `User project` and `Portal` interfaces, allowing you to customize the style, how the module will be displayed...
+A lazy loadable module is a plugable module that you can use where you want on the `User project` and `Portal` interfaces, allowing you to customize the style, modules settings...
 
 Microservices `rs-access-instance` and `rs-access-project` store the configuration of each modules
 and send it back to users browsing `User project` and `Portal` interfaces.
 
 ## End admin usage
 
-To use REGARDS modules, you first need to configure `Application layout` and sections.  
-Then you will be able to load modules inside sections with custom configuration if required.  
+To use REGARDS modules, you first need to configure an `Application layout` to contains some sections.  
+Then you will be able to load modules inside sections with a custom configuration if you want to.  
 
 ## Module list
 
@@ -50,16 +50,16 @@ $ yo regards-ui-module
 After the last command, informations will be asked for the new module to generate.    
 After the process is over, the all source architecture of a module is iniatialized with some simple exemples.
 
-<b>Important :</b>  
+**Important :**  
 Modules are not set as plugin into REGARDS yet. So to be able to use a new module into the REGARDS frontend, you have to : 
- - Add your module to the list of linked regards modules into the "webapp/scripts/boostrap.sh" script. : 
+ - Add your module to the list of linked regards modules into the `webapp/scripts/boostrap.sh` script : 
  ```bash
  npm link web_modules/modules/new-module-name
  ```
- - Add your module to the list of depencies into the main "webapp/package.json" : "@regardsoss-modules/new-module-name": "<module version>"
- - Add your module to the list of available modules. To do so, update the file "webapp/web_modules/utils/modules/src/ModulesManager.js" to add your new moudle into the `AVAILABLE_MODULES` variable. Each value in this variable reference the name of the module as it is defined in the webapck dependencies. So to add the new module "@regardsoss-modules/myModule", just add "myModule" into the `AVAILABLE_MODULES` variable.
+ - Add your module to the list of depencies into the main `webapp/package.json` : `"@regardsoss-modules/new-module-name": "<module version>"`
+ - Add your module to the list of available modules. To do so, update the file `webapp/web_modules/utils/modules/src/ModulesManager.js` to add your new moudle into the `AVAILABLE_MODULES` variable. Each value in this variable reference the name of the module as it is defined in the webapck dependencies. So to add the new module `@regardsoss-modules/myModule`, just add "myModule" into the `AVAILABLE_MODULES` variable.
 
-To understand the main architecture of a pluggable module see the main.js file :
+To understand the main architecture of a pluggeable module,  see the main.js file :
 
 ```javascript
 export default {
@@ -78,14 +78,12 @@ export default {
 }
 ```
 
-Nevertheless, a module can be developped without this libraries. The only obligation is to always return React components from the main.js for ModuleContainer and AdminContainer but the code into this components can be any javascript.
-
-To match with the general UI design we recommend to use Material-ui librabry (see http://www.material-ui.com/).
+To match with the general UI design, we highly recommend to use Material-ui library (see http://www.material-ui.com/).
 
 ### AdminContainer
 
-The `AdminContainer` **is facultative**. If you don't require a module configuration
-you do not need to specify the `AdminContainer` in the `main.js` module entrypoint.
+The `AdminContainer` **is facultative**. If you don't require a module configuration, 
+you don't need to specify the `AdminContainer` in the `main.js` module entrypoint.
 
 The here-under React component example shows you how to create a form to create a configuration of your module.  
 
