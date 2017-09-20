@@ -10,7 +10,7 @@ This document aims at helping the developper to create a plugin service, that ca
 following sections are appliable to the plugin service:
 * Code structure
 * Entry point
-* Main react component (except for provided parameters and criteria research, that doesn't fit the purpose of a service plugin)
+* Main react component, although it holds differences on properties
 * Plugin compilation
 
 ## Definition
