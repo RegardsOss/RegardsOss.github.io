@@ -6,13 +6,18 @@ categories:
   - frontend
 ---
 
-The REGARDS frontend provide :
- - A `Portal interface` fully configurable (layout and modules or features). Entry point see webapp/web_modules/business-modules/portal
- - A `User interface` fully configurable (layout and modules or features). Entry point see webapp/web_modules/business-modules/user
- - An `Administrator interface`. Entry point see webapp/web_modules/business-modules/admin
- 
-The configurable modules (or features) are [Dynamic modules](/frontend/modules/dynamic-modules/).  
+The REGARDS frontend contains three differents interfaces:
+ - The `Portal interface`, fully configurable (layout, theme and modules displayed), that lists projects. 
+ - The `User interface`, fully configurable (layout, theme and modules displayed), that lets users browse project content. 
+ - The `Administrator interface` allows **Instance admin** to create Projects and **Project Admin** to configure projects. 
+
+You can refer to the [#business-modules](business modules dependency graph) to get an overview on how these three interfaces are loaded by our app.
+
+Moreover, for the `Portal` and `User` interfaces, we've created [Dynamic modules](/frontend/modules/dynamic-modules/) to brings UI features that the administrator can controll (options, layout,...).
   
+
+### Overall architecture
+
 The REGARDS frontend is divided in several NPM modules, each one has a `package.json` file defining the name of the module in the application. It allows us to import a module using his name instead of using a relative path.
 
 ```
@@ -20,7 +25,7 @@ import { configureStore } from '@regardsoss/store' // Good
 import { configureStore } from '../web_modules/data/store/src/main.js' // It works, but that's a bad practice
 ```
 
-### Overall architecture
+Before understanding further the role of each module, here are the main files used to create the app: 
 
 ```
 ├── webapp                                    # REGARDS Frontend folder
@@ -30,7 +35,6 @@ import { configureStore } from '../web_modules/data/store/src/main.js' // It wor
     ├── reports                               # Local reports
     |  ├── coverage                           # Coverage report
     |  ├── mocha                              # Test report
-    |  └── storybook                          # Storybook static website (when generated once)
     ├── scripts                               # Shell scripts (Linux only) that our package.json refers to
     |  └── bootstrap.sh                       # Create NPM links between modules / node system folder / main app
     ├── src                                   # Application root folder
@@ -38,12 +42,12 @@ import { configureStore } from '../web_modules/data/store/src/main.js' // It wor
     |  ├── rootReducer.js                     # Load the Redux tree
     |  └── rootRouter.js                      # Load the react-router logic
     ├── tests                                 # tests related to the folder ./src
-    ├── web_modules                           # Contains all @regardsoss modules
+    ├── web_modules                           # Contains all @regardsoss and @regardsoss-modules modules
     |  ├── business-common                    # Reusable business logic
     |  ├── business-modules                   # Modules related to the admin app
     |  ├── components                         # Reusable React components
     |  ├── data                               # PropTypes & everything to interact with the backend server
-    |  ├── modules                            # Dynamic configurable Modules related to the portal/user app
+    |  ├── modules                            # Dynamic configurable Modules related to the portal & user app
     |  ├── utils                              # REGARDS "generic" toolkit we've build
     |  └── vendors                            # Libraries fork we've done
     ├── package.json                          # Define npm scripts and list all dependencies
@@ -53,9 +57,9 @@ import { configureStore } from '../web_modules/data/store/src/main.js' // It wor
     ├── webpack.prod.config.js                # Used when building the app to run in production mode
     ├── webpack.dev.dll.config.js             # Used to generate DLL in development mode (fast hot reload)
     ├── webpack.prod.core.dll.config.js       # Used to generate DLL in prodocution mode (by plugins)
-    ├── webpack.prod.coreoss.dll.config.js    # Used to generate DLL in prodocution mode (by plugins)
-    └── webpack.common.config.js              # Webpack generic (used by every build)
+    └── webpack.prod.coreoss.dll.config.js    # Used to generate DLL in prodocution mode (by plugins)
 ```
+
 
 ### Common businness modules (business-common)
 
