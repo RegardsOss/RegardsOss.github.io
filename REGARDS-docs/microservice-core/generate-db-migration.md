@@ -12,9 +12,11 @@ categories:
 We're using the automatic generation of HBM2DDL to migrate without loosing data. Here is what you should do : 
 1. Create a class test in your DAO layer nammed `*Generator*`
 1. Make that class extends `AbstractScriptGeneratorTest`
-1. Remove and recreate public schema from the target database
+1. Remove and recreate public schema on the PostGres database that you use on tests
+1. Run your class test
 1. Open the file `<module>-dao/target/project_script.sql`
-1. Create your own script migration using all these informations
+1. Create your own migration script `<module>-dao/src/main/resources/scripts/Vx.y.z__<description>.sql`
+1. On the content of `<module>-dao/target/project_script.sql`, remove all SQL not related to the current module and just keep differences. Finally, convert these differences into minimal updates. 
 
 ## Overview
 
