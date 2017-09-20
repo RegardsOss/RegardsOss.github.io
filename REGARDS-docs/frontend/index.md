@@ -3,7 +3,7 @@ layout: classic-docs
 title: REGARDS Frontend
 short-title: Frontend
 categories:
-  - Overview
+  - frontend
 ---
 
 # Frontend

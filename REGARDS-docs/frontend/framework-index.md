@@ -1,9 +1,9 @@
 ---
 layout: classic-docs
-title: Architecture & Overall presentation
-short-title: Architecture and presentation
+title: Frontend Framework
+short-title: Framework
 categories:
-  - Framework
+  - frontend
 ---
 
 

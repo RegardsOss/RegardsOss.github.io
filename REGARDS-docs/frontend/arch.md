@@ -1,9 +1,9 @@
 ---
 layout: classic-docs
 title: Architecture & Overall presentation
-short-title: Architecture and presentation
+short-title: Architecture
 categories:
-  - Architecture
+  - frontend
 ---
 
 The REGARDS frontend provide :

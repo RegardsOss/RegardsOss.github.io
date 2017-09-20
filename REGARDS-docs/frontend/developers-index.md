@@ -1,13 +1,12 @@
 ---
 layout: classic-docs
-title: Architecture & Overall presentation
-short-title: Architecture and presentation
+title: How to develop new features
+short-title: Developers
 categories:
-  - Developers
+  - frontend
 ---
 
 
-How to develop new features : 
   - [Getting started](/frontend/setup/)
   - [Develop dynamic modules](/frontend/modules/dynamic-modules/)
   - [Develop plugins](/frontend/plugins/index/)
