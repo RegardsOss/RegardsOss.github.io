@@ -16,7 +16,7 @@ Note that frontend plugins are not designed in the same way than backend plugins
 
 ## Create a new plugin
 
-You can create a new module using the yeoman generator `generator-regards-ui-plugin` provided with sources into "webapp/yeoman/generator-regards-ui-plugin".  
+You can create a new module using the yeoman generator `generator-regards-ui-plugin` provided with sources into `webapp/yeoman/generator-regards-ui-plugin`.  
 
 ```bash
 $ cd webapp/yeoman
@@ -25,8 +25,9 @@ $ npm install -g ./generator-regards-ui-plugin
 $ cd ../plugins
 $ yo regards-ui-plugin
 ```
-After the last command, informations will be asked for the new module to generate.    
-After the process is over, the all source architecture of a module is iniatialized with some simple exemples.
+Yeoman will ask you some informations to generate the new module.    
+Once finished, the architecture of the plugin is iniatialized with some basics examples.  
+Now, let's try to compile and show the plugin in the app !
 
 ## Compile your plugin
 

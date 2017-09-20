@@ -323,14 +323,14 @@ export default {
 
 ```
 
-### Test yout module
+### Test your module
 
-To test your module you can run the webapp with a mocked back-end. To do so use the here under command from the "webapp" directory.
+To test your module you can run the webapp with a mocked back-end. To do so, use the here under command in the `webapp` directory.
 ```bash
 npm run start:withmock
 ```
 
-To access the frontend webapp fo to "http://localhost:3333" address with your favorite web browser.  
-To initialize your new module go to "http://localhost:3333/admin/<project>/ui/module/user/create".  
-To view your initialized new module go to "http://localhost:3333/user/<project>".   
+To access the frontend webapp fo to `http://localhost:3333` address with your favorite web browser.  
+To initialize your new module go to `http://localhost:3333/admin/<project>/ui/module/user/create`.  
+To view your initialized module go to `http://localhost:3333/user/<project>`.   
 

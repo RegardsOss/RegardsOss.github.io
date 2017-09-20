@@ -19,7 +19,7 @@ We export here under ESLint configurations for your usage.
 | plugin:lodash        | `recommended` | Specific rules for lodash library |
 | plugin:promise       | `recommended` | Enforce best practices for JavaScript promises |
  
-To use our configuration package add te code here under to your .eslintrc configuration file
+To use our configuration package add te code here under to your `.eslintrc` configuration file
 
 ```json
 {
