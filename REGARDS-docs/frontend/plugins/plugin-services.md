@@ -1,14 +1,12 @@
 ---
 layout: classic-docs
-title: Services
+title: Plugin services
 short-title: Services
-categories:
-  - frontend
 ---
 
 ## Description
 
-This document aims at helping the developper to create a plugin service, that can be used in regards results. Before, reading any further, make sure to read the plugins page, as 
+This document aims at helping the developper to create a plugin service, that can be used in regards results. Before, reading any further, make sure to read the plugins page ([Common plugins description](/frontend/plugins/plugins/)), as 
 following sections are appliable to the plugin service:
 * Code structure
 * Entry point

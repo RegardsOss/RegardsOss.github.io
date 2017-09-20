@@ -2,8 +2,6 @@
 layout: classic-docs
 title: IntelliJ templates
 short-title: IntelliJ templates
-categories:
-  - frontend
 ---
 
 This page propose intelliJ templates to create new files in IntelliJ with some boilerplate already defined - time win!

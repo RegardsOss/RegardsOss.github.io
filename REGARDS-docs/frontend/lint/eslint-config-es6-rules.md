@@ -2,8 +2,6 @@
 layout: classic-docs
 title: regardsoss/eslint-config-es6-rules
 short-title: Eslint config
-categories:
-  - frontend-modules
 ---
 
 This package provides regards's `.eslintrc` as an extensible shared config.

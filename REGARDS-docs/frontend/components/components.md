@@ -2,8 +2,6 @@
 layout: classic-docs
 title: regardsoss/components
 short-title: Components
-categories:
-  - frontend-modules
 ---
 
 ## Description

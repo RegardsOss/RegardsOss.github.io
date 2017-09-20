@@ -2,8 +2,6 @@
 layout: classic-docs
 title: Architecture & Overall presentation
 short-title: Architecture and presentation
-categories:
-  - frontend
 ---
 
 The REGARDS frontend is divided in several NPM modules, each one has a `package.json` file defining the name of the module in the application. It allows us to import a module using his name instead of using a relative path.

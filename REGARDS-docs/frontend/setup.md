@@ -2,8 +2,6 @@
 layout: classic-docs
 title: Development setup and build
 short-title: Setup and build
-categories:
-  - frontend
 ---
 
 # Requirements
