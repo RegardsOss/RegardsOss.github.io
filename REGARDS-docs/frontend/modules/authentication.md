@@ -12,7 +12,7 @@ This module is used to manage :
   - Authentication to the REGARDS services
   - Unlock accounts
   - Token expiration and session locking
-  - User instansce account and / or project account creation
+  - User instance account and / or project account creation
   - Users password change
   
 ## Module structure
