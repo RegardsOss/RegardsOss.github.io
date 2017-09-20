@@ -1,12 +1,11 @@
 ---
 layout: classic-docs
-title: REGARDS Frontend
-short-title: Frontend
+title: Frontend Overview
+short-title: Overview
 categories:
   - frontend
 ---
 
-# Frontend
 
  General architechture definitions : 
   - [Architecture](/frontend/arch/)
