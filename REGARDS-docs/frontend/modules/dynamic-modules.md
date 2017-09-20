@@ -2,8 +2,6 @@
 layout: classic-docs
 title: Dynamic lazy loadable modules
 short-title: Lazy modules
-categories:
-  - frontend
 ---
 
 ## Description

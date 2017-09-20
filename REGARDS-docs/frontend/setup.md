@@ -14,6 +14,11 @@ You shall
 
 The latest version of npm (v5) and node (v8) are not stable enough to be used with REGARDS. But when their issues will be fixed, the npm run-script `bootstrap` will be renamed into `preinstall` and `npm install` will be sufficient.
 
+> <b>Important</b>
+> As REGARDS frontend is developped around the two main libraries `React` (https://facebook.github.io/react/) and `Redux` (http://redux.js.org) we recommand as first step for new developers to learn how to use them. Our team used the here under egghead > videos to learn in a minimum amount of time.
+>   - React : https://egghead.io/courses/react-native-fundamentals
+>   - Redux : https://egghead.io/courses/getting-started-with-redux
+
 
 # Local installation
 
@@ -41,8 +46,14 @@ npm install
 
 ### Run the frontend :
 
+Run frontend with real backend microservices :
 ```
 npm start
+```
+
+Run frontend with mocked micrservices (the real microservices don't need to be available with this mode) :
+```
+npm start:withmock
 ```
 
 Then opens your browser at [http://localhost:3333/](http://localhost:3333/)  

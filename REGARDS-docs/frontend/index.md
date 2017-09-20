@@ -9,8 +9,7 @@ categories:
 # Frontend
 
  General architechture definitions : 
-  - [Architecture](/frontend/arch.md/)
-  - [Getting started](/frontend/setup/)
+  - [Architecture](/frontend/arch/)
   
  How to use existing dynamic modules ( from /webapp/web_modules/modules):
   - [Authentication](/frontend/modules/authentication/)
@@ -21,13 +20,14 @@ categories:
   - [Search form](/frontend/modules/search-form/)
   - [search results](/frontend/modules/search-results/)
   
- How to framework components : 
+ How to develop new features : 
+  - [Getting started](/frontend/setup/)
+  - [Develop dynamic modules](/frontend/modules/dynamic-modules/)
+  - [Develop plugins](/frontend/plugins/index/)
+  - [Linter](/frontend/eslint-config-es6-rules/)
+  - [InteliJ](/frontend/ide/inteliJ-templates/)
+  - [Storybook](/frontend/storybook/storybook/)
+
+ How to use Framework components : 
   - [Widget components](/frontend/components/components/)
   - [Backend interactions](/frontend/components/clients/)
-  
- How to develop new features : 
-  - [Linter](/frontend/eslint-config-es6-rules.md/)
-  - [InteliJ](/frontend/ide/inteliJ-templates/)
-  - [Develop modules](/frontend/modules/dynamic-modules/)
-  - [Develop plugins](/frontend/plugins/index/)
-  - [Storybook](/frontend/storybook/storybook/)

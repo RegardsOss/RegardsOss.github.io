@@ -4,6 +4,13 @@ title: Architecture & Overall presentation
 short-title: Architecture and presentation
 ---
 
+The REGARDS frontend provide :
+ - A `Portal interface` fully configurable (layout and modules or features). Entry point see webapp/web_modules/business-modules/portal
+ - A `User interface` fully configurable (layout and modules or features). Entry point see webapp/web_modules/business-modules/user
+ - An `Administrator interface`. Entry point see webapp/web_modules/business-modules/admin
+ 
+The configurable modules (or features) are [Dynamic modules](/frontend/modules/dynamic-modules/).  
+  
 The REGARDS frontend is divided in several NPM modules, each one has a `package.json` file defining the name of the module in the application. It allows us to import a module using his name instead of using a relative path.
 
 ```
@@ -34,7 +41,7 @@ import { configureStore } from '../web_modules/data/store/src/main.js' // It wor
     |  ├── business-modules                   # Modules related to the admin app
     |  ├── components                         # Reusable React components
     |  ├── data                               # PropTypes & everything to interact with the backend server
-    |  ├── modules                            # Modules related to the portal/user app
+    |  ├── modules                            # Dynamic configurable Modules related to the portal/user app
     |  ├── utils                              # REGARDS "generic" toolkit we've build
     |  └── vendors                            # Libraries fork we've done
     ├── package.json                          # Define npm scripts and list all dependencies

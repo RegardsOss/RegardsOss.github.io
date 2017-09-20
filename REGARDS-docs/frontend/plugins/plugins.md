@@ -9,10 +9,24 @@ The main advantage is to allow operators to create dedicated HMI depending of th
 on the project, instead of creating your own fork of rs-frontend just to fits your project needs.
 
 There is currently two types of plugins :
- - criterions: Used in the search form, this type of plugin allows users to create a search filter for a single attribute.
+ - criterion: Used in the search form, this type of plugin allows users to create a search filter for a single attribute.
  - services: Used in the search result table, they provide additionnals interactions with data they are associated to. You can ask several values from the user before displaying your service in a popup.
 
 Note that frontend plugins are not designed in the same way than backend plugins.
+
+## Create a new plugin
+
+You can create a new module using the yeoman generator `generator-regards-ui-plugin` provided with sources into "webapp/yeoman/generator-regards-ui-plugin".  
+
+```bash
+$ cd webapp/yeoman
+$ npm install -g yo
+$ npm install -g ./generator-regards-ui-plugin
+$ cd ../plugins
+$ yo regards-ui-plugin
+```
+After the last command, informations will be asked for the new module to generate.    
+After the process is over, the all source architecture of a module is iniatialized with some simple exemples.
 
 ## Compile your plugin
 
