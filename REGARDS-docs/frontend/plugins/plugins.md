@@ -9,8 +9,8 @@ The main advantage is to allow operators to create dedicated HMI depending of th
 on the project, instead of creating your own fork of rs-frontend just to fits your project needs.
 
 There is currently two types of plugins :
- - criterion: Used in the search form, this type of plugin allows users to create a search filter for a single attribute.
- - services: Used in the search result table, they provide additionnals interactions with data they are associated to. You can ask several values from the user before displaying your service in a popup.
+ - `criterion`: Used in the search form, this type of plugin allows users to create a search filter for a single attribute.
+ - `services`: Used in the search result table, they provide additionnals interactions with data they are associated to. You can ask several values from the user before displaying your service in a popup.
 
 Note that frontend plugins are not designed in the same way than backend plugins.
 
@@ -54,7 +54,7 @@ $ npm run test
 $ npm run lint:fix 
 ```
 
-### Deploy plugin into regards 
+### Deploy your plugin into regards 
 
 After compiling your plugin you have a plugin.js file. Copy this file in the `/plugins` repository of the `rs-frontend microservice`.
 Trough the administrator interface you can add the plugin from the "User interface / Plugins" menu.  

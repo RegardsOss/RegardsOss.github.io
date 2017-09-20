@@ -14,7 +14,7 @@ and send it back to users browsing `User project` and `Portal` interfaces.
 
 ## End admin usage
 
-To use REGARDS modules in the IHM, you first need to configure `Application layout` and sections.  
+To use REGARDS modules, you first need to configure `Application layout` and sections.  
 Then you will be able to load modules inside sections with custom configuration if required.  
 
 ## Module list

@@ -30,7 +30,7 @@ First of all you have to create a `client.js` to defined the 3 `Redux` standard 
  
 The example bellow show you how to create a `ModelClient.js` to request models from rs-dam.
 
-#### Create the ModelClient.js
+#### 1\. Create the ModelClient.js
 ```js
 import { DataManagementClient } from '@regardsoss/client'
 
@@ -51,7 +51,9 @@ export default {
 Notes : 
  - ENTITIES_STORE_PATH : Is the full path into redux store to store backend responses.
  - REDUX_ACTION_NAMESPACE : Name of the action sent to redux.
-#### Link the reducer to the global application reducers.
+ 
+#### 2\. Link the reducer to the global application reducers.
+
 Add associated reducers to your module reducers :
 ```js
 import { combineReducers } from 'redux'
