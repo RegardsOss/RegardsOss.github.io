@@ -4,7 +4,7 @@ title: Development setup and build
 short-title: Setup and build
 ---
 
-# Requirements
+## Requirements
 
 You shall
 - use Linux or macOS
@@ -16,11 +16,11 @@ The latest version of npm (v5) and node (v8) are not stable enough to be used wi
 
 > **Important**
 > As REGARDS frontend is developped around two main libraries, `React` (https://facebook.github.io/react/) and `Redux` (http://redux.js.org), we highly recommand new developers to start by watching the here under [Egghead](https://egghead.io) videos to learn the basics of these two libraries.
->   - React : https://egghead.io/courses/react-native-fundamentals
->   - Redux : https://egghead.io/courses/getting-started-with-redux
+>   - [React](https://egghead.io/courses/react-native-fundamentals)
+>   - [Redux](https://egghead.io/courses/getting-started-with-redux)
 
 
-# Local installation
+## Local installation
 
 Clone the `rs-frontend` repository and open the webapp folder using your terminal:
 
@@ -42,7 +42,7 @@ npm install
 
 **Congratulation**, you're now ready to launch the frontend.
 
-# Run options
+## Run options
 
 ### Run the frontend :
 
@@ -87,7 +87,7 @@ You shall lint the entire app [using our Eslint](/frontend-modules/eslint-config
 npm run lint:fix
 ```
 
-# Know issues
+## Know issues
 
 - `npm run bootstrap` is not cross platform and cannot be executed on Windows (except on Windows 10 Bash)
 - `./scripts/bootstrap.sh` is not executable? Run the following command: `chmod +x ./scripts/bootstrap.sh`

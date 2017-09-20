@@ -78,11 +78,6 @@ export default {
 }
 ```
 
-<b> For developers </b> :
-The regards frontend is developped in Javascript language with the `React` and `Redux` libraries. If you want to learn how to use this libraries you can view the here under videos from egghead :
-  - React : https://egghead.io/courses/react-native-fundamentals
-  - Redux : https://egghead.io/courses/getting-started-with-redux
-
 Nevertheless, a module can be developped without this libraries. The only obligation is to always return React components from the main.js for ModuleContainer and AdminContainer but the code into this components can be any javascript.
 
 To match with the general UI design we recommend to use Material-ui librabry (see http://www.material-ui.com/).
