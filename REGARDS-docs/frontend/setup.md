@@ -18,6 +18,7 @@ The latest version of npm (v5) and node (v8) are not stable enough to be used wi
 > As REGARDS frontend is developped around two main libraries, [React](https://facebook.github.io/react/){:target="_blank"} and [Redux](http://redux.js.org){:target="_blank"}, we highly recommand new developers to start by watching the here under [Egghead](https://egghead.io) videos to learn the basics of these two libraries.
 >   - [React](https://egghead.io/courses/react-native-fundamentals){:target="_blank"}
 >   - [Redux](https://egghead.io/courses/getting-started-with-redux){:target="_blank"}  
+>  
 >New developers can also check at the [Material-ui](http://www.material-ui.com/#/components/app-bar){:target="_blank"} library which is used to design all components of the REGARDS frontend.
 
 
