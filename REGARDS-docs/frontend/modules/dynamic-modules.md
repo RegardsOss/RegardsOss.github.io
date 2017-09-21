@@ -6,7 +6,7 @@ short-title: Lazy modules
 
 ## Description
 
-A lazy loadable module is a plugable module that you can use where you want on the `User project` and `Portal` interfaces, allowing you to customize the style, modules settings...
+A lazy loadable module is a plugable module that you can use where you want on the `User project` and `Portal` interfaces, allowing you to add new features to user interfaces. Those modules can be configured from the administrator interface.  
 
 Microservices `rs-access-instance` and `rs-access-project` store the configuration of each modules
 and send it back to users browsing `User project` and `Portal` interfaces.
@@ -23,7 +23,7 @@ $ cd ../web_modules/modules
 $ yo regards-ui-module
 ```
 After the last command, informations will be asked for the new module to generate.    
-After the process is over, the all source architecture of a module is iniatialized with some simple exemples.
+When process is over, the all sources architecture of a module is iniatialized with some simple examples.
 
 **Important :**  
 Modules are not set as plugin into REGARDS yet. So to be able to use a new module into the REGARDS frontend, you have to : 
@@ -31,8 +31,8 @@ Modules are not set as plugin into REGARDS yet. So to be able to use a new modul
  ```bash
  npm link web_modules/modules/new-module-name
  ```
- - Add your module to the list of depencies into the main "webapp/package.json" : "@regardsoss-modules/new-module-name": "<module version>"
- - Add your module to the list of available modules. To do so, update the file "webapp/web_modules/utils/modules/src/ModulesManager.js" to add your new moudle into the `AVAILABLE_MODULES` variable. Each value in this variable reference the name of the module as it is defined in the webapck dependencies. So to add the new module "@regardsoss-modules/myModule", just add "myModule" into the `AVAILABLE_MODULES` variable.  
+ - Add your module to the list of depencies into the main "webapp/package.json" : "@regardsoss-modules/<new module name>": "<module version>"
+ - Add your module to the list of available modules. To do so, update the file "webapp/web_modules/utils/modules/src/ModulesManager.js" to add your new moudle into the `AVAILABLE_MODULES` variable. Each value in this variable reference the name of the module as it is defined in the webpack dependencies. So to add the new module "@regardsoss-modules/myModule", just add "myModule" into the `AVAILABLE_MODULES` variable.  
  
 **Congratulations**, your module is ready! You can now run the frontend with :
 ```bash
