@@ -4,7 +4,7 @@ title: Development setup and build
 short-title: Setup and build
 ---
 
-# Requirements
+## Requirements
 
 You shall
 - use Linux or macOS
@@ -14,13 +14,13 @@ You shall
 
 The latest version of npm (v5) and node (v8) are not stable enough to be used with REGARDS. But when their issues will be fixed, the npm run-script `bootstrap` will be renamed into `preinstall` and `npm install` will be sufficient.
 
-> <b>Important</b>
-> As REGARDS frontend is developped around the two main libraries `React` (https://facebook.github.io/react/) and `Redux` (http://redux.js.org) we recommand as first step for new developers to learn how to use them. Our team used the here under egghead > videos to learn in a minimum amount of time.
->   - React : https://egghead.io/courses/react-native-fundamentals
->   - Redux : https://egghead.io/courses/getting-started-with-redux
+> **Important**
+> As REGARDS frontend is developped around two main libraries, `React` (https://facebook.github.io/react/) and `Redux` (http://redux.js.org), we highly recommand new developers to start by watching the here under [Egghead](https://egghead.io) videos to learn the basics of these two libraries.
+>   - [React](https://egghead.io/courses/react-native-fundamentals)
+>   - [Redux](https://egghead.io/courses/getting-started-with-redux)
 
 
-# Local installation
+## Local installation
 
 Clone the `rs-frontend` repository and open the webapp folder using your terminal:
 
@@ -42,7 +42,7 @@ npm install
 
 **Congratulation**, you're now ready to launch the frontend.
 
-# Run options
+## Run options
 
 
 Run frontend with real backend microservices :
@@ -90,22 +90,7 @@ You shall lint the entire app [using our Eslint](/frontend-modules/eslint-config
 npm run lint:fix
 ```
 
-# Know issues
+## Know issues
 
 - `npm run bootstrap` is not cross platform and cannot be executed on Windows (except on Windows 10 Bash)
 - `./scripts/bootstrap.sh` is not executable? Run the following command: `chmod +x ./scripts/bootstrap.sh`
-
-
-# Webpack build pipelines
-
-Webpack offers several services to simplify our workflow.
-
-## Webpack common configuration
-
-All webpack configurations inherits from the common configuration.
-
-- the main files of this REGARDS-frontend is `src/main.js`
-- webpack resolves dependencies inside web_modules folder and inside node_modules.
-- when a dependency is required by a package, webpack fallback to the node_modules of the frontend app
-- js, jsx, css, js, json, jpg, woff, ttf, eot, svg are handled by their corresponding handler
-- React is provided globally on all `jsx` files

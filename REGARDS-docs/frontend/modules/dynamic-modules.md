@@ -6,10 +6,9 @@ short-title: Lazy modules
 
 ## Description
 
-A lazy loadable module is a plugable module that you can use where you want on the `User project` and `Portal` interfaces,
-allowing you to customize the style, how the module will be displayed...
+A lazy loadable module is a plugable module that you can use where you want on the `User project` and `Portal` interfaces, allowing you to customize the style, modules settings...
 
-Microservices `rs-access-instance` and `rs-access-project` stores the configuration of each modules
+Microservices `rs-access-instance` and `rs-access-project` store the configuration of each modules
 and send it back to users browsing `User project` and `Portal` interfaces.
 
 ## Create a new module
@@ -26,9 +25,9 @@ $ yo regards-ui-module
 After the last command, informations will be asked for the new module to generate.    
 After the process is over, the all source architecture of a module is iniatialized with some simple exemples.
 
-<b>Important :</b>  
+**Important :**  
 Modules are not set as plugin into REGARDS yet. So to be able to use a new module into the REGARDS frontend, you have to : 
- - Add your module to the list of linked regards modules into the "webapp/scripts/boostrap.sh" script. : 
+ - Add your module to the list of linked regards modules into the `webapp/scripts/boostrap.sh` script : 
  ```bash
  npm link web_modules/modules/new-module-name
  ```
@@ -73,14 +72,10 @@ The regards frontend is developped in Javascript language with the `React` and `
   - React : https://egghead.io/courses/react-native-fundamentals
   - Redux : https://egghead.io/courses/getting-started-with-redux
 
-Nevertheless, a module can be developped without this libraries. The only obligation is to always return React components from the main.js for ModuleContainer and AdminContainer but the code into this components can be any javascript.
-
-To match with the general UI design we recommend to use Material-ui librabry (see http://www.material-ui.com/).
-
 ### AdminContainer
 
-The `AdminContainer` **is facultative**. If you don't require a module configuration
-you do not need to specify the `AdminContainer` in the `main.js` module entrypoint.
+The `AdminContainer` **is facultative**. If you don't require a module configuration, 
+you don't need to specify the `AdminContainer` in the `main.js` module entrypoint.
 
 The here-under React component example shows you how to create a form to create a configuration of your module.  
 
@@ -320,14 +315,14 @@ export default {
 
 ```
 
-### Test yout module
+### Test your module
 
-To test your module you can run the webapp with a mocked back-end. To do so use the here under command from the "webapp" directory.
+To test your module you can run the webapp with a mocked back-end. To do so, use the here under command in the `webapp` directory.
 ```bash
 npm run start:withmock
 ```
 
-To access the frontend webapp fo to "http://localhost:3333" address with your favorite web browser.  
-To initialize your new module go to "http://localhost:3333/admin/<project>/ui/module/user/create".  
-To view your initialized new module go to "http://localhost:3333/user/<project>".   
+To access the frontend webapp fo to `http://localhost:3333` address with your favorite web browser.  
+To initialize your new module go to `http://localhost:3333/admin/<project>/ui/module/user/create`.  
+To view your initialized module go to `http://localhost:3333/user/<project>`.   
 

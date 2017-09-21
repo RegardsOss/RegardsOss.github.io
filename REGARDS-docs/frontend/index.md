@@ -23,8 +23,8 @@ categories:
   - [Getting started](/frontend/setup/)
   - [Develop dynamic modules](/frontend/modules/dynamic-modules/)
   - [Develop plugins](/frontend/plugins/index/)
-  - [Linter](/frontend/eslint-config-es6-rules/)
-  - [InteliJ](/frontend/ide/inteliJ-templates/)
+  - [Linter](/frontend/lint/eslint-config-es6-rules/)
+  - [InteliJ](/frontend/ide/intelliJ-templates/)
   - [Storybook](/frontend/storybook/storybook/)
 
  How to use Framework components : 
