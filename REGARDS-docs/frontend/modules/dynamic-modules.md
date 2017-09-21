@@ -34,7 +34,7 @@ Modules are not set as plugin into REGARDS yet. So to be able to use a new modul
  - Add your module to the list of depencies into the main "webapp/package.json" : "@regardsoss-modules/new-module-name": "<module version>"
  - Add your module to the list of available modules. To do so, update the file "webapp/web_modules/utils/modules/src/ModulesManager.js" to add your new moudle into the `AVAILABLE_MODULES` variable. Each value in this variable reference the name of the module as it is defined in the webapck dependencies. So to add the new module "@regardsoss-modules/myModule", just add "myModule" into the `AVAILABLE_MODULES` variable.  
  
-congratulations, your module is ready! You can now run the frontend with :
+**Congratulations**, your module is ready! You can now run the frontend with :
 ```bash
 $ cd webapp
 $ npm run bootstrap
