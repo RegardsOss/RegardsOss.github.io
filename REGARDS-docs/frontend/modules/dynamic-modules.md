@@ -42,8 +42,8 @@ $ npm install
 $ npm run start:withmock
 ```
 To instanciate and configure your new example module :  
- - go to [admin IHM](http://localhost:3333/admin/project1/ui/module/user/create) to instanciate and configure your module.
- - go to [user IHM](http://localhost:3333/user/project1) to see your module.
+ - go to [admin IHM](http://localhost:3333/admin/project1/ui/module/user/create){:target="_blank"} to instanciate and configure your module.
+ - go to [user IHM](http://localhost:3333/user/project1){:target="_blank"} to see your module.
  
 ## Dynamic Module architecture
 
@@ -67,10 +67,6 @@ export default {
   dependencies,
 }
 ```
-
-The regards frontend is developped in Javascript language with the `React` and `Redux` libraries. If you want to learn how to use this libraries you can view the here under videos from egghead :
-  - React : https://egghead.io/courses/react-native-fundamentals
-  - Redux : https://egghead.io/courses/getting-started-with-redux
 
 ### AdminContainer
 
@@ -314,15 +310,4 @@ export default {
 }
 
 ```
-
-### Test your module
-
-To test your module you can run the webapp with a mocked back-end. To do so, use the here under command in the `webapp` directory.
-```bash
-npm run start:withmock
-```
-
-To access the frontend webapp fo to `http://localhost:3333` address with your favorite web browser.  
-To initialize your new module go to `http://localhost:3333/admin/<project>/ui/module/user/create`.  
-To view your initialized module go to `http://localhost:3333/user/<project>`.   
 

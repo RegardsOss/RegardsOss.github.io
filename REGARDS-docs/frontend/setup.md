@@ -15,9 +15,9 @@ You shall
 The latest version of npm (v5) and node (v8) are not stable enough to be used with REGARDS. But when their issues will be fixed, the npm run-script `bootstrap` will be renamed into `preinstall` and `npm install` will be sufficient.
 
 > **Important**
-> As REGARDS frontend is developped around two main libraries, `React` (https://facebook.github.io/react/) and `Redux` (http://redux.js.org), we highly recommand new developers to start by watching the here under [Egghead](https://egghead.io) videos to learn the basics of these two libraries.
->   - [React](https://egghead.io/courses/react-native-fundamentals)
->   - [Redux](https://egghead.io/courses/getting-started-with-redux)
+> As REGARDS frontend is developped around two main libraries, [React](https://facebook.github.io/react/){:target="_blank"} and [Redux](http://redux.js.org){:target="_blank"}, we highly recommand new developers to start by watching the here under [Egghead](https://egghead.io) videos to learn the basics of these two libraries.
+>   - [React](https://egghead.io/courses/react-native-fundamentals){:target="_blank"}
+>   - [Redux](https://egghead.io/courses/getting-started-with-redux){:target="_blank"}
 
 
 ## Local installation
@@ -56,10 +56,10 @@ npm run start:withmock
 ```
 
 Then opens your browser at :
- - portal : [http://localhost:3333/](http://localhost:3333/)
- - admin instance : [http://localhost:3333/admin](http://localhost:3333/admin) login : regards_admin / root_admin
- - admin projet : [http://localhost:3333/admin/project1](http://localhost:3333/admin/project1) login : regards_admin / root_admin
- - user projet : [http://localhost:3333/user/project1](http://localhost:3333/user/project1) login : regards_admin / root_admin
+ - portal : [http://localhost:3333/](http://localhost:3333/){:target="_blank"}
+ - admin instance : [http://localhost:3333/admin](http://localhost:3333/admin){:target="_blank"} login : regards_admin / root_admin
+ - admin projet : [http://localhost:3333/admin/project1](http://localhost:3333/admin/project1){:target="_blank"} login : regards_admin / root_admin
+ - user projet : [http://localhost:3333/user/project1](http://localhost:3333/user/project1){:target="_blank"} login : regards_admin / root_admin
 
 ### Production build
 
