@@ -19,10 +19,10 @@ Note that frontend plugins are not designed in the same way than backend plugins
 You can create a new module using the yeoman generator `generator-regards-ui-plugin` provided with sources into "webapp/yeoman/generator-regards-ui-plugin".  
 
 ```bash
-$ cd webapp/yeoman
+$ cd webapp/yeoman/generator-regards-ui-plugin
 $ npm install -g yo
-$ npm install -g ./generator-regards-ui-plugin
-$ cd ../plugins
+$ npm link
+$ cd ../../plugins
 $ yo regards-ui-plugin
 ```
 After the last command, informations will be asked for the new module to generate.    

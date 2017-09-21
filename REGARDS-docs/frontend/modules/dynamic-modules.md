@@ -12,36 +12,14 @@ allowing you to customize the style, how the module will be displayed...
 Microservices `rs-access-instance` and `rs-access-project` stores the configuration of each modules
 and send it back to users browsing `User project` and `Portal` interfaces.
 
-## End admin usage
-
-To use REGARDS modules, you first need to configure `Application layout` and sections.  
-Then you will be able to load modules inside sections with custom configuration if required.  
-
-## Module list
-
-REGARDS modules have a specific [scoped package name](https://docs.npmjs.com/getting-started/scoped-packages) named `@regardsoss-modules`.  
-Here is the list of available modules :
-
-  | Module         | Description                       |
-  |----------------|-----------------------------------|
-  | authentication | Add the authentication functionalities |
-  | home-page      | Display a configured home-page as dialog |
-  | licenses       | Display the project license inside a dialog after user authentication |
-  | menu           | Display the main menu of the interface |
-  | projects-list  | Display the list of public accessible REGARDS projects and allow to access their "User project interface" |
-  | search-form    | Display a search form and allow to consult results |
-  | search-results | Display the result of the given REGARDS catalog opensearch request |
-  | search-graph   | Allow define a collection tree and allow to navigate into in order to consult datasets contents |
-
 ## Create a new module
 
-
-You can create a new module using the yeoman generator `generator-regards-ui-module` provided with sources into "webapp/yeoman/generator-regards-ui-module".  
+You can create a new module using the yeoman generator `generator-regards-ui-module` provided with sources into `webapp/yeoman/generator-regards-ui-module`.
 
 ```bash
-$ cd webapp/yeoman
+$ cd webapp/yeoman/generator-regards-ui-module
 $ npm install -g yo
-$ npm install -g ./generator-regards-ui-module
+$ npm link
 $ cd ../web_modules/modules
 $ yo regards-ui-module
 ```
@@ -55,7 +33,22 @@ Modules are not set as plugin into REGARDS yet. So to be able to use a new modul
  npm link web_modules/modules/new-module-name
  ```
  - Add your module to the list of depencies into the main "webapp/package.json" : "@regardsoss-modules/new-module-name": "<module version>"
- - Add your module to the list of available modules. To do so, update the file "webapp/web_modules/utils/modules/src/ModulesManager.js" to add your new moudle into the `AVAILABLE_MODULES` variable. Each value in this variable reference the name of the module as it is defined in the webapck dependencies. So to add the new module "@regardsoss-modules/myModule", just add "myModule" into the `AVAILABLE_MODULES` variable.
+ - Add your module to the list of available modules. To do so, update the file "webapp/web_modules/utils/modules/src/ModulesManager.js" to add your new moudle into the `AVAILABLE_MODULES` variable. Each value in this variable reference the name of the module as it is defined in the webapck dependencies. So to add the new module "@regardsoss-modules/myModule", just add "myModule" into the `AVAILABLE_MODULES` variable.  
+ 
+congratulations, your module is ready! You can now run the frontend with :
+```bash
+$ cd webapp
+$ npm run bootstrap
+$ npm install
+$ npm run start:withmock
+```
+To instanciate and configure your new example module :  
+ - go to [admin IHM](http://localhost:3333/admin/project1/ui/module/user/create) to instanciate and configure your module.
+ - go to [user IHM](http://localhost:3333/user/project1) to see your module.
+ 
+## Dynamic Module architecture
+
+### Description
 
 To understand the main architecture of a pluggable module see the main.js file :
 
@@ -76,7 +69,6 @@ export default {
 }
 ```
 
-<b> For developers </b> :
 The regards frontend is developped in Javascript language with the `React` and `Redux` libraries. If you want to learn how to use this libraries you can view the here under videos from egghead :
   - React : https://egghead.io/courses/react-native-fundamentals
   - Redux : https://egghead.io/courses/getting-started-with-redux

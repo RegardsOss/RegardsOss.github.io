@@ -44,7 +44,6 @@ npm install
 
 # Run options
 
-### Run the frontend :
 
 Run frontend with real backend microservices :
 ```
@@ -53,10 +52,14 @@ npm start
 
 Run frontend with mocked micrservices (the real microservices don't need to be available with this mode) :
 ```
-npm start:withmock
+npm run start:withmock
 ```
 
-Then opens your browser at [http://localhost:3333/](http://localhost:3333/)  
+Then opens your browser at :
+ - portal : [http://localhost:3333/](http://localhost:3333/)
+ - admin instance : [http://localhost:3333/](http://localhost:3333/admin) login : regards_admin / root_admin
+ - admin projet : [http://localhost:3333/](http://localhost:3333/admin/project1) login : regards_admin / root_admin
+ - user projet : [http://localhost:3333/](http://localhost:3333/user/project1) login : regards_admin / root_admin
 
 ### Production build
 
