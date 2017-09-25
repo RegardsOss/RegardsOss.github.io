@@ -1,7 +1,7 @@
 ---
 layout: classic-docs
-title: GeoJSON starter
-short-title: GeoJSON starter
+title: Authentication starter
+short-title: Authentication starter
 ---
 
 # 1\. Configuration
