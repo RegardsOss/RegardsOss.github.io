@@ -12,6 +12,7 @@ categories:
   - [Develop plugins](/frontend/plugins/index/)
   - [Messages internationalization](/frontend/components/internationalization/)
   - [Use global Material-ui theme](/frontend/components/theme/)
+  - [Create standard forms](/frontend/components/redux-form/)
   - [Linter](/frontend/lint/eslint-config-es6-rules/)
   - [InteliJ](/frontend/ide/intelliJ-templates/)
   - [Storybook](/frontend/storybook/storybook/)
