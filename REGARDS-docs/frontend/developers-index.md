@@ -10,6 +10,8 @@ categories:
   - [Getting started](/frontend/setup/)
   - [Develop dynamic modules](/frontend/modules/dynamic-modules/)
   - [Develop plugins](/frontend/plugins/index/)
+  - [Messages internationalization](/frontend/components/internationalization/)
+  - [Use global Material-ui theme](/frontend/components/theme/)
   - [Linter](/frontend/lint/eslint-config-es6-rules/)
   - [InteliJ](/frontend/ide/intelliJ-templates/)
   - [Storybook](/frontend/storybook/storybook/)

@@ -243,7 +243,7 @@ export default Example
 
 ```
 
-More information about the theme management on the `@regardsoss/theme` module
+More information about the theme management on the [@regardsoss/theme](/frontend/components/theme/) components 
 
 ### Reducer
 
