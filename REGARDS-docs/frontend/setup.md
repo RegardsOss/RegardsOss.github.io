@@ -27,7 +27,7 @@ The latest version of npm (v5) and node (v8) are not stable enough to be used wi
 Clone the `rs-frontend` repository and open the webapp folder using your terminal:
 
 ```
-cd path/to/folder/webapp/
+cd frontend-webapp/src/main/webapp
 ```
 
 Execute the following to link submodules inside `path/to/folder/webapp/web_modules/[data|modules|utils|...]/**` to the npm global user folder and then inside `webapp/node_modules/@regardsoss`. It allows you to edit these npm modules with auto reload.
@@ -59,9 +59,9 @@ npm run start:withmock
 
 Then opens your browser at :
  - portal : [http://localhost:3333/](http://localhost:3333/){:target="_blank"}
- - admin instance : [http://localhost:3333/admin](http://localhost:3333/admin){:target="_blank"} login : regards_admin / root_admin
- - admin projet : [http://localhost:3333/admin/project1](http://localhost:3333/admin/project1){:target="_blank"} login : regards_admin / root_admin
- - user projet : [http://localhost:3333/user/project1](http://localhost:3333/user/project1){:target="_blank"} login : regards_admin / root_admin
+ - admin instance : [http://localhost:3333/admin](http://localhost:3333/admin){:target="_blank"} login : regards-admin@c-s.fr / root_admin
+ - admin projet : [http://localhost:3333/admin/project1](http://localhost:3333/admin/project1){:target="_blank"} login : regards-admin@c-s.fr / root_admin
+ - user projet : [http://localhost:3333/user/project1](http://localhost:3333/user/project1){:target="_blank"} login : regards-admin@c-s.fr / root_admin
 
 ### Production build
 
