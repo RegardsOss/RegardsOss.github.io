@@ -4,6 +4,15 @@ title: regardsoss/components
 short-title: Components
 ---
 
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+
+
+- [Description](#description)
+- [Usage](#usage)
+
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
+
 ## Description
 
 This module provides a set of React Component to display widgets as :

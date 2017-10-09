@@ -4,6 +4,21 @@ title: Development setup and build
 short-title: Setup and build
 ---
 
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+
+
+- [Requirements](#requirements)
+- [Local installation](#local-installation)
+- [Run options](#run-options)
+  - [Production build](#production-build)
+  - [Run tests :](#run-tests-)
+  - [Run test:coverage :](#run-testcoverage-)
+  - [Lint :](#lint-)
+- [Know issues](#know-issues)
+
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
+
 ## Requirements
 
 You shall

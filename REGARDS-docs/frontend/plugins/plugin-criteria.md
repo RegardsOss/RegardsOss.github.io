@@ -4,6 +4,21 @@ title: Plugin criterion
 short-title: Criterion
 ---
 
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+
+
+- [Description](#description)
+- [Definition](#definition)
+- [plugin-info.json](#plugin-infojson)
+- [Main React component](#main-react-component)
+  - [Provided runtime parameters](#provided-runtime-parameters)
+  - [State management](#state-management)
+  - [Handle search for your criteria plugin](#handle-search-for-your-criteria-plugin)
+
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
+
+
 ## Description
 
 This document aims at helping the developper to create a plugin service, that can be used in regards results. Before, reading any further, make sure to read the plugins page [Common plugins description](/frontend/plugins/plugins/), as 
