@@ -14,7 +14,20 @@ The REGARDS frontend contains three differents interfaces:
 You can refer to the [#business-modules](business modules dependency graph) to get an overview on how these three interfaces are loaded by our app.
 
 Moreover, for the `Portal` and `User` interfaces, we've created [Dynamic modules](/frontend/modules/dynamic-modules/) to brings UI features that the administrator can controll (options, layout,...).
-  
+
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+
+
+- [Overall architecture](#overall-architecture)
+- [Common businness modules (business-common)](#common-businness-modules-business-common)
+- [Business modules](#business-modules)
+- [Components modules](#components-modules)
+- [Data](#data)
+- [Modules](#modules)
+- [Utils modules](#utils-modules)
+
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
 ### Overall architecture
 

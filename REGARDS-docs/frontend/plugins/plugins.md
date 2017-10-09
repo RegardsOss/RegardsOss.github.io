@@ -4,6 +4,7 @@ title: Plugins overview
 short-title: Plugins overview
 ---
 
+
 A plugin is a piece of Javascript file that can be added dynamically in the user interface. 
 The main advantage is to allow operators to create dedicated HMI depending of the type of data manipulated 
 on the project, instead of creating your own fork of rs-frontend just to fits your project needs.
@@ -13,6 +14,24 @@ There is currently two types of plugins :
  - `services`: Used in the search result table, they provide additionnals interactions with data they are associated to. You can ask several values from the user before displaying your service in a popup.
 
 Note that frontend plugins are not designed in the same way than backend plugins.
+
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+
+
+- [Create a new plugin](#create-a-new-plugin)
+- [Compile your plugin](#compile-your-plugin)
+  - [Test your plugin](#test-your-plugin)
+  - [Lint your plugin](#lint-your-plugin)
+  - [Deploy your plugin into regards](#deploy-your-plugin-into-regards)
+- [Plugin overall code structure](#plugin-overall-code-structure)
+- [Plugin entry point](#plugin-entry-point)
+- [plugin-info.json](#plugin-infojson)
+- [Plugin administration panels](#plugin-administration-panels)
+- [Main React component](#main-react-component)
+  - [Provided parameters](#provided-parameters)
+
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
 ## Create a new plugin
 

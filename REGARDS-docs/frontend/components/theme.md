@@ -4,6 +4,18 @@ title: Mateial-ui themes
 short-title: Mateial-ui themes
 ---
 
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+
+
+  - [Description](#description)
+- [Dependencies](#dependencies)
+  - [How to](#how-to)
+    - [ThemeProvider](#themeprovider)
+    - [Get properties from the current theme](#get-properties-from-the-current-theme)
+
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
+
 ## Description
 
 This tool is made to sipmlify the use of global [Material-ui](http://www.material-ui.com/#/components/app-bar){:target="_blank"}

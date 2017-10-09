@@ -4,6 +4,20 @@ title: Internationalization
 short-title: Internationalization
 ---
 
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+
+
+- [Description](#description)
+- [Dependencies](#dependencies)
+- [How to](#how-to)
+  - [I18nProvider](#i18nprovider)
+  - [I18n messages files](#i18n-messages-files)
+  - [Use parameter in messages](#use-parameter-in-messages)
+  - [More informations](#more-informations)
+
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
+
 ## Description
 
 This tool is made to sipmlify the internationalization of all messages in the REGARDS frontend. It is made as a React component and more precisly as a "Provider". A React provider is a React component create to pass through parameters and arguments to other React component.

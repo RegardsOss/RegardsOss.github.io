@@ -4,6 +4,25 @@ title: Plugin services
 short-title: Services
 ---
 
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+
+
+- [Description](#description)
+- [Definition](#definition)
+- [plugin-info.json](#plugin-infojson)
+- [Main React component](#main-react-component)
+  - [Provided parameters](#provided-parameters)
+    - [Provided runtime configuration](#provided-runtime-configuration)
+    - [Provided runtime target](#provided-runtime-target)
+    - [Common runtime target fields](#common-runtime-target-fields)
+      - [Runtime target specific fields for type ONE](#runtime-target-specific-fields-for-type-one)
+      - [Runtime target specific fields for type MANY](#runtime-target-specific-fields-for-type-many)
+      - [Runtime target specific fields for type QUERY](#runtime-target-specific-fields-for-type-query)
+- [Going further](#going-further)
+
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
+
 ## Description
 
 This document aims at helping the developper to create a plugin service, that can be used in regards results. Before, reading any further, make sure to read the plugins page ([Common plugins description](/frontend/plugins/plugins/)), as 
