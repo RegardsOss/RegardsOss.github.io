@@ -25,7 +25,7 @@ Starter autoconfigures Gson to (de)serialize base objects.
 
 # 3\. How to
 
-## 3.1. How to use the plugin
+## 3.1. How to use the starter
 
 You can use default `Feature` class or implements your own feature extending `AbstractFeature` to customize your ID type and your properties wrapper.
 
