@@ -1,13 +1,26 @@
+
 ---
 layout: classic-docs
 title: Internationalization
 short-title: Internationalization
 ---
 
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+
+
+- [Description](#description)
+- [How to use](#how-to-use)
+  - [Simple example](#simple-example)
+  - [REGARDS form-utils](#regards-form-utils)
+  - [More](#more)
+
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
+
 ## Description
 
-The REGARDS frontend uses the [redux-form](https://redux-form.com/7.0.4/){:target="_blank"} library to create forms.
-This library store in the common `redux store` all informations about the current state of the form.
+The REGARDS frontend uses the [redux-form](https://redux-form.com/6.8.0/){:target="_blank"} library to create forms.
+This library stores in the common `redux store` all informations about the current state of the form.
 
 ## How to use
 
@@ -20,32 +33,31 @@ import { RenderTextField, Field, ErrorTypes, ValidationHelpers } from `@regardso
 
 export class ExampleComponent extends React.Component {
 
-	componentDidMount() {
-		const initialValues = {
-			label: 'default label'
-		}
-    	this.props.initialize(initialValues)
-  	}
+  componentDidMount() {
+    const initialValues = {
+      label: 'default label',
+    }
+    this.props.initialize(initialValues)
+  }
 
-	handleSubmit() {
-		...
-	}
+  handleSubmit(formValues) {
+    ...
+  }
 
-	render() {
-	
-		return (
-			<form onSubmit={this.props.handleSubmit(this.handleSubmit)}>
-				<Field
-	              name="label"
-	              fullWidth
-	              component={RenderTextField}
-	              type="text"
-	              label={'label'}
-	              validate={ValidationHelpers.validRequiredString}
-            	/>
-			</form>
-		)
-	}
+  render() {
+    return (
+      <form onSubmit={this.props.handleSubmit(this.handleSubmit)}>
+        <Field
+          name="label"
+          component={RenderTextField}
+          type="text"
+          label={'label'}
+          validate={ValidationHelpers.validRequiredString}
+          fullWidth
+        />
+      </form>
+    )
+  }
 }
 
 export default reduxForm({
@@ -76,4 +88,4 @@ import { RenderTextField, RenderToggle, RenderDoubleLabelToggle, ... } from `@re
 
 ### More
 
-To understand more about the uses of [redux-form](https://redux-form.com/7.0.4/){:target="_blank"} library see the [API](https://redux-form.com/7.0.4/docs/api/){:target="_blank"} official documentation 
+To understand more about the uses of [redux-form](https://redux-form.com/6.8.0/){:target="_blank"} library see the [API](https://redux-form.com/6.8.0/docs/api/){:target="_blank"} official documentation 

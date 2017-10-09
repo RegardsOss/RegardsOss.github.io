@@ -124,7 +124,6 @@ This folder holds data related modules:
     1.  Selector: define the redux state selector (data retriever) for that Regards API operation
 1. `domain`: It holds constants related with API use, by microservice.  
     _Note: it also contains some constants used only by the frontend, when those constants are stored and retrieved through the API._
-1. `models`: **Depracated package** - it will be removed in next versions. It previously covered both data/domain and data/shape scopes.
 1. `shape`: Contains React properties shapes matching with REGARDS API, by microservice.  
     _Note: it also contains some shapes used only by the frontend, when those shapes are stored and retrieved through the API._
 1. `store`: Create the initial [Redux](http://redux.js.org/) application store. Also set up the store middlewares (automatic actions handling).
