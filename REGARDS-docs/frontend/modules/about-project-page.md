@@ -1,12 +1,14 @@
 ---
 layout: classic-docs
-title: Frontend - Dynamic module home-page
-short-title: home-page
+title: Frontend - Dynamic module about-project-page
+short-title: about-project-page
 ---
 
 ## Description
 
-This module is a dynamic configurable module for the configurable interfaces. It displays the configured project homePage in an iframe. It stores the 'do not show again' option in local web browser storage.
+This module is a dynamic configurable module for the configurable interfaces. It displays the configured project about page in an iframe. It stores the 'do not show again' option in local web browser storage.
+
+Note: This module can be directly used within the menu module. Therefore instantiating it separately should be a rare used case.
   
 ## Module structure
 
@@ -51,7 +53,7 @@ To display a dynamic module as the current one you have to use the here under co
 ```javascript
     render() {
     const moduleConfiguration = {
-       type: 'home-page',
+       type: 'about-project-page',
        active: true,
        conf: {}
     }
