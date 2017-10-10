@@ -26,6 +26,7 @@ Available starters :
   - [Microservice starter](/regards-framework/starters/microservice-starter/)
   - [Module starter](/regards-framework/starters/module-starter/)
   - [Multitenant starter](/regards-framework/starters/multitenant-starter/)
+  - [OAIS starter](/regards-framework/starters/oais-starter/)
   - [Security starter](/regards-framework/starters/security-starter/)
   - [Plugins starter](/regards-framework/starters/plugins-starter/)
   - [STAF starter](/regards-framework/starters/staf-starter/)

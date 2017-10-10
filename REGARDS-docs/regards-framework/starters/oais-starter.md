@@ -42,10 +42,11 @@ Information packages can be built thanks to extensions of abstract builder `IPBu
 
 Information packages into REGARDS follow geojson structure, it has an id, a geometry and properties. Those properties has a specific structure: it is `InformationPackageProperties`.
 
+It also has an extension `ipType` which represents the type of your information package (Collection, Dataset, Data, ...)
+
 ## 4.2. ... of Information package properties
 
 `InformationPackageProperties` contains 4 sections:
- - ipType: which represent the type of your information package (Collection, Dataset, Data, ...)
  - contentInformations: set of content informations
  - pdi: PreservationDescriptionInformation
  - descriptiveInformation (optional)
