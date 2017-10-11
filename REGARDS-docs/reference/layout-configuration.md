@@ -71,11 +71,11 @@ The container type defines the layout for container and sub elements. *It corres
 
 *Note about columns using the percent width: The bootstrap layout is able to place mutiple columns on one line, like, for instance two columns 25% wide and one 50% wide. It will automatically create a new line when 100% is exceeded.*
 
-Some static containers can be created only as a layout for sub containers using that specifity (like it is the case for user-app-root).
+Some static containers can be created only as a layout for sub containers using that specificity (like it is the case for user-app-root).
 
 ## 2.3 Main container option
 
-This options allow definiting the layout main container - also called dynamic modules container. Keep in mind that there must be one and only one main container. Therefore when ticking the box, the previous main container will be converted into a static container - that operation is not destructive however and can be easily reversed.
+This option allow defining the layout main container - also called dynamic modules container. Keep in mind that there must be one and only one main container. Therefore when ticking the box, the previous main container will be converted into a static container - that operation is not destructive however and can be easily reversed.
 
 ## 2.4 Container advanced options
 
