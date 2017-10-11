@@ -52,13 +52,13 @@ The container type defines the layout for container and sub elements. *It corres
 * **50% width column**: Same but uses only 50% width
 * **25% width column**: Same but uses only 25% width
 
-*Note about columns using the percent width: The bootstrap layout is able to place mutiple columns on the line, like, for instance wide columns 25% wide and one 50% wide. It will automatically break line to the next row when 100% is exceeded.*
+*Note about columns using the percent width: The bootstrap layout is able to place mutiple columns on one line, like, for instance two columns 25% wide and one 50% wide. It will automatically create a new line when 100% is exceeded.*
 
 Some static containers can be created only as a layout for sub containers using that specifity (like it is the case for user-app-root).
 
 ## 2.3 Container edition: Main container
 
-This options allow definiting the layout main container - also called dynamic modules container. Keep in mind that there must be one and only one main container. Therefore when ticking the box, the previous main container will be converted into a static container - that operation is destructive however and can be easily reversed by editing the other container.
+This options allow definiting the layout main container - also called dynamic modules container. Keep in mind that there must be one and only one main container. Therefore when ticking the box, the previous main container will be converted into a static container - that operation is not destructive however and can be easily reversed.
 
 ## 2.4 Container edition: Advanced options
 
@@ -66,14 +66,14 @@ This options allow definiting the layout main container - also called dynamic mo
 
 That field should contain the CSS classes - none by default - that applies to the container as strings separated by a blank space.
 
-*For instance valid field value would be **my-class1 my-title***
+*For instance, a valid field value could be **my-class1 my-title***
 
 ### 2.4.2 Styles CSS
 
-That field contains the styles that should apply to the container. Please note that **those styles are entered in React notation**, that's to say:
-* The object is a JSon object and not a CSS like notation object
-* The dash symbols '-' should be removed and the next word first letter should be capitalized (React styles notation)
-* Values like colors and number with size - like 3% or 22px -  should be placed in simple quotes symboles '. Note that it is not required for simple numbers
+That field contains the styles that should apply to the container. Please note that **those styles are entered in JSON notation, using React fields**, that's to say:
+* The object is a JSon object and not a CSS notation object
+* The dash symbols **-** should be removed and the next word first letter should be capitalized
+* Values like colors and number with size - like 3% or 22px -  should be placed in quotes symbols **"**. Note that it is not required for single numbers
 
 For instance, next value would be valid:
 
@@ -88,14 +88,14 @@ For instance, next value would be valid:
 
 # 3. Default layout
 
-Default layout comes with the following containers:
+The default project layout comes with the following containers:
 * *user-app-root*: The root container of user application, previously named *user*
-* *page-top-header*: A static container to layout header content (top), might be used floating - see later section, previously named *header*.
-* *page-sub-header*: A static container to layout sub header or page scrollable header when top header is floating, previously named *static-content*.
+* *page-top-header*: A static container to lay out header content (top), might be used to show a floating header - see later section, previously named *header*.
+* *page-sub-header*: A static container to lay out sub header or page scrollable header when top header is floating, previously named *static-content*.
 * *page-content-module*: The default main container to show page dynamic module, previously named *dynamic-content*
-* *page-footer*: A static container to layout page footer, previously named *footer*
+* *page-footer*: A static container to lay out page footer, previously named *footer*
 
-Within the root container, subcontainers are layed out vertically (they use the by the row layout type)
+Within the root container, subcontainers are layed out vertically (they use the row layout type by default)
 
 # 4. Example: a layout with a fixed (floating) header
 
@@ -103,9 +103,9 @@ We will demonstrate here how to fix the top header in a REGARDS project.
 
 ## 4.1 Set up the top header as floating
 
-In layout configuration (default one), chose to edit the top header (called header in v1 version and page-top-header in v1.1+ version).
+In layout configuration (default one), edit the top header (called header in v1 version and page-top-header in v1.1+ version).
 
-Open advanced options and paste the following styles, that indicates the header should remain above page when it scrolls (and spans horizontally).
+Open advanced options and paste the following styles, that indicates the header should remain above page when it scrolls (and span horizontally).
 
 
 ```json
@@ -129,5 +129,5 @@ In current state, the first container after top header would be hidden in user a
 }
 ```
 
-Click update. You should now observe some spacing between that container and the top header. Open the user app and check everything is fine!
+Click update then click save on layout page bottom. Open the user app - or refresh it - and check everything is fine.
 
