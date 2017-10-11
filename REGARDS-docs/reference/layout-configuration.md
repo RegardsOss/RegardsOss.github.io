@@ -1,35 +1,40 @@
 ---
 layout: classic-docs
-title: REGARDS layout configuration help
+title: REGARDS layout configuration
 short-title: Layout configuration
 categories:
   - reference
 ---
 
-# 1. How does it work?
+# 1. How does layout work?
 
 In REGARDS, layout is configured on a per project basis. This means each new project - or tenant - comes with the default layout, see section below.
 
-There is a root container - called user - that cannot be deleted. All other containers can be added, modified and deleted at will.
+There is a root container that cannot be deleted. All other containers can be added, modified and deleted at will.
 
-In REGARDS, containers that are not marked as **main container** - discussed later on - are said **static**. They can be used to **display static content**, ie REGARDS modules that do not depend on the page currently shown.
+In REGARDS, containers that are not marked as **main container** - discussed later on - are said **static**. They can be used to **display static content**, ie REGARDS modules that do not depend on the page currently shown, **or sub containers**.
 
-REGARDS also requires **a single main container** that is also called **dynamic modules container**. That single container is used to display the page content - **a dynamic module**.
+REGARDS also requires **a single main container** that is said **dynamic modules container**. That single container is used to display the page content - **a dynamic module**.
 
 Let's take an example. We would like to have a page showing some HTML in header, some HTML in footer and the search catalog module as main content. To build such page, we would need:
-* One static container for header
-* One static container for footer
-* The main container for search-catalog module
+* One static container for header. Let's name it my-header-container
+* One static container for footer. Let's name it my-footer-container
+* The main container for search-catalog module. Let's name it my-content-container
 
-Then in modules configuration, we could associate new Embed HMTL modules, for header and footer, with corresponding areas and a new search catalog module with the main container *- each module is related with one and only one container in user application.*
+Then in modules configuration, we could configure three new modules:
+* One Embedded HTML module for header, linked with my-header-container
+* One Embedded HTML module for footer, linked with my-footer-container
+* One Search results module for page content, linked with my-content-container
 
-It is important to understand here that, *when defining a module linked with the single dynamic container, we declare a dynamic module*. In REGARDS, **each dynamic module will have its page in project website**. On the other hand, *when defining a module linked with a static container*, it will be available **on every page of the project website, but will have no corresponding page**.
+It is important to understand here that, *when defining a module linked with the single main container, we declare indeed a dynamic module*. In REGARDS, **each dynamic module will have its own page in project website**. On the other hand, *when defining a module linked with a static container*, it will be available **on every page of the project website, but will have no corresponding page**.
 
 # 2. How to configure layout?
 
 User application layout can be accessed through REGARDS project administration interface, in **'User Interface / Layout'** - or at URL **(server)/admin/(project)/ui/layout/user**
 
-The form shows every container currently defined. Three dotted menu on right offers the options **edit**, **delete** and **add a sub-section** - except the root one, called user-app-root, that cannot be deleted. The containers are displayed in a 'preview-like' way - the container name will not be displayed on user application.
+The form shows every container currently defined. Three dotted menu on right offers the options **edit**, **delete** and **add a sub-section** - except for root container that cannot be deleted. The containers are displayed in a 'preview-like' way - the container name will not be displayed on user application.
+
+*Note: default layout will be discussed in a later section.*
 
 When editing a container, **name**, **type**, **'main container** and **advanced options** are available - except once again for root container that is fixed by configuration. We will detail those elements in next sub sections
 
@@ -81,11 +86,22 @@ For instance, next value would be valid:
 }
 ```
 
-# 3. Example: a layout with a fixed (floating) header
+# 3. Default layout
+
+Default layout comes with the following containers:
+* *user-app-root*: The root container of user application, previously named *user*
+* *page-top-header*: A static container to layout header content (top), might be used floating - see later section, previously named *header*.
+* *page-sub-header*: A static container to layout sub header or page scrollable header when top header is floating, previously named *static-content*.
+* *page-content-module*: The default main container to show page dynamic module, previously named *dynamic-content*
+* *page-footer*: A static container to layout page footer, previously named *footer*
+
+Within the root container, subcontainers are layed out vertically (they use the by the row layout type)
+
+# 4. Example: a layout with a fixed (floating) header
 
 We will demonstrate here how to fix the top header in a REGARDS project.
 
-## 3.1 Set up the top header as floating
+## 4.1 Set up the top header as floating
 
 In layout configuration (default one), chose to edit the top header (called header in v1 version and page-top-header in v1.1+ version).
 
@@ -95,13 +111,14 @@ Open advanced options and paste the following styles, that indicates the header 
 ```json
 {
   "width": "100%",
-  "position": "fixed"
+  "position": "fixed",
+  "zIndex": 100
 }
 ```
 
 Click the update button. As you can see, the layout is updated (and the root container may be hidden below the edited component).
 
-## 3.2 Space the page content
+## 4.2 Space the page content
 
 In current state, the first container after top header would be hidden in user app - static-content (v1) / page-top-header (v1.1+). To correct that, click edit on that container and paste the following styles. Note that the margin to apply depends on your project styles, as *it must be greater or equal to the header height* to avoid hiding page content pixels:
 
