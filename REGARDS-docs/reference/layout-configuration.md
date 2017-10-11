@@ -6,6 +6,25 @@ categories:
   - reference
 ---
 
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+
+
+- [1. How does layout work?](#1-how-does-layout-work)
+- [2. How to configure layout?](#2-how-to-configure-layout)
+  - [2.1 Container edition: name](#21-container-edition-name)
+  - [2.2 Container edition: type](#22-container-edition-type)
+  - [2.3 Container edition: Main container](#23-container-edition-main-container)
+  - [2.4 Container edition: Advanced options](#24-container-edition-advanced-options)
+    - [2.4.1 Classes CSS](#241-classes-css)
+    - [2.4.2 Styles CSS](#242-styles-css)
+- [3. Default layout](#3-default-layout)
+- [4. Example: a layout with a fixed (floating) header](#4-example-a-layout-with-a-fixed-floating-header)
+  - [4.1 Set up the top header as floating](#41-set-up-the-top-header-as-floating)
+  - [4.2 Space the page content](#42-space-the-page-content)
+
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
+
 # 1. How does layout work?
 
 In REGARDS, layout is configured on a per project basis. This means each new project - or tenant - comes with the default layout, see section below.
