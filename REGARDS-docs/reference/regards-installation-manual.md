@@ -69,6 +69,34 @@ On each host you want to install one or more REGARDS component you will be asked
 
 Afterwards, you will need be prompted to choose the different components you wish to install.
 
+## 3.1\. Contents of the installation directory
+The contents of the installation directory with all the microservices is :
+```shell
+ll
+bin/
+bootstrap-access-instance.jar
+bootstrap-access-project.jar
+bootstrap-administration.jar
+bootstrap-authentication.jar
+bootstrap-catalog.jar
+bootstrap-config.jar
+bootstrap-dam.jar
+bootstrap-frontend.war
+bootstrap-registry.jar
+bootstrap-gateway.jar
+config/
+lib/
+logs/
+plugins/
+sbin/
+run/
+www/
+```
+The **config** folder contains among others the logback configuration file for each microservice, in the the subfolders **config/logback/{microservice-name}**.
+
+The **plugins** folder contains a subfolder foreach microservice **plugins/{microservice-name}**. This subfolders must contains the plugins to used for the specified microservice.
+
+
 # 4\. Cloud installation
 
 The cloud installation allows you to install the REGARDS product components in **multiple physical or virtual hosts**. The only requirement is that all the hosts could communicate throught **HTTPS protocol**.
