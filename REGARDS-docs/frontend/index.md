@@ -12,7 +12,7 @@ categories:
   
  How to use existing dynamic modules ( from /webapp/web_modules/modules):
   - [Authentication](/frontend/modules/authentication/)
-  - [Home page](/frontend/modules/home-page/)
+  - [Project presentation page](/frontend/modules/about-project-page/)
   - [License](/frontend/modules/licenses/)
   - [Menu](/frontend/modules/menu/)
   - [search graph](/frontend/modules/search-graph/)  
@@ -24,7 +24,7 @@ categories:
   - [Develop dynamic modules](/frontend/modules/dynamic-modules/)
   - [Develop plugins](/frontend/plugins/index/)
   - [Linter](/frontend/lint/eslint-config-es6-rules/)
-  - [InteliJ](/frontend/ide/intelliJ-templates/)
+  - [IntelliJ Templates](/frontend/ide/intelliJ-templates/)
   - [Storybook](/frontend/storybook/storybook/)
 
  How to use Framework components : 

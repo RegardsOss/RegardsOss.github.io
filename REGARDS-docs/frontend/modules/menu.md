@@ -12,7 +12,10 @@ This module display an horizontal top bar containing the functions :
   - Authentication (activation by configuration)
   - Theme selector (activation by configuration)
   - Language selector (activation by configuration)
-  - Interface menu
+  - Project about page (activation by configuration)
+  - Contacts (activation by configuration)
+  - Navigation menu
+  
 
 ## Module structure
 

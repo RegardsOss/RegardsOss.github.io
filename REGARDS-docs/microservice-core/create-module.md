@@ -21,8 +21,7 @@ cd myMicroService
 ```bash
 mvn archetype:generate -DarchetypeCatalog=local
 ```
-
-Choose the right archetype (`fr.cnes.regards.modules:module-archetype`) and enter requested field as follow :
+Choose the right archetype (`fr.cnes.regards.modules:helloworld-module-archetype`) and enter requested field as follow :
 
 - groupId : `fr.cnes.regards.modules`
 - artifactId : the module name in camel case, e.g. `microModules`

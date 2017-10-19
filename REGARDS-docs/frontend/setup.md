@@ -35,7 +35,7 @@ The latest version of npm (v5) and node (v8) are not stable enough to be used wi
 >   - [Redux](https://egghead.io/courses/getting-started-with-redux){:target="_blank"}  
 >  
 >New developers can also check at the [Material-ui](http://www.material-ui.com/#/components/app-bar){:target="_blank"} library which is used to design all components of the REGARDS frontend.
-
+>Check [lodash fp](https://github.com/lodash/lodash/wiki/FP-Guide) to understand how we write functionnal programming on REGARDS (using lodash *immutable auto-curried iteratee-first data-last methods*)
 
 ## Local installation
 
