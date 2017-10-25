@@ -3,6 +3,19 @@ layout: classic-docs
 title: AMQP monitoring starter
 short-title: AMQP monitoring starter
 ---
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+
+
+- [1\. Configuration](#1%5C-configuration)
+- [2\. Autoconfiguration](#2%5C-autoconfiguration)
+- [3\. The **Metrics** module](#3%5C-the-metrics-module)
+- [4\. How to](#4%5C-how-to)
+  - [4.1. How to publish **LogEvent** to the **Metrics** module](#41-how-to-publish-logevent-to-the-metrics-module)
+  - [4.2\. How to log events to SYSLOG](#42%5C-how-to-log-events-to-syslog)
+  - [4.3\. How to log security events to SYSLOG](#43%5C-how-to-log-security-events-to-syslog)
+
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
 # 1\. Configuration
 

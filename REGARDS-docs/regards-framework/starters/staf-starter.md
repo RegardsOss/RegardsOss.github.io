@@ -3,6 +3,19 @@ layout: classic-docs
 title: STAF starter
 short-title: STAF starter
 ---
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+
+
+- [1\. Configuration](#1%5C-configuration)
+- [2\. How to use STAF starter](#2%5C-how-to-use-staf-starter)
+  - [2\.1 Initialization](#2%5C1-initialization)
+  - [2\.2 To archive files](#2%5C2-to-archive-files)
+  - [2\.3 To restore files](#2%5C3-to-restore-files)
+  - [2\.4 To delete files](#2%5C4-to-delete-files)
+- [3\. Use a STAF standalone executable](#3%5C-use-a-staf-standalone-executable)
+
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
 # 1\. Configuration
 

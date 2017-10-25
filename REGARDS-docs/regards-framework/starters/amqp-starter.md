@@ -3,6 +3,27 @@ layout: classic-docs
 title: AMQP starter
 short-title: AMQP starter
 ---
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+
+
+- [1\. Configuration](#1%5C-configuration)
+- [2\. Autoconfiguration](#2%5C-autoconfiguration)
+- [3\. How to](#3%5C-how-to)
+  - [3.1\. How to publish a message](#31%5C-how-to-publish-a-message)
+    - [Broadcast a message](#broadcast-a-message)
+    - [Working message (unicast)](#working-message-unicast)
+  - [3.2\. How to subscribe to an `ISubscribable` message](#32%5C-how-to-subscribe-to-an-isubscribable-message)
+  - [3.3\. How to poll an `IPollable` message](#33%5C-how-to-poll-an-ipollable-message)
+    - [Simple polling](#simple-polling)
+  - [3.4. Transaction](#34-transaction)
+    - [External transaction](#external-transaction)
+    - [Internal transaction](#internal-transaction)
+- [4\. Constraints on the used rabbitmq](#4%5C-constraints-on-the-used-rabbitmq)
+  - [4.1\. Regards namespace for rabbitmq](#41%5C-regards-namespace-for-rabbitmq)
+  - [4.2\. Purpose of AMQP client](#42%5C-purpose-of-amqp-client)
+
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
 # 1\. Configuration
 

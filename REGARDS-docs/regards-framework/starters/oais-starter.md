@@ -3,6 +3,26 @@ layout: classic-docs
 title: OAIS starter
 short-title: OAIS starter
 ---
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+
+
+- [1\. Configuration](#1%5C-configuration)
+- [2\. Autoconfiguration](#2%5C-autoconfiguration)
+- [3\. How to](#3%5C-how-to)
+  - [3.1. How to use the starter](#31-how-to-use-the-starter)
+  - [3.2. How to build information packages](#32-how-to-build-information-packages)
+- [4\. Structures...](#4%5C-structures)
+  - [4.1. ... of information packages](#41--of-information-packages)
+  - [4.2. ... of Information package properties](#42--of-information-package-properties)
+  - [4.3. ... of Content informations](#43--of-content-informations)
+    - [4.3.1 OAISDataObject](#431-oaisdataobject)
+    - [4.3.2. RepresentationInformation](#432-representationinformation)
+  - [4.4. ... of preservation and description informations](#44--of-preservation-and-description-informations)
+    - [4.4.1 Provenance informations](#441-provenance-informations)
+  - [4.5. ... of descriptive informations](#45--of-descriptive-informations)
+
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
 # 1\. Configuration
 

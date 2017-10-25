@@ -3,6 +3,18 @@ layout: classic-docs
 title: Multitenant starter
 short-title: Multitenant starter
 ---
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+
+
+- [1\. Configuration](#1%5C-configuration)
+- [2\. Autoconfiguration](#2%5C-autoconfiguration)
+- [3\. How to](#3%5C-how-to)
+  - [3.1. How to use](#31-how-to-use)
+  - [3.2. How to override default behaviour](#32-how-to-override-default-behaviour)
+  - [3.3. How to handle bootstrap tenants](#33-how-to-handle-bootstrap-tenants)
+
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
 # 1\. Configuration
 
