@@ -89,8 +89,26 @@ public class SamplePlugin implements ISamplePlugin {
 
 As we can see in the above example, a **Plugin** used the specific annotations :
 
-- `PluginParameter` : this annotation is used to define an attribute as a parameter of the **Plugin** It should be noted that a **PluginParameter** can be a primitive data type, but also a **Plugin**.
+- `PluginParameter` : this annotation is used to define an attribute as a parameter of the **Plugin**. For more information, refer to the plugin parameter section below
 - `PluginInit` : this annotation is used to defined a method to execute before to create an instance of the **Plugin**
+
+### 3.2.1 How to define plugin parameters
+
+`PluginParameter` annotation can be used to define different type of plugin parameters: 
+  - Primitive types
+  - Plugins
+  - Objects
+  - Collections
+
+The first one is pretty simple to use, just define a plugin parameter as in the example.
+
+The plugins, here we directly provide you with an instance of the plugin wanted.
+
+The objects and collections, they are jsonified so deserialization issues can appaer. In particular, our default JSON library is GSON and GSON does not always handle well deserialization of parametrized objects which is the case of collections, if you encounter issues with this, you can either: 
+  - create a wrapper object
+  - use the `type` attribute from the `PluginParameter` annotation, provide the `Class` object representing the parameter of your collection and it should be good. For now, we do not handle "complex" collection which parameter is a parametrized object.( ie `List<Some<Thing>>`)
+
+Note that attributes into objects will only be taken into account if they annotated `PluginParameter`
 
 ## 3.3 How to use the REGARDS plugin's module
 
