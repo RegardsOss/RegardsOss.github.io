@@ -71,7 +71,7 @@ regards.amqp.internal.transaction=false
 Starter autoconfigures:
 
 - `IRabbitVirtualHostAdmin` to manage virtual hosts. Only RabbitMQ implementation exists at the moment.
-- `RegardsAmqpAdmin` to administrate the message broker(create queues, exchanges, bindings with proper names)
+- `IAmqpAdmin` to administrate the message broker(create queues, exchanges, bindings with proper names)
 - `RabbitAdmin` to send and receive message from the right tenant using `MultitenantSimpleRoutingConnectionFactory`
 - `MultitenantSimpleRoutingConnectionFactory` to manage virtual host connections
 
@@ -90,6 +90,10 @@ AMQP starter runs in a multitenant context so it relies on multitenant tenant re
 - A publisher automatically publishes an event on current tenant using `IRuntimeTenantResolver`.
 - A poller automatically polls an event on current tenant using `IRuntimeTenantResolver`.
 
+
+The elements below are used to describe AMQP functionalities in following schemas.
+![](/assets/images/framework/amqp/amqp_tuto_legend.png)
+
 ## 3.1\. How to publish a message
 
 To publish a message on the broker, you have to use the `IPublisher` interface and its `publish` methods.
@@ -97,9 +101,9 @@ To publish a message on the broker, you have to use the `IPublisher` interface a
 ### Broadcast a message
 
 First, create the message (i.e. a simple POJO) implementing `ISubscribable`.
-Annotate this message with `@Event` and define the target of the event :
-- ALL to broadcast to all subscribers,
-- MICROSERVICE to only broadcast to instances of the same microservice type.
+Annotate this message with `@Event` and define the event target.
+
+![](/assets/images/framework/amqp/amqp_tuto_subscription_broadcast.png)
 
 ```java
 @Event(target = Target.ALL)
@@ -122,9 +126,9 @@ public void publishHello() {
 Working message is stored in a working queue and is consumed synchronously on-demand.
 
 First, create the message implementing `IPollable`.
-Annotate this message with `@Event` and define the target of the event :
-- ALL to be polled by any microservice instance,
-- MICROSERVICE to only be polled by an instance of the same microservice type.
+Annotate this message with `@Event` and define the event target.
+
+![](/assets/images/framework/amqp/amqp_tuto_worker_queues.png)
 
 **A message is only handled by a single poller (i.e. worker).**
 
