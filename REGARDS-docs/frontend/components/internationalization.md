@@ -43,6 +43,10 @@ To use the REGARDS `I18nProvider` you must add the here under package to your pa
 
 ## How to
 
+There is two way of using the REGARDS internationalization system :
+ - With a component **I18nProvider**
+ - With a component decorator function **withI18n**
+
 ### I18nProvider
 
 To use the REGARDS I18nProvider you need to surround your component that needs internationalization with the I18nProvider.  
@@ -96,12 +100,37 @@ export class ExmapleComponent extends React.Component {
 }
 
 ```
+
+### withI18n
+
+Example :
+
+```javascript
+import { withI18n } from '@regardsoss/i18n'
+import messages from '../i18n
+
+class ExmapleContainer extends React.Component {
+
+	render() {
+		return (
+			<FormattedMessage id="example.message" />
+		)
+	}
+}
+
+export withI18n(messages)(ExmapleContainer)
+```
+
+The import 'import messages from '../i18n'  means the import of the messages file explain in the next chapter.
+
+
 ### I18n messages files
 
-As explained in the previous section, the `I18nProvider' component use only one parameter that is the directory containing the internationalized messages files.  
+As explained in the previous section, the `I18nProvider' component or 'withI18n' decorator uses only one parameter that is the directory containing the internationalized messages files.  
+
 Those files must be named with the here under syntaxe :  
 messages.<**language**>.i18n.js  
-Where languga can be :
+Where languge can be :
  - fr : French
  - en : English
 
@@ -128,6 +157,18 @@ const messages = Object.assign({
   'example.message' : 'Message d\'exemple à afficher',
   'other.example.message' : 'Un autre message d\'exemple à afficher'
 }, Locales.en);
+
+```
+
+To regroup the multiple language files, create an index.js file as : 
+```js
+import en from './messages.en.i18n'
+import fr from './messages.fr.i18n'
+
+module.exports = {
+  en,
+  fr,
+}
 
 ```
 

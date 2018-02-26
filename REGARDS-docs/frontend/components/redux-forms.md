@@ -70,14 +70,22 @@ export default reduxForm({
 In the upper example you can see that each `Field` component use a `component` parameter to define the type of field. The REGARDS
 library provides the here under components types :
 
-- RenderTextField
-- RenderToggle,
-- RenderDoubleLabelToggle,
-- RenderSelectField,
+- RenderArrayObjectField : Render a field to configure an array of objects.
+- RenderArrayTextField : Render a field to configure an array of strings.
+- RenderAutoCompleteField: Render a field to configure a single value with auto completion.
 - RenderCheckbox,
-- RenderRadio,
-- RenderFileField,
 - RenderDateTimeField,
+- RenderDoubleLabelToggle,
+- RenderFileFieldWithMui : Render a field to upload a file from the local user system.
+- RenderJsonCodeEditorField : Rendera  field to configure a complex json object with an editor.
+- RenderMapField : Render a field to configure a Map of objects.
+- RenderPageableAutoCompleteField : Render a field to configure a single value with auto completion by fetching pageable server endpoint.
+- RenderRadio,
+- RenderSelectField,
+- RenderSlider,
+- RenderTextField 
+- RenderToggle
+
 
 To use this types only import them from `@regardsoss/form-utils` like : 
 

@@ -18,8 +18,14 @@ The   `webapp/web_modules/data/client` section allow you to interact most of all
   - rs-access-project
   - rs-authentication
   - rs-admin
+  - rs-admin-instance
   - rs-catalog
   - rs-dam
+  - rs-dataprovider
+  - rs-ingest
+  - rs-order
+  - rs-storage
+  
 
 ### Create your client
 
