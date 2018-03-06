@@ -1,21 +1,19 @@
 ---
 layout: classic-docs
-title: Frontend - Dynamic module menu
+title: Frontend - Dynamic module Menu
 short-title: menu
 ---
 
 ## Description
 
-This module is a dynamic configurable module for the configurable interfaces. 
-This module display an horizontal top bar containing the functions :
-
-  - Authentication (activation by configuration)
-  - Theme selector (activation by configuration)
-  - Language selector (activation by configuration)
-  - Project about page (activation by configuration)
-  - Contacts (activation by configuration)
-  - Navigation menu
-  
+This module is a dynamic configurable module to be used in REGARDS user interfaces. It displays display as an horizontal bar containing the following elements:
+  * Title (when displayMode is ADMIN_* mode)
+  * Navigation links and sections (when displayMode is USER or PREVIEW), enabled by configuration
+  * Authentication (enabled by configuration)
+  * Theme selector (enabled by configuration)
+  * Language selector (enabled by configuration)
+  * Project about page (enabled by configuration)
+  * Contacts (enabled by configuration)
 
 ## Module structure
 
@@ -31,7 +29,8 @@ This module display an horizontal top bar containing the functions :
  |   ├── reducer.js      : Redux reducers  
  |   └── router.js       : React-router configuration  
  ├── tests  
- ├── package.json    : Npm module description file  
+ ├── default-icon.svg    : Default module icon as svg, mandatory
+ ├── package.json        : Npm module description file  
  └── README.md  
 
 ## Route
@@ -47,14 +46,14 @@ This module as a dynamic configurable module exposes is own :
   - adminContainer   : Main module React component used to display the administration panel of this module,
   - reducer          : To configure the general Redux Store.
   - styles           : Styles of the module
-  - messagesDir      : Messages and labels internationalization directory (default : 'modules/menu/src/i18n')
+  - messages         : Messages and labels internationalization object (default : imported index.js from messages/)
   - dependencies     : The needed resources (backend enpoints) to display each part of the module
 
-# Internationalization
+## Internationalization
 
 All displayed labels are defined in two languages (English and French) and are avaible from the i18n repository.
   
-# Usage
+## Usage
 
 To display a dynamic module as the current one you have to use the here under code :
    

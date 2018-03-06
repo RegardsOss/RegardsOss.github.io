@@ -1,12 +1,12 @@
 ---
 layout: classic-docs
-title: Frontend - Dynamic module Licenses
-short-title: licenses
+title: Frontend - Dynamic module Search Results
+short-title: storage-monitoring
 ---
 
 ## Description
 
-This module is a dynamic configurable module to be used in REGARDS user interfaces. It displays a configured project license page in an iframe and ask for a license acceptance.
+This module is a dynamic configurable module for the configurable REGARDS user interfaces. It displays AIP storage devices capacity and remaining space. It is also used internally to show AIP storage devices capacity in project administration interface.
   
 ## Module structure
 
@@ -16,7 +16,7 @@ This module is a dynamic configurable module to be used in REGARDS user interfac
  |   ├── clients         : Define all backend clients needed to request/send information  
  |   ├── components      : React component to display panels  
  |   ├── containers      : React-Redux logic to handle module functions  
- |   ├── i18n            : Messages and labels internationalization    
+ |   ├── i18n            : Messages and labels internationalization  
  |   ├── styles          : Panels styles (inline css objects)  
  |   ├── main.js         : Module exported index  
  |   ├── reducer.js      : Redux reducers  
@@ -53,7 +53,7 @@ To display a dynamic module as the current one you have to use the here under co
 ```javascript
     render() {
     const moduleConfiguration = {
-       type: 'licenses',
+       type: 'storage-monitoring',
        active: true,
        conf: {}
     }

@@ -1,14 +1,12 @@
 ---
 layout: classic-docs
-title: Frontend - Dynamic module search-form
+title: Frontend - Dynamic module Search Form
 short-title: search-form
 ---
 
 ## Description
 
-This module is a dynamic configurable module for the configurable REGARDS interfaces. 
-This module is used to display search forms to search data from the REGARDS catalog.
-This module uses [Criteria plugins](/frontend/plugins/plugin-criteria/) to define the Criterion to display into the form.
+This module is a dynamic configurable module to be used in REGARDS user interfaces. It displays search forms to search data from the REGARDS catalog. It uses [Criteria plugins](/frontend/plugins/plugin-criteria/) to define the Criterion to display into the form.
   
 ## Module structure
 
@@ -24,7 +22,8 @@ This module uses [Criteria plugins](/frontend/plugins/plugin-criteria/) to defin
  |   ├── reducer.js      : Redux reducers  
  |   └── router.js       : React-router configuration  
  ├── tests  
- ├── package.json    : Npm module description file  
+ ├── default-icon.svg    : Default module icon as svg, mandatory
+ ├── package.json        : Npm module description file  
  └── README.md  
 
 ## Route
@@ -40,14 +39,14 @@ This module as a dynamic configurable module exposes is own :
   - adminContainer   : Main module React component used to display the administration panel of this module,
   - reducer          : To configure the general Redux Store.
   - styles           : Styles of the module
-  - messagesDir      : Messages and labels internationalization directory (default : 'modules/menu/src/i18n')
+  - messages         : Messages and labels internationalization object (default : imported index.js from messages/)
   - dependencies     : The needed resources (backend enpoints) to display each part of the module
 
-# Internationalization
+## Internationalization
 
 All displayed labels are defined in two languages (English and French) and are avaible from the i18n repository.
   
-# Usage
+## Usage
 
 To display a dynamic module as the current one you have to use the here under code :
    

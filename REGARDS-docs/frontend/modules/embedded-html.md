@@ -1,12 +1,13 @@
 ---
 layout: classic-docs
-title: Frontend - Dynamic module Licenses
-short-title: licenses
+title: Frontend - Dynamic module Embedded HTML
+short-title: embedded-html
 ---
+
 
 ## Description
 
-This module is a dynamic configurable module to be used in REGARDS user interfaces. It displays a configured project license page in an iframe and ask for a license acceptance.
+This module is a dynamic configurable module to be used in REGARDS user interfaces. It acts as an IFrame container to embed HTML content by its URL. It may be used to create banner, footer, page content and so on...
   
 ## Module structure
 
@@ -16,7 +17,7 @@ This module is a dynamic configurable module to be used in REGARDS user interfac
  |   ├── clients         : Define all backend clients needed to request/send information  
  |   ├── components      : React component to display panels  
  |   ├── containers      : React-Redux logic to handle module functions  
- |   ├── i18n            : Messages and labels internationalization    
+ |   ├── i18n            : Messages and labels internationalization  
  |   ├── styles          : Panels styles (inline css objects)  
  |   ├── main.js         : Module exported index  
  |   ├── reducer.js      : Redux reducers  
@@ -25,12 +26,6 @@ This module is a dynamic configurable module to be used in REGARDS user interfac
  ├── default-icon.svg    : Default module icon as svg, mandatory
  ├── package.json        : Npm module description file  
  └── README.md  
-
-## Route
-
-This module is routed by the main application in which it is configured as a static or dynamic module.
-Static modules are always displayed in the interface layout.
-Dynamic modules are only displayed when the interface route is /modules/:module_id where module_id is the configuration identifier of the module.
 
 ## Exposed functions
 
@@ -44,16 +39,16 @@ This module as a dynamic configurable module exposes is own :
 
 ## Internationalization
 
-All displayed labels are defined in two languages (English and French) and are avaible from the i18n repository.
+  All displayed labels are defined in two languages (English and French) and are avaible from the i18n repository.
   
 ## Usage
 
-To display a dynamic module as the current one you have to use the here under code :
+  To display a dynamic module as the current one you have to use the here under code :
    
-```javascript
+  ```javascript
     render() {
     const moduleConfiguration = {
-       type: 'licenses',
+       type: 'embedded-html',
        active: true,
        conf: {}
     }
@@ -65,7 +60,7 @@ To display a dynamic module as the current one you have to use the here under co
           />
       )
     }
-```
+  ```
   
   
   

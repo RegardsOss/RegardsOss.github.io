@@ -11,6 +11,42 @@ A lazy loadable module is a plugable module that you can use where you want on t
 Microservices `rs-access-instance` and `rs-access-project` store the configuration of each modules
 and send it back to users browsing `User project` and `Portal` interfaces.
 
+## Module structure
+
+ .  
+ ├── src  
+ |   ├──  
+ |   ├── clients         : Define all backend clients needed to request/send information  
+ |   ├── components      : React component to display panels  
+ |   ├── containers      : React-Redux logic to handle module functions  
+ |   ├── domain          : Contains module enumerations, constants and business logic
+ |   ├── models          : Contains specific module actions, selectors and reducers (local actions, it would be in clients otherwise)
+ |   ├── shapes          : Contains module specific shapes (configuration for instance)
+ |   ├── i18n            : Messages and labels internationalization  
+ |   ├── styles          : Panels styles (inline css objects)  
+ |   ├── main.js         : Module exported index  
+ |   ├── reducer.js      : Redux reducers  
+ |   └── router.js       : React-router configuration  
+ ├── tests  
+ ├── default-icon.svg    : Default module icon as svg, mandatory
+ ├── package.json        : Npm module description file   
+ └── README.md  
+
+### About default icon:
+
+When creating a module, we must ensure the default icon is provided and respects the following rules:
+* Its path is **[module name]/default-icon.svg** where module name is also the module root folder
+* Icon is an SVG
+* Icon stroke and fill colors are specified on first <sgv> tag - otherwise, the module icon cannot be updated with theme colors  
+
+That icon should be used to represent the module or its instances. It is used, for instance, to display navigation links in menu module - when user chooses to use the default icon.  
+
+SVG icons are available, for instance, on the following sites:
+* https://material.io/icons/ : Material design icons (default regards look and feel)
+* https://materialdesignicons.com/: Extension to material design icons  
+
+Finally, note that each module default-icon.svg **should be unique among all modules default icons**, so that user can quickly identify the page and module types.
+
 ## Create a new module
 
 You can create a new module using the yeoman generator `generator-regards-ui-module` provided with sources into `webapp/yeoman/generator-regards-ui-module`.
@@ -32,8 +68,19 @@ Modules are not set as plugin into REGARDS yet. So to be able to use a new modul
  npm link web_modules/modules/new-module-name
  ```
  - Add your module to the list of depencies into the main "webapp/package.json" : "@regardsoss-modules/<new module name>": "<module version>"
- - Add your module to the list of available modules. To do so, update the file "webapp/web_modules/utils/modules/src/ModulesManager.js" to add your new moudle into the `AVAILABLE_MODULES` variable. Each value in this variable reference the name of the module as it is defined in the webpack dependencies. So to add the new module "@regardsoss-modules/myModule", just add "myModule" into the `AVAILABLE_MODULES` variable.  
- 
+ - Add your module to the enumeration of available modules in @regardoss/modules/modulesManager (ModulesManager.js) in one of the following enumerations:
+   - VisibleModuleTypes: Modules that project administrator can instantiate
+   - HiddenModuleTypes: Modules that project administrator cannot instantiate (authentication for instance, as it is automatically added into the user interface)
+
+Once you added the module in one of those lists, you may use it as follow:
+
+```javascript
+import { modulesManager } from '@regardsoss/modules'
+// ...
+const moduleType = modulesManager.AllDynamicModuleTypes.MENU
+// ...
+```
+
 **Congratulations**, your module is ready! You can now run the frontend with :
 ```bash
 $ cd webapp
@@ -61,8 +108,8 @@ export default {
   styles,
   // A js object containing Redux reducers of both ModuleContainer and AdminContainer
   reducer,
-  // A string containing the path to the i18n directory, used by label and message internationalization
-  messagesDir,
+  // A js object containing, by locale key ("en" / "fr"), the messages map: (string) key to (string) message
+  messages,
   // A js object containing server side endpoints dependencies to allow module to be displayed
   dependencies,
 }
@@ -79,40 +126,15 @@ The here-under React component example shows you how to create a form to create 
 import { FormattedMessage } from 'react-intl'
 import { i18nContextType } from '@regardsoss/i18n'
 import { RenderTextField, RenderCheckbox, Field } from '@regardsoss/form-utils'
+import { ModuleConfiguration } from '../shapes/ModuleConfiguration'
 
 class AdminContainer extends React.Component {
 
   static propTypes = {
-      // Application name "user" or "portal"
-      appName: PropTypes.string,
-      // Project name
-      project: PropTypes.string,
-      adminForm: PropTypes.shape({
-        // ReduxForm function to dynamicaly change a field value
-        changeField: PropTypes.func,
-        // Current module configuration. Values from the redux-form
-        form: PropTypes.shape({
-          // Form is activated ?
-          active : PropTypes.bool,
-          // Application name "user" or "portal"
-          applicationId: PropTypes.string,
-          // Current form values
-          conf: PropTypes.shape({
-            myParameter: PropTypes.string,
-            myParameter2: PropTypes.bool,
-          }),
-          // Layout container where the module is displayed in the application
-          container : PropTypes.string,
-          // Is the module a dynamic one ?
-          defaultDynamicModule: PropTypes.bool,
-          // Description of the module
-          description: PropTypes.string,
-          // Unique identifier of the current module
-          id: PropTypes.number,
-          // Module type
-          type : PropTypes.string,
-        }),
-      }),
+      // default module properties in configuration mode
+    ...AccessShapes.runtimeConfigurationModuleFields,
+    // redefines expected configuration shape for module (specifies THIS MODULE shape)
+    moduleConf: ModuleConfiguration.isRequired,
   }
 
   static contextTypes = {
@@ -121,20 +143,28 @@ class AdminContainer extends React.Component {
 
   render() {
     const { intl } = this.context
+    /* 
+     * Please note that each field name below takes in account the current namespace. For 
+     * instance, the resulting name may be "conf.myParameter" (parent will resolve it 
+     * according with current use case, namespace allows embedding modules into other
+     * modules)
+     */
+    const { adminForm: { currentNamespace } } = this.props
     return (
       <div>
         <Field
-          name="conf.myParameter"
+          name={`${currentNamespace}.myParameter`}
           fullWidth
           component={RenderTextField}
           type="text"
           label={intl.formatMessage({ id: 'admin.example.my.parameter.label' })}
         />
         <Field
-          name="conf.myParameter2"
+          name={`${currentNamespace}.myParameter2`}
           component={RenderCheckbox}
           label={intl.formatMessage({ id: 'admin.example.my.parameter2.label' })}
         />
+        { /* ... */ }
       </div>
     )
   }
@@ -273,7 +303,7 @@ With the previous example and for a module named "ExampleModule", the applicatio
 
 The same store can be accessed by both `ModuleContainer` and `AdminContainer`.
 
-### MessagesDir
+### Messages
 
 This parameter allows you to change the default directory where `@regardsoss/i18n` search *i18n* messages files.  
 By default the directory used is `src/i18n`.  
@@ -310,4 +340,3 @@ export default {
 }
 
 ```
-
