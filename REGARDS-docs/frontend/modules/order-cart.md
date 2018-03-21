@@ -1,17 +1,16 @@
 ---
 layout: classic-docs
-title: Frontend - Dynamic module about-project-page
-short-title: about-project-page
+title: Frontend - Dynamic module Order Cart
+short-title: order-cart
 ---
 
 ## Description
 
-This module is a dynamic configurable module for the configurable interfaces. It displays the configured project about page in an iframe. It stores the 'do not show again' option in local web browser storage.
+This module is a dynamic configurable module to be used in REGARDS user interfaces. It displays the data order cart content. Please note that his module must be instanciated once, in a dynamic container, to enable the order cart functionnality in interface menus and search results. However, instantiating it more than once instance is useless - only the first instance found will be used - and may be risky, depending on the global interface configuration.
 
-Note: This module can be directly used within the menu module. Therefore instantiating it separately should be a rare used case.
-  
 ## Module structure
 
+ .  
  ├── src  
  |   ├──  
  |   ├── clients         : Define all backend clients needed to request/send information  
@@ -23,7 +22,8 @@ Note: This module can be directly used within the menu module. Therefore instant
  |   ├── reducer.js      : Redux reducers  
  |   └── router.js       : React-router configuration  
  ├── tests  
- ├── package.json    : Npm module description file  
+ ├── default-icon.svg    : Default module icon as svg, mandatory
+ ├── package.json        : Npm module description file  
  └── README.md  
 
 ## Route
@@ -39,21 +39,21 @@ This module as a dynamic configurable module exposes is own :
   - adminContainer   : Main module React component used to display the administration panel of this module,
   - reducer          : To configure the general Redux Store.
   - styles           : Styles of the module
-  - messagesDir      : Messages and labels internationalization directory (default : 'modules/menu/src/i18n')
+  - messages         : Messages and labels internationalization object (default : imported index.js from messages/)
   - dependencies     : The needed resources (backend enpoints) to display each part of the module
 
-# Internationalization
+## Internationalization
 
 All displayed labels are defined in two languages (English and French) and are avaible from the i18n repository.
   
-# Usage
+## Usage
 
 To display a dynamic module as the current one you have to use the here under code :
    
 ```javascript
     render() {
     const moduleConfiguration = {
-       type: 'about-project-page',
+       type: 'order-cart',
        active: true,
        conf: {}
     }
@@ -66,6 +66,5 @@ To display a dynamic module as the current one you have to use the here under co
       )
     }
 ```
-  
   
   

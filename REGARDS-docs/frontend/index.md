@@ -12,12 +12,17 @@ categories:
   
  How to use existing dynamic modules ( from /webapp/web_modules/modules):
   - [Authentication](/frontend/modules/authentication/)
-  - [Project presentation page](/frontend/modules/about-project-page/)
+  - [Embedded HTML](/frontend/modules/embedded-html/)
   - [License](/frontend/modules/licenses/)
   - [Menu](/frontend/modules/menu/)
-  - [search graph](/frontend/modules/search-graph/)  
-  - [Search form](/frontend/modules/search-form/)
-  - [search results](/frontend/modules/search-results/)
+  - [Order Cart](/frontend/modules/order-cart/)
+  - [Order History](/frontend/modules/order-history/)
+  - [Project List](/frontend/modules/projects-list/)
+  - [Project About Page](/frontend/modules/project-about-page/)
+  - [Search Form](/frontend/modules/search-form/)
+  - [Search Fraph](/frontend/modules/search-graph/)  
+  - [Search Results](/frontend/modules/search-results/)
+  - [Storage Monitoring](/frontend/modules/storage-monitoring/)
   
  How to develop new features : 
   - [Getting started](/frontend/setup/)

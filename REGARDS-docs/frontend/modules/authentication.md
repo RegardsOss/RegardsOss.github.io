@@ -1,14 +1,14 @@
 ---
 layout: classic-docs
-title: Frontend - Dynamic module authentication
+title: Frontend - Dynamic module Authentication
 short-title: authentication
 ---
 
 
 ## Description
 
-This module is a dynamic configurable module for the configurable interfaces. 
-This module is used to manage :
+This module is a dynamic configurable module to be used in REGARDS user interfaces.
+It manages :
   - Authentication to the REGARDS services
   - Unlock accounts
   - Token expiration and session locking
@@ -17,6 +17,7 @@ This module is used to manage :
   
 ## Module structure
 
+ .  
  ├── src  
  |   ├──  
  |   ├── clients         : Define all backend clients needed to request/send information  
@@ -28,7 +29,8 @@ This module is used to manage :
  |   ├── reducer.js      : Redux reducers  
  |   └── router.js       : React-router configuration  
  ├── tests  
- ├── package.json    : Npm module description file  
+ ├── default-icon.svg    : Default module icon as svg, mandatory
+ ├── package.json        : Npm module description file
  └── README.md  
 
 ## Route
@@ -44,7 +46,7 @@ This module as a dynamic configurable module exposes is own :
   - adminContainer   : Main module React component used to display the administration panel of this module,
   - reducer          : To configure the general Redux Store.
   - styles           : Styles of the module
-  - messagesDir      : Messages and labels internationalization directory (default : 'modules/menu/src/i18n')
+  - messages         : Messages and labels internationalization object (default : imported index.js from messages/)
   - dependencies     : The needed resources (backend enpoints) to display each part of the module
 
 ## Internationalization

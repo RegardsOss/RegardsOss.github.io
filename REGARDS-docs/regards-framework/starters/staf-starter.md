@@ -161,9 +161,10 @@ java -jar \
   
 <b>Usage to retrieve files :</b>  
 java -jar \  
-  -Dmode=ARCHIVE \  
+  -Dmode=RESTORE \  
   -Darchive.name=\<STAF Archive\> \  
   -Darchive.password=\<STAF Archive password\> \  
+  -Dworkspace=\<Absolute path to local STAF workspace\> \
   -Douputdir=\<Absolute path to directory where to restore files\> \  
   staf-<version>-jar-with-dependencies.jar files...
   
@@ -174,6 +175,7 @@ java -jar \
   -Dmode=DELETE \  
   -Darchive.name=\<STAF Archive\> \  
   -Darchive.password=\<STAF Archive password\> \
+  -Dworkspace=\<Absolute path to local STAF workspace\> \
   staf-<version>-jar-with-dependencies.jar files...
   
 <b>Note :</b> files... : is a list of STAF URL to delete (exeple staf://ARCHIVE/NODE/file)  

@@ -1,29 +1,29 @@
 ---
 layout: classic-docs
-title: Frontend - Dynamic module Licenses
-short-title: licenses
+title: Frontend - Dynamic module Project About Page
+short-title: project-about-page
 ---
 
 ## Description
 
-This module is a dynamic configurable module to be used in REGARDS user interfaces. It displays a configured project license page in an iframe and ask for a license acceptance.
+This module is a dynamic configurable module to be used in REGARDS user interfaces. It displays the project about page in an iframe. It stores the 'do not show again' option in local web browser storage.
   
 ## Module structure
 
- .  
+ .
  ├── src  
  |   ├──  
  |   ├── clients         : Define all backend clients needed to request/send information  
  |   ├── components      : React component to display panels  
  |   ├── containers      : React-Redux logic to handle module functions  
- |   ├── i18n            : Messages and labels internationalization    
+ |   ├── i18n            : Messages and labels internationalization  
  |   ├── styles          : Panels styles (inline css objects)  
  |   ├── main.js         : Module exported index  
  |   ├── reducer.js      : Redux reducers  
  |   └── router.js       : React-router configuration  
  ├── tests  
  ├── default-icon.svg    : Default module icon as svg, mandatory
- ├── package.json        : Npm module description file  
+ ├── package.json        : Npm module description file    
  └── README.md  
 
 ## Route
@@ -53,7 +53,7 @@ To display a dynamic module as the current one you have to use the here under co
 ```javascript
     render() {
     const moduleConfiguration = {
-       type: 'licenses',
+       type: 'project-about-page',
        active: true,
        conf: {}
     }
