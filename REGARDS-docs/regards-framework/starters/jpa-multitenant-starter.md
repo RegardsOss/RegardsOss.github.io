@@ -64,7 +64,7 @@ To do so, multitenant router use `IRuntimeTenantResolver` from [Multitenant star
 
 ## 3.2. How to avoid transaction manager conflict
 
-You can annotated your service or test with the following meta annotation to manage transaction if multiple managers exist else you can use classic `Transactional`:
+You can annotated your service or test with the following meta annotation to manage transaction if multiple managers exist else you can use `RegardsTransactional`:
 ```java
 @MultitenantTransactional
 ```
