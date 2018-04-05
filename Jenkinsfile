@@ -15,7 +15,7 @@
  */
 
 pipeline {
-    agent { label 'unix-validation' }
+    agent { label 'unix-integration' }
 
     stages {
         stage('Build jekyll image') {
@@ -28,10 +28,10 @@ pipeline {
         stage('Generate the doc') {
             steps {
                 // Wait for gateway, catalog, access-project, access-instance and front
-                sh 'docker run --rm -i 172.26.46.158/rs_doc_generator \
+                sh 'docker run --rm -i \
                 	-v ${WORKSPACE}/REGARDS-docs:/src/_docs \
                 	-v ${WORKSPACE}/doc-static:/src/site \
-                	jekyll build'
+                	172.26.46.158/rs_doc_generator jekyll build'
             }
             post {
                 always {
