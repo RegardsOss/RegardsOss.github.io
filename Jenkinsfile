@@ -30,7 +30,7 @@ pipeline {
                 // Wait for gateway, catalog, access-project, access-instance and front
                 sh 'docker run --rm -i \
                 	-v ${WORKSPACE}/REGARDS-docs:/src/_docs \
-                	-v ${WORKSPACE}/doc-static:/src/site \
+                	-v ${WORKSPACE}/doc-static:/src/_site \
                 	172.26.46.158/rs_doc_generator jekyll build'
             }
             post {
