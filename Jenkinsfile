@@ -41,7 +41,7 @@ pipeline {
         }
         stage('Create static website') {
             steps {
-            	sh 'cp doc-static nginx/'
+            	sh 'cp -R doc-static nginx/'
                 sh 'cd nginx && docker build -t 172.26.46.158/rs_doc .'
                 sh 'docker push 172.26.46.158/rs_doc'
             }
