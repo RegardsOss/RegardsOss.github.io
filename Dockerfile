@@ -1,8 +1,4 @@
-FROM ruby:2.1
-ENV HTTP_PROXY http://proxy2.si.c-s.fr:3128
-ENV http_proxy http://proxy2.si.c-s.fr:3128
-ENV https_proxy http://proxy2.si.c-s.fr:3128
-ENV HTTPS_PROXY http://proxy2.si.c-s.fr:3128
+FROM ruby:2.4
 
 RUN apt-get update
 RUN apt-get install -y \
