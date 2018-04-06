@@ -19,30 +19,30 @@ short-title: Criterion
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
 
-## Description
+# Presentation
 
-This document aims at helping the developper to create a plugin service, that can be used in regards results. Before, reading any further, make sure to read the plugins page [Common plugins description](/frontend/plugins/plugins/), as 
-following sections are appliable to the plugin service:
-* Code structure
-* Entry point
-* Main react component (except for provided parameters and criteria research, that doesn't fit the purpose of a service plugin)
-* Plugin compilation
+A criteria plugin (front-end) is a javascript bundle used by the [Search form module](/frontend/modules/search-form/) to create search criteria section. Each criterion plugin can generate a part of the full opensearch request sent to the rs-catalog mictoservice in order to request catalog entities.  
+By the way, a criteria plugin respects all general plugin principles documented in [Plugins](/frontend/plugins/) page.
 
-## Definition
+# Working principles
 
-A criteria plugin (front-end) is a javascript module used by the [Search form module](/frontnend/modules/search-form/) to create search criteria section. Each criteria plugin can generate a part of the full opensearch request sent to the rs-catalog mictoservice in order to request catalog entities.
+The criteria plugin must respect the following working principles to be correctly integrated within REGARDS:
+1. It must declare attributes list in plugin-info.json (see section below). The attributes names mentioned are not related with attribute models. Instead they are used in implementation as logical attribute name, like 'firstAttribute' or 'simpleAttribute' for instance.
+1. Its main component must inherit PluginCriterionContainer.
+Indeed that is more of an helper but many mechanisms would be very hard to implement without it, especially when it comes to publish new URL and update state from URL.
+1. When user input some data, the plugin main component must update its state to publish the new values of attributes, using the attribute name declared in package-info. That will allow parent form to update plugin saved state (form URL) and catalog request
+1. It must ensure publishing its main component state to an open search query in a way it can restore it (see state management section)
+1. It must ensure parsing open search query into a usable state for main component
 
-## plugin-info.json
+# plugin-info.json
 
 It is very similar to a common plugin. However the plugin type always indicates "CRITERIA".
-Furthermore, in configuration field `conf`, `attributes` you can define the static configuration fields that the administrator must define during plugin configuration in administration panels.  
+Furthermore, it defines configuration field `conf.attributes`, indicating the number and type of dataobjects attributes the administrator should provide to the plugin runtime instance.
   
-Each attribute defined in the plugin-info.json will be associated to a model attribute during plugin configuration by administrors into the search-form module configuration.   
-
-For each defined attributes :
- - `name`       : Name of the attribute passed into your plugin `attributes` react prop.
- - `description`: Description displayed during the plugin configuration from the administration interface
- - `type`       : Type of needed attribute. Possible values ['string','integer','date','numerical']
+For each defined attributes, the plugin developer must provide :
+ - `name` : Name of the attribute as it will be adressed in the plugin main component state (like searchField)
+ - `description` : Description displayed to administrator at configuration.
+ - `type` : Type constraint on the expected attributes. Possible values ['string','integer','date','numerical'].
 
 ```json
 {
@@ -54,24 +54,24 @@ For each defined attributes :
   "email" : "<%= email %>",
   "url" : "<%= url %>",
   "license": "<%= licence %>",
-  "type" : "SERVICE",
+  "type" : "CRITERIA",
   "conf" : {
-  	"attributes": [
+  	"attributes": [{
   		"name":"searchField",
   		"description":"Attribute to search for",
   		"type":"numerical",
-  	]
+    }]
   }
 }
-
 ```
-## Main React component 
 
-It mostly works just like a common plugin.
+# Main React component 
 
-### Provided runtime parameters
+It mostly works just like a common plugin but should handle the specific points mentionned before and below.
 
-The here under properties are provided at runtime by the plugin loader :
+## Provided runtime parameters
+
+The here under properties are provided at runtime by the plugin loader to each criterion plugin main compoent :
 ```js
 propTypes = {
     /**
@@ -103,68 +103,66 @@ propTypes = {
      * id: current plugin identifier
      */
      onChange: React.PropTypes.func,
+     /**
+      * Callback to register the main component clear state function
+      * (used automatically by the PluginCriterionContainer)
+      */
+     registerClear: React.PropTypes.func,
+     /**
+      * Initial values if any, consumed automatically by the 
+      * PluginCriterionContainer
+      */
+     initialValues: PropTypes.objectOf(PropTypes.string),
+     /**
+      * Initial search query (datasets and models restrictions) 
+      * for plugins using it, consumed automatically by the 
+      * PluginCriterionContainer
+      */
+    initialQuery: PropTypes.string,
   }
 ```
-the attributes property is a collection of AttributeModel (see src/common/AttributeModel.js)  
+The attributes property is a collection of AttributeModel (see webapp/web_modules/data/shape/src/rs-dam/AttributeModel.js)  
 
-Attributes names used into the onpenSearchQuery can be retrieved from an attribute object using the `getAttributeName` method
+When implementing the plugin, attributes names used into the onpenSearchQuery can be retrieved from an attribute object using the `getAttributeName` method from PluginCriterionContainer:
 ```js
-this.getAttributeName('searchField')
+this.getAttributeName('searchField') // 'searchField' constant comes from previous example on 'plugin-info.json'
 
 ```
 
-Attributes labels can be simply retrieved by using the getAttributeLabel from the superClass PluginComponent.
-In the example below 'searchField" in the attribute given in the plugin-info.json
+Attributes labels can be retrieved the same way using:
 ```js
 this.getAttributeLabel('searchField')
 ```
 
-### State management
+## Manage state and search query
 
-The state of your plugin is saved by the plugin loader. Thanks to this system, by default the state of your component is initialized with your previous state.  
+When extending the PluginCriterionContainer class, the main abstract methods to implement are:
+* `getPluginSearchQuery`  
+*(state:Object) => string*  
+Convert this component state, where state is first parameter, into a query part like, for instance, 'MY_VALUE:35'. State fields here correspond to attribute names.
+* `parseOpenSearchQuery`  
+*(attributeName: string, openSearchValue} => (state)*  
+Parses the component state for attributeName as parameter. It is essential here for implementation to understand that:
+  * attributeName is the name given in plugin-info.json to some attribute
+  * openSearchValue is the value on right side of open search expression. It would be '35' in example above
+  * The method will be called at least one time for each attribute declared in package-info.json and found in current query
+  * The result of that method will be assigned to state.{attributeName}
 
-To save your state manually you can use the `savePluginState` method.  
+With those two methods, and when extending the PluginCriterionContainer, initialization and state saving will be performed automatically. Plus, any update of the main component state, using `this.setState`, will trigger an update of the current open search query - ie call getPluginSearchQuery method and then update URL.
+
+However, it is still possible to:
+* save the state manually using the `savePluginState` method.  
 ```js
 this.props.savePluginState(this.props.pluginInstanceId, this.state)
 ```
-To retrieve your previous saved state you can use the `getDefaultState` method
+* retrieve the previous state using the `getDefaultState` method
 ```js
 this.props.getDefaultState(this.props.pluginInstanceId)
 ```
 
-### Handle search for your criteria plugin
-
-First you need to define a method `getPluginSearchQuery` into your main react component.
-This method have the here under signature :
-```js
-getPluginSearchQuery = (state) => {
-  const openSearchQuery = '<query>'
-  return openSearchQuery
+Each main plugin component, extending or not the PluginCriterionContainer, should also define the reset state method handleClear:
+```jsx
+handleClear = () => {
+  this.setState(defaultState) // update the plugin root component state to clear user input
 }
-```
-
-This method is used by the plugin manager to retrieve the openSearchQuery of your plugin.
-  
-The second method to define into your main react component is the `parseOpenSearchQuery`.
-This method allow you to retrieve the current attributes values in order to initialize your plugin 
-with the previous values. This method is used to fill your criterion at initialization.
-This method is called many times as you have defined attributes in the plugin-info.json.
-
-The here under example is used to transform an open-search query on a string attribute
-```js
-parseOpenSearchQuery = (parameterName, openSearchQuery) => {
-    // A valid open search string query can be '(*test* AND foo AND bar*)
-    if (parameterName === 'searchField') {
-        // Remove '(' caracter if any
-        let value = replace(openSearchQuery, /\(/g, '')
-        // Remove ')' caracter if any
-        value = replace(value, /\)/g, '')
-        // Remove special * caracter if any
-        value = replace(value, /\*/g, '')
-        // Concat all AND values
-        value = replace(value, / AND /g, ' ')
-        return value
-     }
-     return null
-  }
 ```

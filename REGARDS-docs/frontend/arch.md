@@ -11,9 +11,7 @@ The REGARDS frontend contains three differents interfaces:
  - The `User interface`, fully configurable (layout, theme and modules displayed), that lets users browse project content. 
  - The `Administrator interface` allows **Instance admin** to create Projects and **Project Admin** to configure projects. 
 
-You can refer to the [#business-modules](business modules dependency graph) to get an overview on how these three interfaces are loaded by our app.
-
-Moreover, for the `Portal` and `User` interfaces, we've created [Dynamic modules](/frontend/modules/dynamic-modules/) to brings UI features that the administrator can controll (options, layout,...).
+For the `Portal` and `User` interfaces, REGARDS UI defines [Dynamic modules](/frontend/modules/dynamic-modules/) to bring UI features that the administrator can controll (options, layout, menus...).
 
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
@@ -35,34 +33,42 @@ The REGARDS frontend is divided in several NPM modules, each one has a `package.
 
 ```
 import { configureStore } from '@regardsoss/store' // Good
-import { configureStore } from '../web_modules/data/store/src/main.js' // It works, but that's a bad practice
+import { configureStore } from '../web_modules/data/store/src/main.js' // Bad practice
 ```
 
 Before understanding further the role of each module, here are the main files used to create the app: 
 
 ```
 ├── webapp                                    # REGARDS Frontend folder
-    ├── conf                                  # Store browser global variables not merged in the build
-    |  ├── staticConfiguration.js             # Global variables defined on prod
-    |  └── staticConfiguration.dev.js         # Global variables defined on dev
+    ├── dist                                  # transpiled code for dev and prod 
+    ├── eslint-config-es6-rules               # Eslint configuration for project (as a module)
+    ├── mocks                                 # Holds mock servers for features development
+    ├── plugins                               # REGARDS plugins
     ├── reports                               # Local reports
     |  ├── coverage                           # Coverage report
     |  ├── mocha                              # Test report
-    ├── scripts                               # Shell scripts (Linux only) that our package.json refers to
-    |  └── bootstrap.sh                       # Create NPM links between modules / node system folder / main app
-    ├── src                                   # Application root folder
-    |  ├── main.jsx                           # The first file read in the app
-    |  ├── rootReducer.js                     # Load the Redux tree
-    |  └── rootRouter.js                      # Load the react-router logic
-    ├── tests                                 # tests related to the folder ./src
+    ├── resources                             # Some demo resources
+    ├── scripts                               # Some helper scripts for installing, building... Mainly for plugins usage
+    ├── src                                   # frontend starter source code, common to user, portal and admin app
+    |  ├── main.jsx                           # Starter React file
+    |  ├── rootReducer.js                     # Loads the Redux tree
+    |  └── rootRouter.js                      # Loads the react-router logic
+    ├── tests                                 # Tests corresponding to src folder
     ├── web_modules                           # Contains all @regardsoss and @regardsoss-modules modules
-    |  ├── business-common                    # Reusable business logic
-    |  ├── business-modules                   # Modules related to the admin app
+    |  ├── business-common                    # Reusable business logic, often shared between admin and user app
+    |  ├── business-modules                   # Application static modules and specific applications starters `admin`, `portal` and `user`
     |  ├── components                         # Reusable React components
-    |  ├── data                               # PropTypes & everything to interact with the backend server
-    |  ├── modules                            # Dynamic configurable Modules related to the portal & user app
-    |  ├── utils                              # REGARDS "generic" toolkit we've build
+    |  ├── data                               # data related reusable elements
+    |  |  ├── api                             # module holding normalizer configurations for backend API
+    |  |  ├── client                          # module holding redux client to fetch data from backend
+    |  |  ├── domain                          # module holding business domain enumerations and constants
+    |  |  ├── shape                           # React PropTypes related with backend data and normalized data
+    |  |  └── store                           # Redux store helpers and configurators
+    |  ├── modules                            # Dynamic configurable modules 
+    |  ├── utils                              # REGARDS "generic" toolkit
     |  └── vendors                            # Libraries fork we've done
+    ├── webpack-config-front                  # Module holding plugins and modules webpack transpiler and defining dev and prod build constants
+    ├── webpack-config-front                  # Yeoman templates (cli to generate frontend modules and plugins)
     ├── package.json                          # Define npm scripts and list all dependencies
     ├── webpack.dev.preprod.config.js         # Used when building the app to run in development mode
     ├── webpack.coverage.config.js            # Used when building the app to run tests coverage mode
@@ -124,40 +130,36 @@ _Note: The administration application is structured in a thematic tree, like see
         ├── admin-accessright-accessgroup-management    # Data access groups
         └── admin-accessright-dataaccess-management     # Data access rights per group 
 ```
+
+### Eslint configuration module
+
+The folder `eslint-config-es6-rules` holds the lint configuration module for REGARDS frontend. Lint corresponds to the set of style rules that are applied to project code.
+
+### Mocks
+
+The `mocks` folder contains runnable mock servers:
+* *front* folder contains a standalone server that answers all front end calls based on a node JS server
+* *json* folder contains a standalone server that answers all front end calls using JSONServer
+* *proxy* folder contains a standalone server that answers known front end calls based on a local node JS server and is able to report unknown URL onto configured server
+
+Those servers are used to develop and test new functionnalities. The corresponding runnable is declared in main application package.json.
+
+### Plugins
+
+The `plugins` folder contains REGARDS front end plugins code. Those plugins are separed of front end core code. However, it is so far more convenient for developers to keep the folder within webapp to address compilation, version and references issues. For more detail about plugins,
+see [about plugins page](/frontend/plugins/)
+
 ### Components modules
-This package provides **React** generic components to handle forms, buttons, cards and so on. More details are available in [components detail page](/frontend-modules/components)
+
+This package provides **React** generic components to handle forms, buttons, cards and so on. More details are available in [components detail page](/frontend/components/components)
 
 ### Data
-This folder holds data related modules:
 
-1. `api modules`: Contains the [normalizr](https://github.com/paularmstrong/normalizr) logic to map entities from an API result using a Schema into what we put in the store.
-1. `client`: Contains clients to access REGARDS API. Clients are used to fetch data, using [Redux API middleware](https://www.npmjs.com/package/redux-api-middleware). Thus, they are defining some of the following elements, allowing them to work within the [Redux system](http://redux.js.org/):  
-    1.  Actions: define the API endpoint, fetching options and success, pending and error operations
-    1.  Reducer: define the action handler (it converts actions results into a Redux state). _Note: it needs to be installed, when not shared_
-    1.  Selector: define the redux state selector (data retriever) for that Regards API operation
-1. `domain`: It holds constants related with API use, by microservice.  
-    _Note: it also contains some constants used only by the frontend, when those constants are stored and retrieved through the API._
-1. `shape`: Contains React properties shapes matching with REGARDS API, by microservice.  
-    _Note: it also contains some shapes used only by the frontend, when those shapes are stored and retrieved through the API._
-1. `store`: Create the initial [Redux](http://redux.js.org/) application store. Also set up the store middlewares (automatic actions handling).
+This folder holds API data related modules (server fetching, shapes, redux store, middlewares...). See [data presentation page](/frontend/data)
 
 ### Modules
-This folder contains all _dynamic_ modules, ie all modules that can be configured to be displayed in user and portal application.
-1. `archival-storage-aip-status`: **Not ready in REGARDS V1**. Displays AIP storage jobs status.
-1. `archival-storage-plugins-monitoring`: **Not ready in REGARDS V1** Displays AIP plugins storage capacities and remaining spaces.
-1. `authentication`: Provides interface authentication capacities (connexion, account creation, password reset...)
-1. `generator-regards-ui-module`:  Allows generating dynamic modules - it is not a dynamic module and **Will be moved in next versions**.
-1. `home-page`: Displays project home page
-1. `licenses`: Displays project license
-1. `menu`: Displays user interface navigation menu, authentication, language and theme options
-1. `news`: **Not ready in REGARDS v1** Displays a project news
-1. `project-list`: Displays project list
-1. `search-facets`: Provides a results facets (used by the search-results modules)
-1. `search-form`: Allows searching catalog elements
-1. `search-graph`: Allows browsing catalog collections and datasets
-1. `search-results`: Displays catalog datasets and dataobjects
 
-You can get additionnal informations [here](/frontend/modules/dynamic-modules/)  
+This folder contains all _dynamic_ modules, ie all modules that can be configured to be displayed in user and portal application. For more details, see [dynamic modules sections](/frontend/modules/dynamic-modules/)  
 
 ### Utils modules
 This folder holds modules providing high level services, tools and components shared by all application interfaces (admininistration, user application and portal application).
