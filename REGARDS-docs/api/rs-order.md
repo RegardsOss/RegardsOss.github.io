@@ -43,7 +43,7 @@ Allows to create a basket or adding a data selection to current one.
 
   **Required:**
 
-    * An opensearch request:
+    * An opensearch request (note that an empty {opensearch_request} is valid):
 
       ```json
       {
