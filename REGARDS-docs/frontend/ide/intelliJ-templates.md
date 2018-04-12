@@ -6,28 +6,28 @@ short-title: IntelliJ templates
 
 This page propose intelliJ templates to create new files in IntelliJ with some boilerplate already defined - time win!
 
-### Set up a template
+# Set up a template
 
 Right click anywhere in project tree to open the context menu. Select 'New > Edit file templates'.  
 Use the templates provided below or create new ones in templates view - see picture below.  
 
 ![](/assets/images/frontend/intelliJ-templates/create.png)
 
-### React component template
+# React component template
 
-#### Definition
+## Definition
 
 - **Name**: React component
 - **extension**: jsx
 - **Reformat according to style**: yes
 - **Enabled live templates**: yes
 
-#### Variables at creation
+## Variables at creation
 
 - **Name**: File name, use the container's / component's name to create, like 'BubbleSandwitchComponent' or 'ApplePieContainer'
 - **Comment**: container / component description
 
-#### Template
+## Template
 
 ```javascript
 
@@ -59,21 +59,21 @@ export default ${NAME}
 
 ```
 
-### React component test template
+# React component test template
 
-#### Definition
+## Definition
 
 - **Name**: React component test 
 - **extension**: test.jsx
 - **Reformat according to style**: yes
 - **Enabled live templates**: yes
 
-#### Variables at creation
+## Variables at creation
 
 - **Name**: File name, use the container's / component's name to test, like 'BubbleSandwitchComponent' or 'ApplePieContainer'
 - **MODULE_NAME**: Name of the parent module (for test console output)
 
-#### Template
+## Template
 
 ```javascript
 
@@ -124,21 +124,21 @@ describe('[${MODULE_NAME}] Testing ${NAME}', () => {
 
 ```
 
-### React messages test template
+# React messages test template
 
-#### Definition
+## Definition
 
 - **Name**: React messages test 
 - **extension**: test.js
 - **Reformat according to style**: yes
 - **Enabled live templates**: yes
 
-#### Variables at creation
+## Variables at creation
 
 - **Name**: File name, enter 'messages' here (to create 'messages.test.js')
 - **MODULE_NAME**: Name of the parent module (for test console output)
 
-#### Template
+## Template
 
 ```javascript
 
@@ -161,21 +161,21 @@ describe('[${MODULE_NAME}] Testing i18n', () => {
 })
 
 ```
-### Redux entity test template
+# Redux entity test template
 
-#### Definition
+## Definition
 
 - **Name**: Redux entity test 
 - **extension**: test.js
 - **Reformat according to style**: yes
 - **Enabled live templates**: yes
 
-#### Variables at creation
+## Variables at creation
 
 - **Name**: File name, enter here the model name to test (like 'Collection' for CollectionActions / CollectionReducers / CollectionSelectors)
 - **MODULE_NAME**: Name of the parent module (for test console output)
 
-#### Template
+## Template
 
 ```javascript
 

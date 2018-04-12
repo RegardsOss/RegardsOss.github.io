@@ -27,7 +27,7 @@ For the `Portal` and `User` interfaces, REGARDS UI defines [Dynamic modules](/fr
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
-### Overall architecture
+# Overall architecture
 
 The REGARDS frontend is divided in several NPM modules, each one has a `package.json` file defining the name of the module in the application. It allows us to import a module using his name instead of using a relative path.
 
@@ -80,7 +80,7 @@ Before understanding further the role of each module, here are the main files us
 ```
 
 
-### Common businness modules (business-common)
+# Common businness modules (business-common)
 
 This folder contains business related modules, shared accross many REGARDS modules and / or applicationsportal)
 
@@ -93,7 +93,7 @@ This folder contains business related modules, shared accross many REGARDS modul
 1. `project-handler`: Shared react High Order Component to fetch and publish in Redux store (see later sections) the current project
 1. `user-metadata-common`: Shared project user metadata definition and edition React components
 
-### Business modules
+# Business modules
 
 This folder contains all applications modules that are not *dynamic* - ie that cannot be configured and set up in user nor in portal applications
 As administration interface is not generic, all administration modules are also in this folder.  
@@ -131,11 +131,11 @@ _Note: The administration application is structured in a thematic tree, like see
         └── admin-accessright-dataaccess-management     # Data access rights per group 
 ```
 
-### Eslint configuration module
+# Eslint configuration module
 
 The folder `eslint-config-es6-rules` holds the lint configuration module for REGARDS frontend. Lint corresponds to the set of style rules that are applied to project code.
 
-### Mocks
+# Mocks
 
 The `mocks` folder contains runnable mock servers:
 * *front* folder contains a standalone server that answers all front end calls based on a node JS server
@@ -144,24 +144,24 @@ The `mocks` folder contains runnable mock servers:
 
 Those servers are used to develop and test new functionnalities. The corresponding runnable is declared in main application package.json.
 
-### Plugins
+# Plugins
 
 The `plugins` folder contains REGARDS front end plugins code. Those plugins are separed of front end core code. However, it is so far more convenient for developers to keep the folder within webapp to address compilation, version and references issues. For more detail about plugins,
 see [about plugins page](/frontend/plugins/)
 
-### Components modules
+# Components modules
 
 This package provides **React** generic components to handle forms, buttons, cards and so on. More details are available in [components detail page](/frontend/components/components)
 
-### Data
+# Data
 
 This folder holds API data related modules (server fetching, shapes, redux store, middlewares...). See [data presentation page](/frontend/data)
 
-### Modules
+# Modules
 
 This folder contains all _dynamic_ modules, ie all modules that can be configured to be displayed in user and portal application. For more details, see [dynamic modules sections](/frontend/modules/dynamic-modules/)  
 
-### Utils modules
+# Utils modules
 This folder holds modules providing high level services, tools and components shared by all application interfaces (admininistration, user application and portal application).
 
 1. `adapters`: Provides enriched components

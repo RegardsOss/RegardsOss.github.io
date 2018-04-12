@@ -4,6 +4,14 @@ title: REGARDS UI dynamic modules
 short-title: Modules
 ---
 
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+
+
+- [Dynamic modules](#dynamic-modules)
+
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
+
 # Dynamic modules
 
   - [Dynamic modules presentation](/frontend/modules/dynamic-modules/)

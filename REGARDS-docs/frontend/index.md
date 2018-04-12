@@ -30,7 +30,6 @@ categories:
   - [Develop plugins](/frontend/plugins/index/)
   - [Linter](/frontend/lint/eslint-config-es6-rules/)
   - [IntelliJ Templates](/frontend/ide/intelliJ-templates/)
-  - [Storybook](/frontend/storybook/storybook/)
 
  How to use Framework components : 
   - [Widget components](/frontend/components/components/)

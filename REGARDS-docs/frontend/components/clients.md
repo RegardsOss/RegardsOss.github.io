@@ -1,42 +1,38 @@
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+
+
+- [Description](#description)
+- [How to](#how-to)
+  - [Create your client](#create-your-client)
+    - [1\. Create the ModelClient.js](#1%5C-create-the-modelclientjs)
+    - [2\. Link the reducer to the global application reducers.](#2%5C-link-the-reducer-to-the-global-application-reducers)
+  - [3\. Use your client into a React container](#3%5C-use-your-client-into-a-react-container)
+
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
+
 ---
 layout: classic-docs
 title: Backend interactions
 short-title: Backend interactions
 ---
 
-## Description
+# Description
 
-As explain in the general frontend archicteture ([Architecture](/frontend/arch.md/)), the `webapp/web_modules/data` section is used to send request to the backend microservices.
+As explain in the general frontend archicteture ([REGARDS UI data](/frontend/data/)) page, REGARDS is based on Redux and Redux API middleware librairies to fetch network data and store it. This page instantiate a client using client definitions from `@regardsoss/client`, that defines most of existing REGARDS endpoints
 
-## How to
+# How to
 
-Due to the use of the `Redux` library our clients store request responses into the global `store` of the application.  
-So, with the here under explanations you can define a specific part into this `store` to save your wanted request responses from the microservices backend.  
+## Create your client
 
-The   `webapp/web_modules/data/client` section allow you to interact most of all existing endpoints on all REGARDS standard microservices :
-  - rs-access-instance
-  - rs-access-project
-  - rs-authentication
-  - rs-admin
-  - rs-admin-instance
-  - rs-catalog
-  - rs-dam
-  - rs-dataprovider
-  - rs-ingest
-  - rs-order
-  - rs-storage
-  
-
-### Create your client
-
-First of all you have to create a `client.js` to defined the 3 `Redux` standard notions : 
- - reducers : To reduce response results into the store
+First of all you have to create a `client.js` file to define the 3 `Redux` standard notions:
+ - reducers : To reduce response results into an object to save in the store
  - actions : To send requests
  - selectors : To read results from the store
  
-The example bellow show you how to create a `ModelClient.js` to request models from rs-dam.
+The example bellow illustrates how to create a `ModelClient.js` to request models from rs-dam.
 
-#### 1\. Create the ModelClient.js
+### 1\. Create the ModelClient.js
 ```js
 import { DataManagementClient } from '@regardsoss/client'
 
@@ -56,9 +52,9 @@ export default {
 
 Notes : 
  - ENTITIES_STORE_PATH : Is the full path into redux store to store backend responses.
- - REDUX_ACTION_NAMESPACE : Name of the action sent to redux.
+ - REDUX_ACTION_NAMESPACE : Name of the action sent to redux. It must be unique among all application clients to avoid multiple reducers handling the same actions.
  
-#### 2\. Link the reducer to the global application reducers.
+### 2\. Link the reducer to the global application reducers.
 
 Add associated reducers to your module reducers :
 ```js
@@ -72,14 +68,11 @@ const modelDataManagementReducer = combineReducers({
 export default modelDataManagementReducer
 ```
 
-### Use your client into your React container
+## 3\. Use your client into a React container
 
-The example bellow do :
- - Send request to rs-dam to request all models
- - When response is retrieved, display a list of all models.
+The example demonstrates how to send a request for all model then display the retrieved list.
  
- 
-```js
+```jsx
 import { modelActions, modelSelectors } from 'ModelClient'
 import { DataManagementShapes } from '@regardsoss/shape'
 
@@ -93,6 +86,7 @@ export class ExampleContainer extends React.component {
 	}
 	
 	componentWillMount() {
+		 // send the request
     	this.props.fetchModelList()
   	}
 	
@@ -100,7 +94,7 @@ export class ExampleContainer extends React.component {
 	  return (
 	  	<ul>
 	  		{map(modelList, (model, i) => (
-	  			<li>model.content.name</li>
+	  			<li>{model.content.name}</li>
 	  		))}
 	  	</ul>
 	  )
@@ -109,10 +103,10 @@ export class ExampleContainer extends React.component {
 }
 
 const mapStateToProps = state => ({
-  modelList: modelSelectors.getList(state),
+  modelList: modelSelectors.getList(state), // retrieve the request result
 })
 const mapDispatchToProps = dispatch => ({
-  fetchModelList: () => dispatch(modelActions.fetchEntityList()),
+  fetchModelList: () => dispatch(modelActions.fetchEntityList()), // function to perform request
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(ExampleContainer)

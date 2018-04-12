@@ -4,6 +4,18 @@ title: Frontend - Dynamic module Project About Page
 short-title: project-about-page
 ---
 
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+
+
+- [Description](#description)
+- [Module structure](#module-structure)
+- [Route](#route)
+- [Exposed functions](#exposed-functions)
+- [Internationalization](#internationalization)
+
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
+
 ## Description
 
 This module is a dynamic configurable module to be used in REGARDS user interfaces. It displays the project about page in an iframe. It stores the 'do not show again' option in local web browser storage.
@@ -45,27 +57,3 @@ This module as a dynamic configurable module exposes is own :
 ## Internationalization
 
 All displayed labels are defined in two languages (English and French) and are avaible from the i18n repository.
-  
-## Usage
-
-To display a dynamic module as the current one you have to use the here under code :
-   
-```javascript
-    render() {
-    const moduleConfiguration = {
-       type: 'project-about-page',
-       active: true,
-       conf: {}
-    }
-    return (
-      <LazyModuleComponent
-            module={moduleConfiguration}
-            appName={'user'}
-            project={'project'}
-          />
-      )
-    }
-```
-  
-  
-  

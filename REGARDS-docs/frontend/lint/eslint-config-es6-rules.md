@@ -4,9 +4,26 @@ title: regardsoss/eslint-config-es6-rules
 short-title: Eslint config
 ---
 
-This package provides regards's `.eslintrc` as an extensible shared config.
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 
-## Usage
+
+- [Usage](#usage)
+  - [Imported rules](#imported-rules)
+    - [eslint rules](#eslint-rules)
+    - [eslint-config-airbnb](#eslint-config-airbnb)
+    - [plugin:react](#pluginreact)
+    - [plugin:react-perf](#pluginreact-perf)
+    - [plugin:lodash](#pluginlodash)
+    - [plugin:promise](#pluginpromise)
+
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
+
+# Presentation
+
+The module `@regardsoss/eslint-config-es6-rules` (webapp/eslint-config-es6-rules/) provides REGARDS' ESLint configuration. It is referenced by root `webapp/.eslintrc` file, which is the root ESLint configuration file for REGARDS front-end project.
+
+# Usage
 
 We export here under ESLint configurations for your usage.
 
@@ -19,17 +36,17 @@ We export here under ESLint configurations for your usage.
 | plugin:lodash        | `recommended` | Specific rules for lodash library |
 | plugin:promise       | `recommended` | Enforce best practices for JavaScript promises |
  
-To use our configuration package add te code here under to your `.eslintrc` configuration file
+To use our configuration package add the code here under to your `.eslintrc` configuration file
 
 ```json
 {
    "extends": [
-       "@regardsoss/es6-rules"
+       "@regardsoss/eslint-config-es6-rules"
     ]
 }
 ```
 
-You need to add dependencies to your package.json : 
+You need to add the following dependencies to your package.json : 
 ```json
 {
     "eslint": "~3.19.0",
@@ -44,12 +61,12 @@ You need to add dependencies to your package.json :
 }
 ```
 
-### Imported rules
+## Imported rules
 
 In the next sections you can find for each rules package the custom configuration made for REGARDS project.
 By default, all rules are imported without modification from each package the references rules here are disabled or modified.
 
-#### eslint rules
+### eslint rules
 
  To see all javascript rules set by eslint : http://eslint.org/docs/rules/
  
@@ -66,7 +83,7 @@ By default, all rules are imported without modification from each package the re
  | no-warning-comments | `Activated`  | Raise a warning if a TODO or FIXME is find in comments |
  | semi               | `Activated`   | Disallows semicolons as the end of statements (except to disambiguate statements beginning with [, (, /, +, or -) |
  
- #### eslint-config-airbnb
+ ### eslint-config-airbnb
  
  To see all javascript rules set by eslint-config-airbnb : https://github.com/airbnb/javascript
  
@@ -78,7 +95,7 @@ By default, all rules are imported without modification from each package the re
   | import/no-named-as-default         | `Disabled`    |   |
   | import/no-named-as-default-member  | `Disabled`    |   |
 
-#### plugin:react
+### plugin:react
 
 To see all javascript rules set by plugin:react : https://github.com/yannickcr/eslint-plugin-react
 
@@ -92,13 +109,13 @@ Special configuration for plugin:react rules :
   | prefer-stateless-function | `Disabled`    |    |
   | react/display-name        | `Disabled`    |  Only detect sipaly names of components during debug  |
   
-#### plugin:react-perf
+### plugin:react-perf
 
 To see all javascript rules set by plugin:react-perf : https://github.com/cvazac/eslint-plugin-react-perf
 
 Special configuration for plugin:react-perf rules : None
 
-#### plugin:lodash
+### plugin:lodash
 
 To see all javascript rules set by plugin:lodash : https://github.com/wix/eslint-plugin-lodash
 
@@ -113,7 +130,7 @@ Special configuration for plugin:lodash rules :
   | prop-shorthand            | `Disabled`      |  Not so readable |
   | matches-prop-shorthand    | `Disabled`      | We prefer the explicit declaration |
 
-#### plugin:promise
+### plugin:promise
 
 To see all javascript rules set by plugin:promise : https://github.com/xjamundx/eslint-plugin-promise
 

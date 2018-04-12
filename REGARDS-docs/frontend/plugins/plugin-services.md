@@ -1,21 +1,21 @@
 ---
 layout: classic-docs
-title: Plugin services
-short-title: Services
+title: Plugin service
+short-title: Service
 ---
 
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 
 
-- [Description](#description)
-- [Definition](#definition)
+- [Presentation](#presentation)
+- [Working principles](#working-principles)
 - [plugin-info.json](#plugin-infojson)
 - [Main React component](#main-react-component)
   - [Provided parameters](#provided-parameters)
     - [Provided runtime configuration](#provided-runtime-configuration)
     - [Provided runtime target](#provided-runtime-target)
-    - [Common runtime target fields](#common-runtime-target-fields)
+      - [Common runtime target fields](#common-runtime-target-fields)
       - [Runtime target specific fields for type ONE](#runtime-target-specific-fields-for-type-one)
       - [Runtime target specific fields for type MANY](#runtime-target-specific-fields-for-type-many)
       - [Runtime target specific fields for type QUERY](#runtime-target-specific-fields-for-type-query)
@@ -23,31 +23,34 @@ short-title: Services
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
-## Description
+# Presentation
 
-This document aims at helping the developper to create a plugin service, that can be used in regards results. Before, reading any further, make sure to read the plugins page ([Common plugins description](/frontend/plugins/plugins/)), as 
-following sections are appliable to the plugin service:
-* Code structure
-* Entry point
-* Main react component, although it holds differences on properties
-* Plugin compilation
+A service plugin (front-end) is a javascript bundle used by [search results](/frontend/modules/search-results/), [search form](/frontend/modules/search-form/) and [search graph](/frontend/modules/search-graph/) modules to add services onto displayed data. A service may work for one or for multiple data objects. By design, a service that run with many entities can either receive entities or a query (see later provided parameters sections)
+It allows defining static - configured by the administrator - and dynamic parameters - configured by the user when running the service.
 
-## Definition
+# Working principles
 
-A plugin service (front-end) is a javascript module that can perform operations on one or many entities - the developper specifies it, see plugin-info.json section.
-It can receive static parameters (configured by the administrator) and dynamic parameters (configured just before the service launches, by the user)
-By design, a service that run with many entities can either receive entities or a query (see later provided parameters sections)
+The criteria plugin must respect the following working principles to be correctly integrated within REGARDS:
+1. It must declare `conf.applicationModes` and `conf.entityType` in `plugin-info.json` to specify if it works for one and / or many entities of given type(s). See later sections for more detail about configuration.
+1. It must export a main componenent that will handle fetching current application target data
 
-## plugin-info.json
+# plugin-info.json
 
-It is very similar to a common plugin. However the plugin type always indicates "SERVICE".
-Furthermore, in configuration field `conf`, `attributes` field is removed and the following fields are added:
-* `applicationMode`: an array that can contain one or both the following values:
-  * *"ONE"*: the plugin is able to run for one entity
-  * *"MANY"*: the plugin is able to run for many entities or a query
-* `static`: a list of parameters for project administrator(*): Those parameters will be requested to the project administrator when he configures a plugin service for results
-* `dynamic`: a list of parameters for project user(**): Those parameters will be requested to the project user just before launching the plugin service
+It is very similar to a common plugin but the `type` field always indicates "SERVICE".
+Furthermore, it allows the following fields in `conf` field:
+* `applicationMode`: *{array}* an array that can contain one or both the following values:
+  * `ONE`: the service applies to one entity
+  * `MANY`: the service applies to many entities (expressed as an IP ID list or a query)
+* `static`: *{object}* an optional object of parameters to be filled in by the project administrator when a configures a plugin service for results. Each parameter, in that object will be defined as following:
+  * `object key`: key to point out the parameter in main component props. It will also be used as label in the configuration form
+  * `type` : *{string}* One of ["bool","char","date","float", "int", "string"]. It determinates the type that will be actually received at runtime by the plugin
+  * `required`: *{boolean}* It means, when true, that the project administrator must fill the attribute value. When false, the administrator can leave it blank and, therefore, it can be undefined at plugin runtime
+* `dynamic`: *{object}* an optional object of parameters to be filled in by the project user when he applies the service.
+  * `object key`: key to point out the parameter in main component props
+  * `"type"` : *{string}* working like static parameter
+  * `"label"`: *{string}* Parameter label, that will be shown to user
 
+Please note about dynamic parameters, that administrator is allowed setting a default value. However, even if the administrator provided a default value, the user will be prompted to enter the parameter value he wants to set - yet the field will hold administator default value when opening service configuration box.
 
 ```json
 {
@@ -74,20 +77,12 @@ Furthermore, in configuration field `conf`, `attributes` field is removed and th
 }
 
 ```
-* (*) **Administrator parameter**: The key, in static object, is the parameter name. It will also be used as label in configuration form. The object must have the following fields:
-  * `"type"` : *{string}* One of ["bool","char","date","float", "int", "string"]. It determinates the type that will be actually received at runtime by the plugin (see later provided parameters section)
-  * `"required"`: *{boolean}* It means, when true, that the project administrator must fill the attribute value. When false, the administrator can leave it blank and, therefore, it can be undefined at plugin runtime
-* (**) **User parameter**: The key, in dynamic object, is the parameter name. The object must have the following fields:
-  * `"type"` : *{string}* like administator parameter
-  * `"required"`: *{boolean}* like administator parameter, however this time, it indicates if the user, and not the administrator, will be obliged to fill it. Please note that the administator may have entered a default value too
-  * `"label"`: *{string}* Parameter label, that will be shown to user when he configures the plugin, just before launching it
 
+# Main React component 
 
-## Main React component 
+It mostly works just like a common plugin. It provides the following mechanisms to handle fetching and service parameters.
 
-It mostly works just like a common plugin. However, provided parameters - plugin configuration and target - are not the same
-
-### Provided parameters
+## Provided parameters
 
 The here under properties are provided at runtime to the plugin service main component:
 ```js
@@ -101,22 +96,26 @@ propTypes = {
   }
 ```
 
-#### Provided runtime configuration
+### Provided runtime configuration
 
 When launched, the service plugin main component receives the property `configuration`. That object reprensents the runtime configuration.
-It has the following fields.
+It has the following fields:
 * `static`: *{object}* This field contains administator parameters value. The keys are *parameter names* and the values are those the administrator entered, with the type specified in package-info. Every parameter that was marked as `required` is granted here to be defined (never null nor undefined). Other ones should be checked before being used.
 * `dynamic`: *{object}* This field contains user parameters value. It works exactly the same than static field. 
 
-#### Provided runtime target
+### Provided runtime target
 
 When launched, the service plugin main component receives the property `runtimeTarget`.
-That object represents the plugin target. it can be of either types: 
+That object represents the plugin target. Its type can be one of: 
 * `One entity target` (enumerated type: RuntimeTargetTypes.ONE), if the service application mode contains "ONE"
 * `Many entities target` (enumerated type: RuntimeTargetTypes.MANY), if the service application mode contains "MANY"
 * `Query target` (enumerated type: RuntimeTargetTypes.QUERY), if the service application mode contains "MANY"
 
-note: RuntimeTargetTypes is exported as a field of `AccessDomain`, in module `regardsoss/domain`
+Notes: 
+* RuntimeTargetTypes is exported as a field of `AccessDomain`, in module `regardsoss/domain`
+* Query target expresses a list of entities as a query. This is required when user works in select all mode. Indeed, as REGARDS catalog may contain large amount of entities, it is not possible in such case to express selection as an IP ID array, as that would require to fetch all those entities from backend.
+
+The following sub section explains in detail what fields are provided along with each target type.
 
 #### Common runtime target fields
 
@@ -134,26 +133,25 @@ Where:
   * `pageSize`: *(optional){number}*. Size of the pages to fetch, when in QUERY mode (it is optional and will be ignored if provided to ONE and MANY)
   * The `Promise` returned is a standard Javascript promise (use then() method to get the reduction result and catch() to get any error that could happen during treatment)
   
-##### Runtime target specific fields for type ONE
+#### Runtime target specific fields for type ONE
 
 * `entity`: *{string}* That field contains entity IP ID
 * `getFetchAction`: *{function}* For target type ONE, the method signature is `() => (dipatchableAction:object)`. When dispatched, the action will retrieve the single entity instance
 
-##### Runtime target specific fields for type MANY
+#### Runtime target specific fields for type MANY
 
 * `entities`: *{array(string)}* That field contains entities IP ID, as an array of string
-* `getFetchAction`: *{function}* For target type MANY, the method signature is `(ipID:string) => (dipatchableAction:object)`. When dispatched, the action will retrieve the entity with IP IDas parameter.
+* `getFetchAction`: *{function}* For target type MANY, the method signature is `(ipID:string) => (dipatchableAction:object)`. When dispatched, the action will retrieve the entity with IP ID as parameter.
 
-##### Runtime target specific fields for type QUERY
+#### Runtime target specific fields for type QUERY
 
 * `q`: *{string}* That field contains the open search query to retrieve elements
 * `entityType`: *{string}* That field contains the current entity type, as one of the enumated values ENTITY_TYPES_ENUM, exported as a field of `DamDomain`, from `@regardsoss/domain`
-* `excludedIpIds`: *{array(string)}* That field contains the IP IDs of elements that user de-selected in query
+* `excludedIpIds`: *{array(string)}* That field contains the IP IDs of elements that user unselected in query
 * `getFetchAction`: *{function}* For target type QUERY, method signature is `(pageIndex: (optional) number, pageSize: (optional) number) => (dipatchableAction:object)`.  
- *Warning 1: Removing page index and page size will result in fetching all elements at once. As there may be a lot, it is probably way better to fetch it in many pages. You can compute the total number of pages using `entitiesCount` common target field*  
+ *Warning 1: Removing page index and page size when calling getFetchAction will result in fetching all elements at once. As there may be a lot, it is way better to fetch it over many pages. You can compute the total number of pages using `entitiesCount` common target field*  
  *Warning 2: Fetch actions will retrieve **every query element**. When using that result, it is required to verify in excludedIpIds array if the entity has been excluded by the user.*  
- *Warning 3: There is a current limitation on the number of entities that can be fetched. So far it is blocked at 10 000 entities.*
 
-## Going further
+# Going further
 
-The React container ExampleContainer, from *webapp/plugin/services/example*, in *rs-frontend* repository illustrates using the plugin service configuration and target to show entities partitions. It uses `getReducePromise` to avoid handling manually the target types when fetching data, recovering data through actions, test react components... Reading that example code may be a good starting point from here.
+The React container ExampleContainer, from *webapp/plugin/services/example*, in *rs-frontend* repository illustrates using the plugin service configuration and target to show entities partitions. It uses `getReducePromise` to avoid handling manually the target types when fetching data, recovering it through actions, test react components... Reading that example code may be a good starting point from here.

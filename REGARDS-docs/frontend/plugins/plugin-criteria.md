@@ -8,13 +8,12 @@ short-title: Criterion
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 
 
-- [Description](#description)
-- [Definition](#definition)
+- [Presentation](#presentation)
+- [Working principles](#working-principles)
 - [plugin-info.json](#plugin-infojson)
 - [Main React component](#main-react-component)
   - [Provided runtime parameters](#provided-runtime-parameters)
-  - [State management](#state-management)
-  - [Handle search for your criteria plugin](#handle-search-for-your-criteria-plugin)
+  - [Manage state and search query](#manage-state-and-search-query)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
@@ -26,7 +25,7 @@ By the way, a criteria plugin respects all general plugin principles documented 
 
 # Working principles
 
-The criteria plugin must respect the following working principles to be correctly integrated within REGARDS:
+The service plugin must respect the following working principles to be correctly integrated within REGARDS:
 1. It must declare attributes list in plugin-info.json (see section below). The attributes names mentioned are not related with attribute models. Instead they are used in implementation as logical attribute name, like 'firstAttribute' or 'simpleAttribute' for instance.
 1. Its main component must inherit PluginCriterionContainer.
 Indeed that is more of an helper but many mechanisms would be very hard to implement without it, especially when it comes to publish new URL and update state from URL.
@@ -161,7 +160,7 @@ this.props.getDefaultState(this.props.pluginInstanceId)
 ```
 
 Each main plugin component, extending or not the PluginCriterionContainer, should also define the reset state method handleClear:
-```jsx
+```js
 handleClear = () => {
   this.setState(defaultState) // update the plugin root component state to clear user input
 }

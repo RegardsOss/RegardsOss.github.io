@@ -4,7 +4,19 @@ title: Frontend - Dynamic module Search Results
 short-title: search-results
 ---
 
-## Description
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+
+
+- [Description](#description)
+- [Module structure](#module-structure)
+- [Route](#route)
+- [Exposed functions](#exposed-functions)
+- [Internationalization](#internationalization)
+
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
+
+# Description
 
 This module is a dynamic configurable module to be used in REGARDS user interfaces. It displays search results from REGARDS catalog. It is used by modules
   - @regardsoss/search-form
@@ -22,7 +34,7 @@ This module allows:
   - Configuring displayed columns (table mode)
   - Applying Services (UI and Businnes) on data and dataset data
   
-## Module structure
+# Module structure
 
  .  
  ├── src  
@@ -40,13 +52,13 @@ This module allows:
  ├── package.json        : Npm module description file  
  └── README.md  
 
-## Route
+# Route
 
 This module is routed by the main application in which it is configured as a static or dynamic module.
 Static modules are always displayed in the interface layout.
 Dynamic modules are only displayed when the interface route is /modules/:module_id where module_id is the configuration identifier of the module.
 
-## Exposed functions
+# Exposed functions
 
 This module as a dynamic configurable module exposes is own :
   - moduleContainer  : Main module React component used to display this module,
@@ -56,30 +68,6 @@ This module as a dynamic configurable module exposes is own :
   - messages         : Messages and labels internationalization object (default : imported index.js from messages/)
   - dependencies     : The needed resources (backend enpoints) to display each part of the module
 
-## Internationalization
+# Internationalization
 
 All displayed labels are defined in two languages (English and French) and are avaible from the i18n repository.
-  
-## Usage
-
-To display a dynamic module as the current one you have to use the here under code :
-   
-```javascript
-    render() {
-    const moduleConfiguration = {
-       type: 'search-results',
-       active: true,
-       conf: {}
-    }
-    return (
-      <LazyModuleComponent
-            module={moduleConfiguration}
-            appName={'user'}
-            project={'project'}
-          />
-      )
-    }
-```
-  
-  
-  

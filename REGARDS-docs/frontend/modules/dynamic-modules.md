@@ -4,14 +4,34 @@ title: Dynamic lazy loadable modules
 short-title: Lazy modules
 ---
 
-## Description
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+
+
+- [Description](#description)
+- [Module structure](#module-structure)
+  - [About default icon:](#about-default-icon)
+- [Create a new module](#create-a-new-module)
+- [Dynamic Module architecture](#dynamic-module-architecture)
+  - [Description](#description-1)
+  - [AdminContainer](#admincontainer)
+  - [The ModuleContainer](#the-modulecontainer)
+  - [Styles](#styles)
+  - [Reducer](#reducer)
+  - [Messages](#messages)
+  - [Dependencies](#dependencies)
+- [Load a module](#load-a-module)
+
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
+
+# Description
 
 A lazy loadable module is a plugable module that you can use where you want on the `User project` and `Portal` interfaces, allowing you to add new features to user interfaces. Those modules can be configured from the administrator interface.  
 
 Microservices `rs-access-instance` and `rs-access-project` store the configuration of each modules
 and send it back to users browsing `User project` and `Portal` interfaces.
 
-## Module structure
+# Module structure
 
  .  
  ├── src  
@@ -32,7 +52,7 @@ and send it back to users browsing `User project` and `Portal` interfaces.
  ├── package.json        : Npm module description file   
  └── README.md  
 
-### About default icon:
+## About default icon:
 
 When creating a module, we must ensure the default icon is provided and respects the following rules:
 * Its path is **[module name]/default-icon.svg** where module name is also the module root folder
@@ -47,7 +67,7 @@ SVG icons are available, for instance, on the following sites:
 
 Finally, note that each module default-icon.svg **should be unique among all modules default icons**, so that user can quickly identify the page and module types.
 
-## Create a new module
+# Create a new module
 
 You can create a new module using the yeoman generator `generator-regards-ui-module` provided with sources into `webapp/yeoman/generator-regards-ui-module`.
 
@@ -92,9 +112,9 @@ To instanciate and configure your new example module :
  - go to [admin IHM](http://localhost:3333/admin/project1/ui/module/user/create){:target="_blank"} to instanciate and configure your module.
  - go to [user IHM](http://localhost:3333/user/project1){:target="_blank"} to see your module.
  
-## Dynamic Module architecture
+# Dynamic Module architecture
 
-### Description
+## Description
 
 To understand the main architecture of a pluggable module see the main.js file :
 
@@ -115,7 +135,7 @@ export default {
 }
 ```
 
-### AdminContainer
+## AdminContainer
 
 The `AdminContainer` **is facultative**. If you don't require a module configuration, 
 you don't need to specify the `AdminContainer` in the `main.js` module entrypoint.
@@ -180,7 +200,7 @@ Notes :
  - text internationalization is handled by the `@regardsoss/i18n` module and autowired by `@regardsoss/modules`.
  - you do not need to import React in `.jsx` files
 
-### The ModuleContainer
+## The ModuleContainer
 
 The `ModuleContainer` **is mandatory**. This is the React component displayed on the 
 `User project` and `Portal` interfaces
@@ -230,7 +250,7 @@ export default ModuleContainer
 
 ```
 
-### Styles
+## Styles
 
 The `Styles` **is mandatory**. REGARDS uses the [Material-UI](http://www.material-ui.com/#/get-started/usage) library to style all components using CSS inline.
 
@@ -275,7 +295,7 @@ export default Example
 
 More information about the theme management on the [@regardsoss/theme](/frontend/components/theme/) components 
 
-### Reducer
+## Reducer
 
 The Redux `reducer` **is mandatory**. Lazy loadable modules have their own part created in the store.  
 
@@ -303,7 +323,7 @@ With the previous example and for a module named "ExampleModule", the applicatio
 
 The same store can be accessed by both `ModuleContainer` and `AdminContainer`.
 
-### Messages
+## Messages
 
 This parameter allows you to change the default directory where `@regardsoss/i18n` search *i18n* messages files.  
 By default the directory used is `src/i18n`.  
@@ -312,7 +332,7 @@ Expected files containing internationalized messages shall be named as:
 
 Supported languages are `en` and `fr`
 
-### Dependencies
+## Dependencies
 
 This file defines dependencies required to display `ModuleContainer` and `AdminContainer` depending of the current Project User role.
 Each endpoint dependency required is composed in 3 parts, separated by the '@' caracter:  
@@ -340,3 +360,34 @@ export default {
 }
 
 ```
+
+# Load a module
+
+Also most dynamic modules are made to be configured by the administrator, through REGARDS project administration interface, it is still possible to load them in code. The example below shows how to load authentication module.
+
+```jsx
+    import { modulesManager } from '@regardoss/modules'
+    // ...
+
+    render() {
+    const moduleConfiguration = {
+       type: modulesManager.AllDynamicModuleTypes.AUTHENTICATION,
+       active: true,
+       conf: { // this example shows authentication module configuration example
+          showLoginWindow: this.state.isLogin, // hide / show the login window
+          showCancel: true,
+          showAskProjectAccess: false,
+          loginTitle: 'My login',
+          onCancelAction: this.onCancelLogin,
+       }
+    }
+    return (
+      <LazyModuleComponent
+        module={moduleConfiguration}
+        appName={'user'}
+        project={'project'}
+      />
+      )
+    }
+```
+

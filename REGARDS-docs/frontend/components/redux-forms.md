@@ -16,14 +16,14 @@ short-title: Internationalization
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
-## Description
+# Description
 
 The REGARDS frontend uses the [redux-form](https://redux-form.com/6.8.0/){:target="_blank"} library to create forms.
 This library stores in the common `redux store` all informations about the current state of the form.
 
-## How to use
+# How to use
 
-### Simple example
+## Simple example
 
 ```javascript
 
@@ -65,34 +65,34 @@ export default reduxForm({
 
 ```
 
-### REGARDS form-utils
+## REGARDS form-utils
 
 In the upper example you can see that each `Field` component use a `component` parameter to define the type of field. The REGARDS
-library provides the here under components types :
+library provides the following components types :
 
 - RenderArrayObjectField : Render a field to configure an array of objects.
 - RenderArrayTextField : Render a field to configure an array of strings.
 - RenderAutoCompleteField: Render a field to configure a single value with auto completion.
-- RenderCheckbox,
-- RenderDateTimeField,
-- RenderDoubleLabelToggle,
+- RenderCheckbox: Render a boolean field
+- RenderDateTimeField: Render a date time field
+- RenderDoubleLabelToggle: Render a toggle with double labels field
 - RenderFileFieldWithMui : Render a field to upload a file from the local user system.
-- RenderJsonCodeEditorField : Rendera  field to configure a complex json object with an editor.
+- RenderJsonCodeEditorField : Render a  field to configure a complex json object with an editor.
 - RenderMapField : Render a field to configure a Map of objects.
 - RenderPageableAutoCompleteField : Render a field to configure a single value with auto completion by fetching pageable server endpoint.
-- RenderRadio,
-- RenderSelectField,
-- RenderSlider,
-- RenderTextField 
-- RenderToggle
+- RenderRadio: Render a choice field as radio
+- RenderSelectField: Render a choice field as list input
+- RenderSlider: Render a number field as slider
+- RenderTextField: Render a string field
+- RenderToggle: Render a boolean field as toggle
 
 
-To use this types only import them from `@regardsoss/form-utils` like : 
+Those components can be imported from `@regardsoss/form-utils`, like shown below: 
 
 ```javascript
-import { RenderTextField, RenderToggle, RenderDoubleLabelToggle, ... } from `@regardsoss/form-utils`
+import { RenderTextField, RenderToggle, RenderDoubleLabelToggle } from `@regardsoss/form-utils`
 ```
 
-### More
+## More
 
-To understand more about the uses of [redux-form](https://redux-form.com/6.8.0/){:target="_blank"} library see the [API](https://redux-form.com/6.8.0/docs/api/){:target="_blank"} official documentation 
+To understand more about using [redux-form](https://redux-form.com/6.8.0/){:target="_blank"} library see the [API](https://redux-form.com/6.8.0/docs/api/){:target="_blank"} official documentation 

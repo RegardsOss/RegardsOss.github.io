@@ -1,3 +1,17 @@
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+
+
+- [Data management in REGARDS UI](#data-management-in-regards-ui)
+- [Data](#data)
+  - [API](#api)
+  - [Client](#client)
+  - [Domain](#domain)
+  - [Shape](#shape)
+  - [Store](#store)
+
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
+
 ---
 layout: classic-docs
 title: REGARDS UI data

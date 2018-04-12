@@ -10,16 +10,18 @@ short-title: Plugins
 
 - [Presentation](#presentation)
 - [Create a new plugin](#create-a-new-plugin)
+- [Plugin overall code structure](#plugin-overall-code-structure)
 - [Compile plugin](#compile-plugin)
 - [Test plugin](#test-plugin)
 - [Lint plugin](#lint-plugin)
 - [Deploy plugin](#deploy-plugin)
-- [Plugin overall code structure](#plugin-overall-code-structure)
 - [Plugin entry point](#plugin-entry-point)
 - [plugin-info.json](#plugin-infojson)
 - [Plugin administration panels](#plugin-administration-panels)
 - [Main React component](#main-react-component)
-    - [Provided parameters](#provided-parameters)
+- [Redux management](#redux-management)
+  - [Building reducers](#building-reducers)
+  - [Using actions and selectors](#using-actions-and-selectors)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 

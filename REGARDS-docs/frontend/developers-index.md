@@ -15,4 +15,3 @@ categories:
   - [Create standard forms](/frontend/components/redux-forms/)
   - [Linter](/frontend/lint/eslint-config-es6-rules/)
   - [InteliJ](/frontend/ide/intelliJ-templates/)
-  - [Storybook](/frontend/storybook/storybook/)

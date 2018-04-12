@@ -13,34 +13,34 @@ short-title: Components
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
-## Description
+# Description
 
-This module provides a set of React Component to display widgets as :
- - board : Component to render a board of items where each item is a section with a description and many iconActions.
+This module provides a set of React Component to display widgets, sorted in following categories:
+ - board : Components to render a board of items where each item is a section with a description and many iconActions.
  - buttons : A bunch of buttons
- - cards : Material ui cards components
- - content : Tools to display many types of content like HTML,JSON, Markdown, ...
- - date : Tools to display and pick date 
- - dialogs
- - error
- - feedback
- - gallery : Tools to display images into a gallery with possible infinite list (pageable system with backend)
- - help
- - links : Tools to display a breadcrumb
- - list
- - loading
- - module : Tools used for the construction of standard REGARDS modules.
- - picture : Tools to display picture (handle SVG format)
- - plugin : Toos used for the construction of standard REGARDS plugins.
- - table (with pagination)
- - titles
- - transitions
- - tree-table
- - values : A bunch of renderer components to display entity values by type (boolean, date, number, range, url, ...)
+ - cards : Material ui cards related components
+ - content : Components related with specific or loadable content (HTML,JSON, Markdown, ...)
+ - date : Components to display and pick dates
+ - dialogs: Components to display dialog windows
+ - error: Error related components
+ - feedback: Feedback related components
+ - gallery : Components to display images into a gallery allowing an infinite list (pageable system with backend)
+ - help: Help related component
+ - links : Links and breadcrumb related components
+ - list: List and autocomplete fields related components
+ - loading: Loading components
+ - module : Modules related components. It contains specifically the **DynamicModulePane**, used to display common dynamic modules main pane (provides collapse, title, icons, loading ...)
+ - picture : Picture and picture resolution related components
+ - plugin : Plugins related components
+ - table: Table related compoents, allowing for infinite list, column selection, sorting...
+ - titles: Title related components
+ - transitions: Transitions related components and helpers
+ - tree-table: Tree table component
+ - values : Renderer components by value type (boolean, date, number, range, url, ...)
  
-## Usage
+# Usage
 
-```js
+```jsx
 import { ConfirmDialogComponent } from '@regardsoss/components'
 
 class SampleComponent extends React.Component {

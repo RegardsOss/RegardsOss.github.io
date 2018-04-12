@@ -4,8 +4,19 @@ title: Frontend - Dynamic module Authentication
 short-title: authentication
 ---
 
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 
-## Description
+
+- [Description](#description)
+- [Module structure](#module-structure)
+- [Route](#route)
+- [Exposed functions](#exposed-functions)
+- [Internationalization](#internationalization)
+
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
+
+# Description
 
 This module is a dynamic configurable module to be used in REGARDS user interfaces.
 It manages :
@@ -15,7 +26,7 @@ It manages :
   - User instance account and / or project account creation
   - Users password change
   
-## Module structure
+# Module structure
 
  .  
  ├── src  
@@ -33,15 +44,15 @@ It manages :
  ├── package.json        : Npm module description file
  └── README.md  
 
-## Route
+# Route
 
 This module is routed by the main application in which it is configured as a static or dynamic module.
 Static modules are always displayed in the interface layout.
 Dynamic modules are only displayed when the interface route is /modules/:module_id where module_id is the configuration identifier of the module.
 
-## Exposed functions
+# Exposed functions
 
-This module as a dynamic configurable module exposes is own :
+This module as a dynamic configurable module exposes is own:
   - moduleContainer  : Main module React component used to display this module,
   - adminContainer   : Main module React component used to display the administration panel of this module,
   - reducer          : To configure the general Redux Store.
@@ -49,27 +60,6 @@ This module as a dynamic configurable module exposes is own :
   - messages         : Messages and labels internationalization object (default : imported index.js from messages/)
   - dependencies     : The needed resources (backend enpoints) to display each part of the module
 
-## Internationalization
+# Internationalization
 
 All displayed labels are defined in two languages (English and French) and are avaible from the i18n repository.
-  
-## Usage
-
-  To display a dynamic module as the current one you have to use the here under code :
-   
-```javascript
-    render() {
-    const moduleConfiguration = {
-       type: 'authentication',
-       active: true,
-       conf: {}
-    }
-    return (
-      <LazyModuleComponent
-            module={moduleConfiguration}
-            appName={'user'}
-            project={'project'}
-          />
-      )
-    }
-```

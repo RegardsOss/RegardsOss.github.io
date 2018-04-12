@@ -7,19 +7,24 @@ short-title: Microservice plugin configurator
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 
+
+- [Description](#description)
+- [PluginFormContainer](#pluginformcontainer)
+- [PluginListContainer](#pluginlistcontainer)
+
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
-## Description
+# Description
 
 This business component is common standard tool to render a configurator form for any plugin of any microservice.  
 This component uses the standard plugin API of any microservice to retrieve plugins meta informations needed for configuration.
 
-## PluginFormContainer
+# PluginFormContainer
 
 Component to display a plugin form editor
 
 
-```js
+```jsx
 import { PluginFormContainer } from '@regardsoss/microservice-plugin-configurator'
 import { DataManagementShapes } from '@regardsoss/shape'
 
@@ -41,11 +46,11 @@ export class ExampleContainer extends React.component {
 }
 ```
 
-## PluginListContainer
+# PluginListContainer
 
 Component to display a list a select field containing all possible plugin implemtations of a given plugin type.
 
-```js
+```jsx
 import { PluginFormContainer } from '@regardsoss/microservice-plugin-configurator'
 import { DataManagementShapes } from '@regardsoss/shape'
 
@@ -66,7 +71,7 @@ export class ExampleContainer extends React.component {
 				pluginType='' // Plugin type
 				selectedPluginId='' // Default selected plugin identifier
 				handleSelect={this.onPluginSelection} // Function callback when a plugin implemtentation is selected.
-				errorText=='' // error message to display on top of the list or null if no error.
+				errorText='' // error message to display on top of the list or null if no error.
 			/>
 		)
 	}

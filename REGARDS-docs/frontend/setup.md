@@ -19,15 +19,13 @@ short-title: Setup and build
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
-## Requirements
+# Requirements
 
 You shall
 - use Linux or macOS
 - be root on your computer
-- having npm version between v3 and v4
-- having node version between v6 and v7
-
-The latest version of npm (v5) and node (v8) are not stable enough to be used with REGARDS. But when their issues will be fixed, the npm run-script `bootstrap` will be renamed into `preinstall` and `npm install` will be sufficient.
+- having npm version above 5.8.0 (5.8.0 presents a bug and should be used)
+- having node version greater than or equal to 9.8.0
 
 > **Important**  
 > As REGARDS frontend is developped around two main libraries, [React](https://facebook.github.io/react/){:target="_blank"} and [Redux](http://redux.js.org){:target="_blank"}, we highly recommand new developers to start by watching the here under [Egghead](https://egghead.io) videos to learn the basics of these two libraries.
@@ -37,29 +35,27 @@ The latest version of npm (v5) and node (v8) are not stable enough to be used wi
 >New developers can also check at the [Material-ui](http://www.material-ui.com/#/components/app-bar){:target="_blank"} library which is used to design all components of the REGARDS frontend.
 >Check [lodash fp](https://github.com/lodash/lodash/wiki/FP-Guide) to understand how we write functionnal programming on REGARDS (using lodash *immutable auto-curried iteratee-first data-last methods*)
 
-## Local installation
+# Local installation
 
-Clone the `rs-frontend` repository and open the webapp folder using your terminal:
+Clone the `rs-frontend` repository (available here for GitHub: https://github.com/RegardsOss/regards-frontend) and open the webapp folder using your terminal:
 
+```sh
+cd webapp
 ```
-cd frontend-webapp/src/main/webapp
-```
+Then install all dependencies, devDependencies and compile all required webpack DLL:
 
-Execute the following to link submodules inside `path/to/folder/webapp/web_modules/[data|modules|utils|...]/**` to the npm global user folder and then inside `webapp/node_modules/@regardsoss`. It allows you to edit these npm modules with auto reload.
-
-```
-npm run bootstrap
-```
-
-Now, you can install dependencies, devDependencies and compile all required webpack DLL:
-
-```
+```sh
 npm install
 ```
 
-**Congratulation**, you're now ready to launch the frontend.
+**Congratulation you're now ready to launch the frontend.**
 
-## Run options
+Optionally, you may also build the plugins, using the following command in webapp folder:
+```sh
+./scripts/build-all-plugins
+```
+
+# Run options
 
 
 Run frontend with real backend microservices :
@@ -78,13 +74,13 @@ Then opens your browser at :
  - admin projet : [http://localhost:3333/admin/project1](http://localhost:3333/admin/project1){:target="_blank"} login : regards-admin@c-s.fr / root_admin
  - user projet : [http://localhost:3333/user/project1](http://localhost:3333/user/project1){:target="_blank"} login : regards-admin@c-s.fr / root_admin
 
-### Production build
+## Production build
 
 ```
 npm build:production
 ```
 
-### Run tests :
+## Run tests :
 
 It creates a report in `path/to/folder/webapp/reports/mocha/` folder:
 
@@ -92,7 +88,7 @@ It creates a report in `path/to/folder/webapp/reports/mocha/` folder:
 npm test
 ```
 
-### Run test:coverage :
+## Run test:coverage :
 
 To run tests with coverage - creates coverage reports (lcov, xunit) inside `path/to/folder/webapp/reports/coverage/` folder:
 
@@ -100,14 +96,14 @@ To run tests with coverage - creates coverage reports (lcov, xunit) inside `path
 npm run test:coverage
 ```
 
-### Lint :
+## Lint :
 
 You shall lint the entire app [using our Eslint](/frontend-modules/eslint-config-es6-rules) before commiting:
 ```
 npm run lint:fix
 ```
 
-## Know issues
+# Know issues
 
 - `npm run bootstrap` is not cross platform and cannot be executed on Windows (except on Windows 10 Bash)
 - `./scripts/bootstrap.sh` is not executable? Run the following command: `chmod +x ./scripts/bootstrap.sh`
