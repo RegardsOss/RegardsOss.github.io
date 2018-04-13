@@ -78,28 +78,26 @@ import { DataManagementShapes } from '@regardsoss/shape'
 
 export class ExampleContainer extends React.component {
 
-	static propTypes = {
-		// from mapStateToProps
-    	modelList: DataManagementShapes.ModelList,
-    	// from mapDispatchToProps
-    	fetchModelList: PropTypes.func,
-	}
-	
-	componentWillMount() {
-		 // send the request
-    	this.props.fetchModelList()
-  	}
-	
+  static propTypes = {
+    // from mapStateToProps
+    modelList: DataManagementShapes.ModelList,
+    // from mapDispatchToProps
+    fetchModelList: PropTypes.func,
+  }
+  
+  componentWillMount() {
+    // send the request
+    this.props.fetchModelList()
+  }
+  
 	render() {
-	  return (
-	  	<ul>
-	  		{map(modelList, (model, i) => (
-	  			<li>{model.content.name}</li>
-	  		))}
-	  	</ul>
-	  )
-	}
-
+    return (
+      <ul>
+        {map(modelList, (model, i) => (
+          <li>{model.content.name}</li>
+        ))}
+      </ul>)
+  }
 }
 
 const mapStateToProps = state => ({

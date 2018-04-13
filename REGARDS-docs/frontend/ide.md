@@ -716,546 +716,546 @@ To configure templates in VSCode, you have to open menu `file/preferences/user c
 ### Javacript templates
 ```json
 {
-	"console error": {
-		"prefix": "cerr",
-		"body": [
-			"console.error('$1')"
-		],
-		"description": "Log output to console error"
-	},
-	"console warn": {
-		"prefix": "cwarn",
-		"body": [
-			"console.warn('$1')"
-		],
-		"description": "Log output to console warning"
-	},
-	"console info": {
-		"prefix": "cinf",
-		"body": [
-			"console.info('$1')"
-		],
-		"description": "Log output to console info"
-	},
-	"console log": {
-		"prefix": "clog",
-		"body": [
-			"console.log('$1')"
-		],
-		"description": "Log output to console log"
-	},
-	"Insert author": {
-		"prefix": "author",
-		"body": [
-			"@author Raphaël Mechali"
-		]
-	},
-	"Intialize file": {
-		"prefix": "license",
-		"body": [
-			"/**",
-			" * Copyright 2017 CNES - CENTRE NATIONAL d'ETUDES SPATIALES",
-			" *",
-			" * This file is part of REGARDS.",
-			" *",
-			" * REGARDS is free software: you can redistribute it and/or modify",
-			" * it under the terms of the GNU General Public License as published by",
-			" * the Free Software Foundation, either version 3 of the License, or",
-			" * (at your option) any later version.",
-			" *",
-			" * REGARDS is distributed in the hope that it will be useful,",
-			" * but WITHOUT ANY WARRANTY; without even the implied warranty of",
-			" * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the",
-			" * GNU General Public License for more details.",
-			" *",
-			" * You should have received a copy of the GNU General Public License",
-			" * along with REGARDS. If not, see <http://www.gnu.org/licenses/>.",
-			" **/"
-		]
-	},
-	"React add Intl": {
-		"prefix": "react-intl-context",
-		"body": [
-			"import { i18nContextType } from '@regardsoss/i18n'",
-			"static contextTypes = {",
-			"...i18nContextType,",
-			"}"
-		]
-	},
-	"client": {
-		"prefix": "client",
-		"body": [
-			"/**",
-			" * Copyright 2017 CNES - CENTRE NATIONAL d'ETUDES SPATIALES",
-			" *",
-			" * This file is part of REGARDS.",
-			" *",
-			" * REGARDS is free software: you can redistribute it and/or modify",
-			" * it under the terms of the GNU General Public License as published by",
-			" * the Free Software Foundation, either version 3 of the License, or",
-			" * (at your option) any later version.",
-			" *",
-			" * REGARDS is distributed in the hope that it will be useful,",
-			" * but WITHOUT ANY WARRANTY; without even the implied warranty of",
-			" * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the",
-			" * GNU General Public License for more details.",
-			" *",
-			" * You should have received a copy of the GNU General Public License",
-			" * along with REGARDS. If not, see <http://www.gnu.org/licenses/>.",
-			" **/",
-			"import { ${1:ClientModule} } from '@regardsoss/client'",
-			"",
-			"const namespace = '${5:namespace}'",
-			"const ${2:entityNameLower}Actions = new ${1:ClientModule}.${3:EntityNameUpper}Actions(namespace)",
-			"const ${2:entityNameLower}Reducer = ${1:ClientModule}.get${3:EntityNameUpper}Reducer(namespace)",
-			"const ${2:entityNameLower}Selectors = ${1:ClientModule}.get${3:EntityNameUpper}Selectors([${4:Path elements}])",
-			"",
-			"module.exports = {",
-			"${2:entityNameLower}Actions,",
-			"${2:entityNameLower}Reducer,",
-			"${2:entityNameLower}Selectors,",
-			"}",
-			""
-		]
-	},
-	"Test: redux entity": {
-		"prefix": "test-redux-entity",
-		"body": [
-			"/**",
-			" * Copyright 2017 CNES - CENTRE NATIONAL d'ETUDES SPATIALES",
-			" *",
-			" * This file is part of REGARDS.",
-			" *",
-			" * REGARDS is free software: you can redistribute it and/or modify",
-			" * it under the terms of the GNU General Public License as published by",
-			" * the Free Software Foundation, either version 3 of the License, or",
-			" * (at your option) any later version.",
-			" *",
-			" * REGARDS is distributed in the hope that it will be useful,",
-			" * but WITHOUT ANY WARRANTY; without even the implied warranty of",
-			" * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the",
-			" * GNU General Public License for more details.",
-			" *",
-			" * You should have received a copy of the GNU General Public License",
-			" * along with REGARDS. If not, see <http://www.gnu.org/licenses/>.",
-			" **/",
-			"import { ReduxEntityTester } from '@regardsoss/tests-helpers'",
-			"import { ${1: Model name} } from '@regardsoss/model'",
-			"import ${1: Model name}Actions from '../../src/model/${1: Model name}Actions'",
-			"import ${1: Model name}Reducers from '../../src/model/${1: Model name}Reducers'",
-			"import ${1: Model name}Selectors from '../../src/model/${1: Model name}Selectors'",
-			"",
-			"//TODO: define elements here or load an external dump",
-			"const backendServerResultList = {",
-			"  content: [{",
-			"    content: {",
-			"      id: 1,",
-			"    },",
-			"    links: [],",
-			"  }],",
-			"  metadata: {",
-			"    number: '0',",
-			"    size: '100',",
-			"    totalElements: 1,",
-			"  },",
-			"  links: [],",
-			"}",
-			"// URL options and parameters",
-			"const options = {}",
-			"",
-			"const entityTester = new ReduxEntityTester(${1: Model name}Actions, ${1: Model name}Reducers, ${1: Model name}Selectors, React.PropTypes.objectOf(${1: Model name}).isRequired, backendServerResultList, options)",
-			"",
-			"describe('[${2: Module name}] Testing model ${1: Model name}', () => {",
-			"  before(() => {",
-			"    entityTester.beforeAll()",
-			"  })",
-			"  after(() => {",
-			"    entityTester.afterAll()",
-			"  })",
-			"  it('should retrieve the list of items, reduce it, and store it within the store.', (done) => {",
-			"    entityTester.runTests(done)",
-			"  })",
-			"})"
-		]
-	}
+  "console error": {
+    "prefix": "cerr",
+    "body": [
+      "console.error('$1')"
+    ],
+    "description": "Log output to console error"
+  },
+  "console warn": {
+    "prefix": "cwarn",
+    "body": [
+      "console.warn('$1')"
+    ],
+    "description": "Log output to console warning"
+  },
+  "console info": {
+    "prefix": "cinf",
+    "body": [
+      "console.info('$1')"
+    ],
+    "description": "Log output to console info"
+  },
+  "console log": {
+    "prefix": "clog",
+    "body": [
+      "console.log('$1')"
+    ],
+    "description": "Log output to console log"
+  },
+  "Insert author": {
+    "prefix": "author",
+    "body": [
+      "@author Raphaël Mechali"
+    ]
+  },
+  "Intialize file": {
+    "prefix": "license",
+    "body": [
+      "/**",
+      " * Copyright 2017 CNES - CENTRE NATIONAL d'ETUDES SPATIALES",
+      " *",
+      " * This file is part of REGARDS.",
+      " *",
+      " * REGARDS is free software: you can redistribute it and/or modify",
+      " * it under the terms of the GNU General Public License as published by",
+      " * the Free Software Foundation, either version 3 of the License, or",
+      " * (at your option) any later version.",
+      " *",
+      " * REGARDS is distributed in the hope that it will be useful,",
+      " * but WITHOUT ANY WARRANTY; without even the implied warranty of",
+      " * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the",
+      " * GNU General Public License for more details.",
+      " *",
+      " * You should have received a copy of the GNU General Public License",
+      " * along with REGARDS. If not, see <http://www.gnu.org/licenses/>.",
+      " **/"
+    ]
+  },
+  "React add Intl": {
+    "prefix": "react-intl-context",
+    "body": [
+      "import { i18nContextType } from '@regardsoss/i18n'",
+      "static contextTypes = {",
+      "...i18nContextType,",
+      "}"
+    ]
+  },
+  "client": {
+    "prefix": "client",
+    "body": [
+      "/**",
+      " * Copyright 2017 CNES - CENTRE NATIONAL d'ETUDES SPATIALES",
+      " *",
+      " * This file is part of REGARDS.",
+      " *",
+      " * REGARDS is free software: you can redistribute it and/or modify",
+      " * it under the terms of the GNU General Public License as published by",
+      " * the Free Software Foundation, either version 3 of the License, or",
+      " * (at your option) any later version.",
+      " *",
+      " * REGARDS is distributed in the hope that it will be useful,",
+      " * but WITHOUT ANY WARRANTY; without even the implied warranty of",
+      " * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the",
+      " * GNU General Public License for more details.",
+      " *",
+      " * You should have received a copy of the GNU General Public License",
+      " * along with REGARDS. If not, see <http://www.gnu.org/licenses/>.",
+      " **/",
+      "import { ${1:ClientModule} } from '@regardsoss/client'",
+      "",
+      "const namespace = '${5:namespace}'",
+      "const ${2:entityNameLower}Actions = new ${1:ClientModule}.${3:EntityNameUpper}Actions(namespace)",
+      "const ${2:entityNameLower}Reducer = ${1:ClientModule}.get${3:EntityNameUpper}Reducer(namespace)",
+      "const ${2:entityNameLower}Selectors = ${1:ClientModule}.get${3:EntityNameUpper}Selectors([${4:Path elements}])",
+      "",
+      "module.exports = {",
+      "${2:entityNameLower}Actions,",
+      "${2:entityNameLower}Reducer,",
+      "${2:entityNameLower}Selectors,",
+      "}",
+      ""
+    ]
+  },
+  "Test: redux entity": {
+    "prefix": "test-redux-entity",
+    "body": [
+      "/**",
+      " * Copyright 2017 CNES - CENTRE NATIONAL d'ETUDES SPATIALES",
+      " *",
+      " * This file is part of REGARDS.",
+      " *",
+      " * REGARDS is free software: you can redistribute it and/or modify",
+      " * it under the terms of the GNU General Public License as published by",
+      " * the Free Software Foundation, either version 3 of the License, or",
+      " * (at your option) any later version.",
+      " *",
+      " * REGARDS is distributed in the hope that it will be useful,",
+      " * but WITHOUT ANY WARRANTY; without even the implied warranty of",
+      " * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the",
+      " * GNU General Public License for more details.",
+      " *",
+      " * You should have received a copy of the GNU General Public License",
+      " * along with REGARDS. If not, see <http://www.gnu.org/licenses/>.",
+      " **/",
+      "import { ReduxEntityTester } from '@regardsoss/tests-helpers'",
+      "import { ${1: Model name} } from '@regardsoss/model'",
+      "import ${1: Model name}Actions from '../../src/model/${1: Model name}Actions'",
+      "import ${1: Model name}Reducers from '../../src/model/${1: Model name}Reducers'",
+      "import ${1: Model name}Selectors from '../../src/model/${1: Model name}Selectors'",
+      "",
+      "//TODO: define elements here or load an external dump",
+      "const backendServerResultList = {",
+      "  content: [{",
+      "    content: {",
+      "      id: 1,",
+      "    },",
+      "    links: [],",
+      "  }],",
+      "  metadata: {",
+      "    number: '0',",
+      "    size: '100',",
+      "    totalElements: 1,",
+      "  },",
+      "  links: [],",
+      "}",
+      "// URL options and parameters",
+      "const options = {}",
+      "",
+      "const entityTester = new ReduxEntityTester(${1: Model name}Actions, ${1: Model name}Reducers, ${1: Model name}Selectors, React.PropTypes.objectOf(${1: Model name}).isRequired, backendServerResultList, options)",
+      "",
+      "describe('[${2: Module name}] Testing model ${1: Model name}', () => {",
+      "  before(() => {",
+      "    entityTester.beforeAll()",
+      "  })",
+      "  after(() => {",
+      "    entityTester.afterAll()",
+      "  })",
+      "  it('should retrieve the list of items, reduce it, and store it within the store.', (done) => {",
+      "    entityTester.runTests(done)",
+      "  })",
+      "})"
+    ]
+  }
 }
 ```
 
 ### Javascript React code templates
 ```json
 {
-	"console error": {
-		"prefix": "cerr",
-		"body": [
-			"console.error('$1')"
-		],
-		"description": "Log output to console error"
-	},
-	"console warn": {
-		"prefix": "cwarn",
-		"body": [
-			"console.warn('$1')"
-		],
-		"description": "Log output to console warning"
-	},
-	"console info": {
-		"prefix": "cinf",
-		"body": [
-			"console.info('$1')"
-		],
-		"description": "Log output to console info"
-	},
-	"console log": {
-		"prefix": "clog",
-		"body": [
-			"console.log('$1')"
-		],
-		"description": "Log output to console log"
-	},
-	"Intialize file": {
-		"prefix": "license",
-		"body": [
-			"/**",
-			" * Copyright 2017 CNES - CENTRE NATIONAL d'ETUDES SPATIALES",
-			" *",
-			" * This file is part of REGARDS.",
-			" *",
-			" * REGARDS is free software: you can redistribute it and/or modify",
-			" * it under the terms of the GNU General Public License as published by",
-			" * the Free Software Foundation, either version 3 of the License, or",
-			" * (at your option) any later version.",
-			" *",
-			" * REGARDS is distributed in the hope that it will be useful,",
-			" * but WITHOUT ANY WARRANTY; without even the implied warranty of",
-			" * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the",
-			" * GNU General Public License for more details.",
-			" *",
-			" * You should have received a copy of the GNU General Public License",
-			" * along with REGARDS. If not, see <http://www.gnu.org/licenses/>.",
-			" **/"
-		]
-	},
-	"Insert author": {
-		"prefix": "author",
-		"body": [
-			"@author Raphaël Mechali"
-		]
-	},
-	"React define intl": {
-		"prefix": "react-with-intl",
-		"body": [
-			"import compose from 'lodash/fp/compose'",
-			"import { withI18n } from '@regardsoss/i18n'",
-			"import messages from '${1: path to i18n}/i18n'",
-			"compose(",
-			"connect(${TM_FILENAME_BASE}.mapStateToProps, ${TM_FILENAME_BASE}.mapDispatchToProps),",
-			"withI18n(messages))(${TM_FILENAME_BASE})"
-		]
-	},
-	"React define styles": {
-		"prefix": "react-with-styles",
-		"body": [
-			"import compose from 'lodash/fp/compose'",
-			"import { withModuleStyle } from '@regardsoss/theme'",
-			"import styles from '${1: path to style}/styles'",
-			"compose(",
-			"connect(${TM_FILENAME_BASE}.mapStateToProps, ${TM_FILENAME_BASE}.mapDispatchToProps),",
-			"withModuleStyle(styles))(${TM_FILENAME_BASE})"
-		]
-	},
-	"React define intl and styles": {
-		"prefix": "react-with-all",
-		"body": [
-			"import compose from 'lodash/fp/compose'",
-			"import { withI18n } from '@regardsoss/i18n'",
-			"import { withModuleStyle } from '@regardsoss/theme'",
-			"import messages from '${1: path to i18n}/i18n'",
-			"import styles from '${1: path to style}/styles'",
-			"compose(",
-			"connect(${TM_FILENAME_BASE}.mapStateToProps, ${TM_FILENAME_BASE}.mapDispatchToProps),",
-			"withI18n(messages), withModuleStyle(styles))(${TM_FILENAME_BASE})"
-		]
-	},
-	"React add Intl": {
-		"prefix": "react-intl-context",
-		"body": [
-			"import { i18nContextType } from '@regardsoss/i18n'",
-			"static contextTypes = {",
-			"...i18nContextType,",
-			"}",
-			"const { intl: { formatMessage } } = this.context "
-		]
-	},
-	"React add theme context": {
-		"prefix": "react-theme-context",
-		"body": [
-			"import { themeContextType } from '@regardsoss/theme'",
-			"static contextTypes = {",
-			"  ...themeContextType,",
-			"}",
-			"const { muiTheme, moduleTheme } = this.context"
-		]
-	},
-	"React add all context": {
-		"prefix": "react-all-contexts",
-		"body": [
-			"import { i18nContextType } from '@regardsoss/i18n'",
-			"import { themeContextType } from '@regardsoss/theme'",
-			"static contextTypes = {",
-			"  ...themeContextType,",
-			"  ...i18nContextType,",
-			"}",
-			"const { intl: { formatMessage }, muiTheme, moduleTheme } = this.context"
-		]
-	},
-	"Eslint - disable unused proptype": {
-		"prefix": "eslint-disable-next-line for prop type",
-		"body": [
-			"// eslint-disable-next-line react/no-unused-prop-types"
-		]
-	},
-	"React component": {
-		"prefix": "react-component",
-		"body": [
-			"/**",
-			" * Copyright 2017 CNES - CENTRE NATIONAL d'ETUDES SPATIALES",
-			" *",
-			" * This file is part of REGARDS.",
-			" *",
-			" * REGARDS is free software: you can redistribute it and/or modify",
-			" * it under the terms of the GNU General Public License as published by",
-			" * the Free Software Foundation, either version 3 of the License, or",
-			" * (at your option) any later version.",
-			" *",
-			" * REGARDS is distributed in the hope that it will be useful,",
-			" * but WITHOUT ANY WARRANTY; without even the implied warranty of",
-			" * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the",
-			" * GNU General Public License for more details.",
-			" *",
-			" * You should have received a copy of the GNU General Public License",
-			" * along with REGARDS. If not, see <http://www.gnu.org/licenses/>.",
-			" **/",
-			"",
-			"/**",
-			" * ${1:Comment Here}",
-			" * @author Raphaël Mechali",
-			" */",
-			"class ${TM_FILENAME_BASE} extends React.Component{",
-			"",
-			"static propTypes = {}",
-			"",
-			"static defaultProps = {}",
-			"",
-			" render(){",
-			" const { maProp } = this.props",
-			"   return (",
-			" <div />",
-			")",
-			" }",
-			"}",
-			"export default ${TM_FILENAME_BASE}",
-			""
-		]
-	},
-	"React container": {
-		"prefix": "react-container",
-		"body": [
-			"/**",
-			" * Copyright 2017 CNES - CENTRE NATIONAL d'ETUDES SPATIALES",
-			" *",
-			" * This file is part of REGARDS.",
-			" *",
-			" * REGARDS is free software: you can redistribute it and/or modify",
-			" * it under the terms of the GNU General Public License as published by",
-			" * the Free Software Foundation, either version 3 of the License, or",
-			" * (at your option) any later version.",
-			" *",
-			" * REGARDS is distributed in the hope that it will be useful,",
-			" * but WITHOUT ANY WARRANTY; without even the implied warranty of",
-			" * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the",
-			" * GNU General Public License for more details.",
-			" *",
-			" * You should have received a copy of the GNU General Public License",
-			" * along with REGARDS. If not, see <http://www.gnu.org/licenses/>.",
-			" **/",
-			"import { connect } from '@regardsoss/redux'",
-			"import ${TM_FILENAME_BASE/(.*)Container$/$1/}Component from '../${1: back to src}components/${2: path to component}${TM_FILENAME_BASE/(.*)Container$/$1/}Component'",
-			"",
-			"/**",
-			" * ${3:Comment Here}",
-			" * @author Raphaël Mechali",
-			" */",
-			"export class ${TM_FILENAME_BASE} extends React.Component{",
-			"",
-			"/** ",
-			" * Redux: map state to props function",
-			" * @param {*} state: current redux state",
-			" * @param {*} props: (optional) current component properties (excepted those from mapStateToProps and mapDispatchToProps)",
-			" * @return {*} list of component properties extracted from redux state",
-			" */",
-			"static mapStateToProps(state) {",
-			"  return {}",
-			"}",
-			"",
-			"/** ",
-			" * Redux: map dispatch to props function",
-			" * @param {*} dispatch: redux dispatch function",
-			" * @param {*} props: (optional)  current component properties (excepted those from mapStateToProps and mapDispatchToProps)",
-			" * @return {*} list of component properties extracted from redux state",
-			" */",
-			"static mapDispatchToProps(dispatch) {",
-			"  return {}",
-			"}",
-			"",
-			"static propTypes = {",
-			"// from mapStateToProps",
-			"// from mapDispatchToProps",
-			"}",
-			"",
-			" render(){",
-			" const { maProp } = this.props",
-			"   return (",
-			" <div />",
-			")",
-			" }",
-			"}",
-			"export default connect(",
-			"  ${TM_FILENAME_BASE}.mapStateToProps,",
-			"  ${TM_FILENAME_BASE}.mapDispatchToProps)(${TM_FILENAME_BASE})",
-			""
-		]
-	},
-	"React container: props update": {
-		"prefix": "react-properties-changed",
-		"body": [
-			" /**",
-			"  * Lifecycle method: component will mount. Used here to detect first properties change and update local state",
-			"  */",
-			"  componentWillMount = () => this.onPropertiesUpdated({}, this.props)",
-			"",
-			" /**",
-			"  * Lifecycle method: component receive props. Used here to detect properties change and update local state",
-			"  * @param {*} nextProps next component properties",
-			"  */",
-			" componentWillReceiveProps = nextProps => this.onPropertiesUpdated(this.props, nextProps)",
-			" ",
-			" /**",
-			"  * Properties change detected: update local state",
-			"  * @param oldProps previous component properties",
-			"  * @param newProps next component properties",
-			"  */",
-			" onPropertiesUpdated = (oldProps, newProps) => {",
-			"   // TODO",
-			" }"
-		]
-	},
-	"Test: react component": {
-		"prefix": "test-react-component",
-		"body": [
-			"/**",
-			" * Copyright 2017 CNES - CENTRE NATIONAL d'ETUDES SPATIALES",
-			" *",
-			" * This file is part of REGARDS.",
-			" *",
-			" * REGARDS is free software: you can redistribute it and/or modify",
-			" * it under the terms of the GNU General Public License as published by",
-			" * the Free Software Foundation, either version 3 of the License, or",
-			" * (at your option) any later version.",
-			" *",
-			" * REGARDS is distributed in the hope that it will be useful,",
-			" * but WITHOUT ANY WARRANTY; without even the implied warranty of",
-			" * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the",
-			" * GNU General Public License for more details.",
-			" *",
-			" * You should have received a copy of the GNU General Public License",
-			" * along with REGARDS. If not, see <http://www.gnu.org/licenses/>.",
-			" **/",
-			"import { shallow } from 'enzyme'",
-			"import { assert } from 'chai'",
-			"import { buildTestContext, testSuiteHelpers } from '@regardsoss/tests-helpers'",
-			"import ${TM_FILENAME_BASE/(.*)\\..+$/$1/} from '../../${1: back to src}src/components/${2: component path}${TM_FILENAME_BASE/(.*)\\..+$/$1/}'",
-			"import styles from '../../${1: back to src}src/styles'",
-			"",
-			"const context = buildTestContext(styles)",
-			"",
-			"/**",
-			" * Test ${TM_FILENAME_BASE/(.*)\\..+$/$1/}",
-			" * @author Raphaël Mechali",
-			" */",
-			"describe('[${3: Module name}] Testing ${TM_FILENAME_BASE/(.*)\\..+$/$1/}', () => {",
-			"before(testSuiteHelpers.before)",
-			"after(testSuiteHelpers.after)",
-			"",
-			"  it('should exists', () => {",
-			"    assert.isDefined(${TM_FILENAME_BASE/(.*)\\..+$/$1/})",
-			"  })",
-			"  it('should render correctly', () => {",
-			"    const props = {",
-			"    //  TODO properties",
-			"    }",
-			"    const enzymeWrapper = shallow(<${TM_FILENAME_BASE/(.*)\\..+$/$1/} {...props} />, { context })",
-			"    // TODO test",
-			"  })",
-			"",
-			"})"
-		]
-	},
-	"Test: react container": {
-		"prefix": "test-react-container",
-		"body": [
-			"/**",
-			" * Copyright 2017 CNES - CENTRE NATIONAL d'ETUDES SPATIALES",
-			" *",
-			" * This file is part of REGARDS.",
-			" *",
-			" * REGARDS is free software: you can redistribute it and/or modify",
-			" * it under the terms of the GNU General Public License as published by",
-			" * the Free Software Foundation, either version 3 of the License, or",
-			" * (at your option) any later version.",
-			" *",
-			" * REGARDS is distributed in the hope that it will be useful,",
-			" * but WITHOUT ANY WARRANTY; without even the implied warranty of",
-			" * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the",
-			" * GNU General Public License for more details.",
-			" *",
-			" * You should have received a copy of the GNU General Public License",
-			" * along with REGARDS. If not, see <http://www.gnu.org/licenses/>.",
-			" **/",
-			"import { shallow } from 'enzyme'",
-			"import { assert } from 'chai'",
-			"import { buildTestContext, testSuiteHelpers } from '@regardsoss/tests-helpers'",
-			"import ${TM_FILENAME_BASE/(.*)Container\\..+$/$1/}Component from '../../${1: back To src}src/components/${2: component path}${TM_FILENAME_BASE/(.*)Container\\..+$/$1/}Component'",
-			"import { ${TM_FILENAME_BASE/(.*)\\..+$/$1/} } from '../../${1: back To src}src/containers/${2: component path}${TM_FILENAME_BASE/(.*)\\..+$/$1/}'",
-			"import styles from '../../${1: back to src}src/styles'",
-			"",
-			"const context = buildTestContext(styles)",
-			"",
-			"/**",
-			" * Test ${TM_FILENAME_BASE/(.*)\\..+$/$1/}",
-			" * @author Raphaël Mechali",
-			" */",
-			"describe('[${3: Module name}] Testing ${TM_FILENAME_BASE/(.*)\\..+$/$1/}', () => {",
-			"    before(testSuiteHelpers.before)",
-			"    after(testSuiteHelpers.after)",
-			"",
-			"  it('should exists', () => {",
-			"    assert.isDefined(${TM_FILENAME_BASE/(.*)\\..+$/$1/})",
-			"  })",
-			"  it('should render correctly', () => {",
-			"    const props = {",
-			"      // TODO props",
-			"    }",
-			"    const enzymeWrapper = shallow(<${TM_FILENAME_BASE/(.*)\\..+$/$1/} {...props} />, { context })",
-			"    const componentWrapper = enzymeWrapper.find(${TM_FILENAME_BASE/(.*)Container\\..+$/$1/}Component)",
-			"    assert.lengthOf(componentWrapper, 1, 'There should be the corresponding component')",
-			"    testSuiteHelpers.assertWrapperProperties(componentWrapper, {",
-			"    // TODO",
-			"    }, 'Component should define the expected properties')",
-			"  })",
-			"",
-			"})"
-		]
-	}
+  "console error": {
+    "prefix": "cerr",
+    "body": [
+      "console.error('$1')"
+    ],
+    "description": "Log output to console error"
+  },
+  "console warn": {
+    "prefix": "cwarn",
+    "body": [
+      "console.warn('$1')"
+    ],
+    "description": "Log output to console warning"
+  },
+  "console info": {
+    "prefix": "cinf",
+    "body": [
+      "console.info('$1')"
+    ],
+    "description": "Log output to console info"
+  },
+  "console log": {
+    "prefix": "clog",
+    "body": [
+      "console.log('$1')"
+    ],
+    "description": "Log output to console log"
+  },
+  "Intialize file": {
+    "prefix": "license",
+    "body": [
+      "/**",
+      " * Copyright 2017 CNES - CENTRE NATIONAL d'ETUDES SPATIALES",
+      " *",
+      " * This file is part of REGARDS.",
+      " *",
+      " * REGARDS is free software: you can redistribute it and/or modify",
+      " * it under the terms of the GNU General Public License as published by",
+      " * the Free Software Foundation, either version 3 of the License, or",
+      " * (at your option) any later version.",
+      " *",
+      " * REGARDS is distributed in the hope that it will be useful,",
+      " * but WITHOUT ANY WARRANTY; without even the implied warranty of",
+      " * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the",
+      " * GNU General Public License for more details.",
+      " *",
+      " * You should have received a copy of the GNU General Public License",
+      " * along with REGARDS. If not, see <http://www.gnu.org/licenses/>.",
+      " **/"
+    ]
+  },
+  "Insert author": {
+    "prefix": "author",
+    "body": [
+      "@author Raphaël Mechali"
+    ]
+  },
+  "React define intl": {
+    "prefix": "react-with-intl",
+    "body": [
+      "import compose from 'lodash/fp/compose'",
+      "import { withI18n } from '@regardsoss/i18n'",
+      "import messages from '${1: path to i18n}/i18n'",
+      "compose(",
+      "connect(${TM_FILENAME_BASE}.mapStateToProps, ${TM_FILENAME_BASE}.mapDispatchToProps),",
+      "withI18n(messages))(${TM_FILENAME_BASE})"
+    ]
+  },
+  "React define styles": {
+    "prefix": "react-with-styles",
+    "body": [
+      "import compose from 'lodash/fp/compose'",
+      "import { withModuleStyle } from '@regardsoss/theme'",
+      "import styles from '${1: path to style}/styles'",
+      "compose(",
+      "connect(${TM_FILENAME_BASE}.mapStateToProps, ${TM_FILENAME_BASE}.mapDispatchToProps),",
+      "withModuleStyle(styles))(${TM_FILENAME_BASE})"
+    ]
+  },
+  "React define intl and styles": {
+    "prefix": "react-with-all",
+    "body": [
+      "import compose from 'lodash/fp/compose'",
+      "import { withI18n } from '@regardsoss/i18n'",
+      "import { withModuleStyle } from '@regardsoss/theme'",
+      "import messages from '${1: path to i18n}/i18n'",
+      "import styles from '${1: path to style}/styles'",
+      "compose(",
+      "connect(${TM_FILENAME_BASE}.mapStateToProps, ${TM_FILENAME_BASE}.mapDispatchToProps),",
+      "withI18n(messages), withModuleStyle(styles))(${TM_FILENAME_BASE})"
+    ]
+  },
+  "React add Intl": {
+    "prefix": "react-intl-context",
+    "body": [
+      "import { i18nContextType } from '@regardsoss/i18n'",
+      "static contextTypes = {",
+      "...i18nContextType,",
+      "}",
+      "const { intl: { formatMessage } } = this.context "
+    ]
+  },
+  "React add theme context": {
+    "prefix": "react-theme-context",
+    "body": [
+      "import { themeContextType } from '@regardsoss/theme'",
+      "static contextTypes = {",
+      "  ...themeContextType,",
+      "}",
+      "const { muiTheme, moduleTheme } = this.context"
+    ]
+  },
+  "React add all context": {
+    "prefix": "react-all-contexts",
+    "body": [
+      "import { i18nContextType } from '@regardsoss/i18n'",
+      "import { themeContextType } from '@regardsoss/theme'",
+      "static contextTypes = {",
+      "  ...themeContextType,",
+      "  ...i18nContextType,",
+      "}",
+      "const { intl: { formatMessage }, muiTheme, moduleTheme } = this.context"
+    ]
+  },
+  "Eslint - disable unused proptype": {
+    "prefix": "eslint-disable-next-line for prop type",
+    "body": [
+      "// eslint-disable-next-line react/no-unused-prop-types"
+    ]
+  },
+  "React component": {
+    "prefix": "react-component",
+    "body": [
+      "/**",
+      " * Copyright 2017 CNES - CENTRE NATIONAL d'ETUDES SPATIALES",
+      " *",
+      " * This file is part of REGARDS.",
+      " *",
+      " * REGARDS is free software: you can redistribute it and/or modify",
+      " * it under the terms of the GNU General Public License as published by",
+      " * the Free Software Foundation, either version 3 of the License, or",
+      " * (at your option) any later version.",
+      " *",
+      " * REGARDS is distributed in the hope that it will be useful,",
+      " * but WITHOUT ANY WARRANTY; without even the implied warranty of",
+      " * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the",
+      " * GNU General Public License for more details.",
+      " *",
+      " * You should have received a copy of the GNU General Public License",
+      " * along with REGARDS. If not, see <http://www.gnu.org/licenses/>.",
+      " **/",
+      "",
+      "/**",
+      " * ${1:Comment Here}",
+      " * @author Raphaël Mechali",
+      " */",
+      "class ${TM_FILENAME_BASE} extends React.Component{",
+      "",
+      "static propTypes = {}",
+      "",
+      "static defaultProps = {}",
+      "",
+      " render(){",
+      " const { maProp } = this.props",
+      "   return (",
+      " <div />",
+      ")",
+      " }",
+      "}",
+      "export default ${TM_FILENAME_BASE}",
+      ""
+    ]
+  },
+  "React container": {
+    "prefix": "react-container",
+    "body": [
+      "/**",
+      " * Copyright 2017 CNES - CENTRE NATIONAL d'ETUDES SPATIALES",
+      " *",
+      " * This file is part of REGARDS.",
+      " *",
+      " * REGARDS is free software: you can redistribute it and/or modify",
+      " * it under the terms of the GNU General Public License as published by",
+      " * the Free Software Foundation, either version 3 of the License, or",
+      " * (at your option) any later version.",
+      " *",
+      " * REGARDS is distributed in the hope that it will be useful,",
+      " * but WITHOUT ANY WARRANTY; without even the implied warranty of",
+      " * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the",
+      " * GNU General Public License for more details.",
+      " *",
+      " * You should have received a copy of the GNU General Public License",
+      " * along with REGARDS. If not, see <http://www.gnu.org/licenses/>.",
+      " **/",
+      "import { connect } from '@regardsoss/redux'",
+      "import ${TM_FILENAME_BASE/(.*)Container$/$1/}Component from '../${1: back to src}components/${2: path to component}${TM_FILENAME_BASE/(.*)Container$/$1/}Component'",
+      "",
+      "/**",
+      " * ${3:Comment Here}",
+      " * @author Raphaël Mechali",
+      " */",
+      "export class ${TM_FILENAME_BASE} extends React.Component{",
+      "",
+      "/** ",
+      " * Redux: map state to props function",
+      " * @param {*} state: current redux state",
+      " * @param {*} props: (optional) current component properties (excepted those from mapStateToProps and mapDispatchToProps)",
+      " * @return {*} list of component properties extracted from redux state",
+      " */",
+      "static mapStateToProps(state) {",
+      "  return {}",
+      "}",
+      "",
+      "/** ",
+      " * Redux: map dispatch to props function",
+      " * @param {*} dispatch: redux dispatch function",
+      " * @param {*} props: (optional)  current component properties (excepted those from mapStateToProps and mapDispatchToProps)",
+      " * @return {*} list of component properties extracted from redux state",
+      " */",
+      "static mapDispatchToProps(dispatch) {",
+      "  return {}",
+      "}",
+      "",
+      "static propTypes = {",
+      "// from mapStateToProps",
+      "// from mapDispatchToProps",
+      "}",
+      "",
+      " render(){",
+      " const { maProp } = this.props",
+      "   return (",
+      " <div />",
+      ")",
+      " }",
+      "}",
+      "export default connect(",
+      "  ${TM_FILENAME_BASE}.mapStateToProps,",
+      "  ${TM_FILENAME_BASE}.mapDispatchToProps)(${TM_FILENAME_BASE})",
+      ""
+    ]
+  },
+  "React container: props update": {
+    "prefix": "react-properties-changed",
+    "body": [
+      " /**",
+      "  * Lifecycle method: component will mount. Used here to detect first properties change and update local state",
+      "  */",
+      "  componentWillMount = () => this.onPropertiesUpdated({}, this.props)",
+      "",
+      " /**",
+      "  * Lifecycle method: component receive props. Used here to detect properties change and update local state",
+      "  * @param {*} nextProps next component properties",
+      "  */",
+      " componentWillReceiveProps = nextProps => this.onPropertiesUpdated(this.props, nextProps)",
+      " ",
+      " /**",
+      "  * Properties change detected: update local state",
+      "  * @param oldProps previous component properties",
+      "  * @param newProps next component properties",
+      "  */",
+      " onPropertiesUpdated = (oldProps, newProps) => {",
+      "   // TODO",
+      " }"
+    ]
+  },
+  "Test: react component": {
+    "prefix": "test-react-component",
+    "body": [
+      "/**",
+      " * Copyright 2017 CNES - CENTRE NATIONAL d'ETUDES SPATIALES",
+      " *",
+      " * This file is part of REGARDS.",
+      " *",
+      " * REGARDS is free software: you can redistribute it and/or modify",
+      " * it under the terms of the GNU General Public License as published by",
+      " * the Free Software Foundation, either version 3 of the License, or",
+      " * (at your option) any later version.",
+      " *",
+      " * REGARDS is distributed in the hope that it will be useful,",
+      " * but WITHOUT ANY WARRANTY; without even the implied warranty of",
+      " * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the",
+      " * GNU General Public License for more details.",
+      " *",
+      " * You should have received a copy of the GNU General Public License",
+      " * along with REGARDS. If not, see <http://www.gnu.org/licenses/>.",
+      " **/",
+      "import { shallow } from 'enzyme'",
+      "import { assert } from 'chai'",
+      "import { buildTestContext, testSuiteHelpers } from '@regardsoss/tests-helpers'",
+      "import ${TM_FILENAME_BASE/(.*)\\..+$/$1/} from '../../${1: back to src}src/components/${2: component path}${TM_FILENAME_BASE/(.*)\\..+$/$1/}'",
+      "import styles from '../../${1: back to src}src/styles'",
+      "",
+      "const context = buildTestContext(styles)",
+      "",
+      "/**",
+      " * Test ${TM_FILENAME_BASE/(.*)\\..+$/$1/}",
+      " * @author Raphaël Mechali",
+      " */",
+      "describe('[${3: Module name}] Testing ${TM_FILENAME_BASE/(.*)\\..+$/$1/}', () => {",
+      "before(testSuiteHelpers.before)",
+      "after(testSuiteHelpers.after)",
+      "",
+      "  it('should exists', () => {",
+      "    assert.isDefined(${TM_FILENAME_BASE/(.*)\\..+$/$1/})",
+      "  })",
+      "  it('should render correctly', () => {",
+      "    const props = {",
+      "    //  TODO properties",
+      "    }",
+      "    const enzymeWrapper = shallow(<${TM_FILENAME_BASE/(.*)\\..+$/$1/} {...props} />, { context })",
+      "    // TODO test",
+      "  })",
+      "",
+      "})"
+    ]
+  },
+  "Test: react container": {
+    "prefix": "test-react-container",
+    "body": [
+      "/**",
+      " * Copyright 2017 CNES - CENTRE NATIONAL d'ETUDES SPATIALES",
+      " *",
+      " * This file is part of REGARDS.",
+      " *",
+      " * REGARDS is free software: you can redistribute it and/or modify",
+      " * it under the terms of the GNU General Public License as published by",
+      " * the Free Software Foundation, either version 3 of the License, or",
+      " * (at your option) any later version.",
+      " *",
+      " * REGARDS is distributed in the hope that it will be useful,",
+      " * but WITHOUT ANY WARRANTY; without even the implied warranty of",
+      " * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the",
+      " * GNU General Public License for more details.",
+      " *",
+      " * You should have received a copy of the GNU General Public License",
+      " * along with REGARDS. If not, see <http://www.gnu.org/licenses/>.",
+      " **/",
+      "import { shallow } from 'enzyme'",
+      "import { assert } from 'chai'",
+      "import { buildTestContext, testSuiteHelpers } from '@regardsoss/tests-helpers'",
+      "import ${TM_FILENAME_BASE/(.*)Container\\..+$/$1/}Component from '../../${1: back To src}src/components/${2: component path}${TM_FILENAME_BASE/(.*)Container\\..+$/$1/}Component'",
+      "import { ${TM_FILENAME_BASE/(.*)\\..+$/$1/} } from '../../${1: back To src}src/containers/${2: component path}${TM_FILENAME_BASE/(.*)\\..+$/$1/}'",
+      "import styles from '../../${1: back to src}src/styles'",
+      "",
+      "const context = buildTestContext(styles)",
+      "",
+      "/**",
+      " * Test ${TM_FILENAME_BASE/(.*)\\..+$/$1/}",
+      " * @author Raphaël Mechali",
+      " */",
+      "describe('[${3: Module name}] Testing ${TM_FILENAME_BASE/(.*)\\..+$/$1/}', () => {",
+      "    before(testSuiteHelpers.before)",
+      "    after(testSuiteHelpers.after)",
+      "",
+      "  it('should exists', () => {",
+      "    assert.isDefined(${TM_FILENAME_BASE/(.*)\\..+$/$1/})",
+      "  })",
+      "  it('should render correctly', () => {",
+      "    const props = {",
+      "      // TODO props",
+      "    }",
+      "    const enzymeWrapper = shallow(<${TM_FILENAME_BASE/(.*)\\..+$/$1/} {...props} />, { context })",
+      "    const componentWrapper = enzymeWrapper.find(${TM_FILENAME_BASE/(.*)Container\\..+$/$1/}Component)",
+      "    assert.lengthOf(componentWrapper, 1, 'There should be the corresponding component')",
+      "    testSuiteHelpers.assertWrapperProperties(componentWrapper, {",
+      "    // TODO",
+      "    }, 'Component should define the expected properties')",
+      "  })",
+      "",
+      "})"
+    ]
+  }
 }
 ```
 

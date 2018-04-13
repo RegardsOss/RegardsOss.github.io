@@ -55,10 +55,10 @@ For each defined attributes, the plugin developer must provide :
   "license": "<%= licence %>",
   "type" : "CRITERIA",
   "conf" : {
-  	"attributes": [{
-  		"name":"searchField",
-  		"description":"Attribute to search for",
-  		"type":"numerical",
+    "attributes": [{
+      "name":"searchField",
+      "description":"Attribute to search for",
+      "type":"numerical",
     }]
   }
 }

@@ -55,15 +55,15 @@ import { themeContextType } from '@regardsoss/theme'
 
 export class ExampleComponent extends React.Component {
 
-	static contextTypes = {
-    	...themeContextType,
+  static contextTypes = {
+      ...themeContextType,
   }
 
-	render() {
-		const mainColor = this.context.muiTheme.palette.priamy1Color
-		const someModuleStyle = this.context.moduleTheme.aValue
-		...
-	}
+  render() {
+    const mainColor = this.context.muiTheme.palette.priamy1Color
+    const someModuleStyle = this.context.moduleTheme.aValue
+    ...
+  }
 }
 ```
 
@@ -76,13 +76,13 @@ import { ThemeProvider } from '@regardsoss/theme'
 
 export class ExampleContainer extends React.Component {
 
-	render() {
-		return (
-			<ThemeProvider>
-				<ExampleComponent />
-			</ThemeProvider>
-		)
-	}
+  render() {
+    return (
+      <ThemeProvider>
+        <ExampleComponent />
+      </ThemeProvider>
+    )
+  }
 }
 ```
 In the previous example, ExampleComponent will be able to access the them through context *but ExampleContainer will not*. Indeed context is defined for **ThemeProvider children**, in the React meaning.
@@ -104,10 +104,10 @@ The style builder function produces a javascript object based on MUI theme as pa
  * Builds module style on theme
  */
 export default theme => ({ // MUI theme is provided as function parameter, to access MUI colors and such...
-	myCustomPane: {
-		color: theme.palette.textColor,
-	}
-	// ...
+  myCustomPane: {
+    color: theme.palette.textColor,
+  }
+  // ...
 })
 ```
 
@@ -138,19 +138,19 @@ It defines the following properties:
 * **stackCallingContext**: an optional boolean, false by default. See note in parent section for more detail.
 
 ```jsx
-	import { ModuleStyleProvider } from '@regardsoss/theme'
-	import ExampleComponent from './ExampleComponent'
-	import moduleStyles from '../../styles' // assuming there is an index.js
+  import { ModuleStyleProvider } from '@regardsoss/theme'
+  import ExampleComponent from './ExampleComponent'
+  import moduleStyles from '../../styles' // assuming there is an index.js
 
-	export class ExampleContainer extends React.Component {
+  export class ExampleContainer extends React.Component {
 
-		render() {
-			return (
-				<ModuleStyleProvider module={moduleStyles}>
-					<ExampleComponent />
-				</ModuleStyleProvider>)
-		}
-	}
+    render() {
+      return (
+        <ModuleStyleProvider module={moduleStyles}>
+          <ExampleComponent />
+        </ModuleStyleProvider>)
+    }
+  }
 ```
 In the previous example, ExampleComponent will be able to access muiTheme and moduleTheme through context *but ExampleContainer will not*. Indeed context is defined for **ModuleStyleProvider children**, in the React meaning.
 
@@ -158,11 +158,11 @@ For instance, in the following React tree, B and C can access themes through con
 
 ```jsx
 <A>
-	<ModuleStyleProvider module={moduleStyles}>
-			<B>
-				<C />
-			</B>
-	</ModuleStyleProvider>
+  <ModuleStyleProvider module={moduleStyles}>
+      <B>
+        <C />
+      </B>
+  </ModuleStyleProvider>
 </A>
 ```
 
@@ -181,9 +181,9 @@ import moduleStyles from '../../styles' // assuming there is an index.js
 
 class ExampleContainer extends React.Component {
 
-	render() {
-		// ...
-	}
+  render() {
+    // ...
+  }
 }
 
 export withModuleStyle(moduleStyles)(ExampleContainer)
@@ -203,24 +203,24 @@ import moduleStyles from '../../styles' // assuming there is an index.js
 
 class CompleteExample extends React.Component {
 
-	static contextTypes = {
-    	...themeContextType,
+  static contextTypes = {
+      ...themeContextType,
   }
 
-	render() {
-		const { moduleTheme, muiTheme } = this.context
-		return (
-			<div>
-				<div style={{ color: muiTheme.palette.textColor }}>Using MUI theme color </div>
-				{ /* 
-				we suppose here that style builder returned something like 
-				{ completeExample: { border: '1px solid red', ...} } 
-				*/ }
-				<div style={moduleTheme.completeExample.style}>Using some module theme </div>
-			</div>
-		)
-		// ...
-	}
+  render() {
+    const { moduleTheme, muiTheme } = this.context
+    return (
+      <div>
+        <div style={{ color: muiTheme.palette.textColor }}>Using MUI theme color </div>
+        { /* 
+        we suppose here that style builder returned something like 
+        { completeExample: { border: '1px solid red', ...} } 
+        */ }
+        <div style={moduleTheme.completeExample.style}>Using some module theme </div>
+      </div>
+    )
+    // ...
+  }
 }
 
 export withModuleStyle(moduleStyles)(CompleteExample)

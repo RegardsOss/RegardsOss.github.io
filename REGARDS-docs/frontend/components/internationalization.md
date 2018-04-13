@@ -23,9 +23,9 @@ short-title: Internationalization
 
 # Description
 
-The `@regards/i18n` (web_modules/utils/i18n) projects holds components and tools designed to simplify the internationalization of all messages in the REGARDS frontend. 
+The `@regards/i18n` (web_modules/utils/i18n) module holds components and tools designed to simplify the internationalization of all messages in the REGARDS frontend. 
 
-The REGARDS internationalization implementation uses [react-intl](https://github.com/yahoo/react-intl){:target="_blank"} librabry.
+The REGARDS internationalization implementation uses [react-intl](https://github.com/yahoo/react-intl){:target="_blank"} library.
 
 # Dependencies
 
@@ -43,7 +43,7 @@ In components **with i18n context** (see later sections), you can retrieve inter
   * Second parameter is an object, where each field key is the value key in messages (allowing messages with dynamic values)
 * `FormattedMessage` component which builds a React.Element. It has the two following fields:
   * `id`, that is the message key
-	* `values`, corresponding to formatMessage second parameter
+  * `values`, corresponding to formatMessage second parameter
  
 *Notes :*
 * To use the `formatMessage` method of the [react-intl](https://github.com/yahoo/react-intl){:target="_blank"} library, you need to define the react component context with the react-intl properties. To do so, you can use the `i18nContextType` 
@@ -56,19 +56,19 @@ import { FormattedMessage } from 'react-intl'
 
 export class ExampleComponent extends React.Component {
 
-	static contextTypes = {
-    	...i18nContextType,
-  	}
+  static contextTypes = {
+      ...i18nContextType,
+    }
 
-	render() {
-		const internationalizedMessage = this.context.intl.formatMessage({ id: 'example.message' })
-		return (
-			<div>
-				<span>{internationalizedMessage}</span>
-				<FormattedMessage id="example.message" />
-			</div>
-		)
-	}
+  render() {
+    const internationalizedMessage = this.context.intl.formatMessage({ id: 'example.message' })
+    return (
+      <div>
+        <span>{internationalizedMessage}</span>
+        <FormattedMessage id="example.message" />
+      </div>
+    )
+  }
 }
 
 ```
@@ -97,13 +97,13 @@ import messages from '../i18n' // will contain {en:..., fr:...}
 
 export class ExampleContainer extends React.Component {
 
-	render() {
-		return (
-			<I18nProvider messages={messages}>
-				<ExampleComponent />
-			</I18nProvider>
-		)
-	}
+  render() {
+    return (
+      <I18nProvider messages={messages}>
+        <ExampleComponent />
+      </I18nProvider>
+    )
+  }
 }
 ```
 
@@ -112,11 +112,11 @@ In the previous example, ExampleComponent will be able to access the i18n throug
 For instance, in the following React tree, B and C can access messages context, but A can not.
 ```jsx
 <A>
-	<I18nProvider messages={messages}>
-			<B>
-				<C />
-			</B>
-	</I18nProvider>
+  <I18nProvider messages={messages}>
+      <B>
+        <C />
+      </B>
+  </I18nProvider>
 </A>
 ```
 
@@ -134,11 +134,11 @@ import messages from '../i18n'
 
 class ExampleContainer extends React.Component {
 
-	render() {
-		return (
-			<FormattedMessage id="example.message" />
-		)
-	}
+  render() {
+    return (
+      <FormattedMessage id="example.message" />
+    )
+  }
 }
 
 export withI18n(messages)(ExampleContainer)
@@ -150,7 +150,7 @@ The import 'import messages from '../i18n' correspond to messages files import e
 
 ## I18n messages files
 
-As explained in the previous sections, the `I18nProvider' component or 'withI18n' expects to receive a an object that maps a list of locales onto a list of messages. For each locale object, keys will be the message key and value the internationalized message.
+As explained in the previous sections, the `I18nProvider` component or `withI18n` method expects to receive a an object that maps a list of locales onto a list of messages. For each locale object, keys will be the message key and value the internationalized message.
 In REGARDS, by design, each locale messages dictionnary is defined in a file named `messages.{LOCALE}.i18n.js`, where {LOCALE} is locale shorthand ('en', 'fr').
 
 The example below illustrates a messages.en.i18n.js file content:
@@ -159,7 +159,7 @@ The example below illustrates a messages.en.i18n.js file content:
 import { Locales } from '@regardsoss/form-utils'
 
 const messages = {
-	...Locales.en, // form messages, required when dealing with forms
+  ...Locales.en, // form messages, required when dealing with forms
   'example.message' : 'Example message to display',
   'other.example.message' : 'Other example message to display'
 }
@@ -174,7 +174,7 @@ And here is the similar example for a messages.fr.i18n.js file content:
 import { Locales } from '@regardsoss/form-utils'
 
 const messages = {
-	...Locales.fr, // form messages, required when dealing with forms
+  ...Locales.fr, // form messages, required when dealing with forms
   'example.message' : 'Message d\'exemple à afficher',
   'other.example.message' : 'Un autre message d\'exemple à afficher'
 }
@@ -210,28 +210,28 @@ in your message file define a message with a parameter :
 in your component (surrounded) by the `I18nProvider` :
 
 ```javascript
-	static contextTypes = {
-    	...i18nContextType,
-  	}
-  	
-	render() {
-		const name = 'jhon'
-		const message = this.context.intl.formatMessage({ id: 'example.message.with.parameter' }, { name })
-		return (
-			<div>
-				<span>{message}</span>
-				<FormattedMessage 
-					id="example.message.with.parameter"
-					values={{name: name}} 
-				/>
-			</div>
-		)
-	}
+  static contextTypes = {
+      ...i18nContextType,
+    }
+    
+  render() {
+    const name = 'jhon'
+    const message = this.context.intl.formatMessage({ id: 'example.message.with.parameter' }, { name })
+    return (
+      <div>
+        <span>{message}</span>
+        <FormattedMessage 
+          id="example.message.with.parameter"
+          values={{name: name}} 
+        />
+      </div>
+    )
+  }
 
 ```
 
 ## More informations
 
 As the REGARDS I18nProvider is used only to provide messages to the [react-intl](https://github.com/yahoo/react-intl){:target="_blank"} library all
-components surrounded by `I18nProvider` can use all [react-intl](https://github.com/yahoo/react-intl){:target="_blank"} functionalities.  So, you can refer to the official documentation to see more functioanlities like `Date internationalization` or `HTML display`.
+components surrounded by `I18nProvider` can use all [react-intl](https://github.com/yahoo/react-intl){:target="_blank"} functionalities.  So, you can refer to the official documentation to see more functionalities like `Date internationalization` or `HTML display`.
 
