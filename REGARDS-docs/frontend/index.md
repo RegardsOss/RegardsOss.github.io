@@ -6,6 +6,6 @@ categories:
   - frontend
 ---
 
-* [Develop new features](/frontend/developpers-index/)
+* [Develop new features](/frontend/developers-index/)
 * [About regards framework](/frontend/framework-index/)
 * [Consult dynamic modules list](/frontend/modules/dynamic-modules/)

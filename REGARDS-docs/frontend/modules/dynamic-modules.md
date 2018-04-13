@@ -27,10 +27,9 @@ short-title: Lazy modules
 
 # Description
 
-A lazy loadable module is a plugable module that you can use where you want on the `User project` and `Portal` interfaces, allowing you to add new features to user interfaces. Those modules can be configured from the administrator interface.  
+A lazy loadable module is a plugable module that paroject administrator has to to build the `User project` and `Portal` interfaces, enabling features and graphic component into user interfaces. Those modules can be configured from the project administration interface.  
 
-Microservices `rs-access-instance` and `rs-access-project` store the configuration of each modules
-and send it back to users browsing `User project` and `Portal` interfaces.
+Microservices `rs-access-instance` and `rs-access-project` store the configuration of each modules and send it back to users browsing `User project` and `Portal` interfaces.
 
 # Modules list
 
@@ -51,6 +50,7 @@ REGARDS defines currently the following dynamic modules:
 
 # Module structure
 
+```
  .  
  ├── src  
  |   ├──  
@@ -69,11 +69,12 @@ REGARDS defines currently the following dynamic modules:
  ├── default-icon.svg    : Default module icon as svg, mandatory
  ├── package.json        : Npm module description file   
  └── README.md  
+```
 
 ## About default icon:
 
 When creating a module, we must ensure the default icon is provided and respects the following rules:
-* Its path is **[module folder]/default-icon.svg** where module name is also the module root folder
+* Its path is `[module folder]/default-icon.svg` where module name is also the module root folder
 * Icon is an SVG
 * Icon stroke and fill colors are specified on first <sgv> tag - otherwise, the module icon cannot be updated with theme colors  
 
