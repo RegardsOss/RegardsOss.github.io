@@ -42,7 +42,7 @@ short-title: IDE
 
 # Available IDEs
 
-Currently, REGARDS developers use one of the following Integrated Development environments:
+Currently, REGARDS developers use one of the following Integrated Development Environments:
 * VSCode: lightweight editor for JavaScript and React, with good NPM and ESLint integration.
 * IntelliJ or WebStorm: full flavored IDE for Java, JavaScript...
 
@@ -96,7 +96,7 @@ VS code project configuration must be placed in a `.vscode` folder, in `rs-front
   ]
 }
 ```
-* `rs-frontend/.vscode/settings.json` file, describes browsers runnable and debugger (can be launched with F5 shortcut)
+* `rs-frontend/.vscode/settings.json` file, provides user configuration for current project
 ```json
 {
   "todo-tree.flat": true,
@@ -255,10 +255,9 @@ VS code project configuration must be placed in a `.vscode` folder, in `rs-front
 
 ## Shortcut configuration
 
-To configure the VSCode shortcuts, oepn menu `file/preferences/shortcut`. Then click on keybindings.json link to import the shortcut below, if they match your needs:
+To configure the VSCode shortcuts, open menu `file/preferences/shortcut`. Then click on `keybindings.json` link to import the shortcut below, if they match your needs:
 
 ```json
-// Placez vos combinaisons de touches dans ce fichier pour remplacer les valeurs par défaut
 [
     {
         "key": "ctrl+down",
@@ -711,7 +710,7 @@ To configure the VSCode shortcuts, oepn menu `file/preferences/shortcut`. Then c
 
 ## Templates configuration
 
-To configure templates in VSCode, you have to open menu `file/preferences/user code templates` then type Javascript or javascript react to edit the corresponding JSON file. For REGARDS we defined the following code templates. You may paste the code in corresponding VSCode templates files.
+To configure templates in VSCode, you have to open menu `file/preferences/user code templates` then type `Javascript` or `Javascript react` to edit the corresponding JSON templates file. For REGARDS we defined the following code templates. You may paste the code in corresponding VSCode templates files.
 
 ### Javacript templates
 ```json
@@ -754,7 +753,7 @@ To configure templates in VSCode, you have to open menu `file/preferences/user c
     "prefix": "license",
     "body": [
       "/**",
-      " * Copyright 2017 CNES - CENTRE NATIONAL d'ETUDES SPATIALES",
+      " * Copyright 2017-2018 CNES - CENTRE NATIONAL d'ETUDES SPATIALES",
       " *",
       " * This file is part of REGARDS.",
       " *",
@@ -786,7 +785,7 @@ To configure templates in VSCode, you have to open menu `file/preferences/user c
     "prefix": "client",
     "body": [
       "/**",
-      " * Copyright 2017 CNES - CENTRE NATIONAL d'ETUDES SPATIALES",
+      " * Copyright 2017-2018 CNES - CENTRE NATIONAL d'ETUDES SPATIALES",
       " *",
       " * This file is part of REGARDS.",
       " *",
@@ -822,7 +821,7 @@ To configure templates in VSCode, you have to open menu `file/preferences/user c
     "prefix": "test-redux-entity",
     "body": [
       "/**",
-      " * Copyright 2017 CNES - CENTRE NATIONAL d'ETUDES SPATIALES",
+      " * Copyright 2017-2018 CNES - CENTRE NATIONAL d'ETUDES SPATIALES",
       " *",
       " * This file is part of REGARDS.",
       " *",
@@ -916,7 +915,7 @@ To configure templates in VSCode, you have to open menu `file/preferences/user c
     "prefix": "license",
     "body": [
       "/**",
-      " * Copyright 2017 CNES - CENTRE NATIONAL d'ETUDES SPATIALES",
+      " * Copyright 2017-2018 CNES - CENTRE NATIONAL d'ETUDES SPATIALES",
       " *",
       " * This file is part of REGARDS.",
       " *",
@@ -1018,7 +1017,7 @@ To configure templates in VSCode, you have to open menu `file/preferences/user c
     "prefix": "react-component",
     "body": [
       "/**",
-      " * Copyright 2017 CNES - CENTRE NATIONAL d'ETUDES SPATIALES",
+      " * Copyright 2017-2018 CNES - CENTRE NATIONAL d'ETUDES SPATIALES",
       " *",
       " * This file is part of REGARDS.",
       " *",
@@ -1061,7 +1060,7 @@ To configure templates in VSCode, you have to open menu `file/preferences/user c
     "prefix": "react-container",
     "body": [
       "/**",
-      " * Copyright 2017 CNES - CENTRE NATIONAL d'ETUDES SPATIALES",
+      " * Copyright 2017-2018 CNES - CENTRE NATIONAL d'ETUDES SPATIALES",
       " *",
       " * This file is part of REGARDS.",
       " *",
@@ -1153,7 +1152,7 @@ To configure templates in VSCode, you have to open menu `file/preferences/user c
     "prefix": "test-react-component",
     "body": [
       "/**",
-      " * Copyright 2017 CNES - CENTRE NATIONAL d'ETUDES SPATIALES",
+      " * Copyright 2017-2018 CNES - CENTRE NATIONAL d'ETUDES SPATIALES",
       " *",
       " * This file is part of REGARDS.",
       " *",
@@ -1204,7 +1203,7 @@ To configure templates in VSCode, you have to open menu `file/preferences/user c
     "prefix": "test-react-container",
     "body": [
       "/**",
-      " * Copyright 2017 CNES - CENTRE NATIONAL d'ETUDES SPATIALES",
+      " * Copyright 2017-2018 CNES - CENTRE NATIONAL d'ETUDES SPATIALES",
       " *",
       " * This file is part of REGARDS.",
       " *",
@@ -1296,8 +1295,23 @@ To create or import a code template, right click anywhere in project tree to ope
 ```javascript
 
 /**
- * LICENSE_PLACEHOLDER
- */
+ * Copyright 2017-2018 CNES - CENTRE NATIONAL d'ETUDES SPATIALES
+ *
+ * This file is part of REGARDS.
+ *
+ * REGARDS is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * REGARDS is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with REGARDS. If not, see <http://www.gnu.org/licenses/>.
+ **/
   
 /**
  * ${comment}
@@ -1342,8 +1356,23 @@ export default ${NAME}
 ```javascript
 
 /**
- * LICENSE_PLACEHOLDER
- */
+ * Copyright 2017-2018 CNES - CENTRE NATIONAL d'ETUDES SPATIALES
+ *
+ * This file is part of REGARDS.
+ *
+ * REGARDS is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * REGARDS is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with REGARDS. If not, see <http://www.gnu.org/licenses/>.
+ **/
 import { shallow } from 'enzyme'
 import { expect, assert } from 'chai'
 import sinon from 'sinon'
@@ -1407,8 +1436,23 @@ describe('[${MODULE_NAME}] Testing ${NAME}', () => {
 ```javascript
 
 /**
- * LICENSE_PLACEHOLDER
- */
+ * Copyright 2017-2018 CNES - CENTRE NATIONAL d'ETUDES SPATIALES
+ *
+ * This file is part of REGARDS.
+ *
+ * REGARDS is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * REGARDS is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with REGARDS. If not, see <http://www.gnu.org/licenses/>.
+ **/
 import { assert } from 'chai'
 import { keys } from 'lodash'
 import MessagesEN from '../../src/i18n/messages.en.i18n'
@@ -1444,8 +1488,23 @@ describe('[${MODULE_NAME}] Testing i18n', () => {
 ```javascript
 
 /**
- * LICENSE_PLACEHOLDER
- */
+ * Copyright 2017-2018 CNES - CENTRE NATIONAL d'ETUDES SPATIALES
+ *
+ * This file is part of REGARDS.
+ *
+ * REGARDS is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * REGARDS is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with REGARDS. If not, see <http://www.gnu.org/licenses/>.
+ **/
 import { ReduxEntityTester } from '@regardsoss/tests-helpers'
 import { ${NAME} } from '@regardsoss/model'
 import ${NAME}Actions from '../../src/model/${NAME}Actions'
