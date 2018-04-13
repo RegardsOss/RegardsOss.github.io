@@ -87,11 +87,11 @@ export class ExampleContainer extends React.Component {
 ```
 In the previous example, ExampleComponent will be able to access the them through context *but ExampleContainer will not*. Indeed context is defined for **ThemeProvider children**, in the React meaning.
 
-Note: Most of the time, REGARDS developper doesn't need to use the ThemeProvider, as MUI Theme context is provided in all REGARDS application.
+Note: Most of the time, REGARDS developer doesn't need to use the ThemeProvider, as MUI Theme context is provided in all REGARDS application.
 
 ## Connect with MUI and module theme
 
-As explained before in this page, REGARDS allows a component or a group of components to define custom styles, called `module styles`, through a style builder function. The developper should follow the next steps to define and access such theme in components.
+As explained before in this page, REGARDS allows a component or a group of components to define custom styles, called `module styles`, through a style builder function. The developer should follow the next steps to define and access such theme in components.
 
 ### 1\. Declare style builder
 
@@ -193,7 +193,7 @@ The use of `withModuleStyle(moduleStyles)(ExampleContainer)` means that messages
 
 ### 3\. Add context type
 
-Finally, theme context can be used in container children, and in container itself when withModuleStyle decorator method was used. To access it, as seen in first 'how to' section, the developper has to declare context types, like in example below.
+Finally, theme context can be used in container children, and in container itself when withModuleStyle decorator method was used. To access it, as seen in first 'how to' section, the developer has to declare context types, like in example below.
 
 Example: a component declaring and consuming theme context:
 

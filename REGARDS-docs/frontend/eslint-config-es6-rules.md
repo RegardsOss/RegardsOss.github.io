@@ -8,6 +8,7 @@ short-title: Eslint config
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 
 
+- [Presentation](#presentation)
 - [Usage](#usage)
   - [Imported rules](#imported-rules)
     - [eslint rules](#eslint-rules)

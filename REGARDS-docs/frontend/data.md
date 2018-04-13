@@ -1,3 +1,9 @@
+---
+layout: classic-docs
+title: REGARDS UI data
+short-title: Data
+---
+
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 
@@ -12,15 +18,9 @@
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
----
-layout: classic-docs
-title: REGARDS UI data
-short-title: Data
----
-
 # Data management in REGARDS UI
 
-REGARDS front uses [Redux](http://redux.js.org/) to centralize and manage data. It also setups some middlewares above it, discuss later on. One of those middleware, [Redux API middleware]((https://www.npmjs.com/package/redux-api-middleware), is transforming Redux actions holding a `RSAA` field into network request. Those actions define indeed 3 actions, that will be reduced normally by the reducer:
+REGARDS frontend uses [Redux](http://redux.js.org/) to centralize and manage data. It also setups some middlewares above it, discuss later on. One of those middleware, [Redux API middleware]((https://www.npmjs.com/package/redux-api-middleware), is transforming Redux actions holding a `RSAA` field into network request. Those actions define indeed 3 actions, that will be reduced normally by the reducer:
 * \*_REQUEST: A request action. It is the action that gets really progated when dispatching an RSAA action. REGARDS reducers will, most of the time, mark the data `fetching`.
 * \*_SUCESS: A request success action. It is propagated by the API middleware. REGARDS reducers will, most of the time, mark the data `no longer fetching` and store fetching results.
 * \*_FAILURE: A request failure action. It is propagated by the API middleware. REGARDS reducers will, most of the time, mark the data `no longer fetching and in error` and store error data.
@@ -82,7 +82,7 @@ The `webapp\web_modules\data\client` module holds actions to dispatch in order t
 <!-- TODO link to store utils -->
 <!-- TODO Example for Action / reducer / selectors -->
 
-Recently, REGARDS UI developpers have been adding all backend related clients in this module. Thus that is currently considered as the good practice. However, some legacy actions/reducer/selectors working with server can still be encountered in other modules.
+Recently, REGARDS UI developers have been adding all backend related clients in this module. Thus that is currently considered as the good practice. However, some legacy actions/reducer/selectors working with server can still be encountered in other modules.
 
 Note: Client module also holds front-end only actions/reudcer/selectors, that are not performing any network request, for the specific cases of complex components and modules that need to share a state through Redux store.
 

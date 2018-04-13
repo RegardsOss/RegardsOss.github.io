@@ -25,22 +25,28 @@ short-title: Service
 
 # Presentation
 
-A service plugin (front-end) is a javascript bundle used by [search results](/frontend/modules/search-results/), [search form](/frontend/modules/search-form/) and [search graph](/frontend/modules/search-graph/) modules to add services onto displayed data. A service may work for one or for multiple data objects. By design, a service that run with many entities can either receive entities or a query (see later provided parameters sections)
-It allows defining static - configured by the administrator - and dynamic parameters - configured by the user when running the service.
+A service plugin (front-end) is a javascript bundle used by [search results](/frontend/modules/search-results/), [search form](/frontend/modules/search-form/) and [search graph](/frontend/modules/search-graph/) modules to add services onto displayed data. A service may work for one or for multiple data objects. By design, a service that run with many entities can either receive an entities IP ID array or a query (see later provided parameters sections)
+Service plugin allows defining static - configured by the administrator - and dynamic parameters - configured by the user when running the service.
 
 # Working principles
 
-The criteria plugin must respect the following working principles to be correctly integrated within REGARDS:
+The service plugin must respect the following working principles to be correctly integrated within REGARDS:
 1. It must declare `conf.applicationModes` and `conf.entityType` in `plugin-info.json` to specify if it works for one and / or many entities of given type(s). See later sections for more detail about configuration.
 1. It must export a main componenent that will handle fetching current application target data
 
 # plugin-info.json
 
 It is very similar to a common plugin but the `type` field always indicates "SERVICE".
-Furthermore, it allows the following fields in `conf` field:
-* `applicationMode`: *{array}* an array that can contain one or both the following values:
+Furthermore, it allows the following fields in `conf`:
+* `applicationMode`: *{array}* a required array that can contain one or both the following values:
   * `ONE`: the service applies to one entity
   * `MANY`: the service applies to many entities (expressed as an IP ID list or a query)
+* `entityTypes`: *{array}* a required array that can contain some of all the following values:
+      * DATA: The service works with dataobjects
+      * COLLECTION: The service works with collections, *not supported yet*
+      * DATASET: The service works with collections, *not supported yet*
+      * DOCUMENT: The service works with collections, *not supported yet*
+    ],
 * `static`: *{object}* an optional object of parameters to be filled in by the project administrator when a configures a plugin service for results. Each parameter, in that object will be defined as following:
   * `object key`: key to point out the parameter in main component props. It will also be used as label in the configuration form
   * `type` : *{string}* One of ["bool","char","date","float", "int", "string"]. It determinates the type that will be actually received at runtime by the plugin
@@ -48,9 +54,10 @@ Furthermore, it allows the following fields in `conf` field:
 * `dynamic`: *{object}* an optional object of parameters to be filled in by the project user when he applies the service.
   * `object key`: key to point out the parameter in main component props
   * `"type"` : *{string}* working like static parameter
+  * `"required"` : *{boolean}* working like static parameter, but applying to user
   * `"label"`: *{string}* Parameter label, that will be shown to user
 
-Please note about dynamic parameters, that administrator is allowed setting a default value. However, even if the administrator provided a default value, the user will be prompted to enter the parameter value he wants to set - yet the field will hold administator default value when opening service configuration box.
+Please note, about dynamic parameters, that administrator is allowed setting a default value. However, even if the administrator provided a default value, the user will be prompted to enter the parameter value he wants to set - yet the field will hold administator default value when opening service configuration box.
 
 ```json
 {
@@ -80,7 +87,7 @@ Please note about dynamic parameters, that administrator is allowed setting a de
 
 # Main React component 
 
-It mostly works just like a common plugin. It provides the following mechanisms to handle fetching and service parameters.
+Unlike criterion plugin, the service plugin may be a simple React component. That component will receive, through properties, the entity or the list of entities it applies on. The next sub section describe how to retrieve, according with the user configuration and selection type, the service parameters and entities.
 
 ## Provided parameters
 
@@ -105,13 +112,13 @@ It has the following fields:
 
 ### Provided runtime target
 
-When launched, the service plugin main component receives the property `runtimeTarget`.
-That object represents the plugin target. Its type can be one of: 
+When launched, the service plugin main component receives the property `runtimeTarget`. That object represents the plugin target for current execution. Its type can be one of: 
 * `One entity target` (enumerated type: RuntimeTargetTypes.ONE), if the service application mode contains "ONE"
 * `Many entities target` (enumerated type: RuntimeTargetTypes.MANY), if the service application mode contains "MANY"
 * `Query target` (enumerated type: RuntimeTargetTypes.QUERY), if the service application mode contains "MANY"
 
 Notes: 
+* If the plugin application mode is ONE only, main component will never receive MANY and QUERY target types. Reciprocally, if it is MANY, main component will never receive ONE target type.
 * RuntimeTargetTypes is exported as a field of `AccessDomain`, in module `regardsoss/domain`
 * Query target expresses a list of entities as a query. This is required when user works in select all mode. Indeed, as REGARDS catalog may contain large amount of entities, it is not possible in such case to express selection as an IP ID array, as that would require to fetch all those entities from backend.
 
@@ -154,4 +161,4 @@ Where:
 
 # Going further
 
-The React container ExampleContainer, from *webapp/plugin/services/example*, in *rs-frontend* repository illustrates using the plugin service configuration and target to show entities partitions. It uses `getReducePromise` to avoid handling manually the target types when fetching data, recovering it through actions, test react components... Reading that example code may be a good starting point from here.
+The React container ExampleContainer, from *webapp/plugin/services/example*, in *rs-frontend* repository, illustrates using the plugin service configuration and target to show entities partitions. It uses `getReducePromise` to avoid handling manually the target types when fetching data, recovering it through actions, test react components... Reading that example code may be a good starting point from here.

@@ -20,7 +20,7 @@ short-title: Criterion
 
 # Presentation
 
-A criteria plugin (front-end) is a javascript bundle used by the [Search form module](/frontend/modules/search-form/) to create search criteria section. Each criterion plugin can generate a part of the full opensearch request sent to the rs-catalog mictoservice in order to request catalog entities.  
+A criteria plugin (front-end) is a javascript bundle used by the [Search form module](/frontend/modules/search-form/) to create search criteria section. Each criterion plugin can generate a part of the full opensearch request sent to the rs-catalog microservice in order to request catalog entities.  
 By the way, a criteria plugin respects all general plugin principles documented in [Plugins](/frontend/plugins/) page.
 
 # Working principles
@@ -66,11 +66,12 @@ For each defined attributes, the plugin developer must provide :
 
 # Main React component 
 
-It mostly works just like a common plugin but should handle the specific points mentionned before and below.
+The criterion plugin should extend PluginCriterionContainer class, for a more concise implementation. In next sub sections, behaviors that are specific to criterion main component will be listed.
 
 ## Provided runtime parameters
 
-The here under properties are provided at runtime by the plugin loader to each criterion plugin main compoent :
+Criterion main component receives the following properties, provided at runtime by the plugin loader:
+
 ```js
 propTypes = {
     /**
@@ -124,7 +125,7 @@ The attributes property is a collection of AttributeModel (see webapp/web_module
 
 When implementing the plugin, attributes names used into the onpenSearchQuery can be retrieved from an attribute object using the `getAttributeName` method from PluginCriterionContainer:
 ```js
-this.getAttributeName('searchField') // 'searchField' constant comes from previous example on 'plugin-info.json'
+this.getAttributeName('searchField') // 'searchField' is the attribute name from previous 'plugin-info.json' example 
 
 ```
 
@@ -135,10 +136,10 @@ this.getAttributeLabel('searchField')
 
 ## Manage state and search query
 
-When extending the PluginCriterionContainer class, the main abstract methods to implement are:
+When extending the PluginCriterionContainer class, the criterion main component must implement the following methods:
 * `getPluginSearchQuery`  
 *(state:Object) => string*  
-Convert this component state, where state is first parameter, into a query part like, for instance, 'MY_VALUE:35'. State fields here correspond to attribute names.
+Convert this component state, where state is first parameter, into a query part like, for instance, 'MY_VALUE:35'. State fields here correspond to attribute names, from plugin-info.json.
 * `parseOpenSearchQuery`  
 *(attributeName: string, openSearchValue} => (state)*  
 Parses the component state for attributeName as parameter. It is essential here for implementation to understand that:
@@ -159,7 +160,7 @@ this.props.savePluginState(this.props.pluginInstanceId, this.state)
 this.props.getDefaultState(this.props.pluginInstanceId)
 ```
 
-Each main plugin component, extending or not the PluginCriterionContainer, should also define the reset state method handleClear:
+Each main plugin component, extending or not the PluginCriterionContainer, should also implement the reset state method handleClear:
 ```js
 handleClear = () => {
   this.setState(defaultState) // update the plugin root component state to clear user input

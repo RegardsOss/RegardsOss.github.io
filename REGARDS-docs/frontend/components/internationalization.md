@@ -48,7 +48,7 @@ In components **with i18n context** (see later sections), you can retrieve inter
 *Notes :*
 * To use the `formatMessage` method of the [react-intl](https://github.com/yahoo/react-intl){:target="_blank"} library, you need to define the react component context with the react-intl properties. To do so, you can use the `i18nContextType` 
 of the `@regardsoss/i18n` package. The FormattedMessage component does not require to explicitely mention context type.
-* In many cases, when setting an HTML node title property for instance, the value must be a string (and not a React.Element). In such cases, the developper has to use formatMessage method.
+* In many cases, when setting an HTML node title property for instance, the value must be a string (and not a React.Element). In such cases, the developer has to use formatMessage method.
 
 ```javascript
 import { i18nContextType } from '@regardsoss/i18n'

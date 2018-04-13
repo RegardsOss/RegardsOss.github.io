@@ -33,7 +33,7 @@ by the project, instead of creating a global rs-frontend project fork.
 
 There are currently two types of plugins :
 * `criterion`: Used in the search form, this type of plugin allows users creating search filters on attributes. See [criteria plugins](/frontend/plugins/plugin-criteria) page for more detail
-* `services`: Used in the search result table, they provide additionnals interactions with data they are associated with. The developper can ask both administration (configuration) and user (runtime configuration) to fill several values before computing and displaying service results in a dialog box. See [service plugins](/frontend/plugins/plugin-services) page for more detail
+* `services`: Used in the search result table, they provide additionnals interactions with data they are associated with. The developer can ask both administration (configuration) and user (runtime configuration) to fill several values before computing and displaying service results in a dialog box. See [service plugins](/frontend/plugins/plugin-services) page for more detail
 
 Plugins are very similar to REGARDS UI dynamic modules, but:
 * They are not bundled along the code source code. Instead, they are compiled separetely and should be loaded through an HTTP repository.
@@ -41,7 +41,7 @@ Plugins are very similar to REGARDS UI dynamic modules, but:
 
 The following sections will discuss the common points to all plugin types.
 
-Note: Obviously, frontend plugins are not designed in the same way than backend plugins, especially when it comes to handle large data requests - backend plugins have way better performances in such such cases. Therefore, the developer may need to create a backend plugin counterpart for frontend plugins working with huge data payloads.
+Note: Obviously, frontend plugins are not designed in the same way than backend plugins, especially when it comes to handle large data requests - backend plugins have way better performances in such cases. Therefore, the developer may need to create a backend plugin counterpart for frontend plugins working with huge data payloads.
 
 # Create a new plugin
 
@@ -54,8 +54,6 @@ $ yo regards-ui-plugin
 ```
 
 Yeoman will ask you some informations to generate the new plugin. Once finished, the architecture of the plugin is iniatialized with some basics examples.  
-
-Now, let's try to compile and show the plugin in the app!
 
 # Plugin overall code structure
 
@@ -171,9 +169,11 @@ propTypes = {
   }
 ```
 
+*Note: other plugin properties are specific to the plugin type, see [criterion](/frontend/plugins/plugin-criteria/) or [service](/frontend/plugins/plugin-services) plugin pages for more detail.*
+
 # Redux management
 
-As mentioned above, the plugins can initialize reducers to use redux actions and  selectors. However, as a plugin may be instantiated multiple times on a single page, the plugin reducers cannot be statically declared. Instead, plugins have to declare a `buildReducer` function and retrieve / rebuild actions and selectors at runtime. Those operations are detailed in following subsections.
+As mentioned above, the plugins can initialize reducers to use redux actions and  selectors. However, as a plugin may be instantiated multiple times on a single page, the plugin reducers cannot be statically declared - like, for instance, for dynamic modules. Instead, plugins have to declare a `buildReducer` function and retrieve / rebuild actions and selectors at runtime. Those operations are detailed in following subsections.
 
 ## Building reducers
 
@@ -197,7 +197,7 @@ export default function buildReducer(pluginInstanceId) {
 
 *An example is available in enumerated criterion, at path webapp/plugins/criterion/enumerated/src/reducer.js*
 
-As a consequence of the dynamic reduction system, the store path must also take the pluginInstanceID in account. For plugins, it is always and array where:
+As a consequence of the dynamic reduction system, the store path must also take the pluginInstanceID in account. For plugins, it is always an array where:
 * first element is 'plugins.**{Plugin name}**.**{Plugin instance ID}**'. Plugin name must match the name declared in plugin-info.json and plugin instance ID is provided as parameter of buildReducer function.
 * second element is the reducer field in buildReducer function (myModel1 or myModel2 in example above)
 
@@ -205,7 +205,7 @@ As a consequence of the dynamic reduction system, the store path must also take 
 
 ## Using actions and selectors
 
-As the Redux reducers of the plugin are dynamic, the developper must also use dynamic actions and dynamic selectors, due to dynamic namespace and store path. However, building actions and selectors each time mapStateToProps and mapDispatchToProps is called is memory consuming.
+As the Redux reducers of the plugin are dynamic, so are the actions selectors, due to dynamic namespace and store path. However, building actions and selectors each time mapStateToProps and mapDispatchToProps are called is memory consuming.
 For that purpose, REGARDS provides a small tool that handles a lazy map of redux clients (action, selectors and optional reducer). That tool can be used easily in main plugin component, as shown in example below:
 
 ```jsx
@@ -236,4 +236,4 @@ For that purpose, REGARDS provides a small tool that handles a lazy map of redux
 
 ```
 
-*Note: The PluginsClientsMap is a simple tool that buffers a map of pluginInstanceId => builder => builtValue. It is very straightforward code and can be replaced by a locally coded buffer if you prefer. In order to work correctly, it requires clientBuilder instance - buildMyClient in previous example - to be always the same for a single client.*
+*Note: The PluginsClientsMap is a simple tool that buffers a map on pluginInstanceId => builder => builtValue. It is very straightforward code and can be replaced by a locally coded buffer if you prefer. In order to work correctly, it requires clientBuilder instance - buildMyClient in previous example - to be a constant JS function reference for a single client.*

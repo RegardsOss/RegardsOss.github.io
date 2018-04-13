@@ -15,20 +15,19 @@ short-title: Setup and build
   - [Run tests :](#run-tests-)
   - [Run test:coverage :](#run-testcoverage-)
   - [Lint :](#lint-)
-- [Know issues](#know-issues)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
 # Requirements
 
-You shall
-- use Linux or macOS
-- be root on your computer
-- having npm version above 5.8.0 (5.8.0 presents a bug and should be used)
-- having node version greater than or equal to 9.8.0
+You should
+* use Linux or macOS
+* be able connecting as super user on your computer
+* have an installed npm version above 5.8.0 - 5.8.0 presents a bug and should not be used
+* have an installed node version greater than or equal to 9.8.0
 
 > **Important**  
-> As REGARDS frontend is developped around two main libraries, [React](https://facebook.github.io/react/){:target="_blank"} and [Redux](http://redux.js.org){:target="_blank"}, we highly recommand new developers to start by watching the here under [Egghead](https://egghead.io) videos to learn the basics of these two libraries.
+> As REGARDS frontend is developed around two main libraries, [React](https://facebook.github.io/react/){:target="_blank"} and [Redux](http://redux.js.org){:target="_blank"}, we highly recommand new developers to start by watching the here under [Egghead](https://egghead.io) videos to learn the basics of these two libraries.
 >   - [React](https://egghead.io/courses/react-native-fundamentals){:target="_blank"}
 >   - [Redux](https://egghead.io/courses/getting-started-with-redux){:target="_blank"}  
 >  
@@ -37,12 +36,12 @@ You shall
 
 # Local installation
 
-Clone the `rs-frontend` repository (available here for GitHub: https://github.com/RegardsOss/regards-frontend) and open the webapp folder using your terminal:
+Clone the `rs-frontend` repository (available here for GitHub: https://github.com/RegardsOss/regards-frontend) and open the webapp folder in cloned repository using your terminal:
 
 ```sh
-cd webapp
+cd rs-frontend/webapp
 ```
-Then install all dependencies, devDependencies and compile all required webpack DLL:
+Then install all dependencies, and produce all required webpack DLL:
 
 ```sh
 npm install
@@ -52,27 +51,33 @@ npm install
 
 Optionally, you may also build the plugins, using the following command in webapp folder:
 ```sh
-./scripts/build-all-plugins
+./scripts/build-all-plugins dev all
 ```
 
 # Run options
 
-
 Run frontend with real backend microservices :
 ```
-npm start
+npm start:*
 ```
+Here you will have to configure a runner for your server URLs. It implies:
+* Adding a new task in webapp/package.json (likely to be named start:with-my-server for instance)
+* Defining its content as something like:
+```sh
+webpack-dev-server --progress --config webpack.dev.myserver.config.js
+```
+* Pasting the `webpack.dev.myserver.config.js` from `webpack.dev.vmperf.config.js` to provide your own GATEWAY_HOSTNAME URL, pointing out to the backend instance.
 
-Run frontend with mocked micrservices (the real microservices don't need to be available with this mode) :
+After that you may run in terminal the following command:
+```sh
+npm start:with-my-server
 ```
-npm run start:withmock
-```
+Finally open a tab in your favorite browser at URL 'localhost:3333'. REGARDS portal UI should now be visible.
 
-Then opens your browser at :
- - portal : [http://localhost:3333/](http://localhost:3333/){:target="_blank"}
- - admin instance : [http://localhost:3333/admin](http://localhost:3333/admin){:target="_blank"} login : regards-admin@c-s.fr / root_admin
- - admin projet : [http://localhost:3333/admin/project1](http://localhost:3333/admin/project1){:target="_blank"} login : regards-admin@c-s.fr / root_admin
- - user projet : [http://localhost:3333/user/project1](http://localhost:3333/user/project1){:target="_blank"} login : regards-admin@c-s.fr / root_admin
+Notes:
+* _It is also possible, while working locally, to modify the REGARDS webpack configurations_
+* _Some REGARDS NPM tasks provide runnable using the proxy mock server. You may want to look deeper in those tasks when developping new features or without backend_
+* _REGARDS NPM tasks are currently defined for continous intergarion servers at CS SI_
 
 ## Production build
 
@@ -82,7 +87,7 @@ npm build:production
 
 ## Run tests :
 
-It creates a report in `path/to/folder/webapp/reports/mocha/` folder:
+The following command runs application tests and reports in `webapp/reports/mocha/` folder:
 
 ```
 npm test
@@ -90,7 +95,7 @@ npm test
 
 ## Run test:coverage :
 
-To run tests with coverage - creates coverage reports (lcov, xunit) inside `path/to/folder/webapp/reports/coverage/` folder:
+The following command runs application coverage (lcov, xunit) and reports in `webapp/reports/coverage/` folder:
 
 ```
 npm run test:coverage
@@ -98,12 +103,10 @@ npm run test:coverage
 
 ## Lint :
 
-You shall lint the entire app [using our Eslint](/frontend-modules/eslint-config-es6-rules) before commiting:
+The following command lint the REGARDS frontend application code and fixes automatically all formatting problems.
+
 ```
 npm run lint:fix
 ```
 
-# Know issues
-
-- `npm run bootstrap` is not cross platform and cannot be executed on Windows (except on Windows 10 Bash)
-- `./scripts/bootstrap.sh` is not executable? Run the following command: `chmod +x ./scripts/bootstrap.sh`
+The developers should always run that comment before committing code files.

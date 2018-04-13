@@ -17,9 +17,12 @@ For the `Portal` and `User` interfaces, REGARDS UI defines [Dynamic modules](/fr
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 
 
-- [Overall architecture](#overall-architecture)
+- [Structure](#structure)
 - [Common businness modules (business-common)](#common-businness-modules-business-common)
 - [Business modules](#business-modules)
+- [Eslint configuration module](#eslint-configuration-module)
+- [Mocks](#mocks)
+- [Plugins](#plugins)
 - [Components modules](#components-modules)
 - [Data](#data)
 - [Modules](#modules)
@@ -27,19 +30,19 @@ For the `Portal` and `User` interfaces, REGARDS UI defines [Dynamic modules](/fr
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
-# Overall architecture
+# Structure
 
-The REGARDS frontend is divided in several NPM modules, each one has a `package.json` file defining the name of the module in the application. It allows us to import a module using his name instead of using a relative path.
+The REGARDS frontend is divided in several NPM modules. Each one has a `package.json` file defining the name of the module in the application. It allows us to import a module using his name instead of using a relative path.
 
 ```
 import { configureStore } from '@regardsoss/store' // Good
 import { configureStore } from '../web_modules/data/store/src/main.js' // Bad practice
 ```
 
-Before understanding further the role of each module, here are the main files used to create the app: 
+Before further explanation about the role of each module and folders, let's have a look on the global rs-frontend/webapp folder structure.
 
 ```
-├── webapp                                    # REGARDS Frontend folder
+├── webapp                                    # REGARDS Frontend webapp folder
     ├── dist                                  # transpiled code for dev and prod 
     ├── eslint-config-es6-rules               # Eslint configuration for project (as a module)
     ├── mocks                                 # Holds mock servers for features development
@@ -49,12 +52,12 @@ Before understanding further the role of each module, here are the main files us
     |  ├── mocha                              # Test report
     ├── resources                             # Some demo resources
     ├── scripts                               # Some helper scripts for installing, building... Mainly for plugins usage
-    ├── src                                   # frontend starter source code, common to user, portal and admin app
+    ├── src                                   # frontend starter source code, common to user, portal and admin applications
     |  ├── main.jsx                           # Starter React file
     |  ├── rootReducer.js                     # Loads the Redux tree
     |  └── rootRouter.js                      # Loads the react-router logic
     ├── tests                                 # Tests corresponding to src folder
-    ├── web_modules                           # Contains all @regardsoss and @regardsoss-modules modules
+    ├── web_modules                           # Contains all @regardsoss and @regardsoss-modules modules, except builder and lint modules
     |  ├── business-common                    # Reusable business logic, often shared between admin and user app
     |  ├── business-modules                   # Application static modules and specific applications starters `admin`, `portal` and `user`
     |  ├── components                         # Reusable React components
@@ -64,25 +67,19 @@ Before understanding further the role of each module, here are the main files us
     |  |  ├── domain                          # module holding business domain enumerations and constants
     |  |  ├── shape                           # React PropTypes related with backend data and normalized data
     |  |  └── store                           # Redux store helpers and configurators
-    |  ├── modules                            # Dynamic configurable modules 
+    |  ├── modules                            # Dynamic modules 
     |  ├── utils                              # REGARDS "generic" toolkit
-    |  └── vendors                            # Libraries fork we've done
+    |  └── vendors                            # External libraries forks
     ├── webpack-config-front                  # Module holding plugins and modules webpack transpiler and defining dev and prod build constants
-    ├── webpack-config-front                  # Yeoman templates (cli to generate frontend modules and plugins)
+    ├── yeoman                                # Yeoman templates (cli to generate frontend modules and plugins)
     ├── package.json                          # Define npm scripts and list all dependencies
-    ├── webpack.dev.preprod.config.js         # Used when building the app to run in development mode
-    ├── webpack.coverage.config.js            # Used when building the app to run tests coverage mode
-    ├── webpack.test.config.js                # Used when building the app to run tests 
-    ├── webpack.prod.config.js                # Used when building the app to run in production mode
-    ├── webpack.dev.dll.config.js             # Used to generate DLL in development mode (fast hot reload)
-    ├── webpack.prod.core.dll.config.js       # Used to generate DLL in prodocution mode (by plugins)
-    └── webpack.prod.coreoss.dll.config.js    # Used to generate DLL in prodocution mode (by plugins)
+    ├── webpack.*.config.js                   # Various webpack configuration files, corresponding to similar NPM task in package.json
 ```
 
 
 # Common businness modules (business-common)
 
-This folder contains business related modules, shared accross many REGARDS modules and / or applicationsportal)
+This folder contains business related modules, shared accross many REGARDS modules and / or applications)
 
 1. `admin-data-entities-attributes-management`:
     Shared React component to handle entities attributes configuration
@@ -96,9 +93,9 @@ This folder contains business related modules, shared accross many REGARDS modul
 # Business modules
 
 This folder contains all applications modules that are not *dynamic* - ie that cannot be configured and set up in user nor in portal applications
-As administration interface is not generic, all administration modules are also in this folder.  
+As administration interface elements cannot be configured, all administration modules are also in this folder.  
 
-_Note: The administration application is structured in a thematic tree, like seen in the tree below. Each module at a given tree level imports the modules below_
+_Note: The administration application is structured in a thematic tree, like seen in the tree below. Each module at a given tree level imports and sets up the modules below (reducers, routers,...)_
 
 ```
 ├── portal                                              # Portal app starter
@@ -140,41 +137,45 @@ The folder `eslint-config-es6-rules` holds the lint configuration module for REG
 The `mocks` folder contains runnable mock servers:
 * *front* folder contains a standalone server that answers all front end calls based on a node JS server
 * *json* folder contains a standalone server that answers all front end calls using JSONServer
-* *proxy* folder contains a standalone server that answers known front end calls based on a local node JS server and is able to report unknown URL onto configured server
+* *proxy* folder contains a standalone server that answers known front end calls based on a local node JS server and is able to report unknown URL onto configured backend server, acting as a proxy
 
-Those servers are used to develop and test new functionnalities. The corresponding runnable is declared in main application package.json.
+Those servers are used to develop and test new functionnalities. The team recently uses **proxy** server for most new features development.
 
 # Plugins
 
-The `plugins` folder contains REGARDS front end plugins code. Those plugins are separed of front end core code. However, it is so far more convenient for developers to keep the folder within webapp to address compilation, version and references issues. For more detail about plugins,
-see [about plugins page](/frontend/plugins/)
+The `plugins` folder contains REGARDS front end plugins code. Those plugins are separed of front end core code. However, it is convenient for development to keep the folder within webapp to address compilation, version and references issues. For more detail about plugins, see [about plugins page](/frontend/plugins/)
 
 # Components modules
 
-This package provides **React** generic components to handle forms, buttons, cards and so on. More details are available in [components detail page](/frontend/components/components)
+This package provides **React** generic components to handle forms, buttons, cards and so on. More details are available in [components detail page](/frontend/components/components/)
 
 # Data
 
-This folder holds API data related modules (server fetching, shapes, redux store, middlewares...). See [data presentation page](/frontend/data)
+This folder holds API data related modules (server fetching, shapes, redux store, middlewares...). See [data presentation page](/frontend/data/)
 
 # Modules
 
 This folder contains all _dynamic_ modules, ie all modules that can be configured to be displayed in user and portal application. For more details, see [dynamic modules sections](/frontend/modules/dynamic-modules/)  
 
 # Utils modules
-This folder holds modules providing high level services, tools and components shared by all application interfaces (admininistration, user application and portal application).
+This folder holds modules, one by folder, providing high level tools and components shared by all application interfaces (admininistration, user application and portal application).
 
-1. `adapters`: Provides enriched components
-from external librairies - adds headless render funtionnality to a component for instance
-1. `authentication-manager`: Interact with the API to authenticate users. Provides some helper to authenticate the user, get authentication state, and so on. Also manages 'external authentication parameters' used, for instance, by the mail link sent when creating a new account email
+1. `adapters`: Provides enriched components from external librairies - adds headless render or default styles to a component for instance
+1. `authentication-utils`: Interact with the API to authenticate users. Provides some helpers to authenticate the user, get authentication state, and so on. Also manages 'external authentication parameters' used, for instance, by the mail link sent when creating a new account email
 1. `display-control`: Provide ready to use React components to show/hide a component depending on a logic - show loading when fetching, hide a button when user has not sufficient rights, and so on...
-1. `form-utils`: Provides ready to use internationalized, React components and various tools to manage and update [Redux forms](http://redux-form.com)
-1. `i18n`: Provides services and components related to REGARDS internationalization. Note: REGARDS i18n system relies on [React intl](https://github.com/yahoo/react-intl)
+1. `file-utils`: Provide ready to use React components to manage files.
+1. `form-utils`: Provides ready to use internationalized React components and various tools to manage and update [Redux forms](http://redux-form.com)
+1. `i18n`: Provides tools and components to manage REGARDS components internationalization. Note: REGARDS i18n system relies on [React intl](https://github.com/yahoo/react-intl)
+1. `i18n-ui`: Provides i18n graphic interactors to select / display current i18n state in application
 1. `layout`: Provides components and tools to handle REGARDS user interface layout customizing and render
-1. `modules`: Provides components and tools to handle REGARDS user interface modules customizing and render. For instance, it allows to instanciate a dynamic module like 'search-results'. Then, through configuration, it can show the module configuration form or the user interface component.
-1. `plugins`: Provides components and tools to handle REGARDS user interface plugins customizing and render. Note that this modules is only related with "UI plugins", as opposed to "Backend plugins"
-1. `redux`: Provides connection tools to application store
-1. `store-utils`: Provides redux generic actions, reducers and selectors to build and handle [Redux API middleware](https://www.npmjs.com/package/redux-api-middleware) given the expected result type, and ensuring API results will be normalized (see data/api module). Also provides some other standard redux models for REGARDS, like partitions storage model
+1. `mime-types`: Provides tools and enumerationrs related with MIME type management in REGARDS
+1. `modules`: Provides components and tools to show dynamic modules in REGARDS interfaces
+1. `modules-api`: Provides tools to implement new modules configuration and user interfaces
+1. `plugins`: Provides components and tools to show plugins in REGARDS interfaces. Note that this modules is only related with "UI plugins"; "Backend plugins" are not handled here
+1. `plugins-api`: Provides tools to implement new UI plugins in REGARDS.
+1. `redux`: Provides tools to connect with application Redux store
+1. `store-utils`: Provides redux generic actions, reducers and selectors to make [Redux API middleware](https://www.npmjs.com/package/redux-api-middleware) use easier with REGARDS backend. Also provides some other standard redux models for REGARDS, like partitions storage model
 1. `test-helpers`: Provides test  tools for react components headless tests.
-    _Note: this modules is only provided for test, it should never be imported outside tests folders of other modules_
-1. `theme`: Provide tools and clients to fetch, render and customize REGARDS user interface themes
+    _Note: this modules is only provided for test, it should never be bundled with the core application_
+1. `theme`: Provide tools and components to manage REGARDS components theme. Note: it relies on [Material UI theme](http://www.material-ui.com/#/customization/themes) system
+1. `theme-ui`: Provides i18n graphic interactors to select / display current theme state in application

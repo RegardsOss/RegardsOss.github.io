@@ -9,6 +9,7 @@ short-title: Lazy modules
 
 
 - [Description](#description)
+- [Modules list](#modules-list)
 - [Module structure](#module-structure)
   - [About default icon:](#about-default-icon)
 - [Create a new module](#create-a-new-module)
@@ -30,6 +31,23 @@ A lazy loadable module is a plugable module that you can use where you want on t
 
 Microservices `rs-access-instance` and `rs-access-project` store the configuration of each modules
 and send it back to users browsing `User project` and `Portal` interfaces.
+
+# Modules list
+
+REGARDS defines currently the following dynamic modules:
+* [Authentication](/frontend/modules/authentication/)
+* [Embedded HTML](/frontend/modules/embedded-html/)
+* [License](/frontend/modules/licenses/)
+* [Menu](/frontend/modules/menu/)
+* [Order Cart](/frontend/modules/order-cart/)
+* [Order History](/frontend/modules/order-history/)
+* [Project About Page](/frontend/modules/project-about-page/)
+* [Project List](/frontend/modules/projects-list/)
+* [Search Form](/frontend/modules/search-form/)
+* [Search Fraph](/frontend/modules/search-graph/)  
+* [Search Results](/frontend/modules/search-results/)
+* [Storage Monitoring](/frontend/modules/storage-monitoring/)
+
 
 # Module structure
 
@@ -55,7 +73,7 @@ and send it back to users browsing `User project` and `Portal` interfaces.
 ## About default icon:
 
 When creating a module, we must ensure the default icon is provided and respects the following rules:
-* Its path is **[module name]/default-icon.svg** where module name is also the module root folder
+* Its path is **[module folder]/default-icon.svg** where module name is also the module root folder
 * Icon is an SVG
 * Icon stroke and fill colors are specified on first <sgv> tag - otherwise, the module icon cannot be updated with theme colors  
 
@@ -87,10 +105,10 @@ Modules are not set as plugin into REGARDS yet. So to be able to use a new modul
  ```bash
  npm link web_modules/modules/new-module-name
  ```
- - Add your module to the list of depencies into the main "webapp/package.json" : "@regardsoss-modules/<new module name>": "<module version>"
+ - Add your module to the list of dependencies into the main "webapp/package.json" : "@regardsoss-modules/<new module name>": "<module version>"
  - Add your module to the enumeration of available modules in @regardoss/modules/modulesManager (ModulesManager.js) in one of the following enumerations:
    - VisibleModuleTypes: Modules that project administrator can instantiate
-   - HiddenModuleTypes: Modules that project administrator cannot instantiate (authentication for instance, as it is automatically added into the user interface)
+   - HiddenModuleTypes: Modules that project administrator cannot instantiate (authentication for instance, as it is automatically added into the REGARDS interfaces)
 
 Once you added the module in one of those lists, you may use it as follow:
 
@@ -116,7 +134,7 @@ To instanciate and configure your new example module :
 
 ## Description
 
-To understand the main architecture of a pluggable module see the main.js file :
+To understand the main architecture of a plugable module see the main.js file :
 
 ```javascript
 export default {
@@ -140,7 +158,7 @@ export default {
 The `AdminContainer` **is facultative**. If you don't require a module configuration, 
 you don't need to specify the `AdminContainer` in the `main.js` module entrypoint.
 
-The here-under React component example shows you how to create a form to create a configuration of your module.  
+The here-under React component example shows how to create a form for module configuration. 
 
 ```javascript
 import { FormattedMessage } from 'react-intl'
@@ -194,16 +212,14 @@ export default AdminContainer
 ```
 
 Notes :
- - you shall prefix all `Field` names with `conf.` to let you receive that attribute value in your `ModuleContainer`.  
- For example if you define `conf.myParameter` you will receive `myParameter` in the props `moduleConf` of your `ModuleContainer`.  
+ - you should prefix all `Field` names with `currentNamespace` to let you receive that attribute value in your `ModuleContainer`.  
+ For example if you define `${currentNamespace}.myParameter` you will receive `myParameter` in the props `moduleConf` of your `ModuleContainer`.  
  - `@regardsoss/form-utils` module provides ready to use input fields
  - text internationalization is handled by the `@regardsoss/i18n` module and autowired by `@regardsoss/modules`.
- - you do not need to import React in `.jsx` files
 
 ## The ModuleContainer
 
-The `ModuleContainer` **is mandatory**. This is the React component displayed on the 
-`User project` and `Portal` interfaces
+The `ModuleContainer` **is mandatory**. This is the React component displayed at module runtime (ie, not configuration)
 
 
 The following `ModuleContainer` example shows you how to retrieve the prop `moduleConf` which
@@ -227,10 +243,10 @@ class ModuleContainer extends React.Component {
       }).isRequired,
   }
 
-   static contextTypes = {
-      ...i18nContextType,
-      ...themeContextType,
-    }
+  static contextTypes = {
+    ...i18nContextType,
+    ...themeContextType,
+  }
 
   render() {
     const { moduleTheme } = this.context
@@ -254,7 +270,7 @@ export default ModuleContainer
 
 The `Styles` **is mandatory**. REGARDS uses the [Material-UI](http://www.material-ui.com/#/get-started/usage) library to style all components using CSS inline.
 
-In the `Styles.js` file, you can use the current theme to reuse a subpart of the overall theme, like in the example below.
+In the `Styles.js` file, you can use the current theme to reuse a subpart of the overall theme, like illustrated in the example below.
 
 ```javascript
 const formStyles = theme => ({
@@ -311,11 +327,9 @@ With the previous example and for a module named "ExampleModule", the applicatio
 
 ```json
 {
-  "modules": {
-    "ExampleModule" : {
-       "todos": {},
-       "foo" : {}
-    }
+  "modules.ExampleModule": {
+    "todos": {},
+    "foo" : {}
   }
   // rest of the redux tree
 }
@@ -325,12 +339,22 @@ The same store can be accessed by both `ModuleContainer` and `AdminContainer`.
 
 ## Messages
 
-This parameter allows you to change the default directory where `@regardsoss/i18n` search *i18n* messages files.  
-By default the directory used is `src/i18n`.  
-Expected files containing internationalized messages shall be named as:  
-```messages.<language>.i18n.js```
+This parameter allows you to provide module messages, which are, by convention, stored in `src/i18n`.  
+When exporting that object, you should provide an object like:
+```js
+const messages = {
+  en: {
+    'my.message.1': 'My message',
+  },
+  fr: {
+    'my.message.1': 'Mon message',
+  }
+}
 
-Supported languages are `en` and `fr`
+```
+By convention, we import that object in module main.js file from `src/i18n/index.js` (noted src/i18n in code). That file only imports all locales languages from corresponding files `messages.<language>.i18n.js`, where language is 'en', 'fr'... Then it exports messages object as illustrated before.
+
+Currently, REGARDS interface supports english and french languages.
 
 ## Dependencies
 
