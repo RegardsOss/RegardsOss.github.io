@@ -1,22 +1,16 @@
 ---
 layout: classic-docs
-title: Architecture & Overall presentation
+title: Architecture overview
 short-title: Architecture
 categories:
   - frontend
 ---
 
-The REGARDS frontend contains three differents interfaces:
- - The `Portal interface`, fully configurable (layout, theme and modules displayed), that lists projects. 
- - The `User interface`, fully configurable (layout, theme and modules displayed), that lets users browse project content. 
- - The `Administrator interface` allows **Instance admin** to create Projects and **Project Admin** to configure projects. 
-
-For the `Portal` and `User` interfaces, REGARDS UI defines [Dynamic modules](/frontend/modules/dynamic-modules/) to bring UI features that the administrator can controll (options, layout, menus...).
-
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 
 
+- [Presentation](#presentation)
 - [Structure](#structure)
 - [Common businness modules (business-common)](#common-businness-modules-business-common)
 - [Business modules](#business-modules)
@@ -29,6 +23,15 @@ For the `Portal` and `User` interfaces, REGARDS UI defines [Dynamic modules](/fr
 - [Utils modules](#utils-modules)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
+
+# Presentation
+
+The REGARDS frontend contains three differents interfaces:
+ - The `Portal interface`, fully configurable (layout, theme and modules displayed), that lists projects. 
+ - The `User interface`, fully configurable (layout, theme and modules displayed), that lets users browse project content. 
+ - The `Administrator interface` allows **Instance admin** to create Projects and **Project Admin** to configure projects. 
+
+For the `Portal` and `User` interfaces, REGARDS UI defines [Dynamic modules](/frontend/modules/dynamic-modules/) to bring UI features that the administrator can controll (options, layout, menus...).
 
 # Structure
 
@@ -158,7 +161,7 @@ This folder holds API data related modules (server fetching, shapes, redux store
 This folder contains all _dynamic_ modules, ie all modules that can be configured to be displayed in user and portal application. For more details, see [dynamic modules sections](/frontend/modules/dynamic-modules/)  
 
 # Utils modules
-This folder holds modules, one by folder, providing high level tools and components shared by all application interfaces (admininistration, user application and portal application).
+This folder holds modules, one by folder, providing high level tools and components shared by all application interfaces (administration, user application and portal application).
 
 1. `adapters`: Provides enriched components from external librairies - adds headless render or default styles to a component for instance
 1. `authentication-utils`: Interact with the API to authenticate users. Provides some helpers to authenticate the user, get authentication state, and so on. Also manages 'external authentication parameters' used, for instance, by the mail link sent when creating a new account email

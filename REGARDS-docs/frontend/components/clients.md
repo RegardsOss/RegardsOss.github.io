@@ -1,3 +1,9 @@
+---
+layout: classic-docs
+title: Backend interactions
+short-title: Backend interactions
+---
+
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 
@@ -10,12 +16,6 @@
   - [3\. Use your client into a React container](#3%5C-use-your-client-into-a-react-container)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
-
----
-layout: classic-docs
-title: Backend interactions
-short-title: Backend interactions
----
 
 # Description
 

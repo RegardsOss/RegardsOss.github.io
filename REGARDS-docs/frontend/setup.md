@@ -12,19 +12,19 @@ short-title: Setup and build
 - [Local installation](#local-installation)
 - [Run options](#run-options)
   - [Production build](#production-build)
-  - [Run tests :](#run-tests-)
-  - [Run test:coverage :](#run-testcoverage-)
-  - [Lint :](#lint-)
+  - [Run tests](#run-tests)
+  - [Run test:coverage](#run-testcoverage)
+  - [Lint](#lint)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
 # Requirements
 
 You should
-* use Linux or macOS
+* use Unix or Linux based operating system. Windows systems may also work but is not currently supported
 * be able connecting as super user on your computer
-* have an installed npm version above 5.8.0 - 5.8.0 presents a bug and should not be used
-* have an installed node version greater than or equal to 9.8.0
+* have an installed npm version  greater than or equal to 5.7.1
+* have an installed node version greater than or equal to 8.10.0
 
 > **Important**  
 > As REGARDS frontend is developed around two main libraries, [React](https://facebook.github.io/react/){:target="_blank"} and [Redux](http://redux.js.org){:target="_blank"}, we highly recommand new developers to start by watching the here under [Egghead](https://egghead.io) videos to learn the basics of these two libraries.
@@ -32,14 +32,13 @@ You should
 >   - [Redux](https://egghead.io/courses/getting-started-with-redux){:target="_blank"}  
 >  
 >New developers can also check at the [Material-ui](http://www.material-ui.com/#/components/app-bar){:target="_blank"} library which is used to design all components of the REGARDS frontend.
->Check [lodash fp](https://github.com/lodash/lodash/wiki/FP-Guide) to understand how we write functionnal programming on REGARDS (using lodash *immutable auto-curried iteratee-first data-last methods*)
 
 # Local installation
 
-Clone the `rs-frontend` repository (available here for GitHub: https://github.com/RegardsOss/regards-frontend) and open the webapp folder in cloned repository using your terminal:
+Clone the `rs-frontend` repository, available here for [GitHub](https://github.com/RegardsOss/regards-frontend) and open the webapp folder in cloned repository using your terminal:
 
 ```sh
-cd rs-frontend/webapp
+cd regards-frontend/webapp
 ```
 Then install all dependencies, and produce all required webpack DLL:
 
@@ -75,9 +74,9 @@ npm start:with-my-server
 Finally open a tab in your favorite browser at URL 'localhost:3333'. REGARDS portal UI should now be visible.
 
 Notes:
-* _It is also possible, while working locally, to modify the REGARDS webpack configurations_
+* _It is also possible to modify the REGARDS webpack configurations_
 * _Some REGARDS NPM tasks provide runnable using the proxy mock server. You may want to look deeper in those tasks when developping new features or without backend_
-* _REGARDS NPM tasks are currently defined for continous intergarion servers at CS SI_
+* _REGARDS NPM tasks are currently defined for continous integration servers at [CS SI](https://www.c-s.fr/)_
 
 ## Production build
 
@@ -85,7 +84,7 @@ Notes:
 npm build:production
 ```
 
-## Run tests :
+## Run tests
 
 The following command runs application tests and reports in `webapp/reports/mocha/` folder:
 
@@ -93,7 +92,7 @@ The following command runs application tests and reports in `webapp/reports/moch
 npm test
 ```
 
-## Run test:coverage :
+## Run test:coverage
 
 The following command runs application coverage (lcov, xunit) and reports in `webapp/reports/coverage/` folder:
 
@@ -101,7 +100,7 @@ The following command runs application coverage (lcov, xunit) and reports in `we
 npm run test:coverage
 ```
 
-## Lint :
+## Lint
 
 The following command lint the REGARDS frontend application code and fixes automatically all formatting problems.
 
