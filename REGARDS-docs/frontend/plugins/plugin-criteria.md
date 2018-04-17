@@ -21,7 +21,7 @@ short-title: Criterion
 # Presentation
 
 A criteria plugin (front-end) is a javascript bundle used by the [Search form module](/frontend/modules/search-form/) to create search criteria section. Each criterion plugin can generate a part of the full opensearch request sent to the rs-catalog microservice in order to request catalog entities.  
-By the way, a criteria plugin respects all general plugin principles documented in [Plugins](/frontend/plugins/) page.
+By the way, a criteria plugin respects all general plugin principles documented in [Plugins](/frontend/plugins/plugins/) page.
 
 # Working principles
 

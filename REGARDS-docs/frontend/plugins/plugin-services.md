@@ -31,31 +31,30 @@ Service plugin allows defining static - configured by the administrator - and dy
 # Working principles
 
 The service plugin must respect the following working principles to be correctly integrated within REGARDS:
-1. It must declare `conf.applicationModes` and `conf.entityType` in `plugin-info.json` to specify if it works for one and / or many entities of given type(s). See later sections for more detail about configuration.
+1. It must declare `conf.applicationModes` and `conf.entityTypes` in `plugin-info.json` to specify if it works for one and / or many entities of given type(s). See later sections for more detail about configuration.
 1. It must export a main componenent that will handle fetching current application target data
 
 # plugin-info.json
 
 It is very similar to a common plugin but the `type` field always indicates "SERVICE".
 Furthermore, it allows the following fields in `conf`:
-* `applicationMode`: *{array}* a required array that can contain one or both the following values:
+* `applicationModes`: *{array}* a required array that can contain one or both the following values:
   * `ONE`: the service applies to one entity
   * `MANY`: the service applies to many entities (expressed as an IP ID list or a query)
 * `entityTypes`: *{array}* a required array that can contain some of all the following values:
-      * DATA: The service works with dataobjects
-      * COLLECTION: The service works with collections, *not supported yet*
-      * DATASET: The service works with collections, *not supported yet*
-      * DOCUMENT: The service works with collections, *not supported yet*
-    ],
-* `static`: *{object}* an optional object of parameters to be filled in by the project administrator when a configures a plugin service for results. Each parameter, in that object will be defined as following:
+  * `DATA`: The service works with dataobjects
+  * `COLLECTION`: The service works with collections, *not supported yet*
+  * `DATASET`: The service works with collections, *not supported yet*
+  * `DOCUMENT`: The service works with collections, *not supported yet*
+* `static`: *{object}* an optional object of parameters to be filled in by the project administrator when he configures a service plugin for results. Each parameter, in that object will be defined as following:
   * `object key`: key to point out the parameter in main component props. It will also be used as label in the configuration form
   * `type` : *{string}* One of ["bool","char","date","float", "int", "string"]. It determinates the type that will be actually received at runtime by the plugin
   * `required`: *{boolean}* It means, when true, that the project administrator must fill the attribute value. When false, the administrator can leave it blank and, therefore, it can be undefined at plugin runtime
 * `dynamic`: *{object}* an optional object of parameters to be filled in by the project user when he applies the service.
   * `object key`: key to point out the parameter in main component props
-  * `"type"` : *{string}* working like static parameter
-  * `"required"` : *{boolean}* working like static parameter, but applying to user
-  * `"label"`: *{string}* Parameter label, that will be shown to user
+  * `type` : *{string}* working like static parameter
+  * `required` : *{boolean}* working like static parameter, but applying to user
+  * `label`: *{string}* Parameter label, that will be shown to user
 
 Please note, about dynamic parameters, that administrator is allowed setting a default value. However, even if the administrator provided a default value, the user will be prompted to enter the parameter value he wants to set - yet the field will hold administator default value when opening service configuration box.
 
@@ -71,7 +70,8 @@ Please note, about dynamic parameters, that administrator is allowed setting a d
   "license": "<%= licence %>",
   "type" : "SERVICE",
   "conf" : {
-    "applicationMode": "<%= application mode %>",
+    "applicationModes": "<%= application mode %>",
+    "entityTypes": "<%= entity types %>",
     "static": {
       "adminParameter1": "<%= administator parameter %>",
       "adminParameter2": "<%= administator parameter %>",
@@ -87,7 +87,7 @@ Please note, about dynamic parameters, that administrator is allowed setting a d
 
 # Main React component 
 
-Unlike criterion plugin, the service plugin may be a simple React component. That component will receive, through properties, the entity or the list of entities it applies on. The next sub section describe how to retrieve, according with the user configuration and selection type, the service parameters and entities.
+Unlike criterion plugin, the service plugin may be a simple React component. That component will receive, through properties, the entity or the list of entities it applies on. The next sub section describes how to retrieve, according with the user configuration and selection type, the service parameters and entities.
 
 ## Provided parameters
 
@@ -112,15 +112,15 @@ It has the following fields:
 
 ### Provided runtime target
 
-When launched, the service plugin main component receives the property `runtimeTarget`. That object represents the plugin target for current execution. Its type can be one of: 
+When launched, the service plugin main component receives the property `runtimeTarget`. That object holds the service target for current execution. Its type can be one of: 
 * `One entity target` (enumerated type: RuntimeTargetTypes.ONE), if the service application mode contains "ONE"
 * `Many entities target` (enumerated type: RuntimeTargetTypes.MANY), if the service application mode contains "MANY"
 * `Query target` (enumerated type: RuntimeTargetTypes.QUERY), if the service application mode contains "MANY"
 
 Notes: 
 * If the plugin application mode is ONE only, main component will never receive MANY and QUERY target types. Reciprocally, if it is MANY, main component will never receive ONE target type.
-* RuntimeTargetTypes is exported as a field of `AccessDomain`, in module `regardsoss/domain`
-* Query target expresses a list of entities as a query. This is required when user works in select all mode. Indeed, as REGARDS catalog may contain large amount of entities, it is not possible in such case to express selection as an IP ID array, as that would require to fetch all those entities from backend.
+* RuntimeTargetTypes can be accessed in code as a field of `AccessDomain`, in module `regardsoss/domain`
+* Query target expresses a list of entities as a query. This is required when user works in select all mode within results table. Indeed, as REGARDS catalog may contain large amount of entities, it is not possible in such case to express selection as an IP ID array, as that would require to fetch all those entities from backend.
 
 The following sub section explains in detail what fields are provided along with each target type.
 
@@ -154,7 +154,7 @@ Where:
 
 * `q`: *{string}* That field contains the open search query to retrieve elements
 * `entityType`: *{string}* That field contains the current entity type, as one of the enumated values ENTITY_TYPES_ENUM, exported as a field of `DamDomain`, from `@regardsoss/domain`
-* `excludedIpIds`: *{array(string)}* That field contains the IP IDs of elements that user unselected in query
+* `excludedIpIds`: *{array(string)}* That field contains the IP IDs of elements that user excluded from query results
 * `getFetchAction`: *{function}* For target type QUERY, method signature is `(pageIndex: (optional) number, pageSize: (optional) number) => (dipatchableAction:object)`.  
  *Warning 1: Removing page index and page size when calling getFetchAction will result in fetching all elements at once. As there may be a lot, it is way better to fetch it over many pages. You can compute the total number of pages using `entitiesCount` common target field*  
  *Warning 2: Fetch actions will retrieve **every query element**. When using that result, it is required to verify in excludedIpIds array if the entity has been excluded by the user.*  
