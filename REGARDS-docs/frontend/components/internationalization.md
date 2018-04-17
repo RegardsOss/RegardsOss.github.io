@@ -201,10 +201,13 @@ That file exports precisely what the `messages` parameter/property consumes when
 With the reac-intl library, it is possible to use parameters in internationalizzed message.  
 Let's illustrate how to create it.
 1. Create a parametrized message
+
 ```javascript
 'example.message.with.parameter': 'Hello {name} ?'
 ```
+
 2. Provide parameter when rendering
+
 ```jsx
   static contextTypes = {
     ...i18nContextType,
@@ -228,5 +231,5 @@ Let's illustrate how to create it.
 ## More informations
 
 As the REGARDS I18nProvider is used only to provide messages to the [react-intl](https://github.com/yahoo/react-intl){:target="_blank"} library all
-components surrounded by `I18nProvider` can use all [react-intl](https://github.com/yahoo/react-intl){:target="_blank"} functionalities.  So, you can refer to the official documentation to see more functionalities like `Date internationalization` or `HTML display`.
+components that have the message context can use any [react-intl](https://github.com/yahoo/react-intl){:target="_blank"} functionality. You can refer to the official documentation to see more functionalities like `Date internationalization` or `HTML display`.
 
