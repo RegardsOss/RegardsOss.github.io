@@ -29,13 +29,13 @@ categories:
 The REGARDS frontend contains three differents interfaces:
  - The `Portal interface`, fully configurable (layout, theme and modules displayed), that lists projects. 
  - The `User interface`, fully configurable (layout, theme and modules displayed), that lets users browse project content. 
- - The `Administrator interface` allows **Instance admin** to create Projects and **Project Admin** to configure projects. 
+ - The `Administrator interface`, that allows **Instance admin** creating Projects and **Project Admin** configuring them. 
 
-For the `Portal` and `User` interfaces, REGARDS UI defines [Dynamic modules](/frontend/modules/dynamic-modules/) to bring UI features that the administrator can controll (options, layout, menus...).
+For the `Portal` and `User` interfaces, REGARDS UI defines [Dynamic modules](/frontend/modules/dynamic-modules/) to bring UI features that the administrator can control (options, layout, menus...).
 
 # Structure
 
-The REGARDS frontend is divided in several NPM modules. Each one has a `package.json` file defining the name of the module in the application. It allows us to import a module using his name instead of using a relative path.
+The REGARDS frontend is divided in several NPM modules. Each one has a `package.json` file defining the name of the module. It allows us to import a module using that name instead of module relative path.
 
 ```
 import { configureStore } from '@regardsoss/store' // Good
@@ -60,7 +60,7 @@ Before further explanation about the role of each module and folders, let's have
     |  ├── rootReducer.js                     # Loads the Redux tree
     |  └── rootRouter.js                      # Loads the react-router logic
     ├── tests                                 # Tests corresponding to src folder
-    ├── web_modules                           # Contains all @regardsoss and @regardsoss-modules modules, except builder and lint modules
+    ├── web_modules                           # Contains all @regardsoss modules, except builder and lint ones
     |  ├── business-common                    # Reusable business logic, often shared between admin and user app
     |  ├── business-modules                   # Application static modules and specific applications starters `admin`, `portal` and `user`
     |  ├── components                         # Reusable React components
@@ -76,13 +76,13 @@ Before further explanation about the role of each module and folders, let's have
     ├── webpack-config-front                  # Module holding plugins and modules webpack transpiler and defining dev and prod build constants
     ├── yeoman                                # Yeoman templates (cli to generate frontend modules and plugins)
     ├── package.json                          # Define npm scripts and list all dependencies
-    ├── webpack.*.config.js                   # Various webpack configuration files, corresponding to similar NPM task in package.json
+    ├── webpack.*.config.js                   # Various webpack configuration files, corresponding to similar NPM task
 ```
 
 
 # Common businness modules (business-common)
 
-This folder contains business related modules, shared accross many REGARDS modules and / or applications)
+This folder contains business related modules, shared accross many REGARDS modules and/or applications
 
 1. `admin-data-entities-attributes-management`:
     Shared React component to handle entities attributes configuration
@@ -95,10 +95,9 @@ This folder contains business related modules, shared accross many REGARDS modul
 
 # Business modules
 
-This folder contains all applications modules that are not *dynamic* - ie that cannot be configured and set up in user nor in portal applications
-As administration interface elements cannot be configured, all administration modules are also in this folder.  
+This folder contains all applications modules that are not *dynamic* - ie that cannot be configured and set up in user nor in portal applications. Therefore it contains application starters (admin, user, portal) plus all administration interface modules.
 
-_Note: The administration application is structured in a thematic tree, like seen in the tree below. Each module at a given tree level imports and sets up the modules below (reducers, routers,...)_
+_Note: The administration application is structured in a thematic tree, like seen in the tree below. Each module at a given tree level imports and setupq the modules below (reducers, routers,...)_
 
 ```
 ├── portal                                              # Portal app starter
@@ -146,7 +145,7 @@ Those servers are used to develop and test new functionnalities. The team recent
 
 # Plugins
 
-The `plugins` folder contains REGARDS front end plugins code. Those plugins are separed of front end core code. However, it is convenient for development to keep the folder within webapp to address compilation, version and references issues. For more detail about plugins, see [about plugins page](/frontend/plugins/)
+The `plugins` folder contains REGARDS front end plugins code. Those plugins are separed of front end core code. However, it is convenient for development to keep the folder within webapp to address compilation, version and references issues. For more detail about plugins, see [plugins page](/frontend/plugins/plugins)
 
 # Components modules
 
@@ -165,10 +164,10 @@ This folder holds modules, one by folder, providing high level tools and compone
 
 1. `adapters`: Provides enriched components from external librairies - adds headless render or default styles to a component for instance
 1. `authentication-utils`: Interact with the API to authenticate users. Provides some helpers to authenticate the user, get authentication state, and so on. Also manages 'external authentication parameters' used, for instance, by the mail link sent when creating a new account email
-1. `display-control`: Provide ready to use React components to show/hide a component depending on a logic - show loading when fetching, hide a button when user has not sufficient rights, and so on...
-1. `file-utils`: Provide ready to use React components to manage files.
+1. `display-control`: Provides ready to use React components to show/hide a component depending on a logic - show loading when fetching, hide a button when user has not sufficient rights, and so on...
+1. `file-utils`: Provides ready to use React components to manage files.
 1. `form-utils`: Provides ready to use internationalized React components and various tools to manage and update [Redux forms](http://redux-form.com)
-1. `i18n`: Provides tools and components to manage REGARDS components internationalization. Note: REGARDS i18n system relies on [React intl](https://github.com/yahoo/react-intl)
+1. `i18n`: Provides tools and components to manage internationalization. Note: REGARDS i18n system relies on [React intl](https://github.com/yahoo/react-intl)
 1. `i18n-ui`: Provides i18n graphic interactors to select / display current i18n state in application
 1. `layout`: Provides components and tools to handle REGARDS user interface layout customizing and render
 1. `mime-types`: Provides tools and enumerationrs related with MIME type management in REGARDS
@@ -179,6 +178,6 @@ This folder holds modules, one by folder, providing high level tools and compone
 1. `redux`: Provides tools to connect with application Redux store
 1. `store-utils`: Provides redux generic actions, reducers and selectors to make [Redux API middleware](https://www.npmjs.com/package/redux-api-middleware) use easier with REGARDS backend. Also provides some other standard redux models for REGARDS, like partitions storage model
 1. `test-helpers`: Provides test  tools for react components headless tests.
-    _Note: this modules is only provided for test, it should never be bundled with the core application_
+    _Note: this modules is only provided for test, it should never be bundled with the core application. Therefore the developer must not use it outside test code_
 1. `theme`: Provide tools and components to manage REGARDS components theme. Note: it relies on [Material UI theme](http://www.material-ui.com/#/customization/themes) system
-1. `theme-ui`: Provides i18n graphic interactors to select / display current theme state in application
+1. `theme-ui`: Provides theme graphic interactors to select / display current theme state in application

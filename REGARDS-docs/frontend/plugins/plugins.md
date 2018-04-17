@@ -32,8 +32,8 @@ Its main advantage is allowing operators to create dedicated HMI depending on th
 by the project, instead of creating a global rs-frontend project fork.
 
 There are currently two types of plugins :
-* `criterion`: Used in the search form, this type of plugin allows users creating search filters on attributes. See [criteria plugins](/frontend/plugins/plugin-criteria) page for more detail
-* `services`: Used in the search result table, they provide additionnals interactions with data they are associated with. The developer can ask both administration (configuration) and user (runtime configuration) to fill several values before computing and displaying service results in a dialog box. See [service plugins](/frontend/plugins/plugin-services) page for more detail
+* `criterion`: Used in the search form, this type of plugin allows users creating search filters on attributes. See [criteria plugins](/frontend/plugins/plugin-criteria/) page for more detail
+* `services`: Used in the search result table, they provide additionnals interactions with data they are associated with. The developer can ask both administration (configuration) and user (runtime configuration) to fill several values before computing and displaying service results in a dialog box. See [service plugins](/frontend/plugins/plugin-services/) page for more detail
 
 Plugins are very similar to REGARDS UI dynamic modules, but:
 * They are not bundled along the code source code. Instead, they are compiled separetely and should be loaded through an HTTP repository.
