@@ -28,7 +28,7 @@ short-title: Plugins
 # Presentation
 
 REGARDS UI plugins are pieces of Javascript files bundled together that can be added dynamically into the user interface. 
-Its main advantage is allowing operators to create dedicated HMI depending on the type of data manipulated 
+Their main advantage is allowing operators to create dedicated HMI depending on the type of data manipulated 
 by the project, instead of creating a global rs-frontend project fork.
 
 There are currently two types of plugins :
@@ -36,7 +36,7 @@ There are currently two types of plugins :
 * `services`: Used in the search result table, they provide additionnals interactions with data they are associated with. The developer can ask both administration (configuration) and user (runtime configuration) to fill several values before computing and displaying service results in a dialog box. See [service plugins](/frontend/plugins/plugin-services/) page for more detail
 
 Plugins are very similar to REGARDS UI dynamic modules, but:
-* They are not bundled along the code source code. Instead, they are compiled separetely and should be loaded through an HTTP repository.
+* They are not bundled along the core source code. Instead, they are compiled separetely and should be loaded through an HTTP repository.
 * They accept administrator and user parameters whereas dynamic modules accept only an administror configuration
 
 The following sections will discuss the common points to all plugin types.
@@ -50,32 +50,34 @@ You can create a new plugin using the yeoman generator `generator-regards-ui-plu
 ```bash
 $ npm install -g
 $ npm install -g yo
+$ cd ../../plugins
 $ yo regards-ui-plugin
 ```
 
-Yeoman will ask you some informations to generate the new plugin. Once finished, the architecture of the plugin is iniatialized with some basics examples.  
+Yeoman will ask you some informations to generate the new plugin. Once finished, the architecture of the plugin is iniatialized with some basic examples.  
 
 # Plugin overall code structure
 
 The generated plugin folder should look like the following tree
- 
+ ```
  ├── node_modules        : Installed node modules from package JSON
  ├── reports             : Built reports for coverage and tests
  ├── src                 : Plugin main source folder
  |   ├── clients         : Plugin redux API clients
  |   ├── components      : Plugin React components
- |   ├── i18n            : Plugin internationalization definition
- |   ├── styles          : Plugin graphic styles definition
+ |   ├── i18n            : Plugin internationalization
+ |   ├── styles          : Plugin graphic styles
  |   ├── main.js         : Plugin exported index
  |   ├── plugin-info.js  : Plugin definition  
  |   └── reducer.js      : Redux reducers    
  ├── target              : Built sources for plugins  
  ├── tests               : Plugin tests source folder
- ├── package.json        : Npm plugin description file  
- ├── README.md           : Plugin readme file
- └── webpack.<mode>.js   : Npm plugin description file  
+ ├── package.json        : Npm module file describing plugin module
+ ├── README.md           : Plugin README
+ └── webpack.<mode>.js   : Webpack files for plugin building 
+```
 
-*Note: node_modules, reports and target folders may not be present initially, as they are build target folders. Some folders like clients are not initially created. Indeed they should be added by developer on need.*
+*Note: node_modules, reports and target folders may not be present initially, as they are build folders. Some folders like clients are not initially created. Indeed they should be added by developer on need.*
 
 # Compile plugin
 
@@ -169,11 +171,11 @@ propTypes = {
   }
 ```
 
-*Note: other plugin properties are specific to the plugin type, see [criterion](/frontend/plugins/plugin-criteria/) or [service](/frontend/plugins/plugin-services) plugin pages for more detail.*
+*Note: other plugin properties are specific to the plugin type, see [criterion](/frontend/plugins/plugin-criteria/) or [service](/frontend/plugins/plugin-services/) plugin pages for more detail.*
 
 # Redux management
 
-As mentioned above, the plugins can initialize reducers to use redux actions and  selectors. However, as a plugin may be instantiated multiple times on a single page, the plugin reducers cannot be statically declared - like, for instance, for dynamic modules. Instead, plugins have to declare a `buildReducer` function and retrieve / rebuild actions and selectors at runtime. Those operations are detailed in following subsections.
+As mentioned above, the plugins can initialize reducers to use redux actions and  selectors. However, as a plugin may be instantiated multiple times on a single page, the plugin reducers cannot be statically declared - like in, for instance, dynamic modules. Instead, plugins have to declare a `buildReducer` function and retrieve / rebuild actions and selectors at runtime. Those operations are detailed in following subsections.
 
 ## Building reducers
 
@@ -219,7 +221,7 @@ For that purpose, REGARDS provides a small tool that handles a lazy map of redux
     static CLIENTS_MAP = new PluginsClientsMap()
 
     // Here is how we could use the map to retrieve actions and selectors
-    // note that pluginInstanceId prop is always provide to the main plugin component
+    // note that pluginInstanceId prop is always provided to the main plugin component
     static mapStateToProps(state, { pluginInstanceId }) {
       const mySelectors = MyPluginContainer.CLIENTS_MAP.getClient(buildMyClient, pluginInstanceId).selectors  // here, my client would export an object like {actions, selectors}
       return {
