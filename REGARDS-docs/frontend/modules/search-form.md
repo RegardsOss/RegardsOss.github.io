@@ -18,10 +18,10 @@ short-title: search-form
 
 # Description
 
-This module is a dynamic configurable module to be used in REGARDS user interfaces. It displays search forms to search data from the REGARDS catalog. It uses [Criteria plugins](/frontend/plugins/plugin-criteria/) to define the Criterion to display into the form.
+This module is a dynamic configurable module to be used in REGARDS user interfaces. It displays a search form to search data from the REGARDS catalog. It uses [Criterion plugins](/frontend/plugins/plugin-criteria/) to define the critera to be displayed in form.
   
 # Module structure
-
+```
  .  
  ├── src  
  |   ├──  
@@ -37,7 +37,7 @@ This module is a dynamic configurable module to be used in REGARDS user interfac
  ├── default-icon.svg    : Default module icon as svg, mandatory
  ├── package.json        : Npm module description file  
  └── README.md  
-
+```
 # Route
 
 This module is routed by the main application in which it is configured as a static or dynamic module.
@@ -46,7 +46,7 @@ Dynamic modules are only displayed when the interface route is /modules/:module_
 
 # Exposed functions
 
-This module as a dynamic configurable module exposes is own :
+This module as a dynamic configurable module exposes its own:
   - moduleContainer  : Main module React component used to display this module,
   - adminContainer   : Main module React component used to display the administration panel of this module,
   - reducer          : To configure the general Redux Store.

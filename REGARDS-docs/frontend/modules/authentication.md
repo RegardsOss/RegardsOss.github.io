@@ -27,7 +27,7 @@ It manages :
   - Users password change
   
 # Module structure
-
+```
  .  
  ├── src  
  |   ├──  
@@ -43,6 +43,7 @@ It manages :
  ├── default-icon.svg    : Default module icon as svg, mandatory
  ├── package.json        : Npm module description file
  └── README.md  
+```
 
 # Route
 

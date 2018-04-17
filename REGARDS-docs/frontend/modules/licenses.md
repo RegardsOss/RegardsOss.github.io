@@ -18,10 +18,10 @@ short-title: licenses
 
 # Description
 
-This module is a dynamic configurable module to be used in REGARDS user interfaces. It displays a configured project license page in an iframe and ask for a license acceptance.
+This module is a dynamic configurable module to be used in REGARDS user interfaces. It presents configured project license in an iframe and allows user accepting it. When installed, and if the project has some license, project user interface can no longer be accessed without accepting license.
   
 # Module structure
-
+```
  .  
  ├── src  
  |   ├──  
@@ -37,7 +37,7 @@ This module is a dynamic configurable module to be used in REGARDS user interfac
  ├── default-icon.svg    : Default module icon as svg, mandatory
  ├── package.json        : Npm module description file  
  └── README.md  
-
+```
 # Route
 
 This module is routed by the main application in which it is configured as a static or dynamic module.
@@ -46,7 +46,7 @@ Dynamic modules are only displayed when the interface route is /modules/:module_
 
 # Exposed functions
 
-This module as a dynamic configurable module exposes is own :
+This module as a dynamic configurable module exposes its own:
   - moduleContainer  : Main module React component used to display this module,
   - adminContainer   : Main module React component used to display the administration panel of this module,
   - reducer          : To configure the general Redux Store.

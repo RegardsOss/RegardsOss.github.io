@@ -25,11 +25,11 @@ By the way, a criteria plugin respects all general plugin principles documented 
 
 # Working principles
 
-The service plugin must respect the following working principles to be correctly integrated within REGARDS:
+The criterion plugin must respect the following working principles to be correctly integrated within REGARDS:
 1. It must declare attributes list in plugin-info.json (see section below). The attributes names mentioned are not related with attribute models. Instead they are used in implementation as logical attribute name, like 'firstAttribute' or 'simpleAttribute' for instance.
 1. Its main component must inherit PluginCriterionContainer.
 Indeed that is more of an helper but many mechanisms would be very hard to implement without it, especially when it comes to publish new URL and update state from URL.
-1. When user input some data, the plugin main component must update its state to publish the new values of attributes, using the attribute name declared in package-info. That will allow parent form to update plugin saved state (form URL) and catalog request
+1. When user input some data, the plugin main component must update its state to publish the new values of attributes, using the attribute name declared in package-info. That will allow parent form updatin plugin saved state (form URL) and catalog request
 1. It must ensure publishing its main component state to an open search query in a way it can restore it (see state management section)
 1. It must ensure parsing open search query into a usable state for main component
 

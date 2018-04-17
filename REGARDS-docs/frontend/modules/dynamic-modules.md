@@ -27,9 +27,9 @@ short-title: Lazy modules
 
 # Description
 
-A lazy loadable module is a plugable module that paroject administrator has to to build the `User project` and `Portal` interfaces, enabling features and graphic component into user interfaces. Those modules can be configured from the project administration interface.  
+A lazy loadable module is a plugable module that project administrator has to use to build the `User project` and `Portal` interfaces, enabling features and graphic component into user interfaces. Those modules can be configured from the project administration interface.  
 
-Microservices `rs-access-instance` and `rs-access-project` store the configuration of each modules and send it back to users browsing `User project` and `Portal` interfaces.
+Microservices `rs-access-instance` and `rs-access-project` store the configuration of each modules and send it back to clients when browsing `User project` and `Portal` interfaces.
 
 # Modules list
 

@@ -53,7 +53,7 @@ Dynamic modules are only displayed when the interface route is /modules/:module_
 
 # Exposed functions
 
-This module as a dynamic configurable module exposes is own :
+This module as a dynamic configurable module exposes its own:
   - moduleContainer  : Main module React component used to display this module,
   - adminContainer   : Main module React component used to display the administration panel of this module,
   - reducer          : To configure the general Redux Store.
