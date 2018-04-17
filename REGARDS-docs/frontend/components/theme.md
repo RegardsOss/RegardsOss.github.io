@@ -24,16 +24,16 @@ short-title: Themes
 
 # Description
 
-The `@regards/theme` (web_modules/utils/theme) projects holds components and tools designed to simplify the use of global [Material-ui](http://www.material-ui.com/#/components/app-bar){:target="_blank"} theme - called MUI theme in the next lines - over all REGARDS frontend react components. MUI theme holds a dictionnary of variables, sorted by categories, defining styles like:
+The `@regards/theme` (web_modules/utils/theme) projects holds components and tools designed to simplify the use of global [Material-ui](http://www.material-ui.com/#/customization/themes){:target="_blank"} theme - called MUI theme in the next lines - over all REGARDS frontend react components. MUI theme holds a dictionnary of variables, sorted by categories, defining styles like:
 * padding
 * margin
 * borders
 * colors 
 * and so on...
 
-Beside MUI theme, some of the `regards/theme` components also provides a connector with `module them` context. The context corresponds to specific variables built by a themùe builder function for a component or a group of components.
+Beside MUI theme, some of the `regards/theme` components also provides a connector with `module theme` context. The context corresponds to specific variables built by a theme builder function for a component or a group of components.
 
-Both MUI module themes context will be detailed in following sections.
+Both MUI and module themes context will be detailed in following sections.
 
 # Dependencies
 
@@ -85,9 +85,9 @@ export class ExampleContainer extends React.Component {
   }
 }
 ```
-In the previous example, ExampleComponent will be able to access the them through context *but ExampleContainer will not*. Indeed context is defined for **ThemeProvider children**, in the React meaning.
+In the previous example, ExampleComponent will be able to access the MUI theme variables through context *but ExampleContainer will not*. Indeed context is defined for **ThemeProvider children**, in the React meaning.
 
-Note: Most of the time, REGARDS developer doesn't need to use the ThemeProvider, as MUI Theme context is provided in all REGARDS application.
+Note: Most of the time, REGARDS developer doesn't need to use the ThemeProvider, as MUI Theme context is provided in all REGARDS applications.
 
 ## Connect with MUI and module theme
 
@@ -169,7 +169,7 @@ For instance, in the following React tree, B and C can access themes through con
 
 #### 2\.b Using withModuleStyle
 
-To use the REGARDS withI18n decorator method, you need to export the decorated component  with that method. It defines the following parameters (matching with ModuleStyleProvider properties described before):
+To use the REGARDS withModuleStyle decorator method, you need to export the component decorated with that method. It defines the following parameters (matching with ModuleStyleProvider properties described before):
 * **module**
 * **stackCallingContext**
 
@@ -189,7 +189,7 @@ class ExampleContainer extends React.Component {
 export withModuleStyle(moduleStyles)(ExampleContainer)
 ```
 
-The use of `withModuleStyle(moduleStyles)(ExampleContainer)` means that messages context will be defined for ExampleContainer and all its children. Therefore, if we define the `contextTypes` in this container, it will be able accessing the messages through its context.
+The use of `withModuleStyle(moduleStyles)(ExampleContainer)` means that module theme context will be defined for ExampleContainer and all its children. Therefore, if we define the `contextTypes` in this container, it will be able accessing the module theme through its context.
 
 ### 3\. Add context type
 
@@ -209,9 +209,10 @@ class CompleteExample extends React.Component {
 
   render() {
     const { moduleTheme, muiTheme } = this.context
+    const styleFromTheme = { color: muiTheme.palette.textColor }
     return (
       <div>
-        <div style={{ color: muiTheme.palette.textColor }}>Using MUI theme color </div>
+        <div style={styleFromTheme}>Using MUI theme color </div>
         { /* 
         we suppose here that style builder returned something like 
         { completeExample: { border: '1px solid red', ...} } 
