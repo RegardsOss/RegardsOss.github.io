@@ -102,7 +102,7 @@ When process is over, the complete structure of a module is iniatialized with so
 
 **Important :**  
 Modules are not working as independent plugins into REGARDS yet. So to be able to use a new module into the REGARDS frontend, you have to : 
- - Add your module to the list of dependencies into the main "webapp/package.json" : "@regardsoss-modules/<new module name>": "<module version>"
+ - Add your module to the list of dependencies into the main "webapp/package.json" : "@regardsoss-modules/{new module name}": "{module version}"
  - Add your module to the enumeration of available modules in @regardoss/modules/modulesManager (ModulesManager.js) in one of the following enumerations:
    - VisibleModuleTypes: Modules that project administrator can instantiate
    - HiddenModuleTypes: Modules that project administrator cannot instantiate (authentication for instance, as it is automatically added into the REGARDS interfaces)
@@ -110,13 +110,12 @@ Modules are not working as independent plugins into REGARDS yet. So to be able t
 **Congratulations**, your module is ready! You can now run the frontend with :
 ```bash
 $ cd webapp
-$ npm run bootstrap
 $ npm install
-$ npm run start:withmock
+$ npm run start:with* # choose here your project start task
 ```
 To instanciate and configure your new example module :  
- - go to [admin IHM](http://localhost:3333/admin/project1/ui/module/user/create){:target="_blank"} to instanciate and configure your module.
- - go to [user IHM](http://localhost:3333/user/project1){:target="_blank"} to see your module.
+ - go to project administrator interface, section UI, sub section modules, to instanciate and configure your module.
+ - go to user project interface to see your module running.
  
 # Dynamic Module architecture
 
@@ -128,7 +127,7 @@ To understand the main architecture of a plugable module see the main.js file :
 export default {
   // A React.Component rendering the module functionalities
   ModuleContainer,
-  // A React.Component renderig the module administration form
+  // A React.Component rendering the module administration form
   AdminContainer,
   // A js object containing needed styles for both ModuleContainer and AdminContainer
   styles,
@@ -136,7 +135,7 @@ export default {
   reducer,
   // A js object containing, by locale key ("en" / "fr"), the messages map: (string) key to (string) message
   messages,
-  // A js object containing server side endpoints dependencies to allow module to be displayed
+  // A js object containing server side endpoints dependencies required to display module
   dependencies,
 }
 ```
@@ -201,9 +200,8 @@ export default AdminContainer
 
 Notes :
  - you should prefix all `Field` names with `currentNamespace` to let you receive that attribute value in your `ModuleContainer`.  
- For example if you define `${currentNamespace}.myParameter` you will receive `myParameter` in the props `moduleConf` of your `ModuleContainer`.  
+ For example if you define `${currentNamespace}.myParameter` you will receive `myParameter` in the `moduleConf` property of your module `ModuleContainer`. 
  - `@regardsoss/form-utils` module provides ready to use input fields
- - text internationalization is handled by the `@regardsoss/i18n` module and autowired by `@regardsoss/modules`.
 
 ## The ModuleContainer
 
@@ -254,9 +252,11 @@ export default ModuleContainer
 
 ```
 
+*Notes: the module '@regardsoss/module-api' holds components to make modules writing a bit easier.*
+
 ## Styles
 
-The `Styles` **is mandatory**. REGARDS uses the [Material-UI](http://www.material-ui.com/#/get-started/usage) library to style all components using CSS inline.
+The `styles` field **is mandatory**, although it can build an empty object. REGARDS frontend uses the [Material-UI](http://www.material-ui.com/#/get-started/usage) library to style all components using inline CSS styles.
 
 In the `Styles.js` file, you can use the current theme to reuse a subpart of the overall theme, like illustrated in the example below.
 
@@ -272,7 +272,7 @@ const formStyles = theme => ({
 export default formStyles
 ```
 
-On your module React component, you can access the Styles using the context `this.context.moduleTheme`,
+In your module React component, you can access the styles using the context `this.context.moduleTheme`,
 but you need to explicit the `contextTypes` with the `...themeContextType` from `@regardsoss/theme`.
 
 
@@ -297,13 +297,13 @@ export default Example
 
 ```
 
-More information about the theme management on the [@regardsoss/theme](/frontend/components/theme/) components 
+More information about the theme management are available in [theme page](/frontend/components/theme/).
 
 ## Reducer
 
-The Redux `reducer` **is mandatory**. Lazy loadable modules have their own part created in the store.  
+The Redux `reducer` for module **is mandatory**. Lazy loadable modules have their own part created in the store.  
 
-The example below shows how to define your Redux tree. Unlike vanilla redux, you don't have to use `combineReducers`   
+The example below shows how to define your Redux tree.
 ```javascript
 const reducers = {
   todos: MyTodosReducer,
@@ -342,15 +342,15 @@ const messages = {
 ```
 By convention, we import that object in module main.js file from `src/i18n/index.js` (noted src/i18n in code). That file only imports all locales languages from corresponding files `messages.<language>.i18n.js`, where language is 'en', 'fr'... Then it exports messages object as illustrated before.
 
-Currently, REGARDS interface supports english and french languages.
+More information about the internationalization are available in [internationalization page](/frontend/components/internationalization/).
 
 ## Dependencies
 
-This file defines dependencies required to display `ModuleContainer` and `AdminContainer` depending of the current Project User role.
+This file defines dependencies required to display `ModuleContainer` (user field) and `AdminContainer` (admin field). Those dependencies will be evaluated for the current user role.
 Each endpoint dependency required is composed in 3 parts, separated by the '@' caracter:  
 `<MICROSERVICE>@<ENDPOINT>@<HTTP_VERB>`
 
-An example:  
+*Example of a module dependencies file:*  
 ```javascript
 
 /**
@@ -373,6 +373,8 @@ export default {
 
 ```
 
+*Note: REGARDS actions are able exporting such format dependencies using the method getDependency(VERB), where VERB enumeration can be found in @regardoss/store-utils.RequestVerbEnum*
+
 # Load a module
 
 Also most dynamic modules are made to be configured by the administrator, through REGARDS project administration interface, it is still possible to load them in code. The example below shows how to load authentication module.
@@ -385,8 +387,8 @@ Also most dynamic modules are made to be configured by the administrator, throug
     const moduleConfiguration = {
        type: modulesManager.AllDynamicModuleTypes.AUTHENTICATION,
        active: true,
-       conf: { // this example shows authentication module configuration example
-          showLoginWindow: this.state.isLogin, // hide / show the login window
+       conf: { // specific authentication module configuration field, will be the moduleConf field when in authentication ModuleContainer
+          showLoginWindow: this.state.isLogin,
           showCancel: true,
           showAskProjectAccess: false,
           loginTitle: 'My login',
