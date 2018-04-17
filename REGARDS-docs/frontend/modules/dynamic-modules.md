@@ -78,7 +78,7 @@ When creating a module, we must ensure the default icon is provided and respects
 * Icon is an SVG
 * Icon stroke and fill colors are specified on first <sgv> tag - otherwise, the module icon cannot be updated with theme colors  
 
-That icon should be used to represent the module or its instances. It is used, for instance, to display navigation links in menu module - when user chooses to use the default icon.  
+That icon should be used to represent the module or its instances. It is used, for instance, to display navigation links in menu module - when administrator chooses to use the default icon.  
 
 SVG icons are available, for instance, on the following sites:
 * https://material.io/icons/ : Material design icons (default regards look and feel)
@@ -94,31 +94,18 @@ You can create a new module using the yeoman generator `generator-regards-ui-mod
 $ cd webapp/yeoman/generator-regards-ui-module
 $ npm install -g yo
 $ npm link
-$ cd ../web_modules/modules
+$ cd ../../web_modules/modules
 $ yo regards-ui-module
 ```
 After the last command, informations will be asked for the new module to generate.    
-When process is over, the all sources architecture of a module is iniatialized with some simple examples.
+When process is over, the complete structure of a module is iniatialized with some simple examples.
 
 **Important :**  
-Modules are not set as plugin into REGARDS yet. So to be able to use a new module into the REGARDS frontend, you have to : 
- - Add your module to the list of linked regards modules into the `webapp/scripts/boostrap.sh` script : 
- ```bash
- npm link web_modules/modules/new-module-name
- ```
+Modules are not working as independent plugins into REGARDS yet. So to be able to use a new module into the REGARDS frontend, you have to : 
  - Add your module to the list of dependencies into the main "webapp/package.json" : "@regardsoss-modules/<new module name>": "<module version>"
  - Add your module to the enumeration of available modules in @regardoss/modules/modulesManager (ModulesManager.js) in one of the following enumerations:
    - VisibleModuleTypes: Modules that project administrator can instantiate
    - HiddenModuleTypes: Modules that project administrator cannot instantiate (authentication for instance, as it is automatically added into the REGARDS interfaces)
-
-Once you added the module in one of those lists, you may use it as follow:
-
-```javascript
-import { modulesManager } from '@regardsoss/modules'
-// ...
-const moduleType = modulesManager.AllDynamicModuleTypes.MENU
-// ...
-```
 
 **Congratulations**, your module is ready! You can now run the frontend with :
 ```bash
