@@ -48,7 +48,7 @@ export class ExampleContainer extends React.component {
 
 # PluginListContainer
 
-Component to display a list a select field containing all possible plugin implemtations of a given plugin type.
+Component to display a select field containing all possible plugin implemtations of a given plugin type.
 
 ```jsx
 import { PluginFormContainer } from '@regardsoss/microservice-plugin-configurator'
