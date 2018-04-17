@@ -145,7 +145,7 @@ Those servers are used to develop and test new functionnalities. The team recent
 
 # Plugins
 
-The `plugins` folder contains REGARDS front end plugins code. Those plugins are separed of front end core code. However, it is convenient for development to keep the folder within webapp to address compilation, version and references issues. For more detail about plugins, see [plugins page](/frontend/plugins/plugins)
+The `plugins` folder contains REGARDS front end plugins code. Those plugins are separed of front end core code. However, it is convenient for development to keep the folder within webapp to address compilation, version and references issues. For more detail about plugins, see [plugins page](/frontend/plugins/plugins/)
 
 # Components modules
 
