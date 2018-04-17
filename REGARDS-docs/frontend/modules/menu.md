@@ -28,7 +28,7 @@ This module is a dynamic configurable module to be used in REGARDS user interfac
   * Contacts (enabled by configuration)
 
 # Module structure
-
+```
  .  
  ├── src  
  |   ├──  
@@ -44,7 +44,7 @@ This module is a dynamic configurable module to be used in REGARDS user interfac
  ├── default-icon.svg    : Default module icon as svg, mandatory
  ├── package.json        : Npm module description file  
  └── README.md  
-
+```
 # Route
 
 This module is routed by the main application in which it is configured as a static or dynamic module.

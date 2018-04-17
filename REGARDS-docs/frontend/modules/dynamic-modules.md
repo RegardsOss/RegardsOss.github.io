@@ -43,7 +43,7 @@ REGARDS defines currently the following dynamic modules:
 * [Project About Page](/frontend/modules/project-about-page/)
 * [Project List](/frontend/modules/projects-list/)
 * [Search Form](/frontend/modules/search-form/)
-* [Search Fraph](/frontend/modules/search-graph/)  
+* [Search Graph](/frontend/modules/search-graph/)  
 * [Search Results](/frontend/modules/search-results/)
 * [Storage Monitoring](/frontend/modules/storage-monitoring/)
 
