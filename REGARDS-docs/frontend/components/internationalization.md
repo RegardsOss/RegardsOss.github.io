@@ -200,13 +200,13 @@ That file exports precisely what the `messages` parameter/property consumes when
 
 With the reac-intl library, it is possible to use parameters in internationalizzed message.  
 Let's illustrate how to create it.
-1. Create a parametrized message
+* Create a parametrized message
 
 ```javascript
 'example.message.with.parameter': 'Hello {name} ?'
 ```
 
-2. Provide parameter when rendering
+* Provide parameter when rendering
 
 ```jsx
   static contextTypes = {
