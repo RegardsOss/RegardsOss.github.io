@@ -6,7 +6,7 @@ categories:
   - frontend
 ---
 
-This page provides an ordered list of pages to be read by new REGARDS developers to get started and acquire basic knowledge about REGARDS design principles.
+Below stands an ordered list of pages to be read by new REGARDS developers to get started and acquire basic knowledge about REGARDS frontend design principles.
 
   - [Getting started](/frontend/setup/)
   - [Setting up an IDE](/frontend/ide/)

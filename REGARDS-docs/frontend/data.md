@@ -20,10 +20,10 @@ short-title: Data
 
 # Data management in REGARDS UI
 
-REGARDS frontend uses [Redux](http://redux.js.org/) to centralize and manage data. It also setups some middlewares above it, discuss later on. One of those middleware, [Redux API middleware]((https://www.npmjs.com/package/redux-api-middleware), is transforming Redux actions holding a `RSAA` field into network request. Those actions define indeed 3 actions, that will be reduced normally by the reducer:
-* \*_REQUEST: A request action. It is the action that gets really progated when dispatching an RSAA action. REGARDS reducers will, most of the time, mark the data `fetching`.
-* \*_SUCESS: A request success action. It is propagated by the API middleware. REGARDS reducers will, most of the time, mark the data `no longer fetching` and store fetching results.
-* \*_FAILURE: A request failure action. It is propagated by the API middleware. REGARDS reducers will, most of the time, mark the data `no longer fetching and in error` and store error data.
+REGARDS frontend uses [Redux](http://redux.js.org/) to centralize and manage data. It also setups some middlewares above it, discuss later on. One of those middleware, [Redux API middleware](https://www.npmjs.com/package/redux-api-middleware), is transforming Redux actions holding a `RSAA` field into network requests. Those actions define indeed 3 actions, that will be reduced normally by the reducer:
+* `\*_REQUEST`: A request action. It is the action that gets really progated when dispatching an RSAA action. REGARDS reducers will, most of the time, mark the data `fetching`.
+* `\*_SUCESS`: A request success action. It is propagated by the API middleware. REGARDS reducers will, most of the time, mark the data `no longer fetching` and store fetching results.
+* `\*_FAILURE`: A request failure action. It is propagated by the API middleware. REGARDS reducers will, most of the time, mark the data `no longer fetching and in error` and store error data.
 
 Due to that system, REGARDS fetches and displays data as following:
 1. Dispatch a RSAA action, that will fetch data thanks to Redux API middleware.
@@ -32,17 +32,18 @@ Due to that system, REGARDS fetches and displays data as following:
 
 # Data
 
-The `webapp\web_modules\data` data` folder holds data management systems related to the previous defined behavior. Each aspect of that behavior has been split into a single responsability module.
+The `webapp\web_modules\data` folder holds data management systems related to the behavior previously explained. Each aspect of that behavior has been split into a single responsability module.
 
 ## API
 
-The `webapp\web_modules\data\api` module holds conversion systems. In REGARDS UI, the backend data conversion into frontend model is performed using [Normalizr](https://github.com/paularmstrong/normalizr). That conversion consists most of the time in:
+The `webapp\web_modules\data\api` module holds conversion systems. In REGARDS frontend, the backend data conversion into frontend model is performed using [Normalizr](https://github.com/paularmstrong/normalizr). That conversion consists most of the time in:
 * transforming arrays into maps, where objects keys are their database identifier
-* resolving any exoctic type like raw JSON into equivalent JS object that can be used easier
+* resolving any unadequate type like raw JSON into equivalent JS object that can be used easier in frontend code.  
+
 That module contains required Normalizr schemas and configurations to convert all backend results in application. They are dispatched into folders named after the corresponding microservice.
 
 
-*Normalizr schema and configuration example. We defined here the converted for an order files (webapp/web_modules/data/api/src/order/OrderFile.js):*
+*Normalizr schema and configuration example. We define here the converter for an order files (webapp/web_modules/data/api/src/order/OrderFile.js):*
 ```js
 import { Schema, arrayOf } from 'normalizr'
 
@@ -90,7 +91,7 @@ Note: Client module also holds front-end only actions/reudcer/selectors, that ar
 
 The `webapp\web_modules\data\domain` module holds constants and enumeration corresponding to server results. Those constants are meant to be used in presentation code, providing an abstraction layer when dealing with states, types, and so on. They are dispatched into folders named after the corresponding microservice.
 
-*Order files status enumeration and enumeration values example - note that values array is useful for prop types: *
+*Order files status enumeration and enumeration values example - note that values array is especially useful for prop types: *
 ```js
 // webapp/web_modules/data/domain/order/OrderFileStatus.js
 import values from 'lodash/values'
@@ -109,7 +110,7 @@ export const ORDER_FILE_STATUS = values(ORDER_FILE_STATUS_ENUM)
 
 ## Shape
 
-The `webapp\web_modules\data\shape` module holds shapes of server fetching results `after conversion`. Those shapes are meant to be used as components `propTypes` - see [PropTypes](https://github.com/facebook/prop-types) - and ensure the server and converters provided the expected result. When not matching, the PropTypes API raise a warning through console.
+The `webapp\web_modules\data\shape` module holds shapes of server fetching results `after conversion`. Those shapes are meant to be used as components `propTypes` - see [PropTypes](https://github.com/facebook/prop-types) - and ensure the server and converters provided the expected result. When not matching, the PropTypes API raises a warning through console.
 
 Note: PropTypes are removed in production mode to avoid lowering runtime performances.
 
@@ -120,7 +121,7 @@ import values from 'lodash/values'
 import { OrderDomain } from '@regardsoss/domain'
 import { dataFileFields } from '../rs-dam/DataFile'
 
-/** Default shape */
+/** Raw shape */
 export const OrderFile = PropTypes.shape({
   id: PropTypes.number.isRequired,
   orderId: PropTypes.number.isRequired,
@@ -140,7 +141,7 @@ export const OrderFilesList = PropTypes.objectOf(OrderFileWithContent)
 ## Store
 
 The `webapp\web_modules\data\store` module holds Redux store configuration and corresponding tools:
-* Store configuration (webapp/web_modules/data/store/src/configureStore.js): Configures REGARDS UI store to set up required middlewares. It is called directly the application start code. The complete list of magical middlewares set up here is:
+* Store configuration (webapp/web_modules/data/store/src/configureStore.js): Configures REGARDS UI store to set up required middlewares. It is called at application start, no matter the application. The complete list of magical middlewares set up here is:
   * `thunk`: allows dispatching condition actions (reports results evaluation), required when working with RSAA actions
   * `SessionLockedMiddleware`: handles automatically locking session
   * `formatURLMiddleware`: escapes invalid URL characters in requests

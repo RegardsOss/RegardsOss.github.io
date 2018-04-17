@@ -21,7 +21,7 @@ short-title: Setup and build
 # Requirements
 
 You should
-* use Unix or Linux based operating system. Windows systems may also work but is not currently supported
+* use Unix or Linux based operating system. Windows systems may also work but no support is provided on those platforms
 * be able connecting as super user on your computer
 * have an installed npm version  greater than or equal to 5.7.1
 * have an installed node version greater than or equal to 8.10.0

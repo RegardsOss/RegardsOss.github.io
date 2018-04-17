@@ -46,7 +46,7 @@ Currently, REGARDS developers use one of the following Integrated Development En
 * VSCode: lightweight editor for JavaScript and React, with good NPM and ESLint integration.
 * IntelliJ or WebStorm: full flavored IDE for Java, JavaScript...
 
-Although IntelliJ was the initial team choice, we are now tending to replace it with VSCode, as IntelliJ misses ESLint support and is slightly heavier... However, both of those IDEs are a good choice to develop on rs-frontend project. Some resources will be provided in the next sections to setup and configure those IDEs.
+Although IntelliJ was the initial team choice, we are now tending to replace it with VSCode, as IntelliJ misses ESLint support and is slightly heavier... However, both of those IDEs are a good choices to develop on rs-frontend project. Some resources will be provided in the next sections to setup and configure those IDEs.
 
 # VSCode
 
@@ -60,8 +60,8 @@ When VSCode is installed, we recommand adding it the following extensions using 
 * Bookmarks: Allows adding bookmarks in code and navigate between them - native IntelliJ functionnality
 * Code outline: Shows code file outline - native IntelliJ functionnality
 * Debugger for Chrome: Allows linking the VSCode debugger with a Chrome browser instance
-* ESLint: Shows ESLint warning and errors in code files
-* GitLens: Shows git annotation and history in files - native IntelliJ functionnality
+* ESLint: Shows ESLint warnings and errors in code files
+* GitLens: Shows git annotations and history in files - native IntelliJ functionnality
 * Local History: Keeps a local history for files - native IntelliJ functionnality
 * Material Icon Theme: Icon theme for VSCode explorer tree
 * Multiple clipboards for VSCode: Handles the clipboard copy operations as a round buffer
@@ -72,7 +72,7 @@ Note: to use material icon theme, open VSCode menu file/preferences/icon theme.
 
 ## Project configuration
 
-VS code project configuration must be placed in a `.vscode` folder, in `rs-frontend` project folder. The steps below aims at setting a convenient IDE configuration to work in REGARDS. You must paste each file content to enable the corresponding functionalities.
+VS code project configuration must be placed in a `.vscode` folder, in `rs-frontend` project folder. The steps below aim at setting a convenient IDE configuration to work in REGARDS. You must paste each file content to enable the corresponding functionalities.
 
 * `rs-frontend/.vscode/launch.json` file, describes browsers runnable and debugger (can be launched with F5 shortcut)
 ```json
