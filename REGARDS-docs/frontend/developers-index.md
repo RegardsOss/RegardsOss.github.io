@@ -12,6 +12,7 @@ Below stands an ordered list of pages to be read by new REGARDS developers to ge
   - [Setting up an IDE](/frontend/ide/)
   - [Read about general principles](/frontend/arch/) 
   - [Read about REGARDS re-usable components](/frontend/components/components/)
+  - [Read about REGARDS business components](/frontend/components/business-index/)
   - [Understand data and requests management](/frontend/data/) 
   - [Request backend data](/frontend/components/clients/)
   - [Internationalize messages](/frontend/components/internationalization/)

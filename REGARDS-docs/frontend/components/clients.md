@@ -85,12 +85,12 @@ export class ExampleContainer extends React.component {
     fetchModelList: PropTypes.func,
   }
   
-  componentWillMount() {
+  componentDidMount() {
     // send the request
     this.props.fetchModelList()
   }
   
-	render() {
+  render() {
     return (
       <ul>
         {map(modelList, (model, i) => (

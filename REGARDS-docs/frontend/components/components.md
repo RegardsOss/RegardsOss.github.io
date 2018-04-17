@@ -15,7 +15,7 @@ short-title: Components
 
 # Description
 
-This module provides a set of React Component to display widgets, sorted in following categories:
+The module `@regardsoss/components` provides a set of React components to display widgets, sorted in following categories:
  - board : Components to render a board of items where each item is a section with a description and many iconActions.
  - buttons : A bunch of buttons
  - cards : Material ui cards related components
@@ -32,7 +32,7 @@ This module provides a set of React Component to display widgets, sorted in foll
  - module : Modules related components. It contains specifically the **DynamicModulePane**, used to display common dynamic modules main pane (provides collapse, title, icons, loading ...)
  - picture : Picture and picture resolution related components
  - plugin : Plugins related components
- - table: Table related compoents, allowing for infinite list, column selection, sorting...
+ - table: Table related components, allowing for infinite list, column selection, sorting...
  - titles: Title related components
  - transitions: Transitions related components and helpers
  - tree-table: Tree table component

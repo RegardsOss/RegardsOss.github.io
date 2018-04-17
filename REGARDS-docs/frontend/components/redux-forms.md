@@ -47,17 +47,16 @@ export class ExampleComponent extends React.Component {
   render() {
     return (
       { /* 
-       Form with onSubmitMethod: onSubmit is first delegated to redux handleSubmit method that calls this.handleSubmit after. That
-       mechanism allows Redux forms to compute mulitple state variable (pristine, invalid, submitting...)
+       Form with onSubmitMethod: onSubmit is first delegated to redux handleSubmit method that calls this.handleSubmit after execution. That mechanism allows Redux forms to compute mulitple state variable (pristine, invalid, submitting...)
        */ }
       <form onSubmit={this.props.handleSubmit(this.handleSubmit)}> 
         <Field
           name="label" // field name
           component={RenderTextField} // field render component
           type="text" // field type
-          label="Label" // Field label to display at user
+          label="Label" // field label to display at user
           validate={ValidationHelpers.validRequiredString} // validator: computes if the field value is valid
-          fullWidth // takes current parent full width, quite standard in REGARDS frontend
+          fullWidth // field consumes parent full width, quite standard in REGARDS frontend
         />
       </form>
     )
