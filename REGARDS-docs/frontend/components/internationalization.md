@@ -29,7 +29,7 @@ The REGARDS internationalization implementation uses [react-intl](https://github
 
 # Dependencies
 
-To use the REGARDS `I18nProvider` you must add the here under package to your package.json dependencies :
+To use the REGARDS `I18nProvider` you must add the here under packages to your package.json dependencies:
  - @regardsoss/i18n
  - react-intl
 
@@ -122,7 +122,7 @@ For instance, in the following React tree, B and C can access messages context, 
 
 ### Using withI18n
 
-To use the REGARDS withI18n decorator method, you need to export the decorated component with that method. It defines the following parameters (matching with I18NProvider properties described before):
+To use the REGARDS withI18n decorator method, you need to export the component decorated with that method. It defines the following parameters (matching with I18NProvider properties described before):
 * **messages** 
 * **stackCallingContext**
 
@@ -146,11 +146,11 @@ export withI18n(messages)(ExampleContainer)
 
 The use of `withI18n(messages)(ExampleContainer)` means that messages context will be defined for ExampleContainer and all its children. Therefore, if we define the `contextTypes` in this container, it will be able accessing the messages through its context.
 
-The import 'import messages from '../i18n' correspond to messages files import explained in the next section.
+The instruction `import messages from '../i18n` corresponds to messages files import explained in the next section.
 
 ## I18n messages files
 
-As explained in the previous sections, the `I18nProvider` component or `withI18n` method expects to receive a an object that maps a list of locales onto a list of messages. For each locale object, keys will be the message key and value the internationalized message.
+As explained in the previous sections, the `I18nProvider` component or `withI18n` method expects to receive an object that maps a list of locales onto a list of messages. For each locale object, keys will be the message key and value the internationalized message.
 In REGARDS, by design, each locale messages dictionnary is defined in a file named `messages.{LOCALE}.i18n.js`, where {LOCALE} is locale shorthand ('en', 'fr').
 
 The example below illustrates a messages.en.i18n.js file content:
@@ -194,40 +194,35 @@ module.exports = {
 
 ```
 
-That file exports precisely what the `messages` parameter/property consumed by withI18n and I18nProvider.
+That file exports precisely what the `messages` parameter/property consumes when using withI18n or I18nProvider.
 
 ## Use parameter in messages
 
 With the reac-intl library, it is possible to use parameters in internationalizzed message.  
-To do so you : 
-
-in your message file define a message with a parameter : 
-
+Let's illustrate how to create it.
+1. Create a parametrized message
 ```javascript
 'example.message.with.parameter': 'Hello {name} ?'
 ```
-
-in your component (surrounded) by the `I18nProvider` :
-
-```javascript
+2. Provide parameter when rendering
+```jsx
   static contextTypes = {
-      ...i18nContextType,
-    }
+    ...i18nContextType,
+  }
     
   render() {
-    const name = 'jhon'
+    const name = 'john'
     const message = this.context.intl.formatMessage({ id: 'example.message.with.parameter' }, { name })
     return (
       <div>
         <span>{message}</span>
         <FormattedMessage 
           id="example.message.with.parameter"
-          values={{name: name}} 
+          values={{ name }} 
         />
       </div>
     )
   }
-
 ```
 
 ## More informations
