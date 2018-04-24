@@ -1,6 +1,6 @@
 ---
 layout: classic-docs
-title: REGARDS Ingest API
+title: REGARDS Order API
 categories:
   - api
 ---

@@ -1,0 +1,111 @@
+- controllerTestName: AIPControllerIT
+  controllerName: AIPController
+  tests: 
+    - testName: testRetrieveAips
+      description: allow to retrieve multiple aip metadata thanks to their state and submission date
+      sectionName: Retrieve multiple AIP metadata
+      queryParams:
+        - name: state
+          description: optional, filter on AIP metadata state
+        - name: from
+          description: optional, minimal submission date
+        - name: to
+          description: optional, maximal submission date
+    - testName: testStore
+      description: validate and store the specified AIPs
+      sectionName: Submit AIPs successfully
+    - testName: testStoreFailPartial
+      description: validate and store the specified AIPs
+      sectionName: Submit AIPs with partial fail
+    - testName: testStoreUnvalid
+      description: validate and store the specified AIPs
+      sectionName: Submit AIPs with no valid AIPs
+    - testName: testStoreTotalFail
+      description: validate and store the specified AIPs
+      sectionName: Submit AIPs that are already stored
+    - testName: testRetrieveAip
+      description: allow to retrieve a given aip metadata thanks to its ipId
+      sectionName: Retrieve one AIP metadata
+      urlParams:
+        - name: ip_id
+          description: the AIP identifier, it is a UniformResourceName.
+    - testName: testRetrieveAipBulk
+      description: allow to retrieve a collection of aip corresponding to the given set of ids
+      sectionName: Retrieve multiple AIP metadata
+    - testName: testRetrieveAipTag
+      description: retrieve a collection of AIP according to a tag
+      sectionName: Retrieve multiple AIP metadata associated to a specific tag
+      urlParams:
+        - name: tag
+          description: the tag with which AIPs should be tagged
+    - testName: testRetrieveAIPFiles
+      description: send the list of files metadata of a specified aip
+      sectionName: Retrieve the list of files associated to an AIP
+      urlParams:
+        - name: ip_id
+          description: the AIP identifier, it is a UniformResourceName.
+    - testName: testRetrieveAIPHistory
+      description: send the history of event occurred on each data file of the specified AIP
+      sectionName: Retrieve the history of an AIP
+      urlParams:
+        - name: ip_id
+          description: the AIP identifier, it is a UniformResourceName.
+    - testName: testRetrieveAIPVersionHistory
+      description: send the list of versions of an aip through their ip ids
+      sectionName: Retrieve the different versions of an AIP
+      urlParams:
+        - name: ip_id
+          description: the AIP identifier, it is a UniformResourceName.
+    - testName: testMakeAvailable
+      description: allow to request download availability for given files and return already available files
+      sectionName: Require availability of files
+    - testName: testDownload
+      sectionName: Download AIP file
+      description: download one file from a given AIP by checksum
+      urlParams:
+        - name: ip_id
+          description: the AIP identifier, it is a UniformResourceName.
+        - name: checksum
+          description: the file to download checksum.
+    - testName: testDelete
+      sectionName: Delete AIP
+      description: allow to delete a given aip
+      urlParams:
+        - name: ip_id
+          description: the AIP identifier, it is a UniformResourceName.
+- controllerTestName: PrioritizedDataStorageControllerIT
+  controllerName: PrioritizedDataStorageController
+  tests:
+    - testName: testRetrieveByType
+      sectionName: Retrieve multiple Prioritized Data Storage thanks to their type
+      description: allow to retrieve prioritized data storages by their type
+      queryParams:
+        - name: type
+          description: the wanted Data Storage Type (ONLINE, NEARLINE)
+    - testName: testCreate
+      sectionName: Create a Prioritized Data Storage
+      description: allow to create a prioritized data storage
+    - testName: testRetrieve
+      sectionName: Retrieve a Prioritized Data Storage
+      description: allow to retrieve a prioritized data storage thanks to its id
+      urlParams:
+        - name: id
+          description: the prioritized data storage id, it is a long.
+    - testName: testUpdate
+      sectionName: Update the Data Storage associate to the Prioritzed Data Storage
+      description: allow to update a prioritized data storage thanks to its id
+      urlParams:
+        - name: id
+          description: the prioritized data storage id, it is a long.
+    - testName: testIncreasePriority
+      sectionName: Increase Prioritized Data Storage priority
+      description: allow to increase a prioritized data storage priority thanks to its id
+      urlParams:
+        - name: id
+          description: the prioritized data storage id, it is a long.
+    - testName: testDecreasePriority
+      sectionName: Decrease Prioritized Data Storage priority
+      description: allow to decrease a prioritized data storage priority thanks to its id
+      urlParams:
+        - name: id
+          description: the prioritized data storage id, it is a long.

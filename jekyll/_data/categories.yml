@@ -3,6 +3,10 @@
   index: getting-started
   icon: "/assets/img/icons/gettingstarted.svg"
 
+- name: "API"
+  slug: api
+  index: regards-api
+
 - name: "Framework"
   slug: regards-framework
   index: regards-framework
