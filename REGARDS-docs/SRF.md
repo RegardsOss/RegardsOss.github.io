@@ -7,121 +7,89 @@ categories:
 description: List all used software
 ---
 
-```
-|           Name            | Company |  Responsibility
-```
-
------------ | :-----------------------: | :-----: | :--------------: Written by | Xavier-Alexandre Brochard | CSSI | Development Team Verified by | | | Approved by | | |
+Name | Company |  Responsibility  
+:-------------------: | :-----------------------: | :---------------:  
+Xavier-Alexandre Brochard | CSSI | Development Team  
 
 # Document Status Sheet
 
 Issue |    Date    |    Reasons for change
------ | :--------: | :----------------------:
-00    | 2016-07-28 | Creation of the document
-      |            |
+:-------: | :---------: | :-------------------------:
+01    | 2018-04-27 | Add known security vulnerabilities  
+00    | 2016-07-28 | Creation of the document  
 
 # Table of contents
 
-1. [Introduction](#1-introduction)
+  1. [Introduction](#1-introduction)  
+    1. [Purpose of the document](#1-purpose-of-the-document)  
+    2. [Scope](#2-scope)  
+    3. [Document structure](#3-document-structure)  
+    4. [References](#4-references)  
+      1. [Applicable and Reference documents](#1-applicable-and-reference-documents)  
+      2. [Definitions](#2-definitions)  
+  2. [Third party products and required software licenses](#2-third-party-products-and-required-software-licenses)  
+    1. [General](#1-general)  
+      1. [Free license categorization and meaning](#1-free-license-categorization-and-meaning)  
+      2. [Impact of free licenses on customers](#2-impact-of-free-licenses-on-customers)  
+    2. [Frontend](#2-frontend)  
+      1. [Runtime frontend](#1-runtime-frontend)  
+      2. [React](#1-react)  
+      3. [Redux](#2-redux)  
+      4. [Material-UI](#3-material-ui)  
+      5. [Lodash](#4-lodash)  
+      6. [Compile time frontend](#2-compile-time-frontend)  
+      7. [Webpack](#1-webpack)  
+      8. [TypeScript](#2-typescript)  
+      9. [Testing frontend](#3-testing-frontend)  
+      10. [Mocha](#1-mocha)  
+      11. [Chai](#2-chai)  
+    3. [Backend](#2-backend)  
+      1. [Runtime backend](#1-runtime-backend)  
+      2. [Java](#1-java)  
+      3. [Spring Framework](#2-spring-framework)  
+      4. [Spring Boot](#3-spring-boot)  
+      5. [Spring Cloud Netflix](#4-spring-cloud-netflix)  
+      6. [Spring Cloud Config](#5-spring-cloud-config)  
+      7. [Spring Cloud Security](#6-spring-cloud-security)  
+      8. [Spring Cloud Bus](#7-spring-cloud-bus)  
+      9. [Spring Cloud Feign](#8-spring-cloud-feign)  
+      10. [Spring HATEOAS](#9-spring-hateoas)  
+      11. [Izpack](#10-izpack)  
+      12. [Elasticsearch](#11-elasticsearch)  
+      13. [FITS Java library](#12-fits-java-library)  
+      14. [SiTools2](#13-sitools2)  
+      15. [SIPAD-NG](#14-sipad-ng)  
+      16. [Compile time backend](#2-compile-time-backend)  
+      17. [Apache Maven](#1-apache-maven)  
+      18. [Testing backend](#3-testing-backend)  
+      19. [Jenkins](#1-jenkins)  
+      20. [Sonar](#2-sonar)  
+      21. [Selenium](#3-selenium)  
 
-  1. [Purpose of the document](#1-purpose-of-the-document)
-  2. [Scope](#2-scope)
-  3. [Document structure](#3-document-structure)
-  4. [References](#4-references)
+## 1. Introduction
 
-    1. [Applicable and Reference documents](#1-applicable-and-reference-documents)
-    2. [Definitions](#2-definitions)
-
-2. [Third party products and required software licenses](#2-third-party-products-and-required-software-licenses)
-
-  1. [General](#1-general)
-
-    1. [Free license categorization and meaning](#1-free-license-categorization-and-meaning)
-    2. [Impact of free licenses on customers](#2-impact-of-free-licenses-on-customers)
-
-  2. [Frontend](#2-frontend)
-
-    1. [Runtime frontend](#1-runtime-frontend)
-
-    2. [React](#1-react)
-
-    3. [Redux](#2-redux)
-
-    4. [Material-UI](#3-material-ui)
-
-    5. [Lodash](#4-lodash)
-
-    6. [Compile time frontend](#2-compile-time-frontend)
-
-    7. [Webpack](#1-webpack)
-
-    8. [TypeScript](#2-typescript)
-
-    9. [Testing frontend](#3-testing-frontend)
-
-    10. [Mocha](#1-mocha)
-
-    11. [Chai](#2-chai)
-
-  3. [Backend](#2-backend)
-
-    1. [Runtime backend](#1-runtime-backend)
-
-    2. [Java](#1-java)
-
-    3. [Spring Framework](#2-spring-framework)
-
-    4. [Spring Boot](#3-spring-boot)
-
-    5. [Spring Cloud Netflix](#4-spring-cloud-netflix)
-
-    6. [Spring Cloud Config](#5-spring-cloud-config)
-    7. [Spring Cloud Security](#6-spring-cloud-security)
-    8. [Spring Cloud Bus](#7-spring-cloud-bus)
-    9. [Spring Cloud Feign](#8-spring-cloud-feign)
-    10. [Spring HATEOAS](#9-spring-hateoas)
-    11. [Izpack](#10-izpack)
-    12. [Elasticsearch](#11-elasticsearch)
-    13. [FITS Java library](#12-fits-java-library)
-    14. [SiTools2](#13-sitools2)
-    15. [SIPAD-NG](#14-sipad-ng)
-
-    16. [Compile time backend](#2-compile-time-backend)
-
-    17. [Apache Maven](#1-apache-maven)
-
-    18. [Testing backend](#3-testing-backend)
-
-    19. [Jenkins](#1-jenkins)
-
-    20. [Sonar](#2-sonar)
-
-    21. [Selenium](#3-selenium)
-
-## 1\. Introduction
-
-### 1\. Purpose of the document
+### 1. Purpose of the document
 
 This document, Software Reuse File (SRF), describes any item of software, which it proposes for reuse.
 
 It explains the reason why the software is proposed for reuse, where and the extent to which the software would be integrated in the software deliverables, the ownership of the software item and the license conditions on which the software could be used by the CNES or a third party during the contract, and after the contract's conclusion.
 
-### 2\. Scope
+### 2. Scope
 
 The document describes the software to be re-used in the frontend application during the pre-development phase (proof-of-concepts phase) of REGARDS.
 
 For the sake of simplicity, only the most significant COTS will be described here.
 
-### 3\. Document structure
+### 3. Document structure
 
 The document is structured as follows:
 
 - This chapter gives the purpose and the structure of the document and the list of references: applicable and reference documents and definitions.
 - Chapter 2 provides in a first part a detailed depiction of the free licenses categorization and impacts on users, and in a second part an analysis of the 3rd party products reused in REGARDS.
 
-### 4\. References
+### 4. References
 
-#### 1\. Applicable and Reference documents
+#### 1. Applicable and Reference documents
 
 Applicable and reference documents are:
 
@@ -130,11 +98,11 @@ Reference             | Acronym |                     Title                     
 SGDS-SL-12100-0002-CS |  TODO   |   DOSSIER DE SPECIFICATION LOGICIEL REGARDS   |   01    | 25/03/2016
 SGDS-CP-12200-0010-CS |  TODO   | Dossier de Conception Préliminaire du REGARDS |   00    | 01/06/2016
 
-#### 2\. Definitions
+#### 2. Definitions
 
 TODO
 
-## 2\. Third party products and required software licenses
+## 2. Third party products and required software licenses
 
 This chapter provides an analysis of the 3rd party products reused in the REGARDS.
 
@@ -142,9 +110,9 @@ This chapter also identifies required Software Licenses, and lists all the devel
 
 However, before describing these elements, we introduce a reminder on free license products, in order to categorise the impact on any actor and other third party use during and after the project.
 
-### 1\. General
+### 1. General
 
-#### 1\. Free license categorization and meaning
+#### 1. Free license categorization and meaning
 
 Free license are generally classified into the following three main categories, according to ascending permissivity:
 
@@ -172,7 +140,7 @@ First, the kind of distribution of a given license is conditioned by the intenti
 
 Moreover, whenever one intends to distribute pieces of code under the terms of a copyleft license, then this distribution may be strictly limited to the product recipient alone. It is not mandatory to publish it on internet or to deliver it back to the original product former authors or community. Yet exception may be found in some cases (see later).
 
-#### 2\. Impact of free licenses on customers
+#### 2. Impact of free licenses on customers
 
 Customers may be led to change their distribution policy for some products originally developed for their own internal use with no initial intention to have them shared or edited. Whenever they decide later on to have these products finally distributed to other space agencies for instance or industrial, they have to reconsider the licensing terms of the included free software components.
 
@@ -182,226 +150,452 @@ Therefore, CS proposes, when possible, to avoid **strong** copyleft COTS usage w
 
 Using **weak** copyleft licenses products without any change enables to guarantee that no code developed within the project should fall under distribution rules that may get incompatible to related intellectual property laws.
 
-### 2\. Frontend
+### 2. Frontend
+
+#### 1. Runtime frontend
+
+##### 1. React
+
+Feature | Value             | Description
+:-----------------------------: | :--------------------------------------------------------------------------------------------------------: | :---------------------------------------------------------------------------:  
+Name | React Main features | React is a component-based JavaScript library for building user interfaces.  
+Developer/Ownership | Facebook, Inc.  
+Licencing conditions | Open source - BSD License | Industrial Property Constraints Redistribution and use in source and binary forms, with or without modification, are permitted provided [those conditions](#https://github.com/facebook/react/blob/master/LICENSE).  
+Version | 15.0.2  
+Languages | JavaScript, C++, TypeScript, CoffeScript, Python, C
 
-#### 1\. Runtime frontend
+##### 2. Redux
 
-##### 1\. React
+Feature | Value             | Description
+:-----------------------------: | :--------------------------------------------------------------------------------------------------------: | :---------------------------------------------------------------------------:  
+Name | Redux Main features | Redux is a predictable state container for JavaScript apps.  
+Developer/Ownership | Dan Abramov  
+Licencing conditions | Open source - MIT License (MIT) | Industrial Property Constraints Permission is granted, free of charge, to deal in the Software without restriction, subject to [those conditions](#https://github.com/reactjs/redux/blob/master/LICENSE.md)  
+Version | 3.5.2  
+Languages | JavaScript, TypeScript
 
-```
-Feature             | Value
-```
+##### 3. Material-UI
 
-:-----------------------------: | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- Name | React Main features | React is a component-based JavaScript library for building user interfaces. Developer/Ownership | Facebook, Inc. Licencing conditions | Open source - BSD License Industrial Property Constraints | Redistribution and use in source and binary forms, with or without modification, are permitted provided [those conditions](#https://github.com/facebook/react/blob/master/LICENSE). Version | 15.0.2 Languages | JavaScript, C++, TypeScript, CoffeScript, Python, C
+Feature | Value             | Description
+:-----------------------------: | :--------------------------------------------------------------------------------------------------------: | :---------------------------------------------------------------------------:  
+Name | Material-UI Main features | Material-UI is a set of React components that implement Google's Material Design specification.  
+Developer/Ownership | Call-Em-All  
+Licencing conditions | Open source - MIT License (MIT) | Industrial Property Constraints Permission is granted, free of charge, to deal in the Software without restriction, subject to [those conditions](#https://github.com/callemall/material-ui/blob/master/LICENSE)  
+Version | 0.15.2  
+Languages | JavaScript
 
-##### 2\. Redux
+##### 4. Lodash
 
-```
-Feature             | Value
-```
+Feature | Value             | Description
+:-----------------------------: | :--------------------------------------------------------------------------------------------------------: | :---------------------------------------------------------------------------:  
+Name | Lodash Main features | Lodash is a JavaScript utility library delivering modularity, performance, & extras.  
+Developer/Ownership | jQuery Foundation and other contributors  
+Licencing conditions | Open source - MIT License (MIT) | Industrial Property Constraints Permission is granted, free of charge, to deal in the Software without restriction, subject to [those conditions](#https://github.com/lodash/lodash/blob/master/LICENSE)  
+Version | 4.13.1  
+Languages | JavaScript
 
-:-----------------------------: | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------- Name | Redux Main features | Redux is a predictable state container for JavaScript apps. Developer/Ownership | Dan Abramov Licencing conditions | Open source - MIT License (MIT) Industrial Property Constraints | Permission is granted, free of charge, to deal in the Software without restriction, subject to [those conditions](#https://github.com/reactjs/redux/blob/master/LICENSE.md) Version | 3.5.2 Languages | JavaScript, TypeScript
+#### 2. Compile time frontend
 
-##### 3\. Material-UI
+##### 1. Webpack
 
-```
-Feature             | Value
-```
+Feature | Value             | Description
+:-----------------------------: | :--------------------------------------------------------------------------------------------------------: | :---------------------------------------------------------------------------:  
+Name | Webpack Main features | Webpack is a bundler for modules. The main purpose is to bundle JavaScript files for usage in a browser, yet it is also capable of transforming, bundling, or packaging just about any resource or asset.  
+Developer/Ownership | Tobias Koppers  
+Licencing conditions | Open soure - MIT License (MIT) | Industrial Property Constraints Permission is granted, free of charge, to deal in the Software without restriction, subject to [those conditions](#https://github.com/webpack/webpack/blob/master/LICENSE)  
+Version | 1.13.1  
+Languages | JavaScript
 
-:-----------------------------: | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- Name | Material-UI Main features | Material-UI is a set of React components that implement Google's Material Design specification. Developer/Ownership | Call-Em-All Licencing conditions | Open source - MIT License (MIT) Industrial Property Constraints | Permission is granted, free of charge, to deal in the Software without restriction, subject to [those conditions](#https://github.com/callemall/material-ui/blob/master/LICENSE) Version | 0.15.2 Languages | JavaScript
+##### 2. TypeScript
 
-##### 4\. Lodash
+Feature | Value             | Description
+:-----------------------------: | :--------------------------------------------------------------------------------------------------------: | :---------------------------------------------------------------------------:  
+Name | TypeScript Main features | TypeScript is a language (a typed superset of JavaScript) for application-scale JavaScript. TypeScript adds optional types, classes, and modules to JavaScript. TypeScript compiles to readable, standards-based JavaScript.  
+Developer/Ownership | Microsoft  
+Licencing conditions | Open source - Apache License | Industrial Property Constraints Perpetual, worldwide, non-exclusive, no-charge, royalty-free, irrevocable copyright license to reproduce, prepare Derivative Works of, publicly display, publicly perform, sublicense, and distribute the Work and such Derivative Works in Source or Object form.  
+Version | 2.0.0  
+Languages | TypeScript
 
-```
-Feature             | Value
-```
+#### 3. Testing frontend
 
-:-----------------------------: | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ Name | Lodash Main features | Lodash is a JavaScript utility library delivering modularity, performance, & extras. Developer/Ownership | jQuery Foundation and other contributors Licencing conditions | Open source - MIT License (MIT) Industrial Property Constraints | Permission is granted, free of charge, to deal in the Software without restriction, subject to [those conditions](#https://github.com/lodash/lodash/blob/master/LICENSE) Version | 4.13.1 Languages | JavaScript
+##### 1. Mocha
 
-#### 2\. Compile time frontend
+Feature | Value             | Description
+:-----------------------------: | :--------------------------------------------------------------------------------------------------------: | :---------------------------------------------------------------------------:  
+Name | Mocha Main features | Mocha is a feature-rich JavaScript test framework running on Node.js and in the browser.  
+Developer/Ownership | TJ Holowaychuk  
+Licencing conditions | Open source - MIT License (MIT) | Industrial Property Constraints Permission is granted, free of charge, to deal in the Software without restriction, subject to [those conditions](#https://github.com/mochajs/mocha/blob/master/LICENSE)  
+Version | 3.0.0-2  
+Languages | JavaScript, HTML
 
-##### 1\. Webpack
+##### 2. Chai
 
-```
-Feature             | Value
-```
+Feature | Value             | Description
+:-----------------------------: | :--------------------------------------------------------------------------------------------------------: | :---------------------------------------------------------------------------:  
+Name | Chai Main features | Chai is an assertion framework for node.js and the browser that can be paired with any testing framework.  
+Developer/Ownership | Jake Luer  
+Licencing conditions | Open source - MIT License (MIT) | Industrial Property Constraints Permission is granted, free of charge, to deal in the Software without restriction, subject to [those conditions](#https://github.com/chaijs/chai#license)  
+Version | 3.5.0  
+Languages | JavaScript
 
-:-----------------------------: | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- Name | Webpack Main features | Webpack is a bundler for modules. The main purpose is to bundle JavaScript files for usage in a browser, yet it is also capable of transforming, bundling, or packaging just about any resource or asset. Developer/Ownership | Tobias Koppers Licencing conditions | Open soure - MIT License (MIT) Industrial Property Constraints | Permission is granted, free of charge, to deal in the Software without restriction, subject to [those conditions](#https://github.com/webpack/webpack/blob/master/LICENSE) Version | 1.13.1 Languages | JavaScript
+### 3. Backend
 
-##### 2\. TypeScript
+#### 1. Runtime backend
 
-```
-Feature             | Value
-```
+##### 1. Java
 
-:-----------------------------: | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ Name | TypeScript Main features | TypeScript is a language (a typed superset of JavaScript) for application-scale JavaScript. TypeScript adds optional types, classes, and modules to JavaScript. TypeScript compiles to readable, standards-based JavaScript. Developer/Ownership | Microsoft Licencing conditions | Open source - Apache License Industrial Property Constraints | Perpetual, worldwide, non-exclusive, no-charge, royalty-free, irrevocable copyright license to reproduce, prepare Derivative Works of, publicly display, publicly perform, sublicense, and distribute the Work and such Derivative Works in Source or Object form. Version | 2.0.0 Languages | TypeScript
+###### 3.1. License
 
-#### 3\. Testing frontend
+Feature | Value             | Description
+:-----------------------------: | :--------------------------------------------------------------------------------------------------------: | :---------------------------------------------------------------------------:  
+Name | Java Main features | Java is a general-purpose computer programming language.  
+Developer/Ownership | Oracle  
+Licencing conditions | GNU GPL | Industrial Property Constraints Redistribution and use in source and binary forms, with or without modification, are permitted provided [those conditions](#http://www.oracle.com/technetwork/java/javase/downloads/thirdpartylicensereadme-java8-2168078.txt).  
+Version | 8  
+Languages | C++,C
 
-##### 1\. Mocha
 
-```
-Feature             | Value
-```
+###### 3.2. Known security vulnerabilities
 
-:-----------------------------: | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ Name | Mocha Main features | Mocha is a feature-rich JavaScript test framework running on Node.js and in the browser. Developer/Ownership | TJ Holowaychuk Licencing conditions | Open source - MIT License (MIT) Industrial Property Constraints | Permission is granted, free of charge, to deal in the Software without restriction, subject to [those conditions](#https://github.com/mochajs/mocha/blob/master/LICENSE) Version | 3.0.0-2 Languages | JavaScript, HTML
+List of vulnerabilities made the 2018-04-27.
 
-##### 2\. Chai
+Source: https://www.securityfocus.com/bid
 
-```
-Feature             | Value
-```
+Vulnerability CVE identifier | Description | CVSS Score | Publication date | Solved By  
+:--------------------------: | :---------: | :--------: | :--------------: | :-------:  
+CVE-2015-2808 | The RC4 algorithm, as used in the TLS protocol and SSL protocol, does not properly combine state data with key data during the initialization phase, which makes it easier for remote attackers to conduct plaintext-recovery attacks against the initial bytes of a stream by sniffing network traffic that occasionally relies on keys affected by the Invariance Weakness, and then using a brute-force approach involving LSB values, aka the "Bar Mitzvah" issue. | 4.3 | 2015-03-31 | None  
 
-:-----------------------------: | ---------------------------------------------------------------------------------------------------------------------------------------------------------- Name | Chai Main features | Chai is an assertion framework for node.js and the browser that can be paired with any testing framework. Developer/Ownership | Jake Luer Licencing conditions | Open source - MIT License (MIT) Industrial Property Constraints | Permission is granted, free of charge, to deal in the Software without restriction, subject to [those conditions](#https://github.com/chaijs/chai#license) Version | 3.5.0 Languages | JavaScript
+The vulnerability exposes REGARDS to no threats as we are not directly using SSL or TLS protocols. SSL protocol is handled by Apache from WEB-NG.  
 
-### 3\. Backend
+Vulnerability CVE identifier | Description | CVSS Score | Publication date | Solved By  
+:--------------------------: | :---------: | :--------: | :--------------: | :-------:  
+CVE-2014-1876 | The unpacker::redirect_stdio function in unpack.cpp in unpack200 in OpenJDK 6, 7, and 8; Oracle Java SE 5.0u61, 6u71, 7u51, and 8; JRockit R27.8.1 and R28.3.1; and Java SE Embedded 7u51 does not securely create temporary files when a log file cannot be opened, which allows local users to overwrite arbitrary files via a symlink attack on /tmp/unpack.log. | 4.4 | 2014-02-10 | None  
 
-#### 1\. Runtime backend
+TODO: justif
 
-##### 1\. Java
+Vulnerability CVE identifier | Description | CVSS Score | Publication date | Solved By  
+:--------------------------: | :---------: | :--------: | :--------------: | :-------:  
+CVE-2015-4000 | The TLS protocol 1.2 and earlier, when a DHE_EXPORT ciphersuite is enabled on a server but not on a client, does not properly convey a DHE_EXPORT choice, which allows man-in-the-middle attackers to conduct cipher-downgrade attacks by rewriting a ClientHello with DHE replaced by DHE_EXPORT and then rewriting a ServerHello with DHE_EXPORT replaced by DHE, aka the "Logjam" issue. | 4.3 | 2015-05-20 | None  
 
-```
-Feature             | Value
-```
+The vulnerability exposes REGARDS to no threats as we are not using TLS protocol. 
 
-:-----------------------------: | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- Name | Java Main features | Java is a general-purpose computer programming language. Developer/Ownership | Oracle Licencing conditions | GNU GPL Industrial Property Constraints | Redistribution and use in source and binary forms, with or without modification, are permitted provided [those conditions](#http://www.oracle.com/technetwork/java/javase/downloads/thirdpartylicensereadme-java8-2168078.txt). Version | 8 Languages | C++,C
+##### 2. Spring Framework
 
-##### 2\. Spring Framework
+###### 3.1. License
 
-```
-Feature             | Value
-```
+Feature | Value             | Description
+:-----------------------------: | :--------------------------------------------------------------------------------------------------------: | :---------------------------------------------------------------------------:  
+Name | Spring Main features | The Spring Framework provides a comprehensive programming and configuration model for modern Java-based enterprise applications - on any kind of deployment platform.  
+Developer/Ownership | Pivotal  
+Licencing conditions | Apache license, version 2 | Industrial Property Constraints Redistribution and use in source and binary forms, with or without modification, are permitted provided [those conditions](#http://www.apache.org/licenses/LICENSE-2.0.txt).  
+Version | 4.3.2  
+Languages | Java
 
-:-----------------------------: | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- Name | Spring Main features | The Spring Framework provides a comprehensive programming and configuration model for modern Java-based enterprise applications - on any kind of deployment platform. Developer/Ownership | Pivotal Licencing conditions | Apache license, version 2 Industrial Property Constraints | Redistribution and use in source and binary forms, with or without modification, are permitted provided [those conditions](#http://www.apache.org/licenses/LICENSE-2.0.txt). Version | 4.3.2 Languages | Java
+###### 3.2. Known security vulnerabilities
 
-##### 3\. Spring Boot
+List of vulnerabilities made the 2018-04-27.
 
-```
-Feature             | Value
-```
+Sources: https://www.securityfocus.com/bid , https://pivotal.io/security
 
-:-----------------------------: | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- Name | Spring Boot Main features | Spring Boot makes it easy to create stand-alone, production-grade Spring based Applications Developer/Ownership | Pivotal Licencing conditions | Apache license, version 2 Industrial Property Constraints | Redistribution and use in source and binary forms, with or without modification, are permitted provided [those conditions](#https://github.com/spring-projects/spring-boot/blob/master/LICENSE.txt). Version | 1.4.0 Languages | Java
+Vulnerability CVE identifier | Description | CVSS Score | Publication date | Solved By  
+:--------------------------: | :---------: | :--------: | :--------------: | :-------:  
+CVE-2018-1272 | Spring Framework versions 5.0 to 5.0.4, 4.3 to 4.3.14, and older unsupported versions provide client-side support for multipart requests. When Spring MVC or Spring WebFlux server application (server A) receives input from a remote client, and then uses that input to make a multipart request to another server (server B), it can be exposed to an attack, where an extra multipart is inserted in the content of the request from server A, causing server B to use the wrong value for a part it expects. This could to lead privilege escalation, for example, if the part content represents a username or user roles. | 0.0 | 2018-04-06 | 4.3.15+/5.0.5+  
 
-##### 4\. Spring Cloud Netflix
+TODO: justif (from pivotal: In order for the attacker to succeed, they would have to be able to guess the multipart boundary value chosen by server A for the multipart request to server B, which requires the attacker to also have control of the server or the ability to see the HTTP log of server A through a separate attack vector.)  
 
-```
-Feature             | Value
-```
+Vulnerability CVE identifier | Description | CVSS Score | Publication date | Solved By  
+:--------------------------: | :---------: | :--------: | :--------------: | :-------:  
+CVE-2018-1271 |  Spring Framework, versions 5.0 prior to 5.0.5 and versions 4.3 prior to 4.3.15 and older unsupported versions, allow applications to configure Spring MVC to serve static resources (e.g. CSS, JS, images). When static resources are served from a file system on Windows (as opposed to the classpath, or the ServletContext), a malicious user can send a request using a specially crafted URL that can lead a directory traversal attack. | 0.0 | 2018-04-06 | 4.3.15+/5.0.5+  
 
-:-----------------------------: | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- Name | Spring Cloud Netflix Main features | Spring Cloud focuses on providing good out of box experience for typical use cases and extensibility mechanism. Developer/Ownership | Pivotal Licencing conditions | Apache license, version 2 Industrial Property Constraints | Redistribution and use in source and binary forms, with or without modification, are permitted provided [those conditions](#https://github.com/spring-cloud/spring-cloud-netflix/blob/master/LICENSE.txt). Version | 4.3.2 Languages | Java
+This vulnerability exposes REGARDS to no threats as we are not serving static resources from the file system.
 
-##### 5\. Spring Cloud Config
+Vulnerability CVE identifier | Description | CVSS Score | Publication date | Solved By  
+:--------------------------: | :---------: | :--------: | :--------------: | :-------:  
+CVE-2018-1270 | Spring Framework, versions 5.0 prior to 5.0.5 and versions 4.3 prior to 4.3.15 and older unsupported versions, allow applications to expose STOMP over WebSocket endpoints with a simple, in-memory STOMP broker through the spring-messaging module. A malicious user (or attacker) can craft a message to the broker that can lead to a remote code execution attack. | 0.0 | 2018-04-06 | 4.3.15+/5.0.5+  
+CVE-2018-1275 | Partial fix for CVE-2018-1270 | 0.0 | 2018-04-11 | 4.3.16/5.0.5+  
 
-```
-Feature             | Value
-```
+TODO: justif(If i'm right, we do not use spring-message anyway)  
 
-:-----------------------------: | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- Name | Spring Cloud Config Main features | Spring Cloud Config provides server and client-side support for externalized configuration in a distributed system. Developer/Ownership | Pivotal Licencing conditions | Apache license, version 2 Industrial Property Constraints | Redistribution and use in source and binary forms, with or without modification, are permitted provided [those conditions](#https://github.com/spring-cloud/spring-cloud-config/blob/master/LICENSE.txt). Version | 1.2.0 Languages | Java
+Vulnerability CVE identifier | Description | CVSS Score | Publication date | Solved By  
+:--------------------------: | :---------: | :--------: | :--------------: | :-------:  
+CVE-2018-1199 | Spring Security does not consider URL path parameters when processing security constraints. By adding a URL path parameter with special encodings, an attacker may be able to bypass a security constraint. The root cause of this issue is a lack of clarity regarding the handling of path parameters in the Servlet Specification (see below). Some Servlet containers include path parameters in the value returned for getPathInfo() and some do not. Spring Security uses the value returned by getPathInfo() as part of the process of mapping requests to security constraints. In this particular attack, different character encodings used in path parameters allows secured Spring MVC static resource URLs to be bypassed. | XX | 2018-01-29 | 4.13.14+/5.0.3+  
 
-##### 6\. Spring Cloud Security
+TODO: justif  
 
-```
-Feature             | Value
-```
+##### 3. Spring Security  
 
-:-----------------------------: | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- Name | Spring Cloud Security Main features | Spring Cloud Security offers a set of primitives for building secure applications and services. Developer/Ownership | Pivotal Licencing conditions | Apache license, version 2 Industrial Property Constraints | Redistribution and use in source and binary forms, with or without modification, are permitted provided [those conditions](#https://github.com/spring-cloud/spring-cloud-security/blob/master/LICENSE.txt). Version | 1.1.3 Languages | Java
+V4.2.3
 
-##### 7\. Spring Cloud Bus
+###### 3.2 Known security vulnerabilities  
 
-```
-Feature             | Value
-```
+List of vulnerabilities made the 2018-04-27.
 
-:-----------------------------: | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ Name | Spring Cloud Bus Main features | Spring Cloud Bus links nodes of a distributed system with a lightweight message broker. Developer/Ownership | Pivotal Licencing conditions | Apache license, version 2 Industrial Property Constraints | Redistribution and use in source and binary forms, with or without modification, are permitted provided [those conditions](#https://github.com/spring-cloud/spring-cloud-bus/blob/master/LICENSE.txt). Version | 1.1.1 Language | Java
+Vulnerability CVE identifier | Description | CVSS Score | Publication date | Solved By  
+:--------------------------: | :---------: | :--------: | :--------------: | :-------:  
+CVE-2018-1199 | Spring Security does not consider URL path parameters when processing security constraints. By adding a URL path parameter with special encodings, an attacker may be able to bypass a security constraint. The root cause of this issue is a lack of clarity regarding the handling of path parameters in the Servlet Specification (see below). Some Servlet containers include path parameters in the value returned for getPathInfo() and some do not. Spring Security uses the value returned by getPathInfo() as part of the process of mapping requests to security constraints. In this particular attack, different character encodings used in path parameters allows secured Spring MVC static resource URLs to be bypassed. | XX | 2018-01-29 | 4.2.4+/5.0.1+  
 
-##### 8\. Spring Cloud Feign
+TODO: justif  
 
-```
-Feature             | Value
-```
+##### 3. Spring Data
 
-:-----------------------------: | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- Name | Spring Cloud Feign Main features | Library to support implementing representations for hyper-text driven REST web services. Developer/Ownership | Pivotal Licencing conditions | Apache license, version 2 Industrial Property Constraints | Redistribution and use in source and binary forms, with or without modification, are permitted provided [those conditions](#http://www.apache.org/licenses/LICENSE-2.0.txt). Version | 8.18.0 Languages | Java
+V1.13.7
 
-##### 9\. Spring HATEOAS
+###### 3.2 Known security vulnerabilities  
 
-```
-Feature             | Value
-```
+List of vulnerabilities made the 2018-04-27.
 
-:-----------------------------: | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- Name | Spring HATEOAS Main features | Library to support implementing representations for hyper-text driven REST web services. Developer/Ownership | Pivotal Licencing conditions | Apache license, version 2 Industrial Property Constraints | Redistribution and use in source and binary forms, with or without modification, are permitted provided [those conditions](#http://www.apache.org/licenses/LICENSE-2.0.txt). Version | 0.20.0 Language | Java
+source: https://pivotal.io/security 
 
-##### 10\. IzPack
+Vulnerability CVE identifier | Description | CVSS Score | Publication date | Solved By  
+:--------------------------: | :---------: | :--------: | :--------------: | :-------:  
+CVE-2018-1274 | Spring Data Commons, versions prior to 1.13 to 1.13.10, 2.0 to 2.0.5, and older unsupported versions, contain a property path parser vulnerability caused by unlimited resource allocation. An unauthenticated remote malicious user (or attacker) can issue requests against Spring Data REST endpoints or endpoints using property path parsing which can cause a denial of service (CPU and memory consumption). | XX | 2018-04-10 | 1.13.11+/2.0.6+  
+CVE-2018-1273 | Spring Data Commons, versions prior to 1.13 to 1.13.10, 2.0 to 2.0.5, and older unsupported versions, contain a property binder vulnerability caused by improper neutralization of special elements. An unauthenticated remote malicious user (or attacker) can supply specially crafted request parameters against Spring Data REST backed HTTP resources or using Spring Data’s projection-based request payload binding hat can lead to a remote code execution attack. | XX | 2018-04-10 | 1.13.11+/2.0.6+  
 
-```
-Feature             | Value
-```
 
-:-----------------------------: | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- Name | IzPack Main features | IzPack is a one-stop solution for packaging, distributing and deploying applications. Developer/Ownership | Open source software Licencing conditions | Apache license, version 2 Industrial Property Constraints | Redistribution and use in source and binary forms, with or without modification, are permitted provided [those conditions](#http://www.apache.org/licenses/LICENSE-2.0.txt). Version | 5.0.9 Languages | Java
+##### 3. Spring Boot
 
-##### 11\. Elasticsearch
+###### 3.1. License
 
-```
-Feature             | Value
-```
+Feature | Value             | Description
+:-----------------------------: | :--------------------------------------------------------------------------------------------------------: | :---------------------------------------------------------------------------:  
+Name | Spring Boot Main features | Spring Boot makes it easy to create stand-alone, production-grade Spring based Applications  
+Developer/Ownership | Pivotal  
+Licencing conditions | Apache license, version 2 | Industrial Property Constraints Redistribution and use in source and binary forms, with or without modification, are permitted provided [those conditions](#https://github.com/spring-projects/spring-boot/blob/master/LICENSE.txt).  
+Version | 1.4.0  
+Languages | Java
 
-:-----------------------------: | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- Name | Elasticsearch Main features | Open source, distributed, RESTful search engine built on top of Lucene. Developer/Ownership | Elastic Licencing conditions | Apache license, version 2 Industrial Property Constraints | Redistribution and use in source and binary forms, with or without modification, are permitted provided [those conditions](#http://www.apache.org/licenses/LICENSE-2.0.txt). Version | 5.0.9 Language | Java
+###### 3.2. Known security vulnerabilities
 
-##### 12\. FITS Java library
+List of vulnerabilities made the 2018-04-27.
 
-```
-Feature             | Value
-```
+Source: https://www.securityfocus.com/bid , https://pivotal.io/security
 
-:-----------------------------: | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------- Name | FITS I/O Java Library Main features | Pure java Java library for reading and writing FITS files Developer/Ownership | NASA and International Astronomical Union Licencing conditions | LGPL, version 3 Industrial Property Constraints | Redistribution and use in source and binary forms, with or without modification, are permitted provided [those conditions](#https://www.gnu.org/licenses/lgpl-3.0.fr.html). Version | 1.15.1 Languages | Java
+Vulnerability CVE identifier | Description | CVSS Score | Publication date | Solved By  
+:--------------------------: | :---------: | :--------: | :--------------: | :-------:  
+CVE-2017-8046 |  Malicious PATCH requests submitted to spring-data-rest servers in Pivotal Spring Data REST versions prior to 2.5.12, 2.6.7, 3.0 RC3, Spring Boot versions prior to 2.0.0M4, and Spring Data release trains prior to Kay-RC3 can use specially crafted JSON data to run arbitrary Java code. | 7.5 | 2018-01-04 | None  
 
-##### 13\. SiTools2
+This vulnerability exposes REGARDS to no threats because PATCH requests are forbidden by Apache Configuration.
 
-```
-Feature             | Value
-```
+Vulnerability CVE identifier | Description | CVSS Score | Publication date | Solved By  
+:--------------------------: | :---------: | :--------: | :--------------: | :-------:  
+CVE-2018-1196 | Spring Boot supports an embedded launch script that can be used to easily run the application as a systemd or init.d linux service[1]. The script included with Spring Boot 1.5.9 and earlier is susceptible to a symlink attack which allows the “run_user” to overwrite and take ownership of any file on the same system. | XX | 2018-01-30 | 1.5.10+/2.0.0.RC1+  
 
-:-----------------------------: | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------- Name | SiTools2 Main features | SiTools2 provides a self-manageable data access layer deployed on already existing scientific laboratory databases. Developer/Ownership | CNES Licencing conditions | GPL, version 3 Industrial Property Constraints | Redistribution and use in source and binary forms, with or without modification, are permitted provided [those conditions](#https://www.gnu.org/licenses/lgpl-3.0.fr.html). Version | 1.15.1 Languages | Java
+This vulnerability exposes REGARDS to no threats as we are not setting up the system as a service and we are not using the script. TODO: check script use.
 
-##### 14\. SIPAD-NG
+##### 4. Spring Cloud Netflix
 
-```
-Feature             | Value
-```
+###### 3.1. License
 
-:-----------------------------: | --------------------------- Name | SIPAD-NG Main features | Archival Information System Developer/Ownership | CNES Licencing conditions | No specific licence Industrial Property Constraints | No constraints Version | 5.6 Languages | Java
+Feature | Value             | Description
+:-----------------------------: | :--------------------------------------------------------------------------------------------------------: | :---------------------------------------------------------------------------:  
+Name | Spring Cloud Netflix Main features | Spring Cloud focuses on providing good out of box experience for typical use cases and extensibility mechanism.  
+Developer/Ownership | Pivotal  
+Licencing conditions | Apache license, version 2 | Industrial Property Constraints Redistribution and use in source and binary forms, with or without modification, are permitted provided [those conditions](#https://github.com/spring-cloud/spring-cloud-netflix/blob/master/LICENSE.txt).  
+Version | 4.3.2  
+Languages | Java
 
-#### 2\. Compile time backend
+##### 5. Spring Cloud Config
 
-##### 1\. Apache Maven
+###### 3.1. License
 
-```
-Feature             | Value
-```
+Feature | Value             | Description
+:-----------------------------: | :--------------------------------------------------------------------------------------------------------: | :---------------------------------------------------------------------------:  
+Name | Spring Cloud Config Main features | Spring Cloud Config provides server and client-side support for externalized configuration in a distributed system.  
+Developer/Ownership | Pivotal  
+Licencing conditions | Apache license, version 2 | Industrial Property Constraints Redistribution and use in source and binary forms, with or without modification, are permitted provided [those conditions](#https://github.com/spring-cloud/spring-cloud-config/blob/master/LICENSE.txt).  
+Version | 1.2.0  
+Languages | Java
 
-:-----------------------------: | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- Name | Apache Maven Main features | Maven is a software project management and comprehension tool. Developer/Ownership | Apache Software Foundation Licencing conditions | Apache license, version 2 Industrial Property Constraints | Redistribution and use in source and binary forms, with or without modification, are permitted provided [those conditions](#http://www.apache.org/licenses/LICENSE-2.0.txt). Version | 3.3.3 Languages | Java
+##### 6. Spring Cloud Security
 
-#### 3\. Testing
+###### 3.1. License
 
-##### 1\. Jenkins
+Feature | Value             | Description
+:-----------------------------: | :--------------------------------------------------------------------------------------------------------: | :---------------------------------------------------------------------------:  
+Name | Spring Cloud Security Main features | Spring Cloud Security offers a set of primitives for building secure applications and services.  
+Developer/Ownership | Pivotal  
+Licencing conditions | Apache license, version 2 | Industrial Property Constraints Redistribution and use in source and binary forms, with or without modification, are permitted provided [those conditions](#https://github.com/spring-cloud/spring-cloud-security/blob/master/LICENSE.txt).  
+Version | 1.1.3  
+Languages | Java
 
-```
-Feature             | Value
-```
+##### 7. Spring Cloud Bus
 
-:-----------------------------: | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------- Name | Jenkins Main features | Jenkins is a continuous integration server, allowing you to automatically monitor source repositories, build software and run tests. Developer/Ownership | SonarSource Licencing conditions | LGPL, version 3 Industrial Property Constraints | Redistribution and use in source and binary forms, with or without modification, are permitted provided [those conditions](#https://www.gnu.org/licenses/lgpl-3.0.fr.html). Version | 2.7 Languages | JavaScript, Java
+###### 3.1. License
 
-##### 2\. SonarQube
+Feature | Value             | Description
+:-----------------------------: | :--------------------------------------------------------------------------------------------------------: | :---------------------------------------------------------------------------:  
+Name | Spring Cloud Bus Main features | Spring Cloud Bus links nodes of a distributed system with a lightweight message broker.  
+Developer/Ownership | Pivotal  
+Licencing conditions | Apache license, version 2 | Industrial Property Constraints Redistribution and use in source and binary forms, with or without modification, are permitted provided [those conditions](#https://github.com/spring-cloud/spring-cloud-bus/blob/master/LICENSE.txt).  
+Version | 1.1.1 Language | Java
 
-```
-Feature             | Value
-```
+##### 8. Spring Cloud Feign
 
-:-----------------------------: | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------- Name | SonarQube Main features | SonarQube is an open platform to manage code quality. Developer/Ownership | SonarSource Licencing conditions | LGPL, version 3 Industrial Property Constraints | Redistribution and use in source and binary forms, with or without modification, are permitted provided [those conditions](#https://www.gnu.org/licenses/lgpl-3.0.fr.html). Version | 6.0 Languages | JavaScript, Java
+###### 3.1. License
 
-##### 3\. Selenium
+Feature | Value             | Description
+:-----------------------------: | :--------------------------------------------------------------------------------------------------------: | :---------------------------------------------------------------------------:  
+Name | Spring Cloud Feign Main features | Library to support implementing representations for hyper-text driven REST web services.  
+Developer/Ownership | Pivotal  
+Licencing conditions | Apache license, version 2 | Industrial Property Constraints Redistribution and use in source and binary forms, with or without modification, are permitted provided [those conditions](#http://www.apache.org/licenses/LICENSE-2.0.txt).  
+Version | 8.18.0  
+Languages | Java
 
-```
-Feature             | Value
-```
+##### 9. Spring HATEOAS
 
-:-----------------------------: | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- Name | SeleniumHQ Main features | Selenium is a suite of tools to automate web browsers across many platforms. Developer/Ownership | Apache Software Foundation Licencing conditions | Apache license, version 2 Industrial Property Constraints | Redistribution and use in source and binary forms, with or without modification, are permitted provided [those conditions](#http://www.apache.org/licenses/LICENSE-2.0.txt). Version | 2.53.1 Languages | JavaScript, Java
+###### 3.1. License
+
+Feature | Value             | Description
+:-----------------------------: | :--------------------------------------------------------------------------------------------------------: | :---------------------------------------------------------------------------:  
+Name | Spring HATEOAS Main features | Library to support implementing representations for hyper-text driven REST web services.  
+Developer/Ownership | Pivotal  
+Licencing conditions | Apache license, version 2 | Industrial Property Constraints Redistribution and use in source and binary forms, with or without modification, are permitted provided [those conditions](#http://www.apache.org/licenses/LICENSE-2.0.txt).  
+Version | 0.20.0 Language | Java
+
+##### 10. IzPack
+
+###### 3.1. License
+
+Feature | Value             | Description
+:-----------------------------: | :--------------------------------------------------------------------------------------------------------: | :---------------------------------------------------------------------------:  
+Name | IzPack Main features | IzPack is a one-stop solution for packaging, distributing and deploying applications.  
+Developer/Ownership | Open source software  
+Licencing conditions | Apache license, version 2 | Industrial Property Constraints Redistribution and use in source and binary forms, with or without modification, are permitted provided [those conditions](#http://www.apache.org/licenses/LICENSE-2.0.txt).  
+Version | 5.0.9  
+Languages | Java
+
+
+###### 3.2. Known security vulnerabilities
+
+List of vulnerabilities made the TODO.
+
+TODO
+
+##### 11. Elasticsearch
+
+###### 3.1. License
+
+Feature | Value             | Description
+:-----------------------------: | :--------------------------------------------------------------------------------------------------------: | :---------------------------------------------------------------------------:  
+Name | Elasticsearch Main features | Open source, distributed, RESTful search engine built on top of Lucene.  
+Developer/Ownership | Elastic  
+Licencing conditions | Apache license, version 2 | Industrial Property Constraints Redistribution and use in source and binary forms, with or without modification, are permitted provided [those conditions](#http://www.apache.org/licenses/LICENSE-2.0.txt).  
+Version | 5.6.3  
+Language | Java
+
+
+###### 3.2. Known security vulnerabilities
+
+List of vulnerabilities made the 2018-04-27.
+
+source: https://www.elastic.co/fr/community/security
+
+There is no known security vulnerabilities for Elasticsearch version 5.6.X
+
+##### 12. FITS Java library
+
+###### 3.1. License
+
+Feature | Value             | Description
+:-----------------------------: | :--------------------------------------------------------------------------------------------------------: | :---------------------------------------------------------------------------:  
+Name | FITS I/O Java Library Main features | Pure java Java library for reading and writing FITS files  
+Developer/Ownership | NASA and International Astronomical Union  
+Licencing conditions | LGPL, version 3 | Industrial Property Constraints Redistribution and use in source and binary forms, with or without modification, are permitted provided [those conditions](#https://www.gnu.org/licenses/lgpl-3.0.fr.html).  
+Version | 1.15.1  
+Languages | Java  
+
+###### 3.2 Known security vulnerabilities  
+
+List of vulnerabilities made the 2018-04-27.
+
+This library is not used by REGARDS in Version 2.0.0. TODO: check
+
+##### 13. SiTools2
+
+WWWWUUUUUUUUUUTTTTTTTTT?!?!?!? since when SiTools2 is a COTS of REGARDS
+
+###### 3.1. License
+
+Feature | Value             | Description
+:-----------------------------: | :--------------------------------------------------------------------------------------------------------: | :---------------------------------------------------------------------------:  
+Name | SiTools2 Main features | SiTools2 provides a self-manageable data access layer deployed on already existing scientific laboratory databases.  
+Developer/Ownership | CNES  
+Licencing conditions | GPL, version 3 | Industrial Property Constraints Redistribution and use in source and binary forms, with or without modification, are permitted provided [those conditions](#https://www.gnu.org/licenses/lgpl-3.0.fr.html).  
+Version | 1.15.1  
+Languages | Java
+
+##### 14. SIPAD-NG
+
+WWWWUUUUUUUUUUTTTTTTTTT?!?!?!? since when SiTools2 is a COTS of REGARDS
+
+###### 3.1. License
+
+Feature | Value             | Description
+:-----------------------------: | :--------------------------------------------------------------------------------------------------------: | :---------------------------------------------------------------------------:  
+Name | SIPAD-NG Main features | Archival Information System  
+Developer/Ownership | CNES  
+Licencing conditions | No specific licence | Industrial Property Constraints No constraints  
+Version | 5.6  
+Languages | Java
+
+#### 2. Compile time backend
+
+##### 1. Apache Maven
+
+###### 3.1. License
+
+Feature | Value             | Description
+:-----------------------------: | :--------------------------------------------------------------------------------------------------------: | :---------------------------------------------------------------------------:  
+Name | Apache Maven Main features | Maven is a software project management and comprehension tool.  
+Developer/Ownership | Apache Software Foundation  
+Licencing conditions | Apache license, version 2 | Industrial Property Constraints Redistribution and use in source and binary forms, with or without modification, are permitted provided [those conditions](#http://www.apache.org/licenses/LICENSE-2.0.txt).  
+Version | 3.3.3  
+Languages | Java
+
+###### 3.2. Known security vulnerabilities
+
+List of vulnerabilities made the 2018-04-27.
+
+Source: https://www.securityfocus.com/bid
+
+There is no known security issues.
+
+#### 3. Testing
+
+Security Considerations: Those tools are not deployed with REGARDS. As so they do not exposes the system and the users to any security breaches.  
+
+##### 1. Jenkins
+
+###### 3.1. License
+
+Feature | Value             | Description
+:-----------------------------: | :--------------------------------------------------------------------------------------------------------: | :---------------------------------------------------------------------------:  
+Name | Jenkins Main features | Jenkins is a continuous integration server, allowing you to automatically monitor source repositories, build software and run tests.  
+Developer/Ownership | SonarSource  
+Licencing conditions | LGPL, version 3 | Industrial Property Constraints Redistribution and use in source and binary forms, with or without modification, are permitted provided [those conditions](#https://www.gnu.org/licenses/lgpl-3.0.fr.html).  
+Version | 2.7  
+Languages | JavaScript, Java
+
+##### 2. SonarQube
+
+###### 3.1. License
+
+Feature | Value             | Description
+:-----------------------------: | :--------------------------------------------------------------------------------------------------------: | :---------------------------------------------------------------------------:  
+Name | SonarQube Main features | SonarQube is an open platform to manage code quality.  
+Developer/Ownership | SonarSource  
+Licencing conditions | LGPL, version 3 | Industrial Property Constraints Redistribution and use in source and binary forms, with or without modification, are permitted provided [those conditions](#https://www.gnu.org/licenses/lgpl-3.0.fr.html).  
+Version | 6.0  
+Languages | JavaScript, Java
+
+##### 3. Selenium
+
+###### 3.1. License
+
+Feature | Value             | Description
+:-----------------------------: | :--------------------------------------------------------------------------------------------------------: | :---------------------------------------------------------------------------:  
+Name | SeleniumHQ Main features | Selenium is a suite of tools to automate web browsers across many platforms.  
+Developer/Ownership | Apache Software Foundation  
+Licencing conditions | Apache license, version 2 | Industrial Property Constraints Redistribution and use in source and binary forms, with or without modification, are permitted provided [those conditions](#http://www.apache.org/licenses/LICENSE-2.0.txt).  
+Version | 2.53.1  
+Languages | JavaScript, Java
