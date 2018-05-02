@@ -338,7 +338,7 @@ Vulnerability CVE identifier | Description | CVSS Score | Publication date | Sol
 :--------------------------: | :---------: | :--------: | :--------------: | :-------:  
 CVE-2018-1272 | Spring Framework versions 5.0 to 5.0.4, 4.3 to 4.3.14, and older unsupported versions provide client-side support for multipart requests. When Spring MVC or Spring WebFlux server application (server A) receives input from a remote client, and then uses that input to make a multipart request to another server (server B), it can be exposed to an attack, where an extra multipart is inserted in the content of the request from server A, causing server B to use the wrong value for a part it expects. This could to lead privilege escalation, for example, if the part content represents a username or user roles. | 0.0 | 2018-04-06 | 4.3.15+/5.0.5+  
 
-TODO: justif (from pivotal: In order for the attacker to succeed, they would have to be able to guess the multipart boundary value chosen by server A for the multipart request to server B, which requires the attacker to also have control of the server or the ability to see the HTTP log of server A through a separate attack vector.)  
+In order for the attacker to succeed, they would have to be able to guess the multipart boundary value chosen by server A for the multipart request to server B, which requires the attacker to also have control of the server or the ability to see the HTTP log of server A through a separate attack vector.  
 
 Vulnerability CVE identifier | Description | CVSS Score | Publication date | Solved By  
 :--------------------------: | :---------: | :--------: | :--------------: | :-------:  
@@ -399,11 +399,7 @@ List of vulnerabilities made the 2018-04-27.
 
 source: https://pivotal.io/security 
 
-Vulnerability CVE identifier | Description | CVSS Score | Publication date | Solved By  
-:--------------------------: | :---------: | :--------: | :--------------: | :-------:  
-CVE-2018-1274 | Spring Data Commons, versions prior to 1.13 to 1.13.10, 2.0 to 2.0.5, and older unsupported versions, contain a property path parser vulnerability caused by unlimited resource allocation. An unauthenticated remote malicious user (or attacker) can issue requests against Spring Data REST endpoints or endpoints using property path parsing which can cause a denial of service (CPU and memory consumption). | 0.0 | 2018-04-10 | 1.13.11+/2.0.6+  
-CVE-2018-1273 | Spring Data Commons, versions prior to 1.13 to 1.13.10, 2.0 to 2.0.5, and older unsupported versions, contain a property binder vulnerability caused by improper neutralization of special elements. An unauthenticated remote malicious user (or attacker) can supply specially crafted request parameters against Spring Data REST backed HTTP resources or using Spring Data’s projection-based request payload binding hat can lead to a remote code execution attack. | 0.0 | 2018-04-10 | 1.13.11+/2.0.6+  
-
+There is no known security vulnerabilities known to this date.
 
 ##### 5. Spring Boot
 
@@ -433,7 +429,7 @@ Vulnerability CVE identifier | Description | CVSS Score | Publication date | Sol
 :--------------------------: | :---------: | :--------: | :--------------: | :-------:  
 CVE-2018-1196 | Spring Boot supports an embedded launch script that can be used to easily run the application as a systemd or init.d linux service[1]. The script included with Spring Boot 1.5.9 and earlier is susceptible to a symlink attack which allows the “run_user” to overwrite and take ownership of any file on the same system. | 4.3 | 2018-01-30 | 1.5.10+/2.0.0.RC1+  
 
-This vulnerability exposes REGARDS to no threats as we are not setting up the system as a service and we are not using the script. TODO: check script use.
+This vulnerability exposes REGARDS to no threats as we are not setting up the system as a service and we are not using the script.  
 
 ##### 6. Spring Cloud Netflix
 
@@ -489,11 +485,11 @@ Languages | Java
 
 ###### 8.2. Known security vulnerabilities
 
-List of vulnerabilities made the 2018-04-27.
+List of vulnerabilities made the 2018-05-02.
 
-sources: https://pivotal.io/security 
+sources: https://github.com/OpenFeign/feign/issues?utf8=%E2%9C%93&q=is%3Aissue+security 
 
-There is no known security issues.
+After a search on the github repository of the project with keyword "security" we could not find any known security vulnerabilities to this date.
 
 ##### 9. Spring HATEOAS
 
