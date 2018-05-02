@@ -360,7 +360,7 @@ Vulnerability CVE identifier | Description | CVSS Score | Publication date | Sol
 :--------------------------: | :---------: | :--------: | :--------------: | :-------:  
 CVE-2018-1199 | Spring Security does not consider URL path parameters when processing security constraints. By adding a URL path parameter with special encodings, an attacker may be able to bypass a security constraint. The root cause of this issue is a lack of clarity regarding the handling of path parameters in the Servlet Specification (see below). Some Servlet containers include path parameters in the value returned for getPathInfo() and some do not. Spring Security uses the value returned by getPathInfo() as part of the process of mapping requests to security constraints. In this particular attack, different character encodings used in path parameters allows secured Spring MVC static resource URLs to be bypassed. | 5.0 | 2018-01-29 | 4.13.14+/5.0.3+  
 
-TODO: config p-e mais a voir car les fichier de prop sont retravailler par le microservice pour être traduit en fonction du format voulu. Est ce que l'on peut les atteindre directement?
+This vulnerability exposes REGARDS to no threats as we are not serving any static content.  
 
 ##### 3. Spring Security  
 
@@ -382,7 +382,7 @@ Vulnerability CVE identifier | Description | CVSS Score | Publication date | Sol
 :--------------------------: | :---------: | :--------: | :--------------: | :-------:  
 CVE-2018-1199 | Spring Security does not consider URL path parameters when processing security constraints. By adding a URL path parameter with special encodings, an attacker may be able to bypass a security constraint. The root cause of this issue is a lack of clarity regarding the handling of path parameters in the Servlet Specification (see below). Some Servlet containers include path parameters in the value returned for getPathInfo() and some do not. Spring Security uses the value returned by getPathInfo() as part of the process of mapping requests to security constraints. In this particular attack, different character encodings used in path parameters allows secured Spring MVC static resource URLs to be bypassed. | 5.0 | 2018-01-29 | 4.2.4+/5.0.1+  
 
-TODO: config p-e mais a voir car les fichier de prop sont retravailler par le microservice pour être traduit en fonction du format voulu. Est ce que l'on peut les atteindre directement?  
+This vulnerability exposes REGARDS to no threats as we are not serving any static content.  
 
 ##### 4. Spring Data JPA
 
