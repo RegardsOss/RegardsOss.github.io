@@ -89,6 +89,9 @@ Issue |    Date    |    Reasons for change
       - [13. FITS Java library](#13-fits-java-library)
         - [13.1. License](#131-license)
         - [13.2 Known security vulnerabilities](#132-known-security-vulnerabilities)
+      - [14. Jetty](#14-jetty)
+        - [14.1. Licence](#141-licence)
+        - [14.2 Known security vulnerabilities](#142-known-security-vulnerabilities)
     - [2. Compile time backend](#2-compile-time-backend)
       - [1. Apache Maven](#1-apache-maven)
         - [1.1. License](#11-license-1)
@@ -308,7 +311,7 @@ Vulnerability CVE identifier | Description | CVSS Score | Publication date | Sol
 :--------------------------: | :---------: | :--------: | :--------------: | :-------:  
 CVE-2014-1876 | The unpacker::redirect_stdio function in unpack.cpp in unpack200 in OpenJDK 6, 7, and 8; Oracle Java SE 5.0u61, 6u71, 7u51, and 8; JRockit R27.8.1 and R28.3.1; and Java SE Embedded 7u51 does not securely create temporary files when a log file cannot be opened, which allows local users to overwrite arbitrary files via a symlink attack on /tmp/unpack.log. | 4.4 | 2014-02-10 | None  
 
-TODO: justif
+REGARDS being setup on secured server to which users do not have access, this vulnerability does not exposes REGARDS to any threat.
 
 Vulnerability CVE identifier | Description | CVSS Score | Publication date | Solved By  
 :--------------------------: | :---------: | :--------: | :--------------: | :-------:  
@@ -338,7 +341,7 @@ Vulnerability CVE identifier | Description | CVSS Score | Publication date | Sol
 :--------------------------: | :---------: | :--------: | :--------------: | :-------:  
 CVE-2018-1272 | Spring Framework versions 5.0 to 5.0.4, 4.3 to 4.3.14, and older unsupported versions provide client-side support for multipart requests. When Spring MVC or Spring WebFlux server application (server A) receives input from a remote client, and then uses that input to make a multipart request to another server (server B), it can be exposed to an attack, where an extra multipart is inserted in the content of the request from server A, causing server B to use the wrong value for a part it expects. This could to lead privilege escalation, for example, if the part content represents a username or user roles. | 0.0 | 2018-04-06 | 4.3.15+/5.0.5+  
 
-In order for the attacker to succeed, they would have to be able to guess the multipart boundary value chosen by server A for the multipart request to server B, which requires the attacker to also have control of the server or the ability to see the HTTP log of server A through a separate attack vector.  
+In order for the attacker to succeed, they would have to be able to guess the multipart boundary value chosen by server A for the multipart request to server B, which requires the attacker to also have control of the server or the ability to see the HTTP log of server A through a separate attack vector. REGARDS endpoint accepting multipart request are only endpoints from the administration bastion stronghold which are protected by proxy. REGARDS microservices do not make multipart request between them and are setup on secured server. As so, this vulnerability exposes REGARDS to no threat.  
 
 Vulnerability CVE identifier | Description | CVSS Score | Publication date | Solved By  
 :--------------------------: | :---------: | :--------: | :--------------: | :-------:  
@@ -592,7 +595,27 @@ Languages | Java
 
 List of vulnerabilities made the 2018-04-27.
 
-This library is not used by REGARDS in Version 2.0.0. TODO: check
+This library is not used by REGARDS in Version 2.0.0.  
+
+##### 14. Jetty
+
+###### 14.1. Licence
+
+Feature | Value             | Description
+:-----------------------------: | :--------------------------------------------------------------------------------------------------------: | :---------------------------------------------------------------------------:  
+Name | Jetty | embeddable web server and servlet container  
+Developer/Ownership | Eclipse  
+Licencing conditions | Apache license, version 2 | Industrial Property Constraints Redistribution and use in source and binary forms, with or without modification, are permitted provided [those conditions](#http://www.apache.org/licenses/LICENSE-2.0.txt).  
+Version | 9.4.6  
+Languages | Java  
+
+###### 14.2 Known security vulnerabilities
+
+List of vulnerabilities made the 2018-05-02.
+
+sources: https://www.securityfocus.com/bid  
+
+There is no known security vulnerabilities to this date.
 
 #### 2. Compile time backend
 
