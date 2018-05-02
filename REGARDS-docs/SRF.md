@@ -10,6 +10,7 @@ description: List all used software
 Name | Company |  Responsibility  
 :-------------------: | :-----------------------: | :---------------:  
 Xavier-Alexandre Brochard | CSSI | Development Team  
+Sylvain Vissiere-Guerinet | CSSI | Development Team  
 
 # Document Status Sheet
 
@@ -20,51 +21,87 @@ Issue |    Date    |    Reasons for change
 
 # Table of contents
 
-  1. [Introduction](#1-introduction)  
-    1. [Purpose of the document](#1-purpose-of-the-document)  
-    2. [Scope](#2-scope)  
-    3. [Document structure](#3-document-structure)  
-    4. [References](#4-references)  
-      1. [Applicable and Reference documents](#1-applicable-and-reference-documents)  
-      2. [Definitions](#2-definitions)  
-  2. [Third party products and required software licenses](#2-third-party-products-and-required-software-licenses)  
-    1. [General](#1-general)  
-      1. [Free license categorization and meaning](#1-free-license-categorization-and-meaning)  
-      2. [Impact of free licenses on customers](#2-impact-of-free-licenses-on-customers)  
-    2. [Frontend](#2-frontend)  
-      1. [Runtime frontend](#1-runtime-frontend)  
-      2. [React](#1-react)  
-      3. [Redux](#2-redux)  
-      4. [Material-UI](#3-material-ui)  
-      5. [Lodash](#4-lodash)  
-      6. [Compile time frontend](#2-compile-time-frontend)  
-      7. [Webpack](#1-webpack)  
-      8. [TypeScript](#2-typescript)  
-      9. [Testing frontend](#3-testing-frontend)  
-      10. [Mocha](#1-mocha)  
-      11. [Chai](#2-chai)  
-    3. [Backend](#2-backend)  
-      1. [Runtime backend](#1-runtime-backend)  
-      2. [Java](#1-java)  
-      3. [Spring Framework](#2-spring-framework)  
-      4. [Spring Boot](#3-spring-boot)  
-      5. [Spring Cloud Netflix](#4-spring-cloud-netflix)  
-      6. [Spring Cloud Config](#5-spring-cloud-config)  
-      7. [Spring Cloud Security](#6-spring-cloud-security)  
-      8. [Spring Cloud Bus](#7-spring-cloud-bus)  
-      9. [Spring Cloud Feign](#8-spring-cloud-feign)  
-      10. [Spring HATEOAS](#9-spring-hateoas)  
-      11. [Izpack](#10-izpack)  
-      12. [Elasticsearch](#11-elasticsearch)  
-      13. [FITS Java library](#12-fits-java-library)  
-      14. [SiTools2](#13-sitools2)  
-      15. [SIPAD-NG](#14-sipad-ng)  
-      16. [Compile time backend](#2-compile-time-backend)  
-      17. [Apache Maven](#1-apache-maven)  
-      18. [Testing backend](#3-testing-backend)  
-      19. [Jenkins](#1-jenkins)  
-      20. [Sonar](#2-sonar)  
-      21. [Selenium](#3-selenium)  
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+
+
+- [1. Introduction](#1-introduction)
+  - [1. Purpose of the document](#1-purpose-of-the-document)
+  - [2. Scope](#2-scope)
+  - [3. Document structure](#3-document-structure)
+  - [4. References](#4-references)
+    - [1. Applicable and Reference documents](#1-applicable-and-reference-documents)
+    - [2. Definitions](#2-definitions)
+- [2. Third party products and required software licenses](#2-third-party-products-and-required-software-licenses)
+  - [1. General](#1-general)
+    - [1. Free license categorization and meaning](#1-free-license-categorization-and-meaning)
+    - [2. Impact of free licenses on customers](#2-impact-of-free-licenses-on-customers)
+  - [2. Frontend](#2-frontend)
+    - [1. Runtime frontend](#1-runtime-frontend)
+      - [1. React](#1-react)
+      - [2. Redux](#2-redux)
+      - [3. Material-UI](#3-material-ui)
+      - [4. Lodash](#4-lodash)
+    - [2. Compile time frontend](#2-compile-time-frontend)
+      - [1. Webpack](#1-webpack)
+      - [2. TypeScript](#2-typescript)
+    - [3. Testing frontend](#3-testing-frontend)
+      - [1. Mocha](#1-mocha)
+      - [2. Chai](#2-chai)
+  - [3. Backend](#3-backend)
+    - [1. Runtime backend](#1-runtime-backend)
+      - [1. Java](#1-java)
+        - [1.1. License](#11-license)
+        - [1.2. Known security vulnerabilities](#12-known-security-vulnerabilities)
+      - [2. Spring Framework](#2-spring-framework)
+        - [2.1. License](#21-license)
+        - [2.2. Known security vulnerabilities](#22-known-security-vulnerabilities)
+      - [3. Spring Security](#3-spring-security)
+        - [3.1 License](#31-license)
+        - [3.2 Known security vulnerabilities](#32-known-security-vulnerabilities)
+      - [4. Spring Data JPA](#4-spring-data-jpa)
+        - [4.1 License](#41-license)
+        - [4.2 Known security vulnerabilities](#42-known-security-vulnerabilities)
+      - [5. Spring Boot](#5-spring-boot)
+        - [5.1. License](#51-license)
+        - [5.2. Known security vulnerabilities](#52-known-security-vulnerabilities)
+      - [6. Spring Cloud Netflix](#6-spring-cloud-netflix)
+        - [6.1. License](#61-license)
+        - [6.2. Known security vulnerabilities](#62-known-security-vulnerabilities)
+      - [7. Spring Cloud Config](#7-spring-cloud-config)
+        - [7.1. License](#71-license)
+        - [7.2. Known security vulnerabilities](#72-known-security-vulnerabilities)
+      - [8. Open Feign](#8-open-feign)
+        - [8.1. License](#81-license)
+        - [8.2. Known security vulnerabilities](#82-known-security-vulnerabilities)
+      - [9. Spring HATEOAS](#9-spring-hateoas)
+        - [9.1. License](#91-license)
+        - [9.2. Known security vulnerabilities](#92-known-security-vulnerabilities)
+      - [10. IzPack](#10-izpack)
+        - [10.1. License](#101-license)
+        - [10.2. Known security vulnerabilities](#102-known-security-vulnerabilities)
+      - [11. RabbitMQ](#11-rabbitmq)
+        - [11.1 License](#111-license)
+        - [11.2 Known security vulneratilities](#112-known-security-vulneratilities)
+      - [12. Elasticsearch](#12-elasticsearch)
+        - [12.1. License](#121-license)
+        - [12.2. Known security vulnerabilities](#122-known-security-vulnerabilities)
+      - [13. FITS Java library](#13-fits-java-library)
+        - [13.1. License](#131-license)
+        - [13.2 Known security vulnerabilities](#132-known-security-vulnerabilities)
+    - [2. Compile time backend](#2-compile-time-backend)
+      - [1. Apache Maven](#1-apache-maven)
+        - [1.1. License](#11-license-1)
+        - [1.2. Known security vulnerabilities](#12-known-security-vulnerabilities-1)
+    - [3. Testing](#3-testing)
+      - [1. Jenkins](#1-jenkins)
+        - [1.1. License](#11-license-2)
+      - [2. SonarQube](#2-sonarqube)
+        - [2.1. License](#21-license-1)
+      - [3. Selenium](#3-selenium)
+        - [3.1. License](#31-license)
+
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
 ## 1. Introduction
 
@@ -244,7 +281,7 @@ Languages | JavaScript
 
 ##### 1. Java
 
-###### 3.1. License
+###### 1.1. License
 
 Feature | Value             | Description
 :-----------------------------: | :--------------------------------------------------------------------------------------------------------: | :---------------------------------------------------------------------------:  
@@ -255,7 +292,7 @@ Version | 8
 Languages | C++,C
 
 
-###### 3.2. Known security vulnerabilities
+###### 1.2. Known security vulnerabilities
 
 List of vulnerabilities made the 2018-04-27.
 
@@ -281,17 +318,17 @@ The vulnerability exposes REGARDS to no threats as we are not using TLS protocol
 
 ##### 2. Spring Framework
 
-###### 3.1. License
+###### 2.1. License
 
 Feature | Value             | Description
 :-----------------------------: | :--------------------------------------------------------------------------------------------------------: | :---------------------------------------------------------------------------:  
 Name | Spring Main features | The Spring Framework provides a comprehensive programming and configuration model for modern Java-based enterprise applications - on any kind of deployment platform.  
 Developer/Ownership | Pivotal  
 Licencing conditions | Apache license, version 2 | Industrial Property Constraints Redistribution and use in source and binary forms, with or without modification, are permitted provided [those conditions](#http://www.apache.org/licenses/LICENSE-2.0.txt).  
-Version | 4.3.2  
-Languages | Java
+Version | 4.3.11  
+Languages | Java  
 
-###### 3.2. Known security vulnerabilities
+###### 2.2. Known security vulnerabilities
 
 List of vulnerabilities made the 2018-04-27.
 
@@ -314,17 +351,25 @@ Vulnerability CVE identifier | Description | CVSS Score | Publication date | Sol
 CVE-2018-1270 | Spring Framework, versions 5.0 prior to 5.0.5 and versions 4.3 prior to 4.3.15 and older unsupported versions, allow applications to expose STOMP over WebSocket endpoints with a simple, in-memory STOMP broker through the spring-messaging module. A malicious user (or attacker) can craft a message to the broker that can lead to a remote code execution attack. | 0.0 | 2018-04-06 | 4.3.15+/5.0.5+  
 CVE-2018-1275 | Partial fix for CVE-2018-1270 | 0.0 | 2018-04-11 | 4.3.16/5.0.5+  
 
-TODO: justif(If i'm right, we do not use spring-message anyway)  
+This vulnerability exposes REGARDS to no threats as we are not using the spring-messaging module and we are not using WebSockets either.    
 
 Vulnerability CVE identifier | Description | CVSS Score | Publication date | Solved By  
 :--------------------------: | :---------: | :--------: | :--------------: | :-------:  
-CVE-2018-1199 | Spring Security does not consider URL path parameters when processing security constraints. By adding a URL path parameter with special encodings, an attacker may be able to bypass a security constraint. The root cause of this issue is a lack of clarity regarding the handling of path parameters in the Servlet Specification (see below). Some Servlet containers include path parameters in the value returned for getPathInfo() and some do not. Spring Security uses the value returned by getPathInfo() as part of the process of mapping requests to security constraints. In this particular attack, different character encodings used in path parameters allows secured Spring MVC static resource URLs to be bypassed. | XX | 2018-01-29 | 4.13.14+/5.0.3+  
+CVE-2018-1199 | Spring Security does not consider URL path parameters when processing security constraints. By adding a URL path parameter with special encodings, an attacker may be able to bypass a security constraint. The root cause of this issue is a lack of clarity regarding the handling of path parameters in the Servlet Specification (see below). Some Servlet containers include path parameters in the value returned for getPathInfo() and some do not. Spring Security uses the value returned by getPathInfo() as part of the process of mapping requests to security constraints. In this particular attack, different character encodings used in path parameters allows secured Spring MVC static resource URLs to be bypassed. | 5.0 | 2018-01-29 | 4.13.14+/5.0.3+  
 
-TODO: justif  
+TODO: config p-e mais a voir car les fichier de prop sont retravailler par le microservice pour être traduit en fonction du format voulu. Est ce que l'on peut les atteindre directement?
 
 ##### 3. Spring Security  
 
-V4.2.3
+###### 3.1 License
+
+Feature | Value             | Description
+:-----------------------------: | :--------------------------------------------------------------------------------------------------------: | :---------------------------------------------------------------------------:  
+Name | Spring Security | Spring Security is a powerful and highly customizable authentication and access-control framework.  
+Developer/Ownership | Pivotal  
+Licencing conditions | Apache license, version 2 | Industrial Property Constraints Redistribution and use in source and binary forms, with or without modification, are permitted provided [those conditions](#http://www.apache.org/licenses/LICENSE-2.0.txt).  
+Version | 4.3.2  
+Languages | Java  
 
 ###### 3.2 Known security vulnerabilities  
 
@@ -332,15 +377,23 @@ List of vulnerabilities made the 2018-04-27.
 
 Vulnerability CVE identifier | Description | CVSS Score | Publication date | Solved By  
 :--------------------------: | :---------: | :--------: | :--------------: | :-------:  
-CVE-2018-1199 | Spring Security does not consider URL path parameters when processing security constraints. By adding a URL path parameter with special encodings, an attacker may be able to bypass a security constraint. The root cause of this issue is a lack of clarity regarding the handling of path parameters in the Servlet Specification (see below). Some Servlet containers include path parameters in the value returned for getPathInfo() and some do not. Spring Security uses the value returned by getPathInfo() as part of the process of mapping requests to security constraints. In this particular attack, different character encodings used in path parameters allows secured Spring MVC static resource URLs to be bypassed. | XX | 2018-01-29 | 4.2.4+/5.0.1+  
+CVE-2018-1199 | Spring Security does not consider URL path parameters when processing security constraints. By adding a URL path parameter with special encodings, an attacker may be able to bypass a security constraint. The root cause of this issue is a lack of clarity regarding the handling of path parameters in the Servlet Specification (see below). Some Servlet containers include path parameters in the value returned for getPathInfo() and some do not. Spring Security uses the value returned by getPathInfo() as part of the process of mapping requests to security constraints. In this particular attack, different character encodings used in path parameters allows secured Spring MVC static resource URLs to be bypassed. | 5.0 | 2018-01-29 | 4.2.4+/5.0.1+  
 
-TODO: justif  
+TODO: config p-e mais a voir car les fichier de prop sont retravailler par le microservice pour être traduit en fonction du format voulu. Est ce que l'on peut les atteindre directement?  
 
-##### 3. Spring Data
+##### 4. Spring Data JPA
 
-V1.13.7
+###### 4.1 License
 
-###### 3.2 Known security vulnerabilities  
+Feature | Value             | Description
+:-----------------------------: | :--------------------------------------------------------------------------------------------------------: | :---------------------------------------------------------------------------:  
+Name | Spring Data JPA | The primary goal of the Spring Data project is to make it easier to build Spring-powered applications that use data access technologies. This module deals with enhanced support for JPA based data access layers.  
+Developer/Ownership | Pivotal  
+Licencing conditions | Apache license, version 2 | Industrial Property Constraints Redistribution and use in source and binary forms, with or without modification, are permitted provided [those conditions](#http://www.apache.org/licenses/LICENSE-2.0.txt).  
+Version | 1.13.7  
+Languages | Java  
+
+###### 4.2 Known security vulnerabilities  
 
 List of vulnerabilities made the 2018-04-27.
 
@@ -348,23 +401,23 @@ source: https://pivotal.io/security
 
 Vulnerability CVE identifier | Description | CVSS Score | Publication date | Solved By  
 :--------------------------: | :---------: | :--------: | :--------------: | :-------:  
-CVE-2018-1274 | Spring Data Commons, versions prior to 1.13 to 1.13.10, 2.0 to 2.0.5, and older unsupported versions, contain a property path parser vulnerability caused by unlimited resource allocation. An unauthenticated remote malicious user (or attacker) can issue requests against Spring Data REST endpoints or endpoints using property path parsing which can cause a denial of service (CPU and memory consumption). | XX | 2018-04-10 | 1.13.11+/2.0.6+  
-CVE-2018-1273 | Spring Data Commons, versions prior to 1.13 to 1.13.10, 2.0 to 2.0.5, and older unsupported versions, contain a property binder vulnerability caused by improper neutralization of special elements. An unauthenticated remote malicious user (or attacker) can supply specially crafted request parameters against Spring Data REST backed HTTP resources or using Spring Data’s projection-based request payload binding hat can lead to a remote code execution attack. | XX | 2018-04-10 | 1.13.11+/2.0.6+  
+CVE-2018-1274 | Spring Data Commons, versions prior to 1.13 to 1.13.10, 2.0 to 2.0.5, and older unsupported versions, contain a property path parser vulnerability caused by unlimited resource allocation. An unauthenticated remote malicious user (or attacker) can issue requests against Spring Data REST endpoints or endpoints using property path parsing which can cause a denial of service (CPU and memory consumption). | 0.0 | 2018-04-10 | 1.13.11+/2.0.6+  
+CVE-2018-1273 | Spring Data Commons, versions prior to 1.13 to 1.13.10, 2.0 to 2.0.5, and older unsupported versions, contain a property binder vulnerability caused by improper neutralization of special elements. An unauthenticated remote malicious user (or attacker) can supply specially crafted request parameters against Spring Data REST backed HTTP resources or using Spring Data’s projection-based request payload binding hat can lead to a remote code execution attack. | 0.0 | 2018-04-10 | 1.13.11+/2.0.6+  
 
 
-##### 3. Spring Boot
+##### 5. Spring Boot
 
-###### 3.1. License
+###### 5.1. License
 
 Feature | Value             | Description
 :-----------------------------: | :--------------------------------------------------------------------------------------------------------: | :---------------------------------------------------------------------------:  
 Name | Spring Boot Main features | Spring Boot makes it easy to create stand-alone, production-grade Spring based Applications  
 Developer/Ownership | Pivotal  
 Licencing conditions | Apache license, version 2 | Industrial Property Constraints Redistribution and use in source and binary forms, with or without modification, are permitted provided [those conditions](#https://github.com/spring-projects/spring-boot/blob/master/LICENSE.txt).  
-Version | 1.4.0  
+Version | 1.5.7  
 Languages | Java
 
-###### 3.2. Known security vulnerabilities
+###### 5.2. Known security vulnerabilities
 
 List of vulnerabilities made the 2018-04-27.
 
@@ -378,102 +431,138 @@ This vulnerability exposes REGARDS to no threats because PATCH requests are forb
 
 Vulnerability CVE identifier | Description | CVSS Score | Publication date | Solved By  
 :--------------------------: | :---------: | :--------: | :--------------: | :-------:  
-CVE-2018-1196 | Spring Boot supports an embedded launch script that can be used to easily run the application as a systemd or init.d linux service[1]. The script included with Spring Boot 1.5.9 and earlier is susceptible to a symlink attack which allows the “run_user” to overwrite and take ownership of any file on the same system. | XX | 2018-01-30 | 1.5.10+/2.0.0.RC1+  
+CVE-2018-1196 | Spring Boot supports an embedded launch script that can be used to easily run the application as a systemd or init.d linux service[1]. The script included with Spring Boot 1.5.9 and earlier is susceptible to a symlink attack which allows the “run_user” to overwrite and take ownership of any file on the same system. | 4.3 | 2018-01-30 | 1.5.10+/2.0.0.RC1+  
 
 This vulnerability exposes REGARDS to no threats as we are not setting up the system as a service and we are not using the script. TODO: check script use.
 
-##### 4. Spring Cloud Netflix
+##### 6. Spring Cloud Netflix
 
-###### 3.1. License
+###### 6.1. License
 
 Feature | Value             | Description
 :-----------------------------: | :--------------------------------------------------------------------------------------------------------: | :---------------------------------------------------------------------------:  
 Name | Spring Cloud Netflix Main features | Spring Cloud focuses on providing good out of box experience for typical use cases and extensibility mechanism.  
 Developer/Ownership | Pivotal  
 Licencing conditions | Apache license, version 2 | Industrial Property Constraints Redistribution and use in source and binary forms, with or without modification, are permitted provided [those conditions](#https://github.com/spring-cloud/spring-cloud-netflix/blob/master/LICENSE.txt).  
-Version | 4.3.2  
+Version | 1.3.4  
 Languages | Java
 
-##### 5. Spring Cloud Config
+###### 6.2. Known security vulnerabilities
 
-###### 3.1. License
+List of vulnerabilities made the 2018-04-27.
+
+sources: https://pivotal.io/security 
+
+There is no known security issues.
+
+##### 7. Spring Cloud Config
+
+###### 7.1. License
 
 Feature | Value             | Description
 :-----------------------------: | :--------------------------------------------------------------------------------------------------------: | :---------------------------------------------------------------------------:  
 Name | Spring Cloud Config Main features | Spring Cloud Config provides server and client-side support for externalized configuration in a distributed system.  
 Developer/Ownership | Pivotal  
 Licencing conditions | Apache license, version 2 | Industrial Property Constraints Redistribution and use in source and binary forms, with or without modification, are permitted provided [those conditions](#https://github.com/spring-cloud/spring-cloud-config/blob/master/LICENSE.txt).  
-Version | 1.2.0  
+Version | 1.3.2  
 Languages | Java
 
-##### 6. Spring Cloud Security
+###### 7.2. Known security vulnerabilities
 
-###### 3.1. License
+List of vulnerabilities made the 2018-04-27.
 
-Feature | Value             | Description
-:-----------------------------: | :--------------------------------------------------------------------------------------------------------: | :---------------------------------------------------------------------------:  
-Name | Spring Cloud Security Main features | Spring Cloud Security offers a set of primitives for building secure applications and services.  
-Developer/Ownership | Pivotal  
-Licencing conditions | Apache license, version 2 | Industrial Property Constraints Redistribution and use in source and binary forms, with or without modification, are permitted provided [those conditions](#https://github.com/spring-cloud/spring-cloud-security/blob/master/LICENSE.txt).  
-Version | 1.1.3  
-Languages | Java
+sources: https://pivotal.io/security 
 
-##### 7. Spring Cloud Bus
+There is no known security issues.
 
-###### 3.1. License
+##### 8. Open Feign
+
+###### 8.1. License
 
 Feature | Value             | Description
 :-----------------------------: | :--------------------------------------------------------------------------------------------------------: | :---------------------------------------------------------------------------:  
-Name | Spring Cloud Bus Main features | Spring Cloud Bus links nodes of a distributed system with a lightweight message broker.  
-Developer/Ownership | Pivotal  
-Licencing conditions | Apache license, version 2 | Industrial Property Constraints Redistribution and use in source and binary forms, with or without modification, are permitted provided [those conditions](#https://github.com/spring-cloud/spring-cloud-bus/blob/master/LICENSE.txt).  
-Version | 1.1.1 Language | Java
-
-##### 8. Spring Cloud Feign
-
-###### 3.1. License
-
-Feature | Value             | Description
-:-----------------------------: | :--------------------------------------------------------------------------------------------------------: | :---------------------------------------------------------------------------:  
-Name | Spring Cloud Feign Main features | Library to support implementing representations for hyper-text driven REST web services.  
-Developer/Ownership | Pivotal  
+Name | Open Feign | Library to support implementing representations for hyper-text driven REST web services.  
+Developer/Ownership | Open source software  
 Licencing conditions | Apache license, version 2 | Industrial Property Constraints Redistribution and use in source and binary forms, with or without modification, are permitted provided [those conditions](#http://www.apache.org/licenses/LICENSE-2.0.txt).  
-Version | 8.18.0  
+Version | 9.5.0  
 Languages | Java
+
+###### 8.2. Known security vulnerabilities
+
+List of vulnerabilities made the 2018-04-27.
+
+sources: https://pivotal.io/security 
+
+There is no known security issues.
 
 ##### 9. Spring HATEOAS
 
-###### 3.1. License
+###### 9.1. License
 
 Feature | Value             | Description
 :-----------------------------: | :--------------------------------------------------------------------------------------------------------: | :---------------------------------------------------------------------------:  
 Name | Spring HATEOAS Main features | Library to support implementing representations for hyper-text driven REST web services.  
 Developer/Ownership | Pivotal  
 Licencing conditions | Apache license, version 2 | Industrial Property Constraints Redistribution and use in source and binary forms, with or without modification, are permitted provided [those conditions](#http://www.apache.org/licenses/LICENSE-2.0.txt).  
-Version | 0.20.0 Language | Java
+Version | 0.23.0 Language | Java
+
+###### 9.2. Known security vulnerabilities
+
+List of vulnerabilities made the 2018-04-27.
+
+sources: https://pivotal.io/security 
+
+There is no known security issues.
 
 ##### 10. IzPack
 
-###### 3.1. License
+###### 10.1. License
 
 Feature | Value             | Description
 :-----------------------------: | :--------------------------------------------------------------------------------------------------------: | :---------------------------------------------------------------------------:  
 Name | IzPack Main features | IzPack is a one-stop solution for packaging, distributing and deploying applications.  
 Developer/Ownership | Open source software  
 Licencing conditions | Apache license, version 2 | Industrial Property Constraints Redistribution and use in source and binary forms, with or without modification, are permitted provided [those conditions](#http://www.apache.org/licenses/LICENSE-2.0.txt).  
-Version | 5.0.9  
+Version | 5.1.0  
 Languages | Java
 
 
-###### 3.2. Known security vulnerabilities
+###### 10.2. Known security vulnerabilities
 
-List of vulnerabilities made the TODO.
+List of vulnerabilities made the 2018-04-30.
 
-TODO
+After a search on their [JIRA](https://izpack.atlassian.net/browse/IZPACK-1530?filter=-4&jql=project%20%3D%20IZPACK%20AND%20affectedVersion%20%3D%205.1.0%20AND%20text%20~%20%22security%22%20order%20by%20created%20DESC), with the keyword "security", no security vulnerabilities has been identified to this day. The two issues listed(IZPACK-1530 & IZPACK-1555) are not security issues, they are only listed because of the stacktrace in the description which happens to have calls to "java.security".
 
-##### 11. Elasticsearch
+##### 11. RabbitMQ
 
-###### 3.1. License
+###### 11.1 License
+
+Feature | Value             | Description
+:-----------------------------: | :--------------------------------------------------------------------------------------------------------: | :---------------------------------------------------------------------------:  
+Name | RabbitMQ | RabbitMQ is a messaging server following AMQP protocol.  
+Developer/Ownership | Pivotal  
+Licencing conditions | Mozilla Public Licence, version 1.1 | Industrial Property Constraints Redistribution and use in source and binary forms, with or without modification, are permitted provided [those conditions](#https://www.mozilla.org/en-US/MPL/1.1/).  
+Version | 3.6.8  
+Languages | Erlang
+
+###### 11.2 Known security vulneratilities
+
+List of vulneratbilities made the 2018-04-30.
+
+sources: https://pivotal.io/security  
+
+Vulnerability CVE identifier | Description | CVSS Score | Publication date | Solved By  
+:--------------------------: | :---------: | :--------: | :--------------: | :-------:  
+CVE-2017-4966 | RabbitMQ management UI stores signed in user credentials in browser’s local storage without expiration, making it possible to retrieve them using a chained attack. | 2.1 | 2017-05-04 | 3.6.9+  
+CVE-2017-4965 & CVE-2017-4967 | Several forms in the RabbitMQ management UI are vulnerable to XSS attacks. | 4.3 | 2017-05-04 | 3.6.9+  
+
+Those vulnerabilities does not exposes REGARDS directly as REGARDS is only using the management API, not UI. However, it exposes RabbitMQ administrators. As so, two options are possible:  
+  - prohibe usage of the said UI thanks to firewall rules, managment of RabbitMQ is still possible thanks to command line.
+  - restrain the access to this UI thanks to firewall rules.
+
+##### 12. Elasticsearch
+
+###### 12.1. License
 
 Feature | Value             | Description
 :-----------------------------: | :--------------------------------------------------------------------------------------------------------: | :---------------------------------------------------------------------------:  
@@ -483,8 +572,7 @@ Licencing conditions | Apache license, version 2 | Industrial Property Constrain
 Version | 5.6.3  
 Language | Java
 
-
-###### 3.2. Known security vulnerabilities
+###### 12.2. Known security vulnerabilities
 
 List of vulnerabilities made the 2018-04-27.
 
@@ -492,9 +580,9 @@ source: https://www.elastic.co/fr/community/security
 
 There is no known security vulnerabilities for Elasticsearch version 5.6.X
 
-##### 12. FITS Java library
+##### 13. FITS Java library
 
-###### 3.1. License
+###### 13.1. License
 
 Feature | Value             | Description
 :-----------------------------: | :--------------------------------------------------------------------------------------------------------: | :---------------------------------------------------------------------------:  
@@ -504,45 +592,17 @@ Licencing conditions | LGPL, version 3 | Industrial Property Constraints Redistr
 Version | 1.15.1  
 Languages | Java  
 
-###### 3.2 Known security vulnerabilities  
+###### 13.2 Known security vulnerabilities  
 
 List of vulnerabilities made the 2018-04-27.
 
 This library is not used by REGARDS in Version 2.0.0. TODO: check
 
-##### 13. SiTools2
-
-WWWWUUUUUUUUUUTTTTTTTTT?!?!?!? since when SiTools2 is a COTS of REGARDS
-
-###### 3.1. License
-
-Feature | Value             | Description
-:-----------------------------: | :--------------------------------------------------------------------------------------------------------: | :---------------------------------------------------------------------------:  
-Name | SiTools2 Main features | SiTools2 provides a self-manageable data access layer deployed on already existing scientific laboratory databases.  
-Developer/Ownership | CNES  
-Licencing conditions | GPL, version 3 | Industrial Property Constraints Redistribution and use in source and binary forms, with or without modification, are permitted provided [those conditions](#https://www.gnu.org/licenses/lgpl-3.0.fr.html).  
-Version | 1.15.1  
-Languages | Java
-
-##### 14. SIPAD-NG
-
-WWWWUUUUUUUUUUTTTTTTTTT?!?!?!? since when SiTools2 is a COTS of REGARDS
-
-###### 3.1. License
-
-Feature | Value             | Description
-:-----------------------------: | :--------------------------------------------------------------------------------------------------------: | :---------------------------------------------------------------------------:  
-Name | SIPAD-NG Main features | Archival Information System  
-Developer/Ownership | CNES  
-Licencing conditions | No specific licence | Industrial Property Constraints No constraints  
-Version | 5.6  
-Languages | Java
-
 #### 2. Compile time backend
 
 ##### 1. Apache Maven
 
-###### 3.1. License
+###### 1.1. License
 
 Feature | Value             | Description
 :-----------------------------: | :--------------------------------------------------------------------------------------------------------: | :---------------------------------------------------------------------------:  
@@ -552,7 +612,7 @@ Licencing conditions | Apache license, version 2 | Industrial Property Constrain
 Version | 3.3.3  
 Languages | Java
 
-###### 3.2. Known security vulnerabilities
+###### 1.2. Known security vulnerabilities
 
 List of vulnerabilities made the 2018-04-27.
 
@@ -566,7 +626,7 @@ Security Considerations: Those tools are not deployed with REGARDS. As so they d
 
 ##### 1. Jenkins
 
-###### 3.1. License
+###### 1.1. License
 
 Feature | Value             | Description
 :-----------------------------: | :--------------------------------------------------------------------------------------------------------: | :---------------------------------------------------------------------------:  
@@ -578,7 +638,7 @@ Languages | JavaScript, Java
 
 ##### 2. SonarQube
 
-###### 3.1. License
+###### 2.1. License
 
 Feature | Value             | Description
 :-----------------------------: | :--------------------------------------------------------------------------------------------------------: | :---------------------------------------------------------------------------:  
