@@ -1,0 +1,71 @@
+= How to generate API documentation
+CSSI <regards@c-s.fr>
+:sectnums:
+:toc:
+:icons: font
+:source-highlighter: highlight.js
+
+*REGARDS API* documentation relies on Spring REST docs and *ASCIIDoc* format.
+
+REGARDS testing tools allows to generate contexual request and response snippets for each integration tests.
+
+NOTE: See integration testing tools
+
+== Snippets generation
+
+=== Default snippets
+
+.REGARDS snippets
+|===
+|Snippet |Description |Default
+
+|`http-request.snippet`
+|All request information but the body
+|Yes
+
+|`path-parameters.snippet`
+|Request path parameters
+|No
+
+|`request-parameters.snippet`
+|Request parameters
+|No
+
+|`request-body.snippet`
+|Request body useful for POST and PUT requests
+|Yes
+
+|`request-fields.snippet`
+|Request body detailed documentation (based on JSON pathes)
+|No
+
+|`http-response.snippet`
+|All response information
+|Yes
+
+|`response-fields.snippet`
+|Response body detailed documentation (based on JSON pathes)
+|No
+|===
+
+=== How to generate specific snippets?
+
+Use your `fr.cnes.regards.framework.test.integration.RequestBuilderCustomizer` to add a snippet to your test.
+
+==== Path parameters
+
+Add the snippet with `RequestDocumentation.pathParameters` method.
+
+WARNING: to be continued
+
+[source,java]
+----
+RequestBuilderCustomizer customizer = getNewRequestBuilderCustomizer();
+customizer.addDocumentationSnippet(RequestDocumentation.pathParameters(RequestDocumentation
+                .parameterWithName(AcquisitionProcessingChainController.CHAIN_PATH_PARAM)                .attributes(Attributes.key(RequestBuilderCustomizer.PARAM_TYPE).value(Long.class.getName()))
+                .description("Acquisition chain identifier")));
+----
+
+
+
+
