@@ -41,7 +41,7 @@ Furthermore, it defines configuration field `conf.attributes`, indicating the nu
 For each defined attributes, the plugin developer must provide :
  - `name` : Name of the attribute as it will be adressed in the plugin main component state (like searchField)
  - `description` : Description displayed to administrator at configuration.
- - `type` : Type constraint on the expected attributes. Possible values ['string','integer','date','numerical'].
+ - `attributeType` : Type constraint on the expected attribute type. When setting the plugin criterion, in search form configuration, only attribute models matching one of the listed types will be available for selection (see sub section below).
 
 ```json
 {
@@ -58,11 +58,63 @@ For each defined attributes, the plugin developer must provide :
     "attributes": [{
       "name":"searchField",
       "description":"Attribute to search for",
-      "type":"numerical",
+      "attributeType": [<%= type 1 %>, ...],
+    }, ...]
+  }
+}
+```
+
+## Attribute type
+
+The attributeType parameter, shortly described above, lists the model attribute types allowed to be used within this plugin critetion instance. For instance, by specifying `attributeType: [A, B]`, the plugin ensures receiving a data attribute of type A or B.  
+The possible types comes from REGARDS backend attribute types definition, in Java class `fr.cnes.regards.modules.models.domain.attributes.AttributeType`:
+
+```Java
+public enum AttributeType {
+
+    STRING,
+    INTEGER,
+    DOUBLE,
+    DATE_ISO8601,
+    URL,
+    BOOLEAN,
+    STRING_ARRAY,  // ...
+    INTEGER_ARRAY, // ...
+    DOUBLE_ARRAY, // ...
+    DATE_ARRAY, // ...
+    INTEGER_INTERVAL, // ...
+    DOUBLE_INTERVAL, // ...
+    DATE_INTERVAL, // ...
+    LONG,
+    LONG_INTERVAL, // ...
+    LONG_ARRAY, // ...
+
+    // ...
+}
+```
+
+Below stands an example plugin criterion with two fields, where first field works with a STRING attribute and second one with any numerical attribute
+
+```json
+{
+  // ...
+  "conf" : {
+    "attributes": [{
+      "name":"firstField",
+      "description":"First search field",
+      "attributeType": ["STRING"]
+    }, {
+      "name":"secondField",
+      "description":"Seconf search field",
+      "attributeType": ["INTEGER", "DOUBLE", "LONG"]
     }]
   }
 }
 ```
+
+
+
+
 
 # Main React component 
 
