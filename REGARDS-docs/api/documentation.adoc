@@ -7,13 +7,186 @@ CSSI <regards@c-s.fr>
 
 *REGARDS API* documentation relies on Spring REST docs and *ASCIIDoc* format.
 
-REGARDS testing tools allows to generate contexual request and response snippets for each integration tests.
+REGARDS testing tools allows to generate contextual request and response snippets for each integration test.
 
-NOTE: See integration testing tools
+NOTE: Look at integration testing tools
 
 == Snippets generation
 
-=== Default snippets
+Documentation is generated in `target/generated-snippets` during Maven build.
+
+=== Default documentation
+
+Main request and response properties are always documented (Look at <<snippets-sum>>). +
+
+Produces snippets :
+
+* [*] http-request.adoc
+* [*] request-body.adoc
+* [*] http-response.adoc
+
+
+=== How to generate specific documentation snippets?
+
+Use your `fr.cnes.regards.framework.test.integration.RequestBuilderCustomizer` to add a snippet to your test.
+
+[[doc-path-param]]
+==== Document request path parameters
+
+Produces snippets :
+
+* [*] path-parameters.adoc
+
+[source,java]
+----
+RequestBuilderCustomizer customizer = getNewRequestBuilderCustomizer(); <1>
+customizer.addDocumentationSnippet(RequestDocumentation.pathParameters <2>
+(RequestDocumentation.parameterWithName("yourPathParam") <3>
+.attributes(Attributes.key(RequestBuilderCustomizer.PARAM_TYPE) <4>
+.value("Number")) <5>
+.attributes(Attributes.key(RequestBuilderCustomizer.PARAM_CONSTRAINTS) <6>
+.value("Number")) <7>
+.description("Acquisition chain identifier"))); <8>
+----
+<1> Init a new `RequestBuilderCustomizer`
+<2> Add *path parameters snippet* to generation
+<3> Add `ParameterDescriptor`(s)
+<4> Set *optional* type attribute for each parameter (use `RequestBuilderCustomizer.PARAM_TYPE` as key)
+<5> Set type value (Look at <<json-field-types>>)
+<6> Set *optional* constraint attribute for each parameter (use `RequestBuilderCustomizer.PARAM_CONSTRAINTS` as key)
+<7> Set constraint value (Look at <<json-field-types>>)
+<8> Set *required* parameter description
+
+==== Document request parameters
+
+Produces snippets :
+
+* [*] request-parameters.adoc
+
+[source,java]
+----
+RequestBuilderCustomizer customizer = getNewRequestBuilderCustomizer(); <1>
+customizer.addDocumentationSnippet(RequestDocumentation.requestParameters <2>
+...
+----
+<1> Init a new `RequestBuilderCustomizer`
+<2> Add *request parameters snippet* to generation
+
+Look at <<doc-path-param>> for `ParameterDescriptor`(s) description.
+
+==== Document request payload fields
+
+Produces snippets :
+
+* [*] request-fields.adoc
+
+[source,java]
+----
+RequestBuilderCustomizer customizer = getNewRequestBuilderCustomizer(); <1>
+customizer.addDocumentationSnippet(PayloadDocumentation.relaxedRequestFields( <2>
+Attributes.attributes(Attributes.key(RequestBuilderCustomizer.PARAM_TITLE).value("A title")), <3>
+fieldDescriptors)); <4>
+----
+<1> Init a new `RequestBuilderCustomizer`
+<2> Add *request fields snippet* to generation (relaxed or not!)
+<3> Set an optional title
+<4> Set the list of `FieldDescriptor` (Look at <<doc-fields>>)
+
+[[doc-fields, Document fieds]]Document fields
+[source, java]
+----
+ConstrainedFields constrainedFields = new ConstrainedFields(YourPOJO.class); <1>
+List<FieldDescriptor> fields = new ArrayList<>(); <2>
+fields.add(constrainedFields.withPath("label", "Label")); <3>
+...
+----
+<1> Init a new `ConstrainedFields` to instrospect POJO class and its Bean Validation annotation.
+<2> Init a new list of fields
+<3> Add each field
+
+TIP: *Optional field* has to be marked as optional using `FieldDescriptor#optional()` method and `FieldDescriptor#type("String")` (Look at <<json-field-types>> for available type).
+
+==== Document response payload fields
+
+Produces snippets :
+
+* [*] response-fields.adoc
+
+[source,java]
+----
+RequestBuilderCustomizer customizer = getNewRequestBuilderCustomizer(); <1>
+customizer.addDocumentationSnippet(PayloadDocumentation.relaxedResponseFields( <2>
+Attributes.attributes(Attributes.key(RequestBuilderCustomizer.PARAM_TITLE).value("A title")), <3>
+fieldDescriptors)); <4>
+----
+<1> Init a new `RequestBuilderCustomizer`
+<2> Add *response fields snippet* to generation (relaxed or not!)
+<3> Set an optional title
+<4> Set the list of `FieldDescriptor` (Look at <<doc-fields>>)
+
+== Document aggregation
+
+Aggregation is done using https://asciidoctor.org/docs/asciidoctor-maven-plugin/[AsciiDoc Maven Plugin].
+
+To aggregate test snippets, create an API aggregator file in `src/main/asciidocs`.
+
+Look at <<references>> for AsciiDoc syntax.
+
+.sample-api.adoc
+[source,adoc]
+----
+= API title
+
+== Overview
+
+== Test title (according to tested REST controller)
+
+=== API endpoint description
+
+:TestClass: CurrentTestClass <1>
+:TestMethod: CurrentTestMethod <2>
+
+include::{snippets}/{TestClass}/{TestMethod}/http-request.adoc[] <3>
+
+include::{snippets}/{TestClass}/{TestMethod}/path-parameters.adoc <4>
+
+include::{snippets}/{TestClass}/{TestMethod}/request-parameters.adoc <5>
+
+include::{snippets}/{TestClass}/{TestMethod}/request-body.adoc[] <6>
+
+include::{snippets}/{TestClass}/{TestMethod}/request-fields.adoc[] <7>
+
+include::{snippets}/{TestClass}/{TestMethod}/http-response.adoc[] <8>
+
+include::{snippets}/{TestClass}/{TestMethod}/response-fields.adoc[] <9>
+
+=== API endpoint description 2
+etc.
+
+----
+
+<1> AsciiDoc attribute for test class to use in following include directives
+<2> AsciiDoc attribute for test methdo to use in following include directives
+<3> *Required* documentation for main request properties
+<4> *Optional* documentation for request path parameters (remove line if not useful!)
+<5> *Optional* documentation for request parameters (remove line if not useful!)
+<6> *Required* documentation for main request body
+<7> *Optional* documentation for request body
+<8> *Required* documentation for response properties
+<9> *Optional* documentation for response body
+
+Documentation is generated in `target/generated-docs` during Maven build after integration tests phase.
+
+To specifically re-generate this documentation with *existing documentation snippets*, use following command line :
+[source,sh]
+----
+mvn asciidoctor:process-asciidoc@generate-docs
+----
+
+== Appendices 
+
+[[snippets-sum]]
+=== REGARDS snippets summary
 
 .REGARDS snippets
 |===
@@ -48,24 +221,41 @@ NOTE: See integration testing tools
 |No
 |===
 
-=== How to generate specific snippets?
+[[json-field-types]]
+=== JSON field types 
+(from Spring REST docs)
 
-Use your `fr.cnes.regards.framework.test.integration.RequestBuilderCustomizer` to add a snippet to your test.
+.JSON field types
+|===
+|Type |Description
 
-==== Path parameters
+|Array
+|The value of each occurrence of the field is an array
 
-Add the snippet with `RequestDocumentation.pathParameters` method.
+|Boolean
+|The value of each occurrence of the field is a boolean (true or false)
 
-WARNING: to be continued
+|Object
+|The value of each occurrence of the field is an object
 
-[source,java]
-----
-RequestBuilderCustomizer customizer = getNewRequestBuilderCustomizer();
-customizer.addDocumentationSnippet(RequestDocumentation.pathParameters(RequestDocumentation
-                .parameterWithName(AcquisitionProcessingChainController.CHAIN_PATH_PARAM)                .attributes(Attributes.key(RequestBuilderCustomizer.PARAM_TYPE).value(Long.class.getName()))
-                .description("Acquisition chain identifier")));
-----
+|Number
+|The value of each occurrence of the field is a number
 
+|Null
+|The value of each occurrence of the field is null
 
+|String
+|The value of each occurrence of the field is a string
 
+|Varies
+|The field occurs multiple times in the payload with a variety of different types
+|===
 
+[[references]]
+== References
+
+AsciiDoc Syntax Quick Reference:: https://asciidoctor.org/docs/asciidoc-syntax-quick-reference/
+
+AsciiDoctor user manual:: https://asciidoctor.org/docs/user-manual/
+
+AsciiDoc Maven Plugin:: https://asciidoctor.org/docs/asciidoctor-maven-plugin/
