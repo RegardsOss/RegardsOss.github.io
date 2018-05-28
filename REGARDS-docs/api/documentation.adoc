@@ -26,7 +26,7 @@ Produces snippets :
 * [*] http-response.adoc
 
 
-=== How to generate specific documentation snippets?
+=== How to generate additional documentation snippets?
 
 Use your `fr.cnes.regards.framework.test.integration.RequestBuilderCustomizer` to add a snippet to your test.
 
@@ -104,7 +104,7 @@ fields.add(constrainedFields.withPath("label", "Label")); <3>
 <2> Init a new list of fields
 <3> Add each field
 
-TIP: *Optional field* has to be marked as optional using `FieldDescriptor#optional()` method and `FieldDescriptor#type("String")` (Look at <<json-field-types>> for available type).
+TIP: *Optional field* has to be marked as optional using `FieldDescriptor#optional()` method and type has to be specified using `FieldDescriptor#type("String")` (Look at <<json-field-types>> for available types).
 
 ==== Document response payload fields
 
@@ -128,7 +128,7 @@ fieldDescriptors)); <4>
 
 Aggregation is done using https://asciidoctor.org/docs/asciidoctor-maven-plugin/[AsciiDoc Maven Plugin].
 
-To aggregate test snippets, create an API aggregator file in `src/main/asciidocs`.
+To aggregate test snippets, create an API aggregator file in `src/main/asciidoc`.
 
 Look at <<references>> for AsciiDoc syntax.
 
