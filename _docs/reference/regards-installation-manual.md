@@ -1,3 +1,4 @@
+{% comment %}
 ---
 layout: classic-docs
 title: REGARDS Installation manual
@@ -5,7 +6,7 @@ short-title: Installation manual
 categories:
   - reference
 ---
-
+{% endcomment %}
 # 1\. Download REGARDS Product
 
 You can download the **REGARDS installer package** from [our github page](https://github.com/RegardsOss/RegardsOss.github.io).  

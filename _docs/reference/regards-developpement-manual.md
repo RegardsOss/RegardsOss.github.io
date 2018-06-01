@@ -1,3 +1,4 @@
+{% comment %}
 ---
 layout: classic-docs
 title: REGARDS development manual
@@ -5,7 +6,7 @@ short-title: development manual
 categories:
   - reference
 ---
-
+{% endcomment %}
 # Overview
 
 1. development contexts

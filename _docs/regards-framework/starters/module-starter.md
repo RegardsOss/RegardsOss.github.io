@@ -1,8 +1,10 @@
+{% comment %}
 ---
 layout: classic-docs
 title: Module starter
 short-title: Module starter
 ---
+{% endcomment %}
 
 # Module starter
 

@@ -1,3 +1,4 @@
+{% comment %}
 ---
 layout: classic-docs
 title: How to start REGARDS with docker ?
@@ -5,7 +6,7 @@ short-title: Quick start with docker
 categories:
   - getting-started
 ---
-
+{% endcomment %}
 
 You can run the REGARDS ecosystem easily by using docker and docker-compose.
 Keep in mind that this configuration shall not be used in a production environnement.

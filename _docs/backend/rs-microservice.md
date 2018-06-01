@@ -1,3 +1,4 @@
+{% comment %}
 ---
 layout: classic-docs
 title: Microservices core
@@ -5,6 +6,7 @@ short-title: Microservices
 categories:
   - gettingstarted
 ---
+{% endcomment %}
 
 # Development context
 

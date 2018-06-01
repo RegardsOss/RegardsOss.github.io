@@ -1,8 +1,10 @@
+{% comment %}
 ---
 layout: classic-docs
 title: Swagger starter
 short-title: Swagger starter
 ---
+{% endcomment %}
 
 Pre-requisite:
 ```properties

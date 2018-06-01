@@ -1,3 +1,4 @@
+{% comment %}
 ---
 layout: classic-docs
 title: Generate Database Migration
@@ -5,7 +6,7 @@ short-title: Database migration
 categories:
   - microservice-core
 ---
-
+{% endcomment %}
 
 ## How to generate script migration
 

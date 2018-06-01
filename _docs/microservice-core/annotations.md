@@ -1,3 +1,4 @@
+{% comment %}
 ---
 layout: classic-docs
 title: Annotations
@@ -5,6 +6,7 @@ short-title: Annotations
 categories:
   - microservice-core
 ---
+{% endcomment %}
 
 # Domain
 

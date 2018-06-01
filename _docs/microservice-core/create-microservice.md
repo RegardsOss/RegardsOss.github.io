@@ -1,3 +1,4 @@
+{% comment %}
 ---
 layout: classic-docs
 title: Generate a new microservice
@@ -5,6 +6,7 @@ short-title: Generate microservice
 categories:
   - microservice-core
 ---
+{% endcomment %}
 
 To create a new microservice you have to create a new maven project with the microservice-archetype. To do so :
 
