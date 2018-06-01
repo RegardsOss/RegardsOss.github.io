@@ -19,6 +19,6 @@ RUN gem install \
 VOLUME /src
 EXPOSE 4000
 
-ADD jekyll /src
+ADD . /src
 
 WORKDIR /src

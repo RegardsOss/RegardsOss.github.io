@@ -27,22 +27,19 @@ pipeline {
         }
         stage('Generate the doc') {
             steps {
-                // Wait for gateway, catalog, access-project, access-instance and front
                 sh 'docker run --rm -i \
-                	-v ${WORKSPACE}/REGARDS-docs:/src/_docs \
-                	-v ${WORKSPACE}/doc-static:/src/_site \
+                	-v nginx/doc-static:/src/_site \
                 	172.26.46.158/rs_doc_generator jekyll build'
             }
             post {
                 always {
-	                sh 'sudo chown -R jenkins:jenkins ${WORKSPACE}/doc-static'
+	                sh 'sudo chown -R jenkins:jenkins nginx/doc-static'
 	            }
             }
         }
         stage('Create static website') {
             steps {
-            	sh 'cp -R doc-static nginx/'
-                sh 'cd nginx && docker build -t 172.26.46.158/rs_doc .'
+                sh 'docker build -t 172.26.46.158/rs_doc .'
                 sh 'docker push 172.26.46.158/rs_doc'
             }
         }

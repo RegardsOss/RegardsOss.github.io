@@ -1,0 +1,13 @@
+* **Data params**
+
+```json
+ {
+  "name" : "FLOAT_INTERVAL_ATT",
+  "description" : "float interval description",
+  "type" : "DOUBLE_INTERVAL",
+  "alterable" : false,
+  "optional" : false,
+  "label" : "ForTests",
+  "dynamic" : true
+}
+```
