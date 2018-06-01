@@ -1,4 +1,3 @@
-{% comment %}
 ---
 layout: classic-docs
 title: REGARDS User manual
@@ -6,7 +5,7 @@ short-title: User manual
 categories:
   - reference
 ---
-{% endcomment %}
+
 ===================
 
 # Overview

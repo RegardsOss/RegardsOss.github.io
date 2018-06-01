@@ -1,4 +1,3 @@
-{% comment %}
 ---
 layout: classic-docs
 title: Microservice core introduction
@@ -6,7 +5,6 @@ short-title: Intro
 categories:
   - microservice-core
 ---
-{% endcomment %}
 
 REGARDS Microservices are REST services exposed by a Jetty web server contained in a Spring boot application and composed of modules. Each microservice is a Maven project aggregating Maven modules. There is two modules by default: one responsible for running the microservice and one responsible for business. In case a microservice needs to be composed by more than one business module, a module archetype is available.
 

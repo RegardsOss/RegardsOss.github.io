@@ -1,4 +1,3 @@
-{% comment %}
 ---
 layout: classic-docs
 title: Software Reuse File
@@ -7,7 +6,6 @@ categories:
   - how-to
 description: List all used software
 ---
-{% endcomment %}
 
 Name | Company |  Responsibility  
 :-------------------: | :-----------------------: | :---------------:  

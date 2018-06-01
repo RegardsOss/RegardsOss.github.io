@@ -1,4 +1,3 @@
-{% comment %}
 ---
 layout: classic-docs
 title: Generate a new microservice module
@@ -6,7 +5,6 @@ short-title: Generate module
 categories:
   - microservice-core
 ---
-{% endcomment %}
 
 Once you have created the microservice container, you have to create modules.
 

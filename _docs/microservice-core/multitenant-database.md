@@ -1,4 +1,3 @@
-{% comment %}
 ---
 layout: classic-docs
 title: Microservice multitenant database
@@ -6,7 +5,6 @@ short-title: Multitenant Database
 categories:
   - microservice-core
 ---
-{% endcomment %}
 
 ## Overall
 

@@ -1,4 +1,3 @@
-{% comment %}
 ---
 layout: classic-docs
 title: Requirement report
@@ -6,7 +5,6 @@ short-title: Requirement report
 categories:
   - microservice-core
 ---
-{% endcomment %}
 
 # Prerequisites
 

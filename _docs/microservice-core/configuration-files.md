@@ -1,4 +1,3 @@
-{% comment %}
 ---
 layout: classic-docs
 title: Configurations files
@@ -6,7 +5,6 @@ short-title: Configurations files
 categories:
   - microservice-core
 ---
-{% endcomment %}
 
 All microservices depends on several configuration files. Here is an overview of each of them.
 

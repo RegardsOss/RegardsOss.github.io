@@ -1,4 +1,3 @@
-{% comment %}
 ---
 layout: classic-docs
 title: Microservice security initialization
@@ -6,7 +5,6 @@ short-title: Security
 categories:
   - microservice-core
 ---
-{% endcomment %}
 
 ![](/assets/images/security/security.png)
 

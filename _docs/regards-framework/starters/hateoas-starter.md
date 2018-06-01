@@ -1,10 +1,8 @@
-{% comment %}
 ---
 layout: classic-docs
 title: HATEOAS starter
 short-title: HATEOAS starter
 ---
-{% endcomment %}
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 

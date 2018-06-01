@@ -1,4 +1,3 @@
-{% comment %}
 ---
 layout: classic-docs
 title: REGARDS Operations manual
@@ -6,7 +5,7 @@ short-title: Operations manual
 categories:
   - reference
 ---
-{% endcomment %}
+
 # Overview
 
 1. Monitor Zull routing and load balancing (console)
