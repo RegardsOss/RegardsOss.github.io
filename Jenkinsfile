@@ -28,7 +28,7 @@ pipeline {
         stage('Generate the doc') {
             steps {
                 sh 'docker run --rm -i \
-                	-v nginx/doc-static:/src/_site \
+                	-v ${WORKSPACE}/nginx/doc-static:/src/_site \
                 	172.26.46.158/rs_doc_generator jekyll build'
             }
             post {
