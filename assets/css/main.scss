@@ -6,12 +6,30 @@ $body-text-color: #555;
 $heading-color: #333;
 $nav-bg-color: #FBFBFB;
 $nav-border-color: #CCC;
-
+$link-text-color: #27A0B6;
+$link-hover-color: #36D4ED;
 
 // General
 body{
 	color: $body-text-color;
 }
+h1, h2, h3, h4, h5, h6 {
+	font-family: 'Roboto';
+}
+p {
+	font-family: 'Roboto';
+	color: $body-text-color;
+}
+
+a {
+	color: $link-text-color;
+
+	&:hover {
+		color: $link-hover-color;
+		text-decoration: none;
+	}
+}
+
 	div.main-body{
 		overflow: auto;
 	}
