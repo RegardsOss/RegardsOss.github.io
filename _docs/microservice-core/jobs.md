@@ -39,19 +39,14 @@ such as percent completion, start and end dates...
 
 To create a job, developers must create a `JobInfo` object by providing following attributes :  
 
-- priority,
-- description,
-- expiration date,
-- result class name,
-- parameters,
-- job class name, to let the JobService instantiate the job.
-
 | Name | Type | Description |
-| :--: | :--: |:---------: |
+| :--: | :--: |:---------- |
 | locked | `Boolean` | `false` means your job will be cleaned by an automatic cleaning process |  
-| className | `String` | Job class name to execute |  
+| priority | `Integer` | Job priority |  
 | parameters | `Set<JobParameter>` | Job parameters |  
 | owner | `String` | The email of the job owner |  
+| className | `String` | Job class name to execute |  
+| expirationDate | `OffsetDateTime` _optional_ | When provided and reached, `JobInfoService` will mark the job as `FAILED` |  
 {: .table .table-striped}
 
 Two methods permits `JobInfo` creation :
@@ -61,7 +56,7 @@ Two methods permits `JobInfo` creation :
 
 There is two job statuses :
 
-- `PENDING` means `JobInfo` is only created in database, and will need another manual state change to be taken in account by `JobService`.
+- `PENDING` means `JobInfo` is only created in database, and will need another manual state change to `QUEUED` to be taken in account by `JobService`.
 - `QUEUED` means `JobInfo` is created in database and will be taken into account by JobService as soon as possible (ie. `JobService` will soon create a `Job` from this `JobInfo` and will execute it).
 
 Every instance of the same microservice will contains a `JobService` that fills its thread pool with jobs from all tenants. If the pool contains an empty slot, it searches for the next tenant having job to do with the highest priority and so on.  
@@ -72,6 +67,7 @@ To sum up, here is an example of Job creation :
 Set<JobParameter> parameters = Sets.newHashSet();
 parameters.add(new JobParameter(<your job>.SOME_PARAMETER_NAME, "42"));
 JobInfo jobInfo = new JobInfo(false, 0, parameters, getOwner(), <your job>.class.getName())
+jobInfo.setExpirationDate(OffsetDateTime.now().plusDays(40));
 jobService.createAsQueued(jobInfo);
 LOGGER.debug("New job scheduled uuid={}", jobInfo.getId().toString());
 ```
