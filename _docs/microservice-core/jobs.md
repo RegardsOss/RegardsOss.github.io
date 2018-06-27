@@ -6,18 +6,6 @@ categories:
   - microservice-core
 ---
 
-Jobs module allows to execute tasks in parallel on several microservices.
-
-Jobs module can be used by any microservice. When used, `t_job_info` and `t_job_parameters` tables are created into the microservice database/schema.
-
-The daemon `JobService` is launched to manage jobs, it permanently searches for jobs to execute following a priority provided by job submitter.
-
-To submit a job, it is necessary to create a `JobInfo` object containing informations about the job (ie. job parameters, job instantiation class, ...).
-`Job` instantiation class must implement `IJob` interface or better, inherit `AbstractJob` class.
-
-`Job` object is never manipulated by developers, only `JobInfo` is available. `JobInfo` contains job status and job informations
-such as percent completion, start and end dates...  
-
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 
@@ -34,6 +22,19 @@ such as percent completion, start and end dates...
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
+
+Jobs module allows to execute tasks in parallel on several microservices.
+
+Jobs module can be used by any microservice. When used, `t_job_info` and `t_job_parameters` tables are created into the microservice database/schema.
+
+The daemon `JobService` is launched to manage jobs, it permanently searches for jobs to execute following a priority provided by job submitter.
+
+To submit a job, it is necessary to create a `JobInfo` object containing informations about the job (ie. job parameters, job instantiation class, ...).
+`Job` instantiation class must implement `IJob` interface or better, inherit `AbstractJob` class.
+
+`Job` object is never manipulated by developers, only `JobInfo` is available. `JobInfo` contains job status and job informations
+such as percent completion, start and end dates...  
+
 ## Job creation
 
 To create a job, developers must create a `JobInfo` object by providing following attributes :  
@@ -45,12 +46,13 @@ To create a job, developers must create a `JobInfo` object by providing followin
 - parameters,
 - job class name, to let the JobService instantiate the job.
 
-TODO 
-| Path | Type | Description | Constraints |  
-| :--: | :--: | :---------: | :---------: |  
-| name | `String` | Attribute name | Must match the regular expression `[a-zA-Z_][0-9a-zA-Z_]*`, Must not be null, Size must be between 3 and 32 inclusive |  
-
-
+| Name | Type | Description |
+| :--: | :--: |:---------: |
+| locked | `Boolean` | `false` means your job will be cleaned by an automatic cleaning process |  
+| className | `String` | Job class name to execute |  
+| parameters | `Set<JobParameter>` | Job parameters |  
+| owner | `String` | The email of the job owner |  
+{: .table .table-striped}
 
 Two methods permits `JobInfo` creation :
 
@@ -59,10 +61,20 @@ Two methods permits `JobInfo` creation :
 
 There is two job statuses :
 
-- `PENDING` means `JobInfo` is only created in database without any involvement of nobody (ie a waiting state).
+- `PENDING` means `JobInfo` is only created in database, and will need another manual state change to be taken in account by `JobService`.
 - `QUEUED` means `JobInfo` is created in database and will be taken into account by JobService as soon as possible (ie. `JobService` will soon create a `Job` from this `JobInfo` and will execute it).
 
 Every instance of the same microservice will contains a `JobService` that fills its thread pool with jobs from all tenants. If the pool contains an empty slot, it searches for the next tenant having job to do with the highest priority and so on.  
+
+To sum up, here is an example of Job creation :
+
+```java
+Set<JobParameter> parameters = Sets.newHashSet();
+parameters.add(new JobParameter(<your job>.SOME_PARAMETER_NAME, "42"));
+JobInfo jobInfo = new JobInfo(false, 0, parameters, getOwner(), <your job>.class.getName())
+jobService.createAsQueued(jobInfo);
+LOGGER.debug("New job scheduled uuid={}", jobInfo.getId().toString());
+```
 
 ## Job life cycle
 
