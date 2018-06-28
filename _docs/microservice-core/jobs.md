@@ -68,7 +68,7 @@ Set<JobParameter> parameters = Sets.newHashSet();
 parameters.add(new JobParameter(<your job>.SOME_PARAMETER_NAME, "42"));
 JobInfo jobInfo = new JobInfo(false, 0, parameters, getOwner(), <your job>.class.getName())
 jobInfo.setExpirationDate(OffsetDateTime.now().plusDays(40));
-jobService.createAsQueued(jobInfo);
+jobInfoService.createAsQueued(jobInfo);
 LOGGER.debug("New job scheduled uuid={}", jobInfo.getId().toString());
 ```
 
