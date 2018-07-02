@@ -11,6 +11,7 @@ Name | Company |  Responsibility
 :-------------------: | :-----------------------: | :---------------:  
 Xavier-Alexandre Brochard | CSSI | Development Team  
 Sylvain Vissiere-Guerinet | CSSI | Development Team  
+  {: class="table table-striped"}
 
 # Document Status Sheet
 
@@ -18,6 +19,7 @@ Issue |    Date    |    Reasons for change
 :-------: | :---------: | :-------------------------:
 01    | 2018-04-27 | Add known security vulnerabilities  
 00    | 2016-07-28 | Creation of the document  
+  {: class="table table-striped"}
 
 # Table of contents
 
@@ -137,6 +139,7 @@ Reference             | Acronym |                     Title                     
 --------------------- | :-----: | :-------------------------------------------: | :-----: | :--------:
 SGDS-SL-12100-0002-CS |  TODO   |   DOSSIER DE SPECIFICATION LOGICIEL REGARDS   |   01    | 25/03/2016
 SGDS-CP-12200-0010-CS |  TODO   | Dossier de Conception Préliminaire du REGARDS |   00    | 01/06/2016
+  {: class="table table-striped"}
 
 #### 2. Definitions
 
@@ -203,6 +206,7 @@ Developer/Ownership | Facebook, Inc.
 Licencing conditions | Open source - BSD License | Industrial Property Constraints Redistribution and use in source and binary forms, with or without modification, are permitted provided [those conditions](#https://github.com/facebook/react/blob/master/LICENSE).  
 Version | 15.0.2  
 Languages | JavaScript, C++, TypeScript, CoffeScript, Python, C
+  {: class="table table-striped"}
 
 ##### 2. Redux
 
@@ -213,6 +217,7 @@ Developer/Ownership | Dan Abramov
 Licencing conditions | Open source - MIT License (MIT) | Industrial Property Constraints Permission is granted, free of charge, to deal in the Software without restriction, subject to [those conditions](#https://github.com/reactjs/redux/blob/master/LICENSE.md)  
 Version | 3.5.2  
 Languages | JavaScript, TypeScript
+  {: class="table table-striped"}
 
 ##### 3. Material-UI
 
@@ -223,6 +228,7 @@ Developer/Ownership | Call-Em-All
 Licencing conditions | Open source - MIT License (MIT) | Industrial Property Constraints Permission is granted, free of charge, to deal in the Software without restriction, subject to [those conditions](#https://github.com/callemall/material-ui/blob/master/LICENSE)  
 Version | 0.15.2  
 Languages | JavaScript
+  {: class="table table-striped"}
 
 ##### 4. Lodash
 
@@ -233,6 +239,7 @@ Developer/Ownership | jQuery Foundation and other contributors
 Licencing conditions | Open source - MIT License (MIT) | Industrial Property Constraints Permission is granted, free of charge, to deal in the Software without restriction, subject to [those conditions](#https://github.com/lodash/lodash/blob/master/LICENSE)  
 Version | 4.13.1  
 Languages | JavaScript
+  {: class="table table-striped"}
 
 #### 2. Compile time frontend
 
@@ -245,6 +252,7 @@ Developer/Ownership | Tobias Koppers
 Licencing conditions | Open soure - MIT License (MIT) | Industrial Property Constraints Permission is granted, free of charge, to deal in the Software without restriction, subject to [those conditions](#https://github.com/webpack/webpack/blob/master/LICENSE)  
 Version | 1.13.1  
 Languages | JavaScript
+  {: class="table table-striped"}
 
 ##### 2. TypeScript
 
@@ -255,6 +263,7 @@ Developer/Ownership | Microsoft
 Licencing conditions | Open source - Apache License | Industrial Property Constraints Perpetual, worldwide, non-exclusive, no-charge, royalty-free, irrevocable copyright license to reproduce, prepare Derivative Works of, publicly display, publicly perform, sublicense, and distribute the Work and such Derivative Works in Source or Object form.  
 Version | 2.0.0  
 Languages | TypeScript
+  {: class="table table-striped"}
 
 #### 3. Testing frontend
 
@@ -267,6 +276,7 @@ Developer/Ownership | TJ Holowaychuk
 Licencing conditions | Open source - MIT License (MIT) | Industrial Property Constraints Permission is granted, free of charge, to deal in the Software without restriction, subject to [those conditions](#https://github.com/mochajs/mocha/blob/master/LICENSE)  
 Version | 3.0.0-2  
 Languages | JavaScript, HTML
+  {: class="table table-striped"}
 
 ##### 2. Chai
 
@@ -277,6 +287,7 @@ Developer/Ownership | Jake Luer
 Licencing conditions | Open source - MIT License (MIT) | Industrial Property Constraints Permission is granted, free of charge, to deal in the Software without restriction, subject to [those conditions](#https://github.com/chaijs/chai#license)  
 Version | 3.5.0  
 Languages | JavaScript
+  {: class="table table-striped"}
 
 ### 3. Backend
 
@@ -293,7 +304,7 @@ Developer/Ownership | Oracle
 Licencing conditions | GNU GPL | Industrial Property Constraints Redistribution and use in source and binary forms, with or without modification, are permitted provided [those conditions](#http://www.oracle.com/technetwork/java/javase/downloads/thirdpartylicensereadme-java8-2168078.txt).  
 Version | 8  
 Languages | C++,C
-
+  {: class="table table-striped"}
 
 ###### 1.2. Known security vulnerabilities
 
@@ -304,18 +315,21 @@ Source: https://www.securityfocus.com/bid
 Vulnerability CVE identifier | Description | CVSS Score | Publication date | Solved By  
 :--------------------------: | :---------: | :--------: | :--------------: | :-------:  
 CVE-2015-2808 | The RC4 algorithm, as used in the TLS protocol and SSL protocol, does not properly combine state data with key data during the initialization phase, which makes it easier for remote attackers to conduct plaintext-recovery attacks against the initial bytes of a stream by sniffing network traffic that occasionally relies on keys affected by the Invariance Weakness, and then using a brute-force approach involving LSB values, aka the "Bar Mitzvah" issue. | 4.3 | 2015-03-31 | None  
+  {: class="table table-striped"}
 
 The vulnerability exposes REGARDS to no threats as we are not directly using SSL or TLS protocols. SSL protocol is handled by Apache from WEB-NG.  
 
 Vulnerability CVE identifier | Description | CVSS Score | Publication date | Solved By  
 :--------------------------: | :---------: | :--------: | :--------------: | :-------:  
 CVE-2014-1876 | The unpacker::redirect_stdio function in unpack.cpp in unpack200 in OpenJDK 6, 7, and 8; Oracle Java SE 5.0u61, 6u71, 7u51, and 8; JRockit R27.8.1 and R28.3.1; and Java SE Embedded 7u51 does not securely create temporary files when a log file cannot be opened, which allows local users to overwrite arbitrary files via a symlink attack on /tmp/unpack.log. | 4.4 | 2014-02-10 | None  
+  {: class="table table-striped"}
 
 REGARDS being setup on secured server to which users do not have access, this vulnerability does not exposes REGARDS to any threat.
 
 Vulnerability CVE identifier | Description | CVSS Score | Publication date | Solved By  
 :--------------------------: | :---------: | :--------: | :--------------: | :-------:  
 CVE-2015-4000 | The TLS protocol 1.2 and earlier, when a DHE_EXPORT ciphersuite is enabled on a server but not on a client, does not properly convey a DHE_EXPORT choice, which allows man-in-the-middle attackers to conduct cipher-downgrade attacks by rewriting a ClientHello with DHE replaced by DHE_EXPORT and then rewriting a ServerHello with DHE_EXPORT replaced by DHE, aka the "Logjam" issue. | 4.3 | 2015-05-20 | None  
+  {: class="table table-striped"}
 
 The vulnerability exposes REGARDS to no threats as we are not using TLS protocol. 
 
@@ -330,6 +344,7 @@ Developer/Ownership | Pivotal
 Licencing conditions | Apache license, version 2 | Industrial Property Constraints Redistribution and use in source and binary forms, with or without modification, are permitted provided [those conditions](#http://www.apache.org/licenses/LICENSE-2.0.txt).  
 Version | 4.3.11  
 Languages | Java  
+  {: class="table table-striped"}
 
 ###### 2.2. Known security vulnerabilities
 
@@ -340,12 +355,14 @@ Sources: https://www.securityfocus.com/bid , https://pivotal.io/security
 Vulnerability CVE identifier | Description | CVSS Score | Publication date | Solved By  
 :--------------------------: | :---------: | :--------: | :--------------: | :-------:  
 CVE-2018-1272 | Spring Framework versions 5.0 to 5.0.4, 4.3 to 4.3.14, and older unsupported versions provide client-side support for multipart requests. When Spring MVC or Spring WebFlux server application (server A) receives input from a remote client, and then uses that input to make a multipart request to another server (server B), it can be exposed to an attack, where an extra multipart is inserted in the content of the request from server A, causing server B to use the wrong value for a part it expects. This could to lead privilege escalation, for example, if the part content represents a username or user roles. | 0.0 | 2018-04-06 | 4.3.15+/5.0.5+  
+  {: class="table table-striped"}
 
 In order for the attacker to succeed, they would have to be able to guess the multipart boundary value chosen by server A for the multipart request to server B, which requires the attacker to also have control of the server or the ability to see the HTTP log of server A through a separate attack vector. REGARDS endpoint accepting multipart request are only endpoints from the administration bastion stronghold which are protected by proxy. REGARDS microservices do not make multipart request between them and are setup on secured server. As so, this vulnerability exposes REGARDS to no threat.  
 
 Vulnerability CVE identifier | Description | CVSS Score | Publication date | Solved By  
 :--------------------------: | :---------: | :--------: | :--------------: | :-------:  
 CVE-2018-1271 |  Spring Framework, versions 5.0 prior to 5.0.5 and versions 4.3 prior to 4.3.15 and older unsupported versions, allow applications to configure Spring MVC to serve static resources (e.g. CSS, JS, images). When static resources are served from a file system on Windows (as opposed to the classpath, or the ServletContext), a malicious user can send a request using a specially crafted URL that can lead a directory traversal attack. | 0.0 | 2018-04-06 | 4.3.15+/5.0.5+  
+  {: class="table table-striped"}
 
 This vulnerability exposes REGARDS to no threats as we are not serving static resources from the file system.
 
@@ -353,12 +370,14 @@ Vulnerability CVE identifier | Description | CVSS Score | Publication date | Sol
 :--------------------------: | :---------: | :--------: | :--------------: | :-------:  
 CVE-2018-1270 | Spring Framework, versions 5.0 prior to 5.0.5 and versions 4.3 prior to 4.3.15 and older unsupported versions, allow applications to expose STOMP over WebSocket endpoints with a simple, in-memory STOMP broker through the spring-messaging module. A malicious user (or attacker) can craft a message to the broker that can lead to a remote code execution attack. | 0.0 | 2018-04-06 | 4.3.15+/5.0.5+  
 CVE-2018-1275 | Partial fix for CVE-2018-1270 | 0.0 | 2018-04-11 | 4.3.16/5.0.5+  
+  {: class="table table-striped"}
 
 This vulnerability exposes REGARDS to no threats as we are not using the spring-messaging module and we are not using WebSockets either.    
 
 Vulnerability CVE identifier | Description | CVSS Score | Publication date | Solved By  
 :--------------------------: | :---------: | :--------: | :--------------: | :-------:  
 CVE-2018-1199 | Spring Security does not consider URL path parameters when processing security constraints. By adding a URL path parameter with special encodings, an attacker may be able to bypass a security constraint. The root cause of this issue is a lack of clarity regarding the handling of path parameters in the Servlet Specification (see below). Some Servlet containers include path parameters in the value returned for getPathInfo() and some do not. Spring Security uses the value returned by getPathInfo() as part of the process of mapping requests to security constraints. In this particular attack, different character encodings used in path parameters allows secured Spring MVC static resource URLs to be bypassed. | 5.0 | 2018-01-29 | 4.13.14+/5.0.3+  
+  {: class="table table-striped"}
 
 This vulnerability exposes REGARDS to no threats as we are not serving any static content.  
 
@@ -373,6 +392,7 @@ Developer/Ownership | Pivotal
 Licencing conditions | Apache license, version 2 | Industrial Property Constraints Redistribution and use in source and binary forms, with or without modification, are permitted provided [those conditions](#http://www.apache.org/licenses/LICENSE-2.0.txt).  
 Version | 4.3.2  
 Languages | Java  
+  {: class="table table-striped"}
 
 ###### 3.2 Known security vulnerabilities  
 
@@ -381,6 +401,7 @@ List of vulnerabilities made the 2018-04-27.
 Vulnerability CVE identifier | Description | CVSS Score | Publication date | Solved By  
 :--------------------------: | :---------: | :--------: | :--------------: | :-------:  
 CVE-2018-1199 | Spring Security does not consider URL path parameters when processing security constraints. By adding a URL path parameter with special encodings, an attacker may be able to bypass a security constraint. The root cause of this issue is a lack of clarity regarding the handling of path parameters in the Servlet Specification (see below). Some Servlet containers include path parameters in the value returned for getPathInfo() and some do not. Spring Security uses the value returned by getPathInfo() as part of the process of mapping requests to security constraints. In this particular attack, different character encodings used in path parameters allows secured Spring MVC static resource URLs to be bypassed. | 5.0 | 2018-01-29 | 4.2.4+/5.0.1+  
+  {: class="table table-striped"}
 
 This vulnerability exposes REGARDS to no threats as we are not serving any static content.  
 
@@ -395,6 +416,7 @@ Developer/Ownership | Pivotal
 Licencing conditions | Apache license, version 2 | Industrial Property Constraints Redistribution and use in source and binary forms, with or without modification, are permitted provided [those conditions](#http://www.apache.org/licenses/LICENSE-2.0.txt).  
 Version | 1.13.7  
 Languages | Java  
+  {: class="table table-striped"}
 
 ###### 4.2 Known security vulnerabilities  
 
@@ -415,6 +437,7 @@ Developer/Ownership | Pivotal
 Licencing conditions | Apache license, version 2 | Industrial Property Constraints Redistribution and use in source and binary forms, with or without modification, are permitted provided [those conditions](#https://github.com/spring-projects/spring-boot/blob/master/LICENSE.txt).  
 Version | 1.5.7  
 Languages | Java
+  {: class="table table-striped"}
 
 ###### 5.2. Known security vulnerabilities
 
@@ -425,12 +448,14 @@ Source: https://www.securityfocus.com/bid , https://pivotal.io/security
 Vulnerability CVE identifier | Description | CVSS Score | Publication date | Solved By  
 :--------------------------: | :---------: | :--------: | :--------------: | :-------:  
 CVE-2017-8046 |  Malicious PATCH requests submitted to spring-data-rest servers in Pivotal Spring Data REST versions prior to 2.5.12, 2.6.7, 3.0 RC3, Spring Boot versions prior to 2.0.0M4, and Spring Data release trains prior to Kay-RC3 can use specially crafted JSON data to run arbitrary Java code. | 7.5 | 2018-01-04 | None  
+  {: class="table table-striped"}
 
 This vulnerability exposes REGARDS to no threats because PATCH requests are forbidden by Apache Configuration.
 
 Vulnerability CVE identifier | Description | CVSS Score | Publication date | Solved By  
 :--------------------------: | :---------: | :--------: | :--------------: | :-------:  
 CVE-2018-1196 | Spring Boot supports an embedded launch script that can be used to easily run the application as a systemd or init.d linux service[1]. The script included with Spring Boot 1.5.9 and earlier is susceptible to a symlink attack which allows the “run_user” to overwrite and take ownership of any file on the same system. | 4.3 | 2018-01-30 | 1.5.10+/2.0.0.RC1+  
+  {: class="table table-striped"}
 
 This vulnerability exposes REGARDS to no threats as we are not setting up the system as a service and we are not using the script.  
 
@@ -445,6 +470,7 @@ Developer/Ownership | Pivotal
 Licencing conditions | Apache license, version 2 | Industrial Property Constraints Redistribution and use in source and binary forms, with or without modification, are permitted provided [those conditions](#https://github.com/spring-cloud/spring-cloud-netflix/blob/master/LICENSE.txt).  
 Version | 1.3.4  
 Languages | Java
+  {: class="table table-striped"}
 
 ###### 6.2. Known security vulnerabilities
 
@@ -465,6 +491,7 @@ Developer/Ownership | Pivotal
 Licencing conditions | Apache license, version 2 | Industrial Property Constraints Redistribution and use in source and binary forms, with or without modification, are permitted provided [those conditions](#https://github.com/spring-cloud/spring-cloud-config/blob/master/LICENSE.txt).  
 Version | 1.3.2  
 Languages | Java
+  {: class="table table-striped"}
 
 ###### 7.2. Known security vulnerabilities
 
@@ -485,6 +512,7 @@ Developer/Ownership | Open source software
 Licencing conditions | Apache license, version 2 | Industrial Property Constraints Redistribution and use in source and binary forms, with or without modification, are permitted provided [those conditions](#http://www.apache.org/licenses/LICENSE-2.0.txt).  
 Version | 9.5.0  
 Languages | Java
+  {: class="table table-striped"}
 
 ###### 8.2. Known security vulnerabilities
 
@@ -504,6 +532,7 @@ Name | Spring HATEOAS Main features | Library to support implementing representa
 Developer/Ownership | Pivotal  
 Licencing conditions | Apache license, version 2 | Industrial Property Constraints Redistribution and use in source and binary forms, with or without modification, are permitted provided [those conditions](#http://www.apache.org/licenses/LICENSE-2.0.txt).  
 Version | 0.23.0 Language | Java
+  {: class="table table-striped"}
 
 ###### 9.2. Known security vulnerabilities
 
@@ -524,7 +553,7 @@ Developer/Ownership | Open source software
 Licencing conditions | Apache license, version 2 | Industrial Property Constraints Redistribution and use in source and binary forms, with or without modification, are permitted provided [those conditions](#http://www.apache.org/licenses/LICENSE-2.0.txt).  
 Version | 5.1.0  
 Languages | Java
-
+  {: class="table table-striped"}
 
 ###### 10.2. Known security vulnerabilities
 
@@ -543,6 +572,7 @@ Developer/Ownership | Pivotal
 Licencing conditions | Mozilla Public Licence, version 1.1 | Industrial Property Constraints Redistribution and use in source and binary forms, with or without modification, are permitted provided [those conditions](#https://www.mozilla.org/en-US/MPL/1.1/).  
 Version | 3.6.8  
 Languages | Erlang
+  {: class="table table-striped"}
 
 ###### 11.2 Known security vulneratilities
 
@@ -554,6 +584,7 @@ Vulnerability CVE identifier | Description | CVSS Score | Publication date | Sol
 :--------------------------: | :---------: | :--------: | :--------------: | :-------:  
 CVE-2017-4966 | RabbitMQ management UI stores signed in user credentials in browser’s local storage without expiration, making it possible to retrieve them using a chained attack. | 2.1 | 2017-05-04 | 3.6.9+  
 CVE-2017-4965 & CVE-2017-4967 | Several forms in the RabbitMQ management UI are vulnerable to XSS attacks. | 4.3 | 2017-05-04 | 3.6.9+  
+  {: class="table table-striped"}
 
 Those vulnerabilities does not exposes REGARDS directly as REGARDS is only using the management API, not UI. However, it exposes RabbitMQ administrators. As so, two options are possible:  
   - prohibe usage of the said UI thanks to firewall rules, managment of RabbitMQ is still possible thanks to command line.
@@ -570,6 +601,7 @@ Developer/Ownership | Elastic
 Licencing conditions | Apache license, version 2 | Industrial Property Constraints Redistribution and use in source and binary forms, with or without modification, are permitted provided [those conditions](#http://www.apache.org/licenses/LICENSE-2.0.txt).  
 Version | 5.6.3  
 Language | Java
+  {: class="table table-striped"}
 
 ###### 12.2. Known security vulnerabilities
 
@@ -590,6 +622,7 @@ Developer/Ownership | NASA and International Astronomical Union
 Licencing conditions | LGPL, version 3 | Industrial Property Constraints Redistribution and use in source and binary forms, with or without modification, are permitted provided [those conditions](#https://www.gnu.org/licenses/lgpl-3.0.fr.html).  
 Version | 1.15.1  
 Languages | Java  
+  {: class="table table-striped"}
 
 ###### 13.2 Known security vulnerabilities  
 
@@ -608,6 +641,7 @@ Developer/Ownership | Eclipse
 Licencing conditions | Apache license, version 2 | Industrial Property Constraints Redistribution and use in source and binary forms, with or without modification, are permitted provided [those conditions](#http://www.apache.org/licenses/LICENSE-2.0.txt).  
 Version | 9.4.6  
 Languages | Java  
+  {: class="table table-striped"}
 
 ###### 14.2 Known security vulnerabilities
 
@@ -630,6 +664,7 @@ Developer/Ownership | Apache Software Foundation
 Licencing conditions | Apache license, version 2 | Industrial Property Constraints Redistribution and use in source and binary forms, with or without modification, are permitted provided [those conditions](#http://www.apache.org/licenses/LICENSE-2.0.txt).  
 Version | 3.3.3  
 Languages | Java
+  {: class="table table-striped"}
 
 ###### 1.2. Known security vulnerabilities
 
@@ -654,6 +689,7 @@ Developer/Ownership | SonarSource
 Licencing conditions | LGPL, version 3 | Industrial Property Constraints Redistribution and use in source and binary forms, with or without modification, are permitted provided [those conditions](#https://www.gnu.org/licenses/lgpl-3.0.fr.html).  
 Version | 2.7  
 Languages | JavaScript, Java
+  {: class="table table-striped"}
 
 ##### 2. SonarQube
 
@@ -666,6 +702,7 @@ Developer/Ownership | SonarSource
 Licencing conditions | LGPL, version 3 | Industrial Property Constraints Redistribution and use in source and binary forms, with or without modification, are permitted provided [those conditions](#https://www.gnu.org/licenses/lgpl-3.0.fr.html).  
 Version | 6.0  
 Languages | JavaScript, Java
+  {: class="table table-striped"}
 
 ##### 3. Selenium
 
@@ -678,3 +715,4 @@ Developer/Ownership | Apache Software Foundation
 Licencing conditions | Apache license, version 2 | Industrial Property Constraints Redistribution and use in source and binary forms, with or without modification, are permitted provided [those conditions](#http://www.apache.org/licenses/LICENSE-2.0.txt).  
 Version | 2.53.1  
 Languages | JavaScript, Java
+  {: class="table table-striped"}
