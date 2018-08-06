@@ -31,4 +31,16 @@ TOD.
 
 # 3\. Consult logs
 
-Every log from the REGARDS microservices are thrown throught SYSLOG protocol.
+By default logs are redirected into {REGARDS_INSTALL_DIR}/REGARDS/logs/{microservice}.log.
+
+If you want to log to syslog, you can add the folowing to each logback.xml, inside `configuration` element:
+```xml
+  <include resource="fr/cnes/regards/framework/logbackappender/syslog.xml" />
+	
+	<root level="info">
+		<appender-ref ref="STDOUT" />
+		<appender-ref ref="SYSLOG" />
+		<appender-ref ref="SYSLOG-SECU" />
+	</root>
+```
+By default, syslog appenders are configured for localhost on port 514. Normal logs are affected to facility LOCAL0 while security logs are affected to facility LOCAL1.
