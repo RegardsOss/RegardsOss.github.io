@@ -1,6 +1,6 @@
 ---
 layout: classic-category
-title: Microservice core
+title: Microservice Data Management
 categories:
   - microservice-dam
 description: Microservice **DA**ta**M**anagement provides ..
