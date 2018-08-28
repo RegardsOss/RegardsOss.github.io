@@ -41,7 +41,88 @@ The only difference is that to specify a circle for circle search, **half-angle 
 
 # GeoJSON format
 
-RFC tout ça....
+Geometry objects are described internally with GeoJSON format following RFC 7946 (https://tools.ietf.org/html/rfc7946). This specification permits to defines following geometry objects:
+  - Point
+  - MultiPoint
+  - LineString
+  - MultiLinesString
+  - Polygon
+  - MultiPolygon  
+
+Please, refer directly to given link for more precisions.  
+It is advisable to carefully read and understand:
+  - Polygon build especially linear ring right hand rule concept.
+  - Antimeridian Cutting.
+
+**Note:** by now, concerning polygons, only convex onex without holes are taken into account by REGARDS.
 
 # Geometry normalization
 
+Despite RFC 7946, not all applications completely follows it especially when antimeridian line is crossed. It is the case of Elasticsearch. 
+Furthermore, WGS84 is not designated to function with poles because it is a cylindrical projection.  
+Even RFC 7946 lets some shadow zones, in this case REGARDS had made a choice for taking into account some cases explained lower.  
+To counter all these drawbacks and make a consistent implementation, REGARDS provides a normalization for all geometries to manage a larger part of borderline problems.
+
+## Coordinate Ranges
+
+-  Coordinates (longitude and latitude) are explained into **degrees**.
+-  Latitude is expressed from **-90°** to **+90°**.
+-  Longitude is expressed from **-180°** (included) to **+180°** (excluded) but exceptionally a negative longitude could be expressed from **+180°** (included) to **+360°** (excluded) as discussed lower.
+-  As WGS84 is a cylindrical projection, poles - which are simple points with latitude **90°** or **-90°** without taking into account longitude value - are *transformed* into lines with longitude varying from **-180°** to **+180°** (or **360°** in some cases), this permits to deal with convex polygon around poles (see lower).
+
+## Bounding box
+
+A Bounding box (aka Bbox) is not a geometry object but is used as a search criterion parameter (opensearch norm).  
+A bounding box is always expressed with 4 values: southwest corner longitude, southwest corner latitude, northeast corner longitude, northeast corner latitude.  
+RFC 7946 says that the latitude of the northeast corner is always greater than the latitude of the southwest corner except when bounding boxes crosses the antimeridian. This means that  
+`"bbox": [177.0, -20.0, -178.0, -16.0]`  
+should cover 5 degrees of longitude.
+Unfortunately, Elasticsearch is not able to take this into consideration, so in this case, the Bbox criterion is replaced by:  
+`"bbox": [177.0, -20.0, 180.0, -16.0] OR "bbox": [-180.0, -20.0, -178.0, -16.0]`  
+
+## LineString and MultiLineString
+
+Elasticsearch forgets to be cleaver when taken into account line strings this means for a string crossing antimeridian, it does not use shortest path and always use the path crossing 0-longitude meridian.  
+LineString normalization consists to first determine if strings cross antimeridian (**as a simplification, algorithm only check longitudes distances to 0-meridian line and antimeridian, as if string edges where projected on equator, and then chooses short path between both edges**) then if so, to transform LineString into MultiLineString cutting input LineString at antimeridian.  
+For example:  
+`LINE_STRING((100, 50), (-100, 0))`  
+ is transformed into  
+`MULTI_LINE_STRING(`  
+  &nbsp;&nbsp;`LINE_STRING((100, 50), (180, 25)),`  
+  &nbsp;&nbsp;`LINE_STRING((-180, 25), (-100, 0))`  
+`)`  
+Of course, MultiLineString LineStrings components are all normalized and aggregated to produce normalized MultiLineString.
+
+## Polygon and MultiPolygon
+
+Polygons are the most complex geometries to normalize because of varieties (convex, concave, around poles) and difficulty to properly be analysed, don't forget that a geo polygon is a polygon on a sphere not just on a plane.  
+**First, note that by now, only *simple* polygons are taken into account, ie convex and without holes**. However it is possible to ingest complex Polygons or MultiPolygons but no normalization is applied.
+
+### Linear ring
+
+Following RFC 7946, a polygon is composed of several linear rings. First one is the exterior ring, others are holes into exterior ring. A linear ring is a closed LineString with four or more positions, first and last ones must be the same.
+
+It is **mandatory** to describe a polygon following right **hand rule** ie exterior ring is described counterclockwise and holes clockwise. Don't forget that polygons belong to a sphere, this means that every polygon has a complementary polygon and the only way to discriminate them is to follow this rule.
+
+For example:  
+`POLYGON(((0, 80), (90, 80), (-90, 80), (0, 80)))`  
+is a cap around North pole else  
+`POLYGON(((0, 80), (-90, 80), (90, 80), (0, 80)))`  
+is a (huge) cap around South pole.
+
+**Note:** as astronomic sphere is reversed, this means polygons should follow **left hand rule** instead in this case.
+
+### Normalization algorithm
+
+- First, some polygons may have a large amplitude exceeding 180° or 270°. Most of frameworks or software are not able to manage correctly such polygons because shortest distance between two point when crossing antimeridian is not well managed. To avoid this, first step of normalization is to use the fact that Elasticsearch is able to manage longitudes between -180° and 180° but also longitudes from 180° to 360° (excluded). Despite a path between 170° and -170° is not considered as going through antimeridian, same path between 170° and 190° is considered as going through antimeridian. Algorithm then analyzes each polygon linear strings and eventualy modifies longitudes following shortest path (same computation as LineString one).  
+**=> This means that it's a good thing to start a large amplitude polygon with its westmost point as first element.**
+
+- Second, some polygons may contain North or South pole (or both) as a cap on 80° latitude for example (`POLYGON(((0, 80), (90, 80), (-90, 80), (0, 80)))`).  
+Into WGS84 crs, this polygon is just a line between `(-90, 80)` and `(90, 80)`. A circle search centered on North pole with a radius lower than 10° (ie more than 1000 km) will not found previously given polygon.  
+To make this fully functional with WGS84, algorithm exploits the fact that Elasticsearch takes into account all longitudes at 90° latitude (as if North and South pole were strings and not just a single point). After having determining that polygon is around a pole using Hipparchus framework (https://www.hipparchus.org), a polygon reaching North pole using complete longitude amplitude is added on top of current polygon.  
+Previous polygon normalization is then:
+`POLYGON((0, 80), (90, 80), (180, 80), (180, 90), (-180, 90), (-180, 80), (-90, 80), (0, 80))`.
+
+In theory, a convex polygon containing both poles should be well normalized but it would be a good idea to use a MultiPolygon intersecting initial polygon with equator.
+
+Of course, MultiPolygon Polygons components are all normalized and aggregated to produce normalized MultiPolygon.
