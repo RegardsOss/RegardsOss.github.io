@@ -16,7 +16,7 @@ Everything has been done to make use of API as easy as possible but it is necess
 
 # REGARDS Search capabilities
 
-By now, REGARDS must be able to search geometric features into or accross a specified circle and a convex polygon and on Earth, Mars and for astronomic perfect sphere.
+By now, REGARDS must be able to search geometric features into or accross a specified circle and a convex polygon on Earth, Mars and for astronomic perfect sphere.
 
 # Spatial Projection
 
