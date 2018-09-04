@@ -27,7 +27,7 @@ It is advisable that aim of REGARDS is to search intersections between geometrie
 ## Mars 
 
 Mars is also an ellipsoid flattened on poles with a slightly flattening difference and an approximate half radius. Concerning polygon search it is enough to transform searching polygon into WGS84 crs and do the search with that geometry. For circle search, it is more complex:  
-  - because of flattening difference between Earth an Mars, a circle on Mars is not a circle on Earth except if center is a pole are on equator,
+  - because of flattening difference between Earth an Mars, a circle on Mars is not a circle on Earth except if center is a pole or on equator,
   - thanks to ellipsoid symmetry and using Geotools API, it is easy to find upper and lower circle points on projected circle, 
   - with these two points, an inner circle and outer circle can be used: all geometries into inner circle can be taken, all geometries out of outer circle can be evicted
   - for all geometries between inner and outer circles, minimum distance from circle center is directly computed with Geotools using input Mars coordinates to determine if geometries can be taken or not.
