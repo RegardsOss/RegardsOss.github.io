@@ -35,7 +35,7 @@ Mars is also an ellipsoid flattened on poles with a slightly flattening differen
 
 ## Astro
 
-Astronomic data are saved taking into account right ascention as a longitude and declination as a latitude, all in degrees. These geometries are then projected into a perfect sphere with medium earth radius (also known as authalic sphere).  
+Astronomic data are saved taking into account right ascension as a longitude and declination as a latitude, all in degrees. These geometries are then projected into a perfect sphere with medium earth radius (also known as authalic sphere).  
 Same algorithm as Mars one is then used.  
 The only difference is that to specify a circle for circle search, **half-angle of the cone in degrees** is specified in place of the radius.
 
@@ -54,7 +54,7 @@ It is advisable to carefully read and understand:
   - Polygon build especially linear ring right hand rule concept.
   - Antimeridian Cutting.
 
-**Note:** by now, concerning polygons, only convex onex without holes are taken into account by REGARDS.
+**Note:** by now, concerning polygons, only convex ones without holes are taken into account by REGARDS.
 
 # Geometry normalization
 
@@ -82,8 +82,8 @@ Unfortunately, Elasticsearch is not able to take this into consideration, so in 
 
 ## LineString and MultiLineString
 
-Elasticsearch forgets to be cleaver when taken into account line strings this means for a string crossing antimeridian, it does not use shortest path and always use the path crossing 0-longitude meridian.  
-LineString normalization consists to first determine if strings cross antimeridian (**as a simplification, algorithm only check longitudes distances to 0-meridian line and antimeridian, as if string edges where projected on equator, and then chooses short path between both edges**) then if so, to transform LineString into MultiLineString cutting input LineString at antimeridian.  
+Elasticsearch forgets to be clever when taken into account line strings this means for a string crossing antimeridian, it does not use shortest path and always use the path crossing 0-longitude meridian.  
+LineString normalization consists to first determine if strings cross antimeridian (**as a simplification, algorithm only check longitudes distances to 0-meridian line and antimeridian, as if string edges where projected on equator, and then chooses short path between both edges**) and if so, transforms LineString into MultiLineString cutting input LineString at antimeridian.  
 For example:  
 `LINE_STRING((100, 50), (-100, 0))`  
  is transformed into  
@@ -102,7 +102,7 @@ Polygons are the most complex geometries to normalize because of varieties (conv
 
 Following RFC 7946, a polygon is composed of several linear rings. First one is the exterior ring, others are holes into exterior ring. A linear ring is a closed LineString with four or more positions, first and last ones must be the same.
 
-It is **mandatory** to describe a polygon following right **hand rule** ie exterior ring is described counterclockwise and holes clockwise. Don't forget that polygons belong to a sphere, this means that every polygon has a complementary polygon and the only way to discriminate them is to follow this rule.
+It is **mandatory** to describe a polygon following right **hand rule** so exterior ring is described counterclockwise and holes clockwise. Don't forget that polygons belong to a sphere, this means that every polygon has a complementary polygon and the only way to discriminate them is to follow this rule.
 
 For example:  
 `POLYGON(((0, 80), (90, 80), (-90, 80), (0, 80)))`  
@@ -119,7 +119,7 @@ is a (huge) cap around South pole.
 
 - Second, some polygons may contain North or South pole (or both) as a cap on 80° latitude for example (`POLYGON(((0, 80), (90, 80), (-90, 80), (0, 80)))`).  
 Into WGS84 crs, this polygon is just a line between `(-90, 80)` and `(90, 80)`. A circle search centered on North pole with a radius lower than 10° (ie more than 1000 km) will not found previously given polygon.  
-To make this fully functional with WGS84, algorithm exploits the fact that Elasticsearch takes into account all longitudes at 90° latitude (as if North and South pole were strings and not just a single point). After having determining that polygon is around a pole using Hipparchus framework (https://www.hipparchus.org), a polygon reaching North pole using complete longitude amplitude is added on top of current polygon.  
+To make this fully functional with WGS84, algorithm exploits the fact that Elasticsearch takes into account all longitudes at 90° latitude (as if North and South pole were strings and not just a single point). After having determined that polygon is around a pole using Hipparchus framework (https://www.hipparchus.org), a polygon reaching North pole using complete longitude amplitude is added on top of current polygon.  
 Previous polygon normalization is then:
 `POLYGON((0, 80), (90, 80), (180, 80), (180, 90), (-180, 90), (-180, 80), (-90, 80), (0, 80))`.
 
