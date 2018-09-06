@@ -16,9 +16,9 @@ categories:
   - [Search SIP](#search-sip)
   - [Get one SIP](#get-one-sip)
   - [Retry to store a SIP already submitted](#retry-to-store-a-sip-already-submitted)
-  - [Delete a SIP identified by ipId](#delete-a-sip-identified-by-ipid)
+  - [Delete a SIP identified by its sipId](#delete-a-sip-identified-by-sipid)
     - [Example response](#example-response)
-  - [Delete SIP identified by sipId](#delete-sip-identified-by-sipid)
+  - [Delete SIP(s) identified by its providerId](#delete-sips-identified-by-providerid)
     - [Example response](#example-response-1)
 - [Ingestion session management](#ingestion-session-management)
   - [Get an ingestion’s session](#get-an-ingestions-session)
@@ -76,11 +76,11 @@ collection in GeoJson format to REGARDS.
 
 ## Get one SIP
 
-Retrieve one SIP by is ipId.
+Retrieve one SIP by its sipId.
 
 ## Retry to store a SIP already submitted
 
-A SIP can be retry to be stored via a `POST /sips/{ipId}/retry`
+A SIP can be retry to be stored via a `POST /sips/{sipId}/retry`
 request.  
 This action will be rejected if the SIP state is not
 **AIP\_GEN\_ERROR**, **INVALID** or **DELETED**.  
@@ -107,7 +107,7 @@ The response is the SIP in GeoJson format.
 </thead>
 <tbody>
 <tr class="odd">
-<td><p><code>ipId</code></p></td>
+<td><p><code>sipId</code></p></td>
 <td><p>String</p></td>
 <td><p>The REGARDS id of the SIP</p></td>
 <td><p>Must match the following format <strong>URN:OAISIdentifier:entityType:tenant:UUID(entityId):Vversion[,order][:REVrevision]</strong><br />
@@ -117,9 +117,9 @@ and <strong>entityTpe</strong> is <strong>COLLECTION</strong>, <strong>DOCUMENT<
 </tbody>
 </table>
 
-## Delete a SIP identified by ipId
+## Delete a SIP identified by sipId
 
-A SIP can be deleted via a `DELETE /sips/{ipId}` request.  
+A SIP can be deleted via a `DELETE /sips/{sipId}` request.  
 The response is a set with the SIP that can not be deleted.
 
   - **URL params**
@@ -130,9 +130,9 @@ See [ipIP parameter description](#ip-parameter-description).
 
 See [SIP collection](#sip-collection-response).
 
-## Delete SIP identified by sipId
+## Delete SIP(s) identified by providerId
 
-Several SIP can be deleted via a `DELETE /sips?sipId=XYZ` request.  
+Several SIP can be deleted via a `DELETE /sips?providerId=XYZ` request.  
 The response is a set of SIP that can not be deleted.
 
   - **Query
@@ -140,7 +140,7 @@ params**
 
 | Parameter | Type   | Description                         | Constraints |
 | --------- | ------ | ----------------------------------- | ----------- |
-| `sipId`   | String | The SIP id provided by the provider |             |
+| `providerId`   | String | The id provided by the provider (i.e. id in the submitted feature) |             |
 
 ### Example response
 

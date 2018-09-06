@@ -16,11 +16,11 @@
 | features[].properties.contentInformations[].representationInformation.syntax.description | `String` | A description |  |  
 | features[].properties.contentInformations[].representationInformation.syntax.mimeType | `String` | A two-part identifier for file formats and format contents |  |  
 | features[].properties.contentInformations[].dataObject | `Object` | A data object | Must not be null |  
-| features[].properties.contentInformations[].dataObject.regardsDataType | `String` | REGARDS data object type | Must not be null. Allowed values : RAWDATA, QUICKLOOK_SD, QUICKLOOK_MD, QUICKLOOK_HD, DOCUMENT, THUMBNAIL, OTHER, AIP |  
-| features[].properties.contentInformations[].dataObject.filename | `String` | The data object file name |  |  
+| features[].properties.contentInformations[].dataObject.regardsDataType | `String` | REGARDS data object type | Must not be null. Allowed values : RAWDATA, QUICKLOOK_SD, QUICKLOOK_MD, QUICKLOOK_HD, DOCUMENT, THUMBNAIL, OTHER, AIP, DESCRIPTION |  
+| features[].properties.contentInformations[].dataObject.filename | `String` | The data object file name | Must not be blank |  
 | features[].properties.contentInformations[].dataObject.urls | `Array` | A set of URL | Must not be empty |  
 | features[].properties.contentInformations[].dataObject.fileSize | `Long` | The data object size in bytes |  |  
-| features[].properties.contentInformations[].dataObject.checksum | `String` | The calculated data object checksum | Must not be blank |  
+| features[].properties.contentInformations[].dataObject.checksum | `String` | The calculated data object checksum |  |  
 | features[].properties.contentInformations[].dataObject.algorithm | `String` | The checksum algorithm used | see https://docs.oracle.com/javase/8/docs/api/java/security/MessageDigest.html[java.security.MessageDigest] |  
 | features[].properties.pdi | `Object` | The information which is necessary for adequate preservation of the Content Information | Must not be null |  
 | features[].properties.pdi.contextInformation.tags[] | `Array` | A set of tags |  |  
@@ -41,4 +41,4 @@
 | features[].properties.pdi.accessRightInformation.licence | `String` | The licence |  |  
 | features[].properties.pdi.accessRightInformation.dataRights | `String` | A data access rights | Must not be null |  
 | features[].properties.pdi.accessRightInformation.publicReleaseDate | `String` | ISO Date time | Required format : yyyy-MM-dd’T’HH:mm:ss.SSSZ |  
-
+{: .table .table-striped}

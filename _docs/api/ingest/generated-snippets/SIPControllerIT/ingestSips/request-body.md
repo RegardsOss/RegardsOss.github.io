@@ -24,7 +24,8 @@
         },
         "dataObject" : {
           "regardsDataType" : "RAWDATA",
-          "urls" : [ "file:/home/svissier/workspace/REGARDS/rs-ingest/ingest/ingest-rest/data1.fits" ],
+          "reference" : false,
+          "urls" : [ "file:/home/msordi/git/rs-ingest/ingest/ingest-rest/data1.fits" ],
           "filename" : "data1.fits",
           "algorithm" : "MD5",
           "checksum" : "b463726cfbb52d47e432bedf08edbec3",

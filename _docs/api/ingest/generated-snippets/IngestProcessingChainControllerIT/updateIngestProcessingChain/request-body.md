@@ -5,7 +5,7 @@
   "name" : "ingestProcessingChain_test",
   "description" : "the updated description",
   "validationPlugin" : {
-    "id" : 3,
+    "id" : 152,
     "pluginId" : "FakeValidationTestPlugin",
     "label" : "FakeValidationTestPlugin",
     "version" : "1.0.0",
@@ -16,7 +16,7 @@
     "parameters" : [ ]
   },
   "generationPlugin" : {
-    "id" : 4,
+    "id" : 153,
     "pluginId" : "FakeAIPGenerationTestPlugin",
     "label" : "FakeAIPGenerationTestPlugin",
     "version" : "1.0.0",

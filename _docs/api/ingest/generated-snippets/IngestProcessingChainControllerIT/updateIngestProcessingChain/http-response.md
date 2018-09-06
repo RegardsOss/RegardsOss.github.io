@@ -20,14 +20,14 @@
 ```json
 
 {
-  "id" : 3,
+  "id" : 153,
   "name" : "ingestProcessingChain_test",
   "description" : "the updated description",
   "preProcessingPlugin" : {
     "present" : false
   },
   "validationPlugin" : {
-    "id" : 3,
+    "id" : 152,
     "pluginId" : "FakeValidationTestPlugin",
     "label" : "FakeValidationTestPlugin",
     "version" : "1.0.0",
@@ -40,7 +40,7 @@
     "identifiable" : true
   },
   "generationPlugin" : {
-    "id" : 4,
+    "id" : 153,
     "pluginId" : "FakeAIPGenerationTestPlugin",
     "label" : "FakeAIPGenerationTestPlugin",
     "version" : "1.0.0",
@@ -59,7 +59,7 @@
     "present" : false
   },
   "chainPlugins" : [ {
-    "id" : 3,
+    "id" : 152,
     "pluginId" : "FakeValidationTestPlugin",
     "label" : "FakeValidationTestPlugin",
     "version" : "1.0.0",
@@ -71,7 +71,7 @@
     "iconUrl" : null,
     "identifiable" : true
   }, {
-    "id" : 4,
+    "id" : 153,
     "pluginId" : "FakeAIPGenerationTestPlugin",
     "label" : "FakeAIPGenerationTestPlugin",
     "version" : "1.0.0",

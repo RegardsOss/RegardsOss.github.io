@@ -2,18 +2,18 @@
 
   **Headers:**
 
+  `Access-Control-Allow-Origin: *`
+  `Access-Control-Allow-Methods: POST, PUT, GET, OPTIONS, DELETE`
+  `Access-Control-Allow-Headers: authorization, content-type, scope`
+  `Access-Control-Max-Age: 3600`
+  `X-Application-Context: Test application:default,test,noschedule:-1`
+  `Content-Type: application/json;charset=UTF-8`
   `X-Content-Type-Options: nosniff`
   `X-XSS-Protection: 1; mode=block`
   `Cache-Control: no-cache, no-store, max-age=0, must-revalidate`
   `Pragma: no-cache`
   `Expires: 0`
   `X-Frame-Options: DENY`
-  `Access-Control-Allow-Origin: *`
-  `Access-Control-Allow-Methods: POST, PUT, GET, OPTIONS, DELETE`
-  `Access-Control-Allow-Headers: authorization, content-type, scope`
-  `Access-Control-Max-Age: 3600`
-  `X-Application-Context: Test application:default,test:-1`
-  `Content-Type: application/json;charset=UTF-8`
 
   **Content:**
 
@@ -29,12 +29,12 @@
   "content" : [ {
     "content" : {
       "id" : 6,
-      "sipId" : "SIP_002",
-      "ipId" : "URN:SIP:DATA:PROJECT:bdacbc80-624d-3a7c-8de7-464743b3d1f9:V1",
+      "providerId" : "SIP_002",
+      "sipId" : "URN:SIP:DATA:PROJECT:bdacbc80-624d-3a7c-8de7-464743b3d1f9:V1",
       "owner" : "default_user@regards.fr",
       "version" : 1,
       "state" : "CREATED",
-      "checksum" : "884669a15d7c066349c2a08abf1b6301",
+      "checksum" : "c60792db069e90d3353411b2b9436dac",
       "sip" : {
         "ipType" : "DATA",
         "id" : "SIP_002",
@@ -50,7 +50,8 @@
             },
             "dataObject" : {
               "regardsDataType" : "RAWDATA",
-              "urls" : [ "file:/home/svissier/workspace/REGARDS/rs-ingest/ingest/ingest-rest/data2.fits" ],
+              "reference" : false,
+              "urls" : [ "file:/home/msordi/git/rs-ingest/ingest/ingest-rest/data2.fits" ],
               "filename" : "data2.fits",
               "algorithm" : "MD5",
               "checksum" : "b463726cfbb52d47e432bedf08edbec3",
@@ -118,28 +119,29 @@
         },
         "type" : "Feature"
       },
-      "ingestDate" : "2018-06-01T09:48:01.931Z",
+      "ingestDate" : "2018-09-06T09:08:17.624Z",
       "processing" : "DefaultProcessingChain",
       "session" : {
         "id" : "sessionId",
-        "lastActivationDate" : "2018-06-01T09:48:01.964Z",
+        "lastActivationDate" : "2018-09-06T09:08:17.641Z",
         "sipsCount" : 0,
         "indexedSipsCount" : 0,
         "storedSipsCount" : 0,
         "generatedSipsCount" : 0,
-        "errorSipsCount" : 0
+        "errorSipsCount" : 0,
+        "deletedSipsCount" : 0
       }
     },
     "links" : [ ]
   }, {
     "content" : {
       "id" : 5,
-      "sipId" : "SIP_001",
-      "ipId" : "URN:SIP:DATA:PROJECT:dbbbbe05-b6b8-3300-8431-105f505cbb3c:V1",
+      "providerId" : "SIP_001",
+      "sipId" : "URN:SIP:DATA:PROJECT:dbbbbe05-b6b8-3300-8431-105f505cbb3c:V1",
       "owner" : "default_user@regards.fr",
       "version" : 1,
       "state" : "CREATED",
-      "checksum" : "14046430a7cba0a0071837f3057ceaaf",
+      "checksum" : "f2e87be1d720270f4ed51a407edb3864",
       "sip" : {
         "ipType" : "DATA",
         "id" : "SIP_001",
@@ -155,7 +157,8 @@
             },
             "dataObject" : {
               "regardsDataType" : "RAWDATA",
-              "urls" : [ "file:/home/svissier/workspace/REGARDS/rs-ingest/ingest/ingest-rest/data1.fits" ],
+              "reference" : false,
+              "urls" : [ "file:/home/msordi/git/rs-ingest/ingest/ingest-rest/data1.fits" ],
               "filename" : "data1.fits",
               "algorithm" : "MD5",
               "checksum" : "b463726cfbb52d47e432bedf08edbec3",
@@ -223,16 +226,17 @@
         },
         "type" : "Feature"
       },
-      "ingestDate" : "2018-06-01T09:48:01.89Z",
+      "ingestDate" : "2018-09-06T09:08:17.547Z",
       "processing" : "DefaultProcessingChain",
       "session" : {
         "id" : "sessionId",
-        "lastActivationDate" : "2018-06-01T09:48:01.964Z",
+        "lastActivationDate" : "2018-09-06T09:08:17.641Z",
         "sipsCount" : 0,
         "indexedSipsCount" : 0,
         "storedSipsCount" : 0,
         "generatedSipsCount" : 0,
-        "errorSipsCount" : 0
+        "errorSipsCount" : 0,
+        "deletedSipsCount" : 0
       }
     },
     "links" : [ ]

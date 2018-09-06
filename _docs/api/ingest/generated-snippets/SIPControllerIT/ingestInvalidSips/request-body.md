@@ -21,7 +21,8 @@
         },
         "dataObject" : {
           "regardsDataType" : "RAWDATA",
-          "urls" : [ "file:/home/svissier/workspace/REGARDS/rs-ingest/ingest/ingest-rest/data1.fits" ],
+          "reference" : false,
+          "urls" : [ "file:/home/msordi/git/rs-ingest/ingest/ingest-rest/data1.fits" ],
           "filename" : "data1.fits",
           "algorithm" : "FAKE_ALGO",
           "checksum" : "sdsdfm1211vd"
@@ -55,7 +56,8 @@
         },
         "dataObject" : {
           "regardsDataType" : "RAWDATA",
-          "urls" : [ "file:/home/svissier/workspace/REGARDS/rs-ingest/ingest/ingest-rest/data2.fits" ],
+          "reference" : false,
+          "urls" : [ "file:/home/msordi/git/rs-ingest/ingest/ingest-rest/data2.fits" ],
           "filename" : "data2.fits",
           "algorithm" : "MD5",
           "checksum" : "sdsdfm1211vsdfdsfd"

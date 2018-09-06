@@ -21,10 +21,10 @@
 
 {
   "content" : {
-    "id" : 8,
+    "id" : 158,
     "name" : "TestProcessingChain",
     "validationPlugin" : {
-      "id" : 13,
+      "id" : 162,
       "pluginId" : "DefaultSipValidation",
       "label" : "TestSIPValidation",
       "version" : "1.0.0",
@@ -35,7 +35,7 @@
       "parameters" : [ ]
     },
     "generationPlugin" : {
-      "id" : 14,
+      "id" : 163,
       "pluginId" : "DefaultSingleAIPGeneration",
       "label" : "TestAIPGeneration",
       "version" : "1.0.0",

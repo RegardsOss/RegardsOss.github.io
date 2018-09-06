@@ -1,4 +1,4 @@
-* **Code:** 201 Created
+* **Code:** 206 Partial Content
 
   **Headers:**
 
@@ -13,7 +13,23 @@
   `Access-Control-Allow-Headers: authorization, content-type, scope`
   `Access-Control-Max-Age: 3600`
   `X-Application-Context: Test application:default,test:-1`
+  `Content-Type: application/json;charset=UTF-8`
 
   **Content:**
 
-    None
+```json
+
+[ {
+  "moduleInformation" : {
+    "id" : "ingest",
+    "name" : "SIP management module",
+    "description" : "SIP submission and management",
+    "version" : "2.0.0-SNAPSHOT",
+    "author" : "CSSI",
+    "legalOwner" : "CNES",
+    "documentation" : "https://github.com/RegardsOss"
+  },
+  "importErrors" : [ "Ingest processing chain already exists with same name, skipping import of DefaultProcessingChain." ],
+  "onlyErrors" : false
+} ]
+```

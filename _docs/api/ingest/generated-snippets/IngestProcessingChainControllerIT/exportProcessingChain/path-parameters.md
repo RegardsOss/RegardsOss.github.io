@@ -5,4 +5,5 @@
 Parameter | Type | Description | Constraints  
 :-------: | :--: | :---------: | :---------:  
 `name` | String | Ingestion processing name |   
+{: .table .table-striped}
 
