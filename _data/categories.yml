@@ -1,7 +1,3 @@
-- name: "Home"
-  slug: home
-  index: home
-
 - name: "Getting Started"
   slug: getting-started
   index: getting-started
