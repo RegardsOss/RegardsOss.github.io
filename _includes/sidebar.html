@@ -6,7 +6,8 @@
 		{% if category.slug != "installation" and category.slug != "resources" and category.slug != "documentation" and category.slug != "enterprise" %}
 
 
-			<li><a href="{{ site.baseurl }}/{{ category.index }}/">{{ category.name }}</a>
+			<li>
+				<a href="{{ site.baseurl }}/{{ category.index }}/">{{ category.name }}</a>
 				<ul class="list-unstyled">
 				{% for doc in site.docs %}
 					{% if (doc.categories contains category.slug) and (doc.slug != category.index) %}					
