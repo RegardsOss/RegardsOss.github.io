@@ -18,7 +18,7 @@
       "onlyDynamic" : false
     }, {
       "name" : "Storage_URL",
-      "value" : "file:/home/svissier/workspace/REGARDS/rs-storage/storage/storage-rest/target/AIPControllerIT",
+      "value" : "file:/home/msordi/git/rs-storage/storage/storage-rest/target/AIPControllerIT",
       "dynamic" : false,
       "dynamicsValues" : [ ],
       "onlyDynamic" : false

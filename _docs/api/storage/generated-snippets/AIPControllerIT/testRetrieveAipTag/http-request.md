@@ -2,11 +2,11 @@
 
 * **URL**
 
-  `/aips/URN:AIP:DATA:PROJECT:1edfe9e5-776b-40da-887c-0d500dce2e7f:V1/tags/tag`
+  `/aips/URN:AIP:DATA:PROJECT:9b9b5756-8e60-4869-952d-506dff2709e7:V1/tags/tag`
 
 * **URL template**
 
-  `/aips/{ip_id}/tags/{tag}`
+  `/aips/{aip_id}/tags/{tag}`
 
 * **Method**
 

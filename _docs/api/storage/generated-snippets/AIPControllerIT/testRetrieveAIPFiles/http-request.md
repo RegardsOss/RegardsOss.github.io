@@ -2,11 +2,11 @@
 
 * **URL**
 
-  `/aips/URN:AIP:DATA:PROJECT:9af519ef-145a-4d27-90cb-d05d2b2ae4a6:V1/objectlinks`
+  `/aips/URN:AIP:DATA:PROJECT:7a58b416-032b-4fe6-816e-06a8ed62ec56:V1/objectlinks`
 
 * **URL template**
 
-  `/aips/{ip_id}/objectlinks`
+  `/aips/{aip_id}/objectlinks`
 
 * **Method**
 

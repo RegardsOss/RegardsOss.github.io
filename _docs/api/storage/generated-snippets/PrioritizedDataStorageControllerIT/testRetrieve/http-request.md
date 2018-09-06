@@ -2,7 +2,7 @@
 
 * **URL**
 
-  `/storages/304`
+  `/storages/3`
 
 * **URL template**
 

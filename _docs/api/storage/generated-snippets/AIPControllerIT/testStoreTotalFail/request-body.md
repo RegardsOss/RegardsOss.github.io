@@ -3,8 +3,10 @@
 ```json
  {
   "features" : [ {
+    "providerId" : "providerId",
+    "sipId" : "URN:SIP:DATA:PROJECT:658eb6bd-fbb2-4d22-8997-783d63f12e7b:V1",
     "ipType" : "DATA",
-    "id" : "URN:AIP:DATA:PROJECT:75c05cac-87ba-4f6d-8dc3-ffe323602f93:V1",
+    "id" : "URN:AIP:DATA:PROJECT:658eb6bd-fbb2-4d22-8997-783d63f12e7b:V1",
     "geometry" : null,
     "properties" : {
       "contentInformations" : [ {
@@ -17,7 +19,9 @@
         },
         "dataObject" : {
           "regardsDataType" : "RAWDATA",
-          "urls" : [ "file:/home/svissier/workspace/REGARDS/rs-storage/storage/storage-rest/src/test/resources/data.txt" ],
+          "reference" : false,
+          "urls" : [ "file:/home/msordi/git/rs-storage/storage/storage-rest/src/test/resources/data.txt" ],
+          "filename" : "data.txt",
           "algorithm" : "MD5",
           "checksum" : "de89a907d33a9716d11765582102b2e0"
         }
@@ -31,9 +35,10 @@
           "history" : [ {
             "type" : "SUBMISSION",
             "comment" : "test event",
-            "date" : "2018-06-01T09:39:53.609Z"
+            "date" : "2018-09-06T13:09:19.903Z"
           } ],
-          "facility" : "CS"
+          "facility" : "CS",
+          "session" : "Session123"
         },
         "fixityInformation" : { },
         "accessRightInformation" : {

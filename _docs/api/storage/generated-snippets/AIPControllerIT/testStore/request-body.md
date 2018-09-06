@@ -3,8 +3,10 @@
 ```json
  {
   "features" : [ {
+    "providerId" : "providerId",
+    "sipId" : "URN:SIP:DATA:PROJECT:3eae0bf6-a2d6-4a8f-af90-96d6ddde939b:V1",
     "ipType" : "DATA",
-    "id" : "URN:AIP:DATA:PROJECT:927e3ccf-89d3-4585-ae6c-2d67fd2ab602:V1",
+    "id" : "URN:AIP:DATA:PROJECT:3eae0bf6-a2d6-4a8f-af90-96d6ddde939b:V1",
     "geometry" : null,
     "properties" : {
       "contentInformations" : [ {
@@ -17,7 +19,9 @@
         },
         "dataObject" : {
           "regardsDataType" : "RAWDATA",
-          "urls" : [ "file:/home/svissier/workspace/REGARDS/rs-storage/storage/storage-rest/src/test/resources/data.txt" ],
+          "reference" : false,
+          "urls" : [ "file:/home/msordi/git/rs-storage/storage/storage-rest/src/test/resources/data.txt" ],
+          "filename" : "data.txt",
           "algorithm" : "MD5",
           "checksum" : "de89a907d33a9716d11765582102b2e0"
         }
@@ -31,9 +35,10 @@
           "history" : [ {
             "type" : "SUBMISSION",
             "comment" : "test event",
-            "date" : "2018-06-01T09:39:54.045Z"
+            "date" : "2018-09-06T13:09:20.448Z"
           } ],
-          "facility" : "CS"
+          "facility" : "CS",
+          "session" : "Session123"
         },
         "fixityInformation" : { },
         "accessRightInformation" : {

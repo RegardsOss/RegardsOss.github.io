@@ -2,7 +2,7 @@
 
 ```json
  {
-  "checksums" : [ "ac8ce57dfe4b697cde3809dd38c9e98f", "de89a907d33a9716d11765582102b2e0" ],
-  "expirationDate" : "2018-06-03T09:40:14.549Z"
+  "checksums" : [ "de89a907d33a9716d11765582102b2e0", "d98cc73f2c6266fdc50656843115aabc" ],
+  "expirationDate" : "2018-09-08T13:17:58.963Z"
 }
 ```

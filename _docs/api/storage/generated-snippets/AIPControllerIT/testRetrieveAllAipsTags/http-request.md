@@ -2,15 +2,15 @@
 
 * **URL**
 
-  `/aips/URN:AIP:DATA:PROJECT:f3c39e8d-39f4-4dcd-864d-999bd13338dc:V1`
+  `/aips/tags/search`
 
 * **URL template**
 
-  `/aips/{aip_id}`
+  `/aips/tags/search`
 
 * **Method**
 
-  `GET`
+  `POST`
 
 * **Headers**
 

@@ -2,11 +2,11 @@
 
 * **URL**
 
-  `/aips/URN:AIP:DATA:PROJECT:9993fc9f-2e90-4604-88f1-45a236ecb7bf:V1/history`
+  `/aips/URN:AIP:DATA:PROJECT:27392d07-dae9-4f45-a168-f945964472fc:V1/history`
 
 * **URL template**
 
-  `/aips/{ip_id}/history`
+  `/aips/{aip_id}/history`
 
 * **Method**
 

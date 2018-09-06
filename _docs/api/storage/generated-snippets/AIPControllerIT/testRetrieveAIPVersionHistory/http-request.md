@@ -2,11 +2,11 @@
 
 * **URL**
 
-  `/aips/URN:AIP:DATA:PROJECT:b00d83d5-dd30-4e19-9878-3eb5de83e386:V1/versions`
+  `/aips/URN:AIP:DATA:PROJECT:c6239b19-445d-4e82-9733-4e105dc5aebb:V1/versions`
 
 * **URL template**
 
-  `/aips/{ip_id}/versions`
+  `/aips/{aip_id}/versions`
 
 * **Method**
 

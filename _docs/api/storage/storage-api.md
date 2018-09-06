@@ -95,7 +95,7 @@ categories:
 
 ## Retrieve one AIP metadata
 
-    Allow to retrieve a given aip metadata thanks to its ipId
+    Allow to retrieve a given aip metadata thanks to its AIP identifier
 
 {% include_relative generated-snippets/AIPControllerIT/testRetrieveAip/http-request.md %}
 

@@ -2,18 +2,18 @@
 
   **Headers:**
 
+  `Access-Control-Allow-Origin: *`
+  `Access-Control-Allow-Methods: POST, PUT, GET, OPTIONS, DELETE`
+  `Access-Control-Allow-Headers: authorization, content-type, scope`
+  `Access-Control-Max-Age: 3600`
+  `X-Application-Context: storage-service-test:default,test,noschedule:-1`
+  `Content-Type: application/json;charset=UTF-8`
   `X-Content-Type-Options: nosniff`
   `X-XSS-Protection: 1; mode=block`
   `Cache-Control: no-cache, no-store, max-age=0, must-revalidate`
   `Pragma: no-cache`
   `Expires: 0`
   `X-Frame-Options: DENY`
-  `Access-Control-Allow-Origin: *`
-  `Access-Control-Allow-Methods: POST, PUT, GET, OPTIONS, DELETE`
-  `Access-Control-Allow-Headers: authorization, content-type, scope`
-  `Access-Control-Max-Age: 3600`
-  `X-Application-Context: storage-service-test:default,test:-1`
-  `Content-Type: application/json;charset=UTF-8`
 
   **Content:**
 
@@ -21,9 +21,9 @@
 
 {
   "content" : {
-    "id" : 305,
+    "id" : 4,
     "dataStorageConfiguration" : {
-      "id" : 305,
+      "id" : 4,
       "pluginId" : "Local",
       "label" : "PrioritizedDataStorageControllerIT_1",
       "version" : "1.0",
@@ -32,16 +32,16 @@
       "pluginClassName" : "fr.cnes.regards.modules.storage.plugin.datastorage.local.LocalDataStorage",
       "interfaceNames" : [ "fr.cnes.regards.modules.storage.domain.plugin.IDataStorage", "fr.cnes.regards.modules.storage.domain.plugin.IOnlineDataStorage" ],
       "parameters" : [ {
-        "id" : 308,
+        "id" : 7,
         "name" : "Local_Total_Space",
         "value" : 9000000000000000,
         "dynamic" : false,
         "dynamicsValues" : [ ],
         "onlyDynamic" : false
       }, {
-        "id" : 309,
+        "id" : 8,
         "name" : "Storage_URL",
-        "value" : "file:/home/svissier/workspace/REGARDS/rs-storage/storage/storage-rest/target/AIPControllerIT",
+        "value" : "file:/home/msordi/git/rs-storage/storage/storage-rest/target/AIPControllerIT",
         "dynamic" : false,
         "dynamicsValues" : [ ],
         "onlyDynamic" : false
@@ -58,7 +58,7 @@
     "href" : "http://localhost:8080/storages"
   }, {
     "rel" : "self",
-    "href" : "http://localhost:8080/storages/305"
+    "href" : "http://localhost:8080/storages/4"
   } ]
 }
 ```

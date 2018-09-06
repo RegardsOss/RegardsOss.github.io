@@ -19,5 +19,5 @@
 
 ```json
 
-[ "URN:AIP:DATA:PROJECT:c6239b19-445d-4e82-9733-4e105dc5aebb:V1" ]
+[ "tag1", "tag2", "tag3", "tag4" ]
 ```
