@@ -2,7 +2,7 @@
 
 * **URL**
 
-  `/models/modelUpMA/attributes/131`
+  `/models/modelUpMA/attributes/308`
 
 * **URL template**
 

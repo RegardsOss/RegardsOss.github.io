@@ -9,3 +9,4 @@
 | `from` | String | ISO Date time filter | Optional. Required format : yyyy-MM-dd'T'HH:mm:ss.SSSZ |  
 | `session` | String | Session name filter | Optional |  
 | `nosession` | Boolean | No session filter | Optional |  
+{: .table .table-striped}

@@ -7,3 +7,4 @@
 | `productId` | Number | Product acquisition file(s) identifier filter | Optional |  
 | `chainId` | Number | Acquisition chain identifier filter | Optional |  
 | `from` | String | ISO Date time filter | Optional. Required format : yyyy-MM-dd'T'HH:mm:ss.SSSZ |  
+{: .table .table-striped}

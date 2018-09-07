@@ -2,23 +2,24 @@
 
 ```json
  {
-  "id" : 131,
+  "id" : 308,
   "attribute" : {
-    "id" : 132,
+    "id" : 248,
     "name" : "attnewUpMA",
     "type" : "STRING",
     "fragment" : {
-      "id" : 109,
+      "id" : 118,
       "name" : "default",
       "description" : "Default fragment"
     },
     "alterable" : false,
     "optional" : false,
     "label" : "ForTests",
-    "dynamic" : true
+    "dynamic" : true,
+    "internal" : false
   },
   "model" : {
-    "id" : 228,
+    "id" : 185,
     "name" : "modelUpMA",
     "type" : "COLLECTION"
   },

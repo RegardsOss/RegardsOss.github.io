@@ -5,4 +5,5 @@
 Parameter | Type | Description | Constraints  
 :-------: | :--: | :---------: | :---------:  
 `chainId` | String | Acquisition chain identifier |   
+{: .table .table-striped}
 

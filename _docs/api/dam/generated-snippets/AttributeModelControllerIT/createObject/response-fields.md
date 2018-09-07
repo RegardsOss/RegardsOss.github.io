@@ -31,4 +31,6 @@
 | content.properties[].key | `String` | Custom key |  |  
 | content.properties[].value | `String` | Custom value |  |  
 | content.dynamic | `Boolean` | Used in search request parsing only | Defaults to true |  
+| content.internal | `Boolean` | Used in search request parsing only | Defaults to false |  
 | content.jsonPath | `String` | Used in search request. Define the JSON path to the related values in entities |  |  
+{: .table .table-striped}

@@ -5,3 +5,4 @@
 | content.description | `String` | model description |  |  
 | content.version | `String` | model version |  |  
 | content.type | `String` | model type | Must not be null. Available values: COLLECTION, DOCUMENT, DATA, DATASET |  
+{: .table .table-striped}

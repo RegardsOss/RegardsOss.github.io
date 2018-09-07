@@ -2,7 +2,7 @@
 
 * **URL**
 
-  `/models/attributes/177`
+  `/models/attributes/45`
 
 * **URL template**
 

@@ -2,18 +2,18 @@
 
   **Headers:**
 
+  `Access-Control-Allow-Origin: *`
+  `Access-Control-Allow-Methods: POST, PUT, GET, OPTIONS, DELETE`
+  `Access-Control-Allow-Headers: authorization, content-type, scope`
+  `Access-Control-Max-Age: 3600`
+  `X-Application-Context: Test application:default,test,noschedule:-1`
+  `Content-Type: application/json;charset=UTF-8`
   `X-Content-Type-Options: nosniff`
   `X-XSS-Protection: 1; mode=block`
   `Cache-Control: no-cache, no-store, max-age=0, must-revalidate`
   `Pragma: no-cache`
   `Expires: 0`
   `X-Frame-Options: DENY`
-  `Access-Control-Allow-Origin: *`
-  `Access-Control-Allow-Methods: POST, PUT, GET, OPTIONS, DELETE`
-  `Access-Control-Allow-Headers: authorization, content-type, scope`
-  `Access-Control-Max-Age: 3600`
-  `X-Application-Context: Test application:default,test:-1`
-  `Content-Type: application/json;charset=UTF-8`
 
   **Content:**
 
@@ -28,58 +28,66 @@
   },
   "content" : [ {
     "content" : {
-      "id" : 1622,
+      "id" : 1122,
       "state" : "AVAILABLE",
       "orderId" : 667,
-      "ipId" : "URN:AIP:DATA:ORDER:06fbba0d-4308-4d83-817c-098623eda2de:V1",
+      "ipId" : "URN:AIP:DATA:ORDER:56415dbd-58e1-4c91-a6ca-847d1c0e2037:V1",
+      "dataType" : "RAWDATA",
+      "reference" : false,
       "uri" : "file:///test/files/file1.txt",
+      "mimeType" : "text/plain",
+      "online" : true,
       "checksum" : "file1.txt",
-      "size" : 91,
-      "name" : "file1.txt",
-      "online" : true,
-      "mimeType" : "text/plain"
+      "filesize" : 91,
+      "filename" : "file1.txt"
     },
     "links" : [ ]
   }, {
     "content" : {
-      "id" : 1625,
+      "id" : 1125,
       "state" : "AVAILABLE",
       "orderId" : 667,
-      "ipId" : "URN:AIP:DATA:ORDER:06fbba0d-4308-4d83-817c-098623eda2de:V1",
+      "ipId" : "URN:AIP:DATA:ORDER:56415dbd-58e1-4c91-a6ca-847d1c0e2037:V1",
+      "dataType" : "RAWDATA",
+      "reference" : false,
       "uri" : "file:///test/files/file1_ql_sd.txt",
+      "mimeType" : "text/plain",
+      "online" : true,
       "checksum" : "file1_ql_sd.txt",
-      "size" : 22,
-      "name" : "file1_ql_sd.txt",
-      "online" : true,
-      "mimeType" : "text/plain"
+      "filesize" : 22,
+      "filename" : "file1_ql_sd.txt"
     },
     "links" : [ ]
   }, {
     "content" : {
-      "id" : 1623,
+      "id" : 1123,
       "state" : "AVAILABLE",
       "orderId" : 667,
-      "ipId" : "URN:AIP:DATA:ORDER:06fbba0d-4308-4d83-817c-098623eda2de:V1",
+      "ipId" : "URN:AIP:DATA:ORDER:56415dbd-58e1-4c91-a6ca-847d1c0e2037:V1",
+      "dataType" : "RAWDATA",
+      "reference" : false,
       "uri" : "file:///test/files/file1_ql_hd.txt",
-      "checksum" : "file1_ql_hd.txt",
-      "size" : 22,
-      "name" : "file1_ql_hd.txt",
+      "mimeType" : "text/plain",
       "online" : true,
-      "mimeType" : "text/plain"
+      "checksum" : "file1_ql_hd.txt",
+      "filesize" : 22,
+      "filename" : "file1_ql_hd.txt"
     },
     "links" : [ ]
   }, {
     "content" : {
-      "id" : 1624,
+      "id" : 1124,
       "state" : "AVAILABLE",
       "orderId" : 667,
-      "ipId" : "URN:AIP:DATA:ORDER:06fbba0d-4308-4d83-817c-098623eda2de:V1",
+      "ipId" : "URN:AIP:DATA:ORDER:56415dbd-58e1-4c91-a6ca-847d1c0e2037:V1",
+      "dataType" : "RAWDATA",
+      "reference" : false,
       "uri" : "file:///test/files/file1_ql_md.txt",
-      "checksum" : "file1_ql_md.txt",
-      "size" : 22,
-      "name" : "file1_ql_md.txt",
+      "mimeType" : "text/plain",
       "online" : true,
-      "mimeType" : "text/plain"
+      "checksum" : "file1_ql_md.txt",
+      "filesize" : 22,
+      "filename" : "file1_ql_md.txt"
     },
     "links" : [ ]
   } ],

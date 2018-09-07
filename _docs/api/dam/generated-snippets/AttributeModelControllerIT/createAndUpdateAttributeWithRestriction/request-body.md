@@ -2,7 +2,7 @@
 
 ```json
  {
-  "id" : 177,
+  "id" : 45,
   "name" : "NB_OBJECTS",
   "type" : "INTEGER",
   "alterable" : false,
@@ -15,6 +15,7 @@
     "maxExcluded" : false,
     "type" : "INTEGER_RANGE"
   },
-  "dynamic" : true
+  "dynamic" : true,
+  "internal" : false
 }
 ```

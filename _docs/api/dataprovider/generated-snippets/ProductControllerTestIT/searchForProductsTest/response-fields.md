@@ -9,3 +9,4 @@
 | content[].content.fileList[] | `Array` | Acquired product files |  |  
 | content[].content.sip | `Object` | Generated SIP |  |  
 | content[].content.ipId | `String` | SIP IP ID |  |  
+{: .table .table-striped}

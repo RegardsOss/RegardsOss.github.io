@@ -2,7 +2,7 @@
 
 * **URL**
 
-  `/models/modelRmNA/attributes/105`
+  `/models/modelRmNA/attributes/232`
 
 * **URL template**
 

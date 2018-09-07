@@ -17,7 +17,7 @@
       "priorityOrder" : 0,
       "active" : true,
       "pluginClassName" : "fr.cnes.regards.modules.acquisition.service.plugins.GlobDiskScanning",
-      "interfaceNames" : [ ],
+      "interfaceNames" : [ "fr.cnes.regards.modules.acquisition.plugins.IScanPlugin" ],
       "parameters" : [ {
         "name" : "directories",
         "value" : [ ],
@@ -37,7 +37,7 @@
     "priorityOrder" : 0,
     "active" : true,
     "pluginClassName" : "fr.cnes.regards.modules.acquisition.service.plugins.DefaultFileValidation",
-    "interfaceNames" : [ ],
+    "interfaceNames" : [ "fr.cnes.regards.modules.acquisition.plugins.IValidationPlugin" ],
     "parameters" : [ ]
   },
   "productPluginConf" : {
@@ -47,7 +47,7 @@
     "priorityOrder" : 0,
     "active" : true,
     "pluginClassName" : "fr.cnes.regards.modules.acquisition.service.plugins.DefaultProductPlugin",
-    "interfaceNames" : [ ],
+    "interfaceNames" : [ "fr.cnes.regards.modules.acquisition.plugins.IProductPlugin" ],
     "parameters" : [ ]
   },
   "generateSipPluginConf" : {
@@ -57,7 +57,7 @@
     "priorityOrder" : 0,
     "active" : true,
     "pluginClassName" : "fr.cnes.regards.modules.acquisition.service.plugins.DefaultSIPGeneration",
-    "interfaceNames" : [ ],
+    "interfaceNames" : [ "fr.cnes.regards.modules.acquisition.plugins.ISipGenerationPlugin" ],
     "parameters" : [ ]
   }
 }

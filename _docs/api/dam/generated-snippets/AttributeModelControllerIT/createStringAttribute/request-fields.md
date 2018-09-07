@@ -28,5 +28,6 @@
 | properties[].key | `String` | Custom key |  |  
 | properties[].value | `String` | Custom value |  |  
 | dynamic | `Boolean` | Used in search request parsing only | Defaults to true |  
+| internal | `Boolean` | Used in search request parsing only | Defaults to false |  
 | jsonPath | `String` | Used in search request. Define the JSON path to the related values in entities |  |  
-
+{: .table .table-striped}

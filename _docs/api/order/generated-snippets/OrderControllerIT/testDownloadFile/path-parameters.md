@@ -6,4 +6,5 @@ Parameter | Type | Description | Constraints
 :-------: | :--: | :---------: | :---------:  
 `aipId` | String | IP_ID of data object of which file belongs to |   
 `dataFileId` | Long | file id  |   
+{: .table .table-striped}
 

@@ -2,18 +2,18 @@
 
   **Headers:**
 
+  `Access-Control-Allow-Origin: *`
+  `Access-Control-Allow-Methods: POST, PUT, GET, OPTIONS, DELETE`
+  `Access-Control-Allow-Headers: authorization, content-type, scope`
+  `Access-Control-Max-Age: 3600`
+  `X-Application-Context: Test application:default,test,noschedule:-1`
+  `Content-Type: application/json;charset=UTF-8`
   `X-Content-Type-Options: nosniff`
   `X-XSS-Protection: 1; mode=block`
   `Cache-Control: no-cache, no-store, max-age=0, must-revalidate`
   `Pragma: no-cache`
   `Expires: 0`
   `X-Frame-Options: DENY`
-  `Access-Control-Allow-Origin: *`
-  `Access-Control-Allow-Methods: POST, PUT, GET, OPTIONS, DELETE`
-  `Access-Control-Allow-Headers: authorization, content-type, scope`
-  `Access-Control-Max-Age: 3600`
-  `X-Application-Context: Test application:default,test:-1`
-  `Content-Type: application/json;charset=UTF-8`
 
   **Content:**
 
@@ -21,13 +21,13 @@
 
 [ {
   "content" : {
-    "id" : 129,
+    "id" : 306,
     "attribute" : {
-      "id" : 129,
+      "id" : 245,
       "name" : "attLsAM",
       "type" : "STRING",
       "fragment" : {
-        "id" : 108,
+        "id" : 117,
         "name" : "default",
         "description" : "Default fragment"
       },
@@ -35,10 +35,11 @@
       "optional" : false,
       "label" : "ForTests",
       "dynamic" : true,
+      "internal" : false,
       "jsonPath" : "properties.attLsAM"
     },
     "model" : {
-      "id" : 227,
+      "id" : 184,
       "name" : "modelLsAM",
       "type" : "COLLECTION"
     },
@@ -46,23 +47,23 @@
   },
   "links" : [ {
     "rel" : "self",
-    "href" : "http://localhost:8080/models/modelLsAM/attributes/129"
+    "href" : "http://localhost:8080/models/modelLsAM/attributes/306"
   }, {
     "rel" : "delete",
-    "href" : "http://localhost:8080/models/modelLsAM/attributes/129"
+    "href" : "http://localhost:8080/models/modelLsAM/attributes/306"
   }, {
     "rel" : "list",
     "href" : "http://localhost:8080/models/modelLsAM/attributes"
   } ]
 }, {
   "content" : {
-    "id" : 130,
+    "id" : 307,
     "attribute" : {
-      "id" : 130,
+      "id" : 246,
       "name" : "attLsAM2",
       "type" : "STRING",
       "fragment" : {
-        "id" : 108,
+        "id" : 117,
         "name" : "default",
         "description" : "Default fragment"
       },
@@ -70,10 +71,11 @@
       "optional" : false,
       "label" : "ForTests",
       "dynamic" : true,
+      "internal" : false,
       "jsonPath" : "properties.attLsAM2"
     },
     "model" : {
-      "id" : 227,
+      "id" : 184,
       "name" : "modelLsAM",
       "type" : "COLLECTION"
     },
@@ -81,10 +83,10 @@
   },
   "links" : [ {
     "rel" : "self",
-    "href" : "http://localhost:8080/models/modelLsAM/attributes/130"
+    "href" : "http://localhost:8080/models/modelLsAM/attributes/307"
   }, {
     "rel" : "delete",
-    "href" : "http://localhost:8080/models/modelLsAM/attributes/130"
+    "href" : "http://localhost:8080/models/modelLsAM/attributes/307"
   }, {
     "rel" : "list",
     "href" : "http://localhost:8080/models/modelLsAM/attributes"

@@ -2,14 +2,14 @@
 
 ```json
  {
-  "id" : 4,
+  "id" : 55,
   "label" : "Processing chain 1",
   "active" : true,
   "mode" : "MANUAL",
   "locked" : false,
   "ingestChain" : "DefaultIngestChain",
   "fileInfos" : [ {
-    "id" : 4,
+    "id" : 55,
     "mandatory" : true,
     "scanPlugin" : {
       "pluginId" : "GlobDiskScanning",
@@ -18,7 +18,7 @@
       "priorityOrder" : 0,
       "active" : true,
       "pluginClassName" : "fr.cnes.regards.modules.acquisition.service.plugins.GlobDiskScanning",
-      "interfaceNames" : [ ],
+      "interfaceNames" : [ "fr.cnes.regards.modules.acquisition.plugins.IScanPlugin" ],
       "parameters" : [ {
         "name" : "directories",
         "value" : [ ],
@@ -32,7 +32,7 @@
     "comment" : "A comment"
   } ],
   "validationPluginConf" : {
-    "id" : 15,
+    "id" : 66,
     "pluginId" : "DefaultFileValidation",
     "label" : "update : Validation plugin",
     "version" : "1.0.0-SNAPSHOT",
@@ -43,7 +43,7 @@
     "parameters" : [ ]
   },
   "productPluginConf" : {
-    "id" : 16,
+    "id" : 67,
     "pluginId" : "DefaultProductPlugin",
     "label" : "update : Product plugin",
     "version" : "1.0.0-SNAPSHOT",
@@ -54,7 +54,7 @@
     "parameters" : [ ]
   },
   "generateSipPluginConf" : {
-    "id" : 17,
+    "id" : 68,
     "pluginId" : "DefaultSIPGeneration",
     "label" : "update : SIP generation plugin",
     "version" : "1.0.0-SNAPSHOT",

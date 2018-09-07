@@ -2,7 +2,7 @@
 
 * **URL**
 
-  `/models/modelGMA/attributes/104`
+  `/models/modelGMA/attributes/231`
 
 * **URL template**
 

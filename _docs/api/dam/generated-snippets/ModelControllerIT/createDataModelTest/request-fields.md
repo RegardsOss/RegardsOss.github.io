@@ -4,4 +4,4 @@
 | description | `String` | model description |  |  
 | version | `String` | model version |  |  
 | type | `String` | model type | Must not be null. Available values: COLLECTION, DOCUMENT, DATA, DATASET |  
-
+{: .table .table-striped}

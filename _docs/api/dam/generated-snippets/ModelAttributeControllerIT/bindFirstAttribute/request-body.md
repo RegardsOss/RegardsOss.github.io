@@ -3,21 +3,22 @@
 ```json
  {
   "attribute" : {
-    "id" : 128,
+    "id" : 244,
     "name" : "attPostAM",
     "type" : "STRING",
     "fragment" : {
-      "id" : 107,
+      "id" : 116,
       "name" : "default",
       "description" : "Default fragment"
     },
     "alterable" : false,
     "optional" : false,
     "label" : "ForTests",
-    "dynamic" : true
+    "dynamic" : true,
+    "internal" : false
   },
   "model" : {
-    "id" : 226,
+    "id" : 183,
     "name" : "modelPostAM",
     "type" : "COLLECTION"
   },

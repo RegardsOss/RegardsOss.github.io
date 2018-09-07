@@ -8,6 +8,7 @@
   "alterable" : false,
   "optional" : false,
   "label" : "ForTests",
-  "dynamic" : true
+  "dynamic" : true,
+  "internal" : false
 }
 ```

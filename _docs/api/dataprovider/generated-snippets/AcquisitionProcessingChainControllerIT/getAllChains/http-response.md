@@ -2,18 +2,18 @@
 
   **Headers:**
 
+  `Access-Control-Allow-Origin: *`
+  `Access-Control-Allow-Methods: POST, PUT, GET, OPTIONS, DELETE`
+  `Access-Control-Allow-Headers: authorization, content-type, scope`
+  `Access-Control-Max-Age: 3600`
+  `X-Application-Context: Test application:default,test,noschedule:-1`
+  `Content-Type: application/json;charset=UTF-8`
   `X-Content-Type-Options: nosniff`
   `X-XSS-Protection: 1; mode=block`
   `Cache-Control: no-cache, no-store, max-age=0, must-revalidate`
   `Pragma: no-cache`
   `Expires: 0`
   `X-Frame-Options: DENY`
-  `Access-Control-Allow-Origin: *`
-  `Access-Control-Allow-Methods: POST, PUT, GET, OPTIONS, DELETE`
-  `Access-Control-Allow-Headers: authorization, content-type, scope`
-  `Access-Control-Max-Age: 3600`
-  `X-Application-Context: Test application:default,test:-1`
-  `Content-Type: application/json;charset=UTF-8`
 
   **Content:**
 
@@ -28,17 +28,17 @@
   },
   "content" : [ {
     "content" : {
-      "id" : 2,
+      "id" : 53,
       "label" : "Processing chain 1",
       "active" : true,
       "mode" : "MANUAL",
       "locked" : false,
       "ingestChain" : "DefaultIngestChain",
       "fileInfos" : [ {
-        "id" : 2,
+        "id" : 53,
         "mandatory" : true,
         "scanPlugin" : {
-          "id" : 6,
+          "id" : 57,
           "pluginId" : "GlobDiskScanning",
           "label" : "one : Scan plugin",
           "version" : "1.0.0-SNAPSHOT",
@@ -47,7 +47,7 @@
           "pluginClassName" : "fr.cnes.regards.modules.acquisition.service.plugins.GlobDiskScanning",
           "interfaceNames" : [ "fr.cnes.regards.modules.acquisition.plugins.IScanPlugin" ],
           "parameters" : [ {
-            "id" : 3,
+            "id" : 54,
             "name" : "directories",
             "value" : [ ],
             "dynamic" : false,
@@ -60,7 +60,7 @@
         "comment" : "A comment"
       } ],
       "validationPluginConf" : {
-        "id" : 7,
+        "id" : 58,
         "pluginId" : "DefaultFileValidation",
         "label" : "one : Validation plugin",
         "version" : "1.0.0-SNAPSHOT",
@@ -71,7 +71,7 @@
         "parameters" : [ ]
       },
       "productPluginConf" : {
-        "id" : 8,
+        "id" : 59,
         "pluginId" : "DefaultProductPlugin",
         "label" : "one : Product plugin",
         "version" : "1.0.0-SNAPSHOT",
@@ -82,7 +82,7 @@
         "parameters" : [ ]
       },
       "generateSipPluginConf" : {
-        "id" : 9,
+        "id" : 60,
         "pluginId" : "DefaultSIPGeneration",
         "label" : "one : SIP generation plugin",
         "version" : "1.0.0-SNAPSHOT",
@@ -98,21 +98,21 @@
       "href" : "http://localhost:8080/chains"
     }, {
       "rel" : "update",
-      "href" : "http://localhost:8080/chains/2"
+      "href" : "http://localhost:8080/chains/53"
     } ]
   }, {
     "content" : {
-      "id" : 3,
+      "id" : 54,
       "label" : "Processing chain 1",
       "active" : true,
       "mode" : "MANUAL",
       "locked" : false,
       "ingestChain" : "DefaultIngestChain",
       "fileInfos" : [ {
-        "id" : 3,
+        "id" : 54,
         "mandatory" : true,
         "scanPlugin" : {
-          "id" : 10,
+          "id" : 61,
           "pluginId" : "GlobDiskScanning",
           "label" : "two : Scan plugin",
           "version" : "1.0.0-SNAPSHOT",
@@ -121,7 +121,7 @@
           "pluginClassName" : "fr.cnes.regards.modules.acquisition.service.plugins.GlobDiskScanning",
           "interfaceNames" : [ "fr.cnes.regards.modules.acquisition.plugins.IScanPlugin" ],
           "parameters" : [ {
-            "id" : 4,
+            "id" : 55,
             "name" : "directories",
             "value" : [ ],
             "dynamic" : false,
@@ -134,7 +134,7 @@
         "comment" : "A comment"
       } ],
       "validationPluginConf" : {
-        "id" : 11,
+        "id" : 62,
         "pluginId" : "DefaultFileValidation",
         "label" : "two : Validation plugin",
         "version" : "1.0.0-SNAPSHOT",
@@ -145,7 +145,7 @@
         "parameters" : [ ]
       },
       "productPluginConf" : {
-        "id" : 12,
+        "id" : 63,
         "pluginId" : "DefaultProductPlugin",
         "label" : "two : Product plugin",
         "version" : "1.0.0-SNAPSHOT",
@@ -156,7 +156,7 @@
         "parameters" : [ ]
       },
       "generateSipPluginConf" : {
-        "id" : 13,
+        "id" : 64,
         "pluginId" : "DefaultSIPGeneration",
         "label" : "two : SIP generation plugin",
         "version" : "1.0.0-SNAPSHOT",
@@ -172,7 +172,7 @@
       "href" : "http://localhost:8080/chains"
     }, {
       "rel" : "update",
-      "href" : "http://localhost:8080/chains/3"
+      "href" : "http://localhost:8080/chains/54"
     } ]
   } ],
   "links" : [ {

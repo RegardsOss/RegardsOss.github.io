@@ -2,7 +2,7 @@
 
 * **URL**
 
-  `/models/fragments/159/export`
+  `/models/fragments/6/export`
 
 * **URL template**
 

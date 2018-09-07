@@ -12,10 +12,10 @@
 | fileInfos[].scanPlugin | `Object` | Scan plugin configuration / TODO | Must not be null |  
 | fileInfos[].lastModificationDate | `String` | Most recent last modification ISO 8601 date of all scanned files |  |  
 | fileInfos[].mimeType | `String` | File MIME type | Must not be null |  
-| fileInfos[].dataType | `String` | REGARDS data type | Must not be null. Allowed values : RAWDATA, QUICKLOOK_SD, QUICKLOOK_MD, QUICKLOOK_HD, DOCUMENT, THUMBNAIL, OTHER, AIP |  
+| fileInfos[].dataType | `String` | REGARDS data type | Must not be null. Allowed values : RAWDATA, QUICKLOOK_SD, QUICKLOOK_MD, QUICKLOOK_HD, DOCUMENT, THUMBNAIL, OTHER, AIP, DESCRIPTION |  
 | fileInfos[].comment | `String` | REGARDS data type |  |  
 | validationPluginConf | `Object` | Validation plugin configuration / TODO | Must not be null |  
 | productPluginConf | `Object` | Product plugin configuration / TODO | Must not be null |  
 | generateSipPluginConf | `Object` | Generate SIP plugin configuration / TODO | Must not be null |  
 | postProcessSipPluginConf | `Object` | Optional SIP post processing plugin configuration / TODO |  |  
-
+{: .table .table-striped}

@@ -33,6 +33,7 @@
 | content.attribute.properties[].key | `String` | Custom key |  |  
 | content.attribute.properties[].value | `String` | Custom value |  |  
 | content.attribute.dynamic | `Boolean` | Used in search request parsing only | Defaults to true |  
+| content.attribute.internal | `Boolean` | Used in search request parsing only | Defaults to false |  
 | content.attribute.jsonPath | `String` | Used in search request. Define the JSON path to the related values in entities |  |  
 | content.model | `Object` | Model attribute association model |  |  
 | content.model.id | `Number` | model identifier |  |  
@@ -42,3 +43,4 @@
 | content.model.type | `String` | model type | Must not be null. Available values: COLLECTION, DOCUMENT, DATA, DATASET |  
 | content.computationConf | `Object` | Computation plugin configuration | Should respect PluginConfiguration structure |  
 | content.pos | `Number` | Position (allows to sort attribute in model) | Should be a whole number. Defaults to 0 |  
+{: .table .table-striped}

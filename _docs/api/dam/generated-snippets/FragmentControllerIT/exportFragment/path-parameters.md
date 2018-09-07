@@ -5,4 +5,5 @@
 Parameter | Type | Description | Constraints  
 :-------: | :--: | :---------: | :---------:  
 `pFragmentId` | Number | Fragment identifier | Should be a whole number  
+{: .table .table-striped}
 

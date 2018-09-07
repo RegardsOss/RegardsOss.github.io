@@ -6,3 +6,4 @@
 | content[].content.acqDate | `String` | ISO 8601 acquisition date | Must not be null |  
 | content[].content.checksum | `String` | File checksum | Must not be blank |  
 | content[].content.checksumAlgorithm | `String` | Checksum algorithm | Must not be blank |  
+{: .table .table-striped}

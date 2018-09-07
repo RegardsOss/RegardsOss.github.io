@@ -2,18 +2,18 @@
 
   **Headers:**
 
+  `Access-Control-Allow-Origin: *`
+  `Access-Control-Allow-Methods: POST, PUT, GET, OPTIONS, DELETE`
+  `Access-Control-Allow-Headers: authorization, content-type, scope`
+  `Access-Control-Max-Age: 3600`
+  `X-Application-Context: Test application:default,test,noschedule:-1`
+  `Content-Type: application/json;charset=UTF-8`
   `X-Content-Type-Options: nosniff`
   `X-XSS-Protection: 1; mode=block`
   `Cache-Control: no-cache, no-store, max-age=0, must-revalidate`
   `Pragma: no-cache`
   `Expires: 0`
   `X-Frame-Options: DENY`
-  `Access-Control-Allow-Origin: *`
-  `Access-Control-Allow-Methods: POST, PUT, GET, OPTIONS, DELETE`
-  `Access-Control-Allow-Headers: authorization, content-type, scope`
-  `Access-Control-Max-Age: 3600`
-  `X-Application-Context: Test application:default,test:-1`
-  `Content-Type: application/json;charset=UTF-8`
 
   **Content:**
 
@@ -25,8 +25,8 @@
     "pluginConfigurations" : [ ],
     "pluginMetaDatas" : [ {
       "content" : {
-        "pluginClassName" : "fr.cnes.regards.modules.models.rest.TestComputedAttribute",
-        "interfaceNames" : [ "fr.cnes.regards.modules.models.domain.IComputedAttribute" ],
+        "pluginClassName" : "fr.cnes.regards.modules.dam.rest.models.TestComputedAttribute",
+        "interfaceNames" : [ "fr.cnes.regards.modules.dam.domain.models.IComputedAttribute" ],
         "author" : "REGARDS Team",
         "pluginId" : "TestComputedAttribute",
         "version" : "1.0.0",
@@ -47,23 +47,23 @@
     "attrType" : "INTEGER",
     "pluginConfigurations" : [ {
       "content" : {
-        "id" : 52,
+        "id" : 2,
         "pluginId" : "IntSumComputePlugin",
-        "label" : "8152ea7f-78e0-4cc4-871e-82af61fdcac9",
+        "label" : "1a98dcaa-cf66-4771-9e09-7028c722f656",
         "version" : "1.0.0",
         "priorityOrder" : 0,
         "active" : true,
-        "pluginClassName" : "fr.cnes.regards.modules.entities.plugin.IntSumComputePlugin",
-        "interfaceNames" : [ "fr.cnes.regards.modules.models.domain.IComputedAttribute" ],
+        "pluginClassName" : "fr.cnes.regards.modules.dam.plugin.entities.IntSumComputePlugin",
+        "interfaceNames" : [ "fr.cnes.regards.modules.dam.domain.models.IComputedAttribute" ],
         "parameters" : [ {
-          "id" : 1,
+          "id" : 102,
           "name" : "parameterAttributeName",
           "value" : "toto",
           "dynamic" : false,
           "dynamicsValues" : [ ],
           "onlyDynamic" : false
         }, {
-          "id" : 2,
+          "id" : 103,
           "name" : "resultAttributeName",
           "value" : "titi",
           "dynamic" : false,
@@ -75,8 +75,8 @@
     } ],
     "pluginMetaDatas" : [ {
       "content" : {
-        "pluginClassName" : "fr.cnes.regards.modules.entities.plugin.IntSumComputePlugin",
-        "interfaceNames" : [ "fr.cnes.regards.modules.models.domain.IComputedAttribute" ],
+        "pluginClassName" : "fr.cnes.regards.modules.dam.plugin.entities.IntSumComputePlugin",
+        "interfaceNames" : [ "fr.cnes.regards.modules.dam.domain.models.IComputedAttribute" ],
         "author" : "REGARDS Team",
         "pluginId" : "IntSumComputePlugin",
         "version" : "1.0.0",
@@ -94,6 +94,7 @@
           "type" : "java.lang.String",
           "paramType" : "PRIMITIVE",
           "optional" : false,
+          "sensitive" : false,
           "parameters" : [ ],
           "unconfigurable" : false
         }, {
@@ -104,6 +105,7 @@
           "type" : "java.lang.String",
           "paramType" : "PRIMITIVE",
           "optional" : true,
+          "sensitive" : false,
           "parameters" : [ ],
           "unconfigurable" : false
         }, {
@@ -114,6 +116,7 @@
           "type" : "java.lang.String",
           "paramType" : "PRIMITIVE",
           "optional" : false,
+          "sensitive" : false,
           "parameters" : [ ],
           "unconfigurable" : true
         }, {
@@ -124,6 +127,7 @@
           "type" : "java.lang.String",
           "paramType" : "PRIMITIVE",
           "optional" : true,
+          "sensitive" : false,
           "parameters" : [ ],
           "unconfigurable" : true
         } ]
@@ -145,8 +149,8 @@
     "pluginConfigurations" : [ ],
     "pluginMetaDatas" : [ {
       "content" : {
-        "pluginClassName" : "fr.cnes.regards.modules.entities.plugin.MinDateComputePlugin",
-        "interfaceNames" : [ "fr.cnes.regards.modules.models.domain.IComputedAttribute" ],
+        "pluginClassName" : "fr.cnes.regards.modules.dam.plugin.entities.MinDateComputePlugin",
+        "interfaceNames" : [ "fr.cnes.regards.modules.dam.domain.models.IComputedAttribute" ],
         "author" : "REGARDS Team",
         "pluginId" : "MinDateComputePlugin",
         "version" : "1.0.0",
@@ -164,6 +168,7 @@
           "type" : "java.lang.String",
           "paramType" : "PRIMITIVE",
           "optional" : false,
+          "sensitive" : false,
           "parameters" : [ ],
           "unconfigurable" : false
         }, {
@@ -174,6 +179,7 @@
           "type" : "java.lang.String",
           "paramType" : "PRIMITIVE",
           "optional" : true,
+          "sensitive" : false,
           "parameters" : [ ],
           "unconfigurable" : false
         }, {
@@ -184,6 +190,7 @@
           "type" : "java.lang.String",
           "paramType" : "PRIMITIVE",
           "optional" : false,
+          "sensitive" : false,
           "parameters" : [ ],
           "unconfigurable" : true
         }, {
@@ -194,6 +201,7 @@
           "type" : "java.lang.String",
           "paramType" : "PRIMITIVE",
           "optional" : true,
+          "sensitive" : false,
           "parameters" : [ ],
           "unconfigurable" : true
         } ]
@@ -201,8 +209,8 @@
       "links" : [ ]
     }, {
       "content" : {
-        "pluginClassName" : "fr.cnes.regards.modules.entities.plugin.MaxDateComputePlugin",
-        "interfaceNames" : [ "fr.cnes.regards.modules.models.domain.IComputedAttribute" ],
+        "pluginClassName" : "fr.cnes.regards.modules.dam.plugin.entities.MaxDateComputePlugin",
+        "interfaceNames" : [ "fr.cnes.regards.modules.dam.domain.models.IComputedAttribute" ],
         "author" : "REGARDS Team",
         "pluginId" : "MaxDateComputePlugin",
         "version" : "1.0.0",
@@ -220,6 +228,7 @@
           "type" : "java.lang.String",
           "paramType" : "PRIMITIVE",
           "optional" : false,
+          "sensitive" : false,
           "parameters" : [ ],
           "unconfigurable" : false
         }, {
@@ -230,6 +239,7 @@
           "type" : "java.lang.String",
           "paramType" : "PRIMITIVE",
           "optional" : true,
+          "sensitive" : false,
           "parameters" : [ ],
           "unconfigurable" : false
         }, {
@@ -240,6 +250,7 @@
           "type" : "java.lang.String",
           "paramType" : "PRIMITIVE",
           "optional" : false,
+          "sensitive" : false,
           "parameters" : [ ],
           "unconfigurable" : true
         }, {
@@ -250,6 +261,7 @@
           "type" : "java.lang.String",
           "paramType" : "PRIMITIVE",
           "optional" : true,
+          "sensitive" : false,
           "parameters" : [ ],
           "unconfigurable" : true
         } ]
@@ -327,8 +339,8 @@
     "pluginConfigurations" : [ ],
     "pluginMetaDatas" : [ {
       "content" : {
-        "pluginClassName" : "fr.cnes.regards.modules.entities.plugin.LongSumComputePlugin",
-        "interfaceNames" : [ "fr.cnes.regards.modules.models.domain.IComputedAttribute" ],
+        "pluginClassName" : "fr.cnes.regards.modules.dam.plugin.entities.LongSumComputePlugin",
+        "interfaceNames" : [ "fr.cnes.regards.modules.dam.domain.models.IComputedAttribute" ],
         "author" : "REGARDS Team",
         "pluginId" : "LongSumComputePlugin",
         "version" : "1.0.0",
@@ -346,6 +358,7 @@
           "type" : "java.lang.String",
           "paramType" : "PRIMITIVE",
           "optional" : false,
+          "sensitive" : false,
           "parameters" : [ ],
           "unconfigurable" : false
         }, {
@@ -356,6 +369,7 @@
           "type" : "java.lang.String",
           "paramType" : "PRIMITIVE",
           "optional" : true,
+          "sensitive" : false,
           "parameters" : [ ],
           "unconfigurable" : false
         }, {
@@ -366,6 +380,7 @@
           "type" : "java.lang.String",
           "paramType" : "PRIMITIVE",
           "optional" : false,
+          "sensitive" : false,
           "parameters" : [ ],
           "unconfigurable" : true
         }, {
@@ -376,6 +391,7 @@
           "type" : "java.lang.String",
           "paramType" : "PRIMITIVE",
           "optional" : true,
+          "sensitive" : false,
           "parameters" : [ ],
           "unconfigurable" : true
         } ]
@@ -383,8 +399,8 @@
       "links" : [ ]
     }, {
       "content" : {
-        "pluginClassName" : "fr.cnes.regards.modules.entities.plugin.CountPlugin",
-        "interfaceNames" : [ "fr.cnes.regards.modules.models.domain.IComputedAttribute" ],
+        "pluginClassName" : "fr.cnes.regards.modules.dam.plugin.entities.CountPlugin",
+        "interfaceNames" : [ "fr.cnes.regards.modules.dam.domain.models.IComputedAttribute" ],
         "author" : "REGARDS Team",
         "pluginId" : "CountPlugin",
         "version" : "1.0.0",
@@ -402,6 +418,7 @@
           "type" : "java.lang.String",
           "paramType" : "PRIMITIVE",
           "optional" : false,
+          "sensitive" : false,
           "parameters" : [ ],
           "unconfigurable" : true
         }, {
@@ -412,6 +429,7 @@
           "type" : "java.lang.String",
           "paramType" : "PRIMITIVE",
           "optional" : true,
+          "sensitive" : false,
           "parameters" : [ ],
           "unconfigurable" : true
         } ]

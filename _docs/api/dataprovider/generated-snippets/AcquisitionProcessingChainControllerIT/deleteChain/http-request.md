@@ -2,7 +2,7 @@
 
 * **URL**
 
-  `/chains/1`
+  `/chains/52`
 
 * **URL template**
 

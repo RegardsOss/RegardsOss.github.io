@@ -11,6 +11,7 @@
     "acceptableValues" : [ "GAMMA", "ALPHA", "BETA" ],
     "type" : "ENUMERATION"
   },
-  "dynamic" : true
+  "dynamic" : true,
+  "internal" : false
 }
 ```
