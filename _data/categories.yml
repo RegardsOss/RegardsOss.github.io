@@ -1,68 +1,25 @@
-- name: "Getting Started"
+- name: "Home"
+  slug: home
+  index: home
+  icon: "/assets/img/icons/home.svg"
+
+- name: "Getting started"
   slug: getting-started
   index: getting-started
-  icon: "/assets/img/icons/gettingstarted.svg"
+  icon: "/assets/img/icons/gear.svg"
 
-- name: "API"
-  slug: api
-  index: regards-api
-
-- name: "Framework"
-  slug: regards-framework
-  index: regards-framework
+- name: "User Documentation"
+  slug: user-documentation
+  index: user-documentation
   icon: "/assets/img/icons/how-to.svg"
 
-- name: "Microservice Core"
-  slug: microservice-core
-  index: microservice-core
-  icon: "/assets/img/icons/how-to.svg"
-
-- name: "Microservice Admin"
-  slug: microservice-admin
-  index: microservice-admin
-  icon: "/assets/img/icons/how-to.svg"
-
-- name: "Microservice Gateway"
-  slug: microservice-gateway
-  index: microservice-gateway
-  icon: "/assets/img/icons/how-to.svg"
-
-- name: "Microservice DataManagement"
-  slug: microservice-dam
-  index: microservice-dam
-  icon: "/assets/img/icons/how-to.svg"
-
-- name: "Microservice Catalog"
-  slug: microservice-catalog
-  index: microservice-catalog
-  icon: "/assets/img/icons/how-to.svg"
+- name: "Development"
+  slug: development
+  index: development
+  icon: "/assets/img/icons/gear.svg"
 
 - name: "Frontend"
   slug: frontend
   index: frontend
   icon: "/assets/img/icons/how-to.svg"
 
-- name: "Troubleshooting"
-  slug: troubleshooting
-  index: troubleshooting
-  icon: "/assets/img/icons/troubleshooting.svg"
-
-- name: "Reference"
-  slug: reference
-  index: reference
-  icon: "/assets/img/icons/reference.svg"
-
-- name: "Privacy and Security"
-  slug: privacy-and-security
-  index: privacy-security
-  icon: "/assets/img/icons/privacy-security.svg"
-
-- name: "Installation"
-  slug: installation
-  index: installation
-  icon: "/assets/img/icons/build-images.svg"
-
-- name: "User Documentation"
-  slug: documentation
-  index: documentation
-  icon: "/assets/img/icons/build-images.svg"
