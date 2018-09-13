@@ -25,7 +25,7 @@ short-title: Service
 
 # Presentation
 
-A service plugin (front-end) is a javascript bundle used by [search results](/frontend/modules/search-results/), [search form](/frontend/modules/search-form/) and [search graph](/frontend/modules/search-graph/) modules to add services onto displayed data. A service may work for one or for multiple data objects. By design, a service that run with many entities can either receive an entities IP ID array or a query (see later provided parameters sections)
+A service plugin (front-end) is a javascript bundle used by [search results](/frontend/modules/search-results/), [search form](/frontend/modules/search-form/) and [search graph](/frontend/modules/search-graph/) modules to add services onto displayed data. A service may work for one or for multiple data objects. By design, a service that run with many entities can either receive an entity IDs array or a query (see later provided parameters sections)
 Service plugin allows defining static - configured by the administrator - and dynamic parameters - configured by the user when running the service.
 
 # Working principles
@@ -40,7 +40,7 @@ It is very similar to a common plugin but the `type` field always indicates "SER
 Furthermore, it allows the following fields in `conf`:
 * `applicationModes`: *{array}* a required array that can contain one or both the following values:
   * `ONE`: the service applies to one entity
-  * `MANY`: the service applies to many entities (expressed as an IP ID list or a query)
+  * `MANY`: the service applies to many entities (expressed as an internal IDs list or a query)
 * `entityTypes`: *{array}* a required array that can contain some of all the following values:
   * `DATA`: The service works with dataobjects
   * `COLLECTION`: The service works with collections, *not supported yet*
@@ -120,7 +120,7 @@ When launched, the service plugin main component receives the property `runtimeT
 Notes: 
 * If the plugin application mode is ONE only, main component will never receive MANY and QUERY target types. Reciprocally, if it is MANY, main component will never receive ONE target type.
 * RuntimeTargetTypes can be accessed in code as a field of `AccessDomain`, in module `regardsoss/domain`
-* Query target expresses a list of entities as a query. This is required when user works in select all mode within results table. Indeed, as REGARDS catalog may contain large amount of entities, it is not possible in such case to express selection as an IP ID array, as that would require to fetch all those entities from backend.
+* Query target expresses a list of entities as a query. This is required when user works in select all mode within results table. Indeed, as REGARDS catalog may contain large amount of entities, it is not possible in such case to express selection as an entity IDs array, as that would require to fetch all those entities from backend.
 
 The following sub section explains in detail what fields are provided along with each target type.
 
@@ -142,19 +142,19 @@ Where:
   
 #### Runtime target specific fields for type ONE
 
-* `entity`: *{string}* That field contains entity IP ID
+* `entity`: *{string}* That field contains the internal ID of the entity for which service is currently running
 * `getFetchAction`: *{function}* For target type ONE, the method signature is `() => (dipatchableAction:object)`. When dispatched, the action will retrieve the single entity instance
 
 #### Runtime target specific fields for type MANY
 
-* `entities`: *{array(string)}* That field contains entities IP ID, as an array of string
-* `getFetchAction`: *{function}* For target type MANY, the method signature is `(ipID:string) => (dipatchableAction:object)`. When dispatched, the action will retrieve the entity with IP ID as parameter.
+* `entities`: *{array(string)}* That field contains the internal ID of the entities for which service is currently running
+* `getFetchAction`: *{function}* For target type MANY, the method signature is `(id:string) => (dipatchableAction:object)`. When dispatched, the action will retrieve the entity with ID as parameter.
 
 #### Runtime target specific fields for type QUERY
 
 * `q`: *{string}* That field contains the open search query to retrieve elements
 * `entityType`: *{string}* That field contains the current entity type, as one of the enumated values ENTITY_TYPES_ENUM, exported as a field of `DamDomain`, from `@regardsoss/domain`
-* `excludedIpIds`: *{array(string)}* That field contains the IP IDs of elements that user excluded from query results
+* `excludedIDs`: *{array(string)}* That field contains the internal IDs of entities that are excluded from request results for current service execution, ie that should be ignored by the service when fetching results though fetch action.
 * `getFetchAction`: *{function}* For target type QUERY, method signature is `(pageIndex: (optional) number, pageSize: (optional) number) => (dipatchableAction:object)`.  
  *Warning 1: Removing page index and page size when calling getFetchAction will result in fetching all elements at once. As there may be a lot, it is way better to fetch it over many pages. You can compute the total number of pages using `entitiesCount` common target field*  
  *Warning 2: Fetch actions will retrieve **every query element**. When using that result, it is required to verify in excludedIpIds array if the entity has been excluded by the user.*  
