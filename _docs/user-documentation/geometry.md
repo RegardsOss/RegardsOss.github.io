@@ -110,7 +110,6 @@ is a cap around North pole else
 `POLYGON(((0, 80), (-90, 80), (90, 80), (0, 80)))`  
 is a (huge) cap around South pole.
 
-**Note:** as astronomic sphere is reversed, this means polygons should follow **left hand rule** instead in this case.
 
 ### Normalization algorithm
 
