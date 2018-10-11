@@ -11,16 +11,21 @@ short-title: Criterion
 - [Presentation](#presentation)
 - [Working principles](#working-principles)
 - [plugin-info.json](#plugin-infojson)
+  - [Attribute type](#attribute-type)
 - [Main React component](#main-react-component)
   - [Provided runtime parameters](#provided-runtime-parameters)
   - [Manage state and search query](#manage-state-and-search-query)
+  - [Attributes bounds and common labels](#attributes-bounds-and-common-labels)
+    - [hasNoValue](#hasnovalue)
+    - [getFieldHintText](#getfieldhinttext)
+    - [getFieldTooltip](#getfieldtooltip)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
 
 # Presentation
 
-A criteria plugin (front-end) is a javascript bundle used by the [Search form module](/frontend/modules/search-form/) to create search criteria section. Each criterion plugin can generate a part of the full opensearch request sent to the rs-catalog microservice in order to request catalog entities.  
+Criteria plugins (front-end) are javascript bundles used by the [Search form module](/frontend/modules/search-form/) to create search criteria section. Each criterion plugin can generate a part of the full opensearch request sent to the rs-catalog microservice in order to request catalog entities.  
 By the way, a criteria plugin respects all general plugin principles documented in [Plugins](/frontend/plugins/plugins/) page.
 
 # Working principles
@@ -131,11 +136,11 @@ propTypes = {
      */
     pluginInstanceId: React.PropTypes.string,
     /**
-     * List of attributes associated to the plugin.
+     * Map of attributes associated to the plugin, optionnaly with boundsInformation.
      * Keys of this object are the "name" props of the attributes defined in the plugin-info.json
      * Value of each keys are the attribute id (retrieved from the server) associated
      */
-    attributes: React.PropTypes.objectOf(AttributeModel),
+    attributes: React.PropTypes.objectOf(AttributeModelWithBounds),
     /**
       * Function to get initial plugin state saved by the savePluginState
       * Parameters :
@@ -172,18 +177,27 @@ propTypes = {
       */
     initialQuery: PropTypes.string,
   }
+  
 ```
-The attributes property is a collection of AttributeModel (see webapp/web_modules/data/shape/src/rs-dam/AttributeModel.js)  
+The attributes property is a map of AttributeModelWithBounds (see web_modules/utils/plugins-api/src/shapes/AttributeModelWithBounds.js). **Each attribute specified in field conf.attributes, from file plugin-info.json, is granted to be present here.**
 
 When implementing the plugin, attributes names used into the onpenSearchQuery can be retrieved from an attribute object using the `getAttributeName` method from PluginCriterionContainer:
 ```js
-this.getAttributeName('searchField') // 'searchField' is the attribute name from previous 'plugin-info.json' example 
+this.getAttributeName('searchField') 
+// Note: it is equivalent to this.props.attributes.searchField.jsonPath
 
 ```
 
 Attributes labels can be retrieved the same way using:
 ```js
-this.getAttributeLabel('searchField')
+this.getAttributeLabel('myField')
+// Note: it is equivalent to this.props.attributes.myField.label
+```
+
+Attributes bounds can be retrieved using 
+```
+this.getAttributesBounds('myField2')
+// Note: that is equivalent to this.props.attributes.myField2.boundsInformation
 ```
 
 ## Manage state and search query
@@ -218,3 +232,54 @@ handleClear = () => {
   this.setState(defaultState) // update the plugin root component state to clear user input
 }
 ```
+
+## Attributes bounds and common labels
+
+Criteria receive as props types AttributeModelWithBounds map. Each of them has all the AttributeModel fields but also holds the field `boundsInformation`, that contains following fields:
+* `exists`: Should bounds exists for this attribute type. It worthes true for any number types (LONG, DOUBLE, INTEGER) and date type (DATE_ISO8601).
+* `loading`: Are bounds currently being loaded
+* `error`: Has bounds loading finished in error?
+* `lowerBound`: Lower attribute value in current search context, when bounds *exists*, are *not loading* and *not in error*.
+* `upperBound`: Lower attribute value in current search context, when bounds *exists*, are *not loading* and *not in error*.
+
+Lower and upper bounds type depends on attribute type. Indeed, it is a number for number types and a string (ISO date format) for date type. Even when existing and loaded without error, bounds are never granted (as the attribute may no value in current search context)
+
+PluginCriterionContainer provides the following methods to compute attribute and bounds related state and labels.
+
+### hasNoValue
+
+```js
+this.hasNoValue('myAttr')
+```
+That method returns true when there is no bound for a resolved, "boundable" (number or date) attribute, ie if it `exists for attribute type, is not loading, has no error and has no value for lowerBound and upperBound`. As bounds are resolved using an opensearch query, that specific case means there is no dataobject bearing a value for that attribute in current search context.
+When that method returns true, the plugin should disable corresponding attribute fields (as attribute is useless in context).
+
+### getFieldHintText
+
+```js
+this.getFieldHintText('myAttr', PluginCriterionContainer.BOUND_TYPE.LOWER_BOUND)
+```
+That method provides label according with the attribute, its role in plugin and its bounds:
+* BOUND_TYPE.LOWER_BOUND means the resulting values will be greater or equal to entered value for attribute
+* BOUND_TYPE.UPPER_BOUND means the resulting values will be lower or equal to value.
+* BOUND_TYPE.ANY_BOUND means the resulting values may be greater or lower than value
+* BOUND_TYPE.NONE means value bounds should be ignored
+It provides, according with case, the following texts:
+* Bounds not existing for current type, are loading or in error: "{Attribute type}"
+* BOUND_TYPE.LOWER_BOUND and there is a lower bound value : "> {lowerBoundValue}"
+* BOUND_TYPE.UPPER_BOUND and there is an upper bound value : "< {upperBoundValue}"
+* BOUND_TYPE.ANY_BOUND and there is at least one bound value : "{Values range}". Note that lower or upper bound might be replaced with infinity symbol if not found
+* Any other case: "{Attribute type}". Note that in those cases, there is no value for the corresponding attribute in current context (hasNoValue method should have returned true)
+
+### getFieldTooltip
+
+```js
+this.getFieldTooltip('myAttr')
+```
+That method provides a common tooltip for plugin fields working on an attribute.
+Its provides, according with case, the following texts:
+* Bounds not existing for current type, are loading or in error: "{Attribute type}"
+* No upper nor lower bound value: "{Attribute type} {Message for undefined bounds information}"
+* Upper and / or lower bound value: "{Attribute type} {Values range}". Note that lower or upper bound might be replaced with infinity symbol if not found
+
+
