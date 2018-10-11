@@ -195,7 +195,7 @@ this.getAttributeLabel('myField')
 ```
 
 Attributes bounds can be retrieved using 
-```
+```js
 this.getAttributesBounds('myField2')
 // Note: that is equivalent to this.props.attributes.myField2.boundsInformation
 ```
@@ -240,9 +240,9 @@ Criteria receive as props types AttributeModelWithBounds map. Each of them has a
 * `loading`: Are bounds currently being loaded
 * `error`: Has bounds loading finished in error?
 * `lowerBound`: Lower attribute value in current search context, when bounds *exists*, are *not loading* and *not in error*.
-* `upperBound`: Lower attribute value in current search context, when bounds *exists*, are *not loading* and *not in error*.
+* `upperBound`: Upper attribute value in current search context, when bounds *exists*, are *not loading* and *not in error*.
 
-Lower and upper bounds type depends on attribute type. Indeed, it is a number for number types and a string (ISO date format) for date type. Even when existing and loaded without error, bounds are never granted (as the attribute may no value in current search context)
+Lower and upper bound types depends on attribute type. Indeed, it is a number for number types and a string (ISO date format) for date type. Even when existing and loaded without error, **bound values are not neccessary provided** (as the attribute may have no value in current search context)
 
 PluginCriterionContainer provides the following methods to compute attribute and bounds related state and labels.
 
@@ -251,7 +251,7 @@ PluginCriterionContainer provides the following methods to compute attribute and
 ```js
 this.hasNoValue('myAttr')
 ```
-That method returns true when there is no bound for a resolved, "boundable" (number or date) attribute, ie if it `exists for attribute type, is not loading, has no error and has no value for lowerBound and upperBound`. As bounds are resolved using an opensearch query, that specific case means there is no dataobject bearing a value for that attribute in current search context.
+That method returns true when there is no bound for a resolved, "boundable" (number or date) attribute, ie if it **exists for attribute type, is not loading, has no error and has no value for lowerBound and upperBound**. As bounds are resolved using an opensearch query, that specific case means there is no dataobject bearing a value for that attribute in current search context.
 When that method returns true, the plugin should disable corresponding attribute fields (as attribute is useless in context).
 
 ### getFieldHintText
@@ -260,16 +260,18 @@ When that method returns true, the plugin should disable corresponding attribute
 this.getFieldHintText('myAttr', PluginCriterionContainer.BOUND_TYPE.LOWER_BOUND)
 ```
 That method provides label according with the attribute, its role in plugin and its bounds:
-* BOUND_TYPE.LOWER_BOUND means the resulting values will be greater or equal to entered value for attribute
-* BOUND_TYPE.UPPER_BOUND means the resulting values will be lower or equal to value.
-* BOUND_TYPE.ANY_BOUND means the resulting values may be greater or lower than value
-* BOUND_TYPE.NONE means value bounds should be ignored
+* `BOUND_TYPE.LOWER_BOUND` means the resulting values will be greater or equal to entered value for attribute
+* `BOUND_TYPE.UPPER_BOUND` means the resulting values will be lower or equal to value.
+* `BOUND_TYPE.ANY_BOUND` means the resulting values may be greater or lower than value
+* `BOUND_TYPE.NONE` means value bounds should be ignored
+
 It provides, according with case, the following texts:
-* Bounds not existing for current type, are loading or in error: "{Attribute type}"
+* Bounds are not existing for current type or in error: "{Attribute type}"
+* Bounds are loading: "{Attribute type} {Loading message}"
 * BOUND_TYPE.LOWER_BOUND and there is a lower bound value : "> {lowerBoundValue}"
 * BOUND_TYPE.UPPER_BOUND and there is an upper bound value : "< {upperBoundValue}"
 * BOUND_TYPE.ANY_BOUND and there is at least one bound value : "{Values range}". Note that lower or upper bound might be replaced with infinity symbol if not found
-* Any other case: "{Attribute type}". Note that in those cases, there is no value for the corresponding attribute in current context (hasNoValue method should have returned true)
+* Any other case: "{Attribute type}". Note that in those cases, there is no value for the corresponding attribute in current context (hasNoValue method returns true)
 
 ### getFieldTooltip
 
