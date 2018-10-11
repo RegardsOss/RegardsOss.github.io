@@ -25,8 +25,8 @@ short-title: Service
 
 # Presentation
 
-A service plugin (front-end) is a javascript bundle used by [search results](/frontend/modules/search-results/), [search form](/frontend/modules/search-form/) and [search graph](/frontend/modules/search-graph/) modules to add services onto displayed data. A service may work for one or for multiple data objects. By design, a service that run with many entities can either receive an entity IDs array or a query (see later provided parameters sections)
-Service plugin allows defining static - configured by the administrator - and dynamic parameters - configured by the user when running the service.
+A service plugin (front-end) is a javascript bundle used by [search results](/frontend/modules/search-results/), [search form](/frontend/modules/search-form/) and [search graph](/frontend/modules/search-graph/) modules to add services onto displayed data. A service may work for one or for many data objects. By design, a service that run with many data objects can either receive an entity IDs array or a query (see later provided parameters sections)
+Service plugin allows defining static - configured by the administrator - and dynamic parameters - configured by the user when running the service. Note that administrator can provide default values for dynamic parameters. In that case, the default values will be displayed to user when running the service but he will be allowed modifying them.
 
 # Working principles
 
@@ -44,19 +44,19 @@ Furthermore, it allows the following fields in `conf`:
 * `entityTypes`: *{array}* a required array that can contain some of all the following values:
   * `DATA`: The service works with dataobjects
   * `COLLECTION`: The service works with collections, *not supported yet*
-  * `DATASET`: The service works with collections, *not supported yet*
-  * `DOCUMENT`: The service works with collections, *not supported yet*
+  * `DATASET`: The service works with datasets, *not supported yet*
+  * `DOCUMENT`: The service works with documents, *not supported yet*
 * `static`: *{object}* an optional object of parameters to be filled in by the project administrator when he configures a service plugin for results. Each parameter, in that object will be defined as following:
   * `object key`: key to point out the parameter in main component props. It will also be used as label in the configuration form
   * `type` : *{string}* One of ["bool","char","date","float", "int", "string"]. It determinates the type that will be actually received at runtime by the plugin
-  * `required`: *{boolean}* It means, when true, that the project administrator must fill the attribute value. When false, the administrator can leave it blank and, therefore, it can be undefined at plugin runtime
+  * `required`: *{boolean}* It means, when true, that the project administrator must fill the attribute value. When false, the administrator can leave it blank and, therefore, it can be undefined at runtime
 * `dynamic`: *{object}* an optional object of parameters to be filled in by the project user when he applies the service.
   * `object key`: key to point out the parameter in main component props
   * `type` : *{string}* working like static parameter
   * `required` : *{boolean}* working like static parameter, but applying to user
   * `label`: *{string}* Parameter label, that will be shown to user
 
-Please note, about dynamic parameters, that administrator is allowed setting a default value. However, even if the administrator provided a default value, the user will be prompted to enter the parameter value he wants to set - yet the field will hold administator default value when opening service configuration box.
+Please note, about dynamic parameters, that administrator is allowed setting a default value. However, even if the administrator provided a default value, the user will be prompted to enter the parameter value he wants to set - yet the field will hold administator default value when opening service runtime configuration box.
 
 ```json
 {
@@ -91,7 +91,7 @@ Unlike criterion plugin, the service plugin may be a simple React component. Tha
 
 ## Provided parameters
 
-The here under properties are provided at runtime to the plugin service main component:
+Here under properties are provided at runtime to the plugin service main component:
 ```js
 propTypes = {
     /** Similar to a common plugin */
@@ -118,7 +118,7 @@ When launched, the service plugin main component receives the property `runtimeT
 * `Query target` (enumerated type: RuntimeTargetTypes.QUERY), if the service application mode contains "MANY"
 
 Notes: 
-* If the plugin application mode is ONE only, main component will never receive MANY and QUERY target types. Reciprocally, if it is MANY, main component will never receive ONE target type.
+* If the plugin application mode is only ONE, main component will never receive MANY and QUERY target types. Reciprocally, if it is only MANY, main component will never receive ONE target type.
 * RuntimeTargetTypes can be accessed in code as a field of `AccessDomain`, in module `regardsoss/domain`
 * Query target expresses a list of entities as a query. This is required when user works in select all mode within results table. Indeed, as REGARDS catalog may contain large amount of entities, it is not possible in such case to express selection as an entity IDs array, as that would require to fetch all those entities from backend.
 

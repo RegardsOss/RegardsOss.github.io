@@ -28,8 +28,7 @@ short-title: Plugins
 # Presentation
 
 REGARDS UI plugins are pieces of Javascript files bundled together that can be added dynamically into the user interface. 
-Their main advantage is allowing operators to create dedicated HMI depending on the type of data manipulated 
-by the project, instead of creating a global rs-frontend project fork.
+Their main advantage is allowing operators to create dedicated HMI depending on the type of data manipulated by the project, instead of creating a global rs-frontend project fork.
 
 There are currently two types of plugins :
 * `criterion`: Used in the search form, this type of plugin allows users creating search filters on attributes. See [criteria plugins](/frontend/plugins/plugin-criteria/) page for more detail
@@ -41,7 +40,7 @@ Plugins are very similar to REGARDS UI dynamic modules, but:
 
 The following sections will discuss the common points to all plugin types.
 
-Note: Obviously, frontend plugins are not designed in the same way than backend plugins, especially when it comes to handle large data requests - backend plugins have way better performances in such cases. Therefore, the developer may need to create a backend plugin counterpart for frontend plugins working with huge data payloads.
+Note: Obviously, frontend plugins are not designed in the same way than backend plugins, especially when it comes to handle large data requests - backend plugins have way better performances in such cases. Therefore, the developer may need to create a backend plugin counterpart for frontend plugins working with large data payloads.
 
 # Create a new plugin
 
@@ -54,7 +53,7 @@ $ cd ../../plugins
 $ yo regards-ui-plugin
 ```
 
-Yeoman will ask you some informations to generate the new plugin. Once finished, the architecture of the plugin is iniatialized with some basic examples.  
+Yeoman will ask you several parameters to generate the new plugin. Once finished, the architecture of the plugin is iniatialized with some basic examples.  
 
 # Plugin overall code structure
 
@@ -82,7 +81,7 @@ The generated plugin folder should look like the following tree
 # Compile plugin
 
 To compile the plugin you need to setup the rs-frontend repository and to install it - please report to [Setup page](/frontend/setup/) for detailed instructions. 
-When the frontend is installed, you have created Webpack DLL that will be used by plugins to: 
+When the frontend is installed, Webpack DLL are built. They will be used by plugins to: 
 - reduce the compilation duration - DLL are precompiled dependencies
 - reduce bundle size through `coreoss` DLL that holds front end core code and dependencies
 
