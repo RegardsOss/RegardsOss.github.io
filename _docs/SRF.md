@@ -18,7 +18,6 @@ Sylvain Vissiere-Guerinet | CSSI | Development Team
 
 Issue |    Date    |    Reasons for change
 :-------: | :---------: | :-------------------------:
-01    | 2018-04-27 | Add known security vulnerabilities  
 00    | 2016-07-28 | Creation of the document  
 
 # Table of contents
@@ -53,58 +52,25 @@ Issue |    Date    |    Reasons for change
   - [3. Backend](#3-backend)
     - [1. Runtime backend](#1-runtime-backend)
       - [1. Java](#1-java)
-        - [1.1. License](#11-license)
-        - [1.2. Known security vulnerabilities](#12-known-security-vulnerabilities)
       - [2. Spring Framework](#2-spring-framework)
-        - [2.1. License](#21-license)
-        - [2.2. Known security vulnerabilities](#22-known-security-vulnerabilities)
       - [3. Spring Security](#3-spring-security)
-        - [3.1 License](#31-license)
-        - [3.2 Known security vulnerabilities](#32-known-security-vulnerabilities)
       - [4. Spring Data JPA](#4-spring-data-jpa)
-        - [4.1 License](#41-license)
-        - [4.2 Known security vulnerabilities](#42-known-security-vulnerabilities)
       - [5. Spring Boot](#5-spring-boot)
-        - [5.1. License](#51-license)
-        - [5.2. Known security vulnerabilities](#52-known-security-vulnerabilities)
       - [6. Spring Cloud Netflix](#6-spring-cloud-netflix)
-        - [6.1. License](#61-license)
-        - [6.2. Known security vulnerabilities](#62-known-security-vulnerabilities)
       - [7. Spring Cloud Config](#7-spring-cloud-config)
-        - [7.1. License](#71-license)
-        - [7.2. Known security vulnerabilities](#72-known-security-vulnerabilities)
       - [8. Open Feign](#8-open-feign)
-        - [8.1. License](#81-license)
-        - [8.2. Known security vulnerabilities](#82-known-security-vulnerabilities)
       - [9. Spring HATEOAS](#9-spring-hateoas)
-        - [9.1. License](#91-license)
-        - [9.2. Known security vulnerabilities](#92-known-security-vulnerabilities)
       - [10. IzPack](#10-izpack)
-        - [10.1. License](#101-license)
-        - [10.2. Known security vulnerabilities](#102-known-security-vulnerabilities)
       - [11. RabbitMQ](#11-rabbitmq)
-        - [11.1 License](#111-license)
-        - [11.2 Known security vulneratilities](#112-known-security-vulneratilities)
       - [12. Elasticsearch](#12-elasticsearch)
-        - [12.1. License](#121-license)
-        - [12.2. Known security vulnerabilities](#122-known-security-vulnerabilities)
       - [13. FITS Java library](#13-fits-java-library)
-        - [13.1. License](#131-license)
-        - [13.2 Known security vulnerabilities](#132-known-security-vulnerabilities)
       - [14. Jetty](#14-jetty)
-        - [14.1. Licence](#141-licence)
-        - [14.2 Known security vulnerabilities](#142-known-security-vulnerabilities)
     - [2. Compile time backend](#2-compile-time-backend)
       - [1. Apache Maven](#1-apache-maven)
-        - [1.1. License](#11-license-1)
-        - [1.2. Known security vulnerabilities](#12-known-security-vulnerabilities-1)
     - [3. Testing](#3-testing)
       - [1. Jenkins](#1-jenkins)
-        - [1.1. License](#11-license-2)
       - [2. SonarQube](#2-sonarqube)
-        - [2.1. License](#21-license-1)
       - [3. Selenium](#3-selenium)
-        - [3.1. License](#31-license)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
@@ -286,8 +252,6 @@ Languages | JavaScript
 
 ##### 1. Java
 
-###### 1.1. License
-
 Feature | Value             | Description
 :-----------------------------: | :--------------------------------------------------------------------------------------------------------: | :---------------------------------------------------------------------------:  
 Name | Java Main features | Java is a general-purpose computer programming language.  
@@ -296,34 +260,7 @@ Licencing conditions | GNU GPL | Industrial Property Constraints Redistribution 
 Version | 8  
 Languages | C++,C
 
-
-###### 1.2. Known security vulnerabilities
-
-List of vulnerabilities made the 2018-04-27.
-
-Source: https://www.securityfocus.com/bid
-
-Vulnerability CVE identifier | Description | CVSS Score | Publication date | Solved By  
-:--------------------------: | :---------: | :--------: | :--------------: | :-------:  
-CVE-2015-2808 | The RC4 algorithm, as used in the TLS protocol and SSL protocol, does not properly combine state data with key data during the initialization phase, which makes it easier for remote attackers to conduct plaintext-recovery attacks against the initial bytes of a stream by sniffing network traffic that occasionally relies on keys affected by the Invariance Weakness, and then using a brute-force approach involving LSB values, aka the "Bar Mitzvah" issue. | 4.3 | 2015-03-31 | None  
-
-The vulnerability exposes REGARDS to no threats as we are not directly using SSL or TLS protocols. SSL protocol is handled by Apache from WEB-NG.  
-
-Vulnerability CVE identifier | Description | CVSS Score | Publication date | Solved By  
-:--------------------------: | :---------: | :--------: | :--------------: | :-------:  
-CVE-2014-1876 | The unpacker::redirect_stdio function in unpack.cpp in unpack200 in OpenJDK 6, 7, and 8; Oracle Java SE 5.0u61, 6u71, 7u51, and 8; JRockit R27.8.1 and R28.3.1; and Java SE Embedded 7u51 does not securely create temporary files when a log file cannot be opened, which allows local users to overwrite arbitrary files via a symlink attack on /tmp/unpack.log. | 4.4 | 2014-02-10 | None  
-
-REGARDS being setup on secured server to which users do not have access, this vulnerability does not exposes REGARDS to any threat.
-
-Vulnerability CVE identifier | Description | CVSS Score | Publication date | Solved By  
-:--------------------------: | :---------: | :--------: | :--------------: | :-------:  
-CVE-2015-4000 | The TLS protocol 1.2 and earlier, when a DHE_EXPORT ciphersuite is enabled on a server but not on a client, does not properly convey a DHE_EXPORT choice, which allows man-in-the-middle attackers to conduct cipher-downgrade attacks by rewriting a ClientHello with DHE replaced by DHE_EXPORT and then rewriting a ServerHello with DHE_EXPORT replaced by DHE, aka the "Logjam" issue. | 4.3 | 2015-05-20 | None  
-
-The vulnerability exposes REGARDS to no threats as we are not using TLS protocol. 
-
 ##### 2. Spring Framework
-
-###### 2.1. License
 
 Feature | Value             | Description
 :-----------------------------: | :--------------------------------------------------------------------------------------------------------: | :---------------------------------------------------------------------------:  
@@ -333,40 +270,7 @@ Licencing conditions | Apache license, version 2 | Industrial Property Constrain
 Version | 4.3.11  
 Languages | Java  
 
-###### 2.2. Known security vulnerabilities
-
-List of vulnerabilities made the 2018-04-27.
-
-Sources: https://www.securityfocus.com/bid , https://pivotal.io/security
-
-Vulnerability CVE identifier | Description | CVSS Score | Publication date | Solved By  
-:--------------------------: | :---------: | :--------: | :--------------: | :-------:  
-CVE-2018-1272 | Spring Framework versions 5.0 to 5.0.4, 4.3 to 4.3.14, and older unsupported versions provide client-side support for multipart requests. When Spring MVC or Spring WebFlux server application (server A) receives input from a remote client, and then uses that input to make a multipart request to another server (server B), it can be exposed to an attack, where an extra multipart is inserted in the content of the request from server A, causing server B to use the wrong value for a part it expects. This could to lead privilege escalation, for example, if the part content represents a username or user roles. | 0.0 | 2018-04-06 | 4.3.15+/5.0.5+  
-
-In order for the attacker to succeed, they would have to be able to guess the multipart boundary value chosen by server A for the multipart request to server B, which requires the attacker to also have control of the server or the ability to see the HTTP log of server A through a separate attack vector. REGARDS endpoint accepting multipart request are only endpoints from the administration bastion stronghold which are protected by proxy. REGARDS microservices do not make multipart request between them and are setup on secured server. As so, this vulnerability exposes REGARDS to no threat.  
-
-Vulnerability CVE identifier | Description | CVSS Score | Publication date | Solved By  
-:--------------------------: | :---------: | :--------: | :--------------: | :-------:  
-CVE-2018-1271 |  Spring Framework, versions 5.0 prior to 5.0.5 and versions 4.3 prior to 4.3.15 and older unsupported versions, allow applications to configure Spring MVC to serve static resources (e.g. CSS, JS, images). When static resources are served from a file system on Windows (as opposed to the classpath, or the ServletContext), a malicious user can send a request using a specially crafted URL that can lead a directory traversal attack. | 0.0 | 2018-04-06 | 4.3.15+/5.0.5+  
-
-This vulnerability exposes REGARDS to no threats as we are not serving static resources from the file system.
-
-Vulnerability CVE identifier | Description | CVSS Score | Publication date | Solved By  
-:--------------------------: | :---------: | :--------: | :--------------: | :-------:  
-CVE-2018-1270 | Spring Framework, versions 5.0 prior to 5.0.5 and versions 4.3 prior to 4.3.15 and older unsupported versions, allow applications to expose STOMP over WebSocket endpoints with a simple, in-memory STOMP broker through the spring-messaging module. A malicious user (or attacker) can craft a message to the broker that can lead to a remote code execution attack. | 0.0 | 2018-04-06 | 4.3.15+/5.0.5+  
-CVE-2018-1275 | Partial fix for CVE-2018-1270 | 0.0 | 2018-04-11 | 4.3.16/5.0.5+  
-
-This vulnerability exposes REGARDS to no threats as we are not using the spring-messaging module and we are not using WebSockets either.    
-
-Vulnerability CVE identifier | Description | CVSS Score | Publication date | Solved By  
-:--------------------------: | :---------: | :--------: | :--------------: | :-------:  
-CVE-2018-1199 | Spring Security does not consider URL path parameters when processing security constraints. By adding a URL path parameter with special encodings, an attacker may be able to bypass a security constraint. The root cause of this issue is a lack of clarity regarding the handling of path parameters in the Servlet Specification (see below). Some Servlet containers include path parameters in the value returned for getPathInfo() and some do not. Spring Security uses the value returned by getPathInfo() as part of the process of mapping requests to security constraints. In this particular attack, different character encodings used in path parameters allows secured Spring MVC static resource URLs to be bypassed. | 5.0 | 2018-01-29 | 4.13.14+/5.0.3+  
-
-This vulnerability exposes REGARDS to no threats as we are not serving any static content.  
-
 ##### 3. Spring Security  
-
-###### 3.1 License
 
 Feature | Value             | Description
 :-----------------------------: | :--------------------------------------------------------------------------------------------------------: | :---------------------------------------------------------------------------:  
@@ -376,19 +280,7 @@ Licencing conditions | Apache license, version 2 | Industrial Property Constrain
 Version | 4.3.2  
 Languages | Java  
 
-###### 3.2 Known security vulnerabilities  
-
-List of vulnerabilities made the 2018-04-27.
-
-Vulnerability CVE identifier | Description | CVSS Score | Publication date | Solved By  
-:--------------------------: | :---------: | :--------: | :--------------: | :-------:  
-CVE-2018-1199 | Spring Security does not consider URL path parameters when processing security constraints. By adding a URL path parameter with special encodings, an attacker may be able to bypass a security constraint. The root cause of this issue is a lack of clarity regarding the handling of path parameters in the Servlet Specification (see below). Some Servlet containers include path parameters in the value returned for getPathInfo() and some do not. Spring Security uses the value returned by getPathInfo() as part of the process of mapping requests to security constraints. In this particular attack, different character encodings used in path parameters allows secured Spring MVC static resource URLs to be bypassed. | 5.0 | 2018-01-29 | 4.2.4+/5.0.1+  
-
-This vulnerability exposes REGARDS to no threats as we are not serving any static content.  
-
 ##### 4. Spring Data JPA
-
-###### 4.1 License
 
 Feature | Value             | Description
 :-----------------------------: | :--------------------------------------------------------------------------------------------------------: | :---------------------------------------------------------------------------:  
@@ -398,17 +290,7 @@ Licencing conditions | Apache license, version 2 | Industrial Property Constrain
 Version | 1.13.7  
 Languages | Java  
 
-###### 4.2 Known security vulnerabilities  
-
-List of vulnerabilities made the 2018-04-27.
-
-source: https://pivotal.io/security 
-
-There is no known security vulnerabilities known to this date.
-
 ##### 5. Spring Boot
-
-###### 5.1. License
 
 Feature | Value             | Description
 :-----------------------------: | :--------------------------------------------------------------------------------------------------------: | :---------------------------------------------------------------------------:  
@@ -418,27 +300,7 @@ Licencing conditions | Apache license, version 2 | Industrial Property Constrain
 Version | 1.5.7  
 Languages | Java
 
-###### 5.2. Known security vulnerabilities
-
-List of vulnerabilities made the 2018-04-27.
-
-Source: https://www.securityfocus.com/bid , https://pivotal.io/security
-
-Vulnerability CVE identifier | Description | CVSS Score | Publication date | Solved By  
-:--------------------------: | :---------: | :--------: | :--------------: | :-------:  
-CVE-2017-8046 |  Malicious PATCH requests submitted to spring-data-rest servers in Pivotal Spring Data REST versions prior to 2.5.12, 2.6.7, 3.0 RC3, Spring Boot versions prior to 2.0.0M4, and Spring Data release trains prior to Kay-RC3 can use specially crafted JSON data to run arbitrary Java code. | 7.5 | 2018-01-04 | None  
-
-This vulnerability exposes REGARDS to no threats because PATCH requests are forbidden by Apache Configuration.
-
-Vulnerability CVE identifier | Description | CVSS Score | Publication date | Solved By  
-:--------------------------: | :---------: | :--------: | :--------------: | :-------:  
-CVE-2018-1196 | Spring Boot supports an embedded launch script that can be used to easily run the application as a systemd or init.d linux service[1]. The script included with Spring Boot 1.5.9 and earlier is susceptible to a symlink attack which allows the “run_user” to overwrite and take ownership of any file on the same system. | 4.3 | 2018-01-30 | 1.5.10+/2.0.0.RC1+  
-
-This vulnerability exposes REGARDS to no threats as we are not setting up the system as a service and we are not using the script.  
-
 ##### 6. Spring Cloud Netflix
-
-###### 6.1. License
 
 Feature | Value             | Description
 :-----------------------------: | :--------------------------------------------------------------------------------------------------------: | :---------------------------------------------------------------------------:  
@@ -448,17 +310,7 @@ Licencing conditions | Apache license, version 2 | Industrial Property Constrain
 Version | 1.3.4  
 Languages | Java
 
-###### 6.2. Known security vulnerabilities
-
-List of vulnerabilities made the 2018-04-27.
-
-sources: https://pivotal.io/security 
-
-There is no known security issues.
-
 ##### 7. Spring Cloud Config
-
-###### 7.1. License
 
 Feature | Value             | Description
 :-----------------------------: | :--------------------------------------------------------------------------------------------------------: | :---------------------------------------------------------------------------:  
@@ -468,17 +320,7 @@ Licencing conditions | Apache license, version 2 | Industrial Property Constrain
 Version | 1.3.2  
 Languages | Java
 
-###### 7.2. Known security vulnerabilities
-
-List of vulnerabilities made the 2018-04-27.
-
-sources: https://pivotal.io/security 
-
-There is no known security issues.
-
 ##### 8. Open Feign
-
-###### 8.1. License
 
 Feature | Value             | Description
 :-----------------------------: | :--------------------------------------------------------------------------------------------------------: | :---------------------------------------------------------------------------:  
@@ -488,17 +330,7 @@ Licencing conditions | Apache license, version 2 | Industrial Property Constrain
 Version | 9.5.0  
 Languages | Java
 
-###### 8.2. Known security vulnerabilities
-
-List of vulnerabilities made the 2018-05-02.
-
-sources: https://github.com/OpenFeign/feign/issues?utf8=%E2%9C%93&q=is%3Aissue+security 
-
-After a search on the github repository of the project with keyword "security" we could not find any known security vulnerabilities to this date.
-
 ##### 9. Spring HATEOAS
-
-###### 9.1. License
 
 Feature | Value             | Description
 :-----------------------------: | :--------------------------------------------------------------------------------------------------------: | :---------------------------------------------------------------------------:  
@@ -507,17 +339,7 @@ Developer/Ownership | Pivotal
 Licencing conditions | Apache license, version 2 | Industrial Property Constraints Redistribution and use in source and binary forms, with or without modification, are permitted provided [those conditions](#http://www.apache.org/licenses/LICENSE-2.0.txt).  
 Version | 0.23.0 Language | Java
 
-###### 9.2. Known security vulnerabilities
-
-List of vulnerabilities made the 2018-04-27.
-
-sources: https://pivotal.io/security 
-
-There is no known security issues.
-
 ##### 10. IzPack
-
-###### 10.1. License
 
 Feature | Value             | Description
 :-----------------------------: | :--------------------------------------------------------------------------------------------------------: | :---------------------------------------------------------------------------:  
@@ -527,16 +349,7 @@ Licencing conditions | Apache license, version 2 | Industrial Property Constrain
 Version | 5.1.0  
 Languages | Java
 
-
-###### 10.2. Known security vulnerabilities
-
-List of vulnerabilities made the 2018-04-30.
-
-After a search on their [JIRA](https://izpack.atlassian.net/browse/IZPACK-1530?filter=-4&jql=project%20%3D%20IZPACK%20AND%20affectedVersion%20%3D%205.1.0%20AND%20text%20~%20%22security%22%20order%20by%20created%20DESC), with the keyword "security", no security vulnerabilities has been identified to this day. The two issues listed(IZPACK-1530 & IZPACK-1555) are not security issues, they are only listed because of the stacktrace in the description which happens to have calls to "java.security".
-
 ##### 11. RabbitMQ
-
-###### 11.1 License
 
 Feature | Value             | Description
 :-----------------------------: | :--------------------------------------------------------------------------------------------------------: | :---------------------------------------------------------------------------:  
@@ -546,24 +359,7 @@ Licencing conditions | Mozilla Public Licence, version 1.1 | Industrial Property
 Version | 3.6.8  
 Languages | Erlang
 
-###### 11.2 Known security vulneratilities
-
-List of vulneratbilities made the 2018-04-30.
-
-sources: https://pivotal.io/security  
-
-Vulnerability CVE identifier | Description | CVSS Score | Publication date | Solved By  
-:--------------------------: | :---------: | :--------: | :--------------: | :-------:  
-CVE-2017-4966 | RabbitMQ management UI stores signed in user credentials in browser’s local storage without expiration, making it possible to retrieve them using a chained attack. | 2.1 | 2017-05-04 | 3.6.9+  
-CVE-2017-4965 & CVE-2017-4967 | Several forms in the RabbitMQ management UI are vulnerable to XSS attacks. | 4.3 | 2017-05-04 | 3.6.9+  
-
-Those vulnerabilities does not exposes REGARDS directly as REGARDS is only using the management API, not UI. However, it exposes RabbitMQ administrators. As so, two options are possible:  
-  - prohibe usage of the said UI thanks to firewall rules, managment of RabbitMQ is still possible thanks to command line.
-  - restrain the access to this UI thanks to firewall rules.
-
 ##### 12. Elasticsearch
-
-###### 12.1. License
 
 Feature | Value             | Description
 :-----------------------------: | :--------------------------------------------------------------------------------------------------------: | :---------------------------------------------------------------------------:  
@@ -573,17 +369,7 @@ Licencing conditions | Apache license, version 2 | Industrial Property Constrain
 Version | 5.6.3  
 Language | Java
 
-###### 12.2. Known security vulnerabilities
-
-List of vulnerabilities made the 2018-04-27.
-
-source: https://www.elastic.co/fr/community/security
-
-There is no known security vulnerabilities for Elasticsearch version 5.6.X
-
 ##### 13. FITS Java library
-
-###### 13.1. License
 
 Feature | Value             | Description
 :-----------------------------: | :--------------------------------------------------------------------------------------------------------: | :---------------------------------------------------------------------------:  
@@ -593,15 +379,7 @@ Licencing conditions | LGPL, version 3 | Industrial Property Constraints Redistr
 Version | 1.15.1  
 Languages | Java  
 
-###### 13.2 Known security vulnerabilities  
-
-List of vulnerabilities made the 2018-04-27.
-
-This library is not used by REGARDS in Version 2.0.0.  
-
 ##### 14. Jetty
-
-###### 14.1. Licence
 
 Feature | Value             | Description
 :-----------------------------: | :--------------------------------------------------------------------------------------------------------: | :---------------------------------------------------------------------------:  
@@ -611,19 +389,9 @@ Licencing conditions | Apache license, version 2 | Industrial Property Constrain
 Version | 9.4.6  
 Languages | Java  
 
-###### 14.2 Known security vulnerabilities
-
-List of vulnerabilities made the 2018-05-02.
-
-sources: https://www.securityfocus.com/bid  
-
-There is no known security vulnerabilities to this date.
-
 #### 2. Compile time backend
 
 ##### 1. Apache Maven
-
-###### 1.1. License
 
 Feature | Value             | Description
 :-----------------------------: | :--------------------------------------------------------------------------------------------------------: | :---------------------------------------------------------------------------:  
@@ -633,21 +401,11 @@ Licencing conditions | Apache license, version 2 | Industrial Property Constrain
 Version | 3.3.3  
 Languages | Java
 
-###### 1.2. Known security vulnerabilities
-
-List of vulnerabilities made the 2018-04-27.
-
-Source: https://www.securityfocus.com/bid
-
-There is no known security issues.
-
 #### 3. Testing
 
 Security Considerations: Those tools are not deployed with REGARDS. As so they do not exposes the system and the users to any security breaches.  
 
 ##### 1. Jenkins
-
-###### 1.1. License
 
 Feature | Value             | Description
 :-----------------------------: | :--------------------------------------------------------------------------------------------------------: | :---------------------------------------------------------------------------:  
@@ -659,8 +417,6 @@ Languages | JavaScript, Java
 
 ##### 2. SonarQube
 
-###### 2.1. License
-
 Feature | Value             | Description
 :-----------------------------: | :--------------------------------------------------------------------------------------------------------: | :---------------------------------------------------------------------------:  
 Name | SonarQube Main features | SonarQube is an open platform to manage code quality.  
@@ -670,8 +426,6 @@ Version | 6.0
 Languages | JavaScript, Java
 
 ##### 3. Selenium
-
-###### 3.1. License
 
 Feature | Value             | Description
 :-----------------------------: | :--------------------------------------------------------------------------------------------------------: | :---------------------------------------------------------------------------:  
