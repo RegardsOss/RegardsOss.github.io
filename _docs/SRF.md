@@ -17,7 +17,8 @@ Sylvain Vissiere-Guerinet | CSSI | Development Team
 
 Issue |    Date    |    Reasons for change
 :-------: | :---------: | :-------------------------:
-00    | 2016-07-28 | Creation of the document  
+10    | 2016-07-28 | Creation of the document  
+11    | 2018-11-05 | Modification of the document for V3.0
   {: class="table table-striped"}
 
 # Table of contents
@@ -103,8 +104,8 @@ Applicable and reference documents are:
 
 Reference             | Acronym |                     Title                     | Version |    Date
 --------------------- | :-----: | :-------------------------------------------: | :-----: | :--------:
-SGDS-SL-12100-0002-CS |  TODO   |   DOSSIER DE SPECIFICATION LOGICIEL REGARDS   |   01    | 25/03/2016
-SGDS-CP-12200-0010-CS |  TODO   | Dossier de Conception Préliminaire du REGARDS |   00    | 01/06/2016
+SGDS-SL-12100-0002-CS |  TODO   |   DOSSIER DE SPECIFICATION LOGICIEL REGARDS   |   15    | 05/11/2018
+SGDS-CP-12200-0010-CS |  TODO   | Dossier de Conception Préliminaire du REGARDS |   11    | 05/07/2017
   {: class="table table-striped"}
 
 #### 2. Definitions
