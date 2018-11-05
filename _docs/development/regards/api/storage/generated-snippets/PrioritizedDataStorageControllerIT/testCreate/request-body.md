@@ -11,14 +11,14 @@
     "pluginClassName" : "fr.cnes.regards.modules.storage.plugin.datastorage.local.LocalDataStorage",
     "interfaceNames" : [ "fr.cnes.regards.modules.storage.domain.plugin.IDataStorage", "fr.cnes.regards.modules.storage.domain.plugin.IOnlineDataStorage" ],
     "parameters" : [ {
-      "name" : "Local_Total_Space",
-      "value" : 9000000000000000,
+      "name" : "Storage_URL",
+      "value" : "file:/home/svissier/workspace/REGARDS/rs-storage/storage/storage-rest/target/AIPControllerIT",
       "dynamic" : false,
       "dynamicsValues" : [ ],
       "onlyDynamic" : false
     }, {
-      "name" : "Storage_URL",
-      "value" : "file:/home/msordi/git/rs-storage/storage/storage-rest/target/AIPControllerIT",
+      "name" : "Local_Total_Space",
+      "value" : 9000000000000000,
       "dynamic" : false,
       "dynamicsValues" : [ ],
       "onlyDynamic" : false

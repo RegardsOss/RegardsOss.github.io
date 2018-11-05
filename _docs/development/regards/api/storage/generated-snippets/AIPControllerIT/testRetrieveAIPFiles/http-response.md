@@ -21,7 +21,7 @@
 
 [ {
   "regardsDataType" : "RAWDATA",
-  "urls" : [ "file:/home/msordi/git/rs-storage/storage/storage-rest/src/test/resources/data.txt" ],
+  "urls" : [ "file:/home/svissier/workspace/REGARDS/rs-storage/storage/storage-rest/src/test/resources/data.txt" ],
   "filename" : "data.txt",
   "algorithm" : "MD5",
   "checksum" : "de89a907d33a9716d11765582102b2e0"

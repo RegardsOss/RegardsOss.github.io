@@ -21,10 +21,10 @@
 
 {
   "providerId" : "providerId",
-  "sipId" : "URN:SIP:DATA:PROJECT:f3c39e8d-39f4-4dcd-864d-999bd13338dc:V1",
+  "sipId" : "URN:SIP:DATA:PROJECT:9ed5562d-63ac-4b20-8145-4811fa74487f:V1",
   "state" : "VALID",
   "ipType" : "DATA",
-  "id" : "URN:AIP:DATA:PROJECT:f3c39e8d-39f4-4dcd-864d-999bd13338dc:V1",
+  "id" : "URN:AIP:DATA:PROJECT:9ed5562d-63ac-4b20-8145-4811fa74487f:V1",
   "geometry" : null,
   "properties" : {
     "contentInformations" : [ {
@@ -38,7 +38,7 @@
       "dataObject" : {
         "regardsDataType" : "RAWDATA",
         "reference" : false,
-        "urls" : [ "file:/home/msordi/git/rs-storage/storage/storage-rest/src/test/resources/data.txt" ],
+        "urls" : [ "file:/home/svissier/workspace/REGARDS/rs-storage/storage/storage-rest/src/test/resources/data.txt" ],
         "filename" : "data.txt",
         "algorithm" : "MD5",
         "checksum" : "de89a907d33a9716d11765582102b2e0"
@@ -53,11 +53,11 @@
         "history" : [ {
           "type" : "SUBMISSION",
           "comment" : "test event",
-          "date" : "2018-09-06T13:10:45.886Z"
+          "date" : "2018-11-05T08:51:06.298Z"
         }, {
           "type" : "SUBMISSION",
           "comment" : "Submission to REGARDS",
-          "date" : "2018-09-06T13:10:45.956Z"
+          "date" : "2018-11-05T08:51:06.402Z"
         } ],
         "facility" : "CS",
         "session" : "Session123"

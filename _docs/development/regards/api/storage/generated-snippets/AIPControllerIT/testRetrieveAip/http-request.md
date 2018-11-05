@@ -2,7 +2,7 @@
 
 * **URL**
 
-  `/aips/URN:AIP:DATA:PROJECT:f3c39e8d-39f4-4dcd-864d-999bd13338dc:V1`
+  `/aips/URN:AIP:DATA:PROJECT:9ed5562d-63ac-4b20-8145-4811fa74487f:V1`
 
 * **URL template**
 

@@ -93,7 +93,7 @@ title: REGARDS Storage API
 
 ## Retrieve one AIP metadata
 
-    Allow to retrieve a given aip metadata thanks to its AIP identifier
+    Allow to retrieve a given aip metadata thanks to its ipId
 
 {% include_relative generated-snippets/AIPControllerIT/testRetrieveAip/http-request.md %}
 
@@ -124,6 +124,26 @@ title: REGARDS Storage API
 {% include_relative generated-snippets/AIPControllerIT/testRetrieveAipTag/request-body.md %}
 
 {% include_relative generated-snippets/AIPControllerIT/testRetrieveAipTag/http-response.md %}
+
+## Retrieve all AIP tags
+
+  Retrieve a collection of all AIP tags
+
+{% include_relative generated-snippets/AIPControllerIT/testRetrieveAllAipsTags/http-request.md %}
+
+{% include_relative generated-snippets/AIPControllerIT/testRetrieveAllAipsTags/request-body.md %}
+
+{% include_relative generated-snippets/AIPControllerIT/testRetrieveAllAipsTags/http-response.md %}
+
+## Retrieve all AIP tags of filtered AIPs
+
+  Retrieve a collection of all tags of AIP described by an AIP filter
+
+{% include_relative generated-snippets/AIPControllerIT/testRetrieveAipsTagsWithFilter/http-request.md %}
+
+{% include_relative generated-snippets/AIPControllerIT/testRetrieveAipsTagsWithFilter/request-body.md %}
+
+{% include_relative generated-snippets/AIPControllerIT/testRetrieveAipsTagsWithFilter/http-response.md %}
 
 ## Retrieve the list of files associated to an AIP
 
@@ -194,6 +214,42 @@ title: REGARDS Storage API
 {% include_relative generated-snippets/AIPControllerIT/testDelete/request-body.md %}
 
 {% include_relative generated-snippets/AIPControllerIT/testDelete/http-response.md %}
+
+## Add tags to multiple AIPs
+
+    Add given tags to AIPs following the given criteria
+
+{% include_relative generated-snippets/AIPControllerIT/testAddTagToAIPsByQuery/http-request.md %}
+
+{% include_relative generated-snippets/AIPControllerIT/testAddTagToAIPsByQuery/request-body.md %}
+
+{% include_relative generated-snippets/AIPControllerIT/testAddTagToAIPsByQuery/http-response.md %}
+
+## Remove tags to multiple AIPs
+
+    Remove given tags from AIPs following the given criteria
+
+{% include_relative generated-snippets/AIPControllerIT/testDeleteTagFromAIPsByQuery/http-request.md %}
+
+{% include_relative generated-snippets/AIPControllerIT/testDeleteTagFromAIPsByQuery/request-body.md %}
+
+{% include_relative generated-snippets/AIPControllerIT/testDeleteTagFromAIPsByQuery/http-response.md %}
+
+# AIPSessionController
+
+## Overview
+
+    This AIP allows to retrieve AIPSessions
+
+## Retrieve multiple AIP sessions
+
+    Allow to retrieve a page of AIP sessions
+
+{% include_relative generated-snippets/AIPSessionControllerIT/testRetrieveSessions/http-request.md %}
+
+{% include_relative generated-snippets/AIPSessionControllerIT/testRetrieveSessions/request-body.md %}
+
+{% include_relative generated-snippets/AIPSessionControllerIT/testRetrieveSessions/http-response.md %}
 
 # PrioritizedDataStorageController
 

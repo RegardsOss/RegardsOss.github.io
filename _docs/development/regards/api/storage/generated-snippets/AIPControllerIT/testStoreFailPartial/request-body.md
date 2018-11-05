@@ -4,10 +4,11 @@
  {
   "features" : [ {
     "providerId" : "providerId",
-    "sipId" : "URN:SIP:DATA:PROJECT:f776afac-6fb1-443c-81ef-3fb601e0b0de:V1",
+    "sipId" : "URN:SIP:DATA:PROJECT:35a09450-5563-4dc9-9dca-28c69127b16d:V1",
     "ipType" : "DATA",
-    "id" : "URN:AIP:DATA:PROJECT:f776afac-6fb1-443c-81ef-3fb601e0b0de:V1",
+    "id" : "URN:AIP:DATA:PROJECT:35a09450-5563-4dc9-9dca-28c69127b16d:V1",
     "geometry" : null,
+    "normalizedGeometry" : null,
     "properties" : {
       "contentInformations" : [ {
         "representationInformation" : {
@@ -20,7 +21,7 @@
         "dataObject" : {
           "regardsDataType" : "RAWDATA",
           "reference" : false,
-          "urls" : [ "file:/home/msordi/git/rs-storage/storage/storage-rest/src/test/resources/data.txt" ],
+          "urls" : [ "file:/home/svissier/workspace/REGARDS/rs-storage/storage/storage-rest/src/test/resources/data.txt" ],
           "filename" : "data.txt",
           "algorithm" : "MD5",
           "checksum" : "de89a907d33a9716d11765582102b2e0"
@@ -35,7 +36,7 @@
           "history" : [ {
             "type" : "SUBMISSION",
             "comment" : "test event",
-            "date" : "2018-09-06T13:09:42.969Z"
+            "date" : "2018-11-05T08:50:54.003Z"
           } ],
           "facility" : "CS",
           "session" : "Session123"
@@ -51,10 +52,11 @@
     "type" : "Feature"
   }, {
     "providerId" : "providerId",
-    "sipId" : "URN:SIP:DATA:PROJECT:58866ad2-e460-494b-8203-cac345cc5553:V1",
+    "sipId" : "URN:SIP:DATA:PROJECT:a2cd7101-dfdc-4d40-82a3-c21c8eecd0be:V1",
     "ipType" : "DATA",
-    "id" : "URN:AIP:DATA:PROJECT:58866ad2-e460-494b-8203-cac345cc5553:V1",
+    "id" : "URN:AIP:DATA:PROJECT:a2cd7101-dfdc-4d40-82a3-c21c8eecd0be:V1",
     "geometry" : null,
+    "normalizedGeometry" : null,
     "properties" : {
       "contentInformations" : [ {
         "representationInformation" : {
@@ -67,7 +69,7 @@
         "dataObject" : {
           "regardsDataType" : "RAWDATA",
           "reference" : false,
-          "urls" : [ "file:/home/msordi/git/rs-storage/storage/storage-rest/src/test/resources/data.txt" ],
+          "urls" : [ "file:/home/svissier/workspace/REGARDS/rs-storage/storage/storage-rest/src/test/resources/data.txt" ],
           "filename" : "data.txt",
           "algorithm" : "MD5",
           "checksum" : "de89a907d33a9716d11765582102b2e0"
@@ -82,7 +84,7 @@
           "history" : [ {
             "type" : "SUBMISSION",
             "comment" : "test event",
-            "date" : "2018-09-06T13:09:43.057Z"
+            "date" : "2018-11-05T08:50:54.197Z"
           } ],
           "facility" : "CS",
           "session" : "Session123"

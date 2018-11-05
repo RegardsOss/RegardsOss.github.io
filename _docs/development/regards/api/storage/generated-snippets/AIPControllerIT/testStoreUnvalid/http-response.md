@@ -20,7 +20,7 @@
 ```json
 
 [ {
-  "aipId" : "URN:AIP:DATA:PROJECT:b7716709-b1e6-4ace-8071-0e0173caea27:V1",
+  "aipId" : "URN:AIP:DATA:PROJECT:f988c08c-2708-4b31-a962-b07ead83d824:V1",
   "rejectionCauses" : [ "Property properties.contentInformations[0].dataObject.checksum is invalid: Data file checksum is required" ]
 } ]
 ```

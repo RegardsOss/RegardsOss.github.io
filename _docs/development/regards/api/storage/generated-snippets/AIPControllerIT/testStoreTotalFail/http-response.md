@@ -20,7 +20,7 @@
 ```json
 
 [ {
-  "aipId" : "URN:AIP:DATA:PROJECT:658eb6bd-fbb2-4d22-8997-783d63f12e7b:V1",
-  "rejectionCauses" : [ "AIP with ip id URN:AIP:DATA:PROJECT:658eb6bd-fbb2-4d22-8997-783d63f12e7b:V1 already exists" ]
+  "aipId" : "URN:AIP:DATA:PROJECT:75d3d0af-9ef3-4ece-b981-ab6744203ce1:V1",
+  "rejectionCauses" : [ "AIP with ip id URN:AIP:DATA:PROJECT:75d3d0af-9ef3-4ece-b981-ab6744203ce1:V1 already exists" ]
 } ]
 ```

@@ -22,10 +22,10 @@
 [ {
   "type" : "SUBMISSION",
   "comment" : "test event",
-  "date" : "2018-09-06T13:09:19.332Z"
+  "date" : "2018-11-05T08:50:26.367Z"
 }, {
   "type" : "SUBMISSION",
   "comment" : "Submission to REGARDS",
-  "date" : "2018-09-06T13:09:19.418Z"
+  "date" : "2018-11-05T08:50:26.492Z"
 } ]
 ```

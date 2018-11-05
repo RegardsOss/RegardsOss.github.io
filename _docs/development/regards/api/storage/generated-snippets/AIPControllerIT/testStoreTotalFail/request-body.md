@@ -4,10 +4,11 @@
  {
   "features" : [ {
     "providerId" : "providerId",
-    "sipId" : "URN:SIP:DATA:PROJECT:658eb6bd-fbb2-4d22-8997-783d63f12e7b:V1",
+    "sipId" : "URN:SIP:DATA:PROJECT:75d3d0af-9ef3-4ece-b981-ab6744203ce1:V1",
     "ipType" : "DATA",
-    "id" : "URN:AIP:DATA:PROJECT:658eb6bd-fbb2-4d22-8997-783d63f12e7b:V1",
+    "id" : "URN:AIP:DATA:PROJECT:75d3d0af-9ef3-4ece-b981-ab6744203ce1:V1",
     "geometry" : null,
+    "normalizedGeometry" : null,
     "properties" : {
       "contentInformations" : [ {
         "representationInformation" : {
@@ -20,7 +21,7 @@
         "dataObject" : {
           "regardsDataType" : "RAWDATA",
           "reference" : false,
-          "urls" : [ "file:/home/msordi/git/rs-storage/storage/storage-rest/src/test/resources/data.txt" ],
+          "urls" : [ "file:/home/svissier/workspace/REGARDS/rs-storage/storage/storage-rest/src/test/resources/data.txt" ],
           "filename" : "data.txt",
           "algorithm" : "MD5",
           "checksum" : "de89a907d33a9716d11765582102b2e0"
@@ -35,7 +36,7 @@
           "history" : [ {
             "type" : "SUBMISSION",
             "comment" : "test event",
-            "date" : "2018-09-06T13:09:19.903Z"
+            "date" : "2018-11-05T08:50:27.287Z"
           } ],
           "facility" : "CS",
           "session" : "Session123"

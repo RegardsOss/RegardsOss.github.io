@@ -2,7 +2,7 @@
 
 * **URL**
 
-  `/aips/URN:AIP:DATA:PROJECT:9b9b5756-8e60-4869-952d-506dff2709e7:V1/tags/tag`
+  `/aips/URN:AIP:DATA:PROJECT:435d7665-a9f9-47da-9899-27c1878fc451:V1/tags/tag`
 
 * **URL template**
 

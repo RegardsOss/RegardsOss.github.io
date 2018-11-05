@@ -21,9 +21,9 @@
 
 {
   "content" : {
-    "id" : 4,
+    "id" : 255,
     "dataStorageConfiguration" : {
-      "id" : 4,
+      "id" : 255,
       "pluginId" : "Local",
       "label" : "PrioritizedDataStorageControllerIT_1",
       "version" : "1.0",
@@ -32,16 +32,16 @@
       "pluginClassName" : "fr.cnes.regards.modules.storage.plugin.datastorage.local.LocalDataStorage",
       "interfaceNames" : [ "fr.cnes.regards.modules.storage.domain.plugin.IDataStorage", "fr.cnes.regards.modules.storage.domain.plugin.IOnlineDataStorage" ],
       "parameters" : [ {
-        "id" : 7,
-        "name" : "Local_Total_Space",
-        "value" : 9000000000000000,
+        "id" : 58,
+        "name" : "Storage_URL",
+        "value" : "file:/home/svissier/workspace/REGARDS/rs-storage/storage/storage-rest/target/AIPControllerIT",
         "dynamic" : false,
         "dynamicsValues" : [ ],
         "onlyDynamic" : false
       }, {
-        "id" : 8,
-        "name" : "Storage_URL",
-        "value" : "file:/home/msordi/git/rs-storage/storage/storage-rest/target/AIPControllerIT",
+        "id" : 59,
+        "name" : "Local_Total_Space",
+        "value" : 9000000000000000,
         "dynamic" : false,
         "dynamicsValues" : [ ],
         "onlyDynamic" : false
@@ -58,7 +58,7 @@
     "href" : "http://localhost:8080/storages"
   }, {
     "rel" : "self",
-    "href" : "http://localhost:8080/storages/4"
+    "href" : "http://localhost:8080/storages/255"
   } ]
 }
 ```
