@@ -1,9 +1,9 @@
 * **URL params**
 
-`/aips/{aip_id}`  
+`/storages/{id}`  
 
 Parameter | Type | Description | Constraints  
 :-------: | :--: | :---------: | :---------:  
-`aip_id` | String | the AIP identifier | Should respect UniformResourceName pattern  
+`id` | Number | the prioritized data storage id | Should be a whole number  
 {: .table .table-striped}
 

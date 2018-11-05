@@ -1,6 +1,6 @@
 * **URL params**
 
-`/aips/{aip_id}`  
+`/aips/{aip_id}/objectlinks`  
 
 Parameter | Type | Description | Constraints  
 :-------: | :--: | :---------: | :---------:  

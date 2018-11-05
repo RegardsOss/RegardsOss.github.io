@@ -1,6 +1,6 @@
 * **URL params**
 
-`/aips/{aip_id}`  
+`/aips/{aip_id}/versions`  
 
 Parameter | Type | Description | Constraints  
 :-------: | :--: | :---------: | :---------:  
