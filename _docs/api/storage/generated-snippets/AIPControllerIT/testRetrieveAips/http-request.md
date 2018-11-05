@@ -2,7 +2,7 @@
 
 * **URL**
 
-  `/aips?from=2018-04-22T09%3A40%3A25.221Z&to=2018-06-01T09%3A40%3A25.222Z`
+  `/aips?from=2018-09-26T09%3A51%3A08.135%2B01%3A00&to=2018-11-05T09%3A51%3A08.135%2B01%3A00&state=VALID&session=Session123&tags=tag`
 
 * **URL template**
 

@@ -3,9 +3,12 @@
 ```json
  {
   "features" : [ {
+    "providerId" : "providerId",
+    "sipId" : "URN:SIP:DATA:PROJECT:35a09450-5563-4dc9-9dca-28c69127b16d:V1",
     "ipType" : "DATA",
-    "id" : "URN:AIP:DATA:PROJECT:0a682643-98cb-4ead-aa75-097ceca2f20f:V1",
+    "id" : "URN:AIP:DATA:PROJECT:35a09450-5563-4dc9-9dca-28c69127b16d:V1",
     "geometry" : null,
+    "normalizedGeometry" : null,
     "properties" : {
       "contentInformations" : [ {
         "representationInformation" : {
@@ -17,7 +20,9 @@
         },
         "dataObject" : {
           "regardsDataType" : "RAWDATA",
+          "reference" : false,
           "urls" : [ "file:/home/svissier/workspace/REGARDS/rs-storage/storage/storage-rest/src/test/resources/data.txt" ],
+          "filename" : "data.txt",
           "algorithm" : "MD5",
           "checksum" : "de89a907d33a9716d11765582102b2e0"
         }
@@ -31,9 +36,10 @@
           "history" : [ {
             "type" : "SUBMISSION",
             "comment" : "test event",
-            "date" : "2018-06-01T09:40:19.938Z"
+            "date" : "2018-11-05T08:50:54.003Z"
           } ],
-          "facility" : "CS"
+          "facility" : "CS",
+          "session" : "Session123"
         },
         "fixityInformation" : { },
         "accessRightInformation" : {
@@ -45,9 +51,12 @@
     },
     "type" : "Feature"
   }, {
+    "providerId" : "providerId",
+    "sipId" : "URN:SIP:DATA:PROJECT:a2cd7101-dfdc-4d40-82a3-c21c8eecd0be:V1",
     "ipType" : "DATA",
-    "id" : "URN:AIP:DATA:PROJECT:796587c5-297f-4386-98eb-0b0f5d5893df:V1",
+    "id" : "URN:AIP:DATA:PROJECT:a2cd7101-dfdc-4d40-82a3-c21c8eecd0be:V1",
     "geometry" : null,
+    "normalizedGeometry" : null,
     "properties" : {
       "contentInformations" : [ {
         "representationInformation" : {
@@ -59,7 +68,9 @@
         },
         "dataObject" : {
           "regardsDataType" : "RAWDATA",
+          "reference" : false,
           "urls" : [ "file:/home/svissier/workspace/REGARDS/rs-storage/storage/storage-rest/src/test/resources/data.txt" ],
+          "filename" : "data.txt",
           "algorithm" : "MD5",
           "checksum" : "de89a907d33a9716d11765582102b2e0"
         }
@@ -73,9 +84,10 @@
           "history" : [ {
             "type" : "SUBMISSION",
             "comment" : "test event",
-            "date" : "2018-06-01T09:40:20.064Z"
+            "date" : "2018-11-05T08:50:54.197Z"
           } ],
-          "facility" : "CS"
+          "facility" : "CS",
+          "session" : "Session123"
         },
         "fixityInformation" : { },
         "accessRightInformation" : {

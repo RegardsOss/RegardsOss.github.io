@@ -3,9 +3,12 @@
 ```json
  {
   "features" : [ {
+    "providerId" : "providerId",
+    "sipId" : "URN:SIP:DATA:PROJECT:2dbda6ba-46f6-4bb9-8dca-5da2ff77b457:V1",
     "ipType" : "DATA",
-    "id" : "URN:AIP:DATA:PROJECT:927e3ccf-89d3-4585-ae6c-2d67fd2ab602:V1",
+    "id" : "URN:AIP:DATA:PROJECT:2dbda6ba-46f6-4bb9-8dca-5da2ff77b457:V1",
     "geometry" : null,
+    "normalizedGeometry" : null,
     "properties" : {
       "contentInformations" : [ {
         "representationInformation" : {
@@ -17,7 +20,9 @@
         },
         "dataObject" : {
           "regardsDataType" : "RAWDATA",
+          "reference" : false,
           "urls" : [ "file:/home/svissier/workspace/REGARDS/rs-storage/storage/storage-rest/src/test/resources/data.txt" ],
+          "filename" : "data.txt",
           "algorithm" : "MD5",
           "checksum" : "de89a907d33a9716d11765582102b2e0"
         }
@@ -31,9 +36,10 @@
           "history" : [ {
             "type" : "SUBMISSION",
             "comment" : "test event",
-            "date" : "2018-06-01T09:39:54.045Z"
+            "date" : "2018-11-05T08:50:28.276Z"
           } ],
-          "facility" : "CS"
+          "facility" : "CS",
+          "session" : "Session123"
         },
         "fixityInformation" : { },
         "accessRightInformation" : {
