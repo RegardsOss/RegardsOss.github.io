@@ -249,8 +249,6 @@ categories:
 
 {% include_relative generated-snippets/AIPSessionControllerIT/testRetrieveSessions/http-request.md %}
 
-{% include_relative generated-snippets/AIPSessionControllerIT/testRetrieveSessions/request-parameters.md %}
-
 {% include_relative generated-snippets/AIPSessionControllerIT/testRetrieveSessions/request-body.md %}
 
 {% include_relative generated-snippets/AIPSessionControllerIT/testRetrieveSessions/http-response.md %}
