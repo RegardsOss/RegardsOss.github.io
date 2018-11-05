@@ -223,6 +223,8 @@ title: REGARDS Storage API
 
 {% include_relative generated-snippets/AIPControllerIT/testAddTagToAIPsByQuery/request-body.md %}
 
+{% include_relative generated-snippets/AIPControllerIT/testAddTagToAIPsByQuery/request-fields.md %}
+
 {% include_relative generated-snippets/AIPControllerIT/testAddTagToAIPsByQuery/http-response.md %}
 
 ## Remove tags to multiple AIPs
@@ -232,6 +234,8 @@ title: REGARDS Storage API
 {% include_relative generated-snippets/AIPControllerIT/testDeleteTagFromAIPsByQuery/http-request.md %}
 
 {% include_relative generated-snippets/AIPControllerIT/testDeleteTagFromAIPsByQuery/request-body.md %}
+
+{% include_relative generated-snippets/AIPControllerIT/testDeleteTagFromAIPsByQuery/request-fields.md %}
 
 {% include_relative generated-snippets/AIPControllerIT/testDeleteTagFromAIPsByQuery/http-response.md %}
 

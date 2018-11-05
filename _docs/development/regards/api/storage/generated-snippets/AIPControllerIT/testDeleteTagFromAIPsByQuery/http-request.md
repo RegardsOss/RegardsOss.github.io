@@ -2,11 +2,11 @@
 
 * **URL**
 
-  `/aips/tags`
+  `/aips/tags/delete`
 
 * **URL template**
 
-  `/aips/tags`
+  `/aips/tags/delete`
 
 * **Method**
 
