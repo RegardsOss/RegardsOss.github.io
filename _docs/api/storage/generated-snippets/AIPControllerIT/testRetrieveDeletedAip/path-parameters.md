@@ -1,8 +1,9 @@
 * **URL params**
 
-`/aips/{ip_id}`  
+`/aips/{aip_id}`  
 
 Parameter | Type | Description | Constraints  
 :-------: | :--: | :---------: | :---------:  
-`ip_id` | String | the AIP identifier | Should respect UniformResourceName pattern  
+`aip_id` | String | the AIP identifier | Should respect UniformResourceName pattern  
+{: .table .table-striped}
 
