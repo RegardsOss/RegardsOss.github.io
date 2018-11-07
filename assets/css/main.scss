@@ -33,12 +33,12 @@
 .pres-ligne:nth-child(even) {
 	background-color: initial;
 }
-@media (min-width: 768px) {
+@media (min-width: 1200px) {
 	.pres-ligne .vignette {
 		margin-top: 28px;
 	}
 }
-@media (max-width: 767px) {
+@media (max-width: 1199px) {
 	.pres-ligne .vignette {
     width: 60%;
     margin: auto;
@@ -177,9 +177,8 @@ nav.nav-toggle.two {
 
 // Article
 div.article-container{
-	float: left;
 	padding: 50px 43px 0;
-	width: 100%;
+	width: calc(100% - 275px);
 }
 	article{
 		h2,
