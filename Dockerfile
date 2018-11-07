@@ -1,4 +1,4 @@
-FROM ruby:2.4
+FROM ruby:2.5.3
 
 RUN apt-get update
 RUN curl -sL https://deb.nodesource.com/setup_8.x | bash -

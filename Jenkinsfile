@@ -41,8 +41,8 @@ pipeline {
             steps {
                 sh 'cd nginx && docker build --build-arg https_proxy=$HTTP_PROXY --build-arg http_proxy=$HTTP_PROXY \
 	                  --build-arg HTTP_PROXY=$HTTP_PROXY --build-arg HTTPS_PROXY=$HTTP_PROXY --build-arg no_proxy=$no_proxy \
-                      -t 172.26.46.158/rs_doc:whole .'
-                sh 'docker push 172.26.46.158/rs_doc:whole'
+                      -t 172.26.46.158/rs_doc:develop .'
+                sh 'docker push 172.26.46.158/rs_doc:develop'
             }
         }
     }
