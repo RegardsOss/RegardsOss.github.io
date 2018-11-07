@@ -11,6 +11,41 @@
 #logo {
 	height: 70px;
 }
+//Homepage
+.pres-ligne{
+	padding: 6rem 0 6rem;
+	min-height: 30rem;
+	position: relative;
+	h2 {
+		margin-bottom: 3.5rem;
+	}
+	p {
+		line-height: 3rem;
+    font-size: 1.5rem;
+	}
+	img {
+		max-width: 60%;
+	}
+}
+.pres-ligne:nth-child(odd) {
+    background-color: #f5f5f5;
+}
+.pres-ligne:nth-child(even) {
+	background-color: initial;
+}
+@media (min-width: 768px) {
+	.pres-ligne .vignette {
+		margin-top: 28px;
+	}
+}
+@media (max-width: 767px) {
+	.pres-ligne .vignette {
+    width: 60%;
+    margin: auto;
+    display: block;
+	}
+}
+
 // General
 body{
 	color: $body-text-color;
@@ -38,7 +73,6 @@ div.main-body{
 
 div.main-body {
 	display: flex;
-	max-width: 1200px;
 	margin: 0 auto;
 }
 
@@ -145,7 +179,7 @@ nav.nav-toggle.two {
 div.article-container{
 	float: left;
 	padding: 50px 43px 0;
-	width: 75%;
+	width: 100%;
 }
 	article{
 		h2,
