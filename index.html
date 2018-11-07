@@ -1,32 +1,34 @@
 ---
 layout: classic-docs
+page-type: homepage
+title: Welcome to Regards Documentation
 ---
 
-{% for category in site.data.categories %}
-{% if category.slug != "installation" and category.slug != "resources" and category.slug != "documentation" and category.slug != "enterprise" %}
-<div class="category-section">
-	<img src="{{ category.icon }}" class="logo" alt="Category Icon" />
-	<h2>{{ category.name }}</h2>
-	<ul class="list-unstyled">
-	{% assign docs_found = 0 %}
-	{% for doc in site.docs %}
-		{% if doc.categories contains category.slug and doc.slug != category.index and doc.hide != True %}
-			{% assign docs_found = docs_found | plus: 1 %}
-			{% if docs_found < 4 %}
-				{% if doc.short-title %}
-					<li class="{% if page.path contains doc.url %}active{% endif %}"><a href="{{ site.baseurl }}{{ doc.url }}">{{ doc.short-title }}</a></li>
-				{% else %}
-					<li><a href="{{ site.baseurl }}{{ doc.url }}">{{ doc.title }}</a></li>
-				{% endif %}
-			{% endif %}
-		{% endif %}
-	{% endfor %}
 
-	{% if docs_found > 3 %}
-		{% assign more = docs_found | minus: 3 %}
-		<li><em><a href="{{ site.baseurl }}/{{ category.index }}/">{{ more }} more</a></em></li>
-	{% endif %}
-	</ul>
+Welcome to the Regards OSS documentation website.
+
+<hr>
+
+<div>
+  <table>
+    <tr>
+      <th>
+        <h2>Get Started</h2>
+      </th>
+
+    </tr>
+    <tr>
+      <td>&nbsp;&nbsp;Get started with RegardsOSS.</td>
+    </tr>
+    <p>
+      <tr>
+        <td>
+          <ul>
+            <li><a href="/home/overview">Genesis</a></li>
+            <li><a href="/getting-started/regards-installation-manual">Install</a></li>
+            <li><a href="/user-documentation/regards-user-manual">User manual</a></li>
+          </ul>
+        </td>
+      </tr>
+  </table>
 </div>
-{% endif %}
-{% endfor %}

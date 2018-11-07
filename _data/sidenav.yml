@@ -1,0 +1,113 @@
+- name: Home
+  link:
+  icon: /assets/img/icons/home.svg
+  children: 
+    - name: Introduction
+      children: 
+        - name: Genesis
+          link: home/overview/
+        - name: Roadmap
+          link: home/roadmap/
+
+- name: Getting Started
+  icon: /assets/img/icons/rocket.svg
+  children: 
+    - name: Introduction
+      link: getting-started/
+      children: 
+        - name: Manual Installation
+          link: getting-started/regards-installation-manual/
+
+- name: User Documentation
+  icon: /assets/img/icons/open-book.svg
+  children: 
+    - name: Introduction
+      link: user-documentation/
+      children: 
+        - name: Authentications
+          link: user-documentation/authentication/
+        - name: Geospatial behavior
+          link: user-documentation/geometry/
+    - name: Manuals
+      link: user-documentation/
+      children: 
+        - name: Operations manual
+          link: user-documentation/regards-operations-manual/
+        - name: User manual
+          link: user-documentation/regards-user-manual/
+          
+
+- name: Backend
+  icon: /assets/img/icons/api.svg
+  children: 
+    - name: Concept
+      link: development/
+      children: 
+        - name: Framework building blocks (aka starters)
+          link: development/framework/starters/
+    - name: API for REGARDS microservices
+      link: development/regards/api/
+      children: 
+        - name: Data Management API
+          link: development/regards/api/dam/model-api/
+        - name: Basket API
+          link: development/regards/api/order/basket-api/
+        - name: Order API
+          link: development/regards/api/order/order-api/
+        - name: DataProvider API
+          link: development/regards/api/dataprovider/acquisition-api/
+        - name: Ingest API
+          link: development/regards/api/ingest/ingest-api/
+        - name: Storage API
+          link: development/regards/api/storage/storage-api/
+          
+
+- name: Frontend
+  icon: /assets/img/icons/html.svg
+  children: 
+    - name: Introduction
+      link: frontend/developers-index/
+      children: 
+        - name: Installation
+          link: frontend/setup/
+        - name: Setting up an IDE
+          link: frontend/ide/
+        - name: Architecture
+          link: frontend/arch/
+        - name: Lint
+          link: frontend/eslint-config-es6-rules/
+    - name: Data
+      children: 
+        - name: Data store & Request
+          link: frontend/data/
+        - name: Backend interactions
+          link: frontend/components/clients/
+    - name: View
+      children: 
+        - name: Internationalization
+          link: frontend/components/internationalization/
+        - name: Theme
+          link: frontend/components/theme/
+        - name: Forms
+          link: frontend/components/redux-forms/
+    - name: Packages
+      link: frontend/developers-index/
+      children: 
+        - name: Re-usable components
+          link: frontend/components/components/
+        - name: Business components
+          link: frontend/components/business-index/
+        - name: Lazy modules
+          link: frontend/modules/dynamic-modules/
+    - name: Plugins
+      link: frontend/plugins/plugins/
+      children: 
+        - name: Criteria
+          link: frontend/plugins/plugin-criteria/
+        - name: Services
+          link: frontend/plugins/plugin-services/
+    - name: User guide
+      link: frontend/layout-configuration/
+      children: 
+        - name: Layout configuration
+          link: frontend/layout-configuration/
