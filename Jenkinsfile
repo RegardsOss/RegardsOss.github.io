@@ -29,6 +29,7 @@ pipeline {
             steps {
                 sh 'docker run --rm -i \
                 	-v ${WORKSPACE}/nginx/doc-static:/src/_site \
+                    -e https_proxy -e http_proxy -e HTTPS_PROXY -e HTTP_PROXY -e no_proxy \
                 	172.26.46.158/rs_doc_generator bash -c "bundle && jekyll build"'
             }
             post {
