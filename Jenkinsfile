@@ -29,7 +29,7 @@ pipeline {
             steps {
                 sh 'docker run --rm -i \
                 	-v ${WORKSPACE}/nginx/doc-static:/src/_site \
-                	172.26.46.158/rs_doc_generator jekyll build'
+                	172.26.46.158/rs_doc_generator bash -c "bundle && jekyll build"'
             }
             post {
                 always {
