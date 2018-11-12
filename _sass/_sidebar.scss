@@ -1,7 +1,8 @@
 $sidebar-spacing-base: 5px;
+$sidebar-width: 275px;
 
 .sidebar-wrapper {
-  width: 275px;
+  width: $sidebar-width;
   position: relative;
 
   @media screen and (max-width: $screen-sm) {
@@ -17,16 +18,19 @@ $sidebar-spacing-base: 5px;
   padding: 30px;
   overflow-y: scroll;
   position: absolute;
-  bottom: 0;
+  width: $sidebar-width;
 
   a.active,
   .nav-span {
     color: $link-text-color;
   }
 
+  a:hover {
+    color: $link-text-color;
+  }
+
   &.fixed {
     position: fixed;
-    top: 118px;
   }
 
   .main-nav-item {

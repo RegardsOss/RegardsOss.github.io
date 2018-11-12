@@ -1,6 +1,6 @@
 - name: Home
   link:
-  icon: /assets/img/icons/home.svg
+  icon: /assets/img/icons/if_globe_1055048.svg
   children: 
     - name: Introduction
       children: 
@@ -10,7 +10,7 @@
           link: home/roadmap/
 
 - name: Getting Started
-  icon: /assets/img/icons/rocket.svg
+  icon: /assets/img/icons/if_rocket_1054990.svg
   children: 
     - name: Introduction
       link: getting-started/
@@ -19,7 +19,7 @@
           link: getting-started/regards-installation-manual/
 
 - name: User Documentation
-  icon: /assets/img/icons/open-book.svg
+  icon: /assets/img/icons/if_folder_1055055.svg
   children: 
     - name: Introduction
       link: user-documentation/
@@ -38,7 +38,7 @@
           
 
 - name: Backend
-  icon: /assets/img/icons/api.svg
+  icon: /assets/img/icons/if_cloud_1055089.svg
   children: 
     - name: Concept
       link: development/
@@ -63,7 +63,7 @@
           
 
 - name: Frontend
-  icon: /assets/img/icons/html.svg
+  icon: /assets/img/icons/if_computer_1055084.svg
   children: 
     - name: Introduction
       link: frontend/developers-index/
