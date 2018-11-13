@@ -27,12 +27,17 @@
 		max-width: 60%;
 	}
 }
-.pres-ligne:nth-child(odd) {
-    background-color: #f5f5f5;
+.logo-footer-wrapper {
+	display: flex;
 }
-.pres-ligne:nth-child(even) {
-	background-color: initial;
+.logo-footer {
 }
+// .pres-ligne:nth-child(odd) {
+//     background-color: #f5f5f5;
+// }
+// .pres-ligne:nth-child(even) {
+// 	background-color: initial;
+// }
 @media (min-width: 1200px) {
 	.pres-ligne .vignette {
 		margin-top: 28px;
