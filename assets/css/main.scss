@@ -27,10 +27,12 @@
 		max-width: 60%;
 	}
 }
-.logo-footer-wrapper {
-	display: flex;
-}
-.logo-footer {
+@media (min-width: 992px) {
+	.logo-footer-wrapper {
+		display: flex;
+		align-items: center;
+		height: 230px;
+	}
 }
 // .pres-ligne:nth-child(odd) {
 //     background-color: #f5f5f5;
