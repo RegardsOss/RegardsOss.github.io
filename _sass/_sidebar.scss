@@ -14,9 +14,9 @@ $sidebar-width: 350px;
 .sidebar {
   background: #F7F7F7;
   font-family: "roboto";
-  height: 100vh;
+  height: 90vh;
   padding: 30px;
-  overflow-y: scroll;
+  overflow-y: auto;
   position: absolute;
   width: $sidebar-width;
 

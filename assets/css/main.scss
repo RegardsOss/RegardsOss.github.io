@@ -185,7 +185,7 @@ nav.nav-toggle.two {
 // Article
 div.article-container{
 	padding: 50px 43px 0;
-	width: calc(100% - 275px);
+	width: calc(100% - #{$sidebar-width});
 }
 	article{
 		h2,
