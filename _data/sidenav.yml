@@ -40,12 +40,23 @@
 - name: Backend
   icon: /assets/img/icons/if_cloud_1055089.svg
   children: 
-    - name: Concept
-      link: development/
-      children: 
-        - name: Framework building blocks (aka starters)
+    - name: Architecture
+      children:
+        - name: Concepts
+          link: development/architecture/concepts/
+        - name: Overview
+          link: development/architecture/overview/     
+    - name: Framework
+      children:
+        - name: Overview
+          link: development/framework/overview/
+        - name: Starters
           link: development/framework/starters/
-    - name: API for REGARDS microservices
+        - name: Develop a module
+          link: development/framework/module/
+        - name: Develop a plugin
+          link: development/framework/plugin/
+    - name: Service API
       link: development/regards/api/
       children: 
         - name: Data Management API
