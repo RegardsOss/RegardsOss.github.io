@@ -1,5 +1,5 @@
 $sidebar-spacing-base: 5px;
-$sidebar-width: 275px;
+$sidebar-width: 350px;
 
 .sidebar-wrapper {
   width: $sidebar-width;
@@ -35,7 +35,7 @@ $sidebar-width: 275px;
 
   .main-nav-item {
     font-weight: 600;
-    width: 200px;
+    width: 300px;
     font-size: $font-size-small;
 
     .list-wrap {
@@ -60,6 +60,7 @@ $sidebar-width: 275px;
     .subnav {
       margin-bottom: 20px;
       overflow: hidden;
+      background-color: #ffffff;
     }
 
     &.closed {
@@ -76,8 +77,9 @@ $sidebar-width: 275px;
     text-transform: uppercase;
     font-size: $font-size-micro;
     font-weight: $font-weight-bold;
-    margin: 10px 0;
+    // margin: 10px 0;
     letter-spacing: .5px;
+    background-color: #eeeeee;
   }
   .subnav-item {
     font-weight: 100;
