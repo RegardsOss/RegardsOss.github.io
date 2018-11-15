@@ -1,7 +1,8 @@
 ---
 layout: classic-docs
-title: REGARDS Installation manual
+title: Install with IZPack
 short-title: Installation manual
+wip: true
 categories:
   - getting-started
 ---

@@ -1,44 +1,60 @@
+# ========================================================================
 - name: Home
-  link:
+  link: 
   icon: /assets/img/icons/if_globe_1055048.svg
   children: 
     - name: Introduction
-      children: 
-        - name: Genesis
-          link: home/overview/
-        - name: Roadmap
-          link: home/roadmap/
-
-- name: Getting Started
-  icon: /assets/img/icons/if_rocket_1054990.svg
-  children: 
-    - name: Introduction
-      link: getting-started/
-      children: 
-        - name: Manual Installation
-          link: getting-started/regards-installation-manual/
-
-- name: User Documentation
-  icon: /assets/img/icons/if_folder_1055055.svg
-  children: 
-    - name: Introduction
-      link: user-documentation/
-      children: 
-        - name: Authentications
-          link: user-documentation/authentication/
+      link: home/introduction/
+    - name: Roadmap
+      link: home/roadmap/
+    - name: Features
+      link: home/features/
+      children:
+        - name: Acquisition and archiving with OAIS
+          link: home/features/acqarch/
+        - name: Catalog harvesting and publication
+          link: home/features/harvesting/
+        - name: OpenSearch API
+          link: home/features/opensearch/
         - name: Geospatial behavior
-          link: user-documentation/geometry/
-    - name: Manuals
-      link: user-documentation/
+          link: home/features/geo/
+# ========================================================================
+- name: Getting Started
+  icon: /assets/img/icons/rocket2.svg
+  children:
+    - name: Installation manual
       children: 
-        - name: Operations manual
-          link: user-documentation/regards-operations-manual/
-        - name: User manual
-          link: user-documentation/regards-user-manual/
-          
-
+        - name: Install with IZPACK
+          link: getting-started/izpack/
+        - name: Configuration
+          link: getting-started/configuration/
+    - name: Basic use cases
+      children: 
+        - name: External data source publication
+          link: getting-started/samples/basic-extds/
+        - name: Full OAIS workflow
+          link: getting-started/samples/basic-oais/   
+# ========================================================================
+- name: User Documentation
+  icon: /assets/img/icons/phone-book.svg
+  children: 
+    - name: Instance management
+      link: user-documentation/instance-management/
+    - name: Project management
+      children: 
+        - name: Authentication and authorization
+          link: user-documentation/authentication/
+        - name: Data management
+          link: user-documentation/data-management/
+        - name: Data acquisition and archiving
+          link: user-documentation/data-acquisition-archiving/
+        - name: Web application configuration
+          link: user-documentation/webapp/
+    - name: Public interface
+      link: user-documentation/user-manual/
+# ========================================================================
 - name: Backend
-  icon: /assets/img/icons/if_cloud_1055089.svg
+  icon: /assets/img/icons/cloud-computing-dev.svg
   children: 
     - name: Architecture
       children:
@@ -53,28 +69,27 @@
         - name: Starters
           link: development/framework/starters/
         - name: Develop a module
-          link: development/framework/module/
+          link: development/framework/dev-module/
         - name: Develop a plugin
-          link: development/framework/plugin/
+          link: development/framework/dev-plugin/
     - name: Service API
       link: development/regards/api/
       children: 
-        - name: Data Management API
+        - name: Data Management
           link: development/regards/api/dam/model-api/
-        - name: Basket API
+        - name: Basket
           link: development/regards/api/order/basket-api/
-        - name: Order API
+        - name: Order
           link: development/regards/api/order/order-api/
-        - name: DataProvider API
+        - name: DataProvider
           link: development/regards/api/dataprovider/acquisition-api/
-        - name: Ingest API
+        - name: Ingest
           link: development/regards/api/ingest/ingest-api/
-        - name: Storage API
+        - name: Storage
           link: development/regards/api/storage/storage-api/
-          
-
+# ========================================================================      
 - name: Frontend
-  icon: /assets/img/icons/if_computer_1055084.svg
+  icon: /assets/img/icons/coding.svg
   children: 
     - name: Introduction
       link: frontend/developers-index/

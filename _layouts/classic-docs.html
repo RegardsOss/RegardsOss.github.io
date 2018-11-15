@@ -9,6 +9,12 @@
 		<div class="main-body">
 			{% include sidebar.html %}
 			<div class="article-container docs">
+				{% if page.wip %}
+				<div style="font-size: 20px; font-weight: bold; padding: 0 0 15px 15px">
+					<img src="/assets/img/icons/warning.svg" alt="Intellisense" style="width: 20px;margin: 0;">
+					Site is being written. Missing contents will be published as soon as possible.
+				</div>
+				{% endif %}
 				<form id="site-search" class="doc-search" action="">
 					<input type="text" autocomplete="off" placeholder="What can we help you find?" name="query" class="form-control" />
 					<ul id="search-results" class="list-unstyled dropdown-menu"></ul>

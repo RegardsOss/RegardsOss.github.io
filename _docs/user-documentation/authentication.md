@@ -1,10 +1,28 @@
 ---
 layout: classic-docs
-title: Microservice Gateway Authentication modes
-short-title: Authentications
+title: Authentication and authorization
+short-title:
+wip: true
 categories:
   - user-documentation
 ---
+
+* TOC
+{:toc}
+
+TOD0
+
+## Manage users
+
+TODO
+
+## Manage roles
+
+TODO
+
+## Manage authentication methods
+
+FIXME
 
 The microservice gateway is in charge of the user's authentication process. This process is divided in two main modes :
  - [REGARDS Internal authentication](#REGARDS Internal Authentication) with possible multiples **Identities Providers**
