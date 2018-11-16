@@ -24,10 +24,12 @@
   children:
     - name: Installation manual
       children: 
-        - name: Install with IZPACK
-          link: getting-started/izpack/
-        - name: Configuration
+        - name: Install from sources
+          link: getting-started/from-sources/
+        - name: Server configuration
           link: getting-started/configuration/
+        - name: Deploy using IZPACK
+          link: getting-started/izpack/
     - name: Basic use cases
       children: 
         - name: External data source publication
