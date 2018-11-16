@@ -6,6 +6,8 @@ categories:
   - home
 ---
 
+![](/assets/img/logos/gplv3-127x51.png)
+
 ## Disclaimer
 
 This roadmap is likely to evolve and has for only purpose to give an overview of the works in progress on REGARDS OSS.
