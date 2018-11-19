@@ -103,18 +103,27 @@ _Note: The administration application is structured in a thematic tree, like see
 ├── portal                                              # Portal app starter
 ├── user                                                # User app starter
 └── admin                                               # Admin app starter
-    ├── admin-data-management                           # Data (rs-dam tenant)
-        ├── admin-data-attributemodel-management        # Attribute model
+    ├── admin-board-collections                         # Data (rs-dam tenant)
         ├── admin-data-collection-management            # Collection 
-        ├── admin-data-connection-management            # Connection 
-        ├── admin-data-dataset-management               # Dataset 
-        ├── admin-data-datasource-management            # Datasource 
+        └── admin-data-dataset-management               # Dataset 
+    ├── admin-board-models                              # Modelisation (rs-dam tenant)
+        ├── admin-data-attributemodel-management        # Attribute model
         ├── admin-data-fragment-management              # Fragment 
         ├── admin-data-model-management                 # Model 
+        ├── admin-data-attribute-plugins-management
         └── admin-data-modelattribute-management        # Model attribute association
+    ├── admin-board-acquisition                         # Acquisition
+        ├── admin-data-datasource-management            # Datasource 
+        ├── admin-ingest-processing-chain-management
+        ├── admin-ingest-sip-management
+        ├── admin-document-management
+        ├── admin-data-provider-management
+        ├── admin-data-connection-management            # Connection 
+        └── admin-storage-management
     ├── admin-microservice-management                   # Java Plugins and microservice lifecycle
     ├── admin-project-management                        # Project (rs-admin instance)
-    ├── admin-account-management                        # Account (rs-admin instance)
+    ├── admin-board-account                             # Account (rs-admin instance)
+        └── admin-account-management                   
     ├── admin-ui-management                             # User interface (rs-access-*)
         ├── admin-ui-module-management                  # UI Modules configuration
         ├── admin-ui-plugin-management                  # UI Plugin
@@ -124,10 +133,18 @@ _Note: The administration application is structured in a thematic tree, like see
     ├── admin-user-management                           # User configuration (rs-admin tenant)
         ├── admin-user-projectuser-management           # Project User 
         ├── admin-user-role-management                  # Role
+        ├── admin-user-authentication-plugins-management 
+        ├── admin-order-management 
         └── admin-user-role-resource-access-management  # REST resource authorisation per role
-    └── admin-accessright-management                    # Data access rights (rs-dam tenant)
+    └── admin-board-dataaccess                    # Data access rights (rs-dam tenant)
         ├── admin-accessright-accessgroup-management    # Data access groups
+        ├── admin-dataaccess-searchengines-management
+        ├── admin-dataaccess-services-management
         └── admin-accessright-dataaccess-management     # Data access rights per group 
+
+
+
+
 ```
 
 # Eslint configuration module
