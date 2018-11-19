@@ -7,7 +7,7 @@ categories:
 ---
 
 Here is the tutorial to compile the IzPack installer that you can use to install REGARDS on any server.  
-If you do not care about compiling REGARDS by yourself, jump [to the next step](/getting-started/izpack/#section=getting-started).  
+If you do not care about compiling REGARDS by yourself, jump [to the next step](/getting-started/configuration/#section=getting-started).  
 
 ## Requirements
 
@@ -19,7 +19,7 @@ Build relies on :
 * Npm 5.7.1+
 
 Permissions :  
-* You shall not use the root user while installing Regards, as any other software.
+* You shall not use the root user while installing REGARDS, as any other software.
 
 ## Build
 

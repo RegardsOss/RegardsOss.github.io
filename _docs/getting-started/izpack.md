@@ -11,11 +11,12 @@ For now, the only way to deploy REGARDS on servers is to use an [**IzPack** pack
 
 If you don't have compiled the REGARDS IzPack installer, feel free to download it on our [github release page](https://github.com/RegardsOss/regards-deployment/releases).
 
+Ensure you have [setup components that REGARDS relies on](/getting-started/configuration/#section=getting-started) before continuing this tutorial. 
 ## Prerequisites
 
 In order to run the Izpack installer, you need these dependencies :  
 - groovy 1.8.9
-- Java JRE 1.8
+- OpenJDK 1.8
 
 ## Run command
 
@@ -31,11 +32,11 @@ java -jar REGARDS-OSS-Installer.jar auto-install-values.xml
 The file `auto-install-values.xml` can be generated at the end of the manual installation. However IzPack do not save password in the file, you will need to edit the file to add password by yourself.
 
 ## Installation directory
-On each host you want to install one or more REGARDS component you will be asked to provide the installation directory :
+On every host you install a REGARDS component. you will be asked to provide the installation directory :
 
 ![](/assets/images/installation/select-directory.png)
 
-Afterwards, you will need be prompted to choose the different components you wish to install.
+Afterwards, you will need to choose which components you want to install.
 
 ### Contents of the installation directory
 The contents of the installation directory with all the microservices is :
@@ -69,13 +70,13 @@ The **plugins** folder contains a subfolder foreach microservice **plugins/{micr
 
 The cloud installation allows you to install the REGARDS product components in **multiple physical or virtual hosts**. The only requirement is that all the hosts could communicate throught **HTTPS protocol**.
 
-With this installation system you can install **multiple instances of each microservice**. In the first place you can install one instance of each needed microservice and if the performances of the system are to low, you can install more instances later.
+With this installation system you can install **multiple instances of each microservice**. In the first place you can install one instance of each needed microservice and if the performances of the system are too low, you can install more instances later.
 
 Choose the components you want to install on the current host, then let the installer guide you through the preliminary configuration steps :
 
 ![](/assets/images/installation/packs.png)
 
-**NOTE :** If you choose not to install the Configuration server, you will have to provide an existing Configuration server so that components you are currently installing can connect to it.
+**NOTE :** If you choose to not install the Configuration server, you will have to provide an existing Configuration server so that components you are currently installing can connect to it.
 
 **NOTE :** You can install any component in any order and wherever you want, **but** you always need to start the Configuration server first, the Registry server second and the Admin server third. The table bellow lists the mandatory components and the start order.
 
@@ -87,7 +88,7 @@ Component                | Mandatory                   | Start Order | Multiple 
 **Admin**                | ![](/assets/images/ok.png)  | **3**       | ![](/assets/images/nok.png) | Provide the administration features of the system
 **Gateway**              | ![](/assets/images/ok.png)  | **3**       | ![](/assets/images/nok.png) | Provide a unique and secure entry point for all the REGARDS services
 **Other components**     | ![](/assets/images/nok.png) | **4**       | ![](/assets/images/ok.png)  | Provide the REGARDS functionalities
-
+{: .table .table-striped}
 
 ## REGARDS Components configuration
 
