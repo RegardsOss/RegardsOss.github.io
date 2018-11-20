@@ -357,3 +357,19 @@ code {
 body > img:last-of-type{
 	display: none;
 }
+
+// Blockquote styling
+
+blockquote.warning {
+	background-color: #ffffaa;
+	background-image: url("../img/icons/warning.svg");
+	background-origin: padding-box;
+	background-repeat: no-repeat;
+	background-size: 30px 30px;
+	background-position-x: 5px;
+	background-position-y: center;
+}
+
+blockquote.warning p {
+	padding-left: 30px;
+}

@@ -2,17 +2,33 @@
 layout: classic-docs
 title: REGARDS framework starters
 short-title: Framework building blocks (aka starters)
+wip: true
 categories:
   - development
 ---
 
-# Starters
+> All dependencies are expressed in term of **Maven dependencies**.
 
-**Work in progress**
+## Bill Of Materials (i.e. BOM)
 
+To use REGARDS framework building blocks, you have to import its BOM in your pom.xml.
 
-Available starters :
+```xml
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>fr.cnes.regards</groupId>
+                <artifactId>regards-dependencies</artifactId>
+                <version>3.0.0-RELEASE</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+```
 
+## Available starters
+ 
   - [AMQP starter](/development/framework/starters/amqp-starter/)
   - [AMQP monitoring starter](/development/framework/starters/amqp-monitoring-starter/)
   - [Authentication starter](/development/framework/starters/authentication-starter/)

@@ -2,9 +2,13 @@
 layout: classic-docs
 title: REGARDS OSS ROADMAP
 short-title: Roadmap
+toc: true
 categories:
   - home
 ---
+
+* TOC
+{:toc}
 
 ![](/assets/img/logos/gplv3-127x51.png)
 

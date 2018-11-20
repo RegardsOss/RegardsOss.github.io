@@ -23,4 +23,4 @@ Such an architecture enables to allocate at best the needs in terms of **horizon
 The diagram above describes the principles of such an architecture.  
 Microservices are requested through a dedicated infrastructure with service registration and discovery that allows load balancing mechanism. A dedicated server centralizes microservice configuration. A message broker (e.g. RabbitMQ) plays the role of event bus for asynchronous communications.
 
-The key points are that all microservices are **stateless** and expose a **REST API** over **HTTP**. No matter what programming language is used as long as it exposes an API. (FIXME Microservice granularity is subject to discussion!)
+The key points are that all microservices are **stateless** and expose a **REST API** over **HTTP**. No matter what programming language is used as long as it exposes an API.
