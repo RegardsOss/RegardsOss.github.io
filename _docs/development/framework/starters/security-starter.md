@@ -4,14 +4,8 @@ title: Security starter
 short-title: Security starter
 ---
 
-<!-- START doctoc generated TOC please keep comment here to allow auto update -->
-<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
-
-
-- [1\. Configuration](#1%5C-configuration)
-- [2\. Autoconfiguration](#2%5C-autoconfiguration)
-
-<!-- END doctoc generated TOC please keep comment here to allow auto update -->
+* automatic table of content
+{:toc}
 
 # 1\. Configuration
 

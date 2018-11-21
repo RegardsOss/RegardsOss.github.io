@@ -3,27 +3,9 @@ layout: classic-docs
 title: REGARDS Plugins API
 ---
 
-<!-- START doctoc generated TOC please keep comment here to allow auto update -->
-<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+* automatic table of content
+{:toc}
 
-
-- [Overview](#overview)
-- [Plugins management](#plugins-management)
-  - [Get all plugins type](#get-all-plugins-type)
-  - [Get all plugins metadata](#get-all-plugins-metadata)
-  - [Get all the plugins metadata for a plugin’s interface](#get-all-the-plugins-metadata-for-a-plugins-interface)
-  - [Get a plugin metadata](#get-a-plugin-metadata)
-- [Plugin configuration management](#plugin-configuration-management)
-  - [Create a plugin configuration](#create-a-plugin-configuration)
-  - [Get a plugin configuration](#get-a-plugin-configuration)
-  - [Update a plugin configuration](#update-a-plugin-configuration)
-  - [Delete a plugin configuration](#delete-a-plugin-configuration)
-  - [Get all plugins configuration](#get-all-plugins-configuration)
-  - [Get all plugins configuration for a specific plugin](#get-all-plugins-configuration-for-a-specific-plugin)
-  - [Get all plugins configuration for a specific interface](#get-all-plugins-configuration-for-a-specific-interface)
-  - [Empty the runtime cache plugin](#empty-the-runtime-cache-plugin)
-
-<!-- END doctoc generated TOC please keep comment here to allow auto update -->
 # Overview
 
     This API allows to submit REGARDS's plugins.

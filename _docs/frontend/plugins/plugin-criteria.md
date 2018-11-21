@@ -4,24 +4,8 @@ title: Plugin criterion
 short-title: Criterion
 ---
 
-<!-- START doctoc generated TOC please keep comment here to allow auto update -->
-<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
-
-
-- [Presentation](#presentation)
-- [Working principles](#working-principles)
-- [plugin-info.json](#plugin-infojson)
-  - [Attribute type](#attribute-type)
-- [Main React component](#main-react-component)
-  - [Provided runtime parameters](#provided-runtime-parameters)
-  - [Manage state and search query](#manage-state-and-search-query)
-  - [Attributes bounds and common labels](#attributes-bounds-and-common-labels)
-    - [hasNoValue](#hasnovalue)
-    - [getFieldHintText](#getfieldhinttext)
-    - [getFieldTooltip](#getfieldtooltip)
-
-<!-- END doctoc generated TOC please keep comment here to allow auto update -->
-
+* automatic table of content
+{:toc}
 
 # Presentation
 

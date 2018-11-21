@@ -4,15 +4,8 @@ title: regardsoss/business-components/microservice-plugin-configurator
 short-title: Microservice plugin configurator
 ---
 
-<!-- START doctoc generated TOC please keep comment here to allow auto update -->
-<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
-
-
-- [Description](#description)
-- [PluginFormContainer](#pluginformcontainer)
-- [PluginListContainer](#pluginlistcontainer)
-
-<!-- END doctoc generated TOC please keep comment here to allow auto update -->
+* automatic table of content
+{:toc}
 
 # Description
 

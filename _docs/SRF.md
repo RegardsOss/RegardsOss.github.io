@@ -23,57 +23,8 @@ Issue |    Date    |    Reasons for change
 
 # Table of contents
 
-<!-- START doctoc generated TOC please keep comment here to allow auto update -->
-<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
-
-
-- [1. Introduction](#1-introduction)
-  - [1. Purpose of the document](#1-purpose-of-the-document)
-  - [2. Scope](#2-scope)
-  - [3. Document structure](#3-document-structure)
-  - [4. References](#4-references)
-    - [1. Applicable and Reference documents](#1-applicable-and-reference-documents)
-    - [2. Definitions](#2-definitions)
-- [2. Third party products and required software licenses](#2-third-party-products-and-required-software-licenses)
-  - [1. General](#1-general)
-    - [1. Free license categorization and meaning](#1-free-license-categorization-and-meaning)
-    - [2. Impact of free licenses on customers](#2-impact-of-free-licenses-on-customers)
-  - [2. Frontend](#2-frontend)
-    - [1. Runtime frontend](#1-runtime-frontend)
-      - [1. React](#1-react)
-      - [2. Redux](#2-redux)
-      - [3. Material-UI](#3-material-ui)
-      - [4. Lodash](#4-lodash)
-    - [2. Compile time frontend](#2-compile-time-frontend)
-      - [1. Webpack](#1-webpack)
-      - [2. TypeScript](#2-typescript)
-    - [3. Testing frontend](#3-testing-frontend)
-      - [1. Mocha](#1-mocha)
-      - [2. Chai](#2-chai)
-  - [3. Backend](#3-backend)
-    - [1. Runtime backend](#1-runtime-backend)
-      - [1. Java](#1-java)
-      - [2. Spring Framework](#2-spring-framework)
-      - [3. Spring Security](#3-spring-security)
-      - [4. Spring Data JPA](#4-spring-data-jpa)
-      - [5. Spring Boot](#5-spring-boot)
-      - [6. Spring Cloud Netflix](#6-spring-cloud-netflix)
-      - [7. Spring Cloud Config](#7-spring-cloud-config)
-      - [8. Open Feign](#8-open-feign)
-      - [9. Spring HATEOAS](#9-spring-hateoas)
-      - [10. IzPack](#10-izpack)
-      - [11. RabbitMQ](#11-rabbitmq)
-      - [12. Elasticsearch](#12-elasticsearch)
-      - [13. FITS Java library](#13-fits-java-library)
-      - [14. Jetty](#14-jetty)
-    - [2. Compile time backend](#2-compile-time-backend)
-      - [1. Apache Maven](#1-apache-maven)
-    - [3. Testing](#3-testing)
-      - [1. Jenkins](#1-jenkins)
-      - [2. SonarQube](#2-sonarqube)
-      - [3. Selenium](#3-selenium)
-
-<!-- END doctoc generated TOC please keep comment here to allow auto update -->
+* automatic table of content
+{:toc}
 
 ## 1. Introduction
 

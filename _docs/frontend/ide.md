@@ -4,41 +4,8 @@ title: Integrated development environments
 short-title: IDE
 ---
 
-<!-- START doctoc generated TOC please keep comment here to allow auto update -->
-<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
-
-
-- [Available IDEs](#available-ides)
-- [VSCode](#vscode)
-  - [Download](#download)
-  - [Extensions](#extensions)
-  - [Project configuration](#project-configuration)
-  - [Shortcut configuration](#shortcut-configuration)
-  - [Templates configuration](#templates-configuration)
-    - [Javacript templates](#javacript-templates)
-    - [Javascript React code templates](#javascript-react-code-templates)
-- [IntelliJ](#intellij)
-  - [Download](#download-1)
-  - [Configuration](#configuration)
-  - [Code templates](#code-templates)
-    - [React component template](#react-component-template)
-      - [Definition](#definition)
-      - [Variables at creation](#variables-at-creation)
-      - [Template](#template)
-    - [React component test template](#react-component-test-template)
-      - [Definition](#definition-1)
-      - [Variables at creation](#variables-at-creation-1)
-      - [Template](#template-1)
-    - [React messages test template](#react-messages-test-template)
-      - [Definition](#definition-2)
-      - [Variables at creation](#variables-at-creation-2)
-      - [Template](#template-2)
-    - [Redux entity test template](#redux-entity-test-template)
-      - [Definition](#definition-3)
-      - [Variables at creation](#variables-at-creation-3)
-      - [Template](#template-3)
-
-<!-- END doctoc generated TOC please keep comment here to allow auto update -->
+* automatic table of content
+{:toc}
 
 # Available IDEs
 

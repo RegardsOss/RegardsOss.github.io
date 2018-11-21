@@ -3,20 +3,9 @@ layout: classic-docs
 title: GSON starter
 short-title: GSON starter
 ---
-<!-- START doctoc generated TOC please keep comment here to allow auto update -->
-<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 
-
-- [1\. Configuration](#1%5C-configuration)
-- [2\. Autoconfiguration](#2%5C-autoconfiguration)
-- [3\. How to](#3%5C-how-to)
-  - [3.1\. How to use dependency injection in a type adapter](#31%5C-how-to-use-dependency-injection-in-a-type-adapter)
-  - [3.2\. How to register a custom factory](#32%5C-how-to-register-a-custom-factory)
-  - [3.3\. How to use polymorphic element (de)serialization](#33%5C-how-to-use-polymorphic-element-deserialization)
-  - [3.4\. How to instanciate polymorphic factory](#34%5C-how-to-instanciate-polymorphic-factory)
-  - [3.5\. How to use exclusion strategy](#35%5C-how-to-use-exclusion-strategy)
-
-<!-- END doctoc generated TOC please keep comment here to allow auto update -->
+* automatic table of content
+{:toc}
 
 # 1\. Configuration
 

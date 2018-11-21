@@ -4,29 +4,29 @@ title: Plugin service
 short-title: Service
 ---
 
-<!-- START doctoc generated TOC please keep comment here to allow auto update -->
-<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
-
-
-- [Presentation](#presentation)
-- [Working principles](#working-principles)
-- [plugin-info.json](#plugin-infojson)
-- [Main React component](#main-react-component)
-  - [Provided parameters](#provided-parameters)
-    - [Provided runtime configuration](#provided-runtime-configuration)
-    - [Provided runtime target](#provided-runtime-target)
-      - [Common runtime target fields](#common-runtime-target-fields)
-      - [Runtime target specific fields for type ONE](#runtime-target-specific-fields-for-type-one)
-      - [Runtime target specific fields for type MANY](#runtime-target-specific-fields-for-type-many)
-      - [Runtime target specific fields for type QUERY](#runtime-target-specific-fields-for-type-query)
-- [Going further](#going-further)
-
-<!-- END doctoc generated TOC please keep comment here to allow auto update -->
+* automatic table of content
+{:toc}
 
 # Presentation
 
 A service plugin (front-end) is a javascript bundle used by [search results](/frontend/modules/search-results/), [search form](/frontend/modules/search-form/) and [search graph](/frontend/modules/search-graph/) modules to add services onto displayed data. A service may work for one or for many data objects. By design, a service that run with many data objects can either receive an entity IDs array or a query (see later provided parameters sections)
 Service plugin allows defining static - configured by the administrator - and dynamic parameters - configured by the user when running the service. Note that administrator can provide default values for dynamic parameters. In that case, the default values will be displayed to user when running the service but he will be allowed modifying them.
+
+## frontend service plugin VS Catalog service plugin
+
+A frontend service plugin and a catalog service plugin are both able to provide services for a set of data. However, their purpose is slightly different:
+* The catalog service, by design, can only build a file as execution result
+* The frontend service, by design, can show graphic components, charts, and so on...
+* The catalog service, as part of the backend:
+  * has better data retrieving performances, especially when it comes to huge data amounts.
+  * has better computing performances, since it executes on server computers
+
+Therefore, the frontent service should be preferred when:
+* That service will not be dealing with huge data amounts
+* That service will not perform heavy computing
+* Their must be a specific data displaying, that cannot be a simple file preview / download
+
+When their should be a specific data displaying, but computating and retrieval cannot be performed on frontend side, both services should be implemented to work together, ie  a frontend service should be created, relying on a catalog service to get data to display.
 
 # Working principles
 

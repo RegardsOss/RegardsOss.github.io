@@ -6,7 +6,7 @@ wip: true
 categories:
   - getting-started
 ---
-* coucou toc toc
+* automatic table of content
 {:toc}
 
 In this guide, we'll see what is expected by REGARDS components, then we will see how to configure components that we rely on.

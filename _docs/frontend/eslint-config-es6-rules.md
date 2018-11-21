@@ -4,7 +4,7 @@ title: regardsoss/eslint-config-es6-rules
 short-title: Eslint config
 ---
 
-* coucou toc toc
+* automatic table of content
 {:toc}
 
 # Presentation

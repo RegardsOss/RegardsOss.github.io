@@ -3,36 +3,9 @@ layout: classic-docs
 title: REGARDS Storage API
 ---
 
-<!-- START doctoc generated TOC please keep comment here to allow auto update -->
-<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+* automatic table of content
+{:toc}
 
-
-- [AIPController](#aipcontroller)
-  - [Overview](#overview)
-  - [Retrieve multiple AIP metadata](#retrieve-multiple-aip-metadata)
-  - [Submit AIPs successfully](#submit-aips-successfully)
-  - [Submit AIPs with partial fail](#submit-aips-with-partial-fail)
-  - [Submit AIPs with no valid AIPs](#submit-aips-with-no-valid-aips)
-  - [Submit AIPs that are already stored](#submit-aips-that-are-already-stored)
-  - [Retrieve one AIP metadata](#retrieve-one-aip-metadata)
-  - [Retrieve multiple AIP metadata](#retrieve-multiple-aip-metadata-1)
-  - [Retrieve multiple AIP metadata associated to a specific tag](#retrieve-multiple-aip-metadata-associated-to-a-specific-tag)
-  - [Retrieve the list of files associated to an AIP](#retrieve-the-list-of-files-associated-to-an-aip)
-  - [Retrieve the history of an AIP](#retrieve-the-history-of-an-aip)
-  - [Retrieve the different versions of an AIP](#retrieve-the-different-versions-of-an-aip)
-  - [Require availability of files](#require-availability-of-files)
-  - [Download AIP file](#download-aip-file)
-  - [Delete AIP](#delete-aip)
-- [PrioritizedDataStorageController](#prioritizeddatastoragecontroller)
-  - [Overview](#overview-1)
-  - [Retrieve multiple Prioritized Data Storage thanks to their type](#retrieve-multiple-prioritized-data-storage-thanks-to-their-type)
-  - [Create a Prioritized Data Storage](#create-a-prioritized-data-storage)
-  - [Retrieve a Prioritized Data Storage](#retrieve-a-prioritized-data-storage)
-  - [Update the Data Storage associate to the Prioritzed Data Storage](#update-the-data-storage-associate-to-the-prioritzed-data-storage)
-  - [Increase Prioritized Data Storage priority](#increase-prioritized-data-storage-priority)
-  - [Decrease Prioritized Data Storage priority](#decrease-prioritized-data-storage-priority)
-
-<!-- END doctoc generated TOC please keep comment here to allow auto update -->
 # AIPController
 
 ## Overview

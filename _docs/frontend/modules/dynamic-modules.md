@@ -4,26 +4,8 @@ title: Dynamic lazy loadable modules
 short-title: Lazy modules
 ---
 
-<!-- START doctoc generated TOC please keep comment here to allow auto update -->
-<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
-
-
-- [Description](#description)
-- [Modules list](#modules-list)
-- [Module structure](#module-structure)
-  - [About default icon:](#about-default-icon)
-- [Create a new module](#create-a-new-module)
-- [Dynamic Module architecture](#dynamic-module-architecture)
-  - [Description](#description-1)
-  - [AdminContainer](#admincontainer)
-  - [The ModuleContainer](#the-modulecontainer)
-  - [Styles](#styles)
-  - [Reducer](#reducer)
-  - [Messages](#messages)
-  - [Dependencies](#dependencies)
-- [Load a module](#load-a-module)
-
-<!-- END doctoc generated TOC please keep comment here to allow auto update -->
+* automatic table of content
+{:toc}
 
 # Description
 

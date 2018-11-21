@@ -3,20 +3,10 @@ layout: classic-docs
 title: Feign starter
 short-title: Feign starter
 ---
-<!-- START doctoc generated TOC please keep comment here to allow auto update -->
-<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 
+* automatic table of content
+{:toc}
 
-- [1\. Configuration](#1%5C-configuration)
-- [2\. Autoconfiguration](#2%5C-autoconfiguration)
-- [3\. How to](#3%5C-how-to)
-  - [3.1\. How to create a client](#31%5C-how-to-create-a-client)
-  - [3.2\. How to use a client](#32%5C-how-to-use-a-client)
-  - [3.3\. How to make a system (i.e. internal) call](#33%5C-how-to-make-a-system-ie-internal-call)
-  - [3.4\. How to create a client programmatically](#34%5C-how-to-create-a-client-programmatically)
-  - [3.5\. How to mock Feign](#35%5C-how-to-mock-feign)
-
-<!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
 # 1\. Configuration
 

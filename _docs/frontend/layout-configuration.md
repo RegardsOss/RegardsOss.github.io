@@ -6,24 +6,8 @@ categories:
   - frontend
 ---
 
-<!-- START doctoc generated TOC please keep comment here to allow auto update -->
-<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
-
-
-- [1. How does layout work?](#1-how-does-layout-work)
-- [2. How to configure layout?](#2-how-to-configure-layout)
-  - [2.1 Container name](#21-container-name)
-  - [2.2 Container type](#22-container-type)
-  - [2.3 Main container option](#23-main-container-option)
-  - [2.4 Container advanced options](#24-container-advanced-options)
-    - [2.4.1 Classes CSS](#241-classes-css)
-    - [2.4.2 Styles CSS](#242-styles-css)
-- [3. Default layout](#3-default-layout)
-- [4. Example: a layout with a fixed (floating) header](#4-example-a-layout-with-a-fixed-floating-header)
-  - [4.1 Set up the top header as floating](#41-set-up-the-top-header-as-floating)
-  - [4.2 Space the page content](#42-space-the-page-content)
-
-<!-- END doctoc generated TOC please keep comment here to allow auto update -->
+* automatic table of content
+{:toc}
 
 # 1. How does layout work?
 

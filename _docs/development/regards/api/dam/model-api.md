@@ -3,58 +3,9 @@ layout: classic-docs
 title: REGARDS DAM API
 ---
 
-<!-- START doctoc generated TOC please keep comment here to allow auto update -->
-<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+* automatic table of content
+{:toc}
 
-
-- [FragmentController](#fragmentcontroller)
-  - [Overview](#overview)
-  - [Retrieve all fragments](#retrieve-all-fragments)
-  - [Create fragment](#create-fragment)
-  - [export fragment](#export-fragment)
-  - [import fragment](#import-fragment)
-- [AttributeModelController](#attributemodelcontroller)
-  - [Overview](#overview-1)
-  - [Retrieve all attribute models](#retrieve-all-attribute-models)
-  - [Create Boolean attribute model](#create-boolean-attribute-model)
-  - [Create Date array attribute model](#create-date-array-attribute-model)
-  - [Create Date Interval attribute model](#create-date-interval-attribute-model)
-  - [Create Date ISO attribute model](#create-date-iso-attribute-model)
-  - [Create Float array attribute model](#create-float-array-attribute-model)
-  - [Create Float attribute model](#create-float-attribute-model)
-  - [Create Float interal attribute model](#create-float-interal-attribute-model)
-  - [Create Integer array attribute model](#create-integer-array-attribute-model)
-  - [Create Integer attribute model](#create-integer-attribute-model)
-  - [Create Integer interval attribute model](#create-integer-interval-attribute-model)
-  - [Create String array attribute model](#create-string-array-attribute-model)
-  - [Create String attribute model](#create-string-attribute-model)
-  - [Create URL attribute model](#create-url-attribute-model)
-  - [Retrieve a single attribute model](#retrieve-a-single-attribute-model)
-  - [Update attribute model](#update-attribute-model)
-  - [Retrieve all attribute models associated to a model type](#retrieve-all-attribute-models-associated-to-a-model-type)
-- [ModelController](#modelcontroller)
-  - [Overview](#overview-2)
-  - [Create Collection model](#create-collection-model)
-  - [Create Data model](#create-data-model)
-  - [Create Dataset model](#create-dataset-model)
-  - [Create Document model](#create-document-model)
-  - [Delete a model](#delete-a-model)
-  - [Export a model](#export-a-model)
-  - [Import a model](#import-a-model)
-- [ModelAttrAssocController](#modelattrassoccontroller)
-  - [Overview](#overview-3)
-  - [Bind an attribute model to a model](#bind-an-attribute-model-to-a-model)
-  - [Bind a fragment to a model](#bind-a-fragment-to-a-model)
-  - [Retrieve all associations](#retrieve-all-associations)
-  - [Retrieve a single association](#retrieve-a-single-association)
-  - [Retrieve all associations for a single model type](#retrieve-all-associations-for-a-single-model-type)
-  - [Unbind an attribute model from a model](#unbind-an-attribute-model-from-a-model)
-  - [Unbind a whole fragment from a model](#unbind-a-whole-fragment-from-a-model)
-  - [Update an association](#update-an-association)
-- [Appendices](#appendices)
-  - [XSD for the module](#xsd-for-the-module)
-
-<!-- END doctoc generated TOC please keep comment here to allow auto update -->
 # FragmentController
 
 ## Overview

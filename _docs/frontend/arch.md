@@ -6,23 +6,8 @@ categories:
   - frontend
 ---
 
-<!-- START doctoc generated TOC please keep comment here to allow auto update -->
-<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
-
-
-- [Presentation](#presentation)
-- [Structure](#structure)
-- [Common businness modules (business-common)](#common-businness-modules-business-common)
-- [Business modules](#business-modules)
-- [Eslint configuration module](#eslint-configuration-module)
-- [Mocks](#mocks)
-- [Plugins](#plugins)
-- [Components modules](#components-modules)
-- [Data](#data)
-- [Modules](#modules)
-- [Utils modules](#utils-modules)
-
-<!-- END doctoc generated TOC please keep comment here to allow auto update -->
+* automatic table of content
+{:toc}
 
 # Presentation
 

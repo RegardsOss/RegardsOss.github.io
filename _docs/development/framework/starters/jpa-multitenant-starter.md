@@ -3,18 +3,9 @@ layout: classic-docs
 title: JPA multitenant starter
 short-title: JPA multitenant starter
 ---
-<!-- START doctoc generated TOC please keep comment here to allow auto update -->
-<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 
-
-- [1\. Configuration](#1%5C-configuration)
-- [2\. Autoconfiguration](#2%5C-autoconfiguration)
-- [3\. How to](#3%5C-how-to)
-  - [3.1. How to manage repository by tenant](#31-how-to-manage-repository-by-tenant)
-  - [3.2. How to avoid transaction manager conflict](#32-how-to-avoid-transaction-manager-conflict)
-  - [3.3. How to test datasource](#33-how-to-test-datasource)
-
-<!-- END doctoc generated TOC please keep comment here to allow auto update -->
+* automatic table of content
+{:toc}
 
 # 1\. Configuration
 

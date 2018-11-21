@@ -3,16 +3,9 @@ layout: classic-docs
 title: JPA instance starter
 short-title: JPA instance starter
 ---
-<!-- START doctoc generated TOC please keep comment here to allow auto update -->
-<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 
-
-- [Configuration](#configuration)
-- [Usage](#usage)
-- [disableInstanceEntityAnnotation](#disableinstanceentityannotation)
-  - [Use transaction with instance](#use-transaction-with-instance)
-
-<!-- END doctoc generated TOC please keep comment here to allow auto update -->
+* automatic table of content
+{:toc}
 
 # Configuration
 

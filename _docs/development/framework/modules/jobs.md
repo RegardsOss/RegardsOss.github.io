@@ -4,21 +4,8 @@ title: Jobs
 short-title: Jobs
 ---
 
-<!-- START doctoc generated TOC please keep comment here to allow auto update -->
-<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
-
-
-- [Job creation](#job-creation)
-- [Job life cycle](#job-life-cycle)
-  - [Statuses](#statuses)
-  - [AMQP events](#amqp-events)
-- [Completion](#completion)
-- [Tasks](#tasks)
-  - [Principle](#principle)
-  - [Conception](#conception)
-  - [Specific microservice implementation](#specific-microservice-implementation)
-
-<!-- END doctoc generated TOC please keep comment here to allow auto update -->
+* automatic table of content
+{:toc}
 
 
 Jobs module allows to execute tasks in parallel on several microservices.
