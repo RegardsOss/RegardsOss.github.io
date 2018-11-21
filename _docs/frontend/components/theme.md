@@ -4,24 +4,6 @@ title: Material and module themes
 short-title: Themes
 ---
 
-<!-- START doctoc generated TOC please keep comment here to allow auto update -->
-<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
-
-
-- [Description](#description)
-- [Dependencies](#dependencies)
-- [How to](#how-to)
-  - [Get properties from the MUI and module themes context](#get-properties-from-the-mui-and-module-themes-context)
-  - [Connect with Material UI theme context](#connect-with-material-ui-theme-context)
-  - [Connect with MUI and module theme](#connect-with-mui-and-module-theme)
-    - [1\. Declare style builder](#1%5C-declare-style-builder)
-    - [2\. Connect component to module theme provider](#2%5C-connect-component-to-module-theme-provider)
-      - [2\.a Using ModuleStyleProvider](#2%5Ca-using-modulestyleprovider)
-      - [2\.b Using withModuleStyle](#2%5Cb-using-withmodulestyle)
-    - [3\. Add context type](#3%5C-add-context-type)
-
-<!-- END doctoc generated TOC please keep comment here to allow auto update -->
-
 # Description
 
 The `@regards/theme` (web_modules/utils/theme) projects holds components and tools designed to simplify the use of global [Material-ui](http://www.material-ui.com/#/customization/themes){:target="_blank"} theme - called MUI theme in the next lines - over all REGARDS frontend react components. MUI theme holds a dictionnary of variables, sorted by categories, defining styles like:

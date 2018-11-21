@@ -4,43 +4,22 @@ title: REGARDS Frontend Plugins
 short-title: Plugins
 ---
 
-<!-- START doctoc generated TOC please keep comment here to allow auto update -->
-<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
-
-
-- [Presentation](#presentation)
-- [Create a new plugin](#create-a-new-plugin)
-- [Plugin overall code structure](#plugin-overall-code-structure)
-- [Compile plugin](#compile-plugin)
-- [Test plugin](#test-plugin)
-- [Lint plugin](#lint-plugin)
-- [Deploy plugin](#deploy-plugin)
-- [Plugin entry point](#plugin-entry-point)
-- [plugin-info.json](#plugin-infojson)
-- [Plugin administration panels](#plugin-administration-panels)
-- [Main React component](#main-react-component)
-- [Redux management](#redux-management)
-  - [Building reducers](#building-reducers)
-  - [Using actions and selectors](#using-actions-and-selectors)
-
-<!-- END doctoc generated TOC please keep comment here to allow auto update -->
+{% include toc.md %}
 
 # Presentation
 
 REGARDS UI plugins are pieces of Javascript files bundled together that can be added dynamically into the user interface. 
 Their main advantage is allowing operators to create dedicated HMI depending on the type of data manipulated by the project, instead of creating a global rs-frontend project fork.
 
-There are currently two types of plugins :
+There are currently two types of plugins:
 * `criterion`: Used in the search form, this type of plugin allows users creating search filters on attributes. See [criteria plugins](/frontend/plugins/plugin-criteria/) page for more detail
-* `services`: Used in the search result table, they provide additionnals interactions with data they are associated with. The developer can ask both administration (configuration) and user (runtime configuration) to fill several values before computing and displaying service results in a dialog box. See [service plugins](/frontend/plugins/plugin-services/) page for more detail
+* `services`: Used in the search results view, they provide additionnals interactions with data they are associated with. The developer can ask both administration (configuration) and user (runtime configuration) to fill several values before computing and displaying service results in a dialog box. See [service plugins](/frontend/plugins/plugin-services/) page for more detail
 
 Plugins are very similar to REGARDS UI dynamic modules, but:
 * They are not bundled along the core source code. Instead, they are compiled separetely and should be loaded through an HTTP repository.
 * They accept administrator and user parameters whereas dynamic modules accept only an administror configuration
 
-The following sections will discuss the common points to all plugin types.
-
-Note: Obviously, frontend plugins are not designed in the same way than backend plugins, especially when it comes to handle large data requests - backend plugins have way better performances in such cases. Therefore, the developer may need to create a backend plugin counterpart for frontend plugins working with large data payloads.
+The following sections will present common points to all plugin types.
 
 # Create a new plugin
 

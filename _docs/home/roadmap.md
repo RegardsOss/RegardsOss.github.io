@@ -7,8 +7,7 @@ categories:
   - home
 ---
 
-* TOC
-{:toc}
+{% include toc.md %}
 
 ![](/assets/img/logos/gplv3-127x51.png)
 

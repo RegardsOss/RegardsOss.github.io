@@ -6,8 +6,8 @@ wip: true
 categories:
   - getting-started
 ---
-* coucou toc toc
-{:toc}
+
+{% include toc.md %}
 
 In this guide, we'll see what is expected by REGARDS components, then we will see how to configure components that we rely on.
 

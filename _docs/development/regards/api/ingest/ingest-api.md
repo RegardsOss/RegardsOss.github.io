@@ -3,34 +3,8 @@ layout: classic-docs
 title: REGARDS Ingest API
 ---
 
-<!-- START doctoc generated TOC please keep comment here to allow auto update -->
-<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+{% include toc.md %}
 
-
-- [Overview](#overview)
-- [SIP management](#sip-management)
-  - [Ingestion of a SIP collection](#ingestion-of-a-sip-collection)
-  - [Import a SIP collection](#import-a-sip-collection)
-  - [Search SIP](#search-sip)
-  - [Get one SIP](#get-one-sip)
-  - [Retry to store a SIP already submitted](#retry-to-store-a-sip-already-submitted)
-  - [Delete a SIP identified by its sipId](#delete-a-sip-identified-by-sipid)
-    - [Example response](#example-response)
-  - [Delete SIP(s) identified by its providerId](#delete-sips-identified-by-providerid)
-    - [Example response](#example-response-1)
-- [Ingestion session management](#ingestion-session-management)
-  - [Get an ingestion’s session](#get-an-ingestions-session)
-  - [Search ingestion’s sessions](#search-ingestions-sessions)
-  - [Delete all SIP for a session id](#delete-all-sip-for-a-session-id)
-- [Ingestion processing chain management](#ingestion-processing-chain-management)
-  - [Create an Ingestion processing chain](#create-an-ingestion-processing-chain)
-  - [Update an Ingestion processing chain](#update-an-ingestion-processing-chain)
-  - [Get an Ingestion processing chain](#get-an-ingestion-processing-chain)
-  - [Delete an Ingestion processing chain](#delete-an-ingestion-processing-chain)
-  - [Import an Ingestion processing chain](#import-an-ingestion-processing-chain)
-  - [Export an Ingestion processing chain](#export-an-ingestion-processing-chain)
-
-<!-- END doctoc generated TOC please keep comment here to allow auto update -->
 # Overview
 
     This API allows to submit and search SIP (Submission Information Package).

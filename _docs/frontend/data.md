@@ -4,20 +4,6 @@ title: REGARDS UI data
 short-title: Data
 ---
 
-<!-- START doctoc generated TOC please keep comment here to allow auto update -->
-<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
-
-
-- [Data management in REGARDS UI](#data-management-in-regards-ui)
-- [Data](#data)
-  - [API](#api)
-  - [Client](#client)
-  - [Domain](#domain)
-  - [Shape](#shape)
-  - [Store](#store)
-
-<!-- END doctoc generated TOC please keep comment here to allow auto update -->
-
 # Data management in REGARDS UI
 
 REGARDS frontend uses [Redux](http://redux.js.org/) to centralize and manage data. It also setups some middlewares above it, discuss later on. One of those middleware, [Redux API middleware](https://www.npmjs.com/package/redux-api-middleware), is transforming Redux actions holding a `RSAA` field into network requests. Those actions define indeed 3 actions, that will be reduced normally by the reducer:

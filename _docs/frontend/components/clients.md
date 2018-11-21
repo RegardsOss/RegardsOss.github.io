@@ -4,18 +4,7 @@ title: Backend interactions
 short-title: Backend interactions
 ---
 
-<!-- START doctoc generated TOC please keep comment here to allow auto update -->
-<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
-
-
-- [Description](#description)
-- [How to](#how-to)
-  - [Create your client](#create-your-client)
-    - [1\. Create the ModelClient.js](#1%5C-create-the-modelclientjs)
-    - [2\. Link the reducer to the global application reducers.](#2%5C-link-the-reducer-to-the-global-application-reducers)
-  - [3\. Use your client into a React container](#3%5C-use-your-client-into-a-react-container)
-
-<!-- END doctoc generated TOC please keep comment here to allow auto update -->
+{% include toc.md %}
 
 # Description
 

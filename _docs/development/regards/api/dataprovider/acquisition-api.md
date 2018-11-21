@@ -3,25 +3,8 @@ layout: classic-docs
 title: REGARDS DataProvider API
 ---
 
-<!-- START doctoc generated TOC please keep comment here to allow auto update -->
-<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+{% include toc.md %}
 
-
-- [Overview](#overview)
-- [Acquisition chain management API](#acquisition-chain-management-api)
-  - [Create an acquisition chain](#create-an-acquisition-chain)
-  - [Get all acquisition chain](#get-all-acquisition-chain)
-  - [Get an acquisition chain](#get-an-acquisition-chain)
-  - [Start and stop an acquisition chain](#start-and-stop-an-acquisition-chain)
-  - [Update an acquisition chain](#update-an-acquisition-chain)
-  - [Delete an acquisition chain](#delete-an-acquisition-chain)
-- [Search files API](#search-files-api)
-  - [Search all files](#search-all-files)
-  - [Search files by state](#search-files-by-state)
-- [Search product API](#search-product-api)
-  - [Search all files](#search-all-files-1)
-
-<!-- END doctoc generated TOC please keep comment here to allow auto update -->
 # Overview
 
     This API allows to create, launch and monitor acquisition processing chains.

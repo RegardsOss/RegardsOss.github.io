@@ -7,8 +7,7 @@ categories:
   - user-documentation
 ---
 
-* TOC
-{:toc}
+{% include toc.md %}
 
 ## Ask for an account
 

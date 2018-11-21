@@ -3,15 +3,8 @@ layout: classic-docs
 title: Microservice starter
 short-title: Microservice starter
 ---
-<!-- START doctoc generated TOC please keep comment here to allow auto update -->
-<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 
-
-- [Conditions to enter maintenance mode](#conditions-to-enter-maintenance-mode)
-- [Desactivate maintenance mode](#desactivate-maintenance-mode)
-- [Disable maintenance mode for a given microservice](#disable-maintenance-mode-for-a-given-microservice)
-
-<!-- END doctoc generated TOC please keep comment here to allow auto update -->
+{% include toc.md %}
 
 REGARDS Microservices can handle a maintennace mode. By default each microservice are not in maintenance mode.
 The maintenance mode is set individually for each tenant of the system.

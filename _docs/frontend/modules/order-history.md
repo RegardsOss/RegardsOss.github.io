@@ -4,17 +4,7 @@ title: Frontend - Dynamic module Order History
 short-title: order-history
 ---
 
-<!-- START doctoc generated TOC please keep comment here to allow auto update -->
-<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
-
-
-- [Description](#description)
-- [Module structure](#module-structure)
-- [Route](#route)
-- [Exposed functions](#exposed-functions)
-- [Internationalization](#internationalization)
-
-<!-- END doctoc generated TOC please keep comment here to allow auto update -->
+{% include toc.md %}
 
 # Description
 
