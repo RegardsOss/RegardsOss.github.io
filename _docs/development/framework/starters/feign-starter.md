@@ -6,6 +6,10 @@ short-title: Feign starter
 
 {% include toc.md %}
 
+## Purpose
+
+TODO
+
 # 1\. Configuration
 
 Add starter dependency to your POM (version depends on the REGARDS BOM)

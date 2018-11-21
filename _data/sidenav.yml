@@ -1,8 +1,9 @@
 # ========================================================================
 - name: Home
-  link: 
   icon: /assets/img/icons/if_globe_1055048.svg
   children: 
+    - name: Overview
+      link: 
     - name: Introduction
       link: home/introduction/
     - name: Roadmap
@@ -66,14 +67,26 @@
           link: development/architecture/overview/     
     - name: Framework
       children:
-        - name: Overview
-          link: development/framework/overview/
+        - name: Getting Started
+          link: development/framework/getting-started/
         - name: Starters
-          link: development/framework/starters/
-        - name: Develop a module
-          link: development/framework/dev-module/
-        - name: Develop a plugin
-          link: development/framework/dev-plugin/
+          link: development/framework/starters/        
+        # - name: Job module
+        #   link: development/framework/modules/
+        # - name: Develop a module
+        #   link: development/framework/dev-module/
+        # - name: Develop a plugin
+        #   link: development/framework/dev-plugin/
+    # - name: Framework modules
+    #   children:
+        - name: Jobs
+          link: development/framework/modules/jobs/
+        - name: Plugins
+          link: development/framework/modules/plugins/
+        - name: Templates
+          link: development/framework/modules/templates/
+        - name: Workspace
+          link: development/framework/modules/workspace/
     - name: Service API
       link: development/regards/api/
       children: 

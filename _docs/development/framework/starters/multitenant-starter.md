@@ -95,7 +95,7 @@ Just inject beans in your component.
 Create your own `ITenantResolver` bean to implement your own tenant retrieval.
 Create your own `IRuntimeTenantResolver` bean to implement your own **runtime** tenant retrieval.
 
-## 3.3. How to handle bootstrap tenants
+### How to handle bootstrap tenants
 
 Just autowired following property class to access bootstrap tenants.
 

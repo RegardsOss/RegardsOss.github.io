@@ -6,12 +6,13 @@ short-title: Cloud starter
 
 {% include toc.md %}
 
-- [Configuration](#configuration)
+## Purpose
 
-<!-- END doctoc generated TOC please keep comment here to allow auto update -->
+This starter enables Eureka client discovery.
 
-# Configuration
+## Configuration
 
 ```properties
-regards.cloud.enabled=false # Disable cloud support
+# Disable cloud support
+regards.cloud.enabled=false
 ```

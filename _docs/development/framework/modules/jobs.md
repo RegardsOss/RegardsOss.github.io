@@ -1,7 +1,7 @@
 ---
 layout: classic-docs
 title: Jobs
-short-title: Jobs
+short-title:
 ---
 
 {% include toc.md %}
