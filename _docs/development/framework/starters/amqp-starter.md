@@ -4,9 +4,11 @@ title: AMQP starter
 short-title: AMQP starter
 ---
 
-* TOC
-{:toc}
+{% include toc.md %}
 
+## Purpose
+
+This starter is used to enable multitenant messaging.
 
 ## Configuration
 
@@ -16,6 +18,15 @@ Add starter dependency to your POM (version depends on the BOM)
 <dependency>
   <groupId>fr.cnes.regards.framework</groupId>
   <artifactId>amqp-regards-starter</artifactId>
+</dependency>
+```
+
+Business dependency
+
+```xml
+<dependency>
+  <groupId>fr.cnes.regards.framework</groupId>
+  <artifactId>amqp-regards</artifactId>
 </dependency>
 ```
 
@@ -108,10 +119,10 @@ To publish a message on the broker, you have to use the `IPublisher` interface a
 First, create the message (i.e. a simple POJO) implementing `ISubscribable`.
 Annotate this message with `@Event` and define the event **target** (see below).
 
-> Queue which name is built with a microservice instance identifier is not totally safe. Indeed, if the corresponding microservice instance is stopped and never restarted, queue may not be consumed anymore and its messages lost. Be sure to be resilient with these types of messages!
-{: .warning}
+> Queue whose name is built with a microservice instance identifier is not totally safe. Indeed, if the corresponding microservice instance is stopped and never restarted, queue may not be consumed anymore and its messages lost. Be sure to be resilient with these types of messages!
+{: .tip .warning}
 
-![](/assets/schemas/framework/amqp/amqp_tuto_subscription_broadcast.png)
+![Broadcast message](/assets/schemas/framework/amqp/amqp_tuto_subscription_broadcast.png)
 
 ```java
 @Event(target = Target.ALL)
@@ -120,6 +131,7 @@ public class HelloMessage implements ISubscribable {
 ```
 
 Then publish the message :
+
 ```java
 @Autowired
 private IPublisher publisher;
@@ -135,7 +147,7 @@ public void publishHello() {
 Create the message implementing `ISubscribable`.
 Annotate this message with `@Event`, set mode to **UNICAST** and define the event **target** (see below).
 
-![](/assets/schemas/framework/amqp/amqp_tuto_subscription_unicast.png)
+![Unicast message](/assets/schemas/framework/amqp/amqp_tuto_subscription_unicast.png)
 
 #### Working message (unicast)
 
@@ -144,7 +156,7 @@ Working message is stored in a working queue and is consumed synchronously on-de
 First, create the message implementing `IPollable`.
 Annotate this message with `@Event` and define the event **target** (see below).
 
-![](/assets/schemas/framework/amqp/amqp_tuto_worker_queues.png)
+![Worker queue](/assets/schemas/framework/amqp/amqp_tuto_worker_queues.png)
 
 **A message is only handled by a single poller (i.e. worker).**
 
@@ -156,6 +168,7 @@ public class PollMessage implements IPollable {
 ```
 
 Then publish the message :
+
 ```java
 @Autowired
 private IPublisher publisher;
@@ -167,6 +180,7 @@ public void publishHello() {
 ```
 
 > `IPublish` manages **message priority**. Just define the priority in the publish method.
+{: .tip .plus}
 
 ### How to subscribe to a subscribable message
 

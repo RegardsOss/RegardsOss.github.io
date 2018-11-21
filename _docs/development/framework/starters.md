@@ -7,6 +7,8 @@ categories:
   - development
 ---
 
+{% include toc.md %}
+
 > All dependencies are expressed in term of **Maven dependencies**.
 
 ## Bill Of Materials (i.e. BOM)
@@ -28,23 +30,32 @@ To use REGARDS framework building blocks, you have to import its BOM in your pom
 ```
 
 ## Available starters
- 
-  - [AMQP starter](/development/framework/starters/amqp-starter/)
-  - [AMQP monitoring starter](/development/framework/starters/amqp-monitoring-starter/)
-  - [Authentication starter](/development/framework/starters/authentication-starter/)
-  - [Cloud starter](/development/framework/starters/cloud-starter/)
-  - [Feign starter](/development/framework/starters/feign-starter/)
-  - [GeoJSON starter](/development/framework/starters/geojson-starter/)
-  - [GSON starter](/development/framework/starters/gson-starter/)
-  - [HATEOAS starter](/development/framework/starters/hateoas-starter/)
-  - [JPA instance starter](/development/framework/starters/jpa-instance-starter/)
-  - [JPA multitenant starter](/development/framework/starters/jpa-multitenant-starter/)
-  - [Microservice starter](/development/framework/starters/microservice-starter/)
-  - [Module starter](/development/framework/starters/module-starter/)
-  - [Multitenant starter](/development/framework/starters/multitenant-starter/)
-  - [OAIS starter](/development/framework/starters/oais-starter/)
-  - [Security starter](/development/framework/starters/security-starter/)
-  - [Plugins starter](/development/framework/starters/plugins-starter/)
-  - [STAF starter](/development/framework/starters/staf-starter/)
-  - [Swagger starter](/development/framework/starters/swagger-starter/)
-  - [Web socket starter](/development/framework/starters/websocket-starter/)
+
+Most of the time, starter depends on a business package. Sometimes, regarding the layer you implement, you may want to use directly the starter or just the business package.
+
+The starter activates the related features and should only contains starter configuration properties and auto configuration bean(s). Business package contains all the logic and the business objects.
+
+Sometimes, you have to provide your own bean to override default one. Simply create your own `Component` or `Configuration` bean! It will automatically have priority over starter one.
+
+> Link to Spring Boot Starter documentation
+{: .tip .todo}
+
+
+* [AMQP starter](/development/framework/starters/amqp-starter/)
+* [Authentication starter](/development/framework/starters/authentication-starter/)
+* [Cloud starter](/development/framework/starters/cloud-starter/)
+* [Feign starter](/development/framework/starters/feign-starter/)
+* [GeoJSON starter](/development/framework/starters/geojson-starter/)
+* [GSON starter](/development/framework/starters/gson-starter/)
+* [HATEOAS starter](/development/framework/starters/hateoas-starter/)
+* [JPA instance starter](/development/framework/starters/jpa-instance-starter/)
+* [JPA multitenant starter](/development/framework/starters/jpa-multitenant-starter/)
+* [Microservice starter](/development/framework/starters/microservice-starter/)
+* [Module starter](/development/framework/starters/module-starter/)
+* [Multitenant starter](/development/framework/starters/multitenant-starter/)
+* [OAIS starter](/development/framework/starters/oais-starter/)
+* [Security starter](/development/framework/starters/security-starter/)
+* [Plugins starter](/development/framework/starters/plugins-starter/)
+* [STAF starter](/development/framework/starters/staf-starter/)
+* [Swagger starter](/development/framework/starters/swagger-starter/)
+* [Web socket starter](/development/framework/starters/websocket-starter/)

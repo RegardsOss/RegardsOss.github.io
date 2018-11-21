@@ -360,9 +360,7 @@ body > img:last-of-type{
 
 // Blockquote styling
 
-blockquote.warning {
-	background-color: #ffffaa;
-	background-image: url("../img/icons/warning.svg");
+blockquote.tip {
 	background-origin: padding-box;
 	background-repeat: no-repeat;
 	background-size: 30px 30px;
@@ -370,6 +368,27 @@ blockquote.warning {
 	background-position-y: center;
 }
 
-blockquote.warning p {
+blockquote.warning {
+	background-color: #ffffaa;
+	background-image: url("../img/icons/warning.svg");
+}
+
+blockquote.todo {
+	background-color: yellowgreen;
+	background-image: url("../img/icons/tick-inside-circle.svg");
+}
+
+blockquote.plus {
+	// background-color: yellowgreen;
+	background-image: url("../img/icons/plus.svg");
+}
+
+blockquote.important {
+	// background-color: yellowgreen;
+	background-image: url("../img/icons/idea.svg");
+}
+
+blockquote.tip p {
 	padding-left: 30px;
 }
+
