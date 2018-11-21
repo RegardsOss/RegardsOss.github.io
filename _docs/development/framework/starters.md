@@ -37,12 +37,20 @@ The starter activates the related features and should only contains starter conf
 
 Sometimes, you have to provide your own bean to override default one. Simply create your own `Component` or `Configuration` bean! It will automatically have priority over starter one.
 
-> Link to Spring Boot Starter documentation
-{: .tip .todo}
+See latest [Spring documentation](https://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/#boot-features-custom-starter) for further details.
 
+> REGARDS starters are designed to handle multitenancy.
+{: .tip .important}
+
+### Authentication and authorization
+
+* [Authentication starter](/development/framework/starters/authentication-starter/)
+
+### Messaging
 
 * [AMQP starter](/development/framework/starters/amqp-starter/)
-* [Authentication starter](/development/framework/starters/authentication-starter/)
+
+
 * [Cloud starter](/development/framework/starters/cloud-starter/)
 * [Feign starter](/development/framework/starters/feign-starter/)
 * [GeoJSON starter](/development/framework/starters/geojson-starter/)
