@@ -28,51 +28,72 @@ To manage a list of tenant at bootstrap from static configuration :
 regards.bootstrap-tenants=
 ```
 
-# 2\. Autoconfiguration
+## Autoconfiguration
 
 Starter autoconfigures beans :
-- `ITenantResolver` to retrieve list of tenants,
+
+* `ITenantResolver` to retrieve list of tenants,
 
 ```java
 @FunctionalInterface
 public interface ITenantResolver {
 
+    /**
+     * @return all tenants regardless its configuration
+     */
     Set<String> getAllTenants();
+
+    /**
+     * @return all tenants fully configured
+     */
+    Set<String> getAllActiveTenants();
 }
 ```
-- `IRuntimeTenantResolver` to retrieve request tenant at runtime.
+
+* `IRuntimeTenantResolver` to retrieve request tenant at runtime.
 
 ```java
 public interface IRuntimeTenantResolver {
 
     /**
-     *
      * @return runtime tenant
      */
     String getTenant();
 
     /**
-     * Force runtime tenant to a specific value
-     *
-     * @param pTenant
-     *            tenatn
+     * Does the current tenant is instance
+     * @return true|false
      */
-    void forceTenant(String pTenant);
+    boolean isInstance();
+
+    /**
+     * Force runtime tenant to a specific value on current thread.<br/>
+     * We recommend to use {@link IRuntimeTenantResolver#clearTenant()} to clean the thread in a finally clause.<br/>
+     * It is mostly recommended for server threads as they are reused.
+     * @param tenant tenant
+     */
+    void forceTenant(String tenant);
+
+    /**
+     * Clear forced tenant on current thread
+     */
+    void clearTenant();
 }
 ```
 
-Note : on production, the implementation of `IRuntimeTenantResolver` must be **thread safe**.
+> In production, the implementation of `IRuntimeTenantResolver` must be **thread safe**.
+{: .tip .important}
 
-# 3\. How to
+## How to
 
-## 3.1. How to use
+### How to use
 
 Just inject beans in your component.
 
-## 3.2. How to override default behaviour
+### How to override default behaviour
 
 Create your own `ITenantResolver` bean to implement your own tenant retrieval.
-Create your own `IRuntimeTenantResolver` bean to implement your own runtime tenant retrieval.
+Create your own `IRuntimeTenantResolver` bean to implement your own **runtime** tenant retrieval.
 
 ## 3.3. How to handle bootstrap tenants
 
