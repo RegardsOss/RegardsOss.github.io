@@ -39,12 +39,17 @@ Sometimes, you have to provide your own bean to override default one. Simply cre
 
 See latest [Spring documentation](https://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/#boot-features-custom-starter) for further details.
 
-> REGARDS starters are designed to handle multitenancy.
+### Multitenancy
+
+* [Multitenant starter](/development/framework/starters/multitenant-starter/)
+
+> Most REGARDS starters are designed to handle multitenancy and depends on this base starter.
 {: .tip .important}
 
 ### Authentication and authorization
 
 * [Authentication starter](/development/framework/starters/authentication-starter/)
+* [Security starter](/development/framework/starters/security-starter/)
 
 ### Messaging
 
@@ -60,9 +65,9 @@ See latest [Spring documentation](https://docs.spring.io/spring-boot/docs/curren
 * [JPA multitenant starter](/development/framework/starters/jpa-multitenant-starter/)
 * [Microservice starter](/development/framework/starters/microservice-starter/)
 * [Module starter](/development/framework/starters/module-starter/)
-* [Multitenant starter](/development/framework/starters/multitenant-starter/)
+
 * [OAIS starter](/development/framework/starters/oais-starter/)
-* [Security starter](/development/framework/starters/security-starter/)
+
 * [Plugins starter](/development/framework/starters/plugins-starter/)
 * [STAF starter](/development/framework/starters/staf-starter/)
 * [Swagger starter](/development/framework/starters/swagger-starter/)
