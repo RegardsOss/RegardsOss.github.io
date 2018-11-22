@@ -2,7 +2,6 @@
 layout: classic-docs
 title: REGARDS framework starters
 short-title: Framework building blocks (aka starters)
-wip: true
 categories:
   - development
 ---
@@ -38,9 +37,17 @@ See latest [Spring documentation](https://docs.spring.io/spring-boot/docs/curren
 ### Microservice
 
 * [Microservice starter](/development/framework/starters/microservice-starter/)
-* Microservice core
-* Microservice logger
+* [Microservice core starter](/development/framework/starters/microservice-core-starter/)
 * [Module starter](/development/framework/starters/module-starter/)
+
+<!-- > Microservice logger artifact just centralizes logback default configuration.
+> ```xml
+> <dependency>
+>  <groupId>fr.cnes.regards.framework</groupId>
+>  <artifactId>microservice-logger</artifactId>
+> </dependency>
+> ```
+{: .tip .plus} -->
 
 ### Business starters
 

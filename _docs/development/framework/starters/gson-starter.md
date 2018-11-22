@@ -6,10 +6,14 @@ short-title: GSON starter
 
 {% include toc.md %}
 
-# 1\. Configuration
+## Purpose
+
+This starter is making easier the use of GSON with new features.
+
+## Configuration
 
 ```properties
-# Scan package for Gsonable annotation
+# Scan package for annotated adapters or factories
 regards.gson.scan-prefix=fr.cnes.regards
 ```
 
@@ -19,11 +23,13 @@ To avoid conflict between Jackson and GSON with SPRING, set the following proper
 spring.http.converters.preferred-json-mapper=gson
 ```
 
-# 2\. Autoconfiguration
+## Autoconfiguration
 
 Starter autoconfigures a **GsonHttpMessageConverter** automatically injected in available HTTP message converters.
 
-GSON is customize through **GsonBuilder** to :
+Il autoconfigures a `Gson` instance with default adapters and filters plus the introspected ones.
+
+<!-- GSON is customize through **GsonBuilder** to :
 
 - dynamically create adapter factories for **Gsonable** element (polymorphic factories),
 - dynamically register a **TypeAdapter** annotated with **GsonTypeAdapterBean**,
@@ -31,40 +37,89 @@ GSON is customize through **GsonBuilder** to :
 - dynamically register Spring **TypeAdapterFactory** annotated with **GsonTypeAdapterFactoryBean** or Spring **Component**,
 - add an exclusion strategy based on **GSonIgnore** annotation,
 - add a **PathAdapter** for **Path** class,
-- add a SpringFox adapter factory if [Swagger starter](/regards-framework/starters/swagger-starter/) is on the classpath.
+- add a SpringFox adapter factory if [Swagger starter](/regards-framework/starters/swagger-starter/) is on the classpath. -->
 
-# 3\. How to
+## How to
 
-## 3.1\. How to use dependency injection in a type adapter
+### Create type adapters or adapter factories
 
-If you annotate your custom type adapter with **GsonTypeAdapterBean** annotation, you will be able to use Spring dependency injection in your type adapter.
+See [GSON reference project](https://github.com/google/gson).
 
-## 3.2\. How to register a custom factory
+### Register a type adapter
 
-- With **GsonTypeAdapterFactory** annotation
+Just create a class extending `TypeAdapter` and annotated with `GsonTypeAdapter` with a **no arg constructor** :
 
-This annotation allows to register automatically a **TypeAdapterFactory** with a no arg constructor.
+```java
+@GsonTypeAdapter(adapted = Your.class)
+public class LinkAdapter extends TypeAdapter<Your> {
+    ...
+}
+```
 
-- With **GsonTypeAdapterFactoryBean** or **Component** annotation
+### Register a type adapter as a component
 
-Useful for Spring based factories allowing dependency injection. The factory must implement GSON **TypeAdapterFactory**.
+Just create a class extending `TypeAdapter` and annotated with `GsonTypeAdapterBean` :
 
-## 3.3\. How to use polymorphic element (de)serialization
+```java
+@GsonTypeAdapterBean(adapted = Your.class)
+public class LinkAdapter extends TypeAdapter<Your> {
 
-- With **Gsonable** annotation on a base hierarchy type
+    @Autowired
+    private MyService service;
+    ...
+}
+```
 
-This annotation allows to register a dynamically created **PolymorphicTypeAdapterFactory**.
+### Register a type adapter factory
 
-You optionnaly can specify the discriminator name in **Gsonable** and the discriminator values on sub types through **GsonDiscriminator**.
+Just create a class implementing `TypeAdapterFactory` and annotated with `GsonTypeAdapterFactory` with a **no arg constructor**.
 
-- Creating a sub class of **PolymorphicTypeAdapterFactory** and registering it with annotation
+```java
+@GsonTypeAdapterFactory
+public class YourFactory implements TypeAdapterFactory {
+    ...
+}
+```
 
-## 3.4\. How to instanciate polymorphic factory
+### Register a type adapter factory as a component
 
-Init an instance of **PolymorphicTypeAdapterFactory** or a subclasses and **registerSubtype** on it.
+Just create a class implementing `TypeAdapterFactory` and annotated with `GsonTypeAdapterFactoryBean` (or `Component`):
 
-**Sub type can be registered even if factory has already been created at runtime.**
+```java
+@GsonTypeAdapterFactoryBean
+public class YourFactory implements TypeAdapterFactory {
 
-## 3.5\. How to use exclusion strategy
+    @Autowired
+    private MyService service;
+    ...
+}
+```
 
-Just annotate field with **GsonIgnore** to exclude a particular field.
+### Work with polymorphic classes
+
+#### Register a `Gsonable` polymorphic factory
+
+Just annotate the top interface or abstract class of a hierarchical set of classes with `Gsonable`. Under the hood, the starter will register a dynamically created `PolymorphicTypeAdapterFactory`. You optionnaly can specify the discriminator name in `Gsonable` and the discriminator values on sub types through `GsonDiscriminator`.
+
+During GSON serialization, factory will inject a discriminator property whose name is either `@type@` or the specified one and the value is either the class name or the specified discriminator value.  
+During deserialization, factory build the target object according to its discriminator value.
+
+#### Register a custom polymorphic factory
+
+Just create a class extending `PolymorphicTypeAdapterFactory` and annotated with either `GsonTypeAdapterFactory` or `GsonTypeAdapterFactoryBean`.
+
+```java
+@GsonTypeAdapterFactory
+public class YourAdapterFactory extends PolymorphicTypeAdapterFactory<YourInterface> {
+
+    public EntityAdapterFactory() {
+        super(YourInterface.class, "discriminatorName", true);
+        registerSubtype(YourClass1.class, "disVal1");
+        registerSubtype(YourClass2.class, "disVal2");
+    }
+}
+```
+
+### Exclude field from serialization
+
+Just annotate field with `GsonIgnore` to exclude a particular field.

@@ -4,18 +4,66 @@ title: Module starter
 short-title: Module starter
 ---
 
-# Module starter
+{% include toc.md %}
 
-# Module configuration import/export
+## Purpose
 
-To be able to import/export a module configuration, you have to implement a configuration module manager inheriting abstract class `AbstractModuleConfigurationManager` (and implementing `IModuleConfigurationManager`) and **annotated as a Spring component**.
+This starter :
 
+* Gives access to standard system exceptions,
+* Centralizes system exception transformation into REST exception,
+* Brings the module manager engine logic.
 
-For example,
+## Configuration
+
+Add starter dependency to your POM (version depends on the BOM)
+
+```xml
+<dependency>
+  <groupId>fr.cnes.regards.framework</groupId>
+  <artifactId>module-regards-starter</artifactId>
+</dependency>
+```
+
+Business dependency
+
+```xml
+<dependency>
+  <groupId>fr.cnes.regards.framework</groupId>
+  <artifactId>module-regards</artifactId>
+</dependency>
+```
+
+## How to
+
+### Implement a module manager
+
+To do this, you have to implement a module manager inheriting abstract class `AbstractModuleManager` (and implementing `IModuleManager`) and **annotated as a Spring component**.
+
+In the same package as your module configuration manager, you have to create a `module.properties` file containing following required properties:
+
+```properties
+# Your module properties
+module.id=<your module id>
+module.name=<your module name for display purpose>
+module.description=<your module description for display purpose>
+module.version=<your module version>
+module.author=<author>
+module.legalOwner=<author,client, ...>
+module.documentation=<url>
+```
+
+By default, `IModuleManager#importConfiguration` will only be called if imported file matches the same `module.id` properties.
+
+At last, to adjust your exported JSON configuration, you can annotate your exported POJO with `@ConfigIgnore`.
+
+#### Import/export configuration
+
+For instance,
 
 ```java
 @Service
-public class MyConfigurationManager extends AbstractModuleConfigurationManager {
+public class MyModuleManager extends AbstractModuleManager {
 
     @Override
     public void importConfiguration(ModuleConfiguration configuration) throws ModuleException {
@@ -36,20 +84,39 @@ public class MyConfigurationManager extends AbstractModuleConfigurationManager {
 }
 ```
 
-In the same package as your module configuration manager, you have to create a `module.properties` file containing following required properties:
+#### Ready
 
-```properties
-# Your module properties
-module.id=<your module id>
-module.name=<your module name for display purpose>
-module.description=<your module description for display purpose>
-module.version=<your module version>
-module.author=<author>
-module.legalOwner=<author,client, ...>
-module.documentation=<url>
+Override default method. 
+
+`isReady` is only called if `isReadyImplemented` return `true`.
+
+```java
+    default ModuleReadinessReport<S> isReady() {
+        throw new UnsupportedOperationException("Ready feature not implemented");
+    }
+
+    default boolean isReadyImplemented() {
+        return false;
+    }
 ```
-By default, `IModuleConfigurationManager#importConfiguration` will only be called if imported file matches the same `module.id` and `module.version` properties.
 
-At last, to adjust your exported JSON configuration, you can annotate your exported POJO with `@ConfigIgnore`.
+#### Restart
+
+Override default method.
+
+`restart` is only called if `isRestartImplemented` return `true`.
+
+```java
+    default ModuleRestartReport restart() {
+        throw new UnsupportedOperationException("Restart feature not implemented");
+    }
+
+    default boolean isRestartImplemented() {
+        return false;
+    }
+```
+
+
+
 
 
