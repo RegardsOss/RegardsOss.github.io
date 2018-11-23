@@ -4,8 +4,7 @@ title: regardsoss/business-components/microservice-plugin-configurator
 short-title: Microservice plugin configurator
 ---
 
-* automatic table of content
-{:toc}
+{% include toc.md %}
 
 # Description
 

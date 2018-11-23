@@ -4,8 +4,7 @@ title: Plugin criterion
 short-title: Criterion
 ---
 
-* automatic table of content
-{:toc}
+{% include toc.md %}
 
 # Presentation
 

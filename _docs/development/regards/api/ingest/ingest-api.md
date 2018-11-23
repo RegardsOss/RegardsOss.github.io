@@ -3,8 +3,7 @@ layout: classic-docs
 title: REGARDS Ingest API
 ---
 
-* automatic table of content
-{:toc}
+{% include toc.md %}
 
 # Overview
 

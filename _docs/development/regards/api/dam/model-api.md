@@ -3,8 +3,7 @@ layout: classic-docs
 title: REGARDS DAM API
 ---
 
-* automatic table of content
-{:toc}
+{% include toc.md %}
 
 # FragmentController
 

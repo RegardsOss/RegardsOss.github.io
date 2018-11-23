@@ -6,8 +6,7 @@ categories:
   - frontend
 ---
 
-* automatic table of content
-{:toc}
+{% include toc.md %}
 
 # Presentation
 

@@ -4,8 +4,7 @@ title: Frontend - Dynamic module Search Graph
 short-title: search-graph
 ---
 
-* automatic table of content
-{:toc}
+{% include toc.md %}
 
 # Description
 

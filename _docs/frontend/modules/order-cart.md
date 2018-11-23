@@ -4,8 +4,7 @@ title: Frontend - Dynamic module Order Cart
 short-title: order-cart
 ---
 
-* automatic table of content
-{:toc}
+{% include toc.md %}
 
 # Description
 

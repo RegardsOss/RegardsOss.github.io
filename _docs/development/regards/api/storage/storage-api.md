@@ -3,8 +3,7 @@ layout: classic-docs
 title: REGARDS Storage API
 ---
 
-* automatic table of content
-{:toc}
+{% include toc.md %}
 
 # AIPController
 

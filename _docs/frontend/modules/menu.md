@@ -4,8 +4,7 @@ title: Frontend - Dynamic module Menu
 short-title: menu
 ---
 
-* automatic table of content
-{:toc}
+{% include toc.md %}
 
 # Description
 

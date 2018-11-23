@@ -4,8 +4,7 @@ title: JPA multitenant starter
 short-title: JPA multitenant starter
 ---
 
-* automatic table of content
-{:toc}
+{% include toc.md %}
 
 # 1\. Configuration
 

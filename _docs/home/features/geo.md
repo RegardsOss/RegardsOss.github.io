@@ -6,8 +6,7 @@ categories:
   - features
 ---
 
-* TOC
-{:toc}
+{% include toc.md %}
 
 REGARDS supports geospatial search on Earth, Mars and celestial dome.
 

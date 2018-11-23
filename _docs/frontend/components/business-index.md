@@ -4,8 +4,7 @@ title: regardsoss/business-components
 short-title: Businness Components
 ---
 
-* automatic table of content
-{:toc}
+{% include toc.md %}
 
 # Description
 

@@ -4,8 +4,7 @@ title: Integrated development environments
 short-title: IDE
 ---
 
-* automatic table of content
-{:toc}
+{% include toc.md %}
 
 # Available IDEs
 

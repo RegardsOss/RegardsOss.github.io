@@ -3,8 +3,7 @@ layout: classic-docs
 title: REGARDS Plugins API
 ---
 
-* automatic table of content
-{:toc}
+{% include toc.md %}
 
 # Overview
 

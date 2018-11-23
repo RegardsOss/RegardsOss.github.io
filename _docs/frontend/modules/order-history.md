@@ -4,8 +4,7 @@ title: Frontend - Dynamic module Order History
 short-title: order-history
 ---
 
-* automatic table of content
-{:toc}
+{% include toc.md %}
 
 # Description
 

@@ -4,8 +4,7 @@ title: Frontend - Dynamic module Embedded HTML
 short-title: embedded-html
 ---
 
-* automatic table of content
-{:toc}
+{% include toc.md %}
 
 # Description
 

@@ -4,8 +4,7 @@ title: regardsoss/components
 short-title: Components
 ---
 
-* automatic table of content
-{:toc}
+{% include toc.md %}
 
 # Description
 

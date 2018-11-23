@@ -4,8 +4,7 @@ title: Internationalization
 short-title: Internationalization
 ---
 
-* automatic table of content
-{:toc}
+{% include toc.md %}
 
 # Description
 

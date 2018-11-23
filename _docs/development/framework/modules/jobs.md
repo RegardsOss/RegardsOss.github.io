@@ -1,11 +1,10 @@
 ---
 layout: classic-docs
 title: Jobs
-short-title: Jobs
+short-title:
 ---
 
-* automatic table of content
-{:toc}
+{% include toc.md %}
 
 
 Jobs module allows to execute tasks in parallel on several microservices.

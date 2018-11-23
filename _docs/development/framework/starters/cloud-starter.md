@@ -4,16 +4,26 @@ title: Cloud starter
 short-title: Cloud starter
 ---
 
-* automatic table of content
-{:toc}
+{% include toc.md %}
 
+## Purpose
 
-- [Configuration](#configuration)
+This starter enables Eureka client discovery.
 
-<!-- END doctoc generated TOC please keep comment here to allow auto update -->
+## Configuration
 
-# Configuration
+Add starter dependency to your POM (version depends on the BOM)
+
+```xml
+<dependency>
+  <groupId>fr.cnes.regards.framework</groupId>
+  <artifactId>cloud-regards-starter</artifactId>
+</dependency>
+```
+
+No business dependency.
 
 ```properties
-regards.cloud.enabled=false # Disable cloud support
+# Disable cloud support
+regards.cloud.enabled=false
 ```

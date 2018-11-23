@@ -4,8 +4,7 @@ title: Plugin service
 short-title: Service
 ---
 
-* automatic table of content
-{:toc}
+{% include toc.md %}
 
 # Presentation
 

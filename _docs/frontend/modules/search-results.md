@@ -4,8 +4,7 @@ title: Frontend - Dynamic module Search Results
 short-title: search-results
 ---
 
-* automatic table of content
-{:toc}
+{% include toc.md %}
 
 # Description
 

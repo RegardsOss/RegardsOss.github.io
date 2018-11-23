@@ -4,8 +4,7 @@ title: Development setup and build
 short-title: Setup and build
 ---
 
-* automatic table of content
-{:toc}
+{% include toc.md %}
 
 ## Requirements
 

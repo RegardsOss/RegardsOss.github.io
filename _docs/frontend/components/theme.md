@@ -4,9 +4,6 @@ title: Material and module themes
 short-title: Themes
 ---
 
-* automatic table of content
-{:toc}
-
 # Description
 
 The `@regards/theme` (web_modules/utils/theme) projects holds components and tools designed to simplify the use of global [Material-ui](http://www.material-ui.com/#/customization/themes){:target="_blank"} theme - called MUI theme in the next lines - over all REGARDS frontend react components. MUI theme holds a dictionnary of variables, sorted by categories, defining styles like:

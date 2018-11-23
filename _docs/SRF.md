@@ -23,8 +23,7 @@ Issue |    Date    |    Reasons for change
 
 # Table of contents
 
-* automatic table of content
-{:toc}
+{% include toc.md %}
 
 ## 1. Introduction
 

@@ -4,13 +4,16 @@ title: Feign starter
 short-title: Feign starter
 ---
 
-* automatic table of content
-{:toc}
+{% include toc.md %}
 
+## Purpose
 
-# 1\. Configuration
+This starters enables Feign client discovery and use. Feign clients are REST clients used for synchronous HTTP communications between microservices. Requests are automatically load balanced.
+
+## Configuration
 
 Add starter dependency to your POM (version depends on the REGARDS BOM)
+
 ```xml
 <dependency>
   <groupId>fr.cnes.regards.framework</groupId>
@@ -19,29 +22,32 @@ Add starter dependency to your POM (version depends on the REGARDS BOM)
 ```
 
 Dependency :
-- [Multitenant starter](/regards-framework/starters/multitenant-starter/)
-- Security utils to manage Json Web Tokens
+
+* [Multitenant starter](/regards-framework/starters/multitenant-starter/)
+* [GSON starter](/development/framework/starters/gson-starter/)
+* Security utils to manage Json Web Tokens
 
 ```properties
 # See multitenant starter properties
 # Security utils needs JWT secret
 ```
 
-# 2\. Autoconfiguration
+## Autoconfiguration
 
 Starter autoconfigures:
 
-- `FeignSecurityManager` to manage security token injection into request headers.
-- Enable automatic client discovery in package `fr.cnes.regards` (unless `test` profile is activated - see 3.4)
+* `FeignSecurityManager` to manage security token injection into request headers.
+* Enable automatic client discovery in package `fr.cnes.regards` (unless `test` profile is activated)
 
-# 3\. How to
+## How to
 
-## 3.1\. How to create a client
+### How to create a client
 
 Create a Spring MVC interface annotated with `RestClient` :
 
 ```java
 @RestClient(name = "targetMicroserviceName")
+@RequestMapping(produces = MediaType.APPLICATION_JSON_UTF8_VALUE, consumes = MediaType.APPLICATION_JSON_UTF8_VALUE)
 public interface IHelloClient {
 
     @RequestMapping(method = RequestMethod.GET, value = "/hello")
@@ -49,14 +55,20 @@ public interface IHelloClient {
 }
 ```
 
-## 3.2\. How to use a client
+> When using request or path parameters, you have to explicitly declare expected names (e.g. `@PathVariable("param_name")`)!
+{: .tip .important}
+
+> Produce and consume format has to be set to JSON in `@RequestMapping`.
+{: .tip .important}
+
+### How to use a client
 
 Importing Feign starter in your pom.xml, all classes annotated with `RestClient` are automatically discovered in package `fr.cnes.regards`.
 So, you can `@Autowired` it in your service.
 
 If client is in a different package, use `@EnableFeignClients` in a configuration class to declare this package.
 
-## 3.3\. How to make a system (i.e. internal) call
+### How to make a system (i.e. internal) call
 
 By default, `FeignSecurityManager` propagates user token in Feign request from security holder.
 
@@ -65,16 +77,20 @@ To call an endpoint as system, you must inform `FeignSecurityManager` before pro
 If you act as a daemon and you have to manage tenant in **system** client call, use `IRuntimeTenantResolver` to force the right tenant.
 
 ```java
-// Optionnaly specify working tenant (thread safe action)
-runtimeTenantResolver.forceTenant("tenant");
-// Enable system call as follow (thread safe action)
-FeignSecurityManager.asSystem();
-// Process client request ...
-// Disable system call if necessary after client request(s)
-FeignSecurityManager.reset();
+try {
+  // Optionnaly specify working tenant (thread safe action)
+  runtimeTenantResolver.forceTenant("tenant");
+  // Enable system call as follow (thread safe action)
+  FeignSecurityManager.asSystem();
+  // Process client request ...
+} finally {
+  // We advice you to clean context
+  runtimeTenantResolver.clearTenant();
+  FeignSecurityManager.reset();
+}
 ```
 
-## 3.4\. How to create a client programmatically
+### How to create a client programmatically
 
 Use `FeignClientBuilder`, `TokenClientProvider` and `FeignSecurityManager` to init one :
 
@@ -83,9 +99,9 @@ MyClient client = FeignClientBuilder.build(new TokenClientProvider<>(MyClient.cl
         "url", feignSecurityManager));
 ```
 
-## 3.5\. How to mock Feign
+### How to mock Feign
 
-Feign starter allows to disable client discovery. To do so, run the tests in a `test` profile (use `@ActiveProfiles` ) and mock your clients as you wish (using stub, Mockito, etc.).
+Feign starter allows to disable client discovery. To do so, run the tests in a `test` profile (use `@ActiveProfiles`) and mock your clients as you wish (using stub, Mockito, etc.).
 
 If you set your own annotation on a configuration class, we recommend to add profile annotation as follow to be able to mock client in test profile :
 

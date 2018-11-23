@@ -4,8 +4,7 @@ title: Dynamic lazy loadable modules
 short-title: Lazy modules
 ---
 
-* automatic table of content
-{:toc}
+{% include toc.md %}
 
 # Description
 

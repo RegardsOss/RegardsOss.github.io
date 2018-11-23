@@ -4,8 +4,8 @@ title: AMQP monitoring starter
 short-title: AMQP monitoring starter
 ---
 
-* automatic table of content
-{:toc}
+{% include toc.md %}
+
 
 # 1\. Configuration
 

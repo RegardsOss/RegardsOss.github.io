@@ -4,8 +4,7 @@ title: Frontend - Dynamic module Project List
 short-title: projects-list
 ---
 
-* automatic table of content
-{:toc}
+{% include toc.md %}
 
 # Description
 

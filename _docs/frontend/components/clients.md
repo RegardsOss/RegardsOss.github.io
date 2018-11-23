@@ -4,8 +4,7 @@ title: Backend interactions
 short-title: Backend interactions
 ---
 
-* automatic table of content
-{:toc}
+{% include toc.md %}
 
 # Description
 

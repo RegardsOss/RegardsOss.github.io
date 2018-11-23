@@ -4,8 +4,7 @@ title: Frontend - Dynamic module Licenses
 short-title: licenses
 ---
 
-* automatic table of content
-{:toc}
+{% include toc.md %}
 
 # Description
 

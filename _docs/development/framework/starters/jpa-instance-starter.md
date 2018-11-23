@@ -4,8 +4,7 @@ title: JPA instance starter
 short-title: JPA instance starter
 ---
 
-* automatic table of content
-{:toc}
+{% include toc.md %}
 
 # Configuration
 

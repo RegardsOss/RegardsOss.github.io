@@ -4,8 +4,7 @@ title: Plugins starter
 short-title: Plugins starter
 ---
 
-* automatic table of content
-{:toc}
+{% include toc.md %}
 
 # 1\. Configuration
 

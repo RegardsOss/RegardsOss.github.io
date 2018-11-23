@@ -4,8 +4,7 @@ title: regardsoss/eslint-config-es6-rules
 short-title: Eslint config
 ---
 
-* automatic table of content
-{:toc}
+{% include toc.md %}
 
 # Presentation
 

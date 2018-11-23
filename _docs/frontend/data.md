@@ -4,9 +4,6 @@ title: REGARDS UI data
 short-title: Data
 ---
 
-* automatic table of content
-{:toc}
-
 # Data management in REGARDS UI
 
 REGARDS frontend uses [Redux](http://redux.js.org/) to centralize and manage data. It also setups some middlewares above it, discuss later on. One of those middleware, [Redux API middleware](https://www.npmjs.com/package/redux-api-middleware), is transforming Redux actions holding a `RSAA` field into network requests. Those actions define indeed 3 actions, that will be reduced normally by the reducer:

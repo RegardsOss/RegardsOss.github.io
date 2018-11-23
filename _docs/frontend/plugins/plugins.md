@@ -4,8 +4,7 @@ title: REGARDS Frontend Plugins
 short-title: Plugins
 ---
 
-* automatic table of content
-{:toc}
+{% include toc.md %}
 
 # Presentation
 

@@ -4,9 +4,7 @@ title: HATEOAS starter
 short-title: HATEOAS starter
 ---
 
-* automatic table of content
-{:toc}
-
+{% include toc.md %}
 
 # 1\. Configuration
 

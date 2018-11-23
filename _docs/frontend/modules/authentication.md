@@ -4,9 +4,6 @@ title: Frontend - Dynamic module Authentication
 short-title: authentication
 ---
 
-* automatic table of content
-{:toc}
-
 # Description
 
 This module is a dynamic configurable module to be used in REGARDS user interfaces.

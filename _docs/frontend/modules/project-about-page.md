@@ -4,8 +4,7 @@ title: Frontend - Dynamic module Project About Page
 short-title: project-about-page
 ---
 
-* automatic table of content
-{:toc}
+{% include toc.md %}
 
 ## Description
 
