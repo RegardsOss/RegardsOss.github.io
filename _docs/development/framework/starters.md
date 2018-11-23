@@ -64,4 +64,4 @@ See latest [Spring documentation](https://docs.spring.io/spring-boot/docs/curren
 * [GSON starter](/development/framework/starters/gson-starter/)
 * [HATEOAS starter](/development/framework/starters/hateoas-starter/)
 * [Swagger starter](/development/framework/starters/swagger-starter/)
-* Encryption
+* [Encryption](/development/framework/starters/encryption-starter/)
