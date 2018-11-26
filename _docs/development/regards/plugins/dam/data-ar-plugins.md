@@ -10,31 +10,46 @@ title: Data access rights plugins
 
 ## Overview
 
-    This customziation is a plugin of DataManagement microservice.
+    This customization is a plugin of DataManagement microservice.
 
-REGARDS allows administrators to configure access rights of every data through **user groups** configuration. Each user group can be configured to allow or deny access to each dataset by defining :
- - Access to metadatas (information about datas)
- - Access to data files (download or order)
+Those plugins allows to customize access rights of datas into a dataset. Dynamic plugins are made to re-calculate access rights every day. Non dynamic plugins access rights calculation are made when :
+ - There is a data modification (dataset update, add or remove datas, ...)
+ - There is a user group modification
 
-![Access right](img/ar.png)
+The periodicity of re-calculation of dynamic plugins is by default set to once a day but it is configurable in the microservice properties with the properties `regards.access.rights.update.cron`. The value is a standard cron format.
 
- To customize access to datas inside a dataset administrator can use **Data access right Plugins**. Those plugins dynamicly define access to each data of a dataset. 
+## Access rights global calculation
 
- ![Access right](img/ar-with-plugin.png)
+   See class `EntityIndexerService` method `manageDatasetUpdate` of `crawler-service` module to see how accessRights are calculated on every datasets.
 
- **NOTE :** As some plugins define access rights dynamicly, the calculation is made **every day**.
+## Interface
 
- ## Examples
+   `IDataObjectAccessFilterPlugin`
 
- ### New/Old data objects access
+## Implementation
 
-  - **NewDataObjectsAccess**
-  - **OldDataObjectsAccess**
+```java
+@Plugin(id = "ExempleDataObjectsAccessPlugin", version = "4.0.0-SNAPSHOT",
+        description = "Allow access to dataObjects",
+        author = "REGARDS Team", contact = "regards@c-s.fr", licence = "LGPLv3.0", owner = "CSSI",
+        url = "https://github.com/RegardsOss")
+public class ExempleDataObjectsAccessPlugin implements IDataObjectAccessFilterPlugin {
 
- Those two plugins allows to configure data access right inside a dataset based on a date (for example creation date). With those plugins you can allow access to datas which have been created at least a year ago or allows acces to datas that are updated at most one week ago.
+    /**
+     * Override this method to define the search criterion applied to find allowed dataobjects into the dataset.
+     */
+    @Override
+    public ICriterion getSearchFilter() {
+        return ICriterion.all();
+    }
 
- ### Filter data objects access with opensearch request
+    /**
+     * Return TRUE to force calculation of access rights every day for all dataset associated to these plugin.
+     */
+    @Override
+    public boolean isDynamic() {
+        return false;
+    }
 
- - **CustomDataObjectsAccess**
-
- These plugin allows to configure data access tight inside a dataet base on a opensearch query (lucene format). For example you can configure access right to allow access for datas with a specified value like VERSION > 2 with the lucen opensearch query : `VERSION:[2 TO \*]`
+}
+```
