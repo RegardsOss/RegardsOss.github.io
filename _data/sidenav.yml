@@ -102,6 +102,9 @@
           link: development/regards/api/ingest/ingest-api/
         - name: Storage
           link: development/regards/api/storage/storage-api/
+    - name: Plugins
+        - name: Customize access rights
+          link: development/regards/plugins/dam/data-ar-plugins/
 # ========================================================================      
 - name: Frontend
   icon: /assets/img/icons/coding.svg
