@@ -103,6 +103,8 @@
         - name: Storage
           link: development/regards/api/storage/storage-api/
     - name: Plugins
+      link: development/regards/plugins/
+      children:
         - name: Customize access rights
           link: development/regards/plugins/dam/data-ar-plugins/
 # ========================================================================      
