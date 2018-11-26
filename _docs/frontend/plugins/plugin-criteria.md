@@ -8,7 +8,9 @@ short-title: Criterion
 
 # Presentation
 
-A front-end criterion plugin is a javascript bundle bundle used in [Search form module](/frontend/modules/search-form/) to create form fields and panes. Each criterion plugin generates a part of the final opensearch request sent to the rs-catalog microservice in order to search resulting entities. Criterion plugins accept attributes to filter as configuration.
+A front-end criterion plugin is a javascript bundle used in [Search form module](/frontend/modules/search-form/) to create form fields and panes. Each criterion plugin generates a part of the final opensearch request sent to the rs-catalog microservice in order to search resulting entities. Criterion plugins accept attributes to filter as configuration.
+
+**NOTE** : Opensearch requests are made with [lucene format](https://lucene.apache.org/core/2_9_4/queryparsersyntax.html).
 
 # Specific plugin-info.json fields
 
@@ -363,9 +365,7 @@ export class SimpleCriterionContainer extends React.Component {
     pluginInstanceId: PropTypes.string.isRequired, // used in mapStateToProps and mapDispatchToProps
     /** Configuration attributes, by attributes name, as described in previous plugin-info.json example */
     attributes: PropTypes.shape({
-      attributeA: AttributeModelWithBounds.isRequired,
-      attributeB: AttributeModelWithBounds.isRequired,
-      attributeC: AttributeModelWithBounds.isRequired,
+      searchAttribute: AttributeModelWithBounds.isRequired,
     }).isRequired,
     /** Parent search form initial query */
     initialQuery: PropTypes.string,

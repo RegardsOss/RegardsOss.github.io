@@ -98,7 +98,7 @@
         - name: Model API
           link: development/regards/dam/api/model-api/
         - name: Access rights Plugins
-          link: development/regards/dam/plugins/access-rights-plugins/
+          link: development/regards/dam/plugins/access-rights/access-rights-plugins/
     - name: Data provider
       link: development/regards/dataprovider/dataprovider/
       children:

@@ -2,6 +2,7 @@
 layout: classic-docs
 title: REGARDS legacy search API
 short-title: Legacy search API
+wip: true
 ---
 
 The Search API is part of REGARDS's [REST API](#REST API). It allows users to find specific items in the catalog (for example all data objects between a certain range data, all datasets starting with "sensor-", etc).
