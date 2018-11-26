@@ -88,41 +88,41 @@
         - name: Workspace
           link: development/framework/modules/workspace/
     - name: Catalog
-      link: development/regards/catalog/
+      link: development/regards/catalog/catalog/
       children:
         - name: Search API
           link: development/regards/catalog/api/search-api/
     - name: Data Management
-      link: development/regards/dam/
+      link: development/regards/dam/dam/
       children:
         - name: Model API
           link: development/regards/dam/api/model-api/
         - name: Access rights Plugins
           link: development/regards/dam/plugins/access-rights-plugins/
     - name: Data provider
-      link: development/regards/dataprovider/
+      link: development/regards/dataprovider/dataprovider/
       children:
         - name: Acquisition API
           link: development/regards/dataprovider/api/acquisition-api/
     - name: Ingest
-      link: development/regards/dataprovider/
+      link: development/regards/ingest/ingest/
       children:
         - name: Ingestion API
           link: development/regards/ingest/api/ingest-api/
     - name: Order
-      link: development/regards/order/
+      link: development/regards/order/order/
       children:
         - name: Basket API
           link: development/regards/order/api/basket-api/
         - name: Order API
           link: development/regards/order/api/order-api/
     - name: Services common
-      link: development/regards/common/
+      link: development/regards/common/common/
       children:
         - name: Plugins API
           link: development/regards/common/api/plugins-api/
     - name: Storage
-      link: development/regards/storage/
+      link: development/regards/storage/storage/
       children:
         - name: Storage API
           link: development/regards/storage/api/storage-api/
