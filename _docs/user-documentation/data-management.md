@@ -35,7 +35,7 @@ REGARDS allows administrators to configure access rights of every data through *
 
 To customize access to datas inside a dataset, administrators can use **Data access right Plugins**. Those plugins dynamicly define access to each data of a dataset. 
 
- ![Access right](assets/images/userGuide/data-management/access-rights/ar-with-plugin.png)
+ ![Access right](/assets/images/userGuide/data-management/access-rights/ar-with-plugin.png)
 
  **NOTE :** As some plugins define access rights dynamicly, the calculation is made **every day**.
 
