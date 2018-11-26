@@ -29,13 +29,13 @@ REGARDS allows administrators to configure access rights of every data through *
  - Access to metadatas (information about datas)
  - Access to data files (download or order)
 
-![Access right](img/ar.png)
+![Access right](/assets/images/userGuide/data-management/access-rights/ar.png)
 
 ### Plugins
 
 To customize access to datas inside a dataset, administrators can use **Data access right Plugins**. Those plugins dynamicly define access to each data of a dataset. 
 
- ![Access right](img/ar-with-plugin.png)
+ ![Access right](assets/images/userGuide/data-management/access-rights/ar-with-plugin.png)
 
  **NOTE :** As some plugins define access rights dynamicly, the calculation is made **every day**.
 

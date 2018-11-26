@@ -87,26 +87,35 @@
           link: development/framework/modules/templates/
         - name: Workspace
           link: development/framework/modules/workspace/
-    - name: Service API
-      link: development/regards/api/
-      children: 
-        - name: Data Management
-          link: development/regards/api/dam/model-api/
-        - name: Basket
-          link: development/regards/api/order/basket-api/
-        - name: Order
-          link: development/regards/api/order/order-api/
-        - name: DataProvider
-          link: development/regards/api/dataprovider/acquisition-api/
-        - name: Ingest
-          link: development/regards/api/ingest/ingest-api/
-        - name: Storage
-          link: development/regards/api/storage/storage-api/
-    - name: Plugins
-      link: development/regards/plugins/
+    - name: Data Management
+      link: development/regards/dam/
       children:
-        - name: Customize access rights
-          link: development/regards/plugins/dam/data-ar-plugins/
+        - name: Service API
+          link: development/regards/dam/api/model-api/
+        - name: Access rights Plugins
+          link: development/regards/dam/plugins/access-rights-plugins/
+    - name: Order
+      link: development/regards/order/
+      children:
+        - name: Basket API
+          link: development/regards/order/api/basket-api/
+        - name: Order API
+          link: development/regards/order/api/order-api/
+    - name: Data provider
+      link: development/regards/dataprovider/
+      children:
+        - name: Acquisition API
+          link: development/regards/dataprovider/api/acquisition-api/
+    - name: Ingest
+      link: development/regards/dataprovider/
+      children:
+        - name: Ingestion API
+          link: development/regards/ingest/api/ingest-api/
+    - name: Storage
+      link: development/regards/storage/
+      children:
+        - name: Storage API
+          link: development/regards/storage/api/storage-api/
 # ========================================================================      
 - name: Frontend
   icon: /assets/img/icons/coding.svg
