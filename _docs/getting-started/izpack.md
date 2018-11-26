@@ -12,9 +12,11 @@ For now, the only way to deploy REGARDS on servers is to use an [**IzPack** pack
 If you don't have compiled the REGARDS IzPack installer, feel free to download it on our [github release page](https://github.com/RegardsOss/regards-deployment/releases).
 
 Ensure you have [setup components that REGARDS relies on](/getting-started/configuration/#section=getting-started) before continuing this tutorial. 
+
 ## Prerequisites
 
-In order to run the Izpack installer, you need these dependencies :  
+In order to run the Izpack installer, you need these dependencies :
+
 - groovy 1.8.9
 - OpenJDK 1.8
 

@@ -21,13 +21,25 @@ For a basic setup, to install REGARDS, PostgreSQL, RabbitMQ and ElasticSearch on
 
 ### Regards
 
-Any server that hosts a REGARDS component needs :
+Any server that hosts a REGARDS component needs:
+
 - Java OpenJDK JRE 1.8
 - access to the database PostgreSQL
 - access to the message broker RabbitMQ
 
 And for components `Data Management` and `Catalog`:
+
 - access to the ElasticSearch
+
+### Password
+
+The component `rs-admin-instance` requires a cryptographic key to validate password using SHA.
+
+```bash
+openssl rand -hex 8 > regards.key
+```
+
+The Izpack installer will ask you where is located the `regards.key` file, so put it in the REGARDS root folder.
 
 ## Linux users
 
@@ -46,17 +58,32 @@ useradd regards --no-create-home --shell=/sbin/nologin -g regards -G rsexec,rsru
 ```
 
 And you need to create the installation folder with the good access rights:
+
 ```shell
 mkdir /opt/regards
 chown :regards /opt/regards
 chmod 1770 /opt/regards
 ```
+
 In that case the installation folder would be `/opt/regards/installationFolder`.
 
 ## Postgres
 
 Install the database [PostgreSQL](https://www.postgresql.org/) 9.6.  
-You can also install [phpPgAdmin](http://phppgadmin.sourceforge.net/doku.php) to monitor the database.
+You can also install [phpPgAdmin](http://phppgadmin.sourceforge.net/doku.php) to monitor the database.  
+This is how to create a postgres user using PostgreSQL cli:
+
+```bash
+su postgres
+createuser -P --interactive rs_postgres
+```
+
+You will need at least two databases, one for REGARDS itself and one for the first REGARDS project.
+
+```bash
+createdb -O rs_postgres -E UTF8 rs_instance
+createdb -O rs_postgres -E UTF8 rs_tenant0
+```
 
 ## RabbitMQ
 
@@ -71,11 +98,12 @@ systemctl enable rabbitmq-server.service
 systemctl start rabbitmq-server.service
 ```
 
-Then, using the [RabbitMQ REST API](https://www.rabbitmq.com/rabbitmqctl.8.html#User_Management) or the management console, you need to activate the guest user, or create another one, that can : 
-* create [vhosts](https://www.rabbitmq.com/vhosts.html) 
-* add rights to others users
+Then, using the [RabbitMQ REST API](https://www.rabbitmq.com/rabbitmqctl.8.html#User_Management) or the management console, you need to activate the guest user, or create another one, that can :
 
-```
+- create [vhosts](https://www.rabbitmq.com/vhosts.html)
+- add rights to others users
+
+```bash
 rabbitmqctl add_user regards_adm regards_adm
 rabbitmqctl set_user_tags regards_adm administrator
 ```
@@ -84,11 +112,87 @@ rabbitmqctl set_user_tags regards_adm administrator
 
 Install ElasticSearch 5.4 & Kibana 5
 
+If `grep vm.max_map_count /etc/sysctl.conf` returns empty, you need to do two things:
+
+```
+sysctl -w vm.max_map_count=262144
+echo "
+vm.max_map_count=262144" >> /etc/sysctl.conf
+```
+
+For Red Hat OS, you just need to enable it and start it :
+
+```bash
+systemctl enable elasticsearch.service
+systemctl start elasticsearch.service
+```
+
 ## Reverse proxy
 
-Install NGinx or httpd as a reverse proxy.
+Install NGinx or httpd as a reverse proxy, it handles on a single port (80 or 443) all trafic for the REGARDS.
 
-For NGinx : 
+For httpd :
+
+```
+vi /etc/httpd/conf/httpd.conf
+<IfModule mod_proxy.c>
+        <Proxy *>
+          Order deny,allow
+          Deny from all
+        </Proxy>
+        ProxyRequests Off
+        ProxyPreserveHost Off
+</IfModule>
+```
+
+```
+cat > /etc/httpd/conf.d/httpd-proxy.conf <<FIN_CAT
+ProxyVia On
+<IfModule mod_proxy.c>
+    <VirtualHost *:80>
+        ProxyPass "/kibana/"       "http://localhost:5601/"                connectiontimeout=5 timeout=30
+        ProxyPass "/api/v1/"       "http://localhost:8000/api/v1/"         connectiontimeout=5 timeout=30
+        ProxyPass "/zuul/api/v1/"  "http://localhost:8000/zuul/api/v1/"    connectiontimeout=5 timeout=30
+        ProxyPass "/"              "http://localhost:3333/"                connectiontimeout=5 timeout=30
+        ProxyPreserveHost Off
+    </VirtualHost>
+</IfModule>
+ 
+<Directory />
+    Options None
+    Order deny,allow
+    deny from all
+    <LimitExcept GET HEAD POST DELETE PUT>
+        order deny,allow
+        deny from all
+    </LimitExcept>
+</Directory>
+ 
+<Location "/" >
+    Order deny,allow
+    <LimitExcept GET HEAD POST DELETE PUT>
+        order deny,allow
+        deny from all
+    </LimitExcept>
+</Location>
+FIN_CAT
+```
+
+For Red Hat OS, you need to start it:
+
+```bash
+systemctl enable httpd.service
+systemctl start httpd.service
+```
+
+If you are using a Red Hat system, you will need to autorize httpd to connect to the network, even a local one :
+
+```bash
+/usr/sbin/setsebool -P httpd_can_network_connect 1
+```
+
+For NGinx :
+
 ```
 worker_processes auto;
 
@@ -151,46 +255,10 @@ http {
 }
 ```
 
-For httpd :
-```
-vi /etc/httpd/conf/httpd.conf
-<IfModule mod_proxy.c>
-        <Proxy *>
-          Order deny,allow
-          Deny from all
-        </Proxy>
-        ProxyRequests Off
-        ProxyPreserveHost Off
-</IfModule>
+## Firewall
 
-cat > /etc/httpd/conf.d/httpd-proxy.conf <<FIN_CAT
-ProxyVia On
-<IfModule mod_proxy.c>
-    <VirtualHost *:80>
-        ProxyPass "/kibana/"       "http://localhost:5601/"                connectiontimeout=5 timeout=30
-        ProxyPass "/api/v1/"       "http://localhost:8000/api/v1/"         connectiontimeout=5 timeout=30
-        ProxyPass "/zuul/api/v1/"  "http://localhost:8000/zuul/api/v1/"    connectiontimeout=5 timeout=30
-        ProxyPass "/"              "http://localhost:3333/"                connectiontimeout=5 timeout=30
-        ProxyPreserveHost Off
-    </VirtualHost>
-</IfModule>
- 
-<Directory />
-    Options None
-    Order deny,allow
-    deny from all
-    <LimitExcept GET HEAD POST DELETE PUT>
-        order deny,allow
-        deny from all
-    </LimitExcept>
-</Directory>
- 
-<Location "/" >
-    Order deny,allow
-    <LimitExcept GET HEAD POST DELETE PUT>
-        order deny,allow
-        deny from all
-    </LimitExcept>
-</Location>
-FIN_CAT
+If you use iptable as a firewall, you need to open its port in the file `/etc/sysconfig/iptables`:
+
+```
+-A INPUT -p tcp -m state --state NEW -m tcp --dport 80 -j ACCEPT
 ```
