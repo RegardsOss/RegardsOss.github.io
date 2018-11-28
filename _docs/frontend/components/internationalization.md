@@ -4,22 +4,7 @@ title: Internationalization
 short-title: Internationalization
 ---
 
-<!-- START doctoc generated TOC please keep comment here to allow auto update -->
-<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
-
-
-- [Description](#description)
-- [Dependencies](#dependencies)
-- [How to](#how-to)
-  - [Internationalize text in REGARDS](#internationalize-text-in-regards)
-  - [Connect with internationalization context](#connect-with-internationalization-context)
-    - [Using I18nProvider](#using-i18nprovider)
-    - [Using withI18n](#using-withi18n)
-  - [I18n messages files](#i18n-messages-files)
-  - [Use parameter in messages](#use-parameter-in-messages)
-  - [More informations](#more-informations)
-
-<!-- END doctoc generated TOC please keep comment here to allow auto update -->
+{% include toc.md %}
 
 # Description
 

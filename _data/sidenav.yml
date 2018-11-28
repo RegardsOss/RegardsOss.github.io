@@ -1,0 +1,184 @@
+# ========================================================================
+- name: Home
+  icon: /assets/img/icons/if_globe_1055048.svg
+  children: 
+    - name: Overview
+      link: 
+    - name: Introduction
+      link: home/introduction/
+    - name: Roadmap
+      link: home/roadmap/
+    - name: Features
+      link: home/features/
+      children:
+        - name: Acquisition and archiving with OAIS
+          link: home/features/acqarch/
+        - name: Catalog harvesting and publication
+          link: home/features/harvesting/
+        - name: OpenSearch API
+          link: home/features/opensearch/
+        - name: Geospatial behavior
+          link: home/features/geo/
+# ========================================================================
+- name: Getting Started
+  icon: /assets/img/icons/rocket2.svg
+  children:
+    - name: Installation manual
+      children: 
+        - name: Install from sources
+          link: getting-started/from-sources/
+        - name: Server configuration
+          link: getting-started/configuration/
+        - name: Deploy using IZPACK
+          link: getting-started/izpack/
+    - name: Basic use cases
+      children: 
+        - name: External data source publication
+          link: getting-started/samples/basic-extds/
+        - name: Full OAIS workflow
+          link: getting-started/samples/basic-oais/   
+# ========================================================================
+- name: User Documentation
+  icon: /assets/img/icons/phone-book.svg
+  children: 
+    - name: Instance management
+      link: user-documentation/instance-management/
+    - name: Project management
+      children: 
+        - name: Authentication and authorization
+          link: user-documentation/authentication/
+        - name: Data management
+          link: user-documentation/data-management/
+        - name: Data acquisition and archiving
+          link: user-documentation/data-acquisition-archiving/
+        - name: Web application configuration
+          link: user-documentation/webapp/
+    - name: Public interface
+      link: user-documentation/user-manual/
+# ========================================================================
+- name: Backend
+  icon: /assets/img/icons/cloud-computing-dev.svg
+  children: 
+    - name: Architecture
+      children:
+        - name: Concepts
+          link: development/architecture/concepts/
+        - name: Overview
+          link: development/architecture/overview/     
+    - name: Framework
+      children:
+        - name: Getting Started
+          link: development/framework/getting-started/
+        - name: Starters
+          link: development/framework/starters/        
+        # - name: Job module
+        #   link: development/framework/modules/
+        # - name: Develop a module
+        #   link: development/framework/dev-module/
+        # - name: Develop a plugin
+        #   link: development/framework/dev-plugin/
+    # - name: Framework modules
+    #   children:
+        - name: Jobs
+          link: development/framework/modules/jobs/
+        - name: Plugins
+          link: development/framework/modules/plugins/
+        - name: Templates
+          link: development/framework/modules/templates/
+        - name: Workspace
+          link: development/framework/modules/workspace/
+    - name: Catalog
+      link: development/regards/catalog/catalog/
+      children:
+        - name: Search API
+          link: development/regards/catalog/api/search-api/
+    - name: Data Management
+      link: development/regards/dam/dam/
+      children:
+        - name: Model API
+          link: development/regards/dam/api/model-api/
+        - name: Access rights Plugins
+          link: development/regards/dam/plugins/access-rights/access-rights-plugins/
+    - name: Data provider
+      link: development/regards/dataprovider/dataprovider/
+      children:
+        - name: Acquisition API
+          link: development/regards/dataprovider/api/acquisition-api/
+    - name: Ingest
+      link: development/regards/ingest/ingest/
+      children:
+        - name: Ingestion API
+          link: development/regards/ingest/api/ingest-api/
+    - name: Order
+      link: development/regards/order/order/
+      children:
+        - name: Basket API
+          link: development/regards/order/api/basket-api/
+        - name: Order API
+          link: development/regards/order/api/order-api/
+    - name: Services common
+      link: development/regards/common/common/
+      children:
+        - name: Plugins API
+          link: development/regards/common/api/plugins-api/
+    - name: Storage
+      link: development/regards/storage/storage/
+      children:
+        - name: Storage API
+          link: development/regards/storage/api/storage-api/
+# ========================================================================      
+- name: Frontend
+  icon: /assets/img/icons/coding.svg
+  children: 
+    - name: Introduction
+      link: frontend/developers-index/
+      children: 
+        - name: Installation
+          link: frontend/setup/
+        - name: Setting up an IDE
+          link: frontend/ide/
+        - name: Architecture
+          link: frontend/arch/
+        - name: Lint
+          link: frontend/eslint-config-es6-rules/
+    - name: Data
+      children: 
+        - name: Data store & Request
+          link: frontend/data/
+        - name: Backend interactions
+          link: frontend/components/clients/
+    - name: View
+      children: 
+        - name: Internationalization
+          link: frontend/components/internationalization/
+        - name: Theme
+          link: frontend/components/theme/
+        - name: Forms
+          link: frontend/components/redux-forms/
+    - name: Packages
+      link: frontend/developers-index/
+      children: 
+        - name: Re-usable components
+          link: frontend/components/components/
+        - name: Business components
+          link: frontend/components/business-index/
+        - name: Lazy modules
+          link: frontend/modules/dynamic-modules/
+    - name: Plugins
+      link: frontend/plugins/plugins/
+      children: 
+        - name: Criteria
+          link: frontend/plugins/plugin-criteria/
+        - name: Services
+          link: frontend/plugins/plugin-services/
+    - name: User guide
+      link: frontend/layout-configuration/
+      children: 
+        - name: Layout configuration
+          link: frontend/layout-configuration/
+# ========================================================================
+- name: Appendices
+  icon: /assets/img/icons/information.svg
+  children:
+    - name: Documentation guide
+      link: appendices/doc-guide/   

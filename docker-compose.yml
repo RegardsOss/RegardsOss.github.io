@@ -1,0 +1,14 @@
+jekyll:
+    image: jekyll/jekyll:3.8.4
+    command: bash -c "bundle && jekyll serve --livereload --incremental --trace"
+    ports:
+      - 4000:4000
+      - 35729:35729
+    volumes:
+      - .:/srv/jekyll
+    environment:
+      - HTTP_PROXY
+      - no_proxy
+      - http_proxy
+      - HTTPS_PROXY
+      - https_proxy

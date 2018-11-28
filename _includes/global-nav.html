@@ -1,15 +1,21 @@
-<nav class="navbar navbar-fixed-top">
+<nav class="nav-toggle two">
   <div class="container">
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#mobile-navigation" aria-expanded="false" aria-controls="#mobile-navigation">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar top-bar"></span>
-        <span class="icon-bar middle-bar"></span>
-        <span class="icon-bar bottom-bar"></span>
-      </button>
-      <a id="logo" class="navbar-brand" href="https://github.com/regardsoss">
-        <img src="{{ '/assets/img/logos/regards.png' | prepend: site.baseurl }}" class="navbar-brand" alt="REGARDS">
-      </a>
+    <div class="row">
+      <div class="col-md-12">
+        <div class="widescreen">
+          <a id="logo" href="https://github.com/regardsoss">
+            <img src="{{ '/assets/img/logos/regards.png' | prepend: site.baseurl }}" alt="REGARDS">
+          </a>
+        </div>
+
+        <div class="narrowscreen">
+
+          <a href="https://github.com/regardsoss">
+            <img src="{{ '/assets/img/logos/regards.png' | prepend: site.baseurl }}" class="logo" alt="REGARDS">
+          </a>
+
+        </div>
+      </div>
     </div>
-  </div><!-- /.container -->
+  </div>
 </nav>

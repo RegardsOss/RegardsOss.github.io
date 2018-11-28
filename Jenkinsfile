@@ -29,7 +29,8 @@ pipeline {
             steps {
                 sh 'docker run --rm -i \
                 	-v ${WORKSPACE}/nginx/doc-static:/src/_site \
-                	172.26.46.158/rs_doc_generator jekyll build'
+                    -e https_proxy -e http_proxy -e HTTPS_PROXY -e HTTP_PROXY -e no_proxy \
+                	172.26.46.158/rs_doc_generator bash -c "bundle && jekyll build"'
             }
             post {
                 always {
@@ -41,8 +42,8 @@ pipeline {
             steps {
                 sh 'cd nginx && docker build --build-arg https_proxy=$HTTP_PROXY --build-arg http_proxy=$HTTP_PROXY \
 	                  --build-arg HTTP_PROXY=$HTTP_PROXY --build-arg HTTPS_PROXY=$HTTP_PROXY --build-arg no_proxy=$no_proxy \
-                      -t 172.26.46.158/rs_doc .'
-                sh 'docker push 172.26.46.158/rs_doc'
+                      -t 172.26.46.158/rs_doc:develop .'
+                sh 'docker push 172.26.46.158/rs_doc:develop'
             }
         }
     }

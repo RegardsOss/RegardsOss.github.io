@@ -1,4 +1,3 @@
-{% comment %}
 ---
 layout: classic-docs
 title: Software Reuse File
@@ -7,12 +6,12 @@ categories:
   - how-to
 description: List all used software
 ---
-{% endcomment %}
 
 Name | Company |  Responsibility  
 :-------------------: | :-----------------------: | :---------------:  
 Xavier-Alexandre Brochard | CSSI | Development Team  
 Sylvain Vissiere-Guerinet | CSSI | Development Team  
+  {: class="table table-striped"}
 
 # Document Status Sheet
 
@@ -20,60 +19,11 @@ Issue |    Date    |    Reasons for change
 :-------: | :---------: | :-------------------------:
 10    | 2016-07-28 | Creation of the document  
 11    | 2018-11-05 | Modification of the document for V3.0
+  {: class="table table-striped"}
 
 # Table of contents
 
-<!-- START doctoc generated TOC please keep comment here to allow auto update -->
-<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
-
-
-- [1. Introduction](#1-introduction)
-  - [1. Purpose of the document](#1-purpose-of-the-document)
-  - [2. Scope](#2-scope)
-  - [3. Document structure](#3-document-structure)
-  - [4. References](#4-references)
-    - [1. Applicable and Reference documents](#1-applicable-and-reference-documents)
-    - [2. Definitions](#2-definitions)
-- [2. Third party products and required software licenses](#2-third-party-products-and-required-software-licenses)
-  - [1. General](#1-general)
-    - [1. Free license categorization and meaning](#1-free-license-categorization-and-meaning)
-    - [2. Impact of free licenses on customers](#2-impact-of-free-licenses-on-customers)
-  - [2. Frontend](#2-frontend)
-    - [1. Runtime frontend](#1-runtime-frontend)
-      - [1. React](#1-react)
-      - [2. Redux](#2-redux)
-      - [3. Material-UI](#3-material-ui)
-      - [4. Lodash](#4-lodash)
-    - [2. Compile time frontend](#2-compile-time-frontend)
-      - [1. Webpack](#1-webpack)
-      - [2. TypeScript](#2-typescript)
-    - [3. Testing frontend](#3-testing-frontend)
-      - [1. Mocha](#1-mocha)
-      - [2. Chai](#2-chai)
-  - [3. Backend](#3-backend)
-    - [1. Runtime backend](#1-runtime-backend)
-      - [1. Java](#1-java)
-      - [2. Spring Framework](#2-spring-framework)
-      - [3. Spring Security](#3-spring-security)
-      - [4. Spring Data JPA](#4-spring-data-jpa)
-      - [5. Spring Boot](#5-spring-boot)
-      - [6. Spring Cloud Netflix](#6-spring-cloud-netflix)
-      - [7. Spring Cloud Config](#7-spring-cloud-config)
-      - [8. Open Feign](#8-open-feign)
-      - [9. Spring HATEOAS](#9-spring-hateoas)
-      - [10. IzPack](#10-izpack)
-      - [11. RabbitMQ](#11-rabbitmq)
-      - [12. Elasticsearch](#12-elasticsearch)
-      - [13. FITS Java library](#13-fits-java-library)
-      - [14. Jetty](#14-jetty)
-    - [2. Compile time backend](#2-compile-time-backend)
-      - [1. Apache Maven](#1-apache-maven)
-    - [3. Testing](#3-testing)
-      - [1. Jenkins](#1-jenkins)
-      - [2. SonarQube](#2-sonarqube)
-      - [3. Selenium](#3-selenium)
-
-<!-- END doctoc generated TOC please keep comment here to allow auto update -->
+{% include toc.md %}
 
 ## 1. Introduction
 
@@ -106,6 +56,7 @@ Reference             | Acronym |                     Title                     
 --------------------- | :-----: | :-------------------------------------------: | :-----: | :--------:
 SGDS-SL-12100-0002-CS |  TODO   |   DOSSIER DE SPECIFICATION LOGICIEL REGARDS   |   15    | 05/11/2018
 SGDS-CP-12200-0010-CS |  TODO   | Dossier de Conception Préliminaire du REGARDS |   11    | 05/07/2017
+  {: class="table table-striped"}
 
 #### 2. Definitions
 
@@ -172,6 +123,7 @@ Developer/Ownership | Facebook, Inc.
 Licencing conditions | Open source - BSD License | Industrial Property Constraints Redistribution and use in source and binary forms, with or without modification, are permitted provided [those conditions](#https://github.com/facebook/react/blob/master/LICENSE).  
 Version | 15.0.2  
 Languages | JavaScript, C++, TypeScript, CoffeScript, Python, C
+  {: class="table table-striped"}
 
 ##### 2. Redux
 
@@ -182,6 +134,7 @@ Developer/Ownership | Dan Abramov
 Licencing conditions | Open source - MIT License (MIT) | Industrial Property Constraints Permission is granted, free of charge, to deal in the Software without restriction, subject to [those conditions](#https://github.com/reactjs/redux/blob/master/LICENSE.md)  
 Version | 3.5.2  
 Languages | JavaScript, TypeScript
+  {: class="table table-striped"}
 
 ##### 3. Material-UI
 
@@ -192,6 +145,7 @@ Developer/Ownership | Call-Em-All
 Licencing conditions | Open source - MIT License (MIT) | Industrial Property Constraints Permission is granted, free of charge, to deal in the Software without restriction, subject to [those conditions](#https://github.com/callemall/material-ui/blob/master/LICENSE)  
 Version | 0.15.2  
 Languages | JavaScript
+  {: class="table table-striped"}
 
 ##### 4. Lodash
 
@@ -202,6 +156,7 @@ Developer/Ownership | jQuery Foundation and other contributors
 Licencing conditions | Open source - MIT License (MIT) | Industrial Property Constraints Permission is granted, free of charge, to deal in the Software without restriction, subject to [those conditions](#https://github.com/lodash/lodash/blob/master/LICENSE)  
 Version | 4.13.1  
 Languages | JavaScript
+  {: class="table table-striped"}
 
 #### 2. Compile time frontend
 
@@ -214,6 +169,7 @@ Developer/Ownership | Tobias Koppers
 Licencing conditions | Open soure - MIT License (MIT) | Industrial Property Constraints Permission is granted, free of charge, to deal in the Software without restriction, subject to [those conditions](#https://github.com/webpack/webpack/blob/master/LICENSE)  
 Version | 1.13.1  
 Languages | JavaScript
+  {: class="table table-striped"}
 
 ##### 2. TypeScript
 
@@ -224,6 +180,7 @@ Developer/Ownership | Microsoft
 Licencing conditions | Open source - Apache License | Industrial Property Constraints Perpetual, worldwide, non-exclusive, no-charge, royalty-free, irrevocable copyright license to reproduce, prepare Derivative Works of, publicly display, publicly perform, sublicense, and distribute the Work and such Derivative Works in Source or Object form.  
 Version | 2.0.0  
 Languages | TypeScript
+  {: class="table table-striped"}
 
 #### 3. Testing frontend
 
@@ -236,6 +193,7 @@ Developer/Ownership | TJ Holowaychuk
 Licencing conditions | Open source - MIT License (MIT) | Industrial Property Constraints Permission is granted, free of charge, to deal in the Software without restriction, subject to [those conditions](#https://github.com/mochajs/mocha/blob/master/LICENSE)  
 Version | 3.0.0-2  
 Languages | JavaScript, HTML
+  {: class="table table-striped"}
 
 ##### 2. Chai
 
@@ -246,6 +204,7 @@ Developer/Ownership | Jake Luer
 Licencing conditions | Open source - MIT License (MIT) | Industrial Property Constraints Permission is granted, free of charge, to deal in the Software without restriction, subject to [those conditions](#https://github.com/chaijs/chai#license)  
 Version | 3.5.0  
 Languages | JavaScript
+  {: class="table table-striped"}
 
 ### 3. Backend
 
@@ -260,6 +219,7 @@ Developer/Ownership | Oracle
 Licencing conditions | GNU GPL | Industrial Property Constraints Redistribution and use in source and binary forms, with or without modification, are permitted provided [those conditions](#http://www.oracle.com/technetwork/java/javase/downloads/thirdpartylicensereadme-java8-2168078.txt).  
 Version | 8  
 Languages | C++,C
+  {: class="table table-striped"}
 
 ##### 2. Spring Framework
 
@@ -270,6 +230,7 @@ Developer/Ownership | Pivotal
 Licencing conditions | Apache license, version 2 | Industrial Property Constraints Redistribution and use in source and binary forms, with or without modification, are permitted provided [those conditions](#http://www.apache.org/licenses/LICENSE-2.0.txt).  
 Version | 4.3.11  
 Languages | Java  
+  {: class="table table-striped"}
 
 ##### 3. Spring Security  
 
@@ -280,6 +241,7 @@ Developer/Ownership | Pivotal
 Licencing conditions | Apache license, version 2 | Industrial Property Constraints Redistribution and use in source and binary forms, with or without modification, are permitted provided [those conditions](#http://www.apache.org/licenses/LICENSE-2.0.txt).  
 Version | 4.3.2  
 Languages | Java  
+  {: class="table table-striped"}
 
 ##### 4. Spring Data JPA
 
@@ -290,6 +252,7 @@ Developer/Ownership | Pivotal
 Licencing conditions | Apache license, version 2 | Industrial Property Constraints Redistribution and use in source and binary forms, with or without modification, are permitted provided [those conditions](#http://www.apache.org/licenses/LICENSE-2.0.txt).  
 Version | 1.13.7  
 Languages | Java  
+  {: class="table table-striped"}
 
 ##### 5. Spring Boot
 
@@ -300,6 +263,7 @@ Developer/Ownership | Pivotal
 Licencing conditions | Apache license, version 2 | Industrial Property Constraints Redistribution and use in source and binary forms, with or without modification, are permitted provided [those conditions](#https://github.com/spring-projects/spring-boot/blob/master/LICENSE.txt).  
 Version | 1.5.7  
 Languages | Java
+  {: class="table table-striped"}
 
 ##### 6. Spring Cloud Netflix
 
@@ -310,6 +274,7 @@ Developer/Ownership | Pivotal
 Licencing conditions | Apache license, version 2 | Industrial Property Constraints Redistribution and use in source and binary forms, with or without modification, are permitted provided [those conditions](#https://github.com/spring-cloud/spring-cloud-netflix/blob/master/LICENSE.txt).  
 Version | 1.3.4  
 Languages | Java
+  {: class="table table-striped"}
 
 ##### 7. Spring Cloud Config
 
@@ -320,6 +285,7 @@ Developer/Ownership | Pivotal
 Licencing conditions | Apache license, version 2 | Industrial Property Constraints Redistribution and use in source and binary forms, with or without modification, are permitted provided [those conditions](#https://github.com/spring-cloud/spring-cloud-config/blob/master/LICENSE.txt).  
 Version | 1.3.2  
 Languages | Java
+  {: class="table table-striped"}
 
 ##### 8. Open Feign
 
@@ -330,6 +296,7 @@ Developer/Ownership | Open source software
 Licencing conditions | Apache license, version 2 | Industrial Property Constraints Redistribution and use in source and binary forms, with or without modification, are permitted provided [those conditions](#http://www.apache.org/licenses/LICENSE-2.0.txt).  
 Version | 9.5.0  
 Languages | Java
+  {: class="table table-striped"}
 
 ##### 9. Spring HATEOAS
 
@@ -339,6 +306,7 @@ Name | Spring HATEOAS Main features | Library to support implementing representa
 Developer/Ownership | Pivotal  
 Licencing conditions | Apache license, version 2 | Industrial Property Constraints Redistribution and use in source and binary forms, with or without modification, are permitted provided [those conditions](#http://www.apache.org/licenses/LICENSE-2.0.txt).  
 Version | 0.23.0 Language | Java
+  {: class="table table-striped"}
 
 ##### 10. IzPack
 
@@ -349,6 +317,7 @@ Developer/Ownership | Open source software
 Licencing conditions | Apache license, version 2 | Industrial Property Constraints Redistribution and use in source and binary forms, with or without modification, are permitted provided [those conditions](#http://www.apache.org/licenses/LICENSE-2.0.txt).  
 Version | 5.1.0  
 Languages | Java
+  {: class="table table-striped"}
 
 ##### 11. RabbitMQ
 
@@ -359,6 +328,7 @@ Developer/Ownership | Pivotal
 Licencing conditions | Mozilla Public Licence, version 1.1 | Industrial Property Constraints Redistribution and use in source and binary forms, with or without modification, are permitted provided [those conditions](#https://www.mozilla.org/en-US/MPL/1.1/).  
 Version | 3.6.8  
 Languages | Erlang
+  {: class="table table-striped"}
 
 ##### 12. Elasticsearch
 
@@ -369,6 +339,7 @@ Developer/Ownership | Elastic
 Licencing conditions | Apache license, version 2 | Industrial Property Constraints Redistribution and use in source and binary forms, with or without modification, are permitted provided [those conditions](#http://www.apache.org/licenses/LICENSE-2.0.txt).  
 Version | 5.6.3  
 Language | Java
+  {: class="table table-striped"}
 
 ##### 13. FITS Java library
 
@@ -379,6 +350,7 @@ Developer/Ownership | NASA and International Astronomical Union
 Licencing conditions | LGPL, version 3 | Industrial Property Constraints Redistribution and use in source and binary forms, with or without modification, are permitted provided [those conditions](#https://www.gnu.org/licenses/lgpl-3.0.fr.html).  
 Version | 1.15.1  
 Languages | Java  
+  {: class="table table-striped"}
 
 ##### 14. Jetty
 
@@ -389,6 +361,7 @@ Developer/Ownership | Eclipse
 Licencing conditions | Apache license, version 2 | Industrial Property Constraints Redistribution and use in source and binary forms, with or without modification, are permitted provided [those conditions](#http://www.apache.org/licenses/LICENSE-2.0.txt).  
 Version | 9.4.6  
 Languages | Java  
+  {: class="table table-striped"}
 
 #### 2. Compile time backend
 
@@ -401,6 +374,7 @@ Developer/Ownership | Apache Software Foundation
 Licencing conditions | Apache license, version 2 | Industrial Property Constraints Redistribution and use in source and binary forms, with or without modification, are permitted provided [those conditions](#http://www.apache.org/licenses/LICENSE-2.0.txt).  
 Version | 3.3.3  
 Languages | Java
+  {: class="table table-striped"}
 
 #### 3. Testing
 
@@ -415,6 +389,7 @@ Developer/Ownership | SonarSource
 Licencing conditions | LGPL, version 3 | Industrial Property Constraints Redistribution and use in source and binary forms, with or without modification, are permitted provided [those conditions](#https://www.gnu.org/licenses/lgpl-3.0.fr.html).  
 Version | 2.7  
 Languages | JavaScript, Java
+  {: class="table table-striped"}
 
 ##### 2. SonarQube
 
@@ -425,6 +400,7 @@ Developer/Ownership | SonarSource
 Licencing conditions | LGPL, version 3 | Industrial Property Constraints Redistribution and use in source and binary forms, with or without modification, are permitted provided [those conditions](#https://www.gnu.org/licenses/lgpl-3.0.fr.html).  
 Version | 6.0  
 Languages | JavaScript, Java
+  {: class="table table-striped"}
 
 ##### 3. Selenium
 
@@ -435,3 +411,4 @@ Developer/Ownership | Apache Software Foundation
 Licencing conditions | Apache license, version 2 | Industrial Property Constraints Redistribution and use in source and binary forms, with or without modification, are permitted provided [those conditions](#http://www.apache.org/licenses/LICENSE-2.0.txt).  
 Version | 2.53.1  
 Languages | JavaScript, Java
+  {: class="table table-striped"}

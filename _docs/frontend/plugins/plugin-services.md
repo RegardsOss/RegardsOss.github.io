@@ -4,40 +4,33 @@ title: Plugin service
 short-title: Service
 ---
 
-<!-- START doctoc generated TOC please keep comment here to allow auto update -->
-<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
-
-
-- [Presentation](#presentation)
-- [Working principles](#working-principles)
-- [plugin-info.json](#plugin-infojson)
-- [Main React component](#main-react-component)
-  - [Provided parameters](#provided-parameters)
-    - [Provided runtime configuration](#provided-runtime-configuration)
-    - [Provided runtime target](#provided-runtime-target)
-      - [Common runtime target fields](#common-runtime-target-fields)
-      - [Runtime target specific fields for type ONE](#runtime-target-specific-fields-for-type-one)
-      - [Runtime target specific fields for type MANY](#runtime-target-specific-fields-for-type-many)
-      - [Runtime target specific fields for type QUERY](#runtime-target-specific-fields-for-type-query)
-- [Going further](#going-further)
-
-<!-- END doctoc generated TOC please keep comment here to allow auto update -->
+{% include toc.md %}
 
 # Presentation
 
-A service plugin (front-end) is a javascript bundle used by [search results](/frontend/modules/search-results/), [search form](/frontend/modules/search-form/) and [search graph](/frontend/modules/search-graph/) modules to add services onto displayed data. A service may work for one or for many data objects. By design, a service that run with many data objects can either receive an entity IDs array or a query (see later provided parameters sections)
-Service plugin allows defining static - configured by the administrator - and dynamic parameters - configured by the user when running the service. Note that administrator can provide default values for dynamic parameters. In that case, the default values will be displayed to user when running the service but he will be allowed modifying them.
+A front-end service plugin is a javascript bundle used by [search results](/frontend/modules/search-results/), [search form](/frontend/modules/search-form/) and [search graph](/frontend/modules/search-graph/) modules to add services onto displayed data.  
+A service may work for one or for many data objects. It allows defining administator (static) and user (dynamic) parameters for execution.  
 
-# Working principles
+## Frontend service plugin VS Catalog service plugin
 
-The service plugin must respect the following working principles to be correctly integrated within REGARDS:
-1. It must declare `conf.applicationModes` and `conf.entityTypes` in `plugin-info.json` to specify if it works for one and / or many entities of given type(s). See later sections for more detail about configuration.
-1. It must export a main componenent that will handle fetching current application target data
+A frontend service plugin and a catalog service plugin are both able to provide services for a set of data. However, their purpose is slightly different:
+* The catalog service, by design, can only build a file as execution result
+* The frontend service can show graphic components, charts, and so on...
+* The catalog service, as part of the backend:
+  * has better data retrieving performances, especially when it comes to huge data amounts.
+  * has better computing performances, since it executes on server computers
 
-# plugin-info.json
+Therefore, the frontent service should be preferred when:
+* That service will not be dealing with huge data amounts
+* That service will not perform heavy computing
+* Their must be a specific data displaying, that cannot be a simple file preview / download
 
-It is very similar to a common plugin but the `type` field always indicates "SERVICE".
-Furthermore, it allows the following fields in `conf`:
+When their should be a specific data displaying, but computing and retrieval cannot be performed on frontend side, both services should be implemented to work together, ie  a frontend service should be created, relying on a catalog service to get data to display.
+
+# Specific plugin-info.json fields
+
+The service plugin-info.json files defines all standard plugin fields but the `"type"` field must worth `"SERVICE"`.  
+The `"conf"` field is a JSON object holding the following children fields:
 * `applicationModes`: *{array}* a required array that can contain one or both the following values:
   * `ONE`: the service applies to one entity
   * `MANY`: the service applies to many entities (expressed as an internal IDs list or a query)
@@ -48,7 +41,7 @@ Furthermore, it allows the following fields in `conf`:
   * `DOCUMENT`: The service works with documents, *not supported yet*
 * `static`: *{object}* an optional object of parameters to be filled in by the project administrator when he configures a service plugin for results. Each parameter, in that object will be defined as following:
   * `object key`: key to point out the parameter in main component props. It will also be used as label in the configuration form
-  * `type` : *{string}* One of ["bool","char","date","float", "int", "string"]. It determinates the type that will be actually received at runtime by the plugin
+  * `type` : *{string}* One of `"bool"`, `"char"`, `"date"`, `"float"`, `"int"`, `"string"` types. It determinates the type that will be actually received at runtime by the plugin
   * `required`: *{boolean}* It means, when true, that the project administrator must fill the attribute value. When false, the administrator can leave it blank and, therefore, it can be undefined at runtime
 * `dynamic`: *{object}* an optional object of parameters to be filled in by the project user when he applies the service.
   * `object key`: key to point out the parameter in main component props
@@ -56,61 +49,74 @@ Furthermore, it allows the following fields in `conf`:
   * `required` : *{boolean}* working like static parameter, but applying to user
   * `label`: *{string}* Parameter label, that will be shown to user
 
-Please note, about dynamic parameters, that administrator is allowed setting a default value. However, even if the administrator provided a default value, the user will be prompted to enter the parameter value he wants to set - yet the field will hold administator default value when opening service runtime configuration box.
+*Note that administrator is allowed setting a default value for all dynamic parameters. That value will be used, when provided, as initial parameter value, but the user will still be allowed modifying it*
+
+*Service plugin-info.json example:*
 
 ```json
 {
-  "name": "<%= name %>",
-  "description": "<%= description %>",
+  "name": "my-plugin",
+  "description": "It is my plugin",
   "version" : 1.0,
-  "author" : "<%= author %>",
-  "company" : "<%= company %>",
-  "email" : "<%= email %>",
-  "url" : "<%= url %>",
-  "license": "<%= licence %>",
+  "author" : "Someone",
+  "company" : "Some company",
+  "email" : "someone@some-company.com",
+  "url" : "www.my-plugin-is-awesome.com",
+  "license": "GPL-V3",
   "type" : "SERVICE",
   "conf" : {
-    "applicationModes": "<%= application mode %>",
-    "entityTypes": "<%= entity types %>",
+    "applicationModes": [
+      "ONE",
+      "MANY"
+    ],
+    "entityTypes": [
+      "DATA"
+    ],
     "static": {
-      "adminParameter1": "<%= administator parameter %>",
-      "adminParameter2": "<%= administator parameter %>",
+      "adminParam1": {
+        "type": "string",
+        "required": false
+      },
     },
     "dynamic": {
-      "userParameter1": "<%= user parameter %>",
-      "userParameter2": "<%= user parameter %>",
+      "userParam1": {
+        "label": "A boolean",
+        "type": "bool",
+        "required": true
+      },
+      "userParam2": {
+        "label": "A char",
+        "type": "char",
+        "required": false
+      },
     }
   }
 }
 
 ```
 
-# Main React component 
+# Specific runtime properties
 
-Unlike criterion plugin, the service plugin may be a simple React component. That component will receive, through properties, the entity or the list of entities it applies on. The next sub section describes how to retrieve, according with the user configuration and selection type, the service parameters and entities.
-
-## Provided parameters
-
-Here under properties are provided at runtime to the plugin service main component:
+The main service component - the one exported in main.js file - will receive the following properties at runtime: 
 ```js
-propTypes = {
-    /** Similar to a common plugin */
+  static propTypes = {
+    /** Plugin instance identifier */
     pluginInstanceId: React.PropTypes.string,
-    /** The runtime target, see section below */
+    /** The runtime target, see sections below */
     runtimeTarget: AccessShapes.RuntimeTarget.isRequired,
-    /** The plugin configuration, containing admin and user parameters, see section below */
+    /** The plugin configuration, containing admin and user parameters, see sections below */
     configuration: AccessShapes.RuntimeConfiguration.isRequired,
   }
 ```
 
-### Provided runtime configuration
+## Configuration
 
 When launched, the service plugin main component receives the property `configuration`. That object reprensents the runtime configuration.
 It has the following fields:
 * `static`: *{object}* This field contains administator parameters value. The keys are *parameter names* and the values are those the administrator entered, with the type specified in package-info. Every parameter that was marked as `required` is granted here to be defined (never null nor undefined). Other ones should be checked before being used.
 * `dynamic`: *{object}* This field contains user parameters value. It works exactly the same than static field. 
 
-### Provided runtime target
+## Provided runtime target
 
 When launched, the service plugin main component receives the property `runtimeTarget`. That object holds the service target for current execution. Its type can be one of: 
 * `One entity target` (enumerated type: RuntimeTargetTypes.ONE), if the service application mode contains "ONE"
@@ -124,7 +130,7 @@ Notes:
 
 The following sub section explains in detail what fields are provided along with each target type.
 
-#### Common runtime target fields
+### Common runtime target fields
 
 Any target, no matter its type, has the following common fields:
 * `type`: *{string}* The target type, one of the RuntimeTargetTypes enumerated before
@@ -140,17 +146,17 @@ Where:
   * `pageSize`: *(optional){number}*. Size of the pages to fetch, when in QUERY mode (it is optional and will be ignored if provided to ONE and MANY)
   * The `Promise` returned is a standard Javascript promise (use then() method to get the reduction result and catch() to get any error that could happen during treatment)
   
-#### Runtime target specific fields for type ONE
+### Runtime target specific fields for type ONE
 
 * `entity`: *{string}* That field contains the internal ID of the entity for which service is currently running
 * `getFetchAction`: *{function}* For target type ONE, the method signature is `() => (dipatchableAction:object)`. When dispatched, the action will retrieve the single entity instance
 
-#### Runtime target specific fields for type MANY
+### Runtime target specific fields for type MANY
 
 * `entities`: *{array(string)}* That field contains the internal ID of the entities for which service is currently running
 * `getFetchAction`: *{function}* For target type MANY, the method signature is `(id:string) => (dipatchableAction:object)`. When dispatched, the action will retrieve the entity with ID as parameter.
 
-#### Runtime target specific fields for type QUERY
+### Runtime target specific fields for type QUERY
 
 * `q`: *{string}* That field contains the open search query to retrieve elements
 * `entityType`: *{string}* That field contains the current entity type, as one of the enumated values ENTITY_TYPES_ENUM, exported as a field of `DamDomain`, from `@regardsoss/domain`
