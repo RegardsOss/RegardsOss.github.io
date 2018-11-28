@@ -11,7 +11,7 @@ For now, the only way to deploy REGARDS on servers is to use an [**IzPack** pack
 
 If you don't have compiled the REGARDS IzPack installer, feel free to download it on our [github release page](https://github.com/RegardsOss/regards-deployment/releases).
 
-Ensure you have [setup components that REGARDS relies on](/getting-started/configuration/#section=getting-started) before continuing this tutorial. 
+Ensure you have [setup components (COTS) that REGARDS relies on](/getting-started/configuration/#section=getting-started) before continuing this tutorial. 
 
 ## Prerequisites
 
@@ -32,6 +32,10 @@ After your first installation, you can provide an XML file to automatically fill
 java -jar REGARDS-OSS-Installer.jar auto-install-values.xml
 ```
 The file `auto-install-values.xml` can be generated at the end of the manual installation. However IzPack do not save password in the file, you will need to edit the file to add password by yourself.
+
+## Step-by-step installation
+
+TODO
 
 ## Installation directory
 On every host you install a REGARDS component. you will be asked to provide the installation directory :
@@ -134,24 +138,24 @@ In order to start REGARDS, you will have to run specific commands.
 - If the `Security Level` you chose was `Enforce`
   - and you installed **all** the components on the current host, you can start the whole system in a single command:
   ```shell
-  sudo {install_dir}/REGARDS/sbin/microservice_regards.sh start
+  sudo /opt/regards/REGARDS/sbin/microservice_regards.sh start
   ```
 
     Previously, it is necessary to add this command to the **sudoers** configuration file:
   ```shell
   vi /etc/sudoers.d/regards
-  rsadmin      ALL=(root)       NOPASSWD: {install_dir}/REGARDS/sbin/microservice_regards.sh
+  rsadmin      ALL=(root)       NOPASSWD: /opt/regards/REGARDS/sbin/microservice_regards.sh
   ```
 
   - and you installed **some** components on the current host, you will need to start each component installed with the following command (remember to always begin the components in the good start order):
   ```shell
-  sudo {install_dir}/REGARDS/sbin/microservice_regards.sh -t {component_name} start
+  sudo /opt/regards/REGARDS/sbin/microservice_regards.sh -t {component_name} start
   ```
 
 
 - If the `Security Level` you chose was `Standard`, you will need to start each component installed with the following command (remember to always begin the components in the good start order):
 ```shell
-{install_dir}/REGARDS/bin/start_microservice.sh -t {component_name}
+/opt/regards/REGARDS/bin/start_microservice.sh -t {component_name}
 ```
 
 ## Check the components status
@@ -159,12 +163,12 @@ You can check if a given component is currently running.
 
 - If the `Security Level` you chose was `Enforce`, use the command:
   ```shell
-  sudo {install_dir}/REGARDS/sbin/microservice_regards.sh -t {component_name} status
+  sudo /opt/regards/REGARDS/sbin/microservice_regards.sh -t {component_name} status
   ```
 
 - If the `Security Level` you chose was `Standard`, use the following command (remember to always begin the components in the good start order):
 ```shell
-{install_dir}/REGARDS/bin/status_microservice.sh -t {component_name}
+/opt/regards/REGARDS/bin/status_microservice.sh -t {component_name}
 ```
 
 ## Stop the components
@@ -172,10 +176,10 @@ You can stop a given component which is currently running.
 
 - If the `Security Level` you chose was `Enforce`, use the command:
   ```shell
-  sudo {install_dir}/REGARDS/sbin/microservice_regards.sh -t {component_name} stop
+  sudo /opt/regards/REGARDS/sbin/microservice_regards.sh -t {component_name} stop
   ```
 
 - If the `Security Level` you chose was `Standard`, use the following command (remember to always begin the components in the good start order):
 ```shell
-{install_dir}/REGARDS/bin/stop_microservice.sh -t {component_name}
+/opt/regards/REGARDS/bin/stop_microservice.sh -t {component_name}
 ```

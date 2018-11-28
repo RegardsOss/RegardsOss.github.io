@@ -15,9 +15,12 @@ In this guide, we'll see what is expected by REGARDS components, then we will se
 
 ### System
 
-For a basic setup, to install REGARDS, PostgreSQL, RabbitMQ and ElasticSearch on a single server you will need :
+For a basic setup, to install REGARDS, PostgreSQL, RabbitMQ and ElasticSearch on a single server, you will need :
+
 - 16Gb RAM
 - 4 to 8 vCPU
+
+We'll assume you want to install REGARDS in `/opt/regards`, so don't forget to adapt this path if you install it somewhere else.
 
 ### Regards
 
@@ -33,10 +36,11 @@ And for components `Data Management` and `Catalog`:
 
 ### Password
 
-The component `rs-admin-instance` requires a cryptographic key to validate password using SHA.
+The component `rs-admin-instance` requires a cipher to validate password using SHA.
 
 ```bash
-openssl rand -hex 8 > regards.key
+mkdir /opt/regards
+openssl rand -hex 8 > /opt/regards/regards.key
 ```
 
 The Izpack installer will ask you where is located the `regards.key` file, so put it in the REGARDS root folder.
@@ -60,25 +64,34 @@ useradd regards --no-create-home --shell=/sbin/nologin -g regards -G rsexec,rsru
 And you need to create the installation folder with the good access rights:
 
 ```shell
-mkdir /opt/regards
 chown :regards /opt/regards
 chmod 1770 /opt/regards
 ```
 
-In that case the installation folder would be `/opt/regards/installationFolder`.
+In that case the installation folder will be `/opt/regards`.
 
 ## Postgres
 
 Install the database [PostgreSQL](https://www.postgresql.org/) 9.6.  
 You can also install [phpPgAdmin](http://phppgadmin.sourceforge.net/doku.php) to monitor the database.  
-This is how to create a postgres user using PostgreSQL cli:
+
+Here is how to init Postgres on Red Hat OS:
 
 ```bash
-su postgres
-createuser -P --interactive rs_postgres
+su postgres -s /bin/bash -c '/usr/pgsql-9.6/bin/initdb -D /var/lib/pgsql/9.6/data/'
+systemctl start postgresql-9.6.service
 ```
 
-You will need at least two databases, one for REGARDS itself and one for the first REGARDS project.
+This is how to create a postgres user named `rs_postgres` using the PostgreSQL cli:
+
+```bash
+cd /
+su postgres 
+createuser -P --interactive rs_postgres
+# Answer no to all questions
+```
+
+You will need at least two databases, one for REGARDS instance and one for the first REGARDS project.
 
 ```bash
 createdb -O rs_postgres -E UTF8 rs_instance
@@ -89,13 +102,25 @@ createdb -O rs_postgres -E UTF8 rs_tenant0
 
 Install RabbitMQ Server 3.6.8 [using the official documentation](https://www.rabbitmq.com/download.html#installation-guides).
 
+Then on Red Hat OS, you need to create some basic configuration:
+```
+# Provide a default configuration
+cp /usr/share/doc/rabbitmq-server-3.6.8/rabbitmq.config.example /etc/rabbitmq/rabbitmq.config.ori
+cp /etc/rabbitmq/rabbitmq.config.ori /etc/rabbitmq/rabbitmq.config
+
+# Allow the rabbitmq default user to manage its config files
+chown -R :rabbitmq  /etc/rabbitmq
+chmod 0770 /etc/rabbitmq
+chmod 0640  /etc/rabbitmq/*
+
+# Start the service 
+systemctl start rabbitmq-server.service
+```
+
 Once you have installed RabbitMQ, you need to activate the management plugin
 
 ```bash
-systemctl stop rabbitmq-server.service
 su rabbitmq -s /bin/bash -c 'rabbitmq-plugins enable rabbitmq_management'
-systemctl enable rabbitmq-server.service
-systemctl start rabbitmq-server.service
 ```
 
 Then, using the [RabbitMQ REST API](https://www.rabbitmq.com/rabbitmqctl.8.html#User_Management) or the management console, you need to activate the guest user, or create another one, that can :
@@ -104,6 +129,7 @@ Then, using the [RabbitMQ REST API](https://www.rabbitmq.com/rabbitmqctl.8.html#
 - add rights to others users
 
 ```bash
+# Create a RabbitMQ admin named regards_adm
 rabbitmqctl add_user regards_adm regards_adm
 rabbitmqctl set_user_tags regards_adm administrator
 ```
@@ -112,7 +138,7 @@ rabbitmqctl set_user_tags regards_adm administrator
 
 Install ElasticSearch 5.4 & Kibana 5
 
-If `grep vm.max_map_count /etc/sysctl.conf` returns empty, you need to do two things:
+If `grep vm.max_map_count /etc/sysctl.conf` returns empty, you need to execute the following:
 
 ```
 sysctl -w vm.max_map_count=262144
@@ -120,10 +146,9 @@ echo "
 vm.max_map_count=262144" >> /etc/sysctl.conf
 ```
 
-For Red Hat OS, you just need to enable it and start it :
+For Red Hat OS, you just need to start it :
 
 ```bash
-systemctl enable elasticsearch.service
 systemctl start elasticsearch.service
 ```
 
@@ -131,10 +156,11 @@ systemctl start elasticsearch.service
 
 Install NGinx or httpd as a reverse proxy, it handles on a single port (80 or 443) all trafic for the REGARDS.
 
-For httpd :
+### httpd
+
+For httpd, edit the file `/etc/httpd/conf/httpd.conf`:
 
 ```
-vi /etc/httpd/conf/httpd.conf
 <IfModule mod_proxy.c>
         <Proxy *>
           Order deny,allow
@@ -145,7 +171,9 @@ vi /etc/httpd/conf/httpd.conf
 </IfModule>
 ```
 
-```
+Then create the configuration:
+
+```bash
 cat > /etc/httpd/conf.d/httpd-proxy.conf <<FIN_CAT
 ProxyVia On
 <IfModule mod_proxy.c>
@@ -181,15 +209,23 @@ FIN_CAT
 For Red Hat OS, you need to start it:
 
 ```bash
-systemctl enable httpd.service
 systemctl start httpd.service
 ```
 
-If you are using a Red Hat system, you will need to autorize httpd to connect to the network, even a local one :
+If you are using a Red Hat OS, you will need to autorize httpd to connect to the network, even a local one. If the following property is off :
+
+```bash
+$ getsebool -a | grep httpd_can_network_connect
+httpd_can_network_connect --> off
+```
+
+You need to execute the following:
 
 ```bash
 /usr/sbin/setsebool -P httpd_can_network_connect 1
 ```
+
+### NGinx
 
 For NGinx :
 
@@ -261,4 +297,15 @@ If you use iptable as a firewall, you need to open its port in the file `/etc/sy
 
 ```
 -A INPUT -p tcp -m state --state NEW -m tcp --dport 80 -j ACCEPT
+```
+
+## Auto restart services on boot
+
+Don't forget to restart services on boot:
+
+```bash
+systemctl enable httpd.service
+systemctl enable elasticsearch.service
+systemctl enable rabbitmq-server.service
+systemctl enable postgresql-9.6.service
 ```
