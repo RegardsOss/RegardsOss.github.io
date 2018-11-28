@@ -240,11 +240,12 @@ export default connect(
 ```
 
 The pluginStateActions#publishState expects 3 parameters: 
+
 * pluginInstanceId: *{string}* Criterion pluginInstanceId, used to address the specific plugin redux space
 * state: *{object}* Criterion state to publish
 * query: *{string}* Criterion OpenSearch query for published state
 
-In the code sample above, in mapStateToProps method, a closure on pluginInstanceId was built. That method takes only state and query as parameters. Back on the SimpleCriterion example, when user selects the other operator or inputs some value, the following code would publish new state and query:
+In the code sample above, in mapStateToProps method, a closure on pluginInstanceId was built. That method takes only state and query as parameters. Back on the SimpleCriterion example, when user selects the other operator or inputs some value, the following code would publish new state and query.
 
 ```jsx
 export class SimpleCriterionContainer extends React.Component {
@@ -521,5 +522,3 @@ class ExampleComponent extends React.Component {
   }
 }
 ```
-
-
