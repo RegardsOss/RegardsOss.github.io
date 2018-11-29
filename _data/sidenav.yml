@@ -31,6 +31,8 @@
           link: getting-started/configuration/
         - name: Deploy using IZPACK
           link: getting-started/izpack/
+        - name: Regards CLI 
+          link: getting-started/cli/
     - name: Basic use cases
       children: 
         - name: External data source publication
