@@ -317,6 +317,7 @@ Port [9200]
 ```txt
 The workspaces basic directory [/opt/regards/workspace]
 ```
+
 TODO
 
 #### rs-admin-instance
