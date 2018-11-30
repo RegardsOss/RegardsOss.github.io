@@ -176,7 +176,7 @@ The `Ingest` and `Data Provider` are facultatives microservices that scans data 
 --------------------------------------
 ```
 
-The `frontend` service provides the React interface we've made and these `access-*` services store the HMI customatisation administrator can do.
+The `frontend` service provides the React interface we've made and these `access-*` services store the HMI customisation and configuration.
 
 ### Security
 
@@ -263,7 +263,6 @@ The host value `0.0.0.0` means that every connection, either a local one (`127.0
 > You can provide `127.0.0.1` if you don't install REGARDS on several servers AND you have a reverse proxy (otherwise the gateway would not answer)
 {: .tip .plus}
 
-
 Moreover, if a microservice depends on RabbitMQ, PostgresSQL or ElasticSearch, it will ask the configuration of the associated COTS.
 
 - You should get the following RabbitMQ configuration
@@ -305,6 +304,7 @@ Password
 You should have two different databases, `rs_instance` and `rs_project1`.
 
 - Elasticsearch
+
 ```txt
 Elasticsearch
 Host [localhost] 
