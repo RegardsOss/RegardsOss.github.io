@@ -180,7 +180,7 @@
           link: frontend/layout-configuration/
 # ========================================================================
 - name: Appendices
-  icon: /assets/img/icons/information.svg
+  icon: /assets/img/icons/info.svg
   children:
     - name: Documentation guide
       link: appendices/doc-guide/   
