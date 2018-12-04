@@ -8,9 +8,19 @@ short-title: Criterion
 
 # Presentation
 
-A front-end criterion plugin is a javascript bundle used in [Search form modules](/frontend/modules/search-form/) to create form fields and panes. Each criterion plugin generates a part of the final opensearch request sent to the rs-catalog microservice in order to search resulting entities. Criterion plugins accept attributes to filter as configuration.
+A front-end criterion plugin is a javascript bundle used in [Search form modules](/frontend/modules/search-form/) to create form fields and panes. Each criterion plugin generates opensearch request parameters sent to the rs-catalog microservice in order to search resulting entities. Criterion plugins accept attributes to filter as configuration.
 
 **NOTE** : Opensearch requests are made with the [lucene format](https://lucene.apache.org/core/2_9_4/queryparsersyntax.html).
+
+# Design
+
+All criteria plugins and their parent search form are sharing a common redux space. In that space, plugins can publish:
+* Their state, that will be restored automatically when user enters back the form
+* Some OpenSearch request parameters that will be used as constraint on research results. Among those parameters:
+  * **q** parameter (OpenSearch query) will be merged using all criteria q values
+  * Other parameters (like geometry) will retain only one value. Hence, publishing such parameter multiple times in a search form in strongly discouraged.
+
+The criteria plugins accept, as configuration, some model attributes. That allows expressing a generic criterion constraint through an OpenSearch query built using a dynamic attribute name.
 
 # Specific plugin-info.json fields
 
@@ -105,7 +115,7 @@ That attribute holds the initial form context OpenSearch query. For instance, wh
 ## Working principles
 
 Criterion plugins, as parts of the search form, must respect the following requirements:
-* They can emit, on user demand, an open search query (or part of it)
+* They can emit, on user demand, some OpenSearch request parameters (or part of it)
 * Their state can be restored from one session to another
 * Their state can be shared using current browser URL
 
@@ -114,16 +124,16 @@ The following design was retained to achieve state sharing between form and plug
 * The application initializes a common Redux store space for plugins.
 * Search form module uses that space to:
   * Build the next OpenSearch request, using current criterion plugins state
-  * Serialize and restore plugins state  into / from URL or localStorage
-* Criterion plugins use that space to retrieve or update their state and current query
+  * Serialize and restore plugins state into / from URL or localStorage
+* Criterion plugins use that space to retrieve or update their state and current request parameters
 
 ## Criterion state design
 
-The criterion state should hold each variable that will modify its OpenSearch output request.  
+The criterion state should hold each variable that will modify its OpenSearch output parameters.  
 To illustrate it, let's take the following example: we want to implement a criterion plugin that selects any data object where value **IS EQUAL TO** or **IS NOT EQUAL TO** the user entered value. In that example, let's call it `SimpleCriterion`, the user selects the operator to use and enters the value.  
-The criterion OpenSearch output request would be:
-* When IS EQUAL TO operator is selected, `${attributeJsonPath}:"${userEnteredValue}"`, like `label:"myLabel"` for instance.
-* When IS NOT EQUAL TO operator is selected, `${attributeJsonPath}:!("${userEnteredValue}")`, like `label:!("some label")` for instance.
+The criterion OpenSearch output parameters would be expressed as the following queries:
+* When IS EQUAL TO operator is selected, `{ q: ${attributeJsonPath}:"${userEnteredValue}" }`, like `{ q: 'label:"myLabel"' }` for instance.
+* When IS NOT EQUAL TO operator is selected, `{ q: ${attributeJsonPath}:!("${userEnteredValue}") }`, like `{ q: label:!("some label") }` for instance.
 In that example, the attribute JSON path comes from props.attributes, and state would look like:
 ```js
 state: {
@@ -243,30 +253,31 @@ The pluginStateActions#publishState expects 3 parameters:
 
 * pluginInstanceId: *{string}* Criterion pluginInstanceId, used to address the specific plugin redux space
 * state: *{object}* Criterion state to publish
-* query: *{string}* Criterion OpenSearch query for published state
+* requestParameters: *{string}* Criterion OpenSearch request parameters for published state
 
-In the code sample above, in the mapStateToProps method, a closure on pluginInstanceId was built. That method only takes the state and the query as parameters. Back on the SimpleCriterion example, when an user selects the other operator or inputs some value, the following code would publish a new state and query.
+In the code sample above, specifically in the mapStateToProps method, a closure on pluginInstanceId was built. That method only takes the state and the requestParameters as parameters. Back on the SimpleCriterion example, when a user selects the other operator or inputs some value, the following code would publish a new state and request parameters.
 
 ```jsx
 export class SimpleCriterionContainer extends React.Component {
   // mapStateToProps, mapDispatchToProps, propTypes...
 
   /**
-   * Converts state into OpenSearch query. We introduce it here to avoid copying that code in onTextInput 
+   * Converts state into OpenSearch request parameters. We introduce it here to avoid copying that code in onTextInput 
    * and onOperatorSelected methods. Query building Unit Tests will also be easier to write that way
    * @param {{operator: string, value: string}} state criterion state for which request should be built
    * @param {*} attribute configured attribute for that plugin
-   * @return {string} this criterion open search request, to be published for state as parameter
+   * @return {*} built request parameters. Here, only OpenSearch query (q)
    */
-  static convertToQuery(state, attribute){
+  static convertToRequestParameters(state, attribute){
+    let q = null
     if (state.value){
-      return state.operator === SimpleCriterionContainer.EQUAL ?
+      q = state.operator === SimpleCriterionContainer.EQUAL ?
         `${attribute.jsonPath}:"${state.value}"`: // Data with attribute value that is equal to user input
         `${attribute.jsonPath}:!("${state.value}")` // Data with attribute value that is not equal to user input
     }
-    // do not create a request while user did not enter anything 
+    // do not create a query while user did not enter anything 
     // (or it would filter attribute value equal to or different of '')
-    return null 
+    return { q } 
   }
 
   /**
@@ -280,7 +291,7 @@ export class SimpleCriterionContainer extends React.Component {
       operator: state.operator,
       value: textValue,
     }
-    publishState(nextState, SimpleCriterionContainer.convertToQuery(nextState, searchAttribute))
+    publishState(nextState, SimpleCriterionContainer.convertToRequestParameters(nextState, searchAttribute))
   }
 
   /**
@@ -293,14 +304,14 @@ export class SimpleCriterionContainer extends React.Component {
       operator: selectedOperator,
       value: state.value,
     }
-    publishState(nextState, SimpleCriterionContainer.convertToQuery(nextState, searchAttribute))
+    publishState(nextState, SimpleCriterionContainer.convertToRequestParameters(nextState, searchAttribute))
   }
 
 }
 // ... connect
 ```
 
-With onTextInput and onOperatorSelected callbacks connected, the plugin is now able updating its state and query for parent form.
+With onTextInput and onOperatorSelected callbacks connected, the plugin is now able updating its state and request parameters for parent form.
 
 ## Complete SimpleCriterion example
 
@@ -310,7 +321,7 @@ To summarize previously explained points, the code below illustrates both state 
 ```json
 {
   "name": "simple-criterion",
-  "description": "A simple criterion, that allow user searchin data objects where attribute value is equal or different of a value.",
+  "description": "A simple criterion, that allow user searching data objects where attribute value is equal or different of a value.",
   "version": "0.0.1-alpha",
   "author": "Demo boy",
   "company": "CS-SI",
@@ -381,22 +392,23 @@ export class SimpleCriterionContainer extends React.Component {
     publishState: PropTypes.func.isRequired,
   }
 
-  /**
-   * Converts state into OpenSearch query. We introduce it here to avoid copying that code in onTextInput
-   * and onOperatorSelected methods.
-   * @param  state criterion state for which request should be built
+ /**
+   * Converts state into OpenSearch request parameters. We introduce it here to avoid copying that code in onTextInput 
+   * and onOperatorSelected methods. Query building Unit Tests will also be easier to write that way
+   * @param {{operator: string, value: string}} state criterion state for which request should be built
    * @param {*} attribute configured attribute for that plugin
-   * @return {string} this criterion open search request, to be published for state as parameter
+   * @return {*} built request parameters. Here, only OpenSearch query (q)
    */
-  static convertToQuery(state, attribute) {
-    if (state.value) {
-      return state.operator === SimpleCriterionContainer.EQUAL
-        ? `${attribute.jsonPath}:"${state.value}"` // Data with attribute value that is equal to user input
-        : `${attribute.jsonPath}:!("${state.value}")` // Data with attribute value that is not equal to user input
+  static convertToRequestParameters(state, attribute){
+    let q = null
+    if (state.value){
+      q = state.operator === SimpleCriterionContainer.EQUAL ?
+        `${attribute.jsonPath}:"${state.value}"`: // Data with attribute value that is equal to user input
+        `${attribute.jsonPath}:!("${state.value}")` // Data with attribute value that is not equal to user input
     }
-    // do not create a request while user did not enter anything
+    // do not create a query while user did not enter anything 
     // (or it would filter attribute value equal to or different of '')
-    return null
+    return { q } 
   }
 
   /**
@@ -405,12 +417,12 @@ export class SimpleCriterionContainer extends React.Component {
    */
   onTextInput = (textValue) => {
     // note that we suppose here that searchAttribute has been defined in plugin-info.json
-    const { publishState, state, attributes: { searchAttribute } } = this.props
+    const { publishState, state, attributes: { searchAttribute } } = this.props 
     const nextState = {
       operator: state.operator,
       value: textValue,
     }
-    publishState(nextState, SimpleCriterionContainer.convertToQuery(nextState, searchAttribute))
+    publishState(nextState, SimpleCriterionContainer.convertToRequestParameters(nextState, searchAttribute))
   }
 
   /**
@@ -418,12 +430,12 @@ export class SimpleCriterionContainer extends React.Component {
    * @param {string} selectedOperator newly selected operator
    */
   onOperatorSelected = (selectedOperator) => {
-    const { publishState, state, attributes: { searchAttribute } } = this.props
+    const { publishState, state, attributes: { searchAttribute } } = this.props 
     const nextState = {
       operator: selectedOperator,
       value: state.value,
     }
-    publishState(nextState, SimpleCriterionContainer.convertToQuery(nextState, searchAttribute))
+    publishState(nextState, SimpleCriterionContainer.convertToRequestParameters(nextState, searchAttribute))
   }
 
   render() {
@@ -454,7 +466,7 @@ export default connect(
   SimpleCriterionContainer.mapStateToProps,
   SimpleCriterionContainer.mapDispatchToProps)(SimpleCriterionContainer)
 ```
-And this is it, congratulations! That plugin is now fully functionnal. It is able to emit a part of the current form OpenSearch query, on the attribute it is configured to work with. Please note that **the query is not built when there isn't any value**, as it would result in retrieving no data in default state (ie initially).
+And this is it, congratulations! That plugin is now fully functionnal. It is able to emit some of the current form OpenSearch request parameters, on the attribute it is configured to work with. Please note that **the query is not built when there isn't any value**, as it would result in retrieving no data in default state (ie initially).
 
 ## Helpers for plugins text
 
