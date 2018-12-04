@@ -8,17 +8,17 @@ short-title: Criterion
 
 # Presentation
 
-A front-end criterion plugin is a javascript bundle used in [Search form module](/frontend/modules/search-form/) to create form fields and panes. Each criterion plugin generates a part of the final opensearch request sent to the rs-catalog microservice in order to search resulting entities. Criterion plugins accept attributes to filter as configuration.
+A front-end criterion plugin is a javascript bundle used in [Search form modules](/frontend/modules/search-form/) to create form fields and panes. Each criterion plugin generates a part of the final opensearch request sent to the rs-catalog microservice in order to search resulting entities. Criterion plugins accept attributes to filter as configuration.
 
-**NOTE** : Opensearch requests are made with [lucene format](https://lucene.apache.org/core/2_9_4/queryparsersyntax.html).
+**NOTE** : Opensearch requests are made with the [lucene format](https://lucene.apache.org/core/2_9_4/queryparsersyntax.html).
 
 # Specific plugin-info.json fields
 
-The service plugin-info.json files defines all standard plugin fields but the `"type"` field must worth `"CRITERIA"`.
+The service plugin-info.json files defines all standard plugin fields so the `"type"` field must be equal to `"CRITERIA"`.
 The `"conf"` field is a JSON object holding the following children fields:
-* `attributes`: *{array}* An array of attributes that indicates the number and type of dataobjects attributes that should be provided to the criterion, when adding the criterion into a search form. Each array element defines the following field:
-  * `name`: *{string}* The name used in code to refer to that attribute. For instance, if attribute is named `myAttribute`, it will be possible to access it, in main criterion component, with the property `this.props.attributes.myAttribute`.
-  * `description`: *{string}* Description displayed to administrator when he configures that attribute in criterion.
+* `attributes`: *{array}* An array of attributes that indicates the number and type of dataobjects attributes that should be provided to the criterion, when adding the criterion into a search form. Each array element defines the following fields:
+  * `name`: *{string}* The name used in code to refer to that attribute. For instance, if an attribute is named `myAttribute`, it will be possible to access it, in the main criterion component, with the property `this.props.attributes.myAttribute`.
+  * `description`: *{string}* Description displayed to the administrator when he configures that attribute in criterion.
   * `attributeType`: *{array}* Accepted types for that attribute. Possible attributes types, from JAVA class **fr.cnes.regards.modules.models.domain.attributes.AttributeType**, are [`"STRING"`, `"INTEGER"`, `"DOUBLE"`, `"DATE_ISO8601"`, `"URL"`, `"BOOLEAN"`, `"STRING_ARRAY"`, `"INTEGER_ARRAY"`, `"DOUBLE_ARRAY"`, `"DATE_ARRAY"`, `"INTEGER_INTERVAL"`, `"DOUBLE_INTERVAL"`, `"DATE_INTERVAL"`, `"LONG"`, `"LONG_INTERVAL"`, `"LONG_ARRAY"`]
 
 The following example illustrates a criterion that uses 3 attributes, first one being of date type, second one of string type and last one of any number type.
@@ -76,11 +76,11 @@ Those properies, excepted pluginInstanceId, which is a common plugin property, a
 
 ## Attributes property
 
-**For each attribute specified in plugin-info.json**, the attributes object will hold, at attribute name key, an **AttributeModelWithBounds**. That object contains the following fields, by significance order for criterion development:
-* `jsonPath`: *{string}* attribute path (fragments and properties), to be used within OpenSearch requests
-* `label`: *{string}* attribute label
+**For each attribute specified in plugin-info.json**, the attributes object will hold, as attribute name key, an **AttributeModelWithBounds**. That object contains the following fields, by significance order for criterion development:
+* `jsonPath`: *{string}* Attribute path (fragments and properties), to be used within OpenSearch requests
+* `label`: *{string}* Attribute label
 * `description`: *{string}* Attribute description
-* `boundsInformation`: *{object}* Bound informations, in current context, for range attributes (date or numbers), compound of fields:
+* `boundsInformation`: *{object}* Current context's bounds information for range attributes (date or numbers), compound of fields:
   * `exists`: *{boolean}* True when the attribute is a range type attribute DATE_ISO8601, INTEGER, DOUBLE or LONG (such attribute is "bound-able")
   * `loading`: *{boolean}* True when bounds are currently loading
   * `error`: *{boolean}* True when bounds loading finished in error
@@ -98,7 +98,7 @@ Those properies, excepted pluginInstanceId, which is a common plugin property, a
 
 ## initialQuery property
 
-That attributes holds the initial form context OpenSearch query. For instance, when form is restricted to the dataset URN:DATASET:D1 and URN:DATASET:D2, the query would worth "tags:(URN:DATASET:D1 OR URN:DATASET:D2)". That query can be used to obtain a list of available values for given attributes in form context.
+That attribute holds the initial form context OpenSearch query. For instance, when form is restricted to the dataset URN:DATASET:D1 and URN:DATASET:D2, the query would be equal to "tags:(URN:DATASET:D1 OR URN:DATASET:D2)". That query can be used to obtain a list of available values for given attributes in form context.
 
 # Implementation
 
@@ -134,7 +134,7 @@ state: {
 
 ## Binding state from store
 
-To recover plugin state from shared Redux space, a plugin has to bind it, within Redux mapStateToProps method, using `pluginStateSelectors#getCriterionState` method. State recovering is demonstrated in code below.
+To recover the plugin's state from the shared Redux space, a plugin has to bind it, within Redux mapStateToProps method, using the `pluginStateSelectors#getCriterionState` method. State recovering is demonstrated in code below.
 
 ```jsx
 import { connect } from '@regardsoss/redux'
@@ -159,7 +159,7 @@ export default connect(
   SimpleCriterionContainer.mapDispatchToProps)(SimpleCriterionContainer)
 ```
 
-Most of the time, it is more convenient to define a default state and avoid that way testing if state is null or undefined. However, mapStateToProps method being often called, **the developer must avoid creating new instances** in that method, otherwise the component will constantly render. The following code illustrates state recovering, with default state when there is none shared yet, in SimpleCriterion example.
+Most of the time, it is more convenient to define a default state to avoid testing if the state is null or undefined. However, mapStateToProps method being often called, **the developer must avoid creating new instances** in that method, otherwise the component will constantly render. The following code illustrates state recovering with a default state in the SimpleCriterion example.
 
 ```jsx
 import { connect } from '@regardsoss/redux'
@@ -245,7 +245,7 @@ The pluginStateActions#publishState expects 3 parameters:
 * state: *{object}* Criterion state to publish
 * query: *{string}* Criterion OpenSearch query for published state
 
-In the code sample above, in mapStateToProps method, a closure on pluginInstanceId was built. That method takes only state and query as parameters. Back on the SimpleCriterion example, when user selects the other operator or inputs some value, the following code would publish new state and query.
+In the code sample above, in the mapStateToProps method, a closure on pluginInstanceId was built. That method only takes the state and the query as parameters. Back on the SimpleCriterion example, when an user selects the other operator or inputs some value, the following code would publish a new state and query.
 
 ```jsx
 export class SimpleCriterionContainer extends React.Component {
@@ -304,7 +304,7 @@ With onTextInput and onOperatorSelected callbacks connected, the plugin is now a
 
 ## Complete SimpleCriterion example
 
-To summarize previously explained points, the code below illustrates both state binding and state publishing. Each time the component publishes a new state, it will receive new state value through properties and then render with new state. To make that example a bit shorter, render method will use the imaginary components *Selector*, *Choice* and *Textfield*. However, those components real world counterparts are easy to find, in material-ui for instance.
+To summarize previously explained points, the code below illustrates both state binding and state publishing. Each time the component publishes a new state, it will receive new state values through properties and then re-render with this new state. To make that example a bit shorter, the render method will use the imaginary components *Selector*, *Choice* and *Textfield*. However, those components' real world counterparts are easy to find, in material-ui for instance.
 
 *simple-criterion/src/plugin-info.json*
 ```json
@@ -454,7 +454,7 @@ export default connect(
   SimpleCriterionContainer.mapStateToProps,
   SimpleCriterionContainer.mapDispatchToProps)(SimpleCriterionContainer)
 ```
-And this is it, congratulations! That plugin is now fully functionnal. It is able to emit a part of the current form OpenSearch query, on the attribute it is configured to work with. Please note that **query is not built when there is no value**, as it would result in retrieving no data in default state (ie initially).
+And this is it, congratulations! That plugin is now fully functionnal. It is able to emit a part of the current form OpenSearch query, on the attribute it is configured to work with. Please note that **the query is not built when there isn't any value**, as it would result in retrieving no data in default state (ie initially).
 
 ## Helpers for plugins text
 
@@ -462,13 +462,13 @@ To improve labels consistency over all plugins, the following tools, described i
 
 ### getFieldHintText
 
-That method provides label according with the attribute as parameter, its role in plugin and its bounds:
-* `intl`: *{object}* intl context (requires the component to declare it)
+That method provides label according with the attribute as parameter, its role in the plugin and its bounds:
+* `intl`: *{object}* intl context (must be declared by the component)
 * `attribute`: *{object}* attribute as provided in attributes properties
 * `boundType`: *{string}* Role of that attribute in criterion
-  * `BOUND_TYPE.LOWER_BOUND` means the resulting values will be greater or equal to entered value
-  * `BOUND_TYPE.UPPER_BOUND` means the resulting values will be lower or equal to entered value.
-  * `BOUND_TYPE.ANY_BOUND` means the resulting values may be greater or lower than entered value
+  * `BOUND_TYPE.LOWER_BOUND` means the resulting values will be greater or equal to input value
+  * `BOUND_TYPE.UPPER_BOUND` means the resulting values will be lower or equal to input value.
+  * `BOUND_TYPE.ANY_BOUND` means the resulting values may be greater or lower than input value
   * `BOUND_TYPE.NONE` means value bounds should be ignored (attribute type is not range-able)
 
 It provides, according with case, the following texts:
