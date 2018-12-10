@@ -2,9 +2,6 @@
 layout: classic-docs
 title: Minimal server configuration
 short-title: Server configuration
-wip: true
-categories:
-  - getting-started
 ---
 
 {% include toc.md %}
@@ -55,20 +52,18 @@ groupadd rsexec
 groupadd rsadmin
 groupadd rsrun
 useradd rsins -g rsins -G regards,rsexec,rsadmin,rsrun
-printf 'rsins\nrsinsPassword\n' | passwd rsins
+printf 'rsins\nrsins\n' | passwd rsins
 useradd rsadmin -g regards -G rsadmin,rsrun
-printf 'rsadmin\nrsadminPassword\n' | passwd rsadmin
+printf 'rsadmin\nrsadmin\n' | passwd rsadmin
 useradd regards --no-create-home --shell=/sbin/nologin -g regards -G rsexec,rsrun
 ```
 
-And you need to create the installation folder with the good access rights:
+And you need to update access rights of the installation folder:
 
 ```shell
 chown :regards /opt/regards
 chmod 1770 /opt/regards
 ```
-
-In that case the installation folder will be `/opt/regards`.
 
 ## Postgres
 
@@ -88,14 +83,15 @@ This is how to create a postgres user named `rs_postgres` using the PostgreSQL c
 cd /
 su postgres 
 createuser -P --interactive rs_postgres
-# Answer no to all questions
+# Define that user password, then
+# answer no to all questions
 ```
 
 You will need at least two databases, one for REGARDS instance and one for the first REGARDS project.
 
 ```bash
 createdb -O rs_postgres -E UTF8 rs_instance
-createdb -O rs_postgres -E UTF8 rs_tenant0
+createdb -O rs_postgres -E UTF8 rs_project1
 ```
 
 ## RabbitMQ
@@ -179,8 +175,8 @@ ProxyVia On
 <IfModule mod_proxy.c>
     <VirtualHost *:80>
         ProxyPass "/kibana/"       "http://localhost:5601/"                connectiontimeout=5 timeout=30
-        ProxyPass "/api/v1/"       "http://localhost:8000/api/v1/"         connectiontimeout=5 timeout=30
-        ProxyPass "/zuul/api/v1/"  "http://localhost:8000/zuul/api/v1/"    connectiontimeout=5 timeout=30
+        ProxyPass "/api/v1/"       "http://localhost:9030/api/v1/"         connectiontimeout=5 timeout=30
+        ProxyPass "/zuul/api/v1/"  "http://localhost:9030/zuul/api/v1/"    connectiontimeout=5 timeout=30
         ProxyPass "/"              "http://localhost:3333/"                connectiontimeout=5 timeout=30
         ProxyPreserveHost Off
     </VirtualHost>

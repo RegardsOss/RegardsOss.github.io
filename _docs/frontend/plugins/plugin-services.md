@@ -33,7 +33,7 @@ The service plugin-info.json files defines all standard plugin fields but the `"
 The `"conf"` field is a JSON object holding the following children fields:
 * `applicationModes`: *{array}* a required array that can contain one or both the following values:
   * `ONE`: the service applies to one entity
-  * `MANY`: the service applies to many entities (expressed as an internal IDs list or a query)
+  * `MANY`: the service applies to many entities (expressed as an internal IDs list or an OpenSearch request)
 * `entityTypes`: *{array}* a required array that can contain some of all the following values:
   * `DATA`: The service works with dataobjects
   * `COLLECTION`: The service works with collections, *not supported yet*
@@ -126,7 +126,7 @@ When launched, the service plugin main component receives the property `runtimeT
 Notes: 
 * If the plugin application mode is only ONE, main component will never receive MANY and QUERY target types. Reciprocally, if it is only MANY, main component will never receive ONE target type.
 * RuntimeTargetTypes can be accessed in code as a field of `AccessDomain`, in module `regardsoss/domain`
-* Query target expresses a list of entities as a query. This is required when user works in select all mode within results table. Indeed, as REGARDS catalog may contain large amount of entities, it is not possible in such case to express selection as an entity IDs array, as that would require to fetch all those entities from backend.
+* Query target expresses a list of entities as OpenSearch request parameters. This is required when user works in select all mode within results table. Indeed, as REGARDS catalog may contain large amount of entities, it is not possible in such case to express selection as an entity IDs array, as that would require to fetch all those entities from backend.
 
 The following sub section explains in detail what fields are provided along with each target type.
 
@@ -158,12 +158,12 @@ Where:
 
 ### Runtime target specific fields for type QUERY
 
-* `q`: *{string}* That field contains the open search query to retrieve elements
+* `requestParameters`: *{object(string)}* That field contains the OpenSearch request parameters to retrieve elements
 * `entityType`: *{string}* That field contains the current entity type, as one of the enumated values ENTITY_TYPES_ENUM, exported as a field of `DamDomain`, from `@regardsoss/domain`
 * `excludedIDs`: *{array(string)}* That field contains the internal IDs of entities that are excluded from request results for current service execution, ie that should be ignored by the service when fetching results though fetch action.
 * `getFetchAction`: *{function}* For target type QUERY, method signature is `(pageIndex: (optional) number, pageSize: (optional) number) => (dipatchableAction:object)`.  
  *Warning 1: Removing page index and page size when calling getFetchAction will result in fetching all elements at once. As there may be a lot, it is way better to fetch it over many pages. You can compute the total number of pages using `entitiesCount` common target field*  
- *Warning 2: Fetch actions will retrieve **every query element**. When using that result, it is required to verify in excludedIpIds array if the entity has been excluded by the user.*  
+ *Warning 2: Fetch actions will retrieve **every request element**. When using that result, it is required to verify in excludedIpIds array if the entity has been excluded by the user.*  
 
 # Going further
 

@@ -31,6 +31,8 @@
           link: getting-started/configuration/
         - name: Deploy using IZPACK
           link: getting-started/izpack/
+        - name: Regards CLI 
+          link: getting-started/cli/
     - name: Basic use cases
       children: 
         - name: External data source publication
@@ -178,7 +180,7 @@
           link: frontend/layout-configuration/
 # ========================================================================
 - name: Appendices
-  icon: /assets/img/icons/information.svg
+  icon: /assets/img/icons/info.svg
   children:
     - name: Documentation guide
       link: appendices/doc-guide/   

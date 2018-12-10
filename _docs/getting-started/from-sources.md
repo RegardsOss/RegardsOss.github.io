@@ -2,8 +2,6 @@
 layout: classic-docs
 title: Installation from source
 short-title: Install from source
-categories:
-  - getting-started
 ---
 
 Here is the tutorial to compile the IzPack installer that you can use to install REGARDS on any server.  
@@ -19,7 +17,7 @@ Build relies on :
 * Npm 5.7.1+
 
 Permissions :  
-* You shall not use the root user while installing REGARDS, as any other software.
+* You shall not use the root user while compiling REGARDS, as any other software.
 
 ## Build
 

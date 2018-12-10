@@ -3,9 +3,9 @@ layout: classic-docs
 title: Deploy with IzPack
 short-title: IzPack deployment
 wip: true
-categories:
-  - getting-started
 ---
+
+{% include toc.md %}
 
 For now, the only way to deploy REGARDS on servers is to use an [**IzPack** package](http://izpack.org/).
 
@@ -35,151 +35,469 @@ The file `auto-install-values.xml` can be generated at the end of the manual ins
 
 ## Step-by-step installation
 
-TODO
+### Inital configuration
 
-## Installation directory
-On every host you install a REGARDS component. you will be asked to provide the installation directory :
-
-![](/assets/images/installation/select-directory.png)
-
-Afterwards, you will need to choose which components you want to install.
-
-### Contents of the installation directory
-The contents of the installation directory with all the microservices is :
-```shell
-ll
-bin/
-bootstrap-access-instance.jar
-bootstrap-access-project.jar
-bootstrap-administration.jar
-bootstrap-authentication.jar
-bootstrap-catalog.jar
-bootstrap-config.jar
-bootstrap-dam.jar
-bootstrap-frontend.war
-bootstrap-registry.jar
-bootstrap-gateway.jar
-config/
-lib/
-logs/
-plugins/
-sbin/
-run/
-www/
+```txt
+Target Path
+------------------------
+Select the installation path:  [/usr/local/regards]
 ```
-The **config** folder contains among others the logback configuration file for each microservice, in the the subfolders **config/logback/{microservice-name}**.
 
-The **plugins** folder contains a subfolder foreach microservice **plugins/{microservice-name}**. This subfolders must contains the plugins to used for the specified microservice.
+Type `/opt/regards` to override the default value `/usr/local/regards`.
 
+### Mandatory components to install
 
-## Cloud installation
+Afterwards, you will need to choose which components you want to install on the current server.
+These mandatory components cannot be runned in multiples instances, but don't be afraid they don't have that much job to do.
 
-The cloud installation allows you to install the REGARDS product components in **multiple physical or virtual hosts**. The only requirement is that all the hosts could communicate throught **HTTPS protocol**.
+> If you do not installed them on the current server, you'll need to install them somewhere else.
+{: .tip .plus}
 
-With this installation system you can install **multiple instances of each microservice**. In the first place you can install one instance of each needed microservice and if the performances of the system are too low, you can install more instances later.
+```txt
+Select Installation Packages
+------------------------
+Select the packs you want to install:
 
-Choose the components you want to install on the current host, then let the installer guide you through the preliminary configuration steps :
+  [x] Pack 'core' required
+------------------------------------
+  [x] Include optional pack 'config'
+------------------------------------
+```
 
-![](/assets/images/installation/packs.png)
+The Configuration server is the first component to start, it provides the global configuration parameters to all REGARDS components.
 
-**NOTE :** If you choose to not install the Configuration server, you will have to provide an existing Configuration server so that components you are currently installing can connect to it.
+```txt
+--------------------------------------
+  [x] Include optional pack 'registry'
+--------------------------------------
+```
 
-**NOTE :** You can install any component in any order and wherever you want, **but** you always need to start the Configuration server first, the Registry server second and the Admin server third. The table bellow lists the mandatory components and the start order.
+The Registry server is the second component to start, it provides the global components registry. This server is accessed by all REGARDS components to retrieve the adresses of other ones.  
 
-Component                | Mandatory                   | Start Order | Multiple instances          | Description
------------------------- | :-------------------------: | :---------: | :-------------------------: | --------------------------------------------------------------------
-**Frontend**             | ![](/assets/images/nok.png) | **4**       | ![](/assets/images/nok.png) | Provide WEB interfaces to access REGARDS services
-**Configuration**        | ![](/assets/images/ok.png)  | **1**       | ![](/assets/images/nok.png) | Provide configuration parameters for all REGARDS components
-**Registry**             | ![](/assets/images/ok.png)  | **2**       | ![](/assets/images/nok.png) | Provide the adress registry for all the REGARDS components
-**Admin**                | ![](/assets/images/ok.png)  | **3**       | ![](/assets/images/nok.png) | Provide the administration features of the system
-**Gateway**              | ![](/assets/images/ok.png)  | **3**       | ![](/assets/images/nok.png) | Provide a unique and secure entry point for all the REGARDS services
-**Other components**     | ![](/assets/images/nok.png) | **4**       | ![](/assets/images/ok.png)  | Provide the REGARDS functionalities
-{: .table .table-striped}
+```txt
+-------------------------------------
+  [x] Include optional pack 'gateway'
+-------------------------------------
+```
 
-## REGARDS Components configuration
-
-After that, you will need to configure all the components you selected for the installation on the current host.
-
-### Configuration
-
-The configuration server is the first component to start, it provides the global configuration parameters to all REGARDS components. It only needs a starter port.
-
-### Registry
-
-The Registry server is the second component to start, it provides the global components registry. This server is accessed by all REGARDS components to retrieve the adresses of other ones.<br>
-It needs a starter port and the adress of the configuration server.
-
-### Gateway
-
-The Gateway is the secured entry point to the REGARDS system. It ensures the authentication system by providing an authentication Service Provider (SP) and redirect the REGARDS services requests to the installed microservices.<br>
+The Gateway is the secured entry point to the REGARDS system. It ensures the authentication system by providing an authentication Service Provider (SP) and redirect the REGARDS services requests to the installed microservices.  
 This component also handles load-balancing in order to redirect requests to the least requested instance of a microservice.
 
-### Frontend
-
-The Frontend component provides the WEB interfaces to administrate and use the REGARDS fonctionnalities. This component is not mandatory, you can either access all the REGARDS functionnalities by REST requests to the Gateway server with a tool like **curl**
-
-![](/assets/images/installation/frontend.png)
-
-### 5.5 Other components
-
-For any other selected component(s), you will have to configure :
-
-- Each instance `port`
-- Specific configuration parameters
-
-Exemple for the Administration microservice configuration :
-
-![](/assets/images/installation/admin.png)
-
-## Start the system
-
-In order to start REGARDS, you will have to run specific commands.
-
-- If the `Security Level` you chose was `Enforce`
-  - and you installed **all** the components on the current host, you can start the whole system in a single command:
-  ```shell
-  sudo /opt/regards/REGARDS/sbin/microservice_regards.sh start
-  ```
-
-    Previously, it is necessary to add this command to the **sudoers** configuration file:
-  ```shell
-  vi /etc/sudoers.d/regards
-  rsadmin      ALL=(root)       NOPASSWD: /opt/regards/REGARDS/sbin/microservice_regards.sh
-  ```
-
-  - and you installed **some** components on the current host, you will need to start each component installed with the following command (remember to always begin the components in the good start order):
-  ```shell
-  sudo /opt/regards/REGARDS/sbin/microservice_regards.sh -t {component_name} start
-  ```
-
-
-- If the `Security Level` you chose was `Standard`, you will need to start each component installed with the following command (remember to always begin the components in the good start order):
-```shell
-/opt/regards/REGARDS/bin/start_microservice.sh -t {component_name}
+```txt
+--------------------------------------------
+  [x] Include optional pack 'admin-instance'
+--------------------------------------------
 ```
 
-## Check the components status
-You can check if a given component is currently running.
+The `admin-instance` microservice provides services (accounts, notifications, projects...) shared between all REGARDS projects.
 
-- If the `Security Level` you chose was `Enforce`, use the command:
-  ```shell
-  sudo /opt/regards/REGARDS/sbin/microservice_regards.sh -t {component_name} status
-  ```
-
-- If the `Security Level` you chose was `Standard`, use the following command (remember to always begin the components in the good start order):
-```shell
-/opt/regards/REGARDS/bin/status_microservice.sh -t {component_name}
+```txt
+-----------------------------------
+  [x] Include optional pack 'admin'
+-----------------------------------
 ```
 
-## Stop the components
-You can stop a given component which is currently running.
+The `admin` microservice provides services (users rights, users groups...) for each project.
 
-- If the `Security Level` you chose was `Enforce`, use the command:
-  ```shell
-  sudo /opt/regards/REGARDS/sbin/microservice_regards.sh -t {component_name} stop
-  ```
-
-- If the `Security Level` you chose was `Standard`, use the following command (remember to always begin the components in the good start order):
-```shell
-/opt/regards/REGARDS/bin/stop_microservice.sh -t {component_name}
+```txt
+--------------------------------------------
+  [x] Include optional pack 'authentication'
+--------------------------------------------
 ```
+
+The `authentication` microservice validates users when they log in.
+
+
+### Scalable microservices
+
+With our IzPack, you can install **multiple instances of each microservice** on **multiple physical or virtual hosts**. The only requirement is that all these hosts can communicate throught **HTTPS protocol**.
+
+> Start by installing one instance of each needed microservice and if the performances of the system are too low, you can install more instances later.
+{: .tip .plus}
+
+> If you choose to not install the Configuration server, you will have to provide an existing Configuration server so that components you are currently installing can connect to it.
+{: .tip .plus}
+
+```txt
+-------------------------------------
+  [ ] Include optional pack 'storage'
+-------------------------------------
+```
+
+This is a facultative microservice that stores your data and metadata on a safe storage. If you have already a system that meets this need, you can safely ignore it.
+
+```txt
+---------------------------------
+  [x] Include optional pack 'dam'
+---------------------------------
+```
+
+The `DataManagement` microservice handle dynamic modelisation, crawling and indexation. **This microservice uses a lot of RAM and CPU.**
+
+
+```txt
+-------------------------------------
+  [x] Include optional pack 'catalog'
+-------------------------------------
+```
+
+The `Catalog` microservice makes REGARDS users research.
+
+```txt
+-----------------------------------
+  [ ] Include optional pack 'order'
+-----------------------------------
+```
+
+The `Order` microservice gathers data ordered by users.
+
+```txt
+------------------------------------
+  [ ] Include optional pack 'ingest'
+------------------------------------
+------------------------------------------
+  [ ] Include optional pack 'dataprovider'
+------------------------------------------
+```
+
+The `Ingest` and `Data Provider` are facultatives microservices that scans data lakes and submit them to REGARDS indexation. 
+
+### HMI services
+
+```txt
+---------------------------------------------
+  [x] Include optional pack 'access-instance'
+---------------------------------------------
+--------------------------------------------
+  [x] Include optional pack 'access-project'
+--------------------------------------------
+--------------------------------------
+  [x] Include optional pack 'frontend'
+--------------------------------------
+```
+
+The `frontend` service provides the React interface we've made and these `access-*` services store the HMI customisation and configuration.
+
+### Security
+
+```txt
+What system security do you want to use?
+
+0  [x] Normal
+1  [ ] Enhanced
+Input selection:
+```
+
+If you have correctly followed the [Configuration guide](/getting-started/configuration/#section=getting-started), you can select the Enhanced security mode. If you don't, just pass to the next section.
+
+REGARDS needs to know which users and groups you have setup on your system. You can just accept default values.
+```
+────────────────────────────────────────────────────────────────────────────────
+User Data
+────────────────────────────────────────────────────────────────────────────────
+
+Security customization
+
+Exec user [regards] 
+
+
+------------------------------------------
+
+Regards group [regards] 
+
+Exec group [rsexec] 
+
+Admin group [rsadmin] 
+
+Runtime group [rsrun]
+```
+
+### General parameters
+
+```txt
+General parameters
+
+The first project to add [project1] 
+```
+
+The project name cannot be changed and will be used in the URI and by the API.
+
+```
+Public domain to access project: this is the public address users will use to access project user/admin interfaces and services. This address depends on your web server configuration.
+Address [https://172.26.47.195/user/project1]
+```
+
+REGARDS needs to know how future users will be able to access using their browser to the server. You can edit this configuration later on the instance admin panel.
+
+```txt
+Proxy confguration for internet access
+Host [] 
+
+Port [0]
+```
+
+REGARDS can access to files store somewhere else. In that case, it will use that proxy configuration to retrieve the file.
+
+```txt
+Cipher key location[]
+/opt/regards/regards.key
+Cipher initialization vector [] 
+1234567812345678
+```
+
+If you followed the [Configuration guide](/getting-started/configuration/#section=getting-started), the Cipher key location is `/opt/regards/regards.key`. The Cipher initialization vector must contain 16 digits.
+
+### Microservice configuration
+
+For every microservice you want to install, it will ask you :
+
+```txt
+<Microservice name> microservice
+
+--> Row 1: Host [0.0.0.0] 
+Port [9031]
+```
+
+The host value `0.0.0.0` means that every connection, either a local one (`127.0.0.1`) or a foreign one, is accepted.
+
+> You can provide `127.0.0.1` if you don't install REGARDS on several servers AND you have a reverse proxy (otherwise the gateway would not answer)
+{: .tip .plus}
+
+Moreover, if a microservice depends on RabbitMQ, PostgresSQL or ElasticSearch, it will ask the configuration of the associated COTS.
+
+- You should get the following RabbitMQ configuration
+
+```txt
+User Data
+────────────────────────────────────────────────────────────────────────────────
+
+Message broker configuration
+
+RabbitMQ
+Host [localhost] 
+Port [5672] 
+Username [] 
+regards_adm
+Password
+regards_adm
+
+------------------------------------------
+
+RabbitMQ management
+Host [localhost] 
+
+Port [15672]
+```
+
+- PostgresSQL configuration
+
+```txt
+Cross projects database | OR | First project's database
+Url [localhost:5432/rs_instance] 
+
+Username [] 
+rs_postgres
+Password
+***********
+```
+
+You should have two different databases, `rs_instance` and `rs_project1`.
+
+- Elasticsearch
+
+```txt
+Elasticsearch
+Host [localhost] 
+
+Port [9200]
+```
+
+#### rs-config
+
+```txt
+The workspaces basic directory [/opt/regards/workspace]
+```
+
+TODO
+
+#### rs-admin-instance
+
+```txt
+Administration instance microservice properties
+
+Instance admin
+Email [] 
+regards@cnes.fr
+Password
+**********
+```
+
+It asks you the id of the most powerfull user of the system. Don't forget its password!
+
+#### rs-storage
+
+```txt
+Jobs pool size [10] 
+
+Jobs completion refresh rate
+Value in ms [500000] 
+
+Jobs period retention in days
+Jobs successfully completed [1] 
+
+Jobs completed with error [30] 
+
+Cache directory [/opt/regards/rs-storage-cache]
+```
+
+Default values are fine to begin with.
+
+#### rs-dam
+
+```txt
+Documents local storage folder
+Path [/opt/regards/rs-dam-document-storage]
+```
+
+Store files associated with Documents, Collections and Datasets.
+
+
+#### rs-order
+
+```txt
+Jobs pool size [10] 
+
+Jobs completion refresh rate
+Value in ms [500000] 
+
+Orders bucket size in Mb [100] 
+
+Orders validation period in days [3] 
+
+Days before sending mail notification [7] 
+
+Passphrase used to generate token [order's passphrase] 
+la bonne longueur pour les jambes, c'est quand les pieds touchent bien par terre 
+Maximum number of displayable files [5000] 
+
+Maximum number of job's order per user [2] 
+
+Jobs period retention in days
+Jobs successfully completed [1] 
+
+Jobs completed with error [30] 
+
+Periodic files availability check (cron format)
+Value [0 23 * * 7 *]
+```
+
+The `Passphrase used to generate token` needs to be long and unique
+
+#### rs-ingest
+
+```txt
+Jobs pool size [10] 
+
+Jobs completion refresh rate
+Value in ms [500000] 
+
+Jobs period retention in days
+Jobs successfully completed [1] 
+
+Jobs completed with error [30] 
+
+
+------------------------------------------
+
+AIPs bulk request size
+Size [1000]
+```
+
+#### rs-data-provider
+
+```txt
+------------------------------------------
+
+Jobs pool size [10] 
+
+Jobs completion refresh rate
+Value in ms [500000] 
+
+Jobs period retention in days
+Jobs successfully completed [1] 
+
+Jobs completed with error [30] 
+
+
+------------------------------------------
+
+Waitings time
+
+For ingestion of new SIPs [5000] 
+
+For chains activation [300000] 
+
+
+Folders
+
+Cycles and ORF configuration [/opt/regards/config/regards/dataprovider] 
+
+Translation files [plugins/translations] 
+
+Plugins configuration [plugins/confs] 
+
+Chain's cycles [/data/cycles] 
+
+ORF file history [/data/chains/cycles]
+```
+
+Let default values
+
+#### rs-admin-instance
+
+```
+Security
+
+Which rules should follow the user accounts ?
+
+Account period of validity in days [30] 
+
+
+------------------------------------------
+
+Passwords
+Must match the regex [[a-z0-9]*] 
+
+Or else users will receive the message [Password must contain letters or numbers] 
+
+Period of validity (days) [350] 
+
+
+------------------------------------------
+
+When connecting
+Number of attemps before locking the account [5] 
+SMTP Configuration
+
+REGARDS keeps you in touch via emails. You can provide a specific SMTP server or leave the default one.
+Host [smtp.gmail.com] 
+
+Port [465] 
+
+Username [] 
+
+Password
+
+Mail address for no reply [regards@noreply.fr]
+```
+
+#### rs-frontend
+
+```
+Gateway
+Url [http://localhost:8000]
+```
+Set the public URI of REGARDS
+
+
+That's it ! You can jump to the [CLI guide](/getting-started/cli/#section=getting-started) to launch REGARDS.
