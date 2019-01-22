@@ -31,6 +31,12 @@ Then install all dependencies, and produce all required webpack DLL:
 npm install
 ```
 
+*Please note that, after a new GIT branch checkout and when installed Node version is greater than 8, it may be required to delete all package-lock.json in project. It can be done using the following commands:*
+```sh
+cd webapp
+find . -name 'package-lock*' -exec rm {} \;
+```
+
 ## Compile for production deployment
 
 This two commands will generate the entire webapp for production environement with all plugins compiled.
