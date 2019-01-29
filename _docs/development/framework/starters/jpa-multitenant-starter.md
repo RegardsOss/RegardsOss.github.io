@@ -21,14 +21,14 @@ Dependency :
 - [AMQP starter](/regards-framework/starters/amqp-starter/)
 
 ```properties
-regards.jpa.multitenant.enabled=false # Disable JPA multitenant support
-regards.jpa.multitenant.embedded=true # Activate embedded mode with HSQLDB
-regards.jpa.multitenant.embeddedPath=target # Path for embedded databases files
+regards.jpa.multitenant.enabled=true # Disable JPA multitenant support
+regards.jpa.multitenant.embedded=false # Activate embedded mode with HSQLDB
+regards.jpa.multitenant.embeddedPath= # Path for embedded databases files if enabled
 regards.jpa.multitenant.dialect=org.hibernate.dialect.PostgreSQLDialect # Not mandatory if embedded mode is activated
-regards.jpa.multitenant.tenants[<x>].tenant=example
-regards.jpa.multitenant.tenants[<x>].url=jdbc:postgresql://localhost:5432/test1 # Not mandatory if embedded mode is activated
-regards.jpa.multitenant.tenants[<x>].userName=postgres # Not mandatory if embedded mode is activated
-regards.jpa.multitenant.tenants[<x>].password=postgres # Not mandatory if embedded mode is activated
+regards.jpa.multitenant.tenants[<x>].tenant=
+regards.jpa.multitenant.tenants[<x>].url= # Not mandatory if embedded mode is activated (e.g. jdbc:postgresql://localhost:5432/test1)
+regards.jpa.multitenant.tenants[<x>].userName= # Not mandatory if embedded mode is activated
+regards.jpa.multitenant.tenants[<x>].password= # Not mandatory if embedded mode is activated
 regards.jpa.multitenant.tenants[<x>].driverClassName=org.postgresql.Driver # Not mandatory if embedded mode is activated
 
 <x> : Integer value for tenant index starting with 0.
