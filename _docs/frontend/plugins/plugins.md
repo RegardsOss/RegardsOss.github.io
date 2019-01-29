@@ -79,6 +79,12 @@ Command modes:
 * `build:watch`: Watches for code changes. Triggers `build:dev` on detection
 * `build:prod`: Builds the bundle once for production
 
+*Please note that, after a new GIT branch checkout and when installed Node version is greater than 8, it may be required to delete all package-lock.json in project. It can be done using the following commands:*
+```sh
+cd webapp
+find . -name 'package-lock*' -exec rm {} \;
+```
+
 ## Tests
 
 Runs any `*.test.js` / `*.test.jsx` file in `/tests` folder.
