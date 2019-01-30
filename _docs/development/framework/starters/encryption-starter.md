@@ -2,7 +2,6 @@
 layout: classic-docs
 title: Encryption starter
 short-title: Encryption starter
-wip: true
 ---
 
 {% include toc.md %}
@@ -31,4 +30,5 @@ regards.cipher.iv=<value of initialization vector>
 ## Autoconfiguration
 
 Starter autoconfigures: 
-  - IEncryptionService to manage encryption and decryption. By default we use AESEncryptionService.
+
+* IEncryptionService to manage encryption and decryption. By default we use AESEncryptionService.

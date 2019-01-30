@@ -4,19 +4,19 @@
   children: 
     - name: Overview
       link: 
-    - name: Introduction
-      link: home/introduction/
+    # - name: Introduction
+    #   link: home/introduction/
     - name: Roadmap
       link: home/roadmap/
     - name: Features
       link: home/features/
       children:
-        - name: Acquisition and archiving with OAIS
-          link: home/features/acqarch/
-        - name: Catalog harvesting and publication
-          link: home/features/harvesting/
-        - name: OpenSearch API
-          link: home/features/opensearch/
+        # - name: Acquisition and archiving with OAIS
+        #   link: home/features/acqarch/
+        # - name: Catalog harvesting and publication
+        #   link: home/features/harvesting/
+        # - name: OpenSearch API
+        #   link: home/features/opensearch/
         - name: Geospatial behavior
           link: home/features/geo/
 # ========================================================================
@@ -33,12 +33,12 @@
           link: getting-started/izpack/
         - name: Regards CLI 
           link: getting-started/cli/
-    - name: Basic use cases
-      children: 
-        - name: External data source publication
-          link: getting-started/samples/basic-extds/
-        - name: Full OAIS workflow
-          link: getting-started/samples/basic-oais/   
+    # - name: Basic use cases
+    #   children: 
+    #     - name: External data source publication
+    #       link: getting-started/samples/basic-extds/
+    #     - name: Full OAIS workflow
+    #       link: getting-started/samples/basic-oais/   
 # ========================================================================
 - name: User Documentation
   icon: /assets/img/icons/phone-book.svg
@@ -85,10 +85,10 @@
           link: development/framework/modules/jobs/
         - name: Plugins
           link: development/framework/modules/plugins/
-        - name: Templates
-          link: development/framework/modules/templates/
-        - name: Workspace
-          link: development/framework/modules/workspace/
+        # - name: Templates
+        #   link: development/framework/modules/templates/
+        # - name: Workspace
+        #   link: development/framework/modules/workspace/
     - name: Catalog
       link: development/regards/catalog/catalog/
       children:

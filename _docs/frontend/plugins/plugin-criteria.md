@@ -386,10 +386,10 @@ export class SimpleCriterionContainer extends React.Component {
       // User selected operator
       operator: PropTypes.oneOf([SimpleCriterionContainer.EQUAL, SimpleCriterionContainer.NOT_EQUAL]).isRequired,
       // User input text
-      value: PropTypes.string,
+      value: PropTypes.string
     },
     // From mapDispatchToProps
-    publishState: PropTypes.func.isRequired,
+    publishState: PropTypes.func.isRequired
   }
 
  /**

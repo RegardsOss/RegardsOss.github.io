@@ -2,7 +2,6 @@
 layout: classic-docs
 title: REGARDS Command line interface
 short-title: REGARDS CLI
-wip: true
 ---
 
 {% include toc.md %}

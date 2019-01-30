@@ -388,6 +388,11 @@ blockquote.important {
 	background-image: url("../img/icons/important.svg");
 }
 
+blockquote.checklist {
+	background-color: lightgray;
+	background-image: url("../img/icons/checklist.svg");
+}
+
 blockquote.tip p {
 	padding-left: 30px;
 }

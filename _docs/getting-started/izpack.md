@@ -2,7 +2,6 @@
 layout: classic-docs
 title: Deploy with IzPack
 short-title: IzPack deployment
-wip: true
 ---
 
 {% include toc.md %}

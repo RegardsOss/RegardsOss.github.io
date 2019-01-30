@@ -9,13 +9,14 @@ categories:
 
 {% include toc.md %}
 
-![](/assets/img/logos/gplv3-127x51.png)
-
 ## Disclaimer
 
 This roadmap is likely to evolve and has for only purpose to give an overview of the works in progress on REGARDS OSS.
 
 ## Upcoming version
+
+---
+{% include_relative roadmap/V5.0.0.md %}
 
 ---
 {% include_relative roadmap/V4.0.0.md %}

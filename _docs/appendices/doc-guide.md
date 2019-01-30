@@ -65,6 +65,14 @@ To highlight block, add styling properties to blockquote.
 {: .tip .todo}
 
 ```md
+> It's a checklist!
+{: .tip .checklist}
+```
+
+> It's a checklist!
+{: .tip .checklist}
+
+```md
 > It's a plus!
 {: .tip .plus}
 ```

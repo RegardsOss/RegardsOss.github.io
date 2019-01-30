@@ -17,7 +17,7 @@ At the moment, the framework relies on:
   * [Spring Boot](https://spring.io/projects/spring-boot#learn) `1.5.X.RELEASE`
   * [Spring Cloud](https://spring.io/projects/spring-cloud#learn) `Dalston SR5`
 
-> Note that we are upgrading COTS to OpenJDK 11, Spring Boot 2+, etc. (cf. [Roadmap](/home/roadmap/#v400))
+> Note that we are upgrading COTS : cf. [Roadmap](/home/roadmap/#v400)
 {: .tip .important}
 
 ![](/assets/schemas/architecture/microservice_architecture_spring.png)
@@ -47,7 +47,7 @@ To use REGARDS framework building blocks, you have to import its BOM in your pom
 
 REGARDS framework provides [building blocks (aka starters)](/development/framework/starters/) to ease modules and microservices development.
 
-Go see the [dedicated section](/development/framework/starters/).
+Go to the [dedicated section](/development/framework/starters/) to learn more.
 
 ## Modules
 
