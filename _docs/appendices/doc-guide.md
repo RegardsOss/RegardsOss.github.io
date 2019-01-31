@@ -48,6 +48,15 @@ See [documentation](https://kramdown.gettalong.org/converter/html.html#toc) for 
 
 To highlight block, add styling properties to blockquote.
 
+
+```md
+> It's an information!
+{: .tip .info}
+```
+
+> It's an information!
+{: .tip .info}
+
 ```md
 > It's a warning!
 {: .tip .warning}

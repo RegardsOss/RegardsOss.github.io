@@ -374,8 +374,8 @@ blockquote.warning {
 }
 
 blockquote.todo {
-	background-color: yellowgreen;
-	background-image: url("../img/icons/tick-inside-circle.svg");
+	background-color: yellow;
+	// background-image: url("../img/icons/tick-inside-circle.svg");
 }
 
 blockquote.plus {
@@ -391,6 +391,11 @@ blockquote.important {
 blockquote.checklist {
 	background-color: lightgray;
 	background-image: url("../img/icons/checklist.svg");
+}
+
+blockquote.info {
+	// background-color: lightsalmon;
+	background-image: url("../img/icons/rounded-info-button.svg");
 }
 
 blockquote.tip p {
