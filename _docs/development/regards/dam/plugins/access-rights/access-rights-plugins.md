@@ -6,27 +6,35 @@ title: Data access rights plugins
 
 {% include toc.md %}
 
-# Customize data access rights
+> This extension point is not release yet.
+{: .tip .warning}
 
 ## Overview
 
-    This customization is a plugin of DataManagement microservice.
+    This customization is an extension point of DataManagement microservice.
 
-Those plugins allows to customize access rights of datas into a dataset. Dynamic plugins are made to re-calculate access rights every day. Non dynamic plugins access rights calculation are made when :
+This extension point allows to defined access rights of datas into a dataset. Dynamic plugins are made to re-calculate access rights every day. Non dynamic plugins access rights calculation are made when :
  - There is a data modification (dataset update, add or remove datas, ...)
  - There is a user group modification
 
 The periodicity of re-calculation of dynamic plugins is by default set to once a day but it is configurable in the microservice properties with the properties `regards.access.rights.update.cron`. The value is a standard cron format.
 
-## Access rights global calculation
+See class [EntityIndexerService](https://github.com/RegardsOss/regards-dam/blob/d8eedbd4d03928219b4030b96abc01aeb8fb2976/crawler/crawler-service/src/main/java/fr/cnes/regards/modules/crawler/service/EntityIndexerService.java) method `manageDatasetUpdate` to see how accessRights are calculated on every datasets.
 
-   See class `EntityIndexerService` method `manageDatasetUpdate` of `crawler-service` module to see how accessRights are calculated on every datasets.
+REGARDS provides many implementation of this extension point :
+ - [CustomDataObjectsAccessPlugin] : `Not release yet` allows access to data objects matching a configured opensearch request.
+ - [OldDataObjectsAccessPlugin] : `Not release yet` Dynamicly allows access to data objects older than an amount of configured time.
+ - [NewDataObjectsAccessPlugin] : `Not release yet` Dynamicly allows access to data objects newer than an amount of configured time.
 
 ## Interface
 
    `IDataObjectAccessFilterPlugin`
 
 ## Implementation
+
+To learn more about how to create your own plugin see [Plugins](/development/framework/modules/plugins/)
+
+Here under is an exemple of how to implements this extesion point to create your own business logic.
 
 ```java
 @Plugin(id = "ExempleDataObjectsAccessPlugin", version = "4.0.0-SNAPSHOT",

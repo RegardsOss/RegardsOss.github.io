@@ -12,4 +12,6 @@ categories:
 
 # Available Plugins
 
-- [Access Rights](/development/regards/dam/plugins/)
+- [Access rights](/development/regards/dam/plugins/access-rights/access-rights-plugins/)
+- [Computed attributes](/development/regards/dam/plugins/computed-attribute/computed-attribute-plugins/)
+- [Data sources](/development/regards/dam/plugins/data-source/data-source-plugins/)
