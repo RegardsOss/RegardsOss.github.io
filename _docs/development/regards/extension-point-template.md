@@ -22,7 +22,7 @@ REGARDS provides many implementation of this extension point :
 
 To learn more about how to create your own plugin see [Plugins](/development/framework/modules/plugins/)
 
-Here under is an exemple of how to implements this extesion point to create your own business logic.
+Here under is an exemple of how to implements this extension point to create your own business logic.
 
 ```java
 @Plugin(id = "exemple", version = "1.0.0", description = "exemple plugin",
