@@ -21,6 +21,16 @@ Add module dependency to your POM (version depends on the BOM)
 </dependency>
 ```
 
+Properties :
+
+```properties
+# Comma separated list of plugin packages from which system detects and loads plugin implementations
+# Fallback to fr.cnes.regards if not specified
+regards.plugins.packages-to-scan=
+```
+
+vregards.plugins.packages-to-scan
+
 ## Autoconfiguration
 
 Module autoconfigures:
@@ -122,9 +132,9 @@ Plugin parameters supports following types:
 
 ### Plugin development
 
-As seen above, implement your plugin as **plain JAVA objects** starting by implementing a service contract interface.
+As seen above, develop a plugin just means implementing **pure plain JAVA objects**.
 
-Afterwards, just annotate your implementation with required plugin annotations.
+Start by implementing a service contract interface and afterwards, just annotate your implementation with required plugin annotations.
 
 Before deploying plugin, you should test it using `PluginUtils`.
 
@@ -149,15 +159,15 @@ Hereunder, this is a sample test built with JUnit.
 
 ### Plugin deployment
 
-> At the moment, plugins are loaded in the same classloader as the microservice so you have to be very careful with their deployments. Plugin library and dependencies have to be compatible with the target microservice.
+> Plugins are loaded in the same classloader as the microservice so you have to be very careful with their deployments. Plugin library and dependencies have to be compatible with the target microservice.
 {: .tip .warning}
 
 To deploy your plugin, we advise you this procedure :
 
 * Build you plugin as a simple JAR,
-* Copy this JAR and all its **specific dependencies** in the plugin directory of the target microservice,
+* Deploy this JAR and all its **specific dependencies** in the plugin directory of the target microservice,
 * Be careful not to add library already loaded by microservice to avoid library inconsistency.
 * Restart the microservice.
 
-> To be loaded in a microservice, plugin scanned packages has to be declared properly in microservice properties. By default, only the package `fr.cnes.regards` is scanned.
+> To be loaded in a microservice, plugin scanned packages has to be declared properly in microservice properties. By default, only the package `fr.cnes.regards` is scanned (Look at the properties above).
 {: .tip .warning}

@@ -1,69 +1,84 @@
 ---
 layout: classic-docs
-title: REGARDS legacy search API
+title: REGARDS search API
 short-title: Legacy search API
-wip: true
 ---
 
-The Search API is part of REGARDS's [REST API](#REST API). It allows users to find specific items in the catalog (for example all data objects between a certain range data, all datasets starting with "sensor-", etc).
+At the moment, REGARDS can expose two search API :
 
-It is tied to the connected user's tenant, so requestable items will only be those of his/her project.
+* **Legacy Search API** with a query mechanism based on Lucene standard query parser returning GeoJSON feature collection,
+* **Open Search** API with parameter, time and geo extensions returning standard ATOM response or GeoJSON feature collection and exposing an Open Search description.
 
-## Endpoints
-The following list is exhaustive.
+> Search API can be added using plugin mechanism.
+{: .tip .plus}
 
-### Polymorphic search
-Performs a search over collections, datasets, dataobjects **and** documents, and will return all matching elements, regardless of the type.
-```
-GET /search
-```
+{% include toc.md %}
 
-#### Parameters
-- `q` : The search keywords, for example `altitude:[1000 TO 2000] OR name:sensor-*`. Required.
-- `facets` : The array of attribute names.
-- `page` : Page you want to retrieve, 0 indexed and defaults to 0.
-- `size` : Size of the page you want to retrieve, defaults to 20.
-- `sort` : Properties that should be sorted by in the format `property,property(,ASC/DESC)`. Default sort direction is ascending. Use multiple `sort` parameters if you want to switch directions, e.g. `?sort=firstname&sort=lastname,asc.`
+## Legacy API
+
+### URLs
+
+Engine type: `opensearch`
+
+* `GET` `/engines/{engineType}/entities/search` : search entities
+* `GET` `/engines/{engineType}/entities/{urn}` : get a single entity from its Unique Resource Name
+* `GET` `/engines/{engineType}/collections/search` : search collections
+* `GET` `/engines/{engineType}/collections/{urn}` : get a single entity from its Unique Resource Name
+* `GET` `/engines/{engineType}/documents/search` : search documents
+* `GET` `/engines/{engineType}/documents/{urn}` : get a single document from its Unique Resource Name
+* `GET` `/engines/{engineType}/datasets/search` : search datasets
+* `GET` `/engines/{engineType}/datasets/{urn}` : get a single dataset from its Unique Resource Name
+* `GET` `/engines/{engineType}/dataobjects/search` : search data objets
+* `GET` `/engines/{engineType}/dataobjects/{urn}` : get a single data object from its Unique Resource Name
+* `GET` `/engines/{engineType}/dataobjects/datasets/search` : search data objects returning datasets
+* `GET` `/engines/{engineType}/datasets/{urn}/dataobjects/search` : search data objects in the specified dataset
+
+### JSON response headers
+
+* `Authorization: Bearer {token}`
+* `Content-Type: application/json;charset=UTF-8`
+* `Accept: application/json`
+
+### Parameters
+
+* `q` : The search keywords, for example `altitude:[1000 TO 2000] OR name:sensor-*`.
+* `facets` : The array of attribute names.
+* `page` : Page you want to retrieve, 0 indexed and defaults to 0.
+* `size` : Size of the page you want to retrieve, defaults to 20.
+* `sort` : Properties that should be sorted by in the format `property,property(,ASC/DESC)`. Default sort direction is ascending. Use multiple `sort` parameters if you want to switch directions, e.g. `?sort=firstname&sort=lastname,asc.`
+
+## Open Search API
+
+### URLs
+
+Engine type: `opensearch`
+
+* `GET` `/engines/{engineType}/entities/search` : search entities
+* `GET` `/engines/{engineType}/entities/{urn}` : get a single entity from its Unique Resource Name
+* `GET` `/engines/{engineType}/collections/search` : search collections
+* `GET` `/engines/{engineType}/collections/{urn}` : get a single entity from its Unique Resource Name
+* `GET` `/engines/{engineType}/documents/search` : search documents
+* `GET` `/engines/{engineType}/documents/{urn}` : get a single document from its Unique Resource Name
+* `GET` `/engines/{engineType}/datasets/search` : search datasets
+* `GET` `/engines/{engineType}/datasets/{urn}` : get a single dataset from its Unique Resource Name
+* `GET` `/engines/{engineType}/dataobjects/search` : search data objets
+* `GET` `/engines/{engineType}/dataobjects/{urn}` : get a single data object from its Unique Resource Name
+* `GET` `/engines/{engineType}/dataobjects/datasets/search` : search data objects returning datasets
+* `GET` `/engines/{engineType}/datasets/{urn}/dataobjects/search` : search data objects in the specified dataset
+
+Additional Open Search description enpoints :
+
+* `GET` `/engines/{engineType}/dataobjects/search/opensearchdescription.xml` : Open Search description for all data objects
+* `GET` `/engines/{engineType}/datasets/{urn}/dataobjects/search/opensearchdescription.xml` : Open Search description for all data objects in specified dataset
+
+### Atom response headers
+
+* `Authorization: Bearer {token}`
+* `Content-Type: application/json;charset=UTF-8`
+* `Accept: application/atom+xml`
 
 
-Note: Consider using this search only if necessary, for a typed search will always achieve better speed performance.
 
-### Typed search
-Performs a search over a specific type, either collections, datasets, dataobjects or documents, and will return all matching elements.
-```
-GET /collections/search
-```
-```
-GET /datasets/search
-```
-```
-GET /dataobjects/search
-```
-```
-GET /documents/search
-```
-
-#### Parameters
-- `q` : The search keywords, for example `altitude:[1000 TO 2000] OR name:sensor-\*`. Required.
-- `facets` : The array of attribute names. Optional and only available when searching on dataobjects.
-- `page` : Page you want to retrieve, 0 indexed and defaults to 0.
-- `size` : Size of the page you want to retrieve, defaults to 20.
-- `sort` : Properties that should be sorted by in the format `property,property(,ASC/DESC)`. Default sort direction is ascending. Use multiple `sort` parameters if you want to switch directions, e.g. `?sort=firstname&sort=lastname,asc.`
-
-### URN search
-It will return the item of passed URN (the unique identifier of the resource).
-```
-GET /collections/{urn}
-```
-```
-GET /datasets/{urn}
-```
-```
-GET /dataobjects/{urn}
-```
-```
-GET /documents/{urn}
-```
 
 #### Path variables
 - `urn` : The URN of the resource.
