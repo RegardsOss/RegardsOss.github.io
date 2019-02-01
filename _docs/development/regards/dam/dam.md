@@ -12,6 +12,6 @@ categories:
 
 ## Available Extension points
 
-- [Access rights](/development/regards/dam/plugins/access-rights/access-rights-plugins/)
-- [Computed attributes](/development/regards/dam/plugins/computed-attribute/computed-attribute-plugins/)
-- [Data sources](/development/regards/dam/plugins/data-source/data-source-plugins/)
+- [Access rights](/development/regards/dam/plugins/access-rights-plugins/)
+- [Computed attributes](/development/regards/dam/plugins/computed-attribute-plugins/)
+- [Data sources](/development/regards/dam/plugins/data-source-plugins/)

@@ -95,20 +95,20 @@
         - name: Search API
           link: development/regards/catalog/api/search-api/
         - name: Catalog service plugins
-          link: development/regards/catalog/plugins/catalog-service/catalog-service-plugins
+          link: development/regards/catalog/plugins/catalog-service-plugins
         - name: Search engine plugins
-          link: development/regards/catalog/plugins/search-engine/search-engine-plugins
+          link: development/regards/catalog/plugins/search-engine-plugins
     - name: Data Management
       link: development/regards/dam/dam/
       children:
         - name: Model API
           link: development/regards/dam/api/model-api/
         - name: Access rights Plugins
-          link: development/regards/dam/plugins/access-rights/access-rights-plugins/
+          link: development/regards/dam/plugins/access-rights-plugins/
         - name: Computed attribute Plugins
-          link: development/regards/dam/plugins/computed-attribute/computed-attribute-plugins/
+          link: development/regards/dam/plugins/computed-attribute-plugins/
         - name: Data source Plugins
-          link: development/regards/dam/plugins/data-source/data-source-plugins/
+          link: development/regards/dam/plugins/data-source-plugins/
     - name: Data provider
       link: development/regards/dataprovider/dataprovider/
       children:

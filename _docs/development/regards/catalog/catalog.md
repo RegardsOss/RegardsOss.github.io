@@ -14,4 +14,5 @@ categories:
 
 ## Available Extension points
 
-- [Catalog service](/development/regards/catalog/plugins/catalog-service/catalog-service-plugins/)
+- [Catalog service](/development/regards/catalog/plugins/catalog-service-plugins/)
+- [Search engine](/development/regards/catalog/plugins/search-engine-plugins/)
