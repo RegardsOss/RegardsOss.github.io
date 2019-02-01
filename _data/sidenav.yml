@@ -129,6 +129,16 @@
       children:
         - name: Ingestion API
           link: development/regards/ingest/api/ingest-api/
+        - name: SIP Validation plugins
+          link: development/regards/ingest/plugins/sip-validation-plugins/
+        - name: SIP Pre processing plugins
+          link: development/regards/ingest/plugins/sip-pre-processing-plugins/
+        - name: AIP Generation plugins
+          link: development/regards/ingest/plugins/aip-generation-plugins/
+        - name: AIP Tagging plugins
+          link: development/regards/ingest/plugins/aip-tagging-plugins/
+        - name: SIP Post processing plugins
+          link: development/regards/ingest/plugins/sip-post-processing-plugins/
     - name: Order
       link: development/regards/order/order/
       children:
