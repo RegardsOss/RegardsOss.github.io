@@ -89,6 +89,13 @@
         #   link: development/framework/modules/templates/
         # - name: Workspace
         #   link: development/framework/modules/workspace/
+    - name: Authentication
+      link: development/regards/catalog/catalog/
+      children:
+        - name: Plugins API
+          link: development/regards/common/api/plugins-api/
+        - name: Authentication plugins
+          link: development/regards/authentication/plugins/authentication-plugins/
     - name: Catalog
       link: development/regards/catalog/catalog/
       children:
