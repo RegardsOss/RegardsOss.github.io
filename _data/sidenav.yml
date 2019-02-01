@@ -94,6 +94,8 @@
       children:
         - name: Search API
           link: development/regards/catalog/api/search-api/
+        - name: Plugins API
+          link: development/regards/common/api/plugins-api/
         - name: Catalog service plugins
           link: development/regards/catalog/plugins/catalog-service-plugins
         - name: Search engine plugins
@@ -103,6 +105,8 @@
       children:
         - name: Model API
           link: development/regards/dam/api/model-api/
+        - name: Plugins API
+          link: development/regards/common/api/plugins-api/
         - name: Access rights Plugins
           link: development/regards/dam/plugins/access-rights-plugins/
         - name: Computed attribute Plugins
@@ -114,6 +118,8 @@
       children:
         - name: Acquisition API
           link: development/regards/dataprovider/api/acquisition-api/
+        - name: Plugins API
+          link: development/regards/common/api/plugins-api/
         - name: Scan plugins
           link: development/regards/dataprovider/plugins/scan-plugins/
         - name: Validation plugins
@@ -129,6 +135,8 @@
       children:
         - name: Ingestion API
           link: development/regards/ingest/api/ingest-api/
+        - name: Plugins API
+          link: development/regards/common/api/plugins-api/
         - name: SIP Validation plugins
           link: development/regards/ingest/plugins/sip-validation-plugins/
         - name: SIP Pre processing plugins
@@ -146,16 +154,19 @@
           link: development/regards/order/api/basket-api/
         - name: Order API
           link: development/regards/order/api/order-api/
-    - name: Services common
-      link: development/regards/common/common/
-      children:
-        - name: Plugins API
-          link: development/regards/common/api/plugins-api/
     - name: Storage
       link: development/regards/storage/storage/
       children:
         - name: Storage API
           link: development/regards/storage/api/storage-api/
+        - name: Plugins API
+          link: development/regards/common/api/plugins-api/
+        - name: Allocation strategy plugins
+          link: development/regards/storage/plugins/allocation-strategy-plugins/
+        - name: Data storage plugins
+          link: development/regards/storage/plugins/data-storage-plugins/
+        - name: Security delegation plugins
+          link: development/regards/storage/plugins/security-delegation-plugins/
 # ========================================================================      
 - name: Frontend
   icon: /assets/img/icons/coding.svg

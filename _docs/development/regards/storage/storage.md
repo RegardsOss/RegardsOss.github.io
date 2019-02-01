@@ -6,6 +6,14 @@ categories:
   - development
 ---
 
-# Available APIs
+## Available APIs
 
-- [Storage](/development/regards/dataprovider/api/storage-api/)
+- [Storage](/development/regards/storage/api/storage-api/)
+
+## Available Extension points
+
+- [Allocation strategy plugins](/development/regards/storage/plugins/allocation-strategy-plugins)
+- [Data storage plugins](/development/regards/storage/plugins/data-storage-plugins)
+- [Security delegation plugins](/development/regards/storage/plugins/security-delegation-plugins)
+
+
