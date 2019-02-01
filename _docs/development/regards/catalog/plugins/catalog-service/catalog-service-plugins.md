@@ -11,41 +11,42 @@ title: Catalog service plugins
 {: .tip .plus}
 
 Each business service plugin is accessible through a unique microservice endpoint :
+
 ```
-@POST http://\<host\>:\<port\>/api/v1/rs-catalog/services/{servideId}/apply
+@POST http://<host>:<port>/api/v1/rs-catalog/services/{servideId}/apply
 ```
 
 To define on which entities of the catalog the service must be applied you have to provide a json body like :
 ```json
 {
-    entityId: '', // [Optional] Entity identifier to apply plugin service on one uniq entity
-    entitiesId:[], // [Optional] Entities ids to apply plugin service on multiple entities
-    entityType:'', // [Optional] One of [COLLECTION, DATA, DATASET, DOCUMENT] Combined with the search query 'q' parameter. Entities type to apply plugin service on. 
-    q:'', // [Optional] Search query to apply on catalog to define
-    dynamicParameters: { // [Optional]
+    "entityId": "", // [Optional] Entity identifier to apply plugin service on one uniq entity
+    "entitiesId":[], // [Optional] Entities ids to apply plugin service on multiple entities
+    "entityType":"", // [Optional] One of [COLLECTION, DATA, DATASET, DOCUMENT] Combined with the search query 'q' parameter. Entities type to apply plugin service on. 
+    "q":"", // [Optional] Search query to apply on catalog to define
+    "dynamicParameters": { // [Optional]
         // Specific plugin parameters applied at runtime
     }
 }
 ```
 
-Each business service plugin return a stream of typed data in the response header. The implemention section of this page explains how to return typed results like JSON, XML, Image or Octet-stream.
+Each business service plugin return a stream of typed data in the response header. The implemention section of this page explains how to return typed results like `JSON`, `XML`, `Image` or `Octet-stream`.
 
 ## Usages
 
 ### Apply service on one entity
  ```json
  {
-     entityId: 'URN:AIP:DATA:project1:44e4f46f-2584-3c8e-a803-d1fb1cfd276e:V1'
+     "entityId": "URN:AIP:DATA:project1:44e4f46f-2584-3c8e-a803-d1fb1cfd276e:V1"
  }
  ```
 
 ### Apply service on one multiple entities
  ```json
  {
-     entitiesId: [
-         'URN:AIP:DATA:project1:44e4f46f-2584-3c8e-a803-d1fb1cfd276e:V1',
-         'URN:AIP:DATA:project1:44e4f46f-2584-3c8e-a803-d1fb1cfd276e:V2',
-         'URN:AIP:DATA:project1:44e4f46f-2584-3c8e-a803-d1fb1cfd276e:V3'
+     "entitiesId": [
+         "URN:AIP:DATA:project1:44e4f46f-2584-3c8e-a803-d1fb1cfd276e:V1",
+         "URN:AIP:DATA:project1:44e4f46f-2584-3c8e-a803-d1fb1cfd276e:V2",
+         "URN:AIP:DATA:project1:44e4f46f-2584-3c8e-a803-d1fb1cfd276e:V3"
      ]
  }
  ```
@@ -56,20 +57,20 @@ You can see the [How to build a query](/development/regards/catalog/api/search-a
 
  ```json
  {
-     entityType: 'DATA',
-     q: "title:'test*' AND date:[2019-01-01T00:00:00 TO 2019-02-01T00:00:00]",
+     "entityType": "DATA",
+     "q": "title:'test*' AND date:[2019-01-01T00:00:00 TO 2019-02-01T00:00:00]",
  }
  ```
 For a search query application you can also execlude some entites from the search results by setting the entitiesId parameter :
  ```json
  {
-     entityType: 'DATA',
-     entitiesId: [
-         'URN:AIP:DATA:project1:44e4f46f-2584-3c8e-a803-d1fb1cfd276e:V1',
-         'URN:AIP:DATA:project1:44e4f46f-2584-3c8e-a803-d1fb1cfd276e:V2',
-         'URN:AIP:DATA:project1:44e4f46f-2584-3c8e-a803-d1fb1cfd276e:V3'
-     ]
-     q: "title:'test*' AND date:[2019-01-01T00:00:00 TO 2019-02-01T00:00:00]",
+     "entityType": "DATA",
+     "entitiesId": [
+         "URN:AIP:DATA:project1:44e4f46f-2584-3c8e-a803-d1fb1cfd276e:V1",
+         "URN:AIP:DATA:project1:44e4f46f-2584-3c8e-a803-d1fb1cfd276e:V2",
+         "URN:AIP:DATA:project1:44e4f46f-2584-3c8e-a803-d1fb1cfd276e:V3"
+     ],
+     "q": "title:'test*' AND date:[2019-01-01T00:00:00 TO 2019-02-01T00:00:00]",
  }
  ```
 
