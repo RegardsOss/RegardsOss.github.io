@@ -94,6 +94,10 @@
       children:
         - name: Search API
           link: development/regards/catalog/api/search-api/
+        - name: Catalog service plugins
+          link: development/regards/catalog/plugins/catalog-service/catalog-service-plugins
+        - name: Search engine plugins
+          link: development/regards/catalog/plugins/search-engine/search-engine-plugins
     - name: Data Management
       link: development/regards/dam/dam/
       children:

@@ -7,9 +7,8 @@ title: TODO plugins
 
 ## Overview
 
-    This customization is an extension point of `TODO` microservice.
-
-This extension point allows to ...
+> This extension point allows to ...
+{: .tip .plus}
 
 REGARDS provides many implementation of this extension point :
  - [Impl] : (https://github.com/RegardsOss/regards-dam/blob/master/.../Impl.java)

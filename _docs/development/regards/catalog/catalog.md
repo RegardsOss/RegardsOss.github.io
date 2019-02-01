@@ -6,8 +6,12 @@ categories:
   - development
 ---
 
-# Available APIs
+## Available APIs
 
-## Search API
+### Search API
 
 - [Catalog](/development/regards/catalog/api/search-api/)
+
+## Available Extension points
+
+- [Catalog service](/development/regards/catalog/plugins/catalog-service/catalog-service-plugins/)

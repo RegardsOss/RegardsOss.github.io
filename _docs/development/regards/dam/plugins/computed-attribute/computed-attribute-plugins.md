@@ -7,10 +7,8 @@ title: Computed attribute plugins
 
 ## Overview
 
-    This customization is an extension point of `DataManagement` microservice.
-
-This extension point allows to define a calculation method for a feature attribute value before indexation in REGARDS catalog.
-This calcul is made during the data source crawling process.
+> This extension point allows to define a calculation method for a feature attribute value before indexation in REGARDS catalog. This calcul is made during the data source crawling process.
+{: .tip .plus}
 
 REGARDS provides many implementation of this extension point :
  - [CountPlugin](https://github.com/RegardsOss/regards-dam/blob/master/dam/dam-plugins/src/main/java/fr/cnes/regards/modules/dam/plugin/entities/CountPlugin.java) : Allow to compute the number of dataobjects of a dataset.
@@ -21,7 +19,7 @@ REGARDS provides many implementation of this extension point :
 
 ## Interface
 
-   [PluginInterface](https://github.com/RegardsOss/regards-dam/blob/master/.../IInterface.java)
+   [IComputedAttribute](https://github.com/RegardsOss/regards-dam/blob/master/dam/dam-domain/src/main/java/fr/cnes/regards/modules/dam/domain/models/IComputedAttribute.java)
 
 ## Implementation
 

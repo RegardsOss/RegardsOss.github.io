@@ -6,11 +6,11 @@ categories:
   - development
 ---
 
-# Available APIs
+## Available APIs
 
 - [**DA**ta **M**anagement](/development/regards/dam/api/model-api/)
 
-# Available Plugins
+## Available Extension points
 
 - [Access rights](/development/regards/dam/plugins/access-rights/access-rights-plugins/)
 - [Computed attributes](/development/regards/dam/plugins/computed-attribute/computed-attribute-plugins/)

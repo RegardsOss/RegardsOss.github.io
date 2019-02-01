@@ -6,16 +6,15 @@ title: Data access rights plugins
 
 {% include toc.md %}
 
-> This extension point is not release yet.
-{: .tip .warning}
-
 ## Overview
 
-    This customization is an extension point of DataManagement microservice.
+> This extension point allows to defined access rights of datas into a dataset. 
+{: .tip .plus}
 
-This extension point allows to defined access rights of datas into a dataset. Dynamic plugins are made to re-calculate access rights every day. Non dynamic plugins access rights calculation are made when :
+Dynamic plugins are made to re-calculate access rights every day. Non dynamic plugins access rights calculation are made when :
  - There is a data modification (dataset update, add or remove datas, ...)
  - There is a user group modification
+
 
 The periodicity of re-calculation of dynamic plugins is by default set to once a day but it is configurable in the microservice properties with the properties `regards.access.rights.update.cron`. The value is a standard cron format.
 

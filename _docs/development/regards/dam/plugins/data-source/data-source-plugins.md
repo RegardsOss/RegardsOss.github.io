@@ -7,9 +7,8 @@ title: Data source plugins
 
 ## Overview
 
-    This customization is an extesion point of DataManagement microservice.
-
-This extension point allows you to crawl datas from any source into the REGARDS catalog.
+> This extension point allows you to crawl datas from any source into the REGARDS catalog.
+{: .tip .plus}
 
 REGARDS provides many implementation of this extension point :
 - [AIPDataSourcePlugin](https://github.com/RegardsOss/regards-plugins/blob/master/datasource-plugins/aip-datasource/src/main/java/fr/cnes/regards/modules/dam/plugins/datasources/AipDataSourcePlugin.java) : To crawl data from the AIP storage microservice (rs-storage).
