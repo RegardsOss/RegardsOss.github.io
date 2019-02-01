@@ -7,10 +7,11 @@ title: Security delegation plugins
 
 ## Overview
 
-> This extension point allows to define if a user has access to a given AIP and its files. By default the security is delegated to the catalog microservice with the CatalogSecurityPlugin
+> This extension point allows to define if a user has access to a given AIP and its files. By default the security is delegated to the catalog microservice with the CatalogSecurityDelegation plugin
 {: .tip .plus}
 
 REGARDS provides many implementation of this extension point :
+ - [CatalogSecurityDelegation](https://github.com/RegardsOss/regards-plugins/blob/master/storage-plugins/catalog-security-delegation/src/main/java/fr/cnes/regards/modules/storage/plugins/security/CatalogSecurityDelegation.java) : Delegate access rights to catalog microservice
  - [NoCatalogSecurityDelegationPlugin](https://github.com/RegardsOss/regards-storage/blob/master/storage/storage-plugin/src/main/java/fr/cnes/regards/modules/storage/plugin/security/NoCatalogSecurityDelegationPlugin.java) : Allow access to all stored AIPs without any security check to all users.
 
 ## Interface
