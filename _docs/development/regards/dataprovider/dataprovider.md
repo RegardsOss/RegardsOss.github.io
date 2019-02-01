@@ -6,6 +6,16 @@ categories:
   - development
 ---
 
+## Overview
+
+`Dataprovider` reponsabilities:
+
+* Data discovery through a data driven mechanism,
+* Products creation (i.e. group of consistent files),
+* Transform products to SIPs and ingest them.
+
+![](/assets/schemas/microservices/dataprovider.svg)
+
 ## Available APIs
 
  - [Data provider](/development/regards/dataprovider/api/acquisition-api/)

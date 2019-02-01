@@ -6,6 +6,16 @@ categories:
   - development
 ---
 
+## Overview
+
+`Ingest` reponsabilities:
+
+* Ingest SIP,
+* Transform SIP to one or more AIPs,
+* Submit AIPs to `Storage`
+
+![](/assets/schemas/microservices/ingest.svg)
+
 ## Available APIs
 
  - [Ingest](/development/regards/ingest/api/ingest-api/)
