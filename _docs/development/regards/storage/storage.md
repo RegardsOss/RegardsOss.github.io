@@ -6,6 +6,15 @@ categories:
   - development
 ---
 
+## Overview
+
+`Storage` reponsabilities:
+
+* Store AIP,
+* Retrieve files.
+
+![](/assets/schemas/microservices/storage.svg)
+
 ## Available APIs
 
 - [Storage](/development/regards/storage/api/storage-api/)
