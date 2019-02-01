@@ -114,6 +114,16 @@
       children:
         - name: Acquisition API
           link: development/regards/dataprovider/api/acquisition-api/
+        - name: Scan plugins
+          link: development/regards/dataprovider/plugins/scan-plugins/
+        - name: Validation plugins
+          link: development/regards/dataprovider/plugins/validation-plugins/
+        - name: Product generation plugins
+          link: development/regards/dataprovider/plugins/product-plugins/
+        - name: SIP generation plugins
+          link: development/regards/dataprovider/plugins/sip-generation-plugins/
+        - name: Post processing plugins
+          link: development/regards/dataprovider/plugins/post-processing-plugins/
     - name: Ingest
       link: development/regards/ingest/ingest/
       children:

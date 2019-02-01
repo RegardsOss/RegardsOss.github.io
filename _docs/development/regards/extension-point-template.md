@@ -11,7 +11,7 @@ title: TODO plugins
 {: .tip .plus}
 
 REGARDS provides many implementation of this extension point :
- - [Impl] : (https://github.com/RegardsOss/regards-dam/blob/master/.../Impl.java)
+ - [Impl](https://github.com/RegardsOss/regards-dam/blob/master/.../Impl.java) : TODO
 
 ## Interface
 
