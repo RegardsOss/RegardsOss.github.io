@@ -7,7 +7,7 @@ title: Data source plugins
 
 ## Overview
 
-> This extension point allows you to crawl datas from any source into the REGARDS catalog.
+> This extension point allows you to crawl data from any source into the REGARDS catalog.
 {: .tip .plus}
 
 REGARDS provides many implementation of this extension point :

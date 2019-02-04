@@ -8,11 +8,11 @@ title: Data access rights plugins
 
 ## Overview
 
-> This extension point allows to defined access rights of datas into a dataset. 
+> This extension point allows to defined access rights of data into a dataset. 
 {: .tip .plus}
 
 Dynamic plugins are made to re-calculate access rights every day. Non dynamic plugins access rights calculation are made when :
- - There is a data modification (dataset update, add or remove datas, ...)
+ - There is a data modification (dataset update, add or remove data, ...)
  - There is a user group modification
 
 

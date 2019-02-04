@@ -15,7 +15,7 @@ This module is a dynamic configurable module to be used in REGARDS user interfac
 It can be used as a stand-alone module to display the results of a research on a the whole project data catalog.
 
 This module allows:
-  - Displaying results datas
+  - Displaying results data
   - Displaying results datasets
   - Displaying results documents
   - Switching display mode between list, table and quickview

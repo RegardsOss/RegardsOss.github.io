@@ -101,9 +101,9 @@ ArchivalStorage | - **Representation** : Manage AIP from request MIME type
 
 - **FilePattern** : Catalog | - **Representation** : Manage response format from request MIME type
 
-- **Filter** : Add filter to requested datas
+- **Filter** : Add filter to requested data
 
-- **Service** : Add treatements to datas associated to a given dataset DataManagement | - **CalculationModel** : Add a calculation rule for an AIP attribute
+- **Service** : Add treatements to data associated to a given dataset DataManagement | - **CalculationModel** : Add a calculation rule for an AIP attribute
 
 - **DBConnection** : DataBase connector
 
@@ -131,7 +131,7 @@ ArchivalStorage | - **Representation** : Manage AIP from request MIME type
 
 - **Generate**: Generate AIP parameters from SIP
 
-- **Tag** : Add TAG(s) to generated AIP Order | - **PriorityOrderScoring** : Plugin to manage priority order of sub-commands Processing | - **Processing** : Plugin to define datas treatements
+- **Tag** : Add TAG(s) to generated AIP Order | - **PriorityOrderScoring** : Plugin to manage priority order of sub-commands Processing | - **Processing** : Plugin to define data treatements
 
 - **Representation** : Manage response format from request MIME type
 
@@ -178,7 +178,7 @@ Since your new plugin is created, you have to implement your plugin functionalit
 
 ![](/assets/images/development/frontend-plugin-main.png)
 
-This React component is connected to the application 'Store', so the plugin can access any loaded datas from the frontend core application.
+This React component is connected to the application 'Store', so the plugin can access any loaded data from the frontend core application.
 
 The 'build' directory conains the generated plugin in javascript ES5\. this is this files that need to be placed in the 'Plugins' directory of the frontend webapp.
 

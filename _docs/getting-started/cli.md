@@ -64,7 +64,6 @@ You can stop a given component which is currently running.
 ## Contents of the installation directory
 The contents of the installation directory with all the microservices is :
 ```shell
-ll
 bin/
 bootstrap-access-instance.jar
 bootstrap-access-project.jar
@@ -73,8 +72,11 @@ bootstrap-authentication.jar
 bootstrap-catalog.jar
 bootstrap-config.jar
 bootstrap-dam.jar
+bootstrap-dataprovider.jar
 bootstrap-frontend.war
+bootstrap-order.jar
 bootstrap-registry.jar
+bootstrap-ingest.jar
 bootstrap-gateway.jar
 config/
 lib/
@@ -84,6 +86,6 @@ sbin/
 run/
 www/
 ```
-The **config** folder contains among others the logback configuration file for each microservice, in the the subfolders **config/logback/{microservice-name}**.
+The **config** folder contains among others the logback configuration file for each microservice, in the the subfolders **config/logback/{microservice-name}**. This subfolders contains the log4j context configuration file as [logback.xml](https://logback.qos.ch/manual/configuration.html).
 
 The **plugins** folder contains a subfolder foreach microservice **plugins/{microservice-name}**. This subfolders must contains the plugins to used for the specified microservice.
