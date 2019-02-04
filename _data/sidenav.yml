@@ -1,15 +1,10 @@
 # ========================================================================
 - name: Home
   icon: /assets/img/icons/if_globe_1055048.svg
+  link:
   children: 
     - name: Overview
       link: 
-    # - name: Introduction
-    #   link: home/introduction/
-    - name: Roadmap
-      link: home/roadmap/
-    - name: Features
-      link: home/features/
       children:
         # - name: Acquisition and archiving with OAIS
         #   link: home/features/acqarch/
@@ -17,8 +12,23 @@
         #   link: home/features/harvesting/
         # - name: OpenSearch API
         #   link: home/features/opensearch/
-        - name: Geospatial behavior
-          link: home/features/geo/
+        - name: Main features
+          link:
+        - name: Roadmap
+          link: home/roadmap/
+    # - name: Introduction
+    #   link: home/introduction/
+    # - name: Roadmap
+    #   link: home/roadmap/
+    # - name: Features
+    #   link: home/features/
+    #   children:
+        # - name: Acquisition and archiving with OAIS
+        #   link: home/features/acqarch/
+        # - name: Catalog harvesting and publication
+        #   link: home/features/harvesting/
+        # - name: OpenSearch API
+        #   link: home/features/opensearch/
 # ========================================================================
 - name: Getting Started
   icon: /assets/img/icons/rocket2.svg

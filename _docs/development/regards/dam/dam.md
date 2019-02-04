@@ -18,10 +18,14 @@ categories:
 
 ## Available APIs
 
-- [**DA**ta **M**anagement](/development/regards/dam/api/model-api/)
+* [**DA**ta **M**anagement](/development/regards/dam/api/model-api/)
 
 ## Available Extension points
 
-- [Access rights](/development/regards/dam/plugins/access-rights-plugins/)
-- [Computed attributes](/development/regards/dam/plugins/computed-attribute-plugins/)
-- [Data sources](/development/regards/dam/plugins/data-source-plugins/)
+* [Access rights](/development/regards/dam/plugins/access-rights-plugins/)
+* [Computed attributes](/development/regards/dam/plugins/computed-attribute-plugins/)
+* [Data sources](/development/regards/dam/plugins/data-source-plugins/)
+
+## Appendices
+
+* [Geospatial behavior](/development/regards/dam/geo/)

@@ -19,9 +19,9 @@ categories:
 
 ### Search API
 
-- [Catalog](/development/regards/catalog/api/search-api/)
+* [Catalog](/development/regards/catalog/api/search-api/)
 
 ## Available Extension points
 
-- [Catalog service](/development/regards/catalog/plugins/catalog-service-plugins/)
-- [Search engine](/development/regards/catalog/plugins/search-engine-plugins/)
+* [Catalog service](/development/regards/catalog/plugins/catalog-service-plugins/)
+* [Search engine](/development/regards/catalog/plugins/search-engine-plugins/)
