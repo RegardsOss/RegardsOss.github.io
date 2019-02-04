@@ -111,6 +111,8 @@
     - name: Data provider
       link: development/regards/dataprovider/dataprovider/
       children:
+        - name: Overview
+          link: development/regards/dataprovider/dataprovider/
         - name: Acquisition API
           link: development/regards/dataprovider/api/acquisition-api/
         - name: Plugins API
@@ -128,6 +130,8 @@
     - name: Ingest
       link: development/regards/ingest/ingest/
       children:
+        - name: Overview
+          link: development/regards/ingest/ingest/
         - name: Ingestion API
           link: development/regards/ingest/api/ingest-api/
         - name: Plugins API
