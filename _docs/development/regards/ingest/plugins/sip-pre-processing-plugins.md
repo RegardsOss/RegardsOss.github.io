@@ -7,7 +7,8 @@ title: SIP Pre-processing plugins
 
 ## Overview
 
-> This extension point allows to process a business action before a SIP is handled.
+> This extension point allows to process a business action before a SIP is handled.   
+> Moreover, for a SIP passed by reference, `read` method is activated to tranform referenced data package to REGARDS normalized SIP.
 {: .tip .plus}
 
 REGARDS do not provides any implementation of this extension point yet.

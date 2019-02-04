@@ -10,19 +10,17 @@ categories:
 
 `Storage` reponsabilities:
 
-* Store AIP,
+* Store AIP consistently,
 * Retrieve files.
 
-![](/assets/schemas/microservices/storage.svg)
+![Store plugins](/assets/schemas/microservices/storage.svg)
 
 ## Available APIs
 
-- [Storage](/development/regards/storage/api/storage-api/)
+* [Storage](/development/regards/storage/api/storage-api/)
 
 ## Available Extension points
 
-- [Allocation strategy plugins](/development/regards/storage/plugins/allocation-strategy-plugins)
-- [Data storage plugins](/development/regards/storage/plugins/data-storage-plugins)
-- [Security delegation plugins](/development/regards/storage/plugins/security-delegation-plugins)
-
-
+* [Allocation strategy plugins](/development/regards/storage/plugins/allocation-strategy-plugins)
+* [Data storage plugins](/development/regards/storage/plugins/data-storage-plugins)
+* [Security delegation plugins](/development/regards/storage/plugins/security-delegation-plugins)

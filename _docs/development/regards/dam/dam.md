@@ -6,6 +6,16 @@ categories:
   - development
 ---
 
+## Overview
+
+`Dam` reponsabilities:
+
+* Manage data models,
+* Harvest and index data sources,
+* Apply access rights.
+
+![Ingest plugins](/assets/schemas/microservices/dam.svg)
+
 ## Available APIs
 
 - [**DA**ta **M**anagement](/development/regards/dam/api/model-api/)

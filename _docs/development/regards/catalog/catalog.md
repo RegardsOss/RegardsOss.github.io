@@ -6,6 +6,15 @@ categories:
   - development
 ---
 
+## Overview
+
+`Catalog` reponsabilities:
+
+* Fast metadata discovery through plugable search protocol,
+* On the fly metadata transformation.
+
+![Store plugins](/assets/schemas/microservices/catalog.svg)
+
 ## Available APIs
 
 ### Search API

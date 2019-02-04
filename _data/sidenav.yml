@@ -40,23 +40,23 @@
     #     - name: Full OAIS workflow
     #       link: getting-started/samples/basic-oais/   
 # ========================================================================
-- name: User Documentation
-  icon: /assets/img/icons/phone-book.svg
-  children: 
-    - name: Instance management
-      link: user-documentation/instance-management/
-    - name: Project management
-      children: 
-        - name: Authentication and authorization
-          link: user-documentation/authentication/
-        - name: Data management
-          link: user-documentation/data-management/
-        - name: Data acquisition and archiving
-          link: user-documentation/data-acquisition-archiving/
-        - name: Web application configuration
-          link: user-documentation/webapp/
-    - name: Public interface
-      link: user-documentation/user-manual/
+# - name: User Documentation
+#   icon: /assets/img/icons/phone-book.svg
+#   children: 
+#     - name: Instance management
+#       link: user-documentation/instance-management/
+#     - name: Project management
+#       children: 
+#         - name: Authentication and authorization
+#           link: user-documentation/authentication/
+#         - name: Data management
+#           link: user-documentation/data-management/
+#         - name: Data acquisition and archiving
+#           link: user-documentation/data-acquisition-archiving/
+#         - name: Web application configuration
+#           link: user-documentation/webapp/
+#     - name: Public interface
+#       link: user-documentation/user-manual/
 # ========================================================================
 - name: Backend
   icon: /assets/img/icons/cloud-computing-dev.svg
@@ -99,6 +99,8 @@
     - name: Catalog
       link: development/regards/catalog/catalog/
       children:
+        - name: Overview
+          link: development/regards/catalog/catalog/
         - name: Search API
           link: development/regards/catalog/api/search-api/
         - name: Plugins API
@@ -110,6 +112,8 @@
     - name: Data Management
       link: development/regards/dam/dam/
       children:
+        - name: Overview
+          link: development/regards/dam/dam/
         - name: Model API
           link: development/regards/dam/api/model-api/
         - name: Plugins API
@@ -123,6 +127,8 @@
     - name: Data provider
       link: development/regards/dataprovider/dataprovider/
       children:
+        - name: Overview
+          link: development/regards/dataprovider/dataprovider/
         - name: Acquisition API
           link: development/regards/dataprovider/api/acquisition-api/
         - name: Plugins API
@@ -140,6 +146,8 @@
     - name: Ingest
       link: development/regards/ingest/ingest/
       children:
+        - name: Overview
+          link: development/regards/ingest/ingest/
         - name: Ingestion API
           link: development/regards/ingest/api/ingest-api/
         - name: Plugins API
@@ -164,6 +172,8 @@
     - name: Storage
       link: development/regards/storage/storage/
       children:
+        - name: Overview
+          link: development/regards/storage/storage/
         - name: Storage API
           link: development/regards/storage/api/storage-api/
         - name: Plugins API
