@@ -165,6 +165,8 @@
     - name: Order
       link: development/regards/order/order/
       children:
+        - name: Overview
+          link: development/regards/order/order/
         - name: Basket API
           link: development/regards/order/api/basket-api/
         - name: Order API
