@@ -8,10 +8,12 @@ categories:
 
 ## Overview
 
-Main storage functionalities :
- - `AIP Manager` : Store/Delete/Monitor AIPs.
- - `Tags Manager` : Add/remove tag(s) on AIPs.
- - `Cache system` : Makes AIP files available in cache system for retrieval.
+## Overview
+
+`Storage` reponsabilities:
+ * Store/Delete/Monitor AIPs.
+ * Add/remove tag(s) on AIPs.
+ * Makes AIP files available in cache system for retrieval.
 
  ![](/assets/schemas/microservices/storage.svg)
 
@@ -21,9 +23,6 @@ The schema here under shows the main process of AIP storing. [Allocation strateg
 
 ![](/assets/schemas/storage/sto-store-aip-simple.png)
 
-The schema here under describe the `AIP state diagram` and associated `files state diagram` when an AIP is submitted for storage.
-
-![](/assets/schemas/storage/sto-store-aip-datafile-states.png)
 
 ### Retrive AIP files
 

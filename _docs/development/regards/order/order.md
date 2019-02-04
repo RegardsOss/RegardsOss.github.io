@@ -6,7 +6,13 @@ categories:
   - development
 ---
 
-## Description
+## Overview
+
+`Order` reponsabilities:
+
+* Manage user basket,
+* Order files,
+* Download ordered files,
 
  The `Order` microservice is designed to allow authenticated users to order files of the REGARDS catalog. To do so, users have to build a basket by adding entities in it thanks to `opensearch` requests.
 
