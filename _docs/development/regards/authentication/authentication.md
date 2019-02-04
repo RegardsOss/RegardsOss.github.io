@@ -8,6 +8,8 @@ categories:
 
 ## Available APIs
 
+- [Authentication](/development/regards/authentication/api/authentication-api/)
+
 ### Search API
 
 - [Plugins](/development/regards/common/api/plugins-api/)

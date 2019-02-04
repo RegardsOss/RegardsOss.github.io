@@ -100,8 +100,10 @@
         # - name: Workspace
         #   link: development/framework/modules/workspace/
     - name: Authentication
-      link: development/regards/catalog/catalog/
+      link: development/regards/authentication/authentication/
       children:
+        - name: Authentication API
+          link: development/regards/authentication/api/authentication-api/
         - name: Plugins API
           link: development/regards/common/api/plugins-api/
         - name: Authentication plugins

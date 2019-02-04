@@ -19,6 +19,7 @@ $sidebar-width: 350px;
   overflow-y: auto;
   position: absolute;
   width: $sidebar-width;
+  height: 90% !important;
 
   a.active,
   .nav-span {
