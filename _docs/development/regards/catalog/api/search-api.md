@@ -99,6 +99,10 @@ To search for my_test_2, use the search:
 
 `*test*`
 
+#### Exclude Searches
+
+`NOT "Test"` or `label:(NOT "test")`
+
 #### Range Searches
 
 Range Queries allow one to match items whose field(s) values are between the lower and upper bound specified by the Range Query.
