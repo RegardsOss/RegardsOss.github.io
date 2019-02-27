@@ -41,6 +41,8 @@
           link: getting-started/configuration/
         - name: Deploy using IZPACK
           link: getting-started/izpack/
+        - name: Install plugins
+          link: getting-started/plugins/
         - name: Regards CLI 
           link: getting-started/cli/
     # - name: Basic use cases
