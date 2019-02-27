@@ -10,6 +10,14 @@ short-title: Legacy authentication API
 
 * `POST` `/oauth/token`
 
+You can access authentication endpoint with a `Curl` request to the authentication microservice
+```bash
+curl -X POST http://<microservice_host>:<microservice_port>/oauth/token?grant_type=password&scope=<project>&username=<login>&password=<password> \ 
+-H 'Authorization: Basic Y2xpZW50OnNlY3JldA==' \ 
+-H 'Content-Type: application/json;charset=UTF-8' \ 
+-H 'Accept: application/json'
+```
+
 ### Authentication headers
 
 * `Authorization: Basic Y2xpZW50OnNlY3JldA==`

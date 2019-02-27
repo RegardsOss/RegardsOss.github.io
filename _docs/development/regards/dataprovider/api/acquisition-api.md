@@ -5,6 +5,8 @@ title: REGARDS DataProvider API
 
 {% include toc.md %}
 
+{% include howto-api.md name="rs-dataprovider" %}
+
 # Overview
 
     This API allows to create, launch and monitor acquisition processing chains.

@@ -5,6 +5,8 @@ title: REGARDS Storage API
 
 {% include toc.md %}
 
+{% include howto-api.md name="rs-storage" %}
+
 # AIPController
 
 ## Overview

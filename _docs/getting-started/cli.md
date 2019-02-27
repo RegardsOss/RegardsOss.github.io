@@ -33,6 +33,20 @@ In order to start REGARDS, you will have to run specific commands.
 /opt/regards/REGARDS/bin/start_microservice.sh -t {component_name}
 ```
 
+microservices start order :
+ 1. `registry` : All microservices register themself to this registry
+ 2. `config` : All microservices get their centralized configuration from this microservice
+ 3. `admin-instance` : All microservices get their database connections information from this microservice
+ 4. `admin` : All microservices get users information from this microservice
+ 5. `authentication` : All microservices use this microservice to check user authentications
+ 6. `dam` : Handle data management
+ 7. `catalog` : Handle project catalog
+ 8. `access-instance` : Configuration of instance IHM (admin instance & portal)
+ 9. `access-project` : Configration of projet IHM
+ 10. `storage` : Handle data files storage
+ 11. `ingest` : Handle SIP ingestion
+ 12. `dataprovider` : Handle SIP generation
+
 ## Check the components status
 You can check if a given component is currently running.
 

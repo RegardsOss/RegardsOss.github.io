@@ -14,6 +14,8 @@ At the moment, REGARDS can expose two search API :
 
 {% include toc.md %}
 
+{% include howto-api.md name='rs-catalog'%}
+
 ## Legacy API
 
 ### Legacy URLs

@@ -5,6 +5,8 @@ title: REGARDS Ingest API
 
 {% include toc.md %}
 
+{% include howto-api.md name="rs-ingest" %}
+
 # Overview
 
     This API allows to submit and search SIP (Submission Information Package).

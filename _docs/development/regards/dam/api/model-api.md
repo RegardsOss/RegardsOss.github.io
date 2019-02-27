@@ -5,6 +5,8 @@ title: REGARDS DAM API
 
 {% include toc.md %}
 
+{% include howto-api.md name="rs-dam" %}
+
 # FragmentController
 
 ## Overview

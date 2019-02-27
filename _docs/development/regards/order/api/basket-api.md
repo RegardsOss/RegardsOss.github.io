@@ -2,6 +2,10 @@
 layout: classic-docs
 title: REGARDS Basket API
 ---
+{% include toc.md %}
+
+{% include howto-api.md %}
+
 # Overwiew
 
 Base API URL may vary and is not mentioned here. So in production, each

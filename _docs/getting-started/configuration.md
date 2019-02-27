@@ -67,7 +67,9 @@ chmod 1770 /opt/regards
 
 ## Postgres
 
-Install the database [PostgreSQL](https://www.postgresql.org/) 9.6.  
+Install the database [PostgreSQL](https://www.postgresql.org/) 9.6.X.  
+`Notice :` Do not use a further version like 10.X. 
+
 You can also install [phpPgAdmin](http://phppgadmin.sourceforge.net/doku.php) to monitor the database.  
 
 Here is how to init Postgres on Red Hat OS:
@@ -94,9 +96,34 @@ createdb -O rs_postgres -E UTF8 rs_instance
 createdb -O rs_postgres -E UTF8 rs_project1
 ```
 
+If you want to use REGARDS with a large number of projects, you may need to configure the maximum number of connections allowed by your postgres server. Indeed, in REGARDS each project needs a connection pool with at least 3connections per microservice.
+For exemple if you install all REGARDS project microservices (9) you will need 27 (9microservices * 3connections) connections per project.
+By default a postgres server allows 100 connections per server. So if you not planning to use more than 3 projects you don't need any modifications. So if you plan to create more than 3 projects you have to increase the maximum number of allowed connections.
+To do so : 
+
+1. Increase max_connection and shared_buffers
+```bash
+in /var/lib/pgsql/data/postgresql.conf
+Change
+max_connections = 100
+shared_buffers = 24MB
+
+to
+max_connections = 300
+shared_buffers = 80MB
+```
+2. Change kernel.shmmax
+```bash
+In /etc/sysctl.conf
+kernel.shmmax=100663296
+```
+
+Notice : REGARDS project microservices are `access-project`, `admin`, `authentication`, `catalog`, `dam`, `dataprovider`, `ingest`, `order` and `storage`
+
 ## RabbitMQ
 
-Install RabbitMQ Server 3.6.8 [using the official documentation](https://www.rabbitmq.com/download.html#installation-guides).
+Install RabbitMQ Server 3.6.X [using the official documentation](https://www.rabbitmq.com/download.html#installation-guides).  
+`Notice :` Do not use a further version like 3.7.X.
 
 Then on Red Hat OS, you need to create some basic configuration:
 ```
@@ -128,11 +155,15 @@ Then, using the [RabbitMQ REST API](https://www.rabbitmq.com/rabbitmqctl.8.html#
 # Create a RabbitMQ admin named regards_adm
 rabbitmqctl add_user regards_adm regards_adm
 rabbitmqctl set_user_tags regards_adm administrator
+rabbitmqctl set_permissions -p / regards_adm ". ".*" "."
 ```
+
+
 
 ## Elasticsearch
 
-Install ElasticSearch 5.4 & Kibana 5
+Install [ElasticSearch]https://www.elastic.co/fr/downloads) 5.6.X.
+`Notice :` Do not use a further version like 6.X. 
 
 If `grep vm.max_map_count /etc/sysctl.conf` returns empty, you need to execute the following:
 
@@ -148,9 +179,18 @@ For Red Hat OS, you just need to start it :
 systemctl start elasticsearch.service
 ```
 
+## Kibana
+
+`This COTS is non-mandatory but higly recommended for administrators of REGARDS system.`  
+
+Installation of [Kibana](https://www.elastic.co/fr/downloads) 5.X.  
+`Notice :` Do not use a further version like 6.X. 
+
+This web server allows you to manage the content of your elasticsearch indexes. 
+
 ## Reverse proxy
 
-Install NGinx or httpd as a reverse proxy, it handles on a single port (80 or 443) all trafic for the REGARDS.
+Install [NGinx](https://docs.nginx.com/nginx/admin-guide/installing-nginx/installing-nginx-open-source/) (1.15+) or [httpd](http://httpd.apache.org/docs/current/fr/install.html) (2.X+) as a reverse proxy, it handles on a single port (80 or 443) all trafic for the REGARDS.
 
 ### httpd
 
@@ -208,7 +248,7 @@ For Red Hat OS, you need to start it:
 systemctl start httpd.service
 ```
 
-If you are using a Red Hat OS, you will need to autorize httpd to connect to the network, even a local one. If the following property is off :
+If you are using a `Red Hat OS` with `selinux`, you will need to autorize httpd to connect to the network, even a local one. If the following property is off :
 
 ```bash
 $ getsebool -a | grep httpd_can_network_connect

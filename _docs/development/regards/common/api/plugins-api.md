@@ -5,13 +5,15 @@ title: REGARDS Plugins API
 
 {% include toc.md %}
 
-# Overview
+{% include howto-api.md name='<microservice>' %}
+
+## Overview
 
     This API allows to submit REGARDS's plugins.
 
-# Plugins management
+## Plugins management
 
-## Get all plugins type
+### Get all plugins type
 
 Get in the classpath all the interfaces identified with the Java
 annotation @PluginInterface.
@@ -22,7 +24,7 @@ annotation @PluginInterface.
 
 {% include_relative generated-snippets/PluginControllerIT/getAllPluginTypes/http-response.md %}
 
-## Get all plugins metadata
+### Get all plugins metadata
 
 Get in the classpath all the classes identified with the Java annotation
 @Plugin.
@@ -33,7 +35,7 @@ Get in the classpath all the classes identified with the Java annotation
 
 {% include_relative generated-snippets/PluginControllerIT/getAllPlugins/http-response.md %}
 
-## Get all the plugins metadata for a plugin’s interface
+### Get all the plugins metadata for a plugin’s interface
 
 {% include_relative generated-snippets/PluginControllerIT/getPluginOneType/http-request.md %}
 
@@ -43,7 +45,7 @@ Get in the classpath all the classes identified with the Java annotation
 
 {% include_relative generated-snippets/PluginControllerIT/getPluginOneUnknownType/http-response.md %}
 
-## Get a plugin metadata
+### Get a plugin metadata
 
 {% include_relative generated-snippets/PluginControllerIT/getOnePlugin/http-request.md %}
 
@@ -51,9 +53,9 @@ Get in the classpath all the classes identified with the Java annotation
 
 {% include_relative generated-snippets/PluginControllerIT/getOnePlugin/http-response.md %}
 
-# Plugin configuration management
+## Plugin configuration management
 
-## Create a plugin configuration
+### Create a plugin configuration
 
 Submits a REGARDS plugin configuration as a POST request.
 
@@ -67,7 +69,7 @@ Submits a REGARDS plugin configuration as a POST request.
 
 {% include_relative generated-snippets/PluginControllerIT/savePluginConfigurationErrorConfNull/http-response.md %}
 
-## Get a plugin configuration
+### Get a plugin configuration
 
 {% include_relative generated-snippets/PluginControllerIT/getPluginConfiguration/http-request.md %}
 
@@ -75,7 +77,7 @@ Submits a REGARDS plugin configuration as a POST request.
 
 {% include_relative generated-snippets/PluginControllerIT/getPluginConfiguration/http-response.md %}
 
-## Update a plugin configuration
+### Update a plugin configuration
 
 Submits a REGARDS plugin configuration as a PUT request.
 
@@ -89,7 +91,7 @@ Submits a REGARDS plugin configuration as a PUT request.
 
 {% include_relative generated-snippets/PluginControllerIT/updatePluginConfiguration/http-response.md %}
 
-## Delete a plugin configuration
+### Delete a plugin configuration
 
 {% include_relative generated-snippets/PluginControllerIT/deletePluginConfiguration/http-request.md %}
 
@@ -97,7 +99,7 @@ Submits a REGARDS plugin configuration as a PUT request.
 
 {% include_relative generated-snippets/PluginControllerIT/deletePluginConfiguration/http-response.md %}
 
-## Get all plugins configuration
+### Get all plugins configuration
 
 {% include_relative generated-snippets/PluginControllerIT/getAllPluginConfiguration/http-request.md %}
 
@@ -105,7 +107,7 @@ Submits a REGARDS plugin configuration as a PUT request.
 
 {% include_relative generated-snippets/PluginControllerIT/getAllPluginConfiguration/http-response.md %}
 
-## Get all plugins configuration for a specific plugin
+### Get all plugins configuration for a specific plugin
 
 {% include_relative generated-snippets/PluginControllerIT/getPluginConfigurationsForOnePluginId/http-request.md %}
 
@@ -115,7 +117,7 @@ Submits a REGARDS plugin configuration as a PUT request.
 
 {% include_relative generated-snippets/PluginControllerIT/getAllPluginConfigurationByTypeError/http-response.md %}
 
-## Get all plugins configuration for a specific interface
+### Get all plugins configuration for a specific interface
 
 {% include_relative generated-snippets/PluginControllerIT/getAllPluginConfigurationForOneSpecificType/http-request.md %}
 
@@ -123,7 +125,7 @@ Submits a REGARDS plugin configuration as a PUT request.
 
 {% include_relative generated-snippets/PluginControllerIT/getAllPluginConfigurationForOneSpecificType/http-response.md %}
 
-## Empty the runtime cache plugin
+### Empty the runtime cache plugin
 
 {% include_relative generated-snippets/PluginControllerIT/emptyPluginsCahe/http-request.md %}
 
