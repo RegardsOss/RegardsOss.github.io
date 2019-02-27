@@ -19,6 +19,12 @@ In order to run the Izpack installer, you need these dependencies :
 - groovy 1.8.9
 - OpenJDK 1.8
 
+`Notice : ` Groovy must be accessible from default install path /usr/bin/groovy.
+If not, you can create a link :
+```bash
+ln -s /custom/install/dir/groovy /usr/bin/groovy
+```
+
 ## Run command
 
 To run the REGARDS installer, run the command:  
