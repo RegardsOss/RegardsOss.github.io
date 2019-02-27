@@ -8,7 +8,7 @@ short-title: Plugins
 
 ## Find plugins
 
-To find available plugins for REGARDS microservices you can check the [official plugin repository on github](https://github.com/RegardsOss/regards-plugins)
+To find available plugins for REGARDS microservices you can check the [official plugin repository on github](https://github.com/RegardsOss/regards-plugins/releases)
 
 ## Add new plugin to a microservice
 
