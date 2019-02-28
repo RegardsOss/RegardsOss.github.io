@@ -45,6 +45,8 @@
           link: getting-started/plugins/
         - name: Regards CLI 
           link: getting-started/cli/
+        - name: FAQ
+          link: getting-started/faq/
     # - name: Basic use cases
     #   children: 
     #     - name: External data source publication
