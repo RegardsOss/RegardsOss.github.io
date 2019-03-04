@@ -91,7 +91,14 @@ For a search query application you can also execlude some entites from the searc
 
 To learn more about how to create your own plugin see [Plugins](/development/framework/modules/plugins/).
 
-[SampleServicePlugin](https://github.com/RegardsOss/regards-catalog/blob/master/catalog-services/catalog-services-plugin/src/main/java/fr/cnes/regards/modules/catalog/services/plugins/SampleServicePlugin.java) is an exemple of how to implements this extension point to create your own business logic.
+[SampleServicePlugin](https://github.com/RegardsOss/regards-catalog/blob/master/catalog-services/catalog-services-plugin/src/main/java/fr/cnes/regards/modules/catalog/services/plugins/SampleServicePlugin.java) is an exemple of how to implements this extension point to create your own business logic.  
+  
+In order to help you retrieving datas from the queried parameters the [ServiceHelper](https://github.com/RegardsOss/regards-catalog/blob/master/catalog-services/catalogue-services-helper/src/main/java/fr/cnes/regards/modules/catalog/services/helper/ServiceHelper.java) can be autowired on any of your plugin implementations.
+
+```java
+@Autowired
+private IServiceHelper serviceHelper;
+```
 
 The exemple service :
 - Extends [AbstractCatalogServicePlugin](https://github.com/RegardsOss/regards-catalog/blob/master/catalog-services/catalog-services-plugin/src/main/java/fr/cnes/regards/modules/catalog/services/plugins/AbstractCatalogServicePlugin.java) to add a standard plugin parameter to allow access to the service on specified catalog datasets. The Administration IHM allows you to define access to catalog services for each dataset.

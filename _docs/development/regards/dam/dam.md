@@ -26,6 +26,10 @@ categories:
 * [Computed attributes](/development/regards/dam/plugins/computed-attribute-plugins/)
 * [Data sources](/development/regards/dam/plugins/data-source-plugins/)
 
+## Bus message events
+
+ * [Events](/development/regards/dam/events/events/)
+
 ## Appendices
 
 * [Geospatial behavior](/development/regards/dam/geo/)

@@ -25,3 +25,7 @@ categories:
 
 * [Catalog service](/development/regards/catalog/plugins/catalog-service-plugins/)
 * [Search engine](/development/regards/catalog/plugins/search-engine-plugins/)
+
+## Bus message events
+
+ * [Events](/development/regards/catalog/events/events/)

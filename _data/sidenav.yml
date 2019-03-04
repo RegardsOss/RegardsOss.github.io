@@ -122,9 +122,11 @@
         - name: Plugins API
           link: development/regards/common/api/plugins-api/
         - name: Catalog service plugins
-          link: development/regards/catalog/plugins/catalog-service-plugins
+          link: development/regards/catalog/plugins/catalog-service-plugins/
         - name: Search engine plugins
-          link: development/regards/catalog/plugins/search-engine-plugins
+          link: development/regards/catalog/plugins/search-engine-plugins/
+        - name: Bus message events
+          link: development/regards/catalog/events/events/
     - name: Data Management
       link: development/regards/dam/dam/
       children:
@@ -140,6 +142,8 @@
           link: development/regards/dam/plugins/computed-attribute-plugins/
         - name: Data source Plugins
           link: development/regards/dam/plugins/data-source-plugins/
+        - name: Bus message events
+          link: development/regards/dam/events/events/
     - name: Data provider
       link: development/regards/dataprovider/dataprovider/
       children:
@@ -178,6 +182,8 @@
           link: development/regards/ingest/plugins/aip-tagging-plugins/
         - name: SIP Post processing plugins
           link: development/regards/ingest/plugins/sip-post-processing-plugins/
+        - name: Bus message events
+          link: development/regards/ingest/events/events/
     - name: Order
       link: development/regards/order/order/
       children:
@@ -202,6 +208,8 @@
           link: development/regards/storage/plugins/data-storage-plugins/
         - name: Security delegation plugins
           link: development/regards/storage/plugins/security-delegation-plugins/
+        - name: Bus message events
+          link: development/regards/storage/events/events/
 # ========================================================================      
 - name: Frontend
   icon: /assets/img/icons/coding.svg

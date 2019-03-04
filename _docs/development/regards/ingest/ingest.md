@@ -27,3 +27,7 @@ categories:
 * [AIP Generation plugins](/development/regards/ingest/plugins/aip-generation-plugins/)
 * [AIP Tagging plugins](/development/regards/ingest/plugins/aip-tagging-plugins/)
 * [SIP Post processing plugins](/development/regards/ingest/plugins/sip-post-processing-plugins/)
+
+## Bus message events
+
+ * [Events](/development/regards/ingest/events/events/)

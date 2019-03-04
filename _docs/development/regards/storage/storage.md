@@ -37,3 +37,7 @@ In order to optimize files access time, REGARDS handle a cache storage system. W
 - [Allocation strategy plugins](/development/regards/storage/plugins/allocation-strategy-plugins) : Strategy to dispatch files in available storage systems.
 - [Data storage plugins](/development/regards/storage/plugins/data-storage-plugins) : Storage systems
 - [Security delegation plugins](/development/regards/storage/plugins/security-delegation-plugins) : Delegate access rights to stored files
+
+## Bus message events
+
+ * [Events](/development/regards/catalog/events/events/)
