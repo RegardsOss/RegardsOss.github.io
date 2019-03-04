@@ -9,4 +9,4 @@ title: Bus message events
 
  | Event    | Target   | Mode    | Description     |
  | :----    | :----    | :------ | :-----------    |
- | [LinkPluginsDatasetsEvent](https://github.com/RegardsOss/regards-catalog/blob/master/catalog-services-domain/fr/cnes/regards/modules/catalog/services/domain/event/LinkPluginsDatasetsEvent.java) | ALL | Broadcast | Published when a link between a business service plugin and a dataset is created |
+ | [LinkPluginsDatasetsEvent](https://github.com/RegardsOss/regards-catalog/blob/master/catalog-services/catalog-services-domain/src/main/java/fr/cnes/regards/modules/catalog/services/domain/LinkPluginsDatasets.java) | ALL | Broadcast | Published when a link between a business service plugin and a dataset is created |
