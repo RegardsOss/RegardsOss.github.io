@@ -25,6 +25,8 @@ If not, you can create a link :
 ln -s /custom/install/dir/groovy /usr/bin/groovy
 ```
 
+> In case of securized installation, the REGARDS installation directory must be owned by the user who run the installation commands.
+
 ## Run command
 
 To run the REGARDS installer, run the command:  
@@ -322,8 +324,6 @@ Port [9200]
 ```txt
 The workspaces basic directory [/opt/regards/workspace]
 ```
-
-TODO
 
 #### rs-admin-instance
 

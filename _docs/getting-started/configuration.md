@@ -26,10 +26,15 @@ Any server that hosts a REGARDS component needs:
 - Java OpenJDK JRE 1.8
 - access to the database PostgreSQL
 - access to the message broker RabbitMQ
+- access to a SMTP mail server
 
 And for components `Data Management` and `Catalog`:
 
 - access to the ElasticSearch
+
+### SMTP mail server
+
+You can use any SMTP mail server you want. The connection properties have to be provided during the REGARDS installation.
 
 ### Password
 
@@ -89,6 +94,15 @@ createuser -P --interactive rs_postgres
 # answer no to all questions
 ```
 
+After your user is created, you have to add the authentication method in the pg_hba.conf. Here under is an exemple for local authentication.
+```bash
+# "local" is for Unix domain socket connections only
+local   all             rs_postgres                             md5
+local   all             postgres                                md5
+# IPv4 local connections:
+host    all             all             127.0.0.1/32            md5
+```
+
 You will need at least two databases, one for REGARDS instance and one for the first REGARDS project.
 
 ```bash
@@ -96,9 +110,12 @@ createdb -O rs_postgres -E UTF8 rs_instance
 createdb -O rs_postgres -E UTF8 rs_project1
 ```
 
-If you want to use REGARDS with a large number of projects, you may need to configure the maximum number of connections allowed by your postgres server. Indeed, in REGARDS each project needs a connection pool with at least 3connections per microservice.
-For exemple if you install all REGARDS project microservices (9) you will need 27 (9microservices * 3connections) connections per project.
-By default a postgres server allows 100 connections per server. So if you not planning to use more than 3 projects you don't need any modifications. So if you plan to create more than 3 projects you have to increase the maximum number of allowed connections.
+  
+If you want to use REGARDS with a large number of projects, you may need to configure the maximum number of connections allowed by your postgres server. Indeed, in REGARDS each project needs a connection pool with at least 3connections per microservice.  
+
+For exemple if you install all REGARDS project microservices (9) you will need 27 (9microservices * 3connections) connections per project.  
+
+By default a postgres server allows 100 connections per server. So if you not planning to use more than 3 projects you don't need any modifications. So if you plan to create more than 3 projects you have to increase the maximum number of allowed connections.  
 To do so : 
 
 1. Increase max_connection and shared_buffers
@@ -131,6 +148,10 @@ Then on Red Hat OS, you need to create some basic configuration:
 cp /usr/share/doc/rabbitmq-server-3.6.8/rabbitmq.config.example /etc/rabbitmq/rabbitmq.config.ori
 cp /etc/rabbitmq/rabbitmq.config.ori /etc/rabbitmq/rabbitmq.config
 
+# Create localhost configuration file
+echo "
+vm.max_map_count=262144" >> /etc/sysctl.conf
+
 # Allow the rabbitmq default user to manage its config files
 chown -R :rabbitmq  /etc/rabbitmq
 chmod 0770 /etc/rabbitmq
@@ -162,7 +183,7 @@ rabbitmqctl set_permissions -p / regards_adm ". ".*" "."
 
 ## Elasticsearch
 
-Install [ElasticSearch]https://www.elastic.co/fr/downloads) 5.6.X.
+Install [ElasticSearch](https://www.elastic.co/fr/downloads) 5.6.X.  
 `Notice :` Do not use a further version like 6.X. 
 
 If `grep vm.max_map_count /etc/sysctl.conf` returns empty, you need to execute the following:
