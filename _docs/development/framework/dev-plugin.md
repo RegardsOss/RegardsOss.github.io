@@ -22,7 +22,7 @@ Clone mandatory common github repositories :
 * git clone https://github.com/RegardsOss/regards-admin.git
 * git clone https://github.com/RegardsOss/regards-plugins.git
 
-Clone specific github repositories for the plugin you want to generate. For exemple if you want to generate a plugin of the "Catalog" microservice, you need to clone the Catalogue microservice repository.
+Clone specific github repositories for the plugin you want to generate. For exemple if you want to generate a plugin of the "Catalog" microservice, you need to clone the Catalog microservice repository.
  * git clone https://github.com/RegardsOss/regards-catalog.git
 
 Now compile each repository with maven `mvn clean install -DskipTests` with the here under order :
@@ -33,7 +33,7 @@ Now compile each repository with maven `mvn clean install -DskipTests` with the 
 
 ## Create your plugin maven module
 
-Create a new maven module in the `regards-plugins` repository under the associated microservice module. For exemple to create a 'Catalogue' microservice plugin named 'MyCatalogPlugin' create it in `regards-plugins/catalog-plugins/myCatalogPlugin`.
+Create a new maven module in the `regards-plugins` repository under the associated microservice module. For exemple to create a Catalog microservice plugin named 'MyCatalogPlugin' create it in `regards-plugins/catalog-plugins/myCatalogPlugin`.
   
 Edit your `pom.xml` and add the here under standard plugin information :
 ```xml
