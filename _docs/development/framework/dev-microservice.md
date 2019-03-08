@@ -89,10 +89,7 @@ Choose the right archetype(fr.cnes.regards.modules:module-archetype) and enter r
 - `version` : press enter to apply default value
 - `package` : press enter to apply default value
 
-- Add the following dependency to `bootstrap-myMicroservice/pom.xml` file:
-
-For instance, with the module artifact id "myModule" :
-
+Add the following dependency to `bootstrap-myMicroservice/pom.xml` file (for instance, with the module artifact id `myModule`) :
 ```xml
 <dependency>
   <groupId>fr.cnes.regards.modules.myModule</groupId>
