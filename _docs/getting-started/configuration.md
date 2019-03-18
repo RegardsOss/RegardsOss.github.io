@@ -38,7 +38,7 @@ You can use any SMTP mail server you want. The connection properties have to be 
 
 ### Password
 
-The component `rs-admin-instance` requires a cipher to validate password using SHA.
+Components requires a cipher to encrypt some sensible information using AES algorithm.
 
 ```bash
 mkdir /opt/regards
@@ -57,9 +57,9 @@ groupadd rsexec
 groupadd rsadmin
 groupadd rsrun
 useradd rsins -g rsins -G regards,rsexec,rsadmin,rsrun
-printf 'rsins\nrsins\n' | passwd rsins
+passwd rsins
 useradd rsadmin -g regards -G rsadmin,rsrun
-printf 'rsadmin\nrsadmin\n' | passwd rsadmin
+passwd rsadmin
 useradd regards --no-create-home --shell=/sbin/nologin -g regards -G rsexec,rsrun
 ```
 
