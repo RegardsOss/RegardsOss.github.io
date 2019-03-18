@@ -158,7 +158,7 @@ curl http://localhost:8999/api/me/ -H "Authorization: Bearer <admin_acces_token>
 
  `myModule/myModule-rest/src/main/java/fr/cnes/regards/modules/myModule/GreetingsController.java`
 
- ## Centralize your new microservice configuration
+## Centralize your new microservice configuration
 
  To centralize the configuration of your microservice, you can copy your application-local.properties file to the rs-config microservice installation directory :  
  ```bash
