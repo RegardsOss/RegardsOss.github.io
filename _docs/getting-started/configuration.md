@@ -45,7 +45,7 @@ mkdir /opt/regards
 openssl rand -hex 8 > /opt/regards/regards.key
 ```
 
-For maximum security, cipher key should only be readable by user `regards`. We strongly advise you to execute the following commands as root:
+For maximum security, cipher key should only be readable by user `regards`. We strongly advice you to execute the following commands as root:
 
 ```bash
 chown regards:root /opt/regards/regards.key
