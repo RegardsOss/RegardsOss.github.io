@@ -35,17 +35,19 @@ In order to start REGARDS, you will have to run specific commands.
 
 microservices start order :
  1. `config` : All microservices get their centralized configuration from this microservice
- 2. `registry` : All microservices register themself to this registry
- 3. `admin-instance` : All microservices get their database connections information from this microservice
- 4. `admin` : All microservices get users information from this microservice
- 5. `authentication` : All microservices use this microservice to check user authentications
- 6. `dam` : Handle data management
- 7. `catalog` : Handle project catalog
- 8. `access-instance` : Configuration of instance IHM (admin instance & portal)
- 9. `access-project` : Configration of projet IHM
- 10. `storage` : Handle data files storage
- 11. `ingest` : Handle SIP ingestion
- 12. `dataprovider` : Handle SIP generation
+ 1. `registry` : All microservices register themself to this registry
+ 1. `admin-instance` : All microservices get their database connections information from this microservice
+ 1. `admin` : All microservices get users information from this microservice
+ 1. `access-instance` : Configuration of instance IHM (admin instance & portal)
+ 1. `access-project` : Configration of projet IHM
+ 1. `gateway` : Load balancer
+ 1. `authentication` : All microservices use this microservice to check user authentications
+ 1. `storage` : Handle data files storage
+ 1. `dam` : Handle data management
+ 1. `catalog` : Handle project catalog
+ 1. `order` : handle orders
+ 1. `ingest` : Handle SIP ingestion
+ 1. `dataprovider` : Handle SIP generation
 
 ## Check the components status
 You can check if a given component is currently running.
