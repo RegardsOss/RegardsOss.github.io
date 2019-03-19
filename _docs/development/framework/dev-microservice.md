@@ -27,14 +27,14 @@ Each microservice offers the features :
 
 To create a new microservice you have to create a new maven project with the microservice-archetype. To do so :
 
-- Clone the git rs-microservice repository<br>
+- Clone the git rs-microservice repository  
 
 ```bash
 git clone https://github.com/RegardsOss/regards-bom.git
 git clone https://github.com/RegardsOss/regards-microservice.git
 ```
 
-- Compile and install the maven project<br>
+- Compile and install the maven project  
 
 ```bash
 cd regards-bom
@@ -54,11 +54,15 @@ mvn archetype:generate -DarchetypeCatalog=local
 
 You have many archetype proposed to you, under the format
 
-`number: [local|remote] -> archetype_group_id:archetype_artifact_id (archetype_description)`
+```txt
+number: [local|remote] -> archetype_group_id:archetype_artifact_id (archetype_description)
+```
 
 find the line
 
-`X: local -> fr.cnes.regards.microservices:microservice-archetype (microservice-archetype)`
+```txt
+X: local -> fr.cnes.regards.microservices:microservice-archetype (microservice-archetype)
+```
 
 and enter `X`
 
@@ -68,6 +72,9 @@ where X is the actual number of the microservice creation archetype. Then enter 
 - `artifactId` : mymicroservice
 - `version` : press enter to apply default value
 - `package` : press enter to apply default value
+- `microserviceDescription` : My microservice description
+- `microserviceName` : mymicroservice
+- `microserviceTitle` : My Microservice
 
 ## Create your first module
 
@@ -75,14 +82,14 @@ Once you have created the microservice container, you have to create modules.
 
 To add a new module to your microservice you have to add a new maven module with the module-archetype. To do so :
 
-- Go to microservice folder and generate a module
+- Inside the microservice root folder, execute the following command to generate a module
 
 ```bash
   cd myMicroservice
   mvn archetype:generate -DarchetypeCatalog=local
 ```
 
-Choose the right archetype(fr.cnes.regards.modules:module-archetype) and enter requested field as follow :
+Choose the right archetype (`fr.cnes.regards.modules:module-archetype`) and enter requested field as follow :
 
 - `groupId` : fr.cnes.regards.modules.myModule
 - `artifactId` : myModule
@@ -90,6 +97,7 @@ Choose the right archetype(fr.cnes.regards.modules:module-archetype) and enter r
 - `package` : press enter to apply default value
 
 Add the following dependency to `bootstrap-myMicroservice/pom.xml` file (for instance, with the module artifact id `myModule`) :
+
 ```xml
 <dependency>
   <groupId>fr.cnes.regards.modules.myModule</groupId>
@@ -98,15 +106,14 @@ Add the following dependency to `bootstrap-myMicroservice/pom.xml` file (for ins
 </dependency>
 ```
 
-## Configure microservice to work in local with remote REGARDS server instance
+## Configure microservice to run locally with a remote REGARDS server instance
 
 In order to help developers test their microservice, local configuration files are available when you generate a microservice through the maven archetype. Those files are :
- * `src/main/resources/application-local-properties`.
- * `src/main/resources/bootstrap-local-properties`.
-   
+
+- `src/main/resources/application-local-properties`.
+- `src/main/resources/bootstrap-local-properties`.
+
 Fill those configuration files with the missing informations.
-
-
 
 ## Test the microservice
 
@@ -147,11 +154,11 @@ curl http://localhost:8999/api/me/ -H "Authorization: Bearer <admin_acces_token>
 
 **Swagger UI access :** <http://localhost:8999/swagger-ui.html>
 
-**NOTE** : To add new REST resource follow exemple on file
+**NOTE** : To add new REST resource follow example on file
 
  `myModule/myModule-rest/src/main/java/fr/cnes/regards/modules/myModule/GreetingsController.java`
 
- ## Centralize your new microservice configuration
+## Centralize your new microservice configuration
 
  To centralize the configuration of your microservice, you can copy your application-local.properties file to the rs-config microservice installation directory :  
  ```bash

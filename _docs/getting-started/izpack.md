@@ -504,13 +504,4 @@ Url [http://localhost:8000]
 ```
 Set the public URI of REGARDS
 
-## Post install steps
-
-For maximum security, cipher key should only be readable by user `regards`. We strongly advise you to execute the following commands as root:
-```bash
-chown regards:root /opt/regards/regards.key
-chmod 0400 /opt/regards/regards.key
-```
-
-
 That's it ! You can jump to the [CLI guide](/getting-started/cli/#section=getting-started) to launch REGARDS.
