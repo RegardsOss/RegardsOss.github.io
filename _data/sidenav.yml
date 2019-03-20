@@ -91,7 +91,7 @@
           link: development/framework/modules/jobs/
         - name: Plugins
           link: development/framework/modules/plugins/
-        - name: How to create a microserice
+        - name: How to create a microservice
           link: development/framework/dev-microservice/
         - name: How to create a plugin
           link: development/framework/dev-plugin/
