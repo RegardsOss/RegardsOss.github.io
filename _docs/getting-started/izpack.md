@@ -504,5 +504,4 @@ Url [http://localhost:8000]
 ```
 Set the public URI of REGARDS
 
-
 That's it ! You can jump to the [CLI guide](/getting-started/cli/#section=getting-started) to launch REGARDS.

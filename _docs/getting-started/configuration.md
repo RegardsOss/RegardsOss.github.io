@@ -38,12 +38,20 @@ You can use any SMTP mail server you want. The connection properties have to be 
 
 ### Password
 
-The component `rs-admin-instance` requires a cipher to validate password using SHA.
+Components requires a cipher to encrypt some sensible information using AES algorithm.
 
 ```bash
 mkdir /opt/regards
 openssl rand -hex 8 > /opt/regards/regards.key
 ```
+
+For maximum security, cipher key should only be readable by user `regards`. We strongly advice you to execute the following commands as root:
+
+```bash
+chown regards:root /opt/regards/regards.key
+chmod 0400 /opt/regards/regards.key
+```
+
 
 The Izpack installer will ask you where is located the `regards.key` file, so put it in the REGARDS root folder.
 
@@ -57,9 +65,9 @@ groupadd rsexec
 groupadd rsadmin
 groupadd rsrun
 useradd rsins -g rsins -G regards,rsexec,rsadmin,rsrun
-printf 'rsins\nrsins\n' | passwd rsins
+passwd rsins
 useradd rsadmin -g regards -G rsadmin,rsrun
-printf 'rsadmin\nrsadmin\n' | passwd rsadmin
+passwd rsadmin
 useradd regards --no-create-home --shell=/sbin/nologin -g regards -G rsexec,rsrun
 ```
 
