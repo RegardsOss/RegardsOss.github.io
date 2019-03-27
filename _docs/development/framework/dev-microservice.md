@@ -157,3 +157,7 @@ curl http://localhost:8999/api/me/ -H "Authorization: Bearer <admin_acces_token>
  ```bash
  cp myMicroservice/bootstrap-myMycroservice/src/main/resources/application-local.properties rs-config/config/regards/myMicroservice.properties
  ```
+
+## References 
+
+> You can also find a tutorial documentation on how to build REGARDS plugins and microservices [here](/assets/docs/regards-backend-tutorial.odp)  

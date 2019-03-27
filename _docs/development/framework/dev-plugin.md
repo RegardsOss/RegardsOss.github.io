@@ -119,3 +119,8 @@ For exemple to develop a catalog plugin you can see the [Catalog service plugin 
 Here under is an exemple of an empty implementation :
 
 ![](/assets/img/docs/backend-plugin-impl-exemple.png)
+
+
+## References 
+
+> You can also find a tutorial documentation on how to build REGARDS plugins and microservices [here](/assets/docs/regards-backend-tutorial.odp)  

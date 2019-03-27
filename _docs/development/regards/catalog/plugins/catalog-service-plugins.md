@@ -91,6 +91,91 @@ For a search query application you can also execlude some entites from the searc
 
 To learn more about how to create your own plugin see [Plugins](/development/framework/modules/plugins/).
 
+You can implements two type of catalog services following the here under exemples :  
+
+```java
+@Plugin(description = "Single entity service plugin", id = SingleEntityServicePlugin.PLUGIN_ID, version = "1.0.0",
+        author = "CS-SI", contact = "regards@c-s.fr", licence = "GPLv3.0", owner = "CNES",
+        url = "https://github.com/RegardsOss")
+@CatalogServicePlugin(applicationModes = { ServiceScope.ONE }, entityTypes = { EntityType.DATA })
+public class SingleEntityServicePlugin implements ISingleEntityServicePlugin {
+
+    public static final String PLUGIN_ID = "singleEntityPluginId";
+
+    @Autowired
+    private IServiceHelper serviceHelper;
+
+    @Autowired
+    private IAuthenticationResolver authResolver;
+
+    @Override
+    public ResponseEntity<StreamingResponseBody> applyOnEntity(String entityId, HttpServletResponse response) {
+        // Retrieve entity to apply service on
+        Page<DataObject> dos = serviceHelper.getDataObjects(Lists.newArrayList(entityId), 0, 1);
+        // ....
+        // TODO ....
+        return CatalogPluginResponseFactory.createSuccessResponse(response, CatalogPluginResponseType.JSON, result);
+    }
+
+}
+```
+
+
+```java
+@Plugin(description = "Multiple entities service plugin", id = MultiEntitiesServicePlugin.PLUGIN_ID, version = "1.0.0",
+        author = "CS-SI", contact = "regards@c-s.fr", licence = "GPLv3.0", owner = "CNES",
+        url = "https://github.com/RegardsOss")
+@CatalogServicePlugin(applicationModes = { ServiceScope.MANY }, entityTypes = { EntityType.DATA })
+public class MultiEntitiesServicePlugin extends AbstractCatalogServicePlugin implements IEntitiesServicePlugin {
+
+    public static final String PLUGIN_ID = "multiEntitiesPluginId";
+
+    @Autowired
+    private IServiceHelper serviceHelper;
+
+    @Autowired
+    private IAuthenticationResolver authResolver;
+
+    @Override
+    public ResponseEntity<StreamingResponseBody> applyOnEntities(List<String> entitiesId,
+            HttpServletResponse response) {
+        // Retrieve entities to apply service on
+        Page<DataObject> dos = serviceHelper.getDataObjects(Lists.newArrayList(entitiesId), 0, 100);
+        while (dos.hasNext()) {
+            Pageable nextPage = dos.nextPageable();
+            dos = serviceHelper.getDataObjects(Lists.newArrayList(entitiesId), nextPage.getPageNumber(),
+                                               nextPage.getPageSize());
+        }
+        // TODO ....
+        return CatalogPluginResponseFactory.createSuccessResponse(response, CatalogPluginResponseType.JSON, result);
+    }
+
+    @Override
+    public ResponseEntity<StreamingResponseBody> applyOnQuery(String pOpenSearchQuery, EntityType pEntityType,
+            HttpServletResponse response) {
+        // Retrieve entities to apply service on
+        Page<DataObject> dos;
+        try {
+            dos = serviceHelper.getDataObjects(pOpenSearchQuery, 0, 100);
+            while (dos.hasNext()) {
+                Pageable nextPage = dos.nextPageable();
+                dos = serviceHelper.getDataObjects(pOpenSearchQuery, nextPage.getPageNumber(), nextPage.getPageSize());
+            }
+        } catch (OpenSearchParseException e) {
+            return CatalogPluginResponseFactory.createSuccessResponse(response, CatalogPluginResponseType.JSON, "Error retrieving entities from catalog");
+        }
+        // TODO ....
+        return CatalogPluginResponseFactory.createSuccessResponse(response, CatalogPluginResponseType.JSON, result);
+    }
+
+}
+```
+
+NOTE : 
+ * @CatalogServicePlugin : Annotation to define scope of service plugin.
+ * AbstractCatalogServicePlugin : Allow to add the common plugin parameter to associate a service to all datasets of the catalog
+ * A tutorial on how to create a plugin is available [here](/assets/docs/regards-backend-tutorial.odp)
+
 [SampleServicePlugin](https://github.com/RegardsOss/regards-catalog/blob/master/catalog-services/catalog-services-plugin/src/main/java/fr/cnes/regards/modules/catalog/services/plugins/SampleServicePlugin.java) is an exemple of how to implements this extension point to create your own business logic.  
   
 In order to help you retrieving datas from the queried parameters the [ServiceHelper](https://github.com/RegardsOss/regards-catalog/blob/master/catalog-services/catalogue-services-helper/src/main/java/fr/cnes/regards/modules/catalog/services/helper/ServiceHelper.java) can be autowired on any of your plugin implementations.
