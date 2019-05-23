@@ -182,24 +182,26 @@ This configration is divided in 3 parts
   ```
   Define [time.start] parameter for time extension :   
 
-  Opensearch name : start
-  Opensearch namespace : time
+  Alias : timeStart
+  Name : start
+  Namespace : time
   full json path of associated REGARDS attribute : properties.date
   ```
 
   ```
   Define [time.end] parameter for time extension :   
 
-  Opensearch name : end
-  Opensearch namespace : time
+  Alias : timeEnd
+  Name : end
+  Namespace : time
   full json path of associated REGARDS attribute : properties.date
   ```
 
   ```
   Define regards parameter to allow retrieve of possible values in opensearch descriptor :   
 
-  Opensearch name : parameter1
-  Opensearch namespace : regards
+  Name : parameter1
+  Namespace : regards
   Enable generation of possible values : true
   Lilit number of possible values : 100
   full json path of associated REGARDS attribute : properties.parameter1
@@ -208,6 +210,12 @@ This configration is divided in 3 parts
   NOTES : 
   - `properties.date` must be replaced by the date attribute to use in the configured REGARDS catalog.
   - All REGARDS parameters are defined by default without any configuration. Configure one or many of the regards parameters allow to define the generation of possible values in opensearch descriptor file.
+
+  With the given exemple configuration you can request the opensearch engine with the here under request :
+  
+  ```
+  curl 'http://<host>/api/v1/rs-catalog/engines/opensearch/entities/search?timeStart=2010-05-23T08:16:36.921Z&timeEnd=2022-05-23T08:16:36.921Z&properties.parameter1=value1
+  ```
 
 
 ### Open Search URLs
