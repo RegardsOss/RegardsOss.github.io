@@ -171,6 +171,45 @@ To escape these character use the \ before the character. For example to search 
 > Open search engine is not available by default and has to be configured.
 {: .tip .warning}
 
+Opensearch configuration is accessible form the Administration Interface.
+
+This configration is divided in 3 parts
+
+1. `Link opensearch engine to catalog data`. You can associate the opensearch engine to all the REGARDS catalog or associate it to one specific dataset.
+2. `Configure opensearch responses headers`.
+3. `Configure opensearch parameters`
+  Here you can define specific opensearch parameters. 
+  ```
+  Define [time.start] parameter for time extension :   
+
+  Opensearch name : start
+  Opensearch namespace : time
+  full json path of associated REGARDS attribute : properties.date
+  ```
+
+  ```
+  Define [time.end] parameter for time extension :   
+
+  Opensearch name : end
+  Opensearch namespace : time
+  full json path of associated REGARDS attribute : properties.date
+  ```
+
+  ```
+  Define regards parameter to allow retrieve of possible values in opensearch descriptor :   
+
+  Opensearch name : parameter1
+  Opensearch namespace : regards
+  Enable generation of possible values : true
+  Lilit number of possible values : 100
+  full json path of associated REGARDS attribute : properties.parameter1
+  ```
+
+  NOTES : 
+  - `properties.date` must be replaced by the date attribute to use in the configured REGARDS catalog.
+  - All REGARDS parameters are defined by default without any configuration. Configure one or many of the regards parameters allow to define the generation of possible values in opensearch descriptor file.
+
+
 ### Open Search URLs
 
 * `GET` `/engines/opensearch/collections/search` : search collections
