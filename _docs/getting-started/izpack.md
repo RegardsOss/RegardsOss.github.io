@@ -229,7 +229,7 @@ The first project to add [project1]
 
 The project name cannot be changed and will be used in the URI and by the API.
 
-```
+```txt
 Public domain to access project: this is the public address users will use to access project user/admin interfaces and services. This address depends on your web server configuration.
 Address [https://172.26.47.195/user/project1]
 ```
@@ -243,7 +243,8 @@ Host []
 Port [0]
 ```
 
-REGARDS can access to files store somewhere else. In that case, it will use that proxy configuration to retrieve the file.
+REGARDS can access to files store somewhere else. In that case, it will use that proxy configuration to retrieve the file.  
+If you specify the NoProxy option, you need to separate every address by the `,` caracter. Every adress is considerated as a regex.  
 
 ```txt
 Cipher key location[]
