@@ -45,6 +45,8 @@
           link: getting-started/plugins/
         - name: Regards CLI 
           link: getting-started/cli/
+        - name: Tutorials
+          link : getting-started/tutorials/
         - name: FAQ
           link: getting-started/faq/
     # - name: Basic use cases
