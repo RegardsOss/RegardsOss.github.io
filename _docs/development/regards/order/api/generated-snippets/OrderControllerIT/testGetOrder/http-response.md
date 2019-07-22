@@ -1,44 +1,45 @@
+#### Request
+
 * **Code:** 200 OK
 
-  **Headers:**
+        **Headers:**
 
-  `Access-Control-Allow-Origin: *`
-  `Access-Control-Allow-Methods: POST, PUT, GET, OPTIONS, DELETE`
-  `Access-Control-Allow-Headers: authorization, content-type, scope`
-  `Access-Control-Max-Age: 3600`
-  `X-Application-Context: Test application:default,test,noschedule:-1`
-  `Content-Type: application/json;charset=UTF-8`
-  `X-Content-Type-Options: nosniff`
-  `X-XSS-Protection: 1; mode=block`
-  `Cache-Control: no-cache, no-store, max-age=0, must-revalidate`
-  `Pragma: no-cache`
-  `Expires: 0`
-  `X-Frame-Options: DENY`
+        `Pragma:no-cache`
+        `X-XSS-Protection:1; mode=block`
+        `Expires:0`
+        `X-Frame-Options:DENY`
+        `X-Content-Type-Options:nosniff`
+        `Access-Control-Allow-Headers:authorization, content-type, scope`
+        `Access-Control-Max-Age:3600`
+        `Content-Type:application/json;charset=UTF-8`
+        `Access-Control-Allow-Origin:*`
+        `Cache-Control:no-cache, no-store, max-age=0, must-revalidate`
+        `Access-Control-Allow-Methods:POST, PUT, GET, OPTIONS, DELETE`
 
-  **Content:**
+        **Content:**
 
-```json
-
+        ```json
+    
 {
   "content" : {
-    "id" : 652,
+    "id" : 1,
     "owner" : "default_user@regards.fr",
-    "creationDate" : "2018-09-07T09:37:09.451Z",
-    "expirationDate" : "2018-09-10T09:37:09.451Z",
-    "percentCompleted" : 89,
+    "creationDate" : "2019-07-22T07:30:00.629Z",
+    "expirationDate" : "2019-07-25T07:30:00.629Z",
+    "percentCompleted" : 23,
     "filesInErrorCount" : 0,
-    "availableFilesCount" : 12,
+    "availableFilesCount" : 2,
     "status" : "RUNNING",
-    "statusDate" : "2018-09-07T09:37:09.763Z",
+    "statusDate" : "2019-07-22T07:30:00.749Z",
     "waitingForUser" : false,
     "datasetTasks" : [ {
-      "id" : 652,
+      "id" : 1,
       "datasetLabel" : "DS1",
       "objectsCount" : 4,
       "filesCount" : 4,
       "filesSize" : 52221122
     }, {
-      "id" : 654,
+      "id" : 3,
       "datasetLabel" : "DS2",
       "objectsCount" : 10,
       "filesCount" : 10,
@@ -47,4 +48,4 @@
   },
   "links" : [ ]
 }
-```
+        ```

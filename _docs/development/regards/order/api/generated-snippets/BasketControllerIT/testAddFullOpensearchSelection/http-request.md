@@ -1,19 +1,19 @@
-#### Request
+    #### Request
 
-* **URL**
+        ***URL**
 
-  `/order/basket/selection`
+        `/order/basket/selection`
 
-* **URL template**
+        ***URL template**
 
-  `/order/basket/selection`
+        `/order/basket/selection`
 
-* **Method**
+        ***Method**
 
-  `POST`
+        `POST`
 
-* **Headers**
+        ***Headers**
 
-  `Authorization: Bearer {token}`
-  `Content-Type: application/json;charset=UTF-8`
-  `Accept: application/json`
+        `Authorization:Bearer{token}`
+        `Accept:application/json`
+        `Content-Type:application/json;charset=UTF-8`

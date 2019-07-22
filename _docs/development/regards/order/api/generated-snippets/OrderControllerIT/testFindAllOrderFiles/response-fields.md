@@ -1,4 +1,3 @@
-| Path | Type | Description | Constraints |  
-| :--: | :--: | :---------: | :---------: |  
-| content | `Array` | files |  |  
-{: .table .table-striped}
+    |Path|Type|Description|Constraints| |:--:|:--:|:---------:|:---------:|
+        |content| `Array` |files||
+    {:.table.table-striped}
