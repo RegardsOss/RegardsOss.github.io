@@ -41,4 +41,4 @@
     "href" : "http://localhost:8080/uiplugins/configurations/56"
   } ]
 }
-        ```
+```

@@ -7,4 +7,4 @@
   "active" : true,
   "configuration" : "{}"
 }
-        ```
+```

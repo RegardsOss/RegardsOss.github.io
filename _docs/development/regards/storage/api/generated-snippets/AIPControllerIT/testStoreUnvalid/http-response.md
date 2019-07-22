@@ -24,4 +24,4 @@
   "aipId" : "URN:AIP:DATA:PROJECT:ba1692a8-f9ae-440b-85de-2fba30be8a47:V1",
   "rejectionCauses" : [ "Property properties.contentInformations[0].dataObject.checksum is invalid: Data file checksum is required." ]
 } ]
-        ```
+```

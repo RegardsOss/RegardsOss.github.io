@@ -6,4 +6,4 @@
   "applicationId" : "user",
   "layout" : "{\"test\":\"ok\"}"
 }
-        ```
+```

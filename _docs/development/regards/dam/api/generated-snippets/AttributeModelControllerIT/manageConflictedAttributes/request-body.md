@@ -15,4 +15,4 @@
   "internal" : false,
   "jsonPath" : "properties.ALPHABET"
 }
-        ```
+```

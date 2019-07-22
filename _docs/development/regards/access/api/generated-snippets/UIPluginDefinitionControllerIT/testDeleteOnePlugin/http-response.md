@@ -23,4 +23,4 @@
 {
   "messages" : [ "Entity fr.cnes.regards.modules.access.services.domain.ui.UIPluginDefinition with id : 75 doesn't exist" ]
 }
-        ```
+```

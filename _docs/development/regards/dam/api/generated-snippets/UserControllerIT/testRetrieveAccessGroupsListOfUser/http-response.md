@@ -33,4 +33,4 @@
     "href" : "http://localhost:8080/users/user1@user1.user1/accessgroups?page=0&size=10&sort=id,asc"
   } ]
 }
-        ```
+```

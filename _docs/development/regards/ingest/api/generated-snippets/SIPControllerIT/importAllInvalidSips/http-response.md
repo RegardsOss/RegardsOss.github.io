@@ -33,4 +33,4 @@
   "state" : "REJECTED",
   "rejectionCauses" : [ "A representation information is required in content information at properties.contentInformations[0].representationInformation: rejected value [null].", "Information package type is required at ipType: rejected value [null].", "{Validation annotation @fr.cnes.regards.framework.file.utils.validation.HandledMessageDigestAlgorithm validating FAKE: it is not an handled algorithm for checksum computation at properties.contentInformations[0].dataObject.algorithm: rejected value [null]." ]
 } ]
-        ```
+```

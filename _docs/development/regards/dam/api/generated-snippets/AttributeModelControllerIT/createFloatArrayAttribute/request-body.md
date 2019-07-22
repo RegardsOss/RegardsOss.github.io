@@ -12,4 +12,4 @@
   "internal" : false,
   "jsonPath" : "properties.FLOAT_ARRAY_ATT"
 }
-        ```
+```

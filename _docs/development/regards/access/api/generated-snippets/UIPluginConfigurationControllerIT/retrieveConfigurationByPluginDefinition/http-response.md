@@ -84,4 +84,4 @@
     "href" : "http://localhost:8080/uiplugins/88/configurations?page=0&size=10&sort=id,asc"
   } ]
 }
-        ```
+```

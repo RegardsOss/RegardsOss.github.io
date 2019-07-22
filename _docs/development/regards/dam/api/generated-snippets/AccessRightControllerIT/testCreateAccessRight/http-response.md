@@ -78,4 +78,4 @@
     "href" : "http://localhost:8080/accessrights/17"
   } ]
 }
-        ```
+```

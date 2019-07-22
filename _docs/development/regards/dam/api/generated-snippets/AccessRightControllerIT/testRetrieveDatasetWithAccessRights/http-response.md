@@ -151,4 +151,4 @@
     "href" : "http://localhost:8080/datasets/access-rights/group/AG1?page=0&size=10&sort=id,asc"
   } ]
 }
-        ```
+```

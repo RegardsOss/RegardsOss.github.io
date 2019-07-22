@@ -6,4 +6,4 @@
   "description" : "Data model description",
   "type" : "DATA"
 }
-        ```
+```

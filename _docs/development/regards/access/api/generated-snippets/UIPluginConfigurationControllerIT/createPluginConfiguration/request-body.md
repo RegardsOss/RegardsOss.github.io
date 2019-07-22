@@ -15,4 +15,4 @@
   "linkedToAllEntities" : true,
   "conf" : "{\"param\":\"value\"}"
 }
-        ```
+```

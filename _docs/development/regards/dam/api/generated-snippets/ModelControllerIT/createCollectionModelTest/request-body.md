@@ -6,4 +6,4 @@
   "description" : "Mission description",
   "type" : "COLLECTION"
 }
-        ```
+```
