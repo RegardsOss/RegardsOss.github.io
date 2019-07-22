@@ -1,9 +1,9 @@
-* **URL params**
+    ***URL params**
 
-`/sessions/{id}`  
+        `/sessions/{id}`
 
-Parameter | Type | Description | Constraints  
-:-------: | :--: | :---------: | :---------:  
-`id` | String | The session identifier |   
-{: .table .table-striped}
+        Parameter|Type|Description|Constraints
+        :-------:|:--:|:---------:|:---------:
+        `id` |String|The session identifier|
+    {:.table.table-striped}
 

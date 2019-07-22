@@ -1,7 +1,7 @@
-* **Data params**
+    ***Data params**
 
-```json
- {
+        ```json
+    {
   "metadata" : {
     "processing" : "DefaultProcessingChain",
     "session" : "sessionId"
@@ -10,6 +10,7 @@
     "ipType" : "DATA",
     "id" : "SIP_001",
     "geometry" : null,
+    "normalizedGeometry" : null,
     "properties" : {
       "contentInformations" : [ {
         "representationInformation" : {
@@ -22,7 +23,7 @@
         "dataObject" : {
           "regardsDataType" : "RAWDATA",
           "reference" : false,
-          "urls" : [ "file:/home/msordi/git/rs-ingest/ingest/ingest-rest/data1.fits" ],
+          "urls" : [ "file:/app_to_build/ingest/ingest-rest/data1.fits" ],
           "filename" : "data1.fits",
           "algorithm" : "FAKE_ALGO",
           "checksum" : "sdsdfm1211vd"
@@ -45,6 +46,7 @@
     "ipType" : "DATA",
     "id" : "SIP_002",
     "geometry" : null,
+    "normalizedGeometry" : null,
     "properties" : {
       "contentInformations" : [ {
         "representationInformation" : {
@@ -57,7 +59,7 @@
         "dataObject" : {
           "regardsDataType" : "RAWDATA",
           "reference" : false,
-          "urls" : [ "file:/home/msordi/git/rs-ingest/ingest/ingest-rest/data2.fits" ],
+          "urls" : [ "file:/app_to_build/ingest/ingest-rest/data2.fits" ],
           "filename" : "data2.fits",
           "algorithm" : "MD5",
           "checksum" : "sdsdfm1211vsdfdsfd"
@@ -79,4 +81,4 @@
   } ],
   "type" : "FeatureCollection"
 }
-```
+        ```

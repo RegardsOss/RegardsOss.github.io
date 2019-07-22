@@ -1,7 +1,7 @@
-* **Data params**
+    ***Data params**
 
-```json
- {
+        ```json
+    {
   "name" : "ingestProcessingChain_test",
   "description" : "the ingest processing chain description",
   "validationPlugin" : {
@@ -25,4 +25,4 @@
     "parameters" : [ ]
   }
 }
-```
+        ```

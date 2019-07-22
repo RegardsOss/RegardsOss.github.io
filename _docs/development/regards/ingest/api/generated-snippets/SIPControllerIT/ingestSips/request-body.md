@@ -1,7 +1,7 @@
-* **Data params**
+    ***Data params**
 
-```json
- {
+        ```json
+    {
   "metadata" : {
     "processing" : "DefaultProcessingChain",
     "session" : "sessionId"
@@ -13,6 +13,7 @@
       "coordinates" : [ [ 5.0, 5.0 ], [ 25.0, 25.0 ] ],
       "type" : "MultiPoint"
     },
+    "normalizedGeometry" : null,
     "properties" : {
       "contentInformations" : [ {
         "representationInformation" : {
@@ -25,7 +26,7 @@
         "dataObject" : {
           "regardsDataType" : "RAWDATA",
           "reference" : false,
-          "urls" : [ "file:/home/msordi/git/rs-ingest/ingest/ingest-rest/data1.fits" ],
+          "urls" : [ "file:/app_to_build/ingest/ingest-rest/data1.fits" ],
           "filename" : "data1.fits",
           "algorithm" : "MD5",
           "checksum" : "b463726cfbb52d47e432bedf08edbec3",
@@ -96,4 +97,4 @@
   } ],
   "type" : "FeatureCollection"
 }
-```
+        ```

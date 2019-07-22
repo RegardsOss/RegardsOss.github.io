@@ -1,25 +1,26 @@
+#### Request
+
 * **Code:** 200 OK
 
-  **Headers:**
+        **Headers:**
 
-  `X-Content-Type-Options: nosniff`
-  `X-XSS-Protection: 1; mode=block`
-  `Cache-Control: no-cache, no-store, max-age=0, must-revalidate`
-  `Pragma: no-cache`
-  `Expires: 0`
-  `X-Frame-Options: DENY`
-  `Access-Control-Allow-Origin: *`
-  `Access-Control-Allow-Methods: POST, PUT, GET, OPTIONS, DELETE`
-  `Access-Control-Allow-Headers: authorization, content-type, scope`
-  `Access-Control-Max-Age: 3600`
-  `X-Application-Context: Test application:default,test:-1`
-  `Content-Type: application/json`
-  `Content-Disposition: attachment; filename="config-Test application.json"`
+        `Pragma:no-cache`
+        `X-XSS-Protection:1; mode=block`
+        `X-Frame-Options:DENY`
+        `Expires:0`
+        `X-Content-Type-Options:nosniff`
+        `Access-Control-Allow-Headers:authorization, content-type, scope`
+        `Content-Disposition:attachment; filename="config-Test application.json"`
+        `Access-Control-Max-Age:3600`
+        `Content-Type:application/json`
+        `Access-Control-Allow-Origin:*`
+        `Cache-Control:no-cache, no-store, max-age=0, must-revalidate`
+        `Access-Control-Allow-Methods:POST, PUT, GET, OPTIONS, DELETE`
 
-  **Content:**
+        **Content:**
 
-```json
-
+        ```json
+    
 {
   "microservice" : "Test application",
   "modules" : [ {
@@ -27,7 +28,7 @@
       "id" : "ingest",
       "name" : "SIP management module",
       "description" : "SIP submission and management",
-      "version" : "2.0.0-SNAPSHOT",
+      "version" : "0.4.1",
       "author" : "CSSI",
       "legalOwner" : "CNES",
       "documentation" : "https://github.com/RegardsOss"
@@ -60,4 +61,4 @@
     } ]
   } ]
 }
-```
+        ```

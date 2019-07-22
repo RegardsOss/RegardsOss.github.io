@@ -1,33 +1,32 @@
+#### Request
+
 * **Code:** 201 Created
 
-  **Headers:**
+        **Headers:**
 
-  `X-Content-Type-Options: nosniff`
-  `X-XSS-Protection: 1; mode=block`
-  `Cache-Control: no-cache, no-store, max-age=0, must-revalidate`
-  `Pragma: no-cache`
-  `Expires: 0`
-  `X-Frame-Options: DENY`
-  `Access-Control-Allow-Origin: *`
-  `Access-Control-Allow-Methods: POST, PUT, GET, OPTIONS, DELETE`
-  `Access-Control-Allow-Headers: authorization, content-type, scope`
-  `Access-Control-Max-Age: 3600`
-  `X-Application-Context: Test application:default,test:-1`
-  `Content-Type: application/hal+json;charset=UTF-8`
+        `Pragma:no-cache`
+        `X-XSS-Protection:1; mode=block`
+        `Expires:0`
+        `X-Frame-Options:DENY`
+        `X-Content-Type-Options:nosniff`
+        `Access-Control-Allow-Headers:authorization, content-type, scope`
+        `Content-Type:application/hal+json;charset=UTF-8`
+        `Access-Control-Max-Age:3600`
+        `Access-Control-Allow-Origin:*`
+        `Cache-Control:no-cache, no-store, max-age=0, must-revalidate`
+        `Access-Control-Allow-Methods:POST, PUT, GET, OPTIONS, DELETE`
 
-  **Content:**
+        **Content:**
 
-```json
-
+        ```json
+    
 {
-  "id" : 157,
+  "id" : 7,
   "name" : "ingestProcessingChain_test",
   "description" : "the ingest processing chain description",
-  "preProcessingPlugin" : {
-    "present" : false
-  },
+  "preProcessingPlugin" : null,
   "validationPlugin" : {
-    "id" : 160,
+    "id" : 11,
     "pluginId" : "FakeValidationTestPlugin",
     "label" : "FakeValidationTestPlugin",
     "version" : "1.0.0",
@@ -40,7 +39,7 @@
     "identifiable" : true
   },
   "generationPlugin" : {
-    "id" : 161,
+    "id" : 12,
     "pluginId" : "FakeAIPGenerationTestPlugin",
     "label" : "FakeAIPGenerationTestPlugin",
     "version" : "1.0.0",
@@ -52,14 +51,10 @@
     "iconUrl" : null,
     "identifiable" : true
   },
-  "tagPlugin" : {
-    "present" : false
-  },
-  "postProcessingPlugin" : {
-    "present" : false
-  },
+  "tagPlugin" : null,
+  "postProcessingPlugin" : null,
   "chainPlugins" : [ {
-    "id" : 160,
+    "id" : 11,
     "pluginId" : "FakeValidationTestPlugin",
     "label" : "FakeValidationTestPlugin",
     "version" : "1.0.0",
@@ -71,7 +66,7 @@
     "iconUrl" : null,
     "identifiable" : true
   }, {
-    "id" : 161,
+    "id" : 12,
     "pluginId" : "FakeAIPGenerationTestPlugin",
     "label" : "FakeAIPGenerationTestPlugin",
     "version" : "1.0.0",
@@ -95,4 +90,4 @@
     }
   }
 }
-```
+        ```

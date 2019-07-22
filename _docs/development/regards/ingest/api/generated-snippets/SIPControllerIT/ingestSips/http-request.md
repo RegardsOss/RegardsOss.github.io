@@ -1,18 +1,18 @@
-#### Request
+    #### Request
 
-* **URL**
+        ***URL**
 
-  `/sips`
+        `/sips`
 
-* **URL template**
+        ***URL template**
 
-  `/sips`
+        `/sips`
 
-* **Method**
+        ***Method**
 
-  `POST`
+        `POST`
 
-* **Headers**
+        ***Headers**
 
-  `Authorization: Bearer {token}`
-  `Content-Type: application/geo+json;charset=UTF-8`
+        `Authorization:Bearer{token}`
+        `Content-Type:application/geo+json;charset=UTF-8`

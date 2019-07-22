@@ -1,19 +1,19 @@
-#### Request
+    #### Request
 
-* **URL**
+        ***URL**
 
-  `/sessions/sessions-id`
+        `/sessions/sessions-id`
 
-* **URL template**
+        ***URL template**
 
-  `/sessions/{id}`
+        `/sessions/{id}`
 
-* **Method**
+        ***Method**
 
-  `GET`
+        `GET`
 
-* **Headers**
+        ***Headers**
 
-  `Authorization: Bearer {token}`
-  `Content-Type: application/json;charset=UTF-8`
-  `Accept: application/json`
+        `Authorization:Bearer{token}`
+        `Accept:application/json`
+        `Content-Type:application/json;charset=UTF-8`

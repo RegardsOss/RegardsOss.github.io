@@ -1,30 +1,31 @@
+#### Request
+
 * **Code:** 201 Created
 
-  **Headers:**
+        **Headers:**
 
-  `X-Content-Type-Options: nosniff`
-  `X-XSS-Protection: 1; mode=block`
-  `Cache-Control: no-cache, no-store, max-age=0, must-revalidate`
-  `Pragma: no-cache`
-  `Expires: 0`
-  `X-Frame-Options: DENY`
-  `Access-Control-Allow-Origin: *`
-  `Access-Control-Allow-Methods: POST, PUT, GET, OPTIONS, DELETE`
-  `Access-Control-Allow-Headers: authorization, content-type, scope`
-  `Access-Control-Max-Age: 3600`
-  `X-Application-Context: Test application:default,test:-1`
-  `Content-Type: application/json;charset=UTF-8`
+        `Pragma:no-cache`
+        `X-XSS-Protection:1; mode=block`
+        `Expires:0`
+        `X-Frame-Options:DENY`
+        `X-Content-Type-Options:nosniff`
+        `Access-Control-Allow-Headers:authorization, content-type, scope`
+        `Access-Control-Max-Age:3600`
+        `Content-Type:application/json;charset=UTF-8`
+        `Access-Control-Allow-Origin:*`
+        `Cache-Control:no-cache, no-store, max-age=0, must-revalidate`
+        `Access-Control-Allow-Methods:POST, PUT, GET, OPTIONS, DELETE`
 
-  **Content:**
+        **Content:**
 
-```json
-
+        ```json
+    
 {
   "content" : {
-    "id" : 156,
+    "id" : 6,
     "name" : "TestProcessingChain",
     "validationPlugin" : {
-      "id" : 158,
+      "id" : 9,
       "pluginId" : "DefaultSipValidation",
       "label" : "TestSIPValidation",
       "version" : "1.0.0",
@@ -35,7 +36,7 @@
       "parameters" : [ ]
     },
     "generationPlugin" : {
-      "id" : 159,
+      "id" : 10,
       "pluginId" : "DefaultSingleAIPGeneration",
       "label" : "TestAIPGeneration",
       "version" : "1.0.0",
@@ -57,4 +58,4 @@
     "href" : "http://localhost:8080/processingchains/TestProcessingChain/export"
   } ]
 }
-```
+        ```
