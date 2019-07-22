@@ -1,11 +1,11 @@
 ---
 layout: classic-docs
-title: REGARDS Storage API
+title: REGARDS Document API
 ---
 
 {% include toc.md %}
 
-{% include howto-api.md name="rs-storage" %}
+{% include howto-api.md name="rs-dam" %}
 
 # DocumentController
 
