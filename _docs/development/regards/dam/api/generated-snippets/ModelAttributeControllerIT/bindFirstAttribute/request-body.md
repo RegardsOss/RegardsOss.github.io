@@ -1,13 +1,13 @@
-* **Data params**
+    ***Data params**
 
-```json
- {
+        ```json
+    {
   "attribute" : {
-    "id" : 244,
+    "id" : 27,
     "name" : "attPostAM",
     "type" : "STRING",
     "fragment" : {
-      "id" : 116,
+      "id" : 6,
       "name" : "default",
       "description" : "Default fragment"
     },
@@ -15,13 +15,14 @@
     "optional" : false,
     "label" : "ForTests",
     "dynamic" : true,
-    "internal" : false
+    "internal" : false,
+    "jsonPath" : "properties.attPostAM"
   },
   "model" : {
-    "id" : 183,
+    "id" : 25,
     "name" : "modelPostAM",
     "type" : "COLLECTION"
   },
   "pos" : 0
 }
-```
+        ```

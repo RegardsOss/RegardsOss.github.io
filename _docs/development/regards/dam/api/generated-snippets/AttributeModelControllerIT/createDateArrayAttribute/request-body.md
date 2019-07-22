@@ -1,7 +1,7 @@
-* **Data params**
+    ***Data params**
 
-```json
- {
+        ```json
+    {
   "name" : "DATE_ARRAY_ATT",
   "description" : "date array description",
   "type" : "DATE_ARRAY",
@@ -9,6 +9,7 @@
   "optional" : false,
   "label" : "ForTests",
   "dynamic" : true,
-  "internal" : false
+  "internal" : false,
+  "jsonPath" : "properties.DATE_ARRAY_ATT"
 }
-```
+        ```

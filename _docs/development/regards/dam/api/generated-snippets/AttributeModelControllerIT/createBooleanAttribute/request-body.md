@@ -1,7 +1,7 @@
-* **Data params**
+    ***Data params**
 
-```json
- {
+        ```json
+    {
   "name" : "BOOLEAN_ATT",
   "description" : "boolean description",
   "type" : "BOOLEAN",
@@ -9,6 +9,7 @@
   "optional" : false,
   "label" : "ForTests",
   "dynamic" : true,
-  "internal" : false
+  "internal" : false,
+  "jsonPath" : "properties.BOOLEAN_ATT"
 }
-```
+        ```

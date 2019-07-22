@@ -1,9 +1,9 @@
-* **URL params**
+    ***URL params**
 
-`/models/{modelName}/attributes`  
+        `/models/{modelName}/attributes`
 
-Parameter | Type | Description | Constraints  
-:-------: | :--: | :---------: | :---------:  
-`modelName` | String | model name |   
-{: .table .table-striped}
+        Parameter|Type|Description|Constraints
+        :-------:|:--:|:---------:|:---------:
+        `modelName` |String|model name|
+    {:.table.table-striped}
 

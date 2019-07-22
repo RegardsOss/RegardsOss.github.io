@@ -1,7 +1,7 @@
-* **Data params**
+    ***Data params**
 
-```json
- {
+        ```json
+    {
   "name" : "STRING_ATT",
   "description" : "string description",
   "type" : "STRING",
@@ -9,6 +9,7 @@
   "optional" : false,
   "label" : "ForTests",
   "dynamic" : true,
-  "internal" : false
+  "internal" : false,
+  "jsonPath" : "properties.STRING_ATT"
 }
-```
+        ```

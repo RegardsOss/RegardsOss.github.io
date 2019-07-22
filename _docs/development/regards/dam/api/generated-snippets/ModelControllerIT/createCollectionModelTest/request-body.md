@@ -1,9 +1,9 @@
-* **Data params**
+    ***Data params**
 
-```json
- {
+        ```json
+    {
   "name" : "MISSION",
   "description" : "Mission description",
   "type" : "COLLECTION"
 }
-```
+        ```

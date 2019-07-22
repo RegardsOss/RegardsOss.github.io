@@ -1,7 +1,7 @@
-* **Data params**
+    ***Data params**
 
-```json
- {
+        ```json
+    {
   "id" : 30,
   "name" : "NB_OBJECTS",
   "type" : "LONG",
@@ -16,6 +16,7 @@
     "type" : "LONG_RANGE"
   },
   "dynamic" : true,
-  "internal" : false
+  "internal" : false,
+  "jsonPath" : "properties.NB_OBJECTS"
 }
-```
+        ```

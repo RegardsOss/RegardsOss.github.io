@@ -1,7 +1,7 @@
-* **Data params**
+    ***Data params**
 
-```json
- {
+        ```json
+    {
   "name" : "ALPHABET",
   "type" : "STRING",
   "alterable" : false,
@@ -12,6 +12,7 @@
     "type" : "ENUMERATION"
   },
   "dynamic" : true,
-  "internal" : false
+  "internal" : false,
+  "jsonPath" : "properties.ALPHABET"
 }
-```
+        ```

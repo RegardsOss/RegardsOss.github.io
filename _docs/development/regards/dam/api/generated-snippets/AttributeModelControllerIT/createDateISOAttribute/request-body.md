@@ -1,7 +1,7 @@
-* **Data params**
+    ***Data params**
 
-```json
- {
+        ```json
+    {
   "name" : "DATE_ISO",
   "description" : "date ISO description",
   "type" : "DATE_ISO8601",
@@ -9,6 +9,7 @@
   "optional" : false,
   "label" : "ForTests",
   "dynamic" : true,
-  "internal" : false
+  "internal" : false,
+  "jsonPath" : "properties.DATE_ISO"
 }
-```
+        ```

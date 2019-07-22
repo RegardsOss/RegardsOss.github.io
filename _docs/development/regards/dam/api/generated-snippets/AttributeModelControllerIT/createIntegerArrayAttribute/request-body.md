@@ -1,7 +1,7 @@
-* **Data params**
+    ***Data params**
 
-```json
- {
+        ```json
+    {
   "name" : "INTEGER_ARRAY_ATT",
   "description" : "Integer array description",
   "type" : "INTEGER_ARRAY",
@@ -9,6 +9,7 @@
   "optional" : false,
   "label" : "ForTests",
   "dynamic" : true,
-  "internal" : false
+  "internal" : false,
+  "jsonPath" : "properties.INTEGER_ARRAY_ATT"
 }
-```
+        ```

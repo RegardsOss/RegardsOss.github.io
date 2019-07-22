@@ -1,19 +1,19 @@
-#### Request
+    #### Request
 
-* **URL**
+        ***URL**
 
-  `/models/modelRmNA/attributes/232`
+        `/models/modelRmNA/attributes/4`
 
-* **URL template**
+        ***URL template**
 
-  `/models/{modelName}/attributes/{pAttributeId}`
+        `/models/{modelName}/attributes/{attributeId}`
 
-* **Method**
+        ***Method**
 
-  `DELETE`
+        `DELETE`
 
-* **Headers**
+        ***Headers**
 
-  `Authorization: Bearer {token}`
-  `Content-Type: application/json;charset=UTF-8`
-  `Accept: application/json`
+        `Authorization:Bearer{token}`
+        `Accept:application/json`
+        `Content-Type:application/json;charset=UTF-8`

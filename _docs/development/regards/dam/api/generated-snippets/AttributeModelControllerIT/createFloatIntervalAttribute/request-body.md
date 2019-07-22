@@ -1,7 +1,7 @@
-* **Data params**
+    ***Data params**
 
-```json
- {
+        ```json
+    {
   "name" : "FLOAT_INTERVAL_ATT",
   "description" : "float interval description",
   "type" : "DOUBLE_INTERVAL",
@@ -9,6 +9,7 @@
   "optional" : false,
   "label" : "ForTests",
   "dynamic" : true,
-  "internal" : false
+  "internal" : false,
+  "jsonPath" : "properties.FLOAT_INTERVAL_ATT"
 }
-```
+        ```

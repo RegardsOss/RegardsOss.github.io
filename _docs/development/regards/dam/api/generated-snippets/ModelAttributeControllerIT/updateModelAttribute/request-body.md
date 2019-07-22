@@ -1,14 +1,14 @@
-* **Data params**
+    ***Data params**
 
-```json
- {
-  "id" : 308,
+        ```json
+    {
+  "id" : 30,
   "attribute" : {
-    "id" : 248,
+    "id" : 31,
     "name" : "attnewUpMA",
     "type" : "STRING",
     "fragment" : {
-      "id" : 118,
+      "id" : 8,
       "name" : "default",
       "description" : "Default fragment"
     },
@@ -16,13 +16,14 @@
     "optional" : false,
     "label" : "ForTests",
     "dynamic" : true,
-    "internal" : false
+    "internal" : false,
+    "jsonPath" : "properties.attnewUpMA"
   },
   "model" : {
-    "id" : 185,
+    "id" : 27,
     "name" : "modelUpMA",
     "type" : "COLLECTION"
   },
   "pos" : 0
 }
-```
+        ```

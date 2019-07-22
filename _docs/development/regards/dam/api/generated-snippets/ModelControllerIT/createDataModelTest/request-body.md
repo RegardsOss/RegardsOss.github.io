@@ -1,9 +1,9 @@
-* **Data params**
+    ***Data params**
 
-```json
- {
+        ```json
+    {
   "name" : "DATA_MODEL",
   "description" : "Data model description",
   "type" : "DATA"
 }
-```
+        ```

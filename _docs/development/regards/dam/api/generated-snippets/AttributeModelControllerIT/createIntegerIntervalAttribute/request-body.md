@@ -1,7 +1,7 @@
-* **Data params**
+    ***Data params**
 
-```json
- {
+        ```json
+    {
   "name" : "INTEGER_INTERVAL_ATT",
   "description" : "Integer interval description",
   "type" : "INTEGER_INTERVAL",
@@ -9,6 +9,7 @@
   "optional" : false,
   "label" : "ForTests",
   "dynamic" : true,
-  "internal" : false
+  "internal" : false,
+  "jsonPath" : "properties.INTEGER_INTERVAL_ATT"
 }
-```
+        ```

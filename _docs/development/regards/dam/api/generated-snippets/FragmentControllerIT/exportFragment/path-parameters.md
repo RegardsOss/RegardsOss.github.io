@@ -1,9 +1,9 @@
-* **URL params**
+    ***URL params**
 
-`/models/fragments/{pFragmentId}/export`  
+        `/models/fragments/{fragmentId}/export`
 
-Parameter | Type | Description | Constraints  
-:-------: | :--: | :---------: | :---------:  
-`pFragmentId` | Number | Fragment identifier | Should be a whole number  
-{: .table .table-striped}
+        Parameter|Type|Description|Constraints
+        :-------:|:--:|:---------:|:---------:
+        `fragmentId` |Number|Fragment identifier|Should be a whole number
+    {:.table.table-striped}
 

@@ -1,8 +1,8 @@
-* **Data params**
+    ***Data params**
 
-```json
- {
+        ```json
+    {
   "name" : "GEO",
   "description" : "Geo description"
 }
-```
+        ```

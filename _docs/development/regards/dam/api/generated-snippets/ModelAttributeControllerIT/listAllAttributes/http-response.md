@@ -1,45 +1,47 @@
+#### Request
+
 * **Code:** 200 OK
 
-  **Headers:**
+        **Headers:**
 
-  `Access-Control-Allow-Origin: *`
-  `Access-Control-Allow-Methods: POST, PUT, GET, OPTIONS, DELETE`
-  `Access-Control-Allow-Headers: authorization, content-type, scope`
-  `Access-Control-Max-Age: 3600`
-  `X-Application-Context: Test application:default,test,noschedule:-1`
-  `Content-Type: application/json;charset=UTF-8`
-  `X-Content-Type-Options: nosniff`
-  `X-XSS-Protection: 1; mode=block`
-  `Cache-Control: no-cache, no-store, max-age=0, must-revalidate`
-  `Pragma: no-cache`
-  `Expires: 0`
-  `X-Frame-Options: DENY`
+        `Pragma:no-cache`
+        `X-XSS-Protection:1; mode=block`
+        `Expires:0`
+        `X-Frame-Options:DENY`
+        `X-Content-Type-Options:nosniff`
+        `Access-Control-Allow-Headers:authorization, content-type, scope`
+        `Access-Control-Max-Age:3600`
+        `Content-Type:application/json;charset=UTF-8`
+        `Access-Control-Allow-Origin:*`
+        `Cache-Control:no-cache, no-store, max-age=0, must-revalidate`
+        `Access-Control-Allow-Methods:POST, PUT, GET, OPTIONS, DELETE`
 
-  **Content:**
+        **Content:**
 
-```json
-
+        ```json
+    
 [ {
   "content" : {
-    "id" : 306,
+    "id" : 28,
     "attribute" : {
-      "id" : 245,
+      "id" : 28,
       "name" : "attLsAM",
       "type" : "STRING",
       "fragment" : {
-        "id" : 117,
+        "id" : 7,
         "name" : "default",
         "description" : "Default fragment"
       },
       "alterable" : false,
       "optional" : false,
       "label" : "ForTests",
+      "properties" : [ ],
       "dynamic" : true,
       "internal" : false,
       "jsonPath" : "properties.attLsAM"
     },
     "model" : {
-      "id" : 184,
+      "id" : 26,
       "name" : "modelLsAM",
       "type" : "COLLECTION"
     },
@@ -47,35 +49,36 @@
   },
   "links" : [ {
     "rel" : "self",
-    "href" : "http://localhost:8080/models/modelLsAM/attributes/306"
+    "href" : "http://localhost:8080/models/modelLsAM/attributes/28"
   }, {
     "rel" : "delete",
-    "href" : "http://localhost:8080/models/modelLsAM/attributes/306"
+    "href" : "http://localhost:8080/models/modelLsAM/attributes/28"
   }, {
     "rel" : "list",
     "href" : "http://localhost:8080/models/modelLsAM/attributes"
   } ]
 }, {
   "content" : {
-    "id" : 307,
+    "id" : 29,
     "attribute" : {
-      "id" : 246,
+      "id" : 29,
       "name" : "attLsAM2",
       "type" : "STRING",
       "fragment" : {
-        "id" : 117,
+        "id" : 7,
         "name" : "default",
         "description" : "Default fragment"
       },
       "alterable" : false,
       "optional" : false,
       "label" : "ForTests",
+      "properties" : [ ],
       "dynamic" : true,
       "internal" : false,
       "jsonPath" : "properties.attLsAM2"
     },
     "model" : {
-      "id" : 184,
+      "id" : 26,
       "name" : "modelLsAM",
       "type" : "COLLECTION"
     },
@@ -83,13 +86,13 @@
   },
   "links" : [ {
     "rel" : "self",
-    "href" : "http://localhost:8080/models/modelLsAM/attributes/307"
+    "href" : "http://localhost:8080/models/modelLsAM/attributes/29"
   }, {
     "rel" : "delete",
-    "href" : "http://localhost:8080/models/modelLsAM/attributes/307"
+    "href" : "http://localhost:8080/models/modelLsAM/attributes/29"
   }, {
     "rel" : "list",
     "href" : "http://localhost:8080/models/modelLsAM/attributes"
   } ]
 } ]
-```
+        ```

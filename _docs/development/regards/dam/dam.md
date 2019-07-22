@@ -18,7 +18,12 @@ categories:
 
 ## Available APIs
 
-* [**DA**ta **M**anagement](/development/regards/dam/api/model-api/)
+* [Access rights api](/development/regards/dam/api/access-rights-api/)
+* [Models api](/development/regards/dam/api/model-api/)
+* [Collection api](/development/regards/dam/api/collection-api/)
+* [Dataset api](/development/regards/dam/api/dataset-api/)
+* [Datasource api](/development/regards/dam/api/datasource-api/)
+* [Document api](/development/regards/dam/api/document-api/)
 
 ## Available Extension points
 

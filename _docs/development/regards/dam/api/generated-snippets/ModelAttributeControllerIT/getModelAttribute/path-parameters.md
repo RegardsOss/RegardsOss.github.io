@@ -1,10 +1,10 @@
-* **URL params**
+    ***URL params**
 
-`/models/{modelName}/attributes/{pAttributeId}`  
+        `/models/{modelName}/attributes/{attributeId}`
 
-Parameter | Type | Description | Constraints  
-:-------: | :--: | :---------: | :---------:  
-`modelName` | String | Model name |   
-`pAttributeId` | Number | Attribute identifier |   
-{: .table .table-striped}
+        Parameter|Type|Description|Constraints
+        :-------:|:--:|:---------:|:---------:
+        `modelName` |String|Model name|
+        `attributeId` |Number|Attribute identifier|
+    {:.table.table-striped}
 

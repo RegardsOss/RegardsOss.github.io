@@ -1,24 +1,25 @@
+#### Request
+
 * **Code:** 200 OK
 
-  **Headers:**
+        **Headers:**
 
-  `Access-Control-Allow-Origin: *`
-  `Access-Control-Allow-Methods: POST, PUT, GET, OPTIONS, DELETE`
-  `Access-Control-Allow-Headers: authorization, content-type, scope`
-  `Access-Control-Max-Age: 3600`
-  `X-Application-Context: Test application:default,test,noschedule:-1`
-  `Content-Type: application/json;charset=UTF-8`
-  `X-Content-Type-Options: nosniff`
-  `X-XSS-Protection: 1; mode=block`
-  `Cache-Control: no-cache, no-store, max-age=0, must-revalidate`
-  `Pragma: no-cache`
-  `Expires: 0`
-  `X-Frame-Options: DENY`
+        `Pragma:no-cache`
+        `X-XSS-Protection:1; mode=block`
+        `Expires:0`
+        `X-Frame-Options:DENY`
+        `X-Content-Type-Options:nosniff`
+        `Access-Control-Allow-Headers:authorization, content-type, scope`
+        `Access-Control-Max-Age:3600`
+        `Content-Type:application/json;charset=UTF-8`
+        `Access-Control-Allow-Origin:*`
+        `Cache-Control:no-cache, no-store, max-age=0, must-revalidate`
+        `Access-Control-Allow-Methods:POST, PUT, GET, OPTIONS, DELETE`
 
-  **Content:**
+        **Content:**
 
-```json
-
+        ```json
+    
 [ {
   "content" : {
     "attrType" : "STRING",
@@ -35,7 +36,7 @@
         "url" : "https://github.com/RegardsOss",
         "contact" : "regards@c-s.fr",
         "owner" : "CSSI",
-        "licence" : "LGPLv3.0",
+        "license" : "GPLv3",
         "parameters" : [ ]
       },
       "links" : [ ]
@@ -47,25 +48,25 @@
     "attrType" : "INTEGER",
     "pluginConfigurations" : [ {
       "content" : {
-        "id" : 2,
+        "id" : 1,
         "pluginId" : "IntSumComputePlugin",
-        "label" : "1a98dcaa-cf66-4771-9e09-7028c722f656",
+        "label" : "50fe325e-b96e-47cb-8921-84af0b3ca8fd",
         "version" : "1.0.0",
         "priorityOrder" : 0,
         "active" : true,
         "pluginClassName" : "fr.cnes.regards.modules.dam.plugin.entities.IntSumComputePlugin",
         "interfaceNames" : [ "fr.cnes.regards.modules.dam.domain.models.IComputedAttribute" ],
         "parameters" : [ {
-          "id" : 102,
-          "name" : "parameterAttributeName",
-          "value" : "toto",
+          "id" : 1,
+          "name" : "resultAttributeName",
+          "value" : "titi",
           "dynamic" : false,
           "dynamicsValues" : [ ],
           "onlyDynamic" : false
         }, {
-          "id" : 103,
-          "name" : "resultAttributeName",
-          "value" : "titi",
+          "id" : 2,
+          "name" : "parameterAttributeName",
+          "value" : "toto",
           "dynamic" : false,
           "dynamicsValues" : [ ],
           "onlyDynamic" : false
@@ -85,7 +86,7 @@
         "url" : "https://github.com/RegardsOss",
         "contact" : "regards@c-s.fr",
         "owner" : "CSSI",
-        "licence" : "LGPLv3.0",
+        "license" : "GPLv3",
         "parameters" : [ {
           "name" : "parameterAttributeName",
           "label" : "Parameter attribute name",
@@ -100,7 +101,7 @@
         }, {
           "name" : "parameterAttributeFragmentName",
           "label" : "Parameter fragment name",
-          "description" : "Name of parameter attribute fragment. If parameter attribute belongs to default fragment, this value can be set to null.",
+          "description" : "Name of parameter attribute fragment. If parameter attribute belongs to default fragment, leave this field empty.",
           "markdown" : "",
           "type" : "java.lang.String",
           "paramType" : "PRIMITIVE",
@@ -149,17 +150,17 @@
     "pluginConfigurations" : [ ],
     "pluginMetaDatas" : [ {
       "content" : {
-        "pluginClassName" : "fr.cnes.regards.modules.dam.plugin.entities.MinDateComputePlugin",
+        "pluginClassName" : "fr.cnes.regards.modules.dam.plugin.entities.MaxDateComputePlugin",
         "interfaceNames" : [ "fr.cnes.regards.modules.dam.domain.models.IComputedAttribute" ],
         "author" : "REGARDS Team",
-        "pluginId" : "MinDateComputePlugin",
+        "pluginId" : "MaxDateComputePlugin",
         "version" : "1.0.0",
-        "description" : "allows to compute the minimum of a DateAttribute according to a collection of data",
+        "description" : "allows to compute the maximum of a DateAttribute according to a collection of data",
         "markdown" : "",
         "url" : "https://github.com/RegardsOss",
         "contact" : "regards@c-s.fr",
         "owner" : "CSSI",
-        "licence" : "LGPLv3.0",
+        "license" : "GPLv3",
         "parameters" : [ {
           "name" : "parameterAttributeName",
           "label" : "Parameter attribute name",
@@ -174,7 +175,7 @@
         }, {
           "name" : "parameterAttributeFragmentName",
           "label" : "Parameter fragment name",
-          "description" : "Name of the parameter attribute fragment. If the parameter attribute belongs to the default fragment, this value can be set to null.",
+          "description" : "Name of parameter attribute fragment. If parameter attribute belongs to default fragment, leave this field empty.",
           "markdown" : "",
           "type" : "java.lang.String",
           "paramType" : "PRIMITIVE",
@@ -209,17 +210,17 @@
       "links" : [ ]
     }, {
       "content" : {
-        "pluginClassName" : "fr.cnes.regards.modules.dam.plugin.entities.MaxDateComputePlugin",
+        "pluginClassName" : "fr.cnes.regards.modules.dam.plugin.entities.MinDateComputePlugin",
         "interfaceNames" : [ "fr.cnes.regards.modules.dam.domain.models.IComputedAttribute" ],
         "author" : "REGARDS Team",
-        "pluginId" : "MaxDateComputePlugin",
+        "pluginId" : "MinDateComputePlugin",
         "version" : "1.0.0",
-        "description" : "allows to compute the maximum of a DateAttribute according to a collection of data",
+        "description" : "allows to compute the minimum of a DateAttribute according to a collection of data",
         "markdown" : "",
         "url" : "https://github.com/RegardsOss",
         "contact" : "regards@c-s.fr",
         "owner" : "CSSI",
-        "licence" : "LGPLv3.0",
+        "license" : "GPLv3",
         "parameters" : [ {
           "name" : "parameterAttributeName",
           "label" : "Parameter attribute name",
@@ -234,7 +235,7 @@
         }, {
           "name" : "parameterAttributeFragmentName",
           "label" : "Parameter fragment name",
-          "description" : "Name of parameter attribute fragment. If parameter attribute belongs to default fragment, this value can be set to null.",
+          "description" : "Name of the parameter attribute fragment. If the parameter attribute belongs to the default fragment, leave this field empty.",
           "markdown" : "",
           "type" : "java.lang.String",
           "paramType" : "PRIMITIVE",
@@ -339,40 +340,18 @@
     "pluginConfigurations" : [ ],
     "pluginMetaDatas" : [ {
       "content" : {
-        "pluginClassName" : "fr.cnes.regards.modules.dam.plugin.entities.LongSumComputePlugin",
+        "pluginClassName" : "fr.cnes.regards.modules.dam.plugin.entities.CountPlugin",
         "interfaceNames" : [ "fr.cnes.regards.modules.dam.domain.models.IComputedAttribute" ],
         "author" : "REGARDS Team",
-        "pluginId" : "LongSumComputePlugin",
+        "pluginId" : "CountPlugin",
         "version" : "1.0.0",
-        "description" : "allows to compute the sum of LongAttribute according to a collection of data using the same LongAttribute name",
+        "description" : "allows to compute the number of data of a Dataset",
         "markdown" : "",
         "url" : "https://github.com/RegardsOss",
         "contact" : "regards@c-s.fr",
         "owner" : "CSSI",
-        "licence" : "LGPLv3.0",
+        "license" : "GPLv3",
         "parameters" : [ {
-          "name" : "parameterAttributeName",
-          "label" : "Parameter attribute name",
-          "description" : "Name of parameter attribute used to compute result attribute.",
-          "markdown" : "",
-          "type" : "java.lang.String",
-          "paramType" : "PRIMITIVE",
-          "optional" : false,
-          "sensitive" : false,
-          "parameters" : [ ],
-          "unconfigurable" : false
-        }, {
-          "name" : "parameterAttributeFragmentName",
-          "label" : "Parameter fragment name",
-          "description" : "Name of parameter attribute fragment. If parameter attribute belongs to default fragment, this value can be set to null.",
-          "markdown" : "",
-          "type" : "java.lang.String",
-          "paramType" : "PRIMITIVE",
-          "optional" : true,
-          "sensitive" : false,
-          "parameters" : [ ],
-          "unconfigurable" : false
-        }, {
           "name" : "resultAttributeName",
           "label" : "Result attribute name",
           "description" : "Name of attribute to compute (ie result attribute).",
@@ -399,18 +378,40 @@
       "links" : [ ]
     }, {
       "content" : {
-        "pluginClassName" : "fr.cnes.regards.modules.dam.plugin.entities.CountPlugin",
+        "pluginClassName" : "fr.cnes.regards.modules.dam.plugin.entities.LongSumComputePlugin",
         "interfaceNames" : [ "fr.cnes.regards.modules.dam.domain.models.IComputedAttribute" ],
         "author" : "REGARDS Team",
-        "pluginId" : "CountPlugin",
+        "pluginId" : "LongSumComputePlugin",
         "version" : "1.0.0",
-        "description" : "allows to compute the number of data of a Dataset",
+        "description" : "allows to compute the sum of LongAttribute according to a collection of data using the same LongAttribute name",
         "markdown" : "",
         "url" : "https://github.com/RegardsOss",
         "contact" : "regards@c-s.fr",
         "owner" : "CSSI",
-        "licence" : "LGPLv3.0",
+        "license" : "GPLv3",
         "parameters" : [ {
+          "name" : "parameterAttributeName",
+          "label" : "Parameter attribute name",
+          "description" : "Name of parameter attribute used to compute result attribute.",
+          "markdown" : "",
+          "type" : "java.lang.String",
+          "paramType" : "PRIMITIVE",
+          "optional" : false,
+          "sensitive" : false,
+          "parameters" : [ ],
+          "unconfigurable" : false
+        }, {
+          "name" : "parameterAttributeFragmentName",
+          "label" : "Parameter fragment name",
+          "description" : "Name of parameter attribute fragment. If parameter attribute belongs to default fragment, leave this field empty.",
+          "markdown" : "",
+          "type" : "java.lang.String",
+          "paramType" : "PRIMITIVE",
+          "optional" : true,
+          "sensitive" : false,
+          "parameters" : [ ],
+          "unconfigurable" : false
+        }, {
           "name" : "resultAttributeName",
           "label" : "Result attribute name",
           "description" : "Name of attribute to compute (ie result attribute).",
@@ -453,4 +454,4 @@
   },
   "links" : [ ]
 } ]
-```
+        ```

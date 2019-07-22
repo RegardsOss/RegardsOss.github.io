@@ -1,483 +1,524 @@
+#### Request
+
 * **Code:** 200 OK
 
-  **Headers:**
+        **Headers:**
 
-  `Access-Control-Allow-Origin: *`
-  `Access-Control-Allow-Methods: POST, PUT, GET, OPTIONS, DELETE`
-  `Access-Control-Allow-Headers: authorization, content-type, scope`
-  `Access-Control-Max-Age: 3600`
-  `X-Application-Context: Test application:default,test,noschedule:-1`
-  `Content-Type: application/json;charset=UTF-8`
-  `X-Content-Type-Options: nosniff`
-  `X-XSS-Protection: 1; mode=block`
-  `Cache-Control: no-cache, no-store, max-age=0, must-revalidate`
-  `Pragma: no-cache`
-  `Expires: 0`
-  `X-Frame-Options: DENY`
+        `Pragma:no-cache`
+        `X-XSS-Protection:1; mode=block`
+        `Expires:0`
+        `X-Frame-Options:DENY`
+        `X-Content-Type-Options:nosniff`
+        `Access-Control-Allow-Headers:authorization, content-type, scope`
+        `Access-Control-Max-Age:3600`
+        `Content-Type:application/json;charset=UTF-8`
+        `Access-Control-Allow-Origin:*`
+        `Cache-Control:no-cache, no-store, max-age=0, must-revalidate`
+        `Access-Control-Allow-Methods:POST, PUT, GET, OPTIONS, DELETE`
 
-  **Content:**
+        **Content:**
 
-```json
-
+        ```json
+    
 [ {
-  "id" : 233,
+  "id" : 5,
   "attribute" : {
-    "id" : 222,
+    "id" : 5,
     "name" : "attmodelGMA0",
     "type" : "STRING",
     "fragment" : {
-      "id" : 114,
+      "id" : 4,
       "name" : "default",
       "description" : "Default fragment"
     },
     "alterable" : false,
     "optional" : false,
     "label" : "ForTests",
+    "properties" : [ ],
     "dynamic" : true,
-    "internal" : false
+    "internal" : false,
+    "jsonPath" : "properties.attmodelGMA0"
   },
   "model" : {
-    "id" : 162,
+    "id" : 4,
     "name" : "modelGMA0",
     "type" : "COLLECTION"
   },
   "pos" : 0
 }, {
-  "id" : 234,
+  "id" : 6,
   "attribute" : {
-    "id" : 223,
+    "id" : 6,
     "name" : "attmodelGMA1",
     "type" : "STRING",
     "fragment" : {
-      "id" : 114,
+      "id" : 4,
       "name" : "default",
       "description" : "Default fragment"
     },
     "alterable" : false,
     "optional" : false,
     "label" : "ForTests",
+    "properties" : [ ],
     "dynamic" : true,
-    "internal" : false
+    "internal" : false,
+    "jsonPath" : "properties.attmodelGMA1"
   },
   "model" : {
-    "id" : 163,
+    "id" : 5,
     "name" : "modelGMA1",
     "type" : "DATA"
   },
   "pos" : 0
 }, {
-  "id" : 235,
+  "id" : 7,
   "attribute" : {
-    "id" : 224,
+    "id" : 7,
     "name" : "attmodelGMA2",
     "type" : "STRING",
     "fragment" : {
-      "id" : 114,
+      "id" : 4,
       "name" : "default",
       "description" : "Default fragment"
     },
     "alterable" : false,
     "optional" : false,
     "label" : "ForTests",
+    "properties" : [ ],
     "dynamic" : true,
-    "internal" : false
+    "internal" : false,
+    "jsonPath" : "properties.attmodelGMA2"
   },
   "model" : {
-    "id" : 164,
+    "id" : 6,
     "name" : "modelGMA2",
     "type" : "DATASET"
   },
   "pos" : 0
 }, {
-  "id" : 236,
+  "id" : 8,
   "attribute" : {
-    "id" : 225,
+    "id" : 8,
     "name" : "attmodelGMA3",
     "type" : "STRING",
     "fragment" : {
-      "id" : 114,
+      "id" : 4,
       "name" : "default",
       "description" : "Default fragment"
     },
     "alterable" : false,
     "optional" : false,
     "label" : "ForTests",
+    "properties" : [ ],
     "dynamic" : true,
-    "internal" : false
+    "internal" : false,
+    "jsonPath" : "properties.attmodelGMA3"
   },
   "model" : {
-    "id" : 165,
+    "id" : 7,
     "name" : "modelGMA3",
     "type" : "DOCUMENT"
   },
   "pos" : 0
 }, {
-  "id" : 237,
+  "id" : 9,
   "attribute" : {
-    "id" : 226,
+    "id" : 9,
     "name" : "attmodelGMA4",
     "type" : "STRING",
     "fragment" : {
-      "id" : 114,
+      "id" : 4,
       "name" : "default",
       "description" : "Default fragment"
     },
     "alterable" : false,
     "optional" : false,
     "label" : "ForTests",
+    "properties" : [ ],
     "dynamic" : true,
-    "internal" : false
+    "internal" : false,
+    "jsonPath" : "properties.attmodelGMA4"
   },
   "model" : {
-    "id" : 166,
+    "id" : 8,
     "name" : "modelGMA4",
     "type" : "COLLECTION"
   },
   "pos" : 0
 }, {
-  "id" : 238,
+  "id" : 10,
   "attribute" : {
-    "id" : 227,
+    "id" : 10,
     "name" : "attmodelGMA5",
     "type" : "STRING",
     "fragment" : {
-      "id" : 114,
+      "id" : 4,
       "name" : "default",
       "description" : "Default fragment"
     },
     "alterable" : false,
     "optional" : false,
     "label" : "ForTests",
+    "properties" : [ ],
     "dynamic" : true,
-    "internal" : false
+    "internal" : false,
+    "jsonPath" : "properties.attmodelGMA5"
   },
   "model" : {
-    "id" : 167,
+    "id" : 9,
     "name" : "modelGMA5",
     "type" : "DATA"
   },
   "pos" : 0
 }, {
-  "id" : 239,
+  "id" : 11,
   "attribute" : {
-    "id" : 228,
+    "id" : 11,
     "name" : "attmodelGMA6",
     "type" : "STRING",
     "fragment" : {
-      "id" : 114,
+      "id" : 4,
       "name" : "default",
       "description" : "Default fragment"
     },
     "alterable" : false,
     "optional" : false,
     "label" : "ForTests",
+    "properties" : [ ],
     "dynamic" : true,
-    "internal" : false
+    "internal" : false,
+    "jsonPath" : "properties.attmodelGMA6"
   },
   "model" : {
-    "id" : 168,
+    "id" : 10,
     "name" : "modelGMA6",
     "type" : "DATASET"
   },
   "pos" : 0
 }, {
-  "id" : 240,
+  "id" : 12,
   "attribute" : {
-    "id" : 229,
+    "id" : 12,
     "name" : "attmodelGMA7",
     "type" : "STRING",
     "fragment" : {
-      "id" : 114,
+      "id" : 4,
       "name" : "default",
       "description" : "Default fragment"
     },
     "alterable" : false,
     "optional" : false,
     "label" : "ForTests",
+    "properties" : [ ],
     "dynamic" : true,
-    "internal" : false
+    "internal" : false,
+    "jsonPath" : "properties.attmodelGMA7"
   },
   "model" : {
-    "id" : 169,
+    "id" : 11,
     "name" : "modelGMA7",
     "type" : "DOCUMENT"
   },
   "pos" : 0
 }, {
-  "id" : 241,
+  "id" : 13,
   "attribute" : {
-    "id" : 230,
+    "id" : 13,
     "name" : "attmodelGMA8",
     "type" : "STRING",
     "fragment" : {
-      "id" : 114,
+      "id" : 4,
       "name" : "default",
       "description" : "Default fragment"
     },
     "alterable" : false,
     "optional" : false,
     "label" : "ForTests",
+    "properties" : [ ],
     "dynamic" : true,
-    "internal" : false
+    "internal" : false,
+    "jsonPath" : "properties.attmodelGMA8"
   },
   "model" : {
-    "id" : 170,
+    "id" : 12,
     "name" : "modelGMA8",
     "type" : "COLLECTION"
   },
   "pos" : 0
 }, {
-  "id" : 242,
+  "id" : 14,
   "attribute" : {
-    "id" : 231,
+    "id" : 14,
     "name" : "attmodelGMA9",
     "type" : "STRING",
     "fragment" : {
-      "id" : 114,
+      "id" : 4,
       "name" : "default",
       "description" : "Default fragment"
     },
     "alterable" : false,
     "optional" : false,
     "label" : "ForTests",
+    "properties" : [ ],
     "dynamic" : true,
-    "internal" : false
+    "internal" : false,
+    "jsonPath" : "properties.attmodelGMA9"
   },
   "model" : {
-    "id" : 171,
+    "id" : 13,
     "name" : "modelGMA9",
     "type" : "DATA"
   },
   "pos" : 0
 }, {
-  "id" : 243,
+  "id" : 15,
   "attribute" : {
-    "id" : 232,
+    "id" : 15,
     "name" : "attmodelGMA10",
     "type" : "STRING",
     "fragment" : {
-      "id" : 114,
+      "id" : 4,
       "name" : "default",
       "description" : "Default fragment"
     },
     "alterable" : false,
     "optional" : false,
     "label" : "ForTests",
+    "properties" : [ ],
     "dynamic" : true,
-    "internal" : false
+    "internal" : false,
+    "jsonPath" : "properties.attmodelGMA10"
   },
   "model" : {
-    "id" : 172,
+    "id" : 14,
     "name" : "modelGMA10",
     "type" : "DATASET"
   },
   "pos" : 0
 }, {
-  "id" : 244,
+  "id" : 16,
   "attribute" : {
-    "id" : 233,
+    "id" : 16,
     "name" : "attmodelGMA11",
     "type" : "STRING",
     "fragment" : {
-      "id" : 114,
+      "id" : 4,
       "name" : "default",
       "description" : "Default fragment"
     },
     "alterable" : false,
     "optional" : false,
     "label" : "ForTests",
+    "properties" : [ ],
     "dynamic" : true,
-    "internal" : false
+    "internal" : false,
+    "jsonPath" : "properties.attmodelGMA11"
   },
   "model" : {
-    "id" : 173,
+    "id" : 15,
     "name" : "modelGMA11",
     "type" : "DOCUMENT"
   },
   "pos" : 0
 }, {
-  "id" : 245,
+  "id" : 17,
   "attribute" : {
-    "id" : 234,
+    "id" : 17,
     "name" : "attmodelGMA12",
     "type" : "STRING",
     "fragment" : {
-      "id" : 114,
+      "id" : 4,
       "name" : "default",
       "description" : "Default fragment"
     },
     "alterable" : false,
     "optional" : false,
     "label" : "ForTests",
+    "properties" : [ ],
     "dynamic" : true,
-    "internal" : false
+    "internal" : false,
+    "jsonPath" : "properties.attmodelGMA12"
   },
   "model" : {
-    "id" : 174,
+    "id" : 16,
     "name" : "modelGMA12",
     "type" : "COLLECTION"
   },
   "pos" : 0
 }, {
-  "id" : 246,
+  "id" : 18,
   "attribute" : {
-    "id" : 235,
+    "id" : 18,
     "name" : "attmodelGMA13",
     "type" : "STRING",
     "fragment" : {
-      "id" : 114,
+      "id" : 4,
       "name" : "default",
       "description" : "Default fragment"
     },
     "alterable" : false,
     "optional" : false,
     "label" : "ForTests",
+    "properties" : [ ],
     "dynamic" : true,
-    "internal" : false
+    "internal" : false,
+    "jsonPath" : "properties.attmodelGMA13"
   },
   "model" : {
-    "id" : 175,
+    "id" : 17,
     "name" : "modelGMA13",
     "type" : "DATA"
   },
   "pos" : 0
 }, {
-  "id" : 247,
+  "id" : 19,
   "attribute" : {
-    "id" : 236,
+    "id" : 19,
     "name" : "attmodelGMA14",
     "type" : "STRING",
     "fragment" : {
-      "id" : 114,
+      "id" : 4,
       "name" : "default",
       "description" : "Default fragment"
     },
     "alterable" : false,
     "optional" : false,
     "label" : "ForTests",
+    "properties" : [ ],
     "dynamic" : true,
-    "internal" : false
+    "internal" : false,
+    "jsonPath" : "properties.attmodelGMA14"
   },
   "model" : {
-    "id" : 176,
+    "id" : 18,
     "name" : "modelGMA14",
     "type" : "DATASET"
   },
   "pos" : 0
 }, {
-  "id" : 248,
+  "id" : 20,
   "attribute" : {
-    "id" : 237,
+    "id" : 20,
     "name" : "attmodelGMA15",
     "type" : "STRING",
     "fragment" : {
-      "id" : 114,
+      "id" : 4,
       "name" : "default",
       "description" : "Default fragment"
     },
     "alterable" : false,
     "optional" : false,
     "label" : "ForTests",
+    "properties" : [ ],
     "dynamic" : true,
-    "internal" : false
+    "internal" : false,
+    "jsonPath" : "properties.attmodelGMA15"
   },
   "model" : {
-    "id" : 177,
+    "id" : 19,
     "name" : "modelGMA15",
     "type" : "DOCUMENT"
   },
   "pos" : 0
 }, {
-  "id" : 249,
+  "id" : 21,
   "attribute" : {
-    "id" : 238,
+    "id" : 21,
     "name" : "attmodelGMA16",
     "type" : "STRING",
     "fragment" : {
-      "id" : 114,
+      "id" : 4,
       "name" : "default",
       "description" : "Default fragment"
     },
     "alterable" : false,
     "optional" : false,
     "label" : "ForTests",
+    "properties" : [ ],
     "dynamic" : true,
-    "internal" : false
+    "internal" : false,
+    "jsonPath" : "properties.attmodelGMA16"
   },
   "model" : {
-    "id" : 178,
+    "id" : 20,
     "name" : "modelGMA16",
     "type" : "COLLECTION"
   },
   "pos" : 0
 }, {
-  "id" : 250,
+  "id" : 22,
   "attribute" : {
-    "id" : 239,
+    "id" : 22,
     "name" : "attmodelGMA17",
     "type" : "STRING",
     "fragment" : {
-      "id" : 114,
+      "id" : 4,
       "name" : "default",
       "description" : "Default fragment"
     },
     "alterable" : false,
     "optional" : false,
     "label" : "ForTests",
+    "properties" : [ ],
     "dynamic" : true,
-    "internal" : false
+    "internal" : false,
+    "jsonPath" : "properties.attmodelGMA17"
   },
   "model" : {
-    "id" : 179,
+    "id" : 21,
     "name" : "modelGMA17",
     "type" : "DATA"
   },
   "pos" : 0
 }, {
-  "id" : 251,
+  "id" : 23,
   "attribute" : {
-    "id" : 240,
+    "id" : 23,
     "name" : "attmodelGMA18",
     "type" : "STRING",
     "fragment" : {
-      "id" : 114,
+      "id" : 4,
       "name" : "default",
       "description" : "Default fragment"
     },
     "alterable" : false,
     "optional" : false,
     "label" : "ForTests",
+    "properties" : [ ],
     "dynamic" : true,
-    "internal" : false
+    "internal" : false,
+    "jsonPath" : "properties.attmodelGMA18"
   },
   "model" : {
-    "id" : 180,
+    "id" : 22,
     "name" : "modelGMA18",
     "type" : "DATASET"
   },
   "pos" : 0
 }, {
-  "id" : 302,
+  "id" : 24,
   "attribute" : {
-    "id" : 241,
+    "id" : 24,
     "name" : "attmodelGMA19",
     "type" : "STRING",
     "fragment" : {
-      "id" : 114,
+      "id" : 4,
       "name" : "default",
       "description" : "Default fragment"
     },
     "alterable" : false,
     "optional" : false,
     "label" : "ForTests",
+    "properties" : [ ],
     "dynamic" : true,
-    "internal" : false
+    "internal" : false,
+    "jsonPath" : "properties.attmodelGMA19"
   },
   "model" : {
-    "id" : 181,
+    "id" : 23,
     "name" : "modelGMA19",
     "type" : "DOCUMENT"
   },
   "pos" : 0
 } ]
-```
+        ```

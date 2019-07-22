@@ -1,7 +1,7 @@
-* **Data params**
+    ***Data params**
 
-```json
- {
+        ```json
+    {
   "name" : "DATE_INTERV_ATT",
   "description" : "date interval description",
   "type" : "DATE_INTERVAL",
@@ -9,6 +9,7 @@
   "optional" : false,
   "label" : "ForTests",
   "dynamic" : true,
-  "internal" : false
+  "internal" : false,
+  "jsonPath" : "properties.DATE_INTERV_ATT"
 }
-```
+        ```

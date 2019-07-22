@@ -1,19 +1,19 @@
-#### Request
+    #### Request
 
-* **URL**
+        ***URL**
 
-  `/models/attributes/45`
+        `/models/attributes/45`
 
-* **URL template**
+        ***URL template**
 
-  `/models/attributes/{pAttributeId}`
+        `/models/attributes/{attributeId}`
 
-* **Method**
+        ***Method**
 
-  `PUT`
+        `PUT`
 
-* **Headers**
+        ***Headers**
 
-  `Authorization: Bearer {token}`
-  `Content-Type: application/json;charset=UTF-8`
-  `Accept: application/json`
+        `Authorization:Bearer{token}`
+        `Accept:application/json`
+        `Content-Type:application/json;charset=UTF-8`
