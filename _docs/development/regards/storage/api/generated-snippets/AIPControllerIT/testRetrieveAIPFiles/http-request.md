@@ -1,19 +1,19 @@
-#### Request
+    #### Request
 
-* **URL**
+        ***URL**
 
-  `/aips/URN:AIP:DATA:PROJECT:15ba3f95-77dc-4f74-bd0d-b2682fc751f0:V1/objectlinks`
+        `/aips/URN:AIP:DATA:PROJECT:00b5bbb0-2f3e-489d-a2fb-9dbeca550e34:V1/objectlinks`
 
-* **URL template**
+        ***URL template**
 
-  `/aips/{aip_id}/objectlinks`
+        `/aips/{aip_id}/objectlinks`
 
-* **Method**
+        ***Method**
 
-  `GET`
+        `GET`
 
-* **Headers**
+        ***Headers**
 
-  `Authorization: Bearer {token}`
-  `Content-Type: application/json;charset=UTF-8`
-  `Accept: application/json`
+        `Authorization:Bearer{token}`
+        `Accept:application/json`
+        `Content-Type:application/json;charset=UTF-8`

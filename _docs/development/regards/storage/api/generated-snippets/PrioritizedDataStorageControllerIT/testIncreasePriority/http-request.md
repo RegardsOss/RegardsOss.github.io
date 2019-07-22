@@ -1,19 +1,19 @@
-#### Request
+    #### Request
 
-* **URL**
+        ***URL**
 
-  `/storages/253/up`
+        `/storages/253/up`
 
-* **URL template**
+        ***URL template**
 
-  `/storages/{id}/up`
+        `/storages/{id}/up`
 
-* **Method**
+        ***Method**
 
-  `PUT`
+        `PUT`
 
-* **Headers**
+        ***Headers**
 
-  `Authorization: Bearer {token}`
-  `Content-Type: application/json;charset=UTF-8`
-  `Accept: application/json`
+        `Authorization:Bearer{token}`
+        `Accept:application/json`
+        `Content-Type:application/json;charset=UTF-8`

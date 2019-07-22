@@ -1,9 +1,9 @@
-* **URL params**
+    ***URL params**
 
-`/storages/{id}`  
+        `/storages/{id}`
 
-Parameter | Type | Description | Constraints  
-:-------: | :--: | :---------: | :---------:  
-`id` | Number | the prioritized data storage id | Should be a whole number  
-{: .table .table-striped}
+        Parameter|Type|Description|Constraints
+        :-------:|:--:|:---------:|:---------:
+        `id` |Number|the prioritized data storage id|Should be a whole number
+    {:.table.table-striped}
 

@@ -1,19 +1,19 @@
-#### Request
+    #### Request
 
-* **URL**
+        ***URL**
 
-  `/aips/URN:AIP:DATA:PROJECT:9ed5562d-63ac-4b20-8145-4811fa74487f:V1`
+        `/aips/URN:AIP:DATA:PROJECT:8b618688-c767-4ae0-95ef-8d5e2b648ef9:V1`
 
-* **URL template**
+        ***URL template**
 
-  `/aips/{aip_id}`
+        `/aips/{aip_id}`
 
-* **Method**
+        ***Method**
 
-  `GET`
+        `GET`
 
-* **Headers**
+        ***Headers**
 
-  `Authorization: Bearer {token}`
-  `Content-Type: application/json;charset=UTF-8`
-  `Accept: application/json`
+        `Authorization:Bearer{token}`
+        `Accept:application/json`
+        `Content-Type:application/json;charset=UTF-8`

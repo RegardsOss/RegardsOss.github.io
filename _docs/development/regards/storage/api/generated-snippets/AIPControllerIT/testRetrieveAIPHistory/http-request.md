@@ -1,19 +1,19 @@
-#### Request
+    #### Request
 
-* **URL**
+        ***URL**
 
-  `/aips/URN:AIP:DATA:PROJECT:1d4ed42f-1094-421f-a884-45f086bef98c:V1/history`
+        `/aips/URN:AIP:DATA:PROJECT:c01d1d7c-7c60-4a21-a308-14337c993659:V1/history`
 
-* **URL template**
+        ***URL template**
 
-  `/aips/{aip_id}/history`
+        `/aips/{aip_id}/history`
 
-* **Method**
+        ***Method**
 
-  `GET`
+        `GET`
 
-* **Headers**
+        ***Headers**
 
-  `Authorization: Bearer {token}`
-  `Content-Type: application/json;charset=UTF-8`
-  `Accept: application/json`
+        `Authorization:Bearer{token}`
+        `Accept:application/json`
+        `Content-Type:application/json;charset=UTF-8`

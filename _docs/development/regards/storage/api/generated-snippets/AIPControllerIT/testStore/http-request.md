@@ -1,20 +1,20 @@
-#### Request
+    #### Request
 
-* **URL**
+        ***URL**
 
-  `/aips`
+        `/aips`
 
-* **URL template**
+        ***URL template**
 
-  `/aips`
+        `/aips`
 
-* **Method**
+        ***Method**
 
-  `POST`
+        `POST`
 
-* **Headers**
+        ***Headers**
 
-  `Authorization: Bearer {token}`
-  `Content-Type: application/geo+json;charset=UTF-8`
-  `Accept: application/json`
-  `Accept: application/octet-stream`
+        `Authorization:Bearer{token}`
+        `Content-Type:application/geo+json;charset=UTF-8`
+        `Accept:application/json`
+        `Accept:application/octet-stream`

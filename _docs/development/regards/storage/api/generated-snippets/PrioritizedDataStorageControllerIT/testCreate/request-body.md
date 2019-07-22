@@ -1,7 +1,7 @@
-* **Data params**
+    ***Data params**
 
-```json
- {
+        ```json
+    {
   "dataStorageConfiguration" : {
     "pluginId" : "Local",
     "label" : "PrioritizedDataStorageControllerIT_1",
@@ -12,7 +12,7 @@
     "interfaceNames" : [ "fr.cnes.regards.modules.storage.domain.plugin.IDataStorage", "fr.cnes.regards.modules.storage.domain.plugin.IOnlineDataStorage" ],
     "parameters" : [ {
       "name" : "Storage_URL",
-      "value" : "file:/home/svissier/workspace/REGARDS/rs-storage/storage/storage-rest/target/AIPControllerIT",
+      "value" : "file:/app_to_build/storage/storage-rest/target/AIPControllerIT",
       "dynamic" : false,
       "dynamicsValues" : [ ],
       "onlyDynamic" : false
@@ -26,4 +26,4 @@
   },
   "dataStorageType" : "ONLINE"
 }
-```
+        ```

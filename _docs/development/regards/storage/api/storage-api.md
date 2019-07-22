@@ -314,3 +314,31 @@ title: REGARDS Storage API
 {% include_relative generated-snippets/PrioritizedDataStorageControllerIT/testDecreasePriority/request-body.md %}
 
 {% include_relative generated-snippets/PrioritizedDataStorageControllerIT/testDecreasePriority/http-response.md %}
+
+# StorageConfigurationManager
+
+## Import microservice configuration
+
+{% include_relative generated-snippets/StorageConfigurationManagerIT/testImport/http-request.md %}
+
+{% include_relative generated-snippets/StorageConfigurationManagerIT/testImport/request-body.md %}
+
+{% include_relative generated-snippets/StorageConfigurationManagerIT/testImport/http-response.md %}
+
+## Export microservice configuration
+
+{% include_relative generated-snippets/StorageConfigurationManagerIT/testExport/http-request.md %}
+
+{% include_relative generated-snippets/StorageConfigurationManagerIT/testExport/request-body.md %}
+
+{% include_relative generated-snippets/StorageConfigurationManagerIT/testExport/http-response.md %}
+
+# StorageDataFileController
+
+## Retrieve data file sessions
+
+{% include_relative generated-snippets/StorageDataFileControllerIT/testRetrieveSessions/http-request.md %}
+
+{% include_relative generated-snippets/StorageDataFileControllerIT/testRetrieveSessions/http-response.md %}
+
+{% include_relative generated-snippets/StorageDataFileControllerIT/testRetrieveSessions/request-body.md %}

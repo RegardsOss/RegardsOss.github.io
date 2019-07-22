@@ -1,26 +1,27 @@
+#### Request
+
 * **Code:** 422 Unprocessable Entity
 
-  **Headers:**
+        **Headers:**
 
-  `Access-Control-Allow-Origin: *`
-  `Access-Control-Allow-Methods: POST, PUT, GET, OPTIONS, DELETE`
-  `Access-Control-Allow-Headers: authorization, content-type, scope`
-  `Access-Control-Max-Age: 3600`
-  `X-Application-Context: storage-service-test:default,test,noschedule,testAmqp:-1`
-  `Content-Type: application/json;charset=UTF-8`
-  `X-Content-Type-Options: nosniff`
-  `X-XSS-Protection: 1; mode=block`
-  `Cache-Control: no-cache, no-store, max-age=0, must-revalidate`
-  `Pragma: no-cache`
-  `Expires: 0`
-  `X-Frame-Options: DENY`
+        `Pragma:no-cache`
+        `X-XSS-Protection:1; mode=block`
+        `Expires:0`
+        `X-Frame-Options:DENY`
+        `X-Content-Type-Options:nosniff`
+        `Access-Control-Allow-Headers:authorization, content-type, scope`
+        `Access-Control-Max-Age:3600`
+        `Content-Type:application/json;charset=UTF-8`
+        `Access-Control-Allow-Origin:*`
+        `Cache-Control:no-cache, no-store, max-age=0, must-revalidate`
+        `Access-Control-Allow-Methods:POST, PUT, GET, OPTIONS, DELETE`
 
-  **Content:**
+        **Content:**
 
-```json
-
+        ```json
+    
 [ {
-  "aipId" : "URN:AIP:DATA:PROJECT:75d3d0af-9ef3-4ece-b981-ab6744203ce1:V1",
-  "rejectionCauses" : [ "AIP with ip id URN:AIP:DATA:PROJECT:75d3d0af-9ef3-4ece-b981-ab6744203ce1:V1 already exists" ]
+  "aipId" : "URN:AIP:DATA:PROJECT:0074e3f6-f504-4f5b-baac-f694557ae66d:V1",
+  "rejectionCauses" : [ "AIP with ip id URN:AIP:DATA:PROJECT:0074e3f6-f504-4f5b-baac-f694557ae66d:V1 already exists." ]
 } ]
-```
+        ```
