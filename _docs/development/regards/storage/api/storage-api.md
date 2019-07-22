@@ -173,8 +173,6 @@ title: REGARDS Storage API
 
 {% include_relative generated-snippets/AIPControllerIT/testDownload/path-parameters.md %}
 
-{% include_relative generated-snippets/AIPControllerIT/testDownload/request-body.md %}
-
 {% include_relative generated-snippets/AIPControllerIT/testDownload/http-response.md %}
 
 ## Delete AIP

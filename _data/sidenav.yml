@@ -99,15 +99,11 @@
           link: development/framework/dev-microservice/
         - name: How to create a plugin
           link: development/framework/dev-plugin/
-    - name: Authentication
-      link: development/regards/authentication/authentication/
+    - name: Access project
+      link: development/regards/access/access/
       children:
-        - name: Authentication API
-          link: development/regards/authentication/api/authentication-api/
-        - name: Plugins API
-          link: development/regards/common/api/plugins-api/
-        - name: Authentication plugins
-          link: development/regards/authentication/plugins/authentication-plugins/
+        - name: Access project API
+          link: development/regards/access/api/access-api/
     - name: Catalog
       link: development/regards/catalog/catalog/
       children:
@@ -128,6 +124,18 @@
       children:
         - name: Overview
           link: development/regards/dam/dam/
+        - name: Access rights API
+          link: development/regards/dam/api/access-rights-api/
+        - name: Attachment API
+          link: development/regards/dam/api/attachment-api/
+        - name: Collection API
+          link: development/regards/dam/api/collection-api/
+        - name: Dataset API
+          link: development/regards/dam/api/dataset-api/
+        - name: Datasource API
+          link: development/regards/dam/api/datasource-api/
+        - name: Document API
+          link: development/regards/dam/api/document-api/
         - name: Model API
           link: development/regards/dam/api/model-api/
         - name: Plugins API
