@@ -1,19 +1,19 @@
-#### Request
+    #### Request
 
-* **URL**
+        ***URL**
 
-  `/microservice/configuration/enabled`
+        `/microservice/configuration/enabled`
 
-* **URL template**
+        ***URL template**
 
-  `/microservice/configuration/enabled`
+        `/microservice/configuration/enabled`
 
-* **Method**
+        ***Method**
 
-  `GET`
+        `GET`
 
-* **Headers**
+        ***Headers**
 
-  `Authorization: Bearer {token}`
-  `Content-Type: application/json;charset=UTF-8`
-  `Accept: application/json`
+        `Authorization:Bearer{token}`
+        `Accept:application/json`
+        `Content-Type:application/json;charset=UTF-8`

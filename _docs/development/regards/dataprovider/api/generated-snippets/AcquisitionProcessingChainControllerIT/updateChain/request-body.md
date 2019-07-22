@@ -1,15 +1,15 @@
-* **Data params**
+    ***Data params**
 
-```json
- {
-  "id" : 55,
+        ```json
+    {
+  "id" : 5,
   "label" : "Processing chain 1",
   "active" : true,
   "mode" : "MANUAL",
   "locked" : false,
   "ingestChain" : "DefaultIngestChain",
   "fileInfos" : [ {
-    "id" : 55,
+    "id" : 5,
     "mandatory" : true,
     "scanPlugin" : {
       "pluginId" : "GlobDiskScanning",
@@ -32,7 +32,7 @@
     "comment" : "A comment"
   } ],
   "validationPluginConf" : {
-    "id" : 66,
+    "id" : 19,
     "pluginId" : "DefaultFileValidation",
     "label" : "update : Validation plugin",
     "version" : "1.0.0-SNAPSHOT",
@@ -43,7 +43,7 @@
     "parameters" : [ ]
   },
   "productPluginConf" : {
-    "id" : 67,
+    "id" : 20,
     "pluginId" : "DefaultProductPlugin",
     "label" : "update : Product plugin",
     "version" : "1.0.0-SNAPSHOT",
@@ -54,7 +54,7 @@
     "parameters" : [ ]
   },
   "generateSipPluginConf" : {
-    "id" : 68,
+    "id" : 21,
     "pluginId" : "DefaultSIPGeneration",
     "label" : "update : SIP generation plugin",
     "version" : "1.0.0-SNAPSHOT",
@@ -63,6 +63,7 @@
     "pluginClassName" : "fr.cnes.regards.modules.acquisition.service.plugins.DefaultSIPGeneration",
     "interfaceNames" : [ "fr.cnes.regards.modules.acquisition.plugins.ISipGenerationPlugin" ],
     "parameters" : [ ]
-  }
+  },
+  "generationRetryEnabled" : false
 }
-```
+        ```

@@ -1,7 +1,7 @@
-* **Data params**
+    ***Data params**
 
-```json
- {
+        ```json
+    {
   "label" : "Processing chain 1",
   "active" : true,
   "mode" : "AUTO",
@@ -58,6 +58,7 @@
     "pluginClassName" : "fr.cnes.regards.modules.acquisition.service.plugins.DefaultSIPGeneration",
     "interfaceNames" : [ "fr.cnes.regards.modules.acquisition.plugins.ISipGenerationPlugin" ],
     "parameters" : [ ]
-  }
+  },
+  "generationRetryEnabled" : false
 }
-```
+        ```

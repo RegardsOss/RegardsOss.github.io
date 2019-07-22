@@ -1,19 +1,19 @@
-#### Request
+    #### Request
 
-* **URL**
+        ***URL**
 
-  `/products?sipState=NOT_SCHEDULED&sipState=QUEUED`
+        `/products?sipState=NOT_SCHEDULED&sipState=QUEUED`
 
-* **URL template**
+        ***URL template**
 
-  `/products`
+        `/products`
 
-* **Method**
+        ***Method**
 
-  `GET`
+        `GET`
 
-* **Headers**
+        ***Headers**
 
-  `Authorization: Bearer {token}`
-  `Content-Type: application/json;charset=UTF-8`
-  `Accept: application/json`
+        `Authorization:Bearer{token}`
+        `Accept:application/json`
+        `Content-Type:application/json;charset=UTF-8`

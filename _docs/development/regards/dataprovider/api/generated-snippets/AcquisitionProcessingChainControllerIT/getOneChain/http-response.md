@@ -1,37 +1,38 @@
+#### Request
+
 * **Code:** 200 OK
 
-  **Headers:**
+        **Headers:**
 
-  `Access-Control-Allow-Origin: *`
-  `Access-Control-Allow-Methods: POST, PUT, GET, OPTIONS, DELETE`
-  `Access-Control-Allow-Headers: authorization, content-type, scope`
-  `Access-Control-Max-Age: 3600`
-  `X-Application-Context: Test application:default,test,noschedule:-1`
-  `Content-Type: application/json;charset=UTF-8`
-  `X-Content-Type-Options: nosniff`
-  `X-XSS-Protection: 1; mode=block`
-  `Cache-Control: no-cache, no-store, max-age=0, must-revalidate`
-  `Pragma: no-cache`
-  `Expires: 0`
-  `X-Frame-Options: DENY`
+        `Pragma:no-cache`
+        `X-XSS-Protection:1; mode=block`
+        `Expires:0`
+        `X-Frame-Options:DENY`
+        `X-Content-Type-Options:nosniff`
+        `Access-Control-Allow-Headers:authorization, content-type, scope`
+        `Access-Control-Max-Age:3600`
+        `Content-Type:application/json;charset=UTF-8`
+        `Access-Control-Allow-Origin:*`
+        `Cache-Control:no-cache, no-store, max-age=0, must-revalidate`
+        `Access-Control-Allow-Methods:POST, PUT, GET, OPTIONS, DELETE`
 
-  **Content:**
+        **Content:**
 
-```json
-
+        ```json
+    
 {
   "content" : {
-    "id" : 57,
+    "id" : 7,
     "label" : "Processing chain 1",
     "active" : true,
     "mode" : "MANUAL",
     "locked" : false,
     "ingestChain" : "DefaultIngestChain",
     "fileInfos" : [ {
-      "id" : 57,
+      "id" : 7,
       "mandatory" : true,
       "scanPlugin" : {
-        "id" : 74,
+        "id" : 27,
         "pluginId" : "GlobDiskScanning",
         "label" : "first : Scan plugin",
         "version" : "1.0.0-SNAPSHOT",
@@ -40,7 +41,7 @@
         "pluginClassName" : "fr.cnes.regards.modules.acquisition.service.plugins.GlobDiskScanning",
         "interfaceNames" : [ "fr.cnes.regards.modules.acquisition.plugins.IScanPlugin" ],
         "parameters" : [ {
-          "id" : 59,
+          "id" : 9,
           "name" : "directories",
           "value" : [ ],
           "dynamic" : false,
@@ -53,7 +54,7 @@
       "comment" : "A comment"
     } ],
     "validationPluginConf" : {
-      "id" : 75,
+      "id" : 28,
       "pluginId" : "DefaultFileValidation",
       "label" : "first : Validation plugin",
       "version" : "1.0.0-SNAPSHOT",
@@ -64,7 +65,7 @@
       "parameters" : [ ]
     },
     "productPluginConf" : {
-      "id" : 76,
+      "id" : 29,
       "pluginId" : "DefaultProductPlugin",
       "label" : "first : Product plugin",
       "version" : "1.0.0-SNAPSHOT",
@@ -75,7 +76,7 @@
       "parameters" : [ ]
     },
     "generateSipPluginConf" : {
-      "id" : 77,
+      "id" : 30,
       "pluginId" : "DefaultSIPGeneration",
       "label" : "first : SIP generation plugin",
       "version" : "1.0.0-SNAPSHOT",
@@ -84,17 +85,18 @@
       "pluginClassName" : "fr.cnes.regards.modules.acquisition.service.plugins.DefaultSIPGeneration",
       "interfaceNames" : [ "fr.cnes.regards.modules.acquisition.plugins.ISipGenerationPlugin" ],
       "parameters" : [ ]
-    }
+    },
+    "generationRetryEnabled" : false
   },
   "links" : [ {
     "rel" : "list",
     "href" : "http://localhost:8080/chains"
   }, {
     "rel" : "self",
-    "href" : "http://localhost:8080/chains/57"
+    "href" : "http://localhost:8080/chains/7"
   }, {
     "rel" : "update",
-    "href" : "http://localhost:8080/chains/57"
+    "href" : "http://localhost:8080/chains/7"
   } ]
 }
-```
+        ```

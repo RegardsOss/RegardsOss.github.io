@@ -1,19 +1,19 @@
-#### Request
+    #### Request
 
-* **URL**
+        ***URL**
 
-  `/chains/55`
+        `/chains/5`
 
-* **URL template**
+        ***URL template**
 
-  `/chains/{chainId}`
+        `/chains/{chainId}`
 
-* **Method**
+        ***Method**
 
-  `PUT`
+        `PUT`
 
-* **Headers**
+        ***Headers**
 
-  `Authorization: Bearer {token}`
-  `Content-Type: application/json;charset=UTF-8`
-  `Accept: application/json`
+        `Authorization:Bearer{token}`
+        `Accept:application/json`
+        `Content-Type:application/json;charset=UTF-8`
