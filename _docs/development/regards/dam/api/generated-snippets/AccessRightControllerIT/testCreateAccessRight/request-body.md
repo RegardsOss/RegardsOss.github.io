@@ -1,6 +1,6 @@
     ***Data params**
 
-        ```json
+```json
     {
   "qualityFilter" : {
     "maxScore" : 10,

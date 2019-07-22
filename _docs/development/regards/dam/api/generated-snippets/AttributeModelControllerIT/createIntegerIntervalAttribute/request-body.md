@@ -1,6 +1,6 @@
     ***Data params**
 
-        ```json
+```json
     {
   "name" : "INTEGER_INTERVAL_ATT",
   "description" : "Integer interval description",

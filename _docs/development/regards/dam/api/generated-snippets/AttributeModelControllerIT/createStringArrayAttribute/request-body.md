@@ -1,6 +1,6 @@
     ***Data params**
 
-        ```json
+```json
     {
   "name" : "STRING_ARRAY_ATT",
   "description" : "string array description",

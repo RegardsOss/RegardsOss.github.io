@@ -1,6 +1,6 @@
     ***Data params**
 
-        ```json
+```json
     {
   "type" : "COLLECTION",
   "ipId" : "URN:AIP:COLLECTION:null:751343a9-eb1a-4b85-8d20-7fc378de9752:V1",

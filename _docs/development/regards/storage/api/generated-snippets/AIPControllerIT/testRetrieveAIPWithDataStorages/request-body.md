@@ -1,6 +1,6 @@
     ***Data params**
 
-        ```json
+```json
     {
   "state" : "STORED",
   "providerId" : "providerId",

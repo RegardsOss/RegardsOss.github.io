@@ -19,7 +19,7 @@
 
         **Content:**
 
-        ```json
+```json
     
 {
   "name" : "DefaultProcessingChain",

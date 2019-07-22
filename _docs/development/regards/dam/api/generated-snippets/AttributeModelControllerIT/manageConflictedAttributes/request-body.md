@@ -1,6 +1,6 @@
     ***Data params**
 
-        ```json
+```json
     {
   "name" : "ALPHABET",
   "type" : "STRING",

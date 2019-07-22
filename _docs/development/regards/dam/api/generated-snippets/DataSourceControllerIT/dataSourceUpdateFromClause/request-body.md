@@ -1,6 +1,6 @@
     ***Data params**
 
-        ```json
+```json
     {
   "id" : 67,
   "label" : "the label of the data source with from clause",

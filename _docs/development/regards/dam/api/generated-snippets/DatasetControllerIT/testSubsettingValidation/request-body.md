@@ -1,6 +1,6 @@
     ***Data params**
 
-        ```json
+```json
     {
   "query" : "properties.DO_NOT_EXIST:10"
 }

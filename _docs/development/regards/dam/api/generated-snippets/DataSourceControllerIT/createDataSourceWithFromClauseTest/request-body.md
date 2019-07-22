@@ -1,6 +1,6 @@
     ***Data params**
 
-        ```json
+```json
     {
   "label" : "the label of the data source with from clause",
   "version" : "alpha",

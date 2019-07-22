@@ -18,7 +18,7 @@
 
         **Content:**
 
-        ```json
+```json
     
 {
   "messages" : [ "Missing periodicity for automatic acquisition processing chain" ]

@@ -1,6 +1,6 @@
     ***Data params**
 
-        ```json
+```json
     {
   "dataStorageIds" : [ 121 ],
   "state" : "STORED",

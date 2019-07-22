@@ -1,6 +1,6 @@
     ***Data params**
 
-        ```json
+```json
     {
   "name" : "FLOAT_INTERVAL_ATT",
   "description" : "float interval description",

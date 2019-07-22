@@ -1,6 +1,6 @@
     ***Data params**
 
-        ```json
+```json
     {
   "type" : "COLLECTION",
   "id" : 10,

@@ -18,7 +18,7 @@
 
         **Content:**
 
-        ```json
+```json
     
 {
   "messages" : [ "Entity fr.cnes.regards.framework.modules.plugins.domain.PluginConfiguration with id : 9223372036854775807 doesn't exist" ]

@@ -1,6 +1,6 @@
     ***Data params**
 
-        ```json
+```json
     {
   "name" : "INTEGER_ARRAY_ATT",
   "description" : "Integer array description",

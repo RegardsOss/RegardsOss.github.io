@@ -1,6 +1,6 @@
     ***Data params**
 
-        ```json
+```json
     {
   "label" : "Processing chain 1",
   "active" : true,

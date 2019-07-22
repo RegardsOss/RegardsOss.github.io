@@ -1,6 +1,6 @@
     ***Data params**
 
-        ```json
+```json
     {
   "name" : "BOOLEAN_ATT",
   "description" : "boolean description",

@@ -18,7 +18,7 @@
 
         **Content:**
 
-        ```json
+```json
     
 [ {
   "aipId" : "URN:AIP:DATA:PROJECT:ba1692a8-f9ae-440b-85de-2fba30be8a47:V1",

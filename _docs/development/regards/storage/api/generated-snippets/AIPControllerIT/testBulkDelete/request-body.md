@@ -1,5 +1,5 @@
     ***Data params**
 
-        ```json
+```json
     [ "URN:SIP:COLLECTION:PROJECT:3375173c-b00b-4783-84ff-9e4d829596e6:V1", "URN:SIP:COLLECTION:PROJECT:c9bd77b4-3a91-43c8-a556-5c011cb42296:V1" ]
         ```

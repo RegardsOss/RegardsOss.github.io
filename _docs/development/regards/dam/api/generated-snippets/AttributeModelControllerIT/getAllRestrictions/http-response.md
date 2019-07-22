@@ -18,7 +18,7 @@
 
         **Content:**
 
-        ```json
+```json
     
 {
   "messages" : [ "Required AttributeType parameter 'type' is not present" ]

@@ -1,6 +1,6 @@
     ***Data params**
 
-        ```json
+```json
     {
   "id" : 8,
   "name" : "Theme",
