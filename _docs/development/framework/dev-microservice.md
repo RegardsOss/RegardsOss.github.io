@@ -91,8 +91,8 @@ To add a new module to your microservice you have to add a new maven module with
 
 Choose the right archetype (`fr.cnes.regards.modules:module-archetype`) and enter requested field as follow :
 
-- `groupId` : fr.cnes.regards.modules.myModule
-- `artifactId` : myModule
+- `groupId` : fr.cnes.regards.modules
+- `artifactId` : my-module
 - `version` : press enter to apply default value
 - `package` : press enter to apply default value
 
@@ -100,9 +100,9 @@ Add the following dependency to `bootstrap-myMicroservice/pom.xml` file (for ins
 
 ```xml
 <dependency>
-  <groupId>fr.cnes.regards.modules.myModule</groupId>
-  <artifactId>myModule-rest</artifactId>
-  <version>1.0-0</version>
+  <groupId>fr.cnes.regards.modules</groupId>
+  <artifactId>my-module-rest</artifactId>
+  <version>1.0-SNAPSHOT</version>
 </dependency>
 ```
 
