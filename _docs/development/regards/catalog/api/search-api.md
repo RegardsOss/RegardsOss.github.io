@@ -179,43 +179,47 @@ This configration is divided in 3 parts
 2. `Configure opensearch responses headers`.
 3. `Configure opensearch parameters`. Here you can define specific opensearch parameters.
 
-> The here under example show you how to configure time extension :
+### General
 
+By default, all REGARDS parameters are defined by without any needed configuration. Configure one or many of the regards parameters allow to define the generation of possible values in opensearch descriptor file.
+
+### Time extension configuration
+
+To be able to use the opensearch time extension you have to configure the opensearch engine to define the two stanadrd parameters "start" and "end".  
+To do so, follow the here under example :  
+
+ - <b>Define [time.start] parameter</b>
 ```
-   Define [time.start] parameter for time extension :   
-
   Alias : timeStart
   Name : start
   Namespace : time
   full json path of associated REGARDS attribute : properties.date
 ```
-
+ - <b>Define [time.end] parameter</b>
 ```
-  Define [time.end] parameter for time extension :   
-
   Alias : timeEnd
   Name : end
   Namespace : time
   full json path of associated REGARDS attribute : properties.date
 ```
+NOTE : `properties.date` must be replaced by the date attribute to use in the configured REGARDS catalog.  
 
+### Configure possible values of attributes in opensearch descriptor
+
+  To do so, you have to configure the parameters to enable the `possible value generation` and the `value number limit`.
 ```
-  Define regards parameter to allow retrieve of possible values in opensearch descriptor :   
-
   Name : parameter1
   Namespace : regards
   Enable generation of possible values : true
-  Lilit number of possible values : 100
+  Limit number of possible values : 100
   full json path of associated REGARDS attribute : properties.parameter1
 ```
 
-  NOTES :  
-  - `properties.date` must be replaced by the date attribute to use in the configured REGARDS catalog.
-  - All REGARDS parameters are defined by default without any configuration. Configure one or many of the regards parameters allow to define the generation of possible values in opensearch descriptor file.
+### Request example
 
-  With the given exemple configuration you can request the opensearch engine with the here under request :
+  With the given below time extension configuration you can request the opensearch engine with the here under request :
   
-  ```
+  ```sh
   curl 'http://<host>/api/v1/rs-catalog/engines/opensearch/entities/search?timeStart=2010-05-23T08:16:36.921Z&timeEnd=2022-05-23T08:16:36.921Z&properties.parameter1=value1
   ```
 
