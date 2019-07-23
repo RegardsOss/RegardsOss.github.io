@@ -99,6 +99,11 @@
           link: development/framework/dev-microservice/
         - name: How to create a plugin
           link: development/framework/dev-plugin/
+    - name: Admin project
+      link: development/regards/admin/admin/
+      children:
+        - name: Admin project API
+          link: development/regards/admin/api/admin-api/
     - name: Access project
       link: development/regards/access/access/
       children:
