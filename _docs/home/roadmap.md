@@ -18,15 +18,20 @@ This roadmap is likely to evolve and has for only purpose to give an overview of
 ---
 {% include_relative roadmap/V1.0.0.md %}
 
----
-{% include_relative roadmap/V0.4.0.md %}
 
 ## Latest stable version
 
 ---
-{% include_relative roadmap/V0.3.0.md %}
+{% include_relative roadmap/V0.4.1.md %}
+
 
 ## Old not maintained versions
+
+---
+{% include_relative roadmap/V0.4.0.md %}
+
+---
+{% include_relative roadmap/V0.3.0.md %}
 
 ---
 {% include_relative roadmap/V0.2.0.md %}
