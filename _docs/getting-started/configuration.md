@@ -169,6 +169,10 @@ chmod 0640  /etc/rabbitmq/*
 systemctl start rabbitmq-server.service
 ```
 
+We advise the following configuration of RabbitMQ for production environments, in /etc/rabbitmq/rabbitmq.conf:  
+ -  vm_memory_high_watermark: 0.4
+ -  disk_free_limit: {mem_relative, 2.0}
+
 Once you have installed RabbitMQ, you need to activate the management plugin
 
 ```bash
@@ -187,7 +191,7 @@ rabbitmqctl set_user_tags regards_adm administrator
 rabbitmqctl set_permissions -p / regards_adm ". ".*" "."
 ```
 
-
+If you want increased security on RabbitMQ, you can run `rabbitmqctl set_permissions -p / regards_adm "^$"^$" "^$"`.
 
 ## Elasticsearch
 
@@ -202,9 +206,20 @@ echo "
 vm.max_map_count=262144" >> /etc/sysctl.conf
 ```
 
+We advise the following configuration for production environments:
+ -  change **cluster.name**
+ -  change **node.name**
+ -  change **path.data**
+ -  configure manually the list of hosts from the cluster 
+ -  **gateway.recover_after_node** should be the number of node deployed in the cluster
+ -  **discovery.zen.minimum_master_nodes** should be `n/2+1` when n is the number of node in the cluster
+ -  elasticsearch **HEAP_SIZE** should be no more than `32GB`
+ -  **bootstrap.memory_lock** is set to `true`
+
 For Red Hat OS, you just need to start it :
 
 ```bash
+systemctl enable elasticsearch.service
 systemctl start elasticsearch.service
 ```
 
