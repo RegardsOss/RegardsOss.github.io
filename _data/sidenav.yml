@@ -153,6 +153,11 @@
           link: development/regards/dam/plugins/data-source-plugins/
         - name: Bus message events
           link: development/regards/dam/events/events/
+    - name: Feature Management
+      link: development/regards/fem/fem/
+      children:
+        - name: Overview
+          link: development/regards/fem/fem/
     - name: Data provider
       link: development/regards/dataprovider/dataprovider/
       children:
