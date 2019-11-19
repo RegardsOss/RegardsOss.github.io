@@ -493,11 +493,10 @@ Here is a list of all flux needed by each microservice:
 <tr><td>tcp</td><td>rs-order</td><td>rs-storage</td><td>9042</td><td>Sends AIP</td></tr>
 <tr><td>tcp</td><td>rs-order</td><td>RabbitMQ</td><td>15672</td><td>AMQP management (exchanges, queues, bindings, vhosts)</td></tr>
 <tr><td>tcp</td><td>rs-order</td><td>RabbitMQ</td><td>5672</td><td>sending/receiving AMQP messages</td></tr>
-<tr><td>Tcp</td><td>rs-order</td><td>PostgreSQL</td><td>5432</td><td>DB access</td></tr>
-
+<tr><td>tcp</td><td>rs-order</td><td>PostgreSQL</td><td>5432</td><td>DB access</td></tr>
+<tr><td>tcp</td><td>httpd</td><td>rs-gateway</td><td>9030</td><td>Access to backend</td></tr>
+<tr><td>tcp</td><td>httpd</td><td>rs-front</td><td>80</td><td>Access to frontend</td></tr>
 </table>
-
-
 
 You can use utility developped by yours truly to ease your life a bit. It is located [here](https://github.com/RegardsOss/regards-deployment/tree/master/security/iptable-generator). You just need two CSV files (using `;` as separator): the above table, *Flow.csv*, and a file describing which component is deployed on which machine (IP), *CompoIp.csv*. Then you just need to compile the utility (`mvn clean install -Dmaven.test.skip=true`) and run the following command: `java -DcompoIpCsv=CompoIp.csv -DflowMatrix=Flow.csv -jar iptable-generator-1.0-SNAPSHOT-jar-with-dependencies.jar`. This will give a file with iptables correctly configured for each machine.
 
