@@ -373,10 +373,78 @@ http {
 
 ## Firewall
 
-If you use iptable as a firewall, you need to open its port in the file `/etc/sysconfig/iptables`:
+If you use iptable as a firewall, we strongly recommand you to deny everything but what is needed.
+
+### Everything is installed on same server
+
+You need to open httpd or nginx port in the file `/etc/sysconfig/iptables`:
 
 ```
 -A INPUT -p tcp -m state --state NEW -m tcp --dport 80 -j ACCEPT
+```
+
+### Otherwise
+
+Here is a list of all flux needed by each microservice:
+
+Protocol | Source             | Target | Flux description  
+:------: | Component | Component | Port | :-----------: |  
+:------: | :--------: | :---------: | :-----: | :------:  
+tcp | rs-admin | postgres | 5432 | DB access  
+  {: class="table table-striped"}
+
+You can use utility developped by yours truly to ease your life a bit. It is located [here](https://github.com/RegardsOss/regards-deployment/tree/master/security/iptable-generator). You just need two CSV files (using `;` as separator): the above table, *Flow.csv*, and a file describing which component is deployed on which machine (IP), *CompoIp.csv*. Then you just need to compile the utility (`mvn clean install -Dmaven.test.skip=true`) and run the following command: `java -DcompoIpCsv=CompoIp.csv -DflowMatrix=Flow.csv -jar iptable-generator-1.0-SNAPSHOT-jar-with-dependencies.jar`. This will give a file with iptables correctly configured for each machine.
+
+Here is an example of *CompoIp.csv*:
+```csv
+composant;ip
+rs-config;192.168.0.1
+rs-registry;192.168.0.2
+rs-access-instance;192.168.0.1
+rs-access-project;192.168.0.2
+rs-admin-instance;192.168.0.1
+rs-admin-project;192.168.0.1
+rs-authentication;192.168.0.2
+rs-catalog;192.168.0.2
+rs-config;192.168.0.1
+rs-dam;192.168.0.1
+rs-dataprovider;192.168.0.1
+rs-frontend;192.168.0.2
+rs-gateway;192.168.0.2
+rs-ingest;192.168.0.1
+rs-order;192.168.0.2
+rs-registry;192.168.0.2
+rs-storage;192.168.0.1
+Elasticsearch;192.168.0.3
+RabbitMQ;192.168.0.3
+PostgreSQL;192.168.0.3
+httpd;192.168.0.4
+```
+With this example you'll obtain 4 files: REGARDS_iptables_192.168.0.1.txt, REGARDS_iptables_192.168.0.2.txt, REGARDS_iptables_192.168.0.3.txt, REGARDS_iptables_192.168.0.4.txt.  
+
+Here is an example of obtained file, for REGARDS_iptables_192.168.0.1.txt:
+```
+# Rules for component rs-dataprovider
+-A INPUT -p tcp -s 192.168.0.1 --dport 9045 -j ACCEPT
+# Rules for component rs-ingest
+-A INPUT -p tcp -s 192.168.0.2 --dport 9044 -j ACCEPT
+-A INPUT -p tcp -s 192.168.0.1 --dport 9044 -j ACCEPT
+# Rules for component rs-config
+-A INPUT -p tcp -s 192.168.0.2 --dport 9031 -j ACCEPT
+-A INPUT -p tcp -s 192.168.0.1 --dport 9031 -j ACCEPT
+# Rules for component rs-dam
+-A INPUT -p tcp -s 192.168.0.1 --dport 9035 -j ACCEPT
+# Rules for component rs-admin-project
+-A INPUT -p tcp -s 192.168.0.1 --dport 9033 -j ACCEPT
+-A INPUT -p tcp -s 192.168.0.2 --dport 9033 -j ACCEPT
+# Rules for component rs-storage
+-A INPUT -p tcp -s 192.168.0.1 --dport 9042 -j ACCEPT
+-A INPUT -p tcp -s 192.168.0.2 --dport 9042 -j ACCEPT
+# Rules for component rs-access-instance
+-A INPUT -p tcp -s 192.168.0.1 --dport 9040 -j ACCEPT
+# Rules for component rs-admin-instance
+-A INPUT -p tcp -s 192.168.0.1 --dport 9037 -j ACCEPT
+-A INPUT -p tcp -s 192.168.0.2 --dport 9037 -j ACCEPT
 ```
 
 ## Auto restart services on boot
