@@ -191,7 +191,7 @@ rabbitmqctl set_user_tags regards_adm administrator
 rabbitmqctl set_permissions -p / regards_adm ". ".*" "."
 ```
 
-If you want increased security on RabbitMQ, you can run `rabbitmqctl set_permissions -p / regards_adm "^$"^$" "^$"`.
+If you want increased security on RabbitMQ, you can run `rabbitmqctl set_permissions -p / regards_adm "^$"^$" "^$"` after REGARDS has been started at least once.
 
 ## Elasticsearch
 
@@ -213,6 +213,7 @@ We advise the following configuration for production environments:
  -  configure manually the list of hosts from the cluster 
  -  **gateway.recover_after_node** should be the number of node deployed in the cluster
  -  **discovery.zen.minimum_master_nodes** should be `n/2+1` when n is the number of node in the cluster
+ -  Elasticsearch being taking advantage of some file system features, if elasticsearch has his dedicated server, **HEAP_SIZE** should be no more than half of the server memory.
  -  elasticsearch **HEAP_SIZE** should be no more than `32GB`
  -  **bootstrap.memory_lock** is set to `true`
 
