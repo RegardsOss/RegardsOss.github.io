@@ -1,15 +1,14 @@
 ```json
     {
   "metadata" : {
-    "sessionOwner" : "String",
-    "session" : "String",
     "storages" : [ {
       "pluginBusinessId" : "String",
-      "targetTypes" : [ "Enum"]
+      "targetTypes" : [ "Enum" ]
     } ],
     "priority" : "Enum"
   },
   "features" : [ {
+    "urn" : "String",
     "entityType" : "Enum",
     "model" : "String",
     "files" : [ {
@@ -28,12 +27,12 @@
     } ],
     "id" : "String",
     "geometry" : {
-      "coordinates" : [ "Double" ],
-      "type" : "String"
+      "coordinates" : [ "Integer" ],
+      "type" : "Enum"
     },
     "normalizedGeometry" : {
-      "coordinates" : [ "Double" ],
-      "type" : "String"
+      "coordinates" : [ "Integer" ],
+      "type" : "Enum"
     },
     "properties" : [ {
       "data_type" : "String"
