@@ -15,6 +15,8 @@ title: REGARDS Feature Management API
 
 {% include_relative generated-snippets/FeatureControllerIT/testCreateValidFeatureCreationRequest/request-body.md %}
 
+{% include_relative generated-snippets/FeatureControllerIT/testCreateValidFeatureCreationRequest/request-body-types.md %}
+
 {% include_relative generated-snippets/FeatureControllerIT/testCreateValidFeatureCreationRequest/http-response.md %}
 
 ## Feature update request
