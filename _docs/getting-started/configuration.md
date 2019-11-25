@@ -584,8 +584,8 @@ Before=
 Type=oneshot
 RemainAfterExit=yes
 
-ExecStart=/produit/regards/REGARDS/sbin/microservice_regards.sh start
-ExecStop=/produit/regards/REGARDS/sbin/microservice_regards.sh stop
+ExecStart=/opt/regards/REGARDS/sbin/microservice_regards.sh start
+ExecStop=/opt/regards/REGARDS/sbin/microservice_regards.sh stop
 
 # Give a reasonable amount of time for the server to start up/shut down
 TimeoutSec=300
@@ -638,8 +638,8 @@ Before=
 Type=oneshot
 RemainAfterExit=yes
 
-ExecStart=/produit/regards/REGARDS/sbin/microservice_regards.sh -t order start
-ExecStop=/produit/regards/REGARDS/sbin/microservice_regards.sh -t order stop
+ExecStart=/opt/regards/REGARDS/sbin/microservice_regards.sh -t order start
+ExecStop=/opt/regards/REGARDS/sbin/microservice_regards.sh -t order stop
 
 # Give a reasonable amount of time for the server to start up/shut down
 TimeoutSec=300
