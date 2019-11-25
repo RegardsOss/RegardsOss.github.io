@@ -1,7 +1,7 @@
     ***Data params**
 
 ```json
-    "metadata": {
+{"metadata": {
       "sessionOwner": "String",
       "session": "String",
       "storages": [ "String" ],
@@ -11,19 +11,22 @@
       "entityType": "Enum",
       "model": "String",
       "files" : [ {
-        "locations" : [ {
-        "storage" : "String",
-        "url" : "String"
-      } ],
+          "locations" : [ {
+            "storage" : "String",
+            "url" : "String"
+          } ],
+          "attributes" : {
+            "dataType" : "Enum",
+            "mimeType" : "String",
+            "filename" : "String",
+            "filesize" : "Integer",
+            "algorithm" : "String",
+            "checksum" : "String"
+          }
+        } ],
       "id": "String",
-      "geometry" : {
-        "coordinates" : [ "Double" ],
-        "type" : "String"
-      },
-      "normalizedGeometry" : {
-        "coordinates" : [ "Double" ],
-        "type" : "String"
-      },
+      "geometry" : "GeoJSON",
+      "normalizedGeometry" : "GeoJSON",
       "properties": [
         "Custom"
       ],
@@ -32,5 +35,4 @@
     "requestId": "String",
     "requestDate": "Date"
   }
-}
 ```

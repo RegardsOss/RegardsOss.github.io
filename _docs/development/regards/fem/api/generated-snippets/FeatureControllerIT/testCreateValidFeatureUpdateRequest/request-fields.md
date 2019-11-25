@@ -4,9 +4,10 @@
         |metadata.storages[].targetTypes| `Array` |List of data object types accepted by this storage location (when storing AIPs)||
         |features[].entityType| `String` |Entity Type||
         |features[].urn| `String` |Unique feature identifer based on provider identifier with versionning||
+        |metadata.session| `String` |The session name||
+        |metadata.sessionOwner| `String` |The session owner||
         |features[].model| `String` |Model||
         |features[].id| `String` |Technical id||
-        |features[].model| `String` |Model||
         |features[].geometry| `Object` |GeoJson Coordinates||
         |features[].properties| `Array` |Properties||
         |features[].files[].locations[].storage| `String` |Storage||
