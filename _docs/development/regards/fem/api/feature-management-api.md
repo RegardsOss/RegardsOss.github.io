@@ -19,7 +19,7 @@ title: REGARDS Feature Management API
 
 {% include_relative generated-snippets/FeatureControllerIT/testCreateValidFeatureCreationRequest/http-response.md %}
 
-## Feature update request
+## Feature Update request
 
 {% include_relative generated-snippets/FeatureControllerIT/testCreateValidFeatureUpdateRequest/http-request.md %}
 
@@ -28,3 +28,14 @@ title: REGARDS Feature Management API
 {% include_relative generated-snippets/FeatureControllerIT/testCreateValidFeatureUpdateRequest/request-body-types.md %}
 
 {% include_relative generated-snippets/FeatureControllerIT/testCreateValidFeatureUpdateRequest/http-response.md %}
+
+
+# AMQP Messages
+
+## Feature Creation request
+
+{% include_relative generated-snippets/FeatureAMQP/FeatureCreationRequest/feature-creation-request.md %}
+
+## Feature Update request
+
+{% include_relative generated-snippets/FeatureAMQP/FeatureUpdateRequest/feature-update-request.md %}

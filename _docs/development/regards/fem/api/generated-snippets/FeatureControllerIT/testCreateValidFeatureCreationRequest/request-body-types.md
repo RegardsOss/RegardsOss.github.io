@@ -36,7 +36,7 @@
       "type" : "String"
     },
     "properties" : [ {
-      "data_type" : "String"
+      "Custom"
     } ],
     "type" : "Enum"
   } ],
