@@ -24,7 +24,7 @@
         "Custom"
       ],
       "type": "Enum"
-    },
+    }],
     "metadata": {
       "sessionOwner": "String",
       "session": "String",
@@ -35,3 +35,4 @@
     "requestDate": "Date"
   }
 }
+```
