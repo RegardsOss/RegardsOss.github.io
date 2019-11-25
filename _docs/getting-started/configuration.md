@@ -553,6 +553,103 @@ Here is an example of obtained file, for REGARDS_iptables_192.168.0.1.txt:
 -A INPUT -p tcp -s 192.168.0.2 --dport 9037 -j ACCEPT
 ```
 
+## REGARDS inside systemctl
+
+If you want to interface REGARDS and systemctl, you will need several service files.  
+First `regards.service` which is defined as follow and located into `/etc/systemd/system/`  
+```bash
+# Copyright 2017-2019 CNES - CENTRE NATIONAL d'ETUDES SPATIALES
+#
+# This file is part of REGARDS.
+#
+# REGARDS is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# (at your option) any later version.
+#
+# REGARDS is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with REGARDS. If not, see <http://www.gnu.org/licenses/>.
+
+[Unit]
+Description=REGARDS all installed service
+After=
+Before=
+
+[Service]
+Type=oneshot
+RemainAfterExit=yes
+
+ExecStart=/produit/regards/REGARDS/sbin/microservice_regards.sh start
+ExecStop=/produit/regards/REGARDS/sbin/microservice_regards.sh stop
+
+# Give a reasonable amount of time for the server to start up/shut down
+TimeoutSec=300
+
+[Install]
+WantedBy=multi-user.target
+```
+Then if you want more precise control on microservices, you will need several files, in `/etc/systemd/system/`, with the format: `regards-<microservice_type>.service`, **\<microservice_type\>** being one of:  
+  - config 
+  - registry 
+  - gateway 
+  - admin-instance
+  - admin 
+  - authentication
+  - storage
+  - ingest
+  - dam
+  - catalog
+  - order
+  - dataprovider
+  - access-instance
+  - access-project 
+  - frontend  
+
+Here is an example:  
+```bash
+# Copyright 2017-2019 CNES - CENTRE NATIONAL d'ETUDES SPATIALES
+#
+# This file is part of REGARDS.
+#
+# REGARDS is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# (at your option) any later version.
+#
+# REGARDS is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with REGARDS. If not, see <http://www.gnu.org/licenses/>.
+
+[Unit]
+Description=REGARDS all installed service
+After=
+Before=
+
+[Service]
+Type=oneshot
+RemainAfterExit=yes
+
+ExecStart=/produit/regards/REGARDS/sbin/microservice_regards.sh -t order start
+ExecStop=/produit/regards/REGARDS/sbin/microservice_regards.sh -t order stop
+
+# Give a reasonable amount of time for the server to start up/shut down
+TimeoutSec=300
+
+[Install]
+WantedBy=multi-user.target
+```
+
+Then if you want to start or stop all microservices installed on the machine, you can simply execute `systemctl <start|stop> regards.service`. In cas you just need to restart one of the microservice, you can execute `systemctl restart regards-<microservice_type>.service`.
+
 ## Auto restart services on boot
 
 Don't forget to restart services on boot:
@@ -562,4 +659,5 @@ systemctl enable httpd.service
 systemctl enable elasticsearch.service
 systemctl enable rabbitmq-server.service
 systemctl enable postgresql-9.6.service
+systemctl enable regards.service
 ```
