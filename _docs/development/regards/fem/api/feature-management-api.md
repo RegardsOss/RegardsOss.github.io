@@ -9,11 +9,11 @@ title: REGARDS Feature Management API
     
 # Getting Started
 
-All features sended must to be formated with a GJON format.
+All features sended must to be formated with a GJON format.  
 And all messages, no matter if using REST or AMQP must contain the following attributes:
       
-|Path|Type|Description|Constraints| 
-|:--:|:--:|:---------:|:---------:|
+|Path|Type|Description|
+|:--:|:--:|:---------:|
 |metadata.storages| `Array` |Target storages if there are files to store||
 |metadata.storages[].pluginBusinessId| `String` |Storage identifier||
 |metadata.storages[].targetTypes| `Array` |List of data object types accepted by this storage location (when storing AIPs)||
@@ -62,6 +62,17 @@ And all messages, no matter if using REST or AMQP must contain the following att
 
 
 # AMQP Messages
+
+To send messages via AMQP, the following information must be setted:
+
+- "Exchange" value : [PREFIX].broadcast.fr.cnes.regards.modules.feature.dto.event.in.FeatureCreationRequestEvent.
+- "priority" of the message 0 for instance.
+- The "headers" must contain: 
+    - The type of the payload "\__ctype__" (GSON).
+    - The tenant "\__tenant__".
+    - The DTO wrapper "\__gson\_wrapped\_type__" fr.cnes.regards.modules.feature.dto.event.in.FeatureCreationRequestEvent for feature creation  and fr.cnes.regards.modules.feature.dto.event.in.FeatureUpdateRequestEvent for update.
+- The "content_encoding" in UTF-8.
+- The "content-type" with value application/json.
 
 ## Feature Creation request
 
