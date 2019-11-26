@@ -81,6 +81,7 @@ To send messages via AMQP, the following information must be setted:
 |Headers.\__ctype__| The type of the payload (GSON)||
 |Headers.\__tenant__| The tenant||
 |Headers.\__gson\_wrapped\_type__|fr.cnes.regards.modules.feature.dto.event.in.FeatureCreationRequestEvent for feature creation  and fr.cnes.regards.modules.feature.dto.event.in.FeatureUpdateRequestEvent for update||
+{:.table.table-striped}
 
 Example of a formatted JSON payload: 
 
