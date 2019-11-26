@@ -38,6 +38,10 @@ And all messages, no matter if using REST or AMQP must contain the following att
 |features[].files[].attributes.checksum| `String` |Checksum||
 {:.table.table-striped}
 
+Example of a formatted JSON payload: 
+
+{% include_relative generated-snippets/FeatureAMQP/FeatureRequest/feature-request.md %}
+
 # FeatureController
 
 ## Feature Creation request
@@ -72,14 +76,10 @@ And all messages, no matter if using REST or AMQP must contain the following att
 |Headers.\__gson\_wrapped\_type__|fr.cnes.regards.modules.feature.dto.event.in.FeatureCreationRequestEvent for feature creation  and fr.cnes.regards.modules.feature.dto.event.in.FeatureUpdateRequestEvent for update||
 {:.table.table-striped}
 
-Example of a formatted JSON payload: 
-
-{% include_relative generated-snippets/FeatureAMQP/FeatureRequest/feature-request.md %}
-
 ## Feature Creation request
 
 In case of Feature creation the URN must not be setted.
 
 ## Feature Update request
 
-In case of Feature creation the URN have to be setted.
+In case of Feature update the URN have to be setted.
