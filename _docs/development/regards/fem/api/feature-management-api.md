@@ -63,17 +63,6 @@ And all messages, no matter if using REST or AMQP must contain the following att
 
 # AMQP Messages
 
-To send messages via AMQP, the following information must be setted:
-
-- "Exchange" value : [PREFIX].broadcast.fr.cnes.regards.modules.feature.dto.event.in.FeatureCreationRequestEvent.
-- "priority" of the message 0 for instance.
-- The "headers" must contain: 
-    - The type of the payload "\__ctype__" (GSON).
-    - The tenant "\__tenant__".
-    - The DTO wrapper "\__gson\_wrapped\_type__" fr.cnes.regards.modules.feature.dto.event.in.FeatureCreationRequestEvent for feature creation  and fr.cnes.regards.modules.feature.dto.event.in.FeatureUpdateRequestEvent for update.
-- The "content_encoding" in UTF-8.
-- The "content-type" with value application/json.
-
 |Path|Description|
 |:--:|:---------:|
 |Exchange|[PREFIX].broadcast.fr.cnes.regards.modules.feature.dto.event.in.FeatureCreationRequestEvent for a feature creation or [PREFIX].broadcast.fr.cnes.regards.modules.feature.dto.event.in.FeatureUpdateRequestEvent for a feature update||
