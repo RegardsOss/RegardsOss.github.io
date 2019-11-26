@@ -30,10 +30,6 @@
       "coordinates" : [ "Integer" ],
       "type" : "Enum"
     },
-    "normalizedGeometry" : {
-      "coordinates" : [ "Integer" ],
-      "type" : "Enum"
-    },
     "properties" : [ {
       "Custom"
     } ],

@@ -1,9 +1,13 @@
     ***Data params**
 
 ```json
-    {
+{"metadata": {
+      "sessionOwner": "String",
+      "session": "String",
+      "storages": [ "String" ],
+      "priority": "Enum"
+    },
     "feature": {
-      "urn": "String",
       "entityType": "Enum",
       "model": "String",
       "files" : [ {
@@ -19,20 +23,13 @@
             "algorithm" : "String",
             "checksum" : "String"
           }
-        } ],    
+        } ],
       "id": "String",
       "geometry" : "GeoJSON",
-      "normalizedGeometry" : "GeoJSON",
       "properties": [
         "Custom"
       ],
       "type": "Enum"
-    },
-    "metadata": {
-      "sessionOwner": "String",
-      "session": "String",
-      "storages": [ "String" ],
-      "priority": "Enum"
     },
     "requestId": "String",
     "requestDate": "Date"

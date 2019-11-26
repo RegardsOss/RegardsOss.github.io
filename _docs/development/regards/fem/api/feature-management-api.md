@@ -9,7 +9,7 @@ title: REGARDS Feature Management API
     
 # Getting Started
 
-All features sended must to be formated with a GJON format.  
+All features sended must to be formatted with a JSON format.  
 And all messages, no matter if using REST or AMQP must contain the following attributes:
       
 |Path|Type|Description|
@@ -17,17 +17,17 @@ And all messages, no matter if using REST or AMQP must contain the following att
 |metadata.storages| `Array` |Target storages if there are files to store||
 |metadata.storages[].pluginBusinessId| `String` |Storage identifier||
 |metadata.storages[].targetTypes| `Array` |List of data object types accepted by this storage location (when storing AIPs)||
+|metadata.storages[].storePath| `String` |Directory to store the file||
 |metadata.session| `String` |The session name||
 |metadata.sessionOwner| `String` |The session owner||
-|metadata.priority| `String` |HIGH, AVERAGE, LOW||
+|metadata.priority| `String` |HIGH, NORMAL, LOW||
 |features[].entityType| `String` |COLLECTION, DATA, DATASET||
-|features[].type| `String` |FEATURE, FEATURE_COLLECTION, POINT, MULTIPOINT, LINESTRING, MULTILINESTRING, POLYGON, MULTIPOLYGON, GEOMETRY_COLLECTION, UNLOCATED||
+|features[].type| `String` |FEATURE||
 |features[].urn| `String` |Unique feature identifer based on provider identifier with versionning||
-|features[].model| `String` |Indicate which custom model will be used for properties||
-|features[].id| `String` |Technical id||
+|features[].model| `String` |Indicate which custom model will be used to validate properties||
+|features[].id| `String` |Id from provider||
 |features[].geometry| `Object` |GeoJson Coordinates||
-|features[].normalizedGeometry| `Object` |GeoJson Coordinates||
-|features[].properties| `Array` |Custom properties||
+|features[].properties| `Array` |Custom properties according model structure||
 |features[].files[].locations[].storage| `String` |Storage||
 |features[].files[].locations[].url| `String` |Url location||
 |features[].files[].attributes.dataType| `String` |RAWDATA, QUICKLOOK_SD, QUICKLOOK_MD, QUICKLOOK_HD, DOCUMENT, THUMBNAIL, OTHER, DESCRIPTION||
@@ -74,10 +74,22 @@ To send messages via AMQP, the following information must be setted:
 - The "content_encoding" in UTF-8.
 - The "content-type" with value application/json.
 
+|Path|Description|
+|:--:|:---------:|
+|Exchange|[PREFIX].broadcast.fr.cnes.regards.modules.feature.dto.event.in.FeatureCreationRequestEvent for a feature creation or [PREFIX].broadcast.fr.cnes.regards.modules.feature.dto.event.in.FeatureUpdateRequestEvent for a feature update||
+|Priority|Priority of the message 0 for instance||
+|Headers.\__ctype__| The type of the payload (GSON)||
+|Headers.\__tenant__| The tenant||
+|Headers.\__gson\_wrapped\_type__|fr.cnes.regards.modules.feature.dto.event.in.FeatureCreationRequestEvent for feature creation  and fr.cnes.regards.modules.feature.dto.event.in.FeatureUpdateRequestEvent for update||
+
+Example of a formatted JSON payload: 
+
+{% include_relative generated-snippets/FeatureAMQP/FeatureRequest/feature-request.md %}
+
 ## Feature Creation request
 
-{% include_relative generated-snippets/FeatureAMQP/FeatureCreationRequest/feature-creation-request.md %}
+In case of Feature creation the URN must not be setted.
 
 ## Feature Update request
 
-{% include_relative generated-snippets/FeatureAMQP/FeatureUpdateRequest/feature-update-request.md %}
+In case of Feature creation the URN have to be setted.

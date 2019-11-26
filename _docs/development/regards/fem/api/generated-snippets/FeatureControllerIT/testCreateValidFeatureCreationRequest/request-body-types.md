@@ -31,10 +31,6 @@
       "coordinates" : [ "Double" ],
       "type" : "String"
     },
-    "normalizedGeometry" : {
-      "coordinates" : [ "Double" ],
-      "type" : "String"
-    },
     "properties" : [ {
       "Custom"
     } ],
