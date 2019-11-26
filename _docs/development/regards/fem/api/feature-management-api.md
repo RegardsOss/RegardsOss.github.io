@@ -50,8 +50,6 @@ Example of a formatted JSON payload:
 
 {% include_relative generated-snippets/FeatureControllerIT/testCreateValidFeatureCreationRequest/request-body.md %}
 
-{% include_relative generated-snippets/FeatureControllerIT/testCreateValidFeatureCreationRequest/request-body-types.md %}
-
 {% include_relative generated-snippets/FeatureControllerIT/testCreateValidFeatureCreationRequest/http-response.md %}
 
 ## Feature Update request
@@ -59,8 +57,6 @@ Example of a formatted JSON payload:
 {% include_relative generated-snippets/FeatureControllerIT/testCreateValidFeatureUpdateRequest/http-request.md %}
 
 {% include_relative generated-snippets/FeatureControllerIT/testCreateValidFeatureUpdateRequest/request-body.md %}
-
-{% include_relative generated-snippets/FeatureControllerIT/testCreateValidFeatureUpdateRequest/request-body-types.md %}
 
 {% include_relative generated-snippets/FeatureControllerIT/testCreateValidFeatureUpdateRequest/http-response.md %}
 
