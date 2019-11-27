@@ -12,7 +12,7 @@
     "priority" : "NORMAL"
   },
   "features" : [ {
-    "urn" : "URN:FEATURE:DATA:tenant:f300ea87-a367-42d0-a9fb-780f109c3d24:V1",
+    "urn" : "URN:FEATURE:DATA:tenant:ea019acd-a94d-417f-8066-83a8e13ff357:V1",
     "entityType" : "DATA",
     "model" : "FEATURE01",
     "files" : [ {
@@ -35,9 +35,9 @@
       "type" : "Point"
     },
     "normalizedGeometry" : null,
-    "properties" : [ {
+    "properties" : {
       "data_type" : "TYPE01"
-    } ],
+    },
     "type" : "Feature"
   } ],
   "type" : "FeatureCollection"

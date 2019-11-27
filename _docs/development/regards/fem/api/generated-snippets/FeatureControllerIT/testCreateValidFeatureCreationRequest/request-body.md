@@ -12,6 +12,7 @@
     "priority" : "NORMAL"
   },
   "features" : [ {
+    "urn" : null,
     "entityType" : "DATA",
     "model" : "FEATURE01",
     "files" : [ {
@@ -34,9 +35,9 @@
       "type" : "Point"
     },
     "normalizedGeometry" : null,
-    "properties" : [ {
+    "properties" : {
       "data_type" : "TYPE01"
-    } ],
+    },
     "type" : "Feature"
   } ],
   "type" : "FeatureCollection"
