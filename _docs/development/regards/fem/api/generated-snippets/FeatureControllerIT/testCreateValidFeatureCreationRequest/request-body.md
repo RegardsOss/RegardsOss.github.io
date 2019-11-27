@@ -1,7 +1,7 @@
-    ***Data params**
+**Data params**
 
 ```json
-    {
+{
   "metadata" : {
     "sessionOwner" : "me",
     "session" : "session",
@@ -9,7 +9,7 @@
       "pluginBusinessId" : "id",
       "targetTypes" : [ ]
     } ],
-    "priority" : "AVERAGE"
+    "priority" : "NORMAL"
   },
   "features" : [ {
     "entityType" : "DATA",

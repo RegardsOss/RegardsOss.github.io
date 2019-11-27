@@ -11,11 +11,11 @@ title: REGARDS Storage API
 
 ## Overview
 
-    This API allows to create, list, update, delete AIPs and extract some of its information.
+This API allows to create, list, update, delete AIPs and extract some of its information.
 
 ## Retrieve multiple AIP metadata
 
-    Allow to retrieve multiple aip metadata thanks to their state and submission date
+Allow to retrieve multiple aip metadata thanks to their state and submission date
 
 {% include_relative generated-snippets/AIPControllerIT/testRetrieveAips/http-request.md %}
 

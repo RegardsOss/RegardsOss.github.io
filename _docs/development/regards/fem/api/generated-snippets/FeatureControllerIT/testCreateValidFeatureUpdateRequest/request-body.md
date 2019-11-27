@@ -1,16 +1,18 @@
-    ***Data params**
+**Data params**
 
 ```json
-    {
+{
   "metadata" : {
+    "sessionOwner" : "owner",
+    "session" : "session",
     "storages" : [ {
       "pluginBusinessId" : "id",
       "targetTypes" : [ ]
     } ],
-    "priority" : "AVERAGE"
+    "priority" : "NORMAL"
   },
   "features" : [ {
-    "urn" : "URN:FEATURE:DATA:tenant:56d8a033-8433-4941-9da9-fe5737972b19:V1",
+    "urn" : "URN:FEATURE:DATA:tenant:f300ea87-a367-42d0-a9fb-780f109c3d24:V1",
     "entityType" : "DATA",
     "model" : "FEATURE01",
     "files" : [ {

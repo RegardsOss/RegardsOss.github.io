@@ -1,18 +1,18 @@
-    #### Request
+### Request
 
-        ***URL**
+**URL**
 
-        `/features`
+`/features`
 
-        ***URL template**
+**URL template**
 
-        `/features`
+`/features`
 
-        ***Method**
+**Method**
 
-        `PATCH`
+`PATCH`
 
-        ***Headers**
+**Headers**
 
-        `Authorization:Bearer{token}`
-        `Content-Type:application/geo+json;charset=UTF-8`
+`Authorization:Bearer{token}`
+`Content-Type:application/geo+json;charset=UTF-8`
