@@ -36,6 +36,8 @@ And all messages, no matter if using REST or AMQP must contain the following att
 |features[].files[].attributes.filesize| `Number` |File size||
 |features[].files[].attributes.algorithm| `String` |Algorith for checksum computation||
 |features[].files[].attributes.checksum| `String` |Checksum||
+|requestId| `String`|Request identifier, mandatory if you use AMQP|
+|requestDate| `Date`|Creation date of the request|
 {:.table.table-striped}
 
 Example of a formatted JSON payload: 
