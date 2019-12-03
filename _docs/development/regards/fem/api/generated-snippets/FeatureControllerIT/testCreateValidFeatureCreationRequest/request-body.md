@@ -3,11 +3,10 @@
 ```json
 {
   "metadata" : {
-    "sessionOwner" : "me",
+    "sessionOwner" : "owner",
     "session" : "session",
     "storages" : [ {
-      "pluginBusinessId" : "id",
-      "targetTypes" : [ ]
+      "pluginBusinessId" : "disk"
     } ],
     "priority" : "NORMAL"
   },
@@ -17,11 +16,11 @@
     "model" : "FEATURE01",
     "files" : [ {
       "locations" : [ {
-        "storage" : "storage",
-        "url" : "www.test.com"
+        "storage" : null,
+        "url" : "http://www.test.com/filename.xml"
       } ],
       "attributes" : {
-        "dataType" : "DOCUMENT",
+        "dataType" : "RAWDATA",
         "mimeType" : "application/xml",
         "filename" : "filename",
         "filesize" : 100,
@@ -29,14 +28,19 @@
         "checksum" : "checksum"
       }
     } ],
-    "id" : "id",
+    "id" : "MyId",
     "geometry" : {
       "coordinates" : [ 10.0, 20.0 ],
-      "type" : "Point"
+      "type" : "Point",
+      "bbox" : null,
+      "crs" : null
     },
     "normalizedGeometry" : null,
     "properties" : {
-      "data_type" : "TYPE01"
+      "data_type" : "TYPE01",
+      "file_characterization" : {
+        "valid" : true
+      }
     },
     "type" : "Feature"
   } ],

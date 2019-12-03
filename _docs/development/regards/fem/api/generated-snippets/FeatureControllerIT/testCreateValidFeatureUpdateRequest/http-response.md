@@ -17,11 +17,12 @@
 `X-Frame-Options:DENY`  
 
 **Content:**
+
 ```json
     
 {
   "granted" : {
-    "URN:FEATURE:DATA:tenant:a8fbee52-a59b-4912-b7df-2ce4cc752611:V1" : "a3972a2e-bb7f-4e5c-8179-f0ea907ceb22"
+    "URN:FEATURE:DATA:tenant:87fdda0e-27d1-494f-a1c0-c57f2f0810f7:V1" : "23c92735-b24b-4c87-818b-f4c46cf82c96"
   },
   "denied" : {
     "empty" : true

@@ -3,40 +3,22 @@
 ```json
 {
   "metadata" : {
-    "sessionOwner" : "owner",
-    "session" : "session",
-    "storages" : [ {
-      "pluginBusinessId" : "id",
-      "targetTypes" : [ ]
-    } ],
+    "storages" : [ ],
     "priority" : "NORMAL"
   },
   "features" : [ {
-    "urn" : "URN:FEATURE:DATA:tenant:ea019acd-a94d-417f-8066-83a8e13ff357:V1",
+    "urn" : "URN:FEATURE:DATA:tenant:87fdda0e-27d1-494f-a1c0-c57f2f0810f7:V1",
     "entityType" : "DATA",
     "model" : "FEATURE01",
-    "files" : [ {
-      "locations" : [ {
-        "storage" : "storage",
-        "url" : "www.test.com"
-      } ],
-      "attributes" : {
-        "dataType" : "DOCUMENT",
-        "mimeType" : "application/xml",
-        "filename" : "filename",
-        "filesize" : 100,
-        "algorithm" : "MD5",
-        "checksum" : "checksum"
-      }
-    } ],
-    "id" : "id",
-    "geometry" : {
-      "coordinates" : [ 10.0, 20.0 ],
-      "type" : "Point"
-    },
+    "files" : [ ],
+    "id" : "MyId",
+    "geometry" : null,
     "normalizedGeometry" : null,
     "properties" : {
-      "data_type" : "TYPE01"
+      "file_characterization" : {
+        "invalidation_date" : "2019-12-03T12:31:42.466Z",
+        "valid" : false
+      }
     },
     "type" : "Feature"
   } ],
