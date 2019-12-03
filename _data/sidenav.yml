@@ -158,6 +158,11 @@
       children:
         - name: Overview
           link: development/regards/fem/fem/
+    - name: Notification Management
+      link: development/regards/notifier/notifier/
+      children:
+        - name: Notification API
+          link: development/regards/notifier/api/notifier-api/
     - name: Data provider
       link: development/regards/dataprovider/dataprovider/
       children:

@@ -3,6 +3,9 @@ layout: classic-docs
 title: REGARDS Feature Management API
 ---
 
+> Draft - Details may still change but not the main principles!
+{: .tip .warning}
+
 {% include toc.md %}
 
 ## Overview
@@ -243,7 +246,7 @@ The structure is as follows :
 Furthermore, all message is wrapped to manage the tenant context :
 
 * `tenant` property must contain an existing tenant,
-* `content` property must contain the payload. 
+* `content` property must contain the payload.
 
 ```json
 {
