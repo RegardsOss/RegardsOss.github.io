@@ -166,6 +166,9 @@ chmod 0770 /etc/rabbitmq
 chmod 0640  /etc/rabbitmq/*
 
 # Configure data & logs directory
+
+Without configuration rabbitmq will store all is files in /var/lib/rabbitmq. This can be a huge problem in production. To avoid this, follow the configuration here under.
+
 echo "
 RABITMQ_MNESIA_BASE=<data directory>
 RABBITMQ_LOG_BASE=<logs directory>
