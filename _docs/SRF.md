@@ -18,7 +18,8 @@ Sylvain Vissiere-Guerinet | CSSI | Development Team
 Issue |    Date    |    Reasons for change
 :-------: | :---------: | :-------------------------:
 10    | 2016-07-28 | Creation of the document  
-11    | 2018-11-05 | Modification of the document for V3.0
+11    | 2018-11-05 | Modification of the document for V0.3.0
+12    | 2019-08-26 | Update versions for V0.4.1
   {: class="table table-striped"}
 
 # Table of contents
@@ -250,7 +251,7 @@ Feature | Value             | Description
 Name | Spring Data JPA | The primary goal of the Spring Data project is to make it easier to build Spring-powered applications that use data access technologies. This module deals with enhanced support for JPA based data access layers.  
 Developer/Ownership | Pivotal  
 Licencing conditions | Apache license, version 2 | Industrial Property Constraints Redistribution and use in source and binary forms, with or without modification, are permitted provided [those conditions](#http://www.apache.org/licenses/LICENSE-2.0.txt).  
-Version | 1.13.7  
+Version | 2.1.4.RELEASE  
 Languages | Java  
   {: class="table table-striped"}
 
@@ -261,7 +262,7 @@ Feature | Value             | Description
 Name | Spring Boot Main features | Spring Boot makes it easy to create stand-alone, production-grade Spring based Applications  
 Developer/Ownership | Pivotal  
 Licencing conditions | Apache license, version 2 | Industrial Property Constraints Redistribution and use in source and binary forms, with or without modification, are permitted provided [those conditions](#https://github.com/spring-projects/spring-boot/blob/master/LICENSE.txt).  
-Version | 1.5.7  
+Version | 2.1.2.RELEASE  
 Languages | Java
   {: class="table table-striped"}
 
@@ -305,7 +306,7 @@ Feature | Value             | Description
 Name | Spring HATEOAS Main features | Library to support implementing representations for hyper-text driven REST web services.  
 Developer/Ownership | Pivotal  
 Licencing conditions | Apache license, version 2 | Industrial Property Constraints Redistribution and use in source and binary forms, with or without modification, are permitted provided [those conditions](#http://www.apache.org/licenses/LICENSE-2.0.txt).  
-Version | 0.23.0 Language | Java
+Version | 0.25.0.RELEASE Language | Java
   {: class="table table-striped"}
 
 ##### 10. IzPack
@@ -337,7 +338,7 @@ Feature | Value             | Description
 Name | Elasticsearch Main features | Open source, distributed, RESTful search engine built on top of Lucene.  
 Developer/Ownership | Elastic  
 Licencing conditions | Apache license, version 2 | Industrial Property Constraints Redistribution and use in source and binary forms, with or without modification, are permitted provided [those conditions](#http://www.apache.org/licenses/LICENSE-2.0.txt).  
-Version | 5.6.3  
+Version | 6.5.0  
 Language | Java
   {: class="table table-striped"}
 
@@ -359,7 +360,7 @@ Feature | Value             | Description
 Name | Jetty | embeddable web server and servlet container  
 Developer/Ownership | Eclipse  
 Licencing conditions | Apache license, version 2 | Industrial Property Constraints Redistribution and use in source and binary forms, with or without modification, are permitted provided [those conditions](#http://www.apache.org/licenses/LICENSE-2.0.txt).  
-Version | 9.4.6  
+Version | 9.4.14.v20181114  
 Languages | Java  
   {: class="table table-striped"}
 
