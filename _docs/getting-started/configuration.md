@@ -165,6 +165,12 @@ chown -R :rabbitmq  /etc/rabbitmq
 chmod 0770 /etc/rabbitmq
 chmod 0640  /etc/rabbitmq/*
 
+# Configure data & logs directory
+echo "
+RABITMQ_MNESIA_BASE=<data directory>
+RABBITMQ_LOG_BASE=<logs directory>
+" >> /etc/rabbitmq/rabbitmq-env.conf
+
 # Start the service 
 systemctl start rabbitmq-server.service
 ```
