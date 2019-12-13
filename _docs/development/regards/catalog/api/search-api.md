@@ -50,21 +50,19 @@ At the moment, REGARDS can expose two search API :
 ### Using cURL to run search requests
 
 To be able to run search request with cURL tool, you have to encode url parameters. To do so, you can use the here under cURL syntaxe to run GET request with encoded parameters :   
-`curl -G 'http://<host>/api/v1//rs-catalog/engines/legacy/dataobjects/search' --data-urlencode "q=(param1:test OR param2:test)" -H 'Authorization: Bearer <token>' -H 'Accept: application/json'`
+```bash
+curl -G 'http://<host>/api/v1//rs-catalog/engines/legacy/dataobjects/search' \
+--data-urlencode "q=(param1:test OR param2:test)" \
+-H 'Authorization: Bearer <token>' -H 'Accept: application/json'
+```
 
 ### Using Lucene standard query parser
 
-`q` query parameter value is parsed with Lucene standard query parser.
+`q` query parameter value is parsed with Lucene standard query parser. 
 
-#### Terms
+#### String searches
 
-A query is broken up into terms and operators. There are two types of terms: single and phrase.
-
-A single Term is a single word such as `"test"`.
-
-A phrase is a group of words surrounded by double quotes such as `"hello dolly"`.
-
-Multiple terms can be combined together with boolean operators to form a more complex query (see below).
+Lucene is only used for syntax. Value semantic is interpreted thanks to regular expressions except for " character. To do exact searches, you have to put " around your value otherwise it will be considered a regular expression.
 
 #### Fields
 
@@ -81,30 +79,6 @@ For example, if you want to find the document entitled "The Right Way" which con
 > * common attributes `id`, `label`, `providerId`, `model`, `tags`
 > * geospatial parameters : `g` for WKT search or `lon`, `lat`, `r` for circle search
 {: .tip .plus}
-
-#### Wildcard Searches
-
-The API supports multiple character wildcard searches within single terms (not within phrase queries). To perform a multiple character wildcard search use the "\*" symbol.
-
-##### Wildcard trailing
-
-To search for test, tests or tester, you can use the search:
-
-`test*`
-
-##### Wildcard leading
-
-To search for test, \_test or second_test, use the search:
-
-`*test`
-
-Note: The use of this search is discouraged because of poor performance.
-
-##### Wildcard around
-
-To search for my_test_2, use the search:
-
-`*test*`
 
 #### Exclude Searches
 
