@@ -273,5 +273,7 @@
 - name: Appendices
   icon: /assets/img/icons/info.svg
   children:
+    - name: REGARDS OAIS 
+      link: apppendices/oais
     - name: Documentation guide
       link: appendices/doc-guide/   
