@@ -107,6 +107,7 @@ Exemple :
 | ingestChain | x | Name of the configured ingest chain. This chain can be configured through administration IHM and contains all information about how to generate final product or AIP from the provided SIPs. | Any chain name configured |
 | categories |  | List of keyword. Thoses keywords can be used lately to select products to add in the metacatalog | any text |
 | storages | x | List of storage description where to store physical files associated to any feature | - |
+{: .table .table-striped}
 
 `storages`
   
@@ -115,6 +116,7 @@ Exemple :
 | pluginBusinessId | x | Name of the configured storage. Each storage have to be configured though the administrator IHM | Any configured storage label |
 | storePath |  | Optional property to define a directory into the storage location to store each files | subdirectory path |
 | targetTypes |  | Optional property to define which REGARDS type of files need to be stored in the current storage. If empty all files are stored in the storage | `RAWDATA` , `QUICKLOOK_SD`, `QUICKLOOK_MD`, `QUICKLOOK_HD`,  `DOCUMENT`,  `THUMBNAIL`, `AIP`, `DESCRIPTION` |
+{: .table .table-striped}
 
 ### Features
 
@@ -182,6 +184,7 @@ A feature is a product to acquire in regards.
 | contentInformations | x | Content informations by their structure allow to give some informations on the files associated to an information package. | - |
 | pdi | x | Preservation Description Information | - |
 | descriptiveInformation | x | A group key/value containing all specific information about the product | - | 
+{: .table .table-striped}
 
 ### ContentInformation
 
@@ -209,6 +212,7 @@ A feature is a product to acquire in regards.
 | checksum | x | Check sum of the file to acquire | - | 
 | algorithm | x | Algorithm used to generate file checksum | - | 
 | fileSize |  | Size in bytes of the file to acquire. This property will be automaticaly calculated if the file to acquire is directly accessible | - |
+{: .table .table-striped}
 
 `dataObject locations`
 
@@ -228,6 +232,7 @@ A feature is a product to acquire in regards.
 | :-------- | :---------: | :----------- | :---------------: |
 | storage |  | Storage location of the file. If this property is provided, then the file is already stored and REGARDS will only reference the file. There will be no move file operation. If the storage is a configured storage in REGARDS system so the file can be access, if not the file will ne considered as offline. | Any text | 
 | url | x | Location of the file. If no storage has been provided in the previous property, then the file will be copyed from this url to the storages defined in the metadata bloc and this url must be an accessible "file:///" url protocol. If a storage as been provided then this url can be any text that can be a known url for the given storage. | any text |
+{: .table .table-striped}
 
 `representationInformation`
 
@@ -249,6 +254,7 @@ A feature is a product to acquire in regards.
 | syntax -> mimeType | x | mime type of the file to acquire |
 | syntax -> height |  | Optional property to define in pixel the height of an image. This property will be automaticaly fill if the file to acquire is an image and is directly accessible | Number in pixel |
 | syntax -> width |  | Optional property to define in pixel the height of an image. This property will be automaticaly fill if the file to acquire is an image and is directly accessible | Number in pixel |
+{: .table .table-striped}
 
 ### Preservation Description Information (pdi)
 
@@ -267,6 +273,7 @@ A feature is a product to acquire in regards.
 | contextInformation -> tags |  | keywords to add to each feature | any text |
 | provenanceInformation |  | Description of the origine and history of the feature |
 | accessRightInformation |  | Description of the feature access rights |
+{: .table .table-striped}
 
 ### REGARDS Data types
 
@@ -280,3 +287,4 @@ A feature is a product to acquire in regards.
 | `THUMBNAIL` | Type to reference a thumbnail of the product |
 | `AIP`| Type to reference the matadata file of the product |
 | `DESCRIPTION` | Type to reference a description of the product |
+{: .table .table-striped}
