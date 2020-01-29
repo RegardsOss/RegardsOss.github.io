@@ -1,7 +1,7 @@
 ---
 layout: classic-docs
-title: Minimal server configuration
-short-title: Server configuration
+title: REGARDS OAIS implementation
+short-title: REGARDS OAIS
 ---
 
 {% include toc.md %}
@@ -12,7 +12,7 @@ REGARDS allows to populate catalog with products provided through [OAIS recomand
 
 To do so, administrator can provide a GeoJson file containing :
  - metadata : information about how to handle features to acquire.
- - features : List of SIP containint products to acquire
+ - features : List of SIP containing products to acquire
 
 Exemple :  
 
@@ -43,10 +43,10 @@ Exemple :
           {
             "dataObject": {
                "regardsDataType": "RAWDATA",
-               "filename": "regards-2296-data-1.dat",
+               "filename": "data-1.dat",
                "locations": [ 
                  {
-                   "url": "file:///regards-input/validation/data/2296/regards-2296-data-1.dat"
+                   "url": "file:///regards/demo/data-1.dat"
                  }
                 ],
                 "checksum": "9a964ed3be0e2e2786d82ace9d971e90",
@@ -106,7 +106,7 @@ Exemple :
 | storages | x | List of storage description where to store physical files associated to any feature | - |
 | storages -> pluginBusinessId | x | Name of the configured storage. Each storage have to be configured though the administrator IHM | Any configured storage label |
 | storages -> storePath |  | Optional property to define a directory into the storage location to store each files | subdirectory path |
-| targetTypes |  | Optional property to define which type of files need to be stored in the current storage. If empty all files are stored in the storage | RAWDATA, QUICKLOOK_SD, QUICKLOOK_MD, QUICKLOOK_HD, DOCUMENT, THUMBNAIL, AIP, DESCRIPTION |
+| targetTypes |  | Optional property to define which REGARDS type of files need to be stored in the current storage. If empty all files are stored in the storage |  `RAWDATA` , `QUICKLOOK_SD`, `QUICKLOOK_MD`, `QUICKLOOK_HD`,  `DOCUMENT`,  `THUMBNAIL`, `AIP`, `DESCRIPTION` |
 
 ## Features
 
@@ -180,11 +180,12 @@ A feature is a product to acquire in regards.
 | property | Mandatory | description | possible values |
 | -------- | ----------| ----------- | --------------- |
 | dataObject | files reference | - |
-| dataObject -> regardsDataType | x | REGARDS type of file | RAWDATA, QUICKLOOK_SD, QUICKLOOK_MD, QUICKLOOK_HD,  DOCUMENT,  THUMBNAIL, AIP, DESCRIPTION |
+| dataObject -> regardsDataType | x | REGARDS type of file | `RAWDATA` , `QUICKLOOK_SD`, `QUICKLOOK_MD`, `QUICKLOOK_HD`,  `DOCUMENT`,  `THUMBNAIL`, `AIP`, `DESCRIPTION` |
 | dataObject -> filename | x | Name of the file to acquire | - | 
 | dataObject -> locations | x | Location of the file to acquire. Locations are described under this table. | - | 
 | dataObject -> checksum | x | Check sum of the file to acquire | - | 
 | dataObject -> algorithm | x | Algorithm used to generate file checksum | - | 
+| dataObject -> fileSize |  | Size in bytes of the file to acquire. This property will be automaticaly calculated if the file to acquire is directly accessible | - |
 
 `dataObject -> locations`
 
@@ -199,6 +200,7 @@ A feature is a product to acquire in regards.
 | -------- | ----------| ----------- | --------------- |
 | semantic |  |  |  - |
 | syntax | x |  |  - |
+| syntax -> name | x | Name of the mime type of the file |
 | syntax -> mimeType | x | mime type of the file to acquire |
 | syntax -> height |  | Optional property to define in pixel the height of an image. This property will be automaticaly fill if the file to acquire is an image and is directly accessible | Number in pixel |
 | syntax -> width |  | Optional property to define in pixel the height of an image. This property will be automaticaly fill if the file to acquire is an image and is directly accessible | Number in pixel |
@@ -211,3 +213,15 @@ A feature is a product to acquire in regards.
 | provenanceInformation |  | Description of the origine and history of the feature |
 | accessRightInformation |  | Description of the feature access rights |
 
+### REGARDS Data types
+
+| type | description |
+| ---- | ----------- |
+| `RAWDATA` | Type to reference a data file. |
+| `QUICKLOOK_SD` | Type to reference a small resolution image of the preview of the product |
+| `QUICKLOOK_MD`| Type to reference a medium resolution image of the preview of the product |
+| `QUICKLOOK_HD`| Type to reference a large resolution image of the preview of the product |
+| `DOCUMENT` | Type to reference a document associated to the product |
+| `THUMBNAIL` | Type to reference a thumbnail of the product |
+| `AIP`| Type to reference the matadata file of the product |
+| `DESCRIPTION` | Type to reference a description of the product |
