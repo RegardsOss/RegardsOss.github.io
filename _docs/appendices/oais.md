@@ -171,7 +171,7 @@ A feature is a product to acquire in regards.
 | geometry |  | Standard GeoJson geometry format of the feature | RFC7946 |
 | contentInformations | x | Content informations by their structure allow to give some informations on the files associated to an information package. | - |
 | pdi | x | Preservation Description Information | - |
-| descriptiveInformation | x | A group key/value containing all specific information about the product | 
+| descriptiveInformation | x | A group key/value containing all specific information about the product | - | 
 
 #### ContentInformation bloc
 
