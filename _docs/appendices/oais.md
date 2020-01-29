@@ -99,6 +99,7 @@ Exemple :
     ]
   }
 ```
+  
 | Property | Mandatory | Description | Possible values |
 | :--------: | :---------: | :----------- | :---------------: |
 | sessionOwner | x | Identifier of the data provider. Used to monitor all products of a same prodivder | any text |
@@ -108,6 +109,7 @@ Exemple :
 | storages | x | List of storage description where to store physical files associated to any feature | - |
 
 `storages`
+  
 | Property | Mandatory | Description | Possible values |
 | :--------: | :---------: | :----------- | :---------------: |
 | pluginBusinessId | x | Name of the configured storage. Each storage have to be configured though the administrator IHM | Any configured storage label |
@@ -169,6 +171,8 @@ Exemple :
 
 A feature is a product to acquire in regards.
 
+`Feature`
+
 | Property | Mandatory | Description | Possible values |
 | :--------: | :---------: | :----------- | :---------------: |
 | type | x | Fixed field to define a feature | Feature |
@@ -183,6 +187,20 @@ A feature is a product to acquire in regards.
 
 `dataObject`
 
+```json
+"dataObject": {
+  "regardsDataType": "RAWDATA",
+  "filename": "regards-2296-data-1.dat",
+  "locations": [ 
+     {
+        "url": "file:///regards-input/validation/data/2296/regards-2296-data-1.dat"
+      }
+   ],
+   "checksum": "9a964ed3be0e2e2786d82ace9d971e90",
+   "algorithm": "MD5" 
+},
+```
+
 | Property | Mandatory | Description | Possible values |
 | :--------: | :---------: | :----------- | :---------------: |
 | regardsDataType | x | REGARDS type of file | `RAWDATA` , `QUICKLOOK_SD`, `QUICKLOOK_MD`, `QUICKLOOK_HD`,  `DOCUMENT`,  `THUMBNAIL`, `AIP`, `DESCRIPTION` |
@@ -194,12 +212,34 @@ A feature is a product to acquire in regards.
 
 `dataObject locations`
 
+```json
+"locations": [ 
+     {
+        "url": "file:///regards/demo/data-1.dat"
+     },
+     {
+        "storage": "FTP Server",
+        "url": "ftp:/172.125.10.1/regards/demo/ftp/data-1.dat"
+     },
+   ],
+```
+
 | Property | Mandatory | Description | Possible values |
 | :--------: | :---------: | :----------- | :---------------: |
 | storage |  | Storage location of the file. If this property is provided, then the file is already stored and REGARDS will only reference the file. There will be no move file operation. If the storage is a configured storage in REGARDS system so the file can be access, if not the file will ne considered as offline. | Any text | 
 | url | x | Location of the file. If no storage has been provided in the previous property, then the file will be copyed from this url to the storages defined in the metadata bloc and this url must be an accessible "file:///" url protocol. If a storage as been provided then this url can be any text that can be a known url for the given storage. | any text |
 
 `representationInformation`
+
+```json
+"representationInformation": {
+  "semantic": {},
+  "syntax": { 
+    "name": "TEXT",
+    "mimeType": "text/plain"
+  }
+}
+```
 
 | Property | Mandatory | Description | Possible values |
 | :--------: | :---------: | :----------- | :---------------: |
@@ -211,6 +251,16 @@ A feature is a product to acquire in regards.
 | syntax -> width |  | Optional property to define in pixel the height of an image. This property will be automaticaly fill if the file to acquire is an image and is directly accessible | Number in pixel |
 
 ### Preservation Description Information (pdi)
+
+```json
+"pdi": { 
+  "contextInformation": {
+    "tags": ["KEYWORD"] 
+  },
+  "provenanceInformation": { "history": [] },
+  "accessRightInformation": {} 
+},
+```
 
 | Property | Mandatory | Description | Possible values |
 | :--------: | :---------: | :----------- | :---------------: |
