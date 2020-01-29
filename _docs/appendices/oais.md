@@ -6,9 +6,9 @@ short-title: REGARDS OAIS
 
 {% include toc.md %}
 
-## OAIS recomandation
+## OAIS recommendation
 
-REGARDS allows to populate catalog with products provided through [OAIS recomandation](https://public.ccsds.org/Pubs/650x0m2%28F%29.pdf).  
+REGARDS allows to populate catalog with products provided through [OAIS recommendation](https://public.ccsds.org/Pubs/650x0m2%28F%29.pdf).  
 
 ## REGARDS OAIS implementation
 
