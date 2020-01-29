@@ -180,7 +180,7 @@ A feature is a product to acquire in regards.
 `dataObject`
 
 | property | Mandatory | description | possible values |
-| -------- | ----------| ----------- | --------------- |
+| -------- | --------- | ----------- | --------------- |
 | dataObject | files reference | - |
 | dataObject -> regardsDataType | x | REGARDS type of file | `RAWDATA` , `QUICKLOOK_SD`, `QUICKLOOK_MD`, `QUICKLOOK_HD`,  `DOCUMENT`,  `THUMBNAIL`, `AIP`, `DESCRIPTION` |
 | dataObject -> filename | x | Name of the file to acquire | - | 
