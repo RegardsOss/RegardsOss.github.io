@@ -10,6 +10,8 @@ short-title: REGARDS OAIS
 
 REGARDS allows to populate catalog with products provided through [OAIS recomandation](https://public.ccsds.org/Pubs/650x0m2%28F%29.pdf).  
 
+## REGARDS OAIS implementation
+
 To do so, administrator can provide a GeoJson file containing :
  - metadata : information about how to handle features to acquire.
  - features : List of SIP containing products to acquire
@@ -80,7 +82,7 @@ Exemple :
 }
 ```
 
-### Metadata bloc
+### Metadata
 
 ```json
   "metadata": {
@@ -108,7 +110,7 @@ Exemple :
 | storages -> storePath |  | Optional property to define a directory into the storage location to store each files | subdirectory path |
 | targetTypes |  | Optional property to define which REGARDS type of files need to be stored in the current storage. If empty all files are stored in the storage |  `RAWDATA` , `QUICKLOOK_SD`, `QUICKLOOK_MD`, `QUICKLOOK_HD`,  `DOCUMENT`,  `THUMBNAIL`, `AIP`, `DESCRIPTION` |
 
-## Features
+### Features
 
 ```json
 { 
@@ -173,7 +175,7 @@ A feature is a product to acquire in regards.
 | pdi | x | Preservation Description Information | - |
 | descriptiveInformation | x | A group key/value containing all specific information about the product | - | 
 
-#### ContentInformation bloc
+#### ContentInformation
 
 `dataObject`
 
@@ -205,7 +207,7 @@ A feature is a product to acquire in regards.
 | syntax -> height |  | Optional property to define in pixel the height of an image. This property will be automaticaly fill if the file to acquire is an image and is directly accessible | Number in pixel |
 | syntax -> width |  | Optional property to define in pixel the height of an image. This property will be automaticaly fill if the file to acquire is an image and is directly accessible | Number in pixel |
 
-#### pdi bloc
+#### pdi
 
 | property | Mandatory | description | possible values |
 | -------- | ----------| ----------- | --------------- |
