@@ -100,7 +100,7 @@ Exemple :
   }
 ```
 | property | Mandatory | description | possible values |
-| -------- | ----------| ----------- | --------------- |
+| -------- | --------- | ----------- | --------------- |
 | sessionOwner | x | Identifier of the data provider. Used to monitor all products of a same prodivder | any text |
 | session | x | Identifier of the current group of data. Used to monitor all products of a same session. | any text |
 | ingestChain | x | Name of the configured ingest chain. This chain can be configured through administration IHM and contains all information about how to generate final product or AIP from the provided SIPs. | Any chain name configured |
