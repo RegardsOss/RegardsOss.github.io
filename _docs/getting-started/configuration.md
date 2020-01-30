@@ -165,6 +165,15 @@ chown -R :rabbitmq  /etc/rabbitmq
 chmod 0770 /etc/rabbitmq
 chmod 0640  /etc/rabbitmq/*
 
+# Configure data & logs directory
+
+Without configuration rabbitmq will store all is files in /var/lib/rabbitmq. This can be a huge problem in production. To avoid this, follow the configuration here under.
+
+echo "
+RABITMQ_MNESIA_BASE=<data directory>
+RABBITMQ_LOG_BASE=<logs directory>
+" >> /etc/rabbitmq/rabbitmq-env.conf
+
 # Start the service 
 systemctl start rabbitmq-server.service
 ```
@@ -191,7 +200,7 @@ rabbitmqctl set_user_tags regards_adm administrator
 rabbitmqctl set_permissions -p / regards_adm ". ".*" "."
 ```
 
-If you want increased security on RabbitMQ, you can run `rabbitmqctl set_permissions -p / regards_adm "^$"^$" "^$"`.
+If you want increased security on RabbitMQ, you can run `rabbitmqctl set_permissions -p / regards_adm "^$"^$" "^$"` after REGARDS has been started at least once.
 
 ## Elasticsearch
 
@@ -213,6 +222,7 @@ We advise the following configuration for production environments:
  -  configure manually the list of hosts from the cluster 
  -  **gateway.recover_after_node** should be the number of node deployed in the cluster
  -  **discovery.zen.minimum_master_nodes** should be `n/2+1` when n is the number of node in the cluster
+ -  Elasticsearch being taking advantage of some file system features, if elasticsearch has his dedicated server, **HEAP_SIZE** should be no more than half of the server memory.
  -  elasticsearch **HEAP_SIZE** should be no more than `32GB`
  -  **bootstrap.memory_lock** is set to `true`
 
@@ -373,11 +383,281 @@ http {
 
 ## Firewall
 
-If you use iptable as a firewall, you need to open its port in the file `/etc/sysconfig/iptables`:
+If you use iptable as a firewall, we strongly recommand you to deny everything but what is needed.
+
+### Everything is installed on same server
+
+You need to open httpd or nginx port in the file `/etc/sysconfig/iptables`:
 
 ```
 -A INPUT -p tcp -m state --state NEW -m tcp --dport 80 -j ACCEPT
 ```
+
+### Otherwise
+
+Here is a list of all flux needed by each microservice:
+
+<table class="table table-striped">
+  <col>
+  <colgroup span="2"></colgroup>
+  <colgroup span="2"></colgroup>
+  <tr>
+    <th rowspan="2">Protocol</th>
+    <th colspan="1" scope="colgroup">Source</th>
+    <th colspan="2" scope="colgroup">Target</th>
+    <th rowspan="2">Flux description</th>
+  </tr>
+  <tr>
+    <th scope="col">Component</th>
+    <th scope="col">Component</th>
+    <th scope="col">Port</th>
+  </tr>
+  <tr><td>tcp</td><td>rs-access-instance</td><td>rs-config</td><td>9031</td><td>Get configuration</td></tr>
+<tr><td>tcp</td><td>rs-access-instance</td><td>rs-registry</td><td>9032</td><td>Microservice registering</td></tr>
+<tr><td>tcp</td><td>rs-access-instance</td><td>PostgreSQL</td><td>5432</td><td>DB access</td></tr>
+<tr><td>tcp</td><td>rs-admin-instance</td><td>rs-config</td><td>9031</td><td>Get configuration</td></tr>
+<tr><td>tcp</td><td>rs-admin-instance</td><td>rs-registry</td><td>9032</td><td>Microservice registering</td></tr>
+<tr><td>tcp</td><td>rs-admin-instance</td><td>RabbitMQ</td><td>15672</td><td>AMQP management(exchanges, queues, bindings, vhosts)</td></tr>
+<tr><td>tcp</td><td>rs-admin-instance</td><td>RabbitMQ</td><td>5672</td><td>sending/receiving AMQP messages</td></tr>
+<tr><td>tcp</td><td>rs-admin-instance</td><td>PostgreSQL</td><td>5432</td><td>DB access</td></tr>
+<tr><td>tcp</td><td>rs-admin-project</td><td>rs-admin-instance</td><td>9037</td><td>Access to instance information (tenant/Account)</td></tr>
+<tr><td>tcp</td><td>rs-admin-project</td><td>rs-config</td><td>9031</td><td>Get configuration</td></tr>
+<tr><td>tcp</td><td>rs-admin-project</td><td>rs-registry</td><td>9032</td><td>Microservice registering</td></tr>
+<tr><td>tcp</td><td>rs-admin-project</td><td>RabbitMQ</td><td>15672</td><td>AMQP management(exchanges, queues, bindings, vhosts)</td></tr>
+<tr><td>tcp</td><td>rs-admin-project</td><td>RabbitMQ</td><td>5672</td><td>sending/receiving AMQP messages</td></tr>
+<tr><td>tcp</td><td>rs-admin-project</td><td>PostgreSQL</td><td>5432</td><td>DB access</td></tr>
+<tr><td>tcp</td><td>rs-dam</td><td>rs-admin-instance</td><td>9037</td><td>Access to instance information (tenant/Account)</td></tr>
+<tr><td>tcp</td><td>rs-dam</td><td>rs-admin-project</td><td>9033</td><td>Access to project information (User/Role/Notification)</td></tr>
+<tr><td>tcp</td><td>rs-dam</td><td>rs-config</td><td>9031</td><td>Get configuration</td></tr>
+<tr><td>tcp</td><td>rs-dam</td><td>rs-registry</td><td>9032</td><td>Microservice registering</td></tr>
+<tr><td>tcp</td><td>rs-dam</td><td>Elasticsearch</td><td>9200</td><td>Access to indexed data</td></tr>
+<tr><td>tcp</td><td>rs-dam</td><td>RabbitMQ</td><td>15672</td><td>AMQP management (exchanges, queues, bindings, vhosts)</td></tr>
+<tr><td>tcp</td><td>rs-dam</td><td>RabbitMQ</td><td>5672</td><td>sending/receiving AMQP messages</td></tr>
+<tr><td>tcp</td><td>rs-dam</td><td>PostgreSQL</td><td>5432</td><td>DB access</td></tr>
+<tr><td>tcp</td><td>rs-dataprovider</td><td>rs-admin-instance</td><td>9037</td><td>Access to instance information (tenant/Account)</td></tr>
+<tr><td>tcp</td><td>rs-dataprovider</td><td>rs-admin-project</td><td>9033</td><td>Access to project information (User/Role/Notification)</td></tr>
+<tr><td>tcp</td><td>rs-dataprovider</td><td>rs-config</td><td>9031</td><td>Get configuration</td></tr>
+<tr><td>tcp</td><td>rs-dataprovider</td><td>rs-ingest</td><td>9044</td><td>Sends SIP</td></tr>
+<tr><td>tcp</td><td>rs-dataprovider</td><td>rs-registry</td><td>9032</td><td>Microservice registering</td></tr>
+<tr><td>tcp</td><td>rs-dataprovider</td><td>RabbitMQ</td><td>15672</td><td>AMQP management(exchanges, queues, bindings, vhosts)</td></tr>
+<tr><td>tcp</td><td>rs-dataprovider</td><td>RabbitMQ</td><td>5672</td><td>sending/receiving AMQP messages</td></tr>
+<tr><td>tcp</td><td>rs-dataprovider</td><td>PostgreSQL</td><td>5432</td><td>DB access</td></tr>
+<tr><td>tcp</td><td>rs-ingest</td><td>rs-admin-instance</td><td>9037</td><td>Access to instance information (tenant/Account)</td></tr>
+<tr><td>tcp</td><td>rs-ingest</td><td>rs-admin-project</td><td>9033</td><td>Access to project information (User/Role/Notification)</td></tr>
+<tr><td>tcp</td><td>rs-ingest</td><td>rs-config</td><td>9031</td><td>Get configuration</td></tr>
+<tr><td>tcp</td><td>rs-ingest</td><td>rs-registry</td><td>9032</td><td>Microservice registering</td></tr>
+<tr><td>tcp</td><td>rs-ingest</td><td>rs-storage</td><td>9042</td><td>Sends AIP</td></tr>
+<tr><td>tcp</td><td>rs-ingest</td><td>RabbitMQ</td><td>15672</td><td>AMQP management (exchanges, queues, bindings, vhosts)</td></tr>
+<tr><td>tcp</td><td>rs-ingest</td><td>RabbitMQ</td><td>5672</td><td>sending/receiving AMQP messages</td></tr>
+<tr><td>tcp</td><td>rs-ingest</td><td>PostgreSQL</td><td>5432</td><td>DB access</td></tr>
+<tr><td>tcp</td><td>rs-storage</td><td>rs-admin-instance</td><td>9037</td><td>Access to instance information (tenant/Account)</td></tr>
+<tr><td>tcp</td><td>rs-storage</td><td>rs-admin-project</td><td>9033</td><td>Access to project information (User/Role/Notification)</td></tr>
+<tr><td>tcp</td><td>rs-storage</td><td>rs-catalog</td><td>9036</td><td>Plugin CatalogSecurityDelegation</td></tr>
+<tr><td>tcp</td><td>rs-storage</td><td>rs-config</td><td>9031</td><td>Get configuration</td></tr>
+<tr><td>tcp</td><td>rs-storage</td><td>rs-registry</td><td>9032</td><td>Microservice registering</td></tr>
+<tr><td>tcp</td><td>rs-storage</td><td>RabbitMQ</td><td>15672</td><td>AMQP management(exchanges, queues, bindings, vhosts)</td></tr>
+<tr><td>tcp</td><td>rs-storage</td><td>RabbitMQ</td><td>5672</td><td>sending/receiving AMQP messages</td></tr>
+<tr><td>tcp</td><td>rs-storage</td><td>PostgreSQL</td><td>5432</td><td>DB access</td></tr>
+<tr><td>tcp</td><td>rs-access-project</td><td>rs-admin-instance</td><td>9037</td><td>Access to instance information (tenant/Account)</td></tr>
+<tr><td>tcp</td><td>rs-access-project</td><td>rs-admin-project</td><td>9033</td><td>Access to project information (User/Role/Notification)</td></tr>
+<tr><td>tcp</td><td>rs-access-project</td><td>rs-config</td><td>9031</td><td>Get configuration</td></tr>
+<tr><td>tcp</td><td>rs-access-project</td><td>rs-registry</td><td>9032</td><td>Microservice registering</td></tr>
+<tr><td>tcp</td><td>rs-access-project</td><td>RabbitMQ</td><td>15672</td><td>AMQP management (exchanges, queues, bindings, vhosts)</td></tr>
+<tr><td>tcp</td><td>rs-access-project</td><td>RabbitMQ</td><td>5672</td><td>sending/receiving AMQP messages</td></tr>
+<tr><td>tcp</td><td>rs-access-project</td><td>PostgreSQL</td><td>5432</td><td>DB access</td></tr>
+<tr><td>tcp</td><td>rs-authentication</td><td>rs-admin-instance</td><td>9037</td><td>Access to instance information (tenant/Account)</td></tr>
+<tr><td>tcp</td><td>rs-authentication</td><td>rs-admin-project</td><td>9033</td><td>Access to project information (User/Role/Notification)</td></tr>
+<tr><td>tcp</td><td>rs-authentication</td><td>rs-config</td><td>9031</td><td>Get configuration</td></tr>
+<tr><td>tcp</td><td>rs-authentication</td><td>rs-registry</td><td>9032</td><td>Microservice registering</td></tr>
+<tr><td>tcp</td><td>rs-authentication</td><td>RabbitMQ</td><td>15672</td><td>AMQP management (exchanges, queues, bindings, vhosts)</td></tr>
+<tr><td>tcp</td><td>rs-authentication</td><td>RabbitMQ</td><td>5672</td><td>sending/receiving AMQP messages</td></tr>
+<tr><td>tcp</td><td>rs-authentication</td><td>PostgreSQL</td><td>5432</td><td>DB access</td></tr>
+<tr><td>tcp</td><td>rs-catalog</td><td>rs-admin-instance</td><td>9037</td><td>Access to instance information (tenant/Account)</td></tr>
+<tr><td>tcp</td><td>rs-catalog</td><td>rs-admin-project</td><td>9033</td><td>Access to project information (User/Role/Notification)</td></tr>
+<tr><td>tcp</td><td>rs-catalog</td><td>rs-config</td><td>9031</td><td>Get configuration</td></tr>
+<tr><td>tcp</td><td>rs-catalog</td><td>rs-dam</td><td>9035</td><td>Accès aux informations sur les modèles</td></tr>
+<tr><td>tcp</td><td>rs-catalog</td><td>rs-registry</td><td>9032</td><td>Microservice registering</td></tr>
+<tr><td>tcp</td><td>rs-catalog</td><td>Elasticsearch</td><td>9200</td><td>Access to indexed data</td></tr>
+<tr><td>tcp</td><td>rs-catalog</td><td>RabbitMQ</td><td>15672</td><td>AMQP management (exchanges, queues, bindings, vhosts)</td></tr>
+<tr><td>tcp</td><td>rs-catalog</td><td>RabbitMQ</td><td>5672</td><td>sending/receiving AMQP messages</td></tr>
+<tr><td>tcp</td><td>rs-catalog</td><td>PostgreSQL</td><td>5432</td><td>DB access</td></tr>
+<tr><td>tcp</td><td>rs-gateway</td><td>rs-access-instance</td><td>9040</td><td>Request routing</td></tr>
+<tr><td>tcp</td><td>rs-gateway</td><td>rs-access-project</td><td>9041</td><td>Request routing</td></tr>
+<tr><td>tcp</td><td>rs-gateway</td><td>rs-admin-instance</td><td>9037</td><td>Request routing</td></tr>
+<tr><td>tcp</td><td>rs-gateway</td><td>rs-admin-project</td><td>9033</td><td>Request routing</td></tr>
+<tr><td>tcp</td><td>rs-gateway</td><td>rs-authentication</td><td>9034</td><td>Request routing</td></tr>
+<tr><td>tcp</td><td>rs-gateway</td><td>rs-catalog</td><td>9036</td><td>Request routing</td></tr>
+<tr><td>tcp</td><td>rs-gateway</td><td>rs-config</td><td>9031</td><td>Get configuration</td></tr>
+<tr><td>tcp</td><td>rs-gateway</td><td>rs-dam</td><td>9035</td><td>Request routing</td></tr>
+<tr><td>tcp</td><td>rs-gateway</td><td>rs-dataprovider</td><td>9045</td><td>Request routing</td></tr>
+<tr><td>tcp</td><td>rs-gateway</td><td>rs-ingest</td><td>9044</td><td>Request routing</td></tr>
+<tr><td>tcp</td><td>rs-gateway</td><td>rs-order</td><td>9043</td><td>Request routing</td></tr>
+<tr><td>tcp</td><td>rs-gateway</td><td>rs-registry</td><td>9032</td><td>Microservice registering</td></tr>
+<tr><td>tcp</td><td>rs-gateway</td><td>rs-storage</td><td>9042</td><td>Request routing</td></tr>
+<tr><td>tcp</td><td>rs-order</td><td>rs-admin-instance</td><td>9037</td><td>Access to instance information (tenant/Account)</td></tr>
+<tr><td>tcp</td><td>rs-order</td><td>rs-admin-project</td><td>9033</td><td>Access to project information (User/Role/Notification)</td></tr>
+<tr><td>tcp</td><td>rs-order</td><td>rs-catalog</td><td>9036</td><td>Access to indexed data</td></tr>
+<tr><td>tcp</td><td>rs-order</td><td>rs-config</td><td>9031</td><td>Get configuration</td></tr>
+<tr><td>tcp</td><td>rs-order</td><td>rs-dam</td><td>9035</td><td>Accès aux informations sur les modèles</td></tr>
+<tr><td>tcp</td><td>rs-order</td><td>rs-registry</td><td>9032</td><td>Microservice registering</td></tr>
+<tr><td>tcp</td><td>rs-order</td><td>rs-storage</td><td>9042</td><td>Sends AIP</td></tr>
+<tr><td>tcp</td><td>rs-order</td><td>RabbitMQ</td><td>15672</td><td>AMQP management (exchanges, queues, bindings, vhosts)</td></tr>
+<tr><td>tcp</td><td>rs-order</td><td>RabbitMQ</td><td>5672</td><td>sending/receiving AMQP messages</td></tr>
+<tr><td>tcp</td><td>rs-order</td><td>PostgreSQL</td><td>5432</td><td>DB access</td></tr>
+<tr><td>tcp</td><td>httpd</td><td>rs-gateway</td><td>9030</td><td>Access to backend</td></tr>
+<tr><td>tcp</td><td>httpd</td><td>rs-front</td><td>80</td><td>Access to frontend</td></tr>
+</table>
+
+You can use utility developped by yours truly to ease your life a bit. It is located [here](https://github.com/RegardsOss/regards-deployment/tree/master/security/iptable-generator). You just need two CSV files (using `;` as separator): the above table, *Flow.csv*, and a file describing which component is deployed on which machine (IP), *CompoIp.csv*. Then you just need to compile the utility (`mvn clean install -Dmaven.test.skip=true`) and run the following command: `java -DcompoIpCsv=CompoIp.csv -DflowMatrix=Flow.csv -jar iptable-generator-1.0-SNAPSHOT-jar-with-dependencies.jar`. This will give a file with iptables correctly configured for each machine.
+
+Here is an example of *CompoIp.csv*:
+```csv
+composant;ip
+rs-config;192.168.0.1
+rs-registry;192.168.0.2
+rs-access-instance;192.168.0.1
+rs-access-project;192.168.0.2
+rs-admin-instance;192.168.0.1
+rs-admin-project;192.168.0.1
+rs-authentication;192.168.0.2
+rs-catalog;192.168.0.2
+rs-config;192.168.0.1
+rs-dam;192.168.0.1
+rs-dataprovider;192.168.0.1
+rs-frontend;192.168.0.2
+rs-gateway;192.168.0.2
+rs-ingest;192.168.0.1
+rs-order;192.168.0.2
+rs-registry;192.168.0.2
+rs-storage;192.168.0.1
+Elasticsearch;192.168.0.3
+RabbitMQ;192.168.0.3
+PostgreSQL;192.168.0.3
+httpd;192.168.0.4
+```
+With this example you'll obtain 4 files: REGARDS_iptables_192.168.0.1.txt, REGARDS_iptables_192.168.0.2.txt, REGARDS_iptables_192.168.0.3.txt, REGARDS_iptables_192.168.0.4.txt.  
+
+Here is an example of obtained file, for REGARDS_iptables_192.168.0.1.txt:
+```
+# Rules for component rs-dataprovider
+-A INPUT -p tcp -s 192.168.0.1 --dport 9045 -j ACCEPT
+# Rules for component rs-ingest
+-A INPUT -p tcp -s 192.168.0.2 --dport 9044 -j ACCEPT
+-A INPUT -p tcp -s 192.168.0.1 --dport 9044 -j ACCEPT
+# Rules for component rs-config
+-A INPUT -p tcp -s 192.168.0.2 --dport 9031 -j ACCEPT
+-A INPUT -p tcp -s 192.168.0.1 --dport 9031 -j ACCEPT
+# Rules for component rs-dam
+-A INPUT -p tcp -s 192.168.0.1 --dport 9035 -j ACCEPT
+# Rules for component rs-admin-project
+-A INPUT -p tcp -s 192.168.0.1 --dport 9033 -j ACCEPT
+-A INPUT -p tcp -s 192.168.0.2 --dport 9033 -j ACCEPT
+# Rules for component rs-storage
+-A INPUT -p tcp -s 192.168.0.1 --dport 9042 -j ACCEPT
+-A INPUT -p tcp -s 192.168.0.2 --dport 9042 -j ACCEPT
+# Rules for component rs-access-instance
+-A INPUT -p tcp -s 192.168.0.1 --dport 9040 -j ACCEPT
+# Rules for component rs-admin-instance
+-A INPUT -p tcp -s 192.168.0.1 --dport 9037 -j ACCEPT
+-A INPUT -p tcp -s 192.168.0.2 --dport 9037 -j ACCEPT
+```
+
+## REGARDS inside systemctl
+
+If you want to interface REGARDS and systemctl, you will need several service files.  
+First `regards.service` which is defined as follow and located into `/etc/systemd/system/`  
+```bash
+# Copyright 2017-2019 CNES - CENTRE NATIONAL d'ETUDES SPATIALES
+#
+# This file is part of REGARDS.
+#
+# REGARDS is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# (at your option) any later version.
+#
+# REGARDS is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with REGARDS. If not, see <http://www.gnu.org/licenses/>.
+
+[Unit]
+Description=REGARDS all installed service
+After=
+Before=
+
+[Service]
+Type=oneshot
+RemainAfterExit=yes
+
+ExecStart=/opt/regards/REGARDS/sbin/microservice_regards.sh start
+ExecStop=/opt/regards/REGARDS/sbin/microservice_regards.sh stop
+
+# Give a reasonable amount of time for the server to start up/shut down
+TimeoutSec=300
+
+[Install]
+WantedBy=multi-user.target
+```
+Then if you want more precise control on microservices, you will need several files, in `/etc/systemd/system/`, with the format: `regards-<microservice_type>.service`, **\<microservice_type\>** being one of:  
+  - config 
+  - registry 
+  - gateway 
+  - admin-instance
+  - admin 
+  - authentication
+  - storage
+  - ingest
+  - dam
+  - catalog
+  - order
+  - dataprovider
+  - access-instance
+  - access-project 
+  - frontend  
+
+Here is an example:  
+```bash
+# Copyright 2017-2019 CNES - CENTRE NATIONAL d'ETUDES SPATIALES
+#
+# This file is part of REGARDS.
+#
+# REGARDS is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# (at your option) any later version.
+#
+# REGARDS is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with REGARDS. If not, see <http://www.gnu.org/licenses/>.
+
+[Unit]
+Description=REGARDS all installed service
+After=
+Before=
+
+[Service]
+Type=oneshot
+RemainAfterExit=yes
+
+ExecStart=/opt/regards/REGARDS/sbin/microservice_regards.sh -t order start
+ExecStop=/opt/regards/REGARDS/sbin/microservice_regards.sh -t order stop
+
+# Give a reasonable amount of time for the server to start up/shut down
+TimeoutSec=300
+
+[Install]
+WantedBy=multi-user.target
+```
+
+Then if you want to start or stop all microservices installed on the machine, you can simply execute `systemctl <start|stop> regards.service`. In cas you just need to restart one of the microservice, you can execute `systemctl restart regards-<microservice_type>.service`.
 
 ## Auto restart services on boot
 
@@ -388,4 +668,5 @@ systemctl enable httpd.service
 systemctl enable elasticsearch.service
 systemctl enable rabbitmq-server.service
 systemctl enable postgresql-9.6.service
+systemctl enable regards.service
 ```
