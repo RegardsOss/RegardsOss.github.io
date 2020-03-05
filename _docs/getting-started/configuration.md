@@ -381,11 +381,11 @@ http {
 }
 ```
 
-## Firewall
+## Security and firewall
 
-If you use iptable as a firewall, we strongly recommand you to deny everything but what is needed.
+If you use iptable as a firewall, we strongly recommand you to deny everything except what is required.
 
-### Everything is installed on same server
+### Installation on a single server
 
 You need to open httpd or nginx port in the file `/etc/sysconfig/iptables`:
 
@@ -393,7 +393,7 @@ You need to open httpd or nginx port in the file `/etc/sysconfig/iptables`:
 -A INPUT -p tcp -m state --state NEW -m tcp --dport 80 -j ACCEPT
 ```
 
-### Otherwise
+### Install on several servers
 
 Here is a list of all flux needed by each microservice:
 
@@ -535,9 +535,16 @@ RabbitMQ;192.168.0.3
 PostgreSQL;192.168.0.3
 httpd;192.168.0.4
 ```
-With this example you'll obtain 4 files: REGARDS_iptables_192.168.0.1.txt, REGARDS_iptables_192.168.0.2.txt, REGARDS_iptables_192.168.0.3.txt, REGARDS_iptables_192.168.0.4.txt.  
 
-Here is an example of obtained file, for REGARDS_iptables_192.168.0.1.txt:
+With this example you'll obtain 4 files:  
+
+- `REGARDS_iptables_192.168.0.1.txt`
+- `REGARDS_iptables_192.168.0.2.txt`
+- `REGARDS_iptables_192.168.0.3.txt`
+- `REGARDS_iptables_192.168.0.4.txt`
+
+Here is an example of obtained file `REGARDS_iptables_192.168.0.1.txt` :
+
 ```
 # Rules for component rs-dataprovider
 -A INPUT -p tcp -s 192.168.0.1 --dport 9045 -j ACCEPT
@@ -564,8 +571,8 @@ Here is an example of obtained file, for REGARDS_iptables_192.168.0.1.txt:
 
 ## REGARDS inside systemctl
 
-If you want to interface REGARDS and systemctl, you will need several service files.  
-First `regards.service` which is defined as follow and located into `/etc/systemd/system/`  
+If you want to interface REGARDS and systemctl, you will need to define the file `/etc/systemd/system/regards.service` with the following:  
+
 ```bash
 # Copyright 2017-2019 CNES - CENTRE NATIONAL d'ETUDES SPATIALES
 #
@@ -602,24 +609,11 @@ TimeoutSec=300
 [Install]
 WantedBy=multi-user.target
 ```
-Then if you want more precise control on microservices, you will need several files, in `/etc/systemd/system/`, with the format: `regards-<microservice_type>.service`, **\<microservice_type\>** being one of:  
-  - config 
-  - registry 
-  - gateway 
-  - admin-instance
-  - admin 
-  - authentication
-  - storage
-  - ingest
-  - dam
-  - catalog
-  - order
-  - dataprovider
-  - access-instance
-  - access-project 
-  - frontend  
 
-Here is an example:  
+If you want to define a more specific behavior on one microservice, you can create the file `/etc/systemd/system/regards-<microservice_type>.service`, with `<microservice_type>` being one of the REGARDS component (config,registry,gateway,admin-instanc,admin,authenticatio,storag,inges,da,catalo,orde,dataprovide,access-instanc,access-project,frontend)
+
+Here is an example `regards-order.service`:  
+
 ```bash
 # Copyright 2017-2019 CNES - CENTRE NATIONAL d'ETUDES SPATIALES
 #
@@ -657,11 +651,14 @@ TimeoutSec=300
 WantedBy=multi-user.target
 ```
 
-Then if you want to start or stop all microservices installed on the machine, you can simply execute `systemctl <start|stop> regards.service`. In cas you just need to restart one of the microservice, you can execute `systemctl restart regards-<microservice_type>.service`.
+Now the installation is over, you can controll all yours microservices threw Systemctl :
+- `systemctl <start|stop> regards.service`, to start/stop all microservices installed on the machine
+- `systemctl restart regards-<microservice_type>.service`, to restart one of the microservice
+-...
 
 ## Auto restart services on boot
 
-Don't forget to restart services on boot:
+Don't forget to restart services on (re)boot:
 
 ```bash
 systemctl enable httpd.service
