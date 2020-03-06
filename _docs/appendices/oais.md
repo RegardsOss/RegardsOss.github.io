@@ -8,7 +8,7 @@ short-title: REGARDS OAIS
 
 ## OAIS recommendation
 
-REGARDS allows to populate its catalog with products by following the [OAIS recommendation](https://public.ccsds.org/Pubs/650x0m2%28F%29.pdf).
+REGARDS allows to populate its catalog with products by following the [OAIS recommendation](https://public.ccsds.org/Pubs/650x0m2%28F%29.pdf){:target="_blank"}.
 You can send your SIP (Submission Information Package) using the web HMI, the REST API or directly throught the bus message of the Ingest microservice.  
 
 ## Overview
