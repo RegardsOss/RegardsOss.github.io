@@ -508,7 +508,12 @@ Here is a list of all flux needed by each microservice:
 <tr><td>tcp</td><td>httpd</td><td>rs-front</td><td>80</td><td>Access to frontend</td></tr>
 </table>
 
-You can use utility developped by yours truly to ease your life a bit. It is located [here](https://github.com/RegardsOss/regards-deployment/tree/master/security/iptable-generator). You just need two CSV files (using `;` as separator): the above table, *Flow.csv*, and a file describing which component is deployed on which machine (IP), *CompoIp.csv*. Then you just need to compile the utility (`mvn clean install -Dmaven.test.skip=true`) and run the following command: `java -DcompoIpCsv=CompoIp.csv -DflowMatrix=Flow.csv -jar iptable-generator-1.0-SNAPSHOT-jar-with-dependencies.jar`. This will give a file with iptables correctly configured for each machine.
+You can use this [utility](https://github.com/RegardsOss/regards-deployment/tree/master/security/iptable-generator) developped to ease your security configuration. You just need to provide two CSV configuration files (using `;` as separator):
+
+- the above table, `Flow.csv`
+- `CompoIp.csv`, a file describing which component is deployed on which machine (IP)
+
+Then you just need to compile the utility (`mvn clean install -Dmaven.test.skip=true`) and run the following command: `java -DcompoIpCsv=CompoIp.csv -DflowMatrix=Flow.csv -jar iptable-generator-1.0-SNAPSHOT-jar-with-dependencies.jar`. This will give a file with iptables correctly configured for each machine.
 
 Here is an example of *CompoIp.csv*:
 ```csv
@@ -543,7 +548,7 @@ With this example you'll obtain 4 files:
 - `REGARDS_iptables_192.168.0.3.txt`
 - `REGARDS_iptables_192.168.0.4.txt`
 
-Here is an example of obtained file `REGARDS_iptables_192.168.0.1.txt` :
+Here is an example of the obtained file `REGARDS_iptables_192.168.0.1.txt` :
 
 ```
 # Rules for component rs-dataprovider
@@ -569,7 +574,9 @@ Here is an example of obtained file `REGARDS_iptables_192.168.0.1.txt` :
 -A INPUT -p tcp -s 192.168.0.2 --dport 9037 -j ACCEPT
 ```
 
-## REGARDS inside systemctl
+## Systemctl
+
+### Configuration
 
 If you want to interface REGARDS and systemctl, you will need to define the file `/etc/systemd/system/regards.service` with the following:  
 
@@ -612,7 +619,7 @@ WantedBy=multi-user.target
 
 If you want to define a more specific behavior on one microservice, you can create the file `/etc/systemd/system/regards-<microservice_type>.service`, with `<microservice_type>` being one of the REGARDS component (config,registry,gateway,admin-instanc,admin,authenticatio,storag,inges,da,catalo,orde,dataprovide,access-instanc,access-project,frontend)
 
-Here is an example `regards-order.service`:  
+Here is an `regards-order.service` example:  
 
 ```bash
 # Copyright 2017-2019 CNES - CENTRE NATIONAL d'ETUDES SPATIALES
@@ -656,7 +663,7 @@ Now the installation is over, you can controll all yours microservices threw Sys
 - `systemctl restart regards-<microservice_type>.service`, to restart one of the microservice
 -...
 
-## Auto restart services on boot
+### Auto restart services on boot
 
 Don't forget to restart services on (re)boot:
 
