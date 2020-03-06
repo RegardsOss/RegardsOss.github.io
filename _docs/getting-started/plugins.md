@@ -22,7 +22,7 @@ chmod 640 /home/REGARDS/plugins/<microservice>/plugin.jar
 
 After a new plugin is added to a microservice, you need to restart it. To do so, stop and start the microservice as explained in [Regards CLI](/getting-started/cli/)
 
-Then you can see that the plugin is well installed from the project IHM in the 'microservices' section.  
+Then you can see that the plugin is well installed from the project HMI in the 'microservices' section.  
   
 Exemple for list `catalog microservice plugins` :   
 > https://regards/admin/project1/microservice/rs-catalog/plugin/list
