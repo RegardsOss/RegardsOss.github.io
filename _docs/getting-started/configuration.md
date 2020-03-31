@@ -505,7 +505,7 @@ Here is a list of all flux needed by each microservice:
 <tr><td>tcp</td><td>rs-order</td><td>RabbitMQ</td><td>5672</td><td>sending/receiving AMQP messages</td></tr>
 <tr><td>tcp</td><td>rs-order</td><td>PostgreSQL</td><td>5432</td><td>DB access</td></tr>
 <tr><td>tcp</td><td>httpd</td><td>rs-gateway</td><td>9030</td><td>Access to backend</td></tr>
-<tr><td>tcp</td><td>httpd</td><td>rs-front</td><td>80</td><td>Access to frontend</td></tr>
+<tr><td>tcp</td><td>httpd</td><td>rs-front</td><td>9080</td><td>Access to frontend</td></tr>
 </table>
 
 You can use this [utility](https://github.com/RegardsOss/regards-deployment/tree/master/security/iptable-generator) developped to ease your security configuration. You just need to provide two CSV configuration files (using `;` as separator):
