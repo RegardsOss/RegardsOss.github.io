@@ -8,24 +8,24 @@ categories:
 
 ## OAIS recommandation
 
-The System design leans on the OAIS (Open Archival Information System) recommendation of the <a href="https://public.ccsds.org" target="blank_">CCSDS</a>.
+The System design leans on the OAIS (Open Archival Information System) recommendation of the [CCSDS](https://public.ccsds.org).
 
 ![](/assets/schemas/architecture/oais.png)
 
-Thus the system allows high-performance ingestion of data package called <b>SIP</b> (Submission Information Package), either in standard or non-standard formats.
+Thus the system allows high-performance ingestion of data package called **SIP** (Submission Information Package), either in standard or non-standard formats.
 
-Afterwards, these SIP are processed into <b>AIP</b> (Archival Information Package) and stored in archival storage. Both metadata  and data files are stored.
+Afterwards, these SIP are processed into **AIP** (Archival Information Package) and stored in archival storage. Both metadata and data files are stored.
 
 All or part of the AIP metadata are harvested to offer smart search and access to the data.
 
-Finally, requested data are retrieve under <b>DIP</b> (Dissemination Information Package).
+Finally, requested data are retrieve under **DIP** (Dissemination Information Package).
 
 ## OAIS REGARDS implementation
 
-The schema below try to make the connection between OAIS recommandation and REGARDS implementation. This is only a zoom because REGARDS can do a lot more.
+The schema below shows the correspondence between the OAIS recommandation and the REGARDS implementation. Note we're just displaying here a subset of all REGARDS features, as REGARDS can do a lot more.
 
 ![](/assets/schemas/architecture/overview_regards_oais.png)
 
-REGARDS processes SIP, transforms them in AIP that is stored, extracts metadata from AIP (i.e. harvesting) to populate a catalog and give fast access to metadata.
+REGARDS processes SIP, transforms them into AIP, stores them, extracts metadata from AIP (i.e. harvesting) to populate a catalog to provide fast access to metadata.
 
-A user through a rich web application can then discover, order and download data in an efficient and simple way.
+Then users can discover through our rich web application, order and download data in an efficient and simple way.

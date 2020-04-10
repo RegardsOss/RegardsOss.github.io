@@ -11,21 +11,25 @@ categories:
 
 ## Disclaimer
 
-This roadmap is likely to evolve and has for only purpose to give an overview of the works in progress on REGARDS OSS.
+This document describes the high-level features and actions for the REGARDS OSS project in the near to medium-term future.
+As with any roadmap, this is a living document that gives you an overview of the works in progress. We aim to update the roadmap with any changes or status updates every year, when we release the next version.
 
 ## Upcoming version
 
 ---
-{% include_relative roadmap/V1.0.0.md %}
+{% include_relative roadmap/V1.1.0.md %}
 
 
 ## Latest stable version
 
 ---
-{% include_relative roadmap/V0.4.1.md %}
+{% include_relative roadmap/V1.0.0.md %}
 
 
 ## Old not maintained versions
+
+---
+{% include_relative roadmap/V0.4.1.md %}
 
 ---
 {% include_relative roadmap/V0.4.0.md %}

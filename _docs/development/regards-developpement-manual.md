@@ -34,9 +34,9 @@ REGARDS allows developers to extends the REGARDS backend functionnalities by cre
 
 REGARDS allows developers to extends REGARDS Frontend functionnalities by creating their own :
 
-- **IHM service plugin** : In order to add new functionalities availables from the consultables data id the project user IHM.
-- **IHM search criterion widget** : In order to add new criterion types in REGARDS search forms.
-- **IHM Module plugin** : In order to add a totaly new bundle of functionalities
+- **HMI service plugin** : In order to add new functionalities availables from the consultables data id the project user HMI.
+- **HMI search criterion widget** : In order to add new criterion types in REGARDS search forms.
+- **HMI Module plugin** : In order to add a totaly new bundle of functionalities
 
 **Requirements :** You need a development environment with :
 

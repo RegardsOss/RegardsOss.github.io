@@ -381,11 +381,11 @@ http {
 }
 ```
 
-## Firewall
+## Security and firewall
 
-If you use iptable as a firewall, we strongly recommand you to deny everything but what is needed.
+If you use iptable as a firewall, we strongly recommand you to deny everything except what is required.
 
-### Everything is installed on same server
+### Installation on a single server
 
 You need to open httpd or nginx port in the file `/etc/sysconfig/iptables`:
 
@@ -393,7 +393,7 @@ You need to open httpd or nginx port in the file `/etc/sysconfig/iptables`:
 -A INPUT -p tcp -m state --state NEW -m tcp --dport 80 -j ACCEPT
 ```
 
-### Otherwise
+### Install on several servers
 
 Here is a list of all flux needed by each microservice:
 
@@ -505,10 +505,15 @@ Here is a list of all flux needed by each microservice:
 <tr><td>tcp</td><td>rs-order</td><td>RabbitMQ</td><td>5672</td><td>sending/receiving AMQP messages</td></tr>
 <tr><td>tcp</td><td>rs-order</td><td>PostgreSQL</td><td>5432</td><td>DB access</td></tr>
 <tr><td>tcp</td><td>httpd</td><td>rs-gateway</td><td>9030</td><td>Access to backend</td></tr>
-<tr><td>tcp</td><td>httpd</td><td>rs-front</td><td>80</td><td>Access to frontend</td></tr>
+<tr><td>tcp</td><td>httpd</td><td>rs-front</td><td>9080</td><td>Access to frontend</td></tr>
 </table>
 
-You can use utility developped by yours truly to ease your life a bit. It is located [here](https://github.com/RegardsOss/regards-deployment/tree/master/security/iptable-generator). You just need two CSV files (using `;` as separator): the above table, *Flow.csv*, and a file describing which component is deployed on which machine (IP), *CompoIp.csv*. Then you just need to compile the utility (`mvn clean install -Dmaven.test.skip=true`) and run the following command: `java -DcompoIpCsv=CompoIp.csv -DflowMatrix=Flow.csv -jar iptable-generator-1.0-SNAPSHOT-jar-with-dependencies.jar`. This will give a file with iptables correctly configured for each machine.
+You can use this [utility](https://github.com/RegardsOss/regards-deployment/tree/master/security/iptable-generator) developped to ease your security configuration. You just need to provide two CSV configuration files (using `;` as separator):
+
+- the above table, `Flow.csv`
+- `CompoIp.csv`, a file describing which component is deployed on which machine (IP)
+
+Then you just need to compile the utility (`mvn clean install -Dmaven.test.skip=true`) and run the following command: `java -DcompoIpCsv=CompoIp.csv -DflowMatrix=Flow.csv -jar iptable-generator-1.0-SNAPSHOT-jar-with-dependencies.jar`. This will give a file with iptables correctly configured for each machine.
 
 Here is an example of *CompoIp.csv*:
 ```csv
@@ -535,9 +540,16 @@ RabbitMQ;192.168.0.3
 PostgreSQL;192.168.0.3
 httpd;192.168.0.4
 ```
-With this example you'll obtain 4 files: REGARDS_iptables_192.168.0.1.txt, REGARDS_iptables_192.168.0.2.txt, REGARDS_iptables_192.168.0.3.txt, REGARDS_iptables_192.168.0.4.txt.  
 
-Here is an example of obtained file, for REGARDS_iptables_192.168.0.1.txt:
+With this example you'll obtain 4 files:  
+
+- `REGARDS_iptables_192.168.0.1.txt`
+- `REGARDS_iptables_192.168.0.2.txt`
+- `REGARDS_iptables_192.168.0.3.txt`
+- `REGARDS_iptables_192.168.0.4.txt`
+
+Here is an example of the obtained file `REGARDS_iptables_192.168.0.1.txt` :
+
 ```
 # Rules for component rs-dataprovider
 -A INPUT -p tcp -s 192.168.0.1 --dport 9045 -j ACCEPT
@@ -562,10 +574,12 @@ Here is an example of obtained file, for REGARDS_iptables_192.168.0.1.txt:
 -A INPUT -p tcp -s 192.168.0.2 --dport 9037 -j ACCEPT
 ```
 
-## REGARDS inside systemctl
+## Systemctl
 
-If you want to interface REGARDS and systemctl, you will need several service files.  
-First `regards.service` which is defined as follow and located into `/etc/systemd/system/`  
+### Configuration
+
+If you want to interface REGARDS and systemctl, you will need to define the file `/etc/systemd/system/regards.service` with the following:  
+
 ```bash
 # Copyright 2017-2019 CNES - CENTRE NATIONAL d'ETUDES SPATIALES
 #
@@ -602,24 +616,11 @@ TimeoutSec=300
 [Install]
 WantedBy=multi-user.target
 ```
-Then if you want more precise control on microservices, you will need several files, in `/etc/systemd/system/`, with the format: `regards-<microservice_type>.service`, **\<microservice_type\>** being one of:  
-  - config 
-  - registry 
-  - gateway 
-  - admin-instance
-  - admin 
-  - authentication
-  - storage
-  - ingest
-  - dam
-  - catalog
-  - order
-  - dataprovider
-  - access-instance
-  - access-project 
-  - frontend  
 
-Here is an example:  
+If you want to define a more specific behavior on one microservice, you can create the file `/etc/systemd/system/regards-<microservice_type>.service`, with `<microservice_type>` being one of the REGARDS component (config,registry,gateway,admin-instanc,admin,authenticatio,storag,inges,da,catalo,orde,dataprovide,access-instanc,access-project,frontend)
+
+Here is an `regards-order.service` example:  
+
 ```bash
 # Copyright 2017-2019 CNES - CENTRE NATIONAL d'ETUDES SPATIALES
 #
@@ -657,11 +658,14 @@ TimeoutSec=300
 WantedBy=multi-user.target
 ```
 
-Then if you want to start or stop all microservices installed on the machine, you can simply execute `systemctl <start|stop> regards.service`. In cas you just need to restart one of the microservice, you can execute `systemctl restart regards-<microservice_type>.service`.
+Now the installation is over, you can controll all yours microservices threw Systemctl :
+- `systemctl <start|stop> regards.service`, to start/stop all microservices installed on the machine
+- `systemctl restart regards-<microservice_type>.service`, to restart one of the microservice
+-...
 
-## Auto restart services on boot
+### Auto restart services on boot
 
-Don't forget to restart services on boot:
+Don't forget to restart services on (re)boot:
 
 ```bash
 systemctl enable httpd.service

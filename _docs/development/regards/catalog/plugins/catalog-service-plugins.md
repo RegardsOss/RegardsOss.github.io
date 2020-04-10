@@ -186,7 +186,7 @@ private IServiceHelper serviceHelper;
 ```
 
 The exemple service :
-- Extends [AbstractCatalogServicePlugin](https://github.com/RegardsOss/regards-catalog/blob/master/catalog-services/catalog-services-plugin/src/main/java/fr/cnes/regards/modules/catalog/services/plugins/AbstractCatalogServicePlugin.java) to add a standard plugin parameter to allow access to the service on specified catalog datasets. The Administration IHM allows you to define access to catalog services for each dataset.
+- Extends [AbstractCatalogServicePlugin](https://github.com/RegardsOss/regards-catalog/blob/master/catalog-services/catalog-services-plugin/src/main/java/fr/cnes/regards/modules/catalog/services/plugins/AbstractCatalogServicePlugin.java) to add a standard plugin parameter to allow access to the service on specified catalog datasets. The Administration HMI allows you to define access to catalog services for each dataset.
 - Implements the two interfaces `IEntitiesServicePlugin` and `ISingleEntityServicePlugin` to allow application with one or many entities.
 - Show you how to specify the service return type (octet-stream, image, json or xml) thought the [CatalogPluginResponseFactory](https://github.com/RegardsOss/regards-catalog/blob/master/catalog-services/catalogue-services-helper/src/main/java/fr/cnes/regards/modules/catalog/services/helper/CatalogPluginResponseFactory.java) class.
 
