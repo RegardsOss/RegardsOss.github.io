@@ -7,67 +7,6 @@ title: Feature Manager AMQP API
 
 ## AMQP API
 
-<!-- For creation and update requests, AMQP API is expected a message containing an edition request.
-
-The structure is as follows :
-
-* A required `requestId` for request monitoring (max 36 characters long),
-* A required `requestDate` in ISO 8601 date format (a past date is required!),
-* Required `metadata`,
-* A required `feature` (look at [payload description above](#payloadppt))
-
-```json
-{
-    "requestId": "70970463-0f6b-4488-b58c-52af3f7e9563",
-    "requestDate": "2019-04-22T01:03:00",
-    "metadata": {
-        "sessionOwner": "owner",
-        "session": "session",
-        "storages": [
-            {
-                "pluginBusinessId": "disk"
-            }
-        ],
-        "priority": "NORMAL"
-    },
-    "feature": {
-        "id": "FeatureId",
-        "urn": "UniqueFeatureId",
-        "model": "RelatedModelName",
-        "entityType": "DATA",
-        "type": "Feature",
-        "geometry": {
-            "type": "Point",
-            "coordinates": [
-                125.6,
-                10.1
-            ]
-        },
-        "properties": {
-            "name": "Dinagat Islands"
-        },
-        "files": [
-            {
-                "locations": [
-                    {
-                        "storage": "DISK",
-                        "url": "file://home/user/regards/file.zip"
-                    }
-                ],
-                "attributes": {
-                    "dataType": "RAWDATA",
-                    "mimeType": "application/zip",
-                    "filename": "file.zip",
-                    "filesize": "8013",
-                    "algorithm": "MD5",
-                    "checksum": "4e188bd8a6288164c25c3728ce394927"
-                }
-            }
-        ]
-    }
-}
-``` -->
-
 ### Feature creation request
 
 Message has to be published on this exchange : `regards.broadcast.fr.cnes.regards.modules.feature.dto.event.in.FeatureCreationRequestEvent`
@@ -94,6 +33,11 @@ And following headers:
 #### Example
 
 {% include_relative amqp/creation-request.md %}
+
+### Feature creation request by file reference
+
+> TODO
+{: .tip .todo}
 
 ### Feature patch request
 
