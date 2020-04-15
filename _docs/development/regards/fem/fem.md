@@ -17,6 +17,6 @@ categories:
 
 ## Available APIs
 
-* [Feature management](/development/regards/fem/api/feature-management-api/)
-
+* [REST API](/development/regards/fem/api/feature-management-rest-api/)
+* [AMQP API](/development/regards/fem/api/feature-management-amqp-api/)
 
