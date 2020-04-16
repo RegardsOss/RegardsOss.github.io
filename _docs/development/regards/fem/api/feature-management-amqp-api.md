@@ -9,7 +9,7 @@ title: Feature Manager AMQP API
 
 ### Feature creation request
 
-Message has to be published on this exchange : `regards.broadcast.fr.cnes.regards.modules.feature.dto.event.in.FeatureCreationRequestEvent`
+Request has to be published on this exchange : `regards.broadcast.fr.cnes.regards.modules.feature.dto.event.in.FeatureCreationRequestEvent`
 
 With following properties:
 
@@ -36,12 +36,35 @@ And following headers:
 
 ### Feature creation request by file reference
 
-> TODO
-{: .tip .todo}
+Request has to be published on this exchange : `regards.broadcast.fr.cnes.regards.modules.feature.dto.event.in.FeatureCreationRequestEvent`
+
+With following properties:
+
+|Property|Type|
+|:--:|:---------:|
+|requestId| String of max 36 characters long|
+|requestDate| ISO 8601 date|
+|metadata|(look at [description above](#metadatappt))|
+|feature|(look at [description above](#payloadppt))|
+{:.table.table-striped}
+
+And following headers:
+
+|Header|Value|
+|:--:|:---------:|
+|regards.converter| GSON|
+|regards.tenant| The tenant|
+|regards.type|fr.cnes.regards.modules.feature.dto.event.in.FeatureCreationRequestEvent|
+{:.table.table-striped}
+
+#### Example
+
+{% include_relative amqp/creation-request.md %}
+
 
 ### Feature patch request
 
-Message has to be published on this exchange : `regards.broadcast.fr.cnes.regards.modules.feature.dto.event.in.FeatureUpdateRequestEvent`
+Request has to be published on this exchange : `regards.broadcast.fr.cnes.regards.modules.feature.dto.event.in.FeatureUpdateRequestEvent`
 
 With following properties:
 
@@ -71,7 +94,7 @@ With following headers:
 
 ### Feature deletion request
 
-Message has to be published on this exchange : `regards.broadcast.fr.cnes.regards.modules.feature.dto.event.in.FeatureDeletionRequestEvent`
+Request has to be published on this exchange : `regards.broadcast.fr.cnes.regards.modules.feature.dto.event.in.FeatureDeletionRequestEvent`
 
 |Property|Type|
 |:--:|:---------:|
