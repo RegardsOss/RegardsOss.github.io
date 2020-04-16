@@ -3,9 +3,6 @@ layout: classic-docs
 title: Notifier API
 ---
 
-> Draft - Work in progess!
-{: .tip .warning}
-
 {% include toc.md %}
 
 ## Overview
@@ -22,7 +19,7 @@ At the moment, 2 API are available :
 
 ![Notifier architectural concepts](/assets/schemas/notification_management/architectural_concepts_notifier2.png)
 
-This microservice receives feature from `Feature management`.
+This microservice receives feature from `Feature manager`.
 
 All messages are then processed as they arrive:
 
@@ -60,8 +57,6 @@ And following headers:
 |regards.type|fr.cnes.regards.modules.notifier.dto.in.NotificationActionEvent|
 {:.table.table-striped}
 
-To send a feature to the microservice, a message has to be published on this exchange : `regards.broadcast.fr.cnes.regards.modules.notifier.dto.in.NotificationActionEvent`
-
 ### Integration with `Feature Manager`
 
 Each time a feature is created, updated or deleted, this feature is propagated to `Notifier`.
@@ -77,17 +72,3 @@ Action is set according to reason of change : `CREATION`, `UPDATE` or `DELETION`
 }
 ```
 
-## How to manage recipients
-
-> TODO
-{: .tip .todo}
-
-## How to manage rules
-
-> TODO
-{: .tip .todo}
-
-## How to restart notifications that have failed
-
-> TODO
-{: .tip .todo}

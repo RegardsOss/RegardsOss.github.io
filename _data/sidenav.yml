@@ -156,13 +156,17 @@
     - name: Feature Manager
       link: development/regards/fem/fem/
       children:
+        - name: Feature Manager configuration API
+          link: development/regards/fem/api/feature-management-configuration/
         - name: Feature Manager REST API
           link: development/regards/fem/api/feature-management-rest-api/
         - name: Feature Manager AMQP API
           link: development/regards/fem/api/feature-management-amqp-api/
-    - name: Notification Management
+    - name: Notifier
       link: development/regards/notifier/notifier/
       children:
+        - name: Notification configuration API
+          link: development/regards/notifier/api/notifier-configuration-api/
         - name: Notification API
           link: development/regards/notifier/api/notifier-api/
     - name: Data provider

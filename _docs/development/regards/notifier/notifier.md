@@ -16,5 +16,7 @@ categories:
 
 ## Available APIs
 
-* [API](/development/regards/notifier/api/notifier-amqp-api/)
+* [Configuration API](/development/regards/notifier/api/notifier-configuration-api/)
+* [API](/development/regards/notifier/api/notifier-api/)
+* [Management API](/development/regards/notifier/api/notifier-management-api/)
 

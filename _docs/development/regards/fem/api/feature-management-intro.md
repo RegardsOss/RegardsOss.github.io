@@ -102,15 +102,7 @@ For the purposes of this microservice, GeoJSON structure is extended  with follo
 |Path|Type|Description|Optional|
 |:--:|:--:|:---------:|:------:|
 |id| `String` |Id from provider||
-|urn| `String` |Unique feature identifer based on provider identifier with versionning ||
-|model| `String` |Indicate which custom model will be used to validate properties||
-|entityType| `String` |COLLECTION, DATA, DATASET||
-|type| `String` |FEATURE||
-|geometry| `Object` |GeoJson coordinates|true|
-|properties| `Array` |Custom properties structured according to the specified model||
-|files| `Array` | List of physical files to store or reference | true |
-{:.table.table-striped}
-
+|urn| `String` |Unique feature identifer based on provider identifier with TEST:REQUEST:2342
 > Urn is only expected in update and deletion requests!
 {: .tip .important}
 

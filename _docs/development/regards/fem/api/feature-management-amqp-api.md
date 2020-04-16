@@ -36,7 +36,9 @@ And following headers:
 
 ### Feature creation request by file reference
 
-Request has to be published on this exchange : `regards.broadcast.fr.cnes.regards.modules.feature.dto.event.in.FeatureCreationRequestEvent`
+This API allows to generate feature by extracting metadata from the passed location.
+
+Request has to be published on this exchange : `regards.broadcast.fr.cnes.regards.modules.feature.dto.event.in.FeatureReferenceRequestEvent`
 
 With following properties:
 
@@ -45,8 +47,12 @@ With following properties:
 |requestId| String of max 36 characters long|
 |requestDate| ISO 8601 date|
 |metadata|(look at [description above](#metadatappt))|
-|feature|(look at [description above](#payloadppt))|
+|location| String referencing a file (URL format may be a good choice)|
+|factory|Plugin business identifier representing the feature factory to use| 
 {:.table.table-striped}
+
+> Factory must have been configured beforehand.
+{: .tip .info}
 
 And following headers:
 
@@ -54,12 +60,12 @@ And following headers:
 |:--:|:---------:|
 |regards.converter| GSON|
 |regards.tenant| The tenant|
-|regards.type|fr.cnes.regards.modules.feature.dto.event.in.FeatureCreationRequestEvent|
+|regards.type|fr.cnes.regards.modules.feature.dto.event.in.FeatureReferenceRequestEvent|
 {:.table.table-striped}
 
 #### Example
 
-{% include_relative amqp/creation-request.md %}
+{% include_relative amqp/reference-request.md %}
 
 
 ### Feature patch request
@@ -77,7 +83,7 @@ With following properties:
 {:.table.table-striped}
 
 > Only properties to be updated can be passed on ... they will be merged with existing ones.
-{: .tip .important}
+{: .tip .info}
 
 With following headers:
 
@@ -119,7 +125,7 @@ With following headers:
 
 ## AMQP monitoring API
 
-`Feature management` microservice publishes request messages to monitor request lifecycle.
+`Feature manager` microservice publishes request messages to monitor request lifecycle.
 
 Messages are published on this exchange : `regards.broadcast.fr.cnes.regards.modules.feature.dto.event.out.FeatureRequestEvent`
 
