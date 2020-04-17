@@ -78,7 +78,8 @@ With following properties:
 |:--:|:---------:|
 |requestId| String of max 36 characters long|
 |requestDate| ISO 8601 date|
-|metadata|(look at [description above](#metadatappt))|
+|metadata.priority|(look at [description above](#metadatappt))|
+|metadata.storages|(look at [description above](#metadatappt))|
 |feature|(look at [description above](#payloadppt))|
 {:.table.table-striped}
 
