@@ -20,3 +20,8 @@ categories:
 * [API](/development/regards/notifier/api/notifier-api/)
 * [Management API](/development/regards/notifier/api/notifier-management-api/)
 
+## Available Plugins
+
+* [Rule matchers](/development/regards/notifier/api/notifier-plugins/)
+* [Recipient senders](/development/regards/notifier/api/notifier-plugins/)
+

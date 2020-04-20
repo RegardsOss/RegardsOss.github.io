@@ -169,6 +169,8 @@
           link: development/regards/notifier/api/notifier-configuration-api/
         - name: Notification API
           link: development/regards/notifier/api/notifier-api/
+        - name: Plugins
+          link: development/regards/notifier/api/plugins/
     - name: Data provider
       link: development/regards/dataprovider/dataprovider/
       children:
