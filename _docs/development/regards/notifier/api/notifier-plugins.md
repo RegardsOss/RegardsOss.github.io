@@ -16,7 +16,8 @@ Rules are used to define if a notification should be sent to associated Recipien
  Configuration parameters are :
  - attributeToSeek : attribut name to search for the notification json content. 
  - attributeValueToSeek : attribut value to match.
- To configure this plugin use the here  under configuration bloc in import module [configuration](/development/regards/notifier/api/notifier-configuration-api/)
+
+ To configure this plugin use the here  under configuration block in import module [configuration](/development/regards/notifier/api/notifier-configuration-api/)
  ```json
  {
      "key": "fr.cnes.regards.framework.modules.plugins.domain.PluginConfiguration",
@@ -44,7 +45,8 @@ This  sender is used to send notification on a specific RabbitMQ couple exchange
 Configuration parameters are :
  - exchange : Name  of the  exchange to use
  - queueName : Name of the queue to use
- To configure this plugin use the here  under configuration bloc in import module [configuration](/development/regards/notifier/api/notifier-configuration-api/)
+
+ To configure this plugin use the here  under configuration block in import module [configuration](/development/regards/notifier/api/notifier-configuration-api/)
  ```json
  {
      "key": "fr.cnes.regards.framework.modules.plugins.domain.PluginConfiguration",
