@@ -102,7 +102,9 @@ For the purposes of this microservice, GeoJSON structure is extended  with follo
 |Path|Type|Description|Optional|
 |:--:|:--:|:---------:|:------:|
 |id| `String` |Id from provider||
-|urn| `String` |Unique feature identifer based on provider identifier with TEST:REQUEST:2342
+|urn| `String` |Unique feature identifer based on provider identifier with TEST:REQUEST:2342||
+{:.table.table-striped}
+
 > Urn is only expected in update and deletion requests!
 {: .tip .important}
 

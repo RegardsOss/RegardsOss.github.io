@@ -16,6 +16,7 @@ With following properties:
 |Property|Type|
 |:--:|:---------:|
 |requestId| String of max 36 characters long|
+|requestOwner| String of max 128 characters long|
 |requestDate| ISO 8601 date|
 |metadata|(look at [description above](#metadatappt))|
 |feature|(look at [description above](#payloadppt))|
@@ -45,6 +46,7 @@ With following properties:
 |Property|Type|
 |:--:|:---------:|
 |requestId| String of max 36 characters long|
+|requestOwner| String of max 128 characters long|
 |requestDate| ISO 8601 date|
 |metadata|(look at [description above](#metadatappt))|
 |location| String referencing a file (URL format may be a good choice)|
@@ -77,6 +79,7 @@ With following properties:
 |Property|Type|
 |:--:|:---------:|
 |requestId| String of max 36 characters long|
+|requestOwner| String of max 128 characters long|
 |requestDate| ISO 8601 date|
 |metadata.priority|(look at [description above](#metadatappt))|
 |metadata.storages|(look at [description above](#metadatappt))|
@@ -106,6 +109,7 @@ Request has to be published on this exchange : `regards.broadcast.fr.cnes.regard
 |Property|Type|
 |:--:|:---------:|
 |requestId| String of max 36 characters long|
+|requestOwner| String of max 128 characters long|
 |requestDate| ISO 8601 date|
 |priority|(look at [description above](#metadatappt))|
 |urn|Unique identifier of the feature|
@@ -133,6 +137,7 @@ Messages are published on this exchange : `regards.broadcast.fr.cnes.regards.mod
 Structure of the message is as follows :
 
 * The `requestId`,
+* The `requestOwner`,
 * The related feature `id`,
 * The related feature `urn`,
 * The state of the request (`GRANTED`,`DENIED`,`ERROR` or `SUCCESS`),
@@ -152,6 +157,7 @@ Structure of the message is as follows :
 ```json
 {
     "requestId": "{requestId}",
+    "requestId": "{requestOwner}",
     "id": "{featureId}",
     "state": "DENIED",
     "errors": ["error1", "error2"]
@@ -163,6 +169,7 @@ Structure of the message is as follows :
 ```json
 {
     "requestId": "{requestId}",
+    "requestId": "{requestOwner}",
     "id": "{featureId}",
     "state": "GRANTED"
 }
@@ -173,6 +180,7 @@ Structure of the message is as follows :
 ```json
 {
     "requestId": "{requestId}",
+    "requestId": "{requestOwner}",
     "id": "{featureId}",
     "urn": "{featureGeneratedUrn}",
     "state": "SUCCESS"
@@ -185,6 +193,7 @@ Structure of the message is as follows :
 ```json
 {
     "requestId": "{requestId}",
+    "requestId": "{requestOwner}",
     "id": "{featureId}",
     "urn": "{featureGeneratedUrn}",
     "state": "ERROR",
