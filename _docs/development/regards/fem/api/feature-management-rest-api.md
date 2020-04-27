@@ -29,6 +29,7 @@ Example of feature creation collection:
         ],
         "priority": "NORMAL"
     },
+    "requestOwner": "owner",
     "features": [{}, {}, {}],
     "type": "FeatureCollection"
 }
