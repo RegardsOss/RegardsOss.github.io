@@ -17,12 +17,12 @@ It can be used as a stand-alone module to display the results of a research on a
 This module allows:
   - Displaying results data
   - Displaying results datasets
-  - Displaying results documents
-  - Switching display mode between list, table and quickview
+  - Switching display mode between list, table, quicklook and map views
   - Sorting results
   - Filtering results on facets
   - Configuring displayed columns (table mode)
-  - Applying Services (UI and Businnes) on data and dataset data
+  - Applying Services (UI and Business) on data and dataset data
+  - Display a search form and filter results using it
   
 # Module structure
 ```

@@ -8,30 +8,37 @@ short-title: Criterion
 
 # Presentation
 
-A front-end criterion plugin is a javascript bundle used in [Search form modules](/frontend/modules/search-form/) to create form fields and panes. Each criterion plugin generates opensearch request parameters sent to the rs-catalog microservice in order to search resulting entities. Criterion plugins accept attributes to filter as configuration.
+A front-end criterion plugin is a javascript bundle used in [Search results modules](/frontend/modules/search-results/) to create form fields and panes. Each criterion plugin generates OpenSearch request parameters sent to the rs-catalog microservice in order to search resulting entities. Criterion plugins accept attributes to filter as configuration.
 
-**NOTE** : Opensearch requests are made with the [lucene format](https://lucene.apache.org/core/2_9_4/queryparsersyntax.html).
+![](/assets/images/frontend/plugins/search-form-small.png)
+*Example of search form, using many criterion plugins*
 
-# Design
+**Notes** :
+* Criterion plugin also respects main plugin consideration. Thus, make sure reading [plugins page](/frontend/plugins/plugins.md) first!
+* OpenSearch requests are made using the [Lucene format](https://lucene.apache.org/core/2_9_4/queryparsersyntax.html).
 
-All criteria plugins and their parent search form are sharing a common redux space. In that space, plugins can publish:
-* Their state, that will be restored automatically when user enters back the form
-* Some OpenSearch request parameters that will be used as constraint on research results. Among those parameters:
-  * **q** parameter (OpenSearch query) will be merged using all criteria q values
-  * Other parameters (like geometry) will retain only one value. Hence, publishing such parameter multiple times in a search form in strongly discouraged.
+# Main principles
 
-The criteria plugins accept, as configuration, some model attributes. That allows expressing a generic criterion constraint through an OpenSearch query built using a dynamic attribute name.
+Each criterion plugin:
+* shares its state with parent search-form. That state:
+  * can be initially undefined
+  * will be saved / restored automatically
+  * must be published together with new request parameters
+* displays one or many table rows and columns in the form 
+* builds requests parameters that can filter search results (assembling them is performed automatically by parent module).
 
-# Specific plugin-info.json fields
+# Specific configuration (plugin-info.json fields)
 
-The service plugin-info.json files defines all standard plugin fields so the `"type"` field must be equal to `"CRITERIA"`.
-The `"conf"` field is a JSON object holding the following children fields:
-* `attributes`: *{array}* An array of attributes that indicates the number and type of dataobjects attributes that should be provided to the criterion, when adding the criterion into a search form. Each array element defines the following fields:
+First of all, the plugin-info.json file field **"type"** should indicate **"CRITERIA"**, to ensure it is considered as a criterion, and not as a service.
+
+Then, the plugin indicate a list of attributes he intends to use for building request parameters (and restrict the attributes types) in **"conf"."attributes"** field. Please note that the field is mandatory, but can be left as an empty array:
+* `attributes`: *{array}* An array of attributes definitions, that indicates the number and type of attributes that should be provided to the criterion, when adding the criterion into a search form. Each array element defines the following fields:
   * `name`: *{string}* The name used in code to refer to that attribute. For instance, if an attribute is named `myAttribute`, it will be possible to access it, in the main criterion component, with the property `this.props.attributes.myAttribute`.
   * `description`: *{string}* Description displayed to the administrator when he configures that attribute in criterion.
   * `attributeType`: *{array}* Accepted types for that attribute. Possible attributes types, from JAVA class **fr.cnes.regards.modules.models.domain.attributes.AttributeType**, are [`"STRING"`, `"INTEGER"`, `"DOUBLE"`, `"DATE_ISO8601"`, `"URL"`, `"BOOLEAN"`, `"STRING_ARRAY"`, `"INTEGER_ARRAY"`, `"DOUBLE_ARRAY"`, `"DATE_ARRAY"`, `"INTEGER_INTERVAL"`, `"DOUBLE_INTERVAL"`, `"DATE_INTERVAL"`, `"LONG"`, `"LONG_INTERVAL"`, `"LONG_ARRAY"`]
 
-The following example illustrates a criterion that uses 3 attributes, first one being of date type, second one of string type and last one of any number type.
+The following example illustrates a criterion that uses 3 attributes, first one being of date attribute, second one string attribute and last one of any number attribute.
+
 *Criterion plugin-info.json example*
 
 ```json
@@ -71,18 +78,22 @@ The main criterion component - the one exported in main.js file - will receive t
   static propTypes = {
     /** Plugin instance identifier */
     pluginInstanceId: PropTypes.string.isRequired, // used in mapStateToProps and mapDispatchToProps
-    /** Configuration attributes, by attributes name, as described in previous plugin-info.json example */
+    /** Resolved attributes for configuration attributes, by attributes name, as described in previous plugin-info.json example */
     attributes: PropTypes.shape({
       attributeA: AttributeModelWithBounds.isRequired,
       attributeB: AttributeModelWithBounds.isRequired,
       attributeC: AttributeModelWithBounds.isRequired,
     }).isRequired,
-    /** The parent search form initial query */
-    initialQuery: PropTypes.string, // used in mapDispatchToProps
+    /** Criterion search context */
+    searchContext: CatalogShapes.SearchContext.isRequired,
+    // configured plugin label, where object key is locale and object value message
+    label: UIShapes.IntlMessage.isRequired,
+    // Callback to share state update with parent form like (state, requestParameters) => ()
+    publishState: PropTypes.func.isRequired,
   }
 ```
 
-Those properies, excepted pluginInstanceId, which is a common plugin property, are detailed in following subsections.
+Those properties, excepted pluginInstanceId, which is a common plugin property, are detailed in following subsections.
 
 ## Attributes property
 
@@ -91,24 +102,55 @@ Those properies, excepted pluginInstanceId, which is a common plugin property, a
 * `label`: *{string}* Attribute label
 * `description`: *{string}* Attribute description
 * `boundsInformation`: *{object}* Current context's bounds information for range attributes (date or numbers), compound of fields:
-  * `exists`: *{boolean}* True when the attribute is a range type attribute DATE_ISO8601, INTEGER, DOUBLE or LONG (such attribute is "bound-able")
+  * `exists`: *{boolean}* True when the attribute is a range type attribute DATE_ISO8601, INTEGER, DOUBLE or LONG
   * `loading`: *{boolean}* True when bounds are currently loading
   * `error`: *{boolean}* True when bounds loading finished in error
-  * `lowerBound`: *{number}* Resolved lower attribute value, in initial form context, when attribute has a range type, bounds were successfully loaded and attribute has values in context
-  * `upperBound`: *{number}* Resolved upper attribute value, in initial form context, when attribute has a range type, bounds were successfully loaded and attribute has values in context
+  * `lowerBound`: *{number}* Resolved lower attribute value, in current form context, when bounds exist, loading finished, there were no error while loading them and attribute has values in current search context
+  * `upperBound`: *{number}* Resolved upper attribute value (works as lowerBound field)
 * `type`: *{string}* Attribute type (as specified in plugin-info.json, from **fr.cnes.regards.modules.models.domain.attributes.AttributeType**)
 * `unit`: *{string}* Unit if any (only for number type attributes)
-* `precision`: *{number}* Precision if any (only for floatting number types attributes)
+* `precision`: *{number}* Precision if any (only for floating number types attributes)
 * `arraysize`: *{number}* Array size if any (only for array type attributes)
-* `optional`: *{boolean}* True when that attribute, in a given dataobject, can be ommited
+* `optional`: *{boolean}* True when that attribute, in a given data object, can be omitted
 * `defaultValue`: *{string}* Default value if any
 * `fragment`: *{object}* Attribute fragment, holding id, name and description fields
 * `name`: *{string}* Attribute name 
 * `id`: *{number}* Attribute database id
 
-## initialQuery property
+## searchContext property
 
-That attribute holds the initial form context OpenSearch query. For instance, when form is restricted to the dataset URN:DATASET:D1 and URN:DATASET:D2, the query would be equal to "tags:(URN:DATASET:D1 OR URN:DATASET:D2)". That query can be used to obtain a list of available values for given attributes in form context.
+That property holds the current search context. It can be used to perform a query and check available choices for user (like performed in standard criterion "enumerated"). It is an object like:
+```js
+{
+  engineType: '...',
+  searchParameters: {
+    // ... parameters...
+  },
+}
+```
+*Note: The searchContext does not include self built request parameters, to avoid blocking situations in form*
+
+## label
+
+Internationalized label provided, at configuration, by administrator. It holds locales as keys and corresponding message as value.
+
+It is an object like:
+```js
+{
+  en: 'my label',
+  fr: 'mon libellé',
+}
+```
+
+## publishState
+
+That function allows publishing state and new request parameters from criterion to parent search-form. It expects the following parameters:
+1. New criterion state, as a JS object.
+1. New request parameters as a JS object where keys are the parameter name and values are the corresponding values. It can be an empty / null / undefined object. Please note that values types are restricted to:
+  * boolean
+  * string
+  * number
+  * array, containing elements of previous types
 
 # Implementation
 
@@ -119,471 +161,247 @@ Criterion plugins, as parts of the search form, must respect the following requi
 * Their state can be restored from one session to another
 * Their state can be shared using current browser URL
 
-In order to provide those functionnalities, while keeping plugins code light, the URL and session restoration systems are implemented within the parent search form. That results in parent form reading and updating, on need, criterion plugins state.  
+In order to provide those functionalities, while keeping plugins code light, the URL and session restoration systems are implemented within the parent search form. That results in parent form reading and updating, on need, criterion plugins state.  
 The following design was retained to achieve state sharing between form and plugins:
-* The application initializes a common Redux store space for plugins.
-* Search form module uses that space to:
-  * Build the next OpenSearch request, using current criterion plugins state
-  * Serialize and restore plugins state into / from URL or localStorage
-* Criterion plugins use that space to retrieve or update their state and current request parameters
+* The application initialize the plugins state with
+  * found state in URL, if any
+  * found state in web browser storage, if any
+  * undefined otherwise (the plugin should then chose an initial state)
+* The criterion updates its state with interactions, then publishes new state and request parameters (after publishing, parent form will save the state into URL and web browser storage)
 
 ## Criterion state design
 
-The criterion state should hold each variable that will modify its OpenSearch output parameters.  
-To illustrate it, let's take the following example: we want to implement a criterion plugin that selects any data object where value **IS EQUAL TO** or **IS NOT EQUAL TO** the user entered value. In that example, let's call it `SimpleCriterion`, the user selects the operator to use and enters the value.  
-The criterion OpenSearch output parameters would be expressed as the following queries:
-* When IS EQUAL TO operator is selected, `{ q: ${attributeJsonPath}:"${userEnteredValue}" }`, like `{ q: 'label:"myLabel"' }` for instance.
-* When IS NOT EQUAL TO operator is selected, `{ q: ${attributeJsonPath}:!("${userEnteredValue}") }`, like `{ q: label:!("some label") }` for instance.
-In that example, the attribute JSON path comes from props.attributes, and state would look like:
+The criterion state should hold each variable that will modify its OpenSearch output parameters.
+
+Each time the state changes, it must be published alongside with new requestParameters, using props.
+
+As state is serialized, shorten field name is a good practice - especially due to limited URL size.
+
+## Handling errors
+
+Optionally, criterion state can hold the field **error**, at state root. When that field is true, parent search form will disable search button, hence preventing search in current state.
+
+![](/assets/images/frontend/plugins/criterion-error.png)
+*An example of criterion in error (note that search button is disabled, due to error)*
+
+# Example
+
+To illustrate it, let take the following example: 
+we want to implement a criterion plugin that selects any data object where value **IS EQUAL TO** or **IS NOT EQUAL TO** the user entered value. In that example, let's call it `SimpleCriterion`, the user selects the operator to use and enters the value. To - artificially - manage an error state too, let's say the criterion is in error when user enters a negative number.
+
+The criterion request parameters would be expressed asfollowing:
+* When IS EQUAL TO operator is selected: `{ q: "${attributeJsonPath}:${userEnteredValue}" }`, like `{ q: 'attr1: 18' }` for instance.
+* When IS NOT EQUAL TO operator is selected: `{ q: "${attributeJsonPath}:!${userEnteredValue}" }`, like `{ q:' attr1:!18' }` for instance.
+
+## Writing plugin-info.json
+
+First, the requested attribute should be added to the configuration (so the criterion can work for any attribute type).
+
+```json
+{
+  "name": "equal-or-different-criterion",
+  "description": "Criterion widget that return all equal or different values for a given numeric attribute",
+  "version": "1.0.0",
+  "author": "A super trainer!",
+  "company": "CNES (https://cnes.fr)",
+  "contributors": [
+    "CS-SI <regards@c-s.fr> (https://www.c-s.fr)"
+  ],
+  "email": "regards@c-s.fr",
+  "url": "http://www.cnes.fr",
+  "license": "GPLv3",
+  "type": "CRITERIA",
+  "conf": {
+    "attributes": [
+      {
+        "name": "exampleAttribute",
+        "description": "Example attribute",
+        "attributeType": ["INTEGER", "DOUBLE", "LONG"]
+      }
+    ]
+  }
+}
+```
+
+
+## Initializing main file
+
+Lets name the main component `ExampleCriterionContainer`.jsx' here. As we will not use the reducers for that example,
+the 'main.js' file should hold the following code:
 ```js
-state: {
-  operator: PropTypes.oneOf([SimpleCriterionContainer.EQUAL, SimpleCriterionContainer.NOT_EQUAL]).isRequired, // User selected operator
-  value: PropTypes.string, // User entered value
+initPlugin(ExampleCriterionContainer, pluginInfo, getReducer, messages, styles)
+```
+
+## Implementing main component
+
+### Handle state 
+
+First we should define what is the main component state. To build the query, the component needs to know:
+* the operator currently selected by user (equal or different)
+* The value entered by the user
+As we also handle here and error state (when user inputs a negative number), the state would look like:
+
+```js
+state={
+  operator: '...', // enumerated operator
+  value: X, // numeric value
+  error: true, // or false...
 }
 ```
 
-## Binding state from store
+Then, we need to identify when state and parameters will change. Here:
+* When user inputs a new number
+* When user selects the other operator
 
-To recover the plugin's state from the shared Redux space, a plugin has to bind it, within Redux mapStateToProps method, using the `pluginStateSelectors#getCriterionState` method. State recovering is demonstrated in code below.
+With those elements, we can write the following code. Note that we provide a default state when parent search form sends us 'undefined', to not deal with undefined state cases.
 
 ```jsx
-import { connect } from '@regardsoss/redux'
-import { pluginStateActions, pluginStateSelectors } from '@regardsoss/plugins-api'
-
-
-export class SimpleCriterionContainer extends React.Component {
-
-  // ...
-
-  static mapStateToProps(state, { pluginInstanceId }) {
-    return {
-      state: pluginStateSelectors.getCriterionState(state, pluginInstanceId),
-  }
-  
-  // ...
+const Operators = { 
+  EQUALS: 'E', // use small constant for state serialization
+  DIFFERENT: 'D',
 }
 
-// Exports redux store connected component
-export default connect(
-  SimpleCriterionContainer.mapStateToProps,
-  SimpleCriterionContainer.mapDispatchToProps)(SimpleCriterionContainer)
-```
-
-Most of the time, it is more convenient to define a default state to avoid testing if the state is null or undefined. However, mapStateToProps method being often called, **the developer must avoid creating new instances** in that method, otherwise the component will constantly render. The following code illustrates state recovering with a default state in the SimpleCriterion example.
-
-```jsx
-import { connect } from '@regardsoss/redux'
-import { pluginStateActions, pluginStateSelectors } from '@regardsoss/plugins-api'
-
-
-export class SimpleCriterionContainer extends React.Component {
-
-  /** EQUAL operator ID */
-  static EQUAL = 'equal'
-  /** NOT EQUAL operator ID */
-  static EQUAL = 'not.equal'
-
-  /** Component default state (avoids new instances in mapStateToProps) */
+export class ExampleCriterionContainer extends React.Component {
   static DEFAULT_STATE = {
-    operator: SimpleCriterionContainer.EQUAL,
-    value: '',
-  }
-
-  static mapStateToProps(state, { pluginInstanceId }) { // using pluginInstanceId from component properties
-    return {
-      state: pluginStateSelectors.getCriterionState(state, pluginInstanceId) || SimpleCriterionContainer.DEFAULT_STATE,
-    }
+    value: null,
+    operator: Operators.EQUALS,
+    error: false,
   }
   
   static propTypes = {
-    // ... criterion plugin common properties
-    // From redux mapStateToProps
-    state: { 
-      // User selected operator
-      operator: PropTypes.oneOf([SimpleCriterionContainer.EQUAL, SimpleCriterionContainer.NOT_EQUAL]).isRequired,
-      // User input text
-      value: PropTypes.string,
+    attributes: PropTypes.shape({ // from plugin-info
+      exampleAttribute: AttributeModelWithBounds.isRequired,
+    }).isRequired,
+    label: UIShapes.IntlMessage.isRequired,
+    state: PropTypes.shape({
+      value: PropTypes.number,
+      operator: PropTypes.oneOf(operators.EQUAL, operators.DIFFERENT).isRequired,
+      error: PropTypes.bool.isRequired,
+    }),
+    publishState: PropTypes.func.isRequired,
+  }
+  
+  static defaultProps = {
+    state: ExampleCriterionContainer.DEFAULT_STATE,
+  }
+  
+  onNewValueInput = (newNumber) =>{
+    // ...
+  }
+  
+  onOperatorSelected = (newOperator) => {
+    // ...
+  }
+}
+```
+
+### Update state and request
+
+Now that the state is designed, the criterion should update it when callbacks are invoked (onNewValueInput / onOperatorSelected). To perform that update, we will use a common method, avoiding the need copy/paste code...
+
+```jsx
+// ... ExampleCriterionContainer code above
+  
+  onNewValueInput = (newNumber) => this.onUpdateState(newNumber, this.props.state.operator)
+  
+  onOperatorSelected = (newOperator) => this.onUpdateState(this.props.state.value, newOperator)
+
+  onUpdateState = (value, operator) => {
+    const { attributes: { exampleAttribute }, publishState } = this.props
+    const nextState = { 
+      value, 
+      operator, 
+      error: !isNil(value) && value < 1,
     }
+    publishState(newState, { // cf. top section
+      q: `${exampleAttribute.jsonPath}:${operator === Operators.EQUALS ? '' : '!' }${value}`
+    })
+  }
+```
+
+That code ensures that:
+* When user inputs a number, criterion state (with error) and search request are updated
+* When user selects an operator, criterion state (with error) and search request are updated
+
+### Rendering?
+Most of the time, in REGARDS, state management is performed in container and graphics are delegated to a component with the same name. So let's do it right, and render using that component. We provide at same time all the elements the component may use for graphical state feedback.
+
+```jsx
+// ... ExampleCriterionContainer code above
+
+  render(){
+    const { state: {value, operator, error}, label } = this.props
+    return <ExampleCriterionComponent
+      label={label}
+      value={value}
+      operator={operator}
+      error={error}
+      onNewValueInput={this.onNewValueInput}
+      onOperatorSelected={this.onOperatorSelected}
+    >
+  }
+```
+## Graphical component implementation
+
+The graphical implementation is quite straightforward. To keep the code light we'll suppose here to have an OperatorSelector that renders and selects one of Operators values and a NumberInput that renders errors and current value. Although it is not exactly the same operators, similar examples can be found in most default plugins.
+Please note that the component renders itself in a table row, as search form is drawn using an HTML table. We will also use here the common applicative theme.
+
+```jsx
+export class ExampleCriterionComponent extends React.Component {
+  static propTypes = {
+    label: UIShapes.IntlMessage.isRequired,
+    value: PropTypes.number,
+    operator: PropTypes.string.isRequired,
+    error: PropTypes.bool.isRequired,
+    onNewValueInput: PropTypes.func.isRequired,
+    onOperatorSelected: PropTypes.func.isRequired,
+  }
+
+  static contextTypes = {
+    // enable muiTheme and moduleTheme access through this.context
+    ...themeContextType,
+    // enable intl access through this.context
+    ...i18nContextType,
   }
 
   render(){
-    const { state: { operator, value } } = this.props
-    return // ...rendering
-  }
-
-
-}
-```
-
-Note that, as Redux binding is called each time the store receives modifications, the component state is **granted to be updated as soon as it changes**.
-
-## Publishing on state change
-
-When criterion requires updating its state, on user input for instance, it has to dispatch an action built by `pluginStateActions#publishState`. The following code illustrate it.
-```jsx
-import { connect } from '@regardsoss/redux'
-import { pluginStateActions, pluginStateSelectors } from '@regardsoss/plugins-api'
-
-
-export class SimpleCriterionContainer extends React.Component {
-
-  // ...
-
-  static mapDispatchToProps(dispatch, { pluginInstanceId }) { // using pluginInstanceId from component properties
-    return {
-      publishState: (state, query) => dispatch(pluginStateActions.publishState(pluginInstanceId, state, query)),
-    }
-  }
-
-  static propTypes = {
-    // ...
-    publishState: PropTypes.func.isRequired,
-  }
-
-  // ...
-}
-
-// Exports redux store connected component
-export default connect(
-  SimpleCriterionContainer.mapStateToProps,
-  SimpleCriterionContainer.mapDispatchToProps)(SimpleCriterionContainer)
-```
-
-The pluginStateActions#publishState expects 3 parameters: 
-
-* pluginInstanceId: *{string}* Criterion pluginInstanceId, used to address the specific plugin redux space
-* state: *{object}* Criterion state to publish
-* requestParameters: *{string}* Criterion OpenSearch request parameters for published state
-
-In the code sample above, specifically in the mapStateToProps method, a closure on pluginInstanceId was built. That method only takes the state and the requestParameters as parameters. Back on the SimpleCriterion example, when a user selects the other operator or inputs some value, the following code would publish a new state and request parameters.
-
-```jsx
-export class SimpleCriterionContainer extends React.Component {
-  // mapStateToProps, mapDispatchToProps, propTypes...
-
-  /**
-   * Converts state into OpenSearch request parameters. We introduce it here to avoid copying that code in onTextInput 
-   * and onOperatorSelected methods. Query building Unit Tests will also be easier to write that way
-   * @param {{operator: string, value: string}} state criterion state for which request should be built
-   * @param {*} attribute configured attribute for that plugin
-   * @return {*} built request parameters. Here, only OpenSearch query (q)
-   */
-  static convertToRequestParameters(state, attribute){
-    let q = null
-    if (state.value){
-      q = state.operator === SimpleCriterionContainer.EQUAL ?
-        `${attribute.jsonPath}:"${state.value}"`: // Data with attribute value that is equal to user input
-        `${attribute.jsonPath}:!("${state.value}")` // Data with attribute value that is not equal to user input
-    }
-    // do not create a query while user did not enter anything 
-    // (or it would filter attribute value equal to or different of '')
-    return { q } 
-  }
-
-  /**
-   * User input some text
-   * @param {string} text input
-   */
-  onTextInput = (textValue) => {
-    // note that we suppose here that searchAttribute has been defined in plugin-info.json
-    const { publishState, state, attributes: { searchAttribute } } = this.props 
-    const nextState = {
-      operator: state.operator,
-      value: textValue,
-    }
-    publishState(nextState, SimpleCriterionContainer.convertToRequestParameters(nextState, searchAttribute))
-  }
-
-  /**
-   * User selected a new operator
-   * @param {string} selectedOperator newly selected operator
-   */
-  onOperatorSelected = (selectedOperator) => {
-    const { publishState, state, attributes: { searchAttribute } } = this.props 
-    const nextState = {
-      operator: selectedOperator,
-      value: state.value,
-    }
-    publishState(nextState, SimpleCriterionContainer.convertToRequestParameters(nextState, searchAttribute))
-  }
-
-}
-// ... connect
-```
-
-With onTextInput and onOperatorSelected callbacks connected, the plugin is now able updating its state and request parameters for parent form.
-
-## Complete SimpleCriterion example
-
-To summarize previously explained points, the code below illustrates both state binding and state publishing. Each time the component publishes a new state, it will receive new state values through properties and then re-render with this new state. To make that example a bit shorter, the render method will use the imaginary components *Selector*, *Choice* and *Textfield*. However, those components' real world counterparts are easy to find, in material-ui for instance.
-
-*simple-criterion/src/plugin-info.json*
-```json
-{
-  "name": "simple-criterion",
-  "description": "A simple criterion, that allow user searching data objects where attribute value is equal or different of a value.",
-  "version": "0.0.1-alpha",
-  "author": "Demo boy",
-  "company": "CS-SI",
-  "email": "demo.boy@c-s.fr",
-  "license": "GPL V3",
-  "type": "CRITERIA",
-  "conf": {
-    "attributes": [{
-      "name": "searchAttribute",
-      "description":"Search attribute",
-      "attributeType": ["STRING"]
-    }]
-  }
-}
-```
-
-
-*simple-criterion/src/containers/SimpleCriterionContainer.js*
-```jsx
-import { connect } from '@regardsoss/redux'
-import { pluginStateActions, pluginStateSelectors } from '@regardsoss/plugins-api'
-
-
-export class SimpleCriterionContainer extends React.Component {
-  /** EQUAL operator ID */
-  static EQUAL = 'equal'
-
-  /** NOT EQUAL operator ID */
-  static EQUAL = 'not.equal'
-
-  /** Component default state (avoids new instances in mapStateToProps) */
-  static DEFAULT_STATE = {
-    operator: SimpleCriterionContainer.EQUAL,
-    value: '',
-  }
-
-  static mapStateToProps(state, { pluginInstanceId }) { // using pluginInstanceId from component properties
-    return {
-      // bind state from shared redux space (it will be automatically updated on change)
-      state: pluginStateSelectors.getCriterionState(state, pluginInstanceId) || SimpleCriterionContainer.DEFAULT_STATE,
-    }
-  }
-
-  static mapDispatchToProps(dispatch, { pluginInstanceId }) { // using pluginInstanceId from component properties
-    return {
-      // dispatch state change (closure on pluginInstanceId)
-      publishState: (state, query) => dispatch(pluginStateActions.publishState(pluginInstanceId, state, query)),
-    }
-  }
-
-  static propTypes = {
-    /** Plugin instance identifier */
-    pluginInstanceId: PropTypes.string.isRequired, // used in mapStateToProps and mapDispatchToProps
-    /** Configuration attributes, by attributes name, as described in previous plugin-info.json example */
-    attributes: PropTypes.shape({
-      searchAttribute: AttributeModelWithBounds.isRequired,
-    }).isRequired,
-    /** Parent search form initial query */
-    initialQuery: PropTypes.string,
-    // From mapStateToProps
-    state: {
-      // User selected operator
-      operator: PropTypes.oneOf([SimpleCriterionContainer.EQUAL, SimpleCriterionContainer.NOT_EQUAL]).isRequired,
-      // User input text
-      value: PropTypes.string
-    },
-    // From mapDispatchToProps
-    publishState: PropTypes.func.isRequired
-  }
-
- /**
-   * Converts state into OpenSearch request parameters. We introduce it here to avoid copying that code in onTextInput 
-   * and onOperatorSelected methods. Query building Unit Tests will also be easier to write that way
-   * @param {{operator: string, value: string}} state criterion state for which request should be built
-   * @param {*} attribute configured attribute for that plugin
-   * @return {*} built request parameters. Here, only OpenSearch query (q)
-   */
-  static convertToRequestParameters(state, attribute){
-    let q = null
-    if (state.value){
-      q = state.operator === SimpleCriterionContainer.EQUAL ?
-        `${attribute.jsonPath}:"${state.value}"`: // Data with attribute value that is equal to user input
-        `${attribute.jsonPath}:!("${state.value}")` // Data with attribute value that is not equal to user input
-    }
-    // do not create a query while user did not enter anything 
-    // (or it would filter attribute value equal to or different of '')
-    return { q } 
-  }
-
-  /**
-   * User input some text
-   * @param {string} text input
-   */
-  onTextInput = (textValue) => {
-    // note that we suppose here that searchAttribute has been defined in plugin-info.json
-    const { publishState, state, attributes: { searchAttribute } } = this.props 
-    const nextState = {
-      operator: state.operator,
-      value: textValue,
-    }
-    publishState(nextState, SimpleCriterionContainer.convertToRequestParameters(nextState, searchAttribute))
-  }
-
-  /**
-   * User selected a new operator
-   * @param {string} selectedOperator newly selected operator
-   */
-  onOperatorSelected = (selectedOperator) => {
-    const { publishState, state, attributes: { searchAttribute } } = this.props 
-    const nextState = {
-      operator: selectedOperator,
-      value: state.value,
-    }
-    publishState(nextState, SimpleCriterionContainer.convertToRequestParameters(nextState, searchAttribute))
-  }
-
-  render() {
-    const { state, attributes: { searchAttribute } } = this.props
-    // Connect components with current state, configuration and callbacks
-    // Nota: In real world situation, we would probably like to add here
-    // internationalized message and styles.
-    // We strongly encourage, in REGARDS, to perform such rendering in a
-    // dedicated sub component
-    return (
-      <div>
-        { /* Render attribute label */ }
-        <span>{searchAttribute.label}</span>
-        { /* Render operator selector */ }
-        <Selector onSelected={this.onOperatorSelected} selectedValue={state.value}>
-          <Choice label="Equal to" value={SimpleCriterionContainer.EQUAL} />
-          <Choice label="Diffent of" value={SimpleCriterionContainer.NOT_EQUAL} />
-        </Selector>
-        { /* Render text field */ }
-        <Textfield text={state.value} onInput={this.onTextInput} />
-      </div>
+    const { 
+      label, value, operator, error,
+      onNewValueInput, onOperatorSelected
+    } = this.props
+    const { intl, muiTheme } = this.context
+     return (
+      <tr>
+        {/* 1. First column: label */}
+        <td style={muiTheme.module.searchResults.searchPane.criteria.firstCell}>
+          {label[intl.locale]}
+        </td>
+        {/* 2. Second column: comparison selector */}
+        <td style={muiTheme.module.searchResults.searchPane.criteria.nextCell}>
+          <OperatorSelector
+            operator={operator}
+            onChange={onOperatorSelected}
+          />
+        </td>
+        {/* 3. Third column: input box */}
+        <td style={muiTheme.module.searchResults.searchPane.criteria.nextCell}>
+          <NumberInput
+            // we use here an intl message. It should be added, as key,
+            // in plugins/criterion/example-criterion/src/i18n/messages.en.i18n.js (and fr)
+            hintText={intl.formatMessage({id: 'example.criterion.component.number.input.hint'})}
+            error={error}
+            value={value}
+            onChange={onNewValueInput}
+          />
+        </td>
+      </tr>
     )
   }
 }
-
-// Exports redux store connected component
-export default connect(
-  SimpleCriterionContainer.mapStateToProps,
-  SimpleCriterionContainer.mapDispatchToProps)(SimpleCriterionContainer)
-```
-And this is it, congratulations! That plugin is now fully functionnal. It is able to emit some of the current form OpenSearch request parameters, on the attribute it is configured to work with. Please note that **the query is not built when there isn't any value**, as it would result in retrieving no data in default state (ie initially).
-
-## Helpers for plugins text
-
-To improve labels consistency over all plugins, the following tools, described in subsections, are provided
-
-### getFieldHintText
-
-That method provides label according with the attribute as parameter, its role in the plugin and its bounds:
-* `intl`: *{object}* intl context (must be declared by the component)
-* `attribute`: *{object}* attribute as provided in attributes properties
-* `boundType`: *{string}* Role of that attribute in criterion
-  * `BOUND_TYPE.LOWER_BOUND` means the resulting values will be greater or equal to input value
-  * `BOUND_TYPE.UPPER_BOUND` means the resulting values will be lower or equal to input value.
-  * `BOUND_TYPE.ANY_BOUND` means the resulting values may be greater or lower than input value
-  * `BOUND_TYPE.NONE` means value bounds should be ignored (attribute type is not range-able)
-
-It provides, according with case, the following texts:
-* Bounds are not existing for current type or in error: "{Attribute type}"
-* Bounds are loading: "{Attribute type} {Loading message}"
-* BOUND_TYPE.LOWER_BOUND and there is a lower bound value : "> {lowerBoundValue}"
-* BOUND_TYPE.UPPER_BOUND and there is an upper bound value : "< {upperBoundValue}"
-* BOUND_TYPE.ANY_BOUND and there is at least one bound value : "{Values range}". Note that lower or upper bound might be replaced with infinity symbol if not found
-* Any other case: "{Attribute type}". Note that in those cases, there is no value for the corresponding attribute in current context (hasNoValue method returns true)
-
-*Use example*
-```js
-import { i18nContextType } from '@regardsoss/i18n'
-import { BOUND_TYPE, formatHintText } from '@regardsoss/plugins-api'
-
-class ExampleComponent extends React.Component {
-// ...
-  static contextTypes = {
-    ...i18nContextType,
-  }
-// ...
-  render(){
-    const { attributes: { attributeToFormat }} = this.props
-    return getFieldHintText(this.context.intl, attributeToFormat, BOUND_TYPE.LOWER_BOUND)
-  }
-}
 ```
 
-### getFieldTooltip
+# Helpers
 
-That method provides a common tooltip for plugin fields working on an attribute.
-Its provides, according with case, the following texts:
-* Bounds not existing for current type, are loading or in error: "{Attribute type}"
-* No upper nor lower bound value: "{Attribute type} {Message for undefined bounds information}"
-* Upper and / or lower bound value: "{Attribute type} {Values range}". Note that lower or upper bound might be replaced with infinity symbol if not found
+Numerous helpers can be found in `webapp/web_modules/utils/plugins-api`. They are covering common plugin fields like computing hint text and tooltips according with attribute bounds, resolving constraints range intersection, and so on....
 
-*Use example*
-```js
-import { i18nContextType } from '@regardsoss/i18n'
-import { BOUND_TYPE, formatHintText } from '@regardsoss/plugins-api'
-
-class ExampleComponent extends React.Component {
-// ...
-  static contextTypes = {
-    ...i18nContextType,
-  }
-// ...
-  render(){
-    const { attributes: { attributeToFormat }} = this.props
-    return formatTooltip(this.context.intl, attributeToFormat)
-  }
-}
-```
-
-## Attributes bounds and common labels
-
-Criteria receive as props types AttributeModelWithBounds map. Each of them has all the AttributeModel fields but also holds the field `boundsInformation`, that contains following fields:
-* `exists`: Should bounds exists for this attribute type. It worthes true for any number types (LONG, DOUBLE, INTEGER) and date type (DATE_ISO8601).
-* `loading`: Are bounds currently being loaded
-* `error`: Has bounds loading finished in error?
-* `lowerBound`: Lower attribute value in current search context, when bounds *exists*, are *not loading* and *not in error*.
-* `upperBound`: Upper attribute value in current search context, when bounds *exists*, are *not loading* and *not in error*.
-
-Lower and upper bound types depends on attribute type. Indeed, it is a number for number types and a string (ISO date format) for date type. Even when existing and loaded without error, **bound values are not neccessary provided** (as the attribute may have no value in current search context)
-
-PluginCriterionContainer provides the following methods to compute attribute and bounds related state and labels.
-
-### hasNoValue
-
-```js
-this.hasNoValue('myAttr')
-```
-That method returns true when there is no bound for a resolved, "boundable" (number or date) attribute, ie if it **exists for attribute type, is not loading, has no error and has no value for lowerBound and upperBound**. As bounds are resolved using an opensearch query, that specific case means there is no dataobject bearing a value for that attribute in current search context.
-When that method returns true, the plugin should disable corresponding attribute fields (as attribute is useless in context).
-
-### getFieldHintText
-
-```js
-this.getFieldHintText('myAttr', PluginCriterionContainer.BOUND_TYPE.LOWER_BOUND)
-```
-That method provides label according with the attribute, its role in plugin and its bounds:
-* `BOUND_TYPE.LOWER_BOUND` means the resulting values will be greater or equal to entered value for attribute
-* `BOUND_TYPE.UPPER_BOUND` means the resulting values will be lower or equal to value.
-* `BOUND_TYPE.ANY_BOUND` means the resulting values may be greater or lower than value
-* `BOUND_TYPE.NONE` means value bounds should be ignored
-
-It provides, according with case, the following texts:
-* Bounds are not existing for current type or in error: "{Attribute type}"
-* Bounds are loading: "{Attribute type} {Loading message}"
-* BOUND_TYPE.LOWER_BOUND and there is a lower bound value : "> {lowerBoundValue}"
-* BOUND_TYPE.UPPER_BOUND and there is an upper bound value : "< {upperBoundValue}"
-* BOUND_TYPE.ANY_BOUND and there is at least one bound value : "{Values range}". Note that lower or upper bound might be replaced with infinity symbol if not found
-* Any other case: "{Attribute type}". Note that in those cases, there is no value for the corresponding attribute in current context (hasNoValue method returns true)
-
-### getFieldTooltip
-
-```js
-this.getFieldTooltip('myAttr')
-```
-That method provides a common tooltip for plugin fields working on an attribute.
-Its provides, according with case, the following texts:
-* Bounds not existing for current type, are loading or in error: "{Attribute type}"
-* No upper nor lower bound value: "{Attribute type} {Message for undefined bounds information}"
-* Upper and / or lower bound value: "{Attribute type} {Values range}". Note that lower or upper bound might be replaced with infinity symbol if not found
-
-
+ 

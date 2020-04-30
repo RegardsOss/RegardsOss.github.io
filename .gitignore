@@ -7,3 +7,5 @@ _site/
 doc-static/
 .sass-cache/
 .jekyll-metadata
+
+.vscode/
