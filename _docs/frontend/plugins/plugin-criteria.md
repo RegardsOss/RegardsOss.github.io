@@ -10,12 +10,12 @@ short-title: Criterion
 
 A front-end criterion plugin is a javascript bundle used in [Search results modules](/frontend/modules/search-results/) to create form fields and panes. Each criterion plugin generates OpenSearch request parameters sent to the rs-catalog microservice in order to search resulting entities. Criterion plugins accept attributes to filter as configuration.
 
-![](/assets/images/frontend/plugins/search-form-small.png)
+![](/assets/images/frontend/plugins/search-form-small.png)  
 *Example of search form, using many criterion plugins*
 
 **Notes** :
-* Criterion plugin also respects main plugin consideration. Thus, make sure reading [plugins page](/frontend/plugins/plugins.md) first!
-* OpenSearch requests are made using the [Lucene format](https://lucene.apache.org/core/2_9_4/queryparsersyntax.html).
+* Criterion plugin also respects main plugin consideration. Thus, make sure reading [plugins page](/frontend/plugins/plugins) first!
+* OpenSearch requests are expressed using the [Lucene format](https://lucene.apache.org/core/2_9_4/queryparsersyntax.html).
 
 # Main principles
 
@@ -31,13 +31,13 @@ Each criterion plugin:
 
 First of all, the plugin-info.json file field **"type"** should indicate **"CRITERIA"**, to ensure it is considered as a criterion, and not as a service.
 
-Then, the plugin indicate a list of attributes he intends to use for building request parameters (and restrict the attributes types) in **"conf"."attributes"** field. Please note that the field is mandatory, but can be left as an empty array:
+Then, the plugin indicates a list of attributes he intends to use for building request parameters, and their type restrictions, in **"conf"."attributes"** field. Please note that the field is mandatory, but can be left empty:
 * `attributes`: *{array}* An array of attributes definitions, that indicates the number and type of attributes that should be provided to the criterion, when adding the criterion into a search form. Each array element defines the following fields:
   * `name`: *{string}* The name used in code to refer to that attribute. For instance, if an attribute is named `myAttribute`, it will be possible to access it, in the main criterion component, with the property `this.props.attributes.myAttribute`.
-  * `description`: *{string}* Description displayed to the administrator when he configures that attribute in criterion.
+  * `description`: *{string}* Description displayed to the administrator when he selects **actual attribute** for this abstract attribute, at plugin configuration time.
   * `attributeType`: *{array}* Accepted types for that attribute. Possible attributes types, from JAVA class **fr.cnes.regards.modules.models.domain.attributes.AttributeType**, are [`"STRING"`, `"INTEGER"`, `"DOUBLE"`, `"DATE_ISO8601"`, `"URL"`, `"BOOLEAN"`, `"STRING_ARRAY"`, `"INTEGER_ARRAY"`, `"DOUBLE_ARRAY"`, `"DATE_ARRAY"`, `"INTEGER_INTERVAL"`, `"DOUBLE_INTERVAL"`, `"DATE_INTERVAL"`, `"LONG"`, `"LONG_INTERVAL"`, `"LONG_ARRAY"`]
 
-The following example illustrates a criterion that uses 3 attributes, first one being of date attribute, second one string attribute and last one of any number attribute.
+The following example illustrates a criterion that uses 3 attributes, first one being a date attribute, second one a string attribute and last one a number attribute.
 
 *Criterion plugin-info.json example*
 
@@ -45,7 +45,7 @@ The following example illustrates a criterion that uses 3 attributes, first one 
 {
   "name": "my-plugin",
   "description": "It is my plugin",
-  "version" : 1.0,
+  "version" : "1.0.0",
   "author" : "Someone",
   "company" : "Some company",
   "email" : "someone@some-company.com",
@@ -77,7 +77,7 @@ The main criterion component - the one exported in main.js file - will receive t
 ```js
   static propTypes = {
     /** Plugin instance identifier */
-    pluginInstanceId: PropTypes.string.isRequired, // used in mapStateToProps and mapDispatchToProps
+    pluginInstanceId: PropTypes.string.isRequired,
     /** Resolved attributes for configuration attributes, by attributes name, as described in previous plugin-info.json example */
     attributes: PropTypes.shape({
       attributeA: AttributeModelWithBounds.isRequired,
@@ -93,12 +93,12 @@ The main criterion component - the one exported in main.js file - will receive t
   }
 ```
 
-Those properties, excepted pluginInstanceId, which is a common plugin property, are detailed in following subsections.
+Those properties, excepted pluginInstanceId which is a common plugin property, are detailed in following subsections.
 
-## Attributes property
+## attributes property
 
-**For each attribute specified in plugin-info.json**, the attributes object will hold, as attribute name key, an **AttributeModelWithBounds**. That object contains the following fields, by significance order for criterion development:
-* `jsonPath`: *{string}* Attribute path (fragments and properties), to be used within OpenSearch requests
+**For each attribute specified in plugin-info.json**, the attributes object will hold an **AttributeModelWithBounds** with [attribute.name] key. That object contains the following fields (the shape can be found in web_modules/utils/plugins/src/shapes/AttributeModelWithBounds.js):
+* `jsonPath`: *{string}* Attribute path, to be used within OpenSearch requests
 * `label`: *{string}* Attribute label
 * `description`: *{string}* Attribute description
 * `boundsInformation`: *{object}* Current context's bounds information for range attributes (date or numbers), compound of fields:
@@ -128,7 +128,7 @@ That property holds the current search context. It can be used to perform a quer
   },
 }
 ```
-*Note: The searchContext does not include self built request parameters, to avoid blocking situations in form*
+**Note:** The searchContext does not include the request parameters this criterion built, to avoid blocking situations in form.
 
 ## label
 
@@ -171,17 +171,15 @@ The following design was retained to achieve state sharing between form and plug
 
 ## Criterion state design
 
-The criterion state should hold each variable that will modify its OpenSearch output parameters.
+The criterion state should hold each variable that will modify its OpenSearch output parameters. Each time the state changes, it must be published alongside with new requestParameters, using publishState callback from properties.
 
-Each time the state changes, it must be published alongside with new requestParameters, using props.
-
-As state is serialized, shorten field name is a good practice - especially due to limited URL size.
+**Note:** As state is serialized, shorten field name is a good practice - especially due to limited URL size.
 
 ## Handling errors
 
 Optionally, criterion state can hold the field **error**, at state root. When that field is true, parent search form will disable search button, hence preventing search in current state.
 
-![](/assets/images/frontend/plugins/criterion-error.png)
+![](/assets/images/frontend/plugins/criterion-error.png)  
 *An example of criterion in error (note that search button is disabled, due to error)*
 
 # Example
@@ -189,18 +187,18 @@ Optionally, criterion state can hold the field **error**, at state root. When th
 To illustrate it, let take the following example: 
 we want to implement a criterion plugin that selects any data object where value **IS EQUAL TO** or **IS NOT EQUAL TO** the user entered value. In that example, let's call it `SimpleCriterion`, the user selects the operator to use and enters the value. To - artificially - manage an error state too, let's say the criterion is in error when user enters a negative number.
 
-The criterion request parameters would be expressed asfollowing:
+The criterion request parameters would be expressed as following:
 * When IS EQUAL TO operator is selected: `{ q: "${attributeJsonPath}:${userEnteredValue}" }`, like `{ q: 'attr1: 18' }` for instance.
 * When IS NOT EQUAL TO operator is selected: `{ q: "${attributeJsonPath}:!${userEnteredValue}" }`, like `{ q:' attr1:!18' }` for instance.
 
 ## Writing plugin-info.json
 
-First, the requested attribute should be added to the configuration (so the criterion can work for any attribute type).
+First, the requested attribute should be added to the configuration. Doing so lets the criterion work for configured attribute, instead of using an hard coded constant attribute path. However, as we need to test negative values, we will restrain administrator possible choices to number attributes only.
 
 ```json
 {
   "name": "equal-or-different-criterion",
-  "description": "Criterion widget that return all equal or different values for a given numeric attribute",
+  "description": "Criterion widget that returns all data what attribute is equal to / different of a given value",
   "version": "1.0.0",
   "author": "A super trainer!",
   "company": "CNES (https://cnes.fr)",
@@ -238,7 +236,8 @@ initPlugin(ExampleCriterionContainer, pluginInfo, getReducer, messages, styles)
 
 First we should define what is the main component state. To build the query, the component needs to know:
 * the operator currently selected by user (equal or different)
-* The value entered by the user
+* The value entered by the user  
+
 As we also handle here and error state (when user inputs a negative number), the state would look like:
 
 ```js
@@ -297,7 +296,7 @@ export class ExampleCriterionContainer extends React.Component {
 
 ### Update state and request
 
-Now that the state is designed, the criterion should update it when callbacks are invoked (onNewValueInput / onOperatorSelected). To perform that update, we will use a common method, avoiding the need copy/paste code...
+Now that the state is designed, the criterion should update it when callbacks are invoked (onNewValueInput / onOperatorSelected). To perform that update, we will use a common method, avoiding the need to copy/paste code...
 
 ```jsx
 // ... ExampleCriterionContainer code above
@@ -311,9 +310,11 @@ Now that the state is designed, the criterion should update it when callbacks ar
     const nextState = { 
       value, 
       operator, 
+      // we do not want to show an error here while user has not input any number!
       error: !isNil(value) && value < 1,
     }
-    publishState(newState, { // cf. top section
+    publishState(newState, { 
+      // cf. top section for request expression. Here we only need q parameter.
       q: `${exampleAttribute.jsonPath}:${operator === Operators.EQUALS ? '' : '!' }${value}`
     })
   }
@@ -372,7 +373,7 @@ export class ExampleCriterionComponent extends React.Component {
     const { intl, muiTheme } = this.context
      return (
       <tr>
-        {/* 1. First column: label */}
+        {/* 1. First column: label (locale is found in intl context) */}
         <td style={muiTheme.module.searchResults.searchPane.criteria.firstCell}>
           {label[intl.locale]}
         </td>
@@ -383,12 +384,13 @@ export class ExampleCriterionComponent extends React.Component {
             onChange={onOperatorSelected}
           />
         </td>
-        {/* 3. Third column: input box */}
+        {/* 3. Third column: input box.
+          * we use here an intl message. It should be added, as key, in 
+          * plugins/criterion/example-criterion/src/i18n/messages.en.i18n.js (and fr)
+          */}
         <td style={muiTheme.module.searchResults.searchPane.criteria.nextCell}>
           <NumberInput
-            // we use here an intl message. It should be added, as key,
-            // in plugins/criterion/example-criterion/src/i18n/messages.en.i18n.js (and fr)
-            hintText={intl.formatMessage({id: 'example.criterion.component.number.input.hint'})}
+            hintText={intl.formatMessage({id: 'example.criterion.input.hint'})}
             error={error}
             value={value}
             onChange={onNewValueInput}
@@ -404,4 +406,6 @@ export class ExampleCriterionComponent extends React.Component {
 
 Numerous helpers can be found in `webapp/web_modules/utils/plugins-api`. They are covering common plugin fields like computing hint text and tooltips according with attribute bounds, resolving constraints range intersection, and so on....
 
- 
+# Going further
+
+There are several criteria provided in *webapp/plugin/criterion* folder, of *rs-frontend* repository. `full-text` criterion illustrates a very simple criterion without attribute while `enumerated` shows a more complicated use case, fetching server data and handling error state. Those criteria should be a good starting point from here.
