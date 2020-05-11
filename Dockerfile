@@ -1,16 +1,8 @@
-FROM ruby:2.5.3
+FROM jekyll/jekyll:3.8.4
 
-RUN apt-get update
-RUN curl -sL https://deb.nodesource.com/setup_8.x | bash -
-RUN apt-get install -y \
-    nodejs \
-    python-pygments
-RUN apt-get clean
-RUN rm -rf /var/lib/apt/lists/
+WORKDIR /tmp
+ADD Gemfile Gemfile
+ADD Gemfile.lock Gemfile.lock
+RUN bundle install
 
-VOLUME /src
-EXPOSE 4000
-
-ADD . /src
-
-WORKDIR /src
+WORKDIR /srv/jekyll

@@ -20,17 +20,15 @@ pipeline {
     stages {
         stage('Build jekyll image') {
             steps {
-	            sh 'docker build --build-arg https_proxy=$HTTP_PROXY --build-arg http_proxy=$HTTP_PROXY \
-	                  --build-arg HTTP_PROXY=$HTTP_PROXY --build-arg HTTPS_PROXY=$HTTP_PROXY --build-arg no_proxy=$no_proxy \
-	                  -t 172.26.46.158/rs_doc_generator .'
+	            sh 'docker-compose build --pull regards-doc-generator'
             }
         }
         stage('Generate the doc') {
             steps {
                 sh 'docker run --rm -i \
-                	-v ${WORKSPACE}/nginx/doc-static:/src/_site \
-                    -e https_proxy -e http_proxy -e HTTPS_PROXY -e HTTP_PROXY -e no_proxy \
-                	172.26.46.158/rs_doc_generator bash -c "bundle && jekyll build"'
+                	-v ${WORKSPACE}/nginx/doc-static:/src/ \
+                	-v ${WORKSPACE}/:/srv/jekyll \
+                	172.26.46.158/regards-doc-generator bash -c "jekyll build -d /src/"'
             }
             post {
                 always {

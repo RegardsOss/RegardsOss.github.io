@@ -4,6 +4,6 @@
 .idea/
 _site/
 
-doc-static/
+nginx/doc-static/*
 .sass-cache/
 .jekyll-metadata
