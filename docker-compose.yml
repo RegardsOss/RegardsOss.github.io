@@ -12,3 +12,6 @@ services:
       - 35729:35729
     volumes:
       - .:/srv/jekyll
+    environment:
+      - JEKYLL_UID
+      - JEKYLL_GID
