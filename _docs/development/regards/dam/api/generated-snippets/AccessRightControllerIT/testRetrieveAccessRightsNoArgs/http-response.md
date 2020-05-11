@@ -36,17 +36,15 @@
         "qualityLevel" : "ACCEPTED"
       },
       "accessLevel" : "FULL_ACCESS",
-      "dataAccessRight" : {
-        "dataAccessLevel" : "NO_ACCESS"
-      },
+      "dataAccessLevel" : "NO_ACCESS",
       "dataset" : {
         "type" : "DATASET",
         "metadata" : {
           "dataObjectsGroups" : { }
         },
         "id" : 3,
-        "ipId" : "URN:AIP:DATASET:PROJECT:8511f6db-77bf-4d0c-b8e0-695d2677bb84:V1",
-        "creationDate" : "2019-07-19T17:13:39.946Z",
+        "ipId" : "URN:AIP:DATASET:PROJECT:37c659ef-22f4-4047-84c0-bdef51660c8a:V1",
+        "creationDate" : "2020-05-11T11:42:11.63Z",
         "model" : {
           "id" : 2,
           "name" : "model1",
@@ -63,13 +61,13 @@
           "model" : "model1",
           "files" : { },
           "tags" : [ ],
-          "id" : "URN:AIP:DATASET:PROJECT:8511f6db-77bf-4d0c-b8e0-695d2677bb84:V1",
+          "id" : "URN:AIP:DATASET:PROJECT:37c659ef-22f4-4047-84c0-bdef51660c8a:V1",
           "properties" : { },
           "type" : "Feature"
         }
       },
       "accessGroup" : {
-        "id" : 55,
+        "id" : 4,
         "name" : "AG1",
         "users" : [ {
           "email" : "test@email.com"
@@ -94,8 +92,8 @@
           "dataObjectsGroups" : { }
         },
         "id" : 4,
-        "ipId" : "URN:AIP:DATASET:PROJECT:1cf9b598-e445-40b5-90ee-df9efd5c1658:V1",
-        "creationDate" : "2019-07-19T17:13:39.946Z",
+        "ipId" : "URN:AIP:DATASET:PROJECT:6e8c302d-fc1a-42bc-948d-fa7c8bd77221:V1",
+        "creationDate" : "2020-05-11T11:42:11.63Z",
         "model" : {
           "id" : 2,
           "name" : "model1",
@@ -112,13 +110,13 @@
           "model" : "model1",
           "files" : { },
           "tags" : [ ],
-          "id" : "URN:AIP:DATASET:PROJECT:1cf9b598-e445-40b5-90ee-df9efd5c1658:V1",
+          "id" : "URN:AIP:DATASET:PROJECT:6e8c302d-fc1a-42bc-948d-fa7c8bd77221:V1",
           "properties" : { },
           "type" : "Feature"
         }
       },
       "accessGroup" : {
-        "id" : 56,
+        "id" : 5,
         "name" : "AG2",
         "users" : [ ],
         "isPublic" : false,

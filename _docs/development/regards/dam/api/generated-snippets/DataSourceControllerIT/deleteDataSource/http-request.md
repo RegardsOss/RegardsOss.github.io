@@ -2,11 +2,11 @@
 
         ***URL**
 
-        `/datasources/53`
+        `/datasources/9cb467ba-bca1-41fb-b86f-00c256ccbf4b`
 
         ***URL template**
 
-        `/datasources/{pluginConfId}`
+        `/datasources/{businessId}`
 
         ***Method**
 

@@ -1,5 +1,5 @@
     ***Query params**
 
         |Parameter|Type|Description|Constraints| |:-------:|:--:|:---------:|:---------:|
-        | `type` |String|Model type for which we want the associations|Available values: COLLECTION, DOCUMENT, DATA, DATASET|
+        | `type` |String|Model type for which we want the associations|Available values: COLLECTION, DATA, DATASET|
     {:.table.table-striped}

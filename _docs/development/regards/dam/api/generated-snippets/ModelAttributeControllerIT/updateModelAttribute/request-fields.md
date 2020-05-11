@@ -39,7 +39,7 @@
         |model.name| `String` |model name|Must match the regular expression `[a-zA-Z_][0-9a-zA-Z_]*`, Must not be null, Size must be between 1 and 32 inclusive|
         |model.description| `String` |model description||
         |model.version| `String` |model version||
-        |model.type| `String` |model type|Must not be null. Available values: COLLECTION, DOCUMENT, DATA, DATASET|
+        |model.type| `String` |model type|Must not be null. Available values: COLLECTION, DATA, DATASET|
         |computationConf| `Object` |Computation plugin configuration|Should respect PluginConfiguration structure|
         |pos| `Number` |Position (allows to sort attribute in model)|Should be a whole number. Defaults to 0|
     {:.table.table-striped}

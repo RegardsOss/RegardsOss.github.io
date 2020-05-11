@@ -24,15 +24,15 @@
   "content" : {
     "type" : "COLLECTION",
     "id" : 12,
-    "ipId" : "URN:AIP:COLLECTION:PROJECT:0539eb2e-82f6-4ed7-bd05-8d995feb9f81:V1",
-    "creationDate" : "2019-07-19T17:14:39.14Z",
+    "ipId" : "URN:AIP:COLLECTION:PROJECT:4039f47a-ffa6-4a5b-9610-05c3daf00744:V1",
+    "creationDate" : "2020-05-11T11:36:33.285Z",
     "model" : {
       "id" : 6,
       "name" : "modelName1",
       "description" : "model desc",
       "type" : "COLLECTION"
     },
-    "tags" : [ "URN:AIP:COLLECTION:PROJECT:01888518-7605-46cb-bf61-2190fbf2d351:V1" ],
+    "tags" : [ "URN:AIP:COLLECTION:PROJECT:31d4900f-18ec-462a-85b8-c8dc7ab62999:V1" ],
     "groups" : [ ],
     "feature" : {
       "providerId" : "ProviderId1",
@@ -40,8 +40,8 @@
       "label" : "label",
       "model" : "modelName1",
       "files" : { },
-      "tags" : [ "URN:AIP:COLLECTION:PROJECT:01888518-7605-46cb-bf61-2190fbf2d351:V1" ],
-      "id" : "URN:AIP:COLLECTION:PROJECT:0539eb2e-82f6-4ed7-bd05-8d995feb9f81:V1",
+      "tags" : [ "URN:AIP:COLLECTION:PROJECT:31d4900f-18ec-462a-85b8-c8dc7ab62999:V1" ],
+      "id" : "URN:AIP:COLLECTION:PROJECT:4039f47a-ffa6-4a5b-9610-05c3daf00744:V1",
       "properties" : { },
       "type" : "Feature"
     }

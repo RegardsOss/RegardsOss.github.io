@@ -31,15 +31,15 @@
     "content" : {
       "type" : "COLLECTION",
       "id" : 3,
-      "ipId" : "URN:AIP:COLLECTION:PROJECT:399af39a-4780-4589-bb35-1ee9d53d9f78:V1",
-      "creationDate" : "2019-07-19T17:14:38.807Z",
+      "ipId" : "URN:AIP:COLLECTION:PROJECT:f4a73a32-7355-412c-bcc4-d528e4519533:V1",
+      "creationDate" : "2020-05-11T11:36:27.181Z",
       "model" : {
         "id" : 2,
         "name" : "modelName1",
         "description" : "model desc",
         "type" : "COLLECTION"
       },
-      "tags" : [ "URN:AIP:COLLECTION:PROJECT:ed22e358-d537-4161-89e3-0c2a064ad650:V1" ],
+      "tags" : [ "URN:AIP:COLLECTION:PROJECT:f47b697a-50fb-437a-bc0d-a438220cbbcf:V1" ],
       "groups" : [ ],
       "feature" : {
         "providerId" : "ProviderId1",
@@ -47,8 +47,8 @@
         "label" : "label",
         "model" : "modelName1",
         "files" : { },
-        "tags" : [ "URN:AIP:COLLECTION:PROJECT:ed22e358-d537-4161-89e3-0c2a064ad650:V1" ],
-        "id" : "URN:AIP:COLLECTION:PROJECT:399af39a-4780-4589-bb35-1ee9d53d9f78:V1",
+        "tags" : [ "URN:AIP:COLLECTION:PROJECT:f47b697a-50fb-437a-bc0d-a438220cbbcf:V1" ],
+        "id" : "URN:AIP:COLLECTION:PROJECT:f4a73a32-7355-412c-bcc4-d528e4519533:V1",
         "properties" : { },
         "type" : "Feature"
       }
@@ -64,8 +64,8 @@
     "content" : {
       "type" : "COLLECTION",
       "id" : 4,
-      "ipId" : "URN:AIP:COLLECTION:PROJECT:05d9279f-e3ff-40cb-8484-b5c7b2c67be6:V1",
-      "creationDate" : "2019-07-19T17:14:38.807Z",
+      "ipId" : "URN:AIP:COLLECTION:PROJECT:c5792814-ed07-4adb-921f-215981674e2f:V1",
+      "creationDate" : "2020-05-11T11:36:27.181Z",
       "model" : {
         "id" : 2,
         "name" : "modelName1",
@@ -81,7 +81,7 @@
         "model" : "modelName1",
         "files" : { },
         "tags" : [ ],
-        "id" : "URN:AIP:COLLECTION:PROJECT:05d9279f-e3ff-40cb-8484-b5c7b2c67be6:V1",
+        "id" : "URN:AIP:COLLECTION:PROJECT:c5792814-ed07-4adb-921f-215981674e2f:V1",
         "properties" : { },
         "type" : "Feature"
       }

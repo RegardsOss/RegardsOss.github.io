@@ -2,7 +2,7 @@
 
         ***URL**
 
-        `/entities/URN:AIP:COLLECTION:PROJECT:9d8434d4-3b8f-472a-8388-d03ffcecb29f:V1/files/DESCRIPTION`
+        `/entities/URN:AIP:COLLECTION:PROJECT:dafd0691-ade7-4ebf-a922-b35807d33fd3:V1/files/DESCRIPTION`
 
         ***URL template**
 

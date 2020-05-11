@@ -24,16 +24,16 @@
   "content" : {
     "type" : "COLLECTION",
     "id" : 10,
-    "ipId" : "URN:AIP:COLLECTION:PROJECT:e6487905-90e3-4245-bd8f-54bde6fd58c1:V1",
-    "creationDate" : "2019-07-19T17:14:39.078Z",
-    "lastUpdate" : "2019-07-19T17:14:39.108Z",
+    "ipId" : "URN:AIP:COLLECTION:PROJECT:3c114c21-149d-4f1e-96d2-0f1f939a2bdf:V1",
+    "creationDate" : "2020-05-11T11:36:31.844Z",
+    "lastUpdate" : "2020-05-11T11:36:32.383Z",
     "model" : {
       "id" : 5,
       "name" : "modelName1",
       "description" : "model desc",
       "type" : "COLLECTION"
     },
-    "tags" : [ "URN:AIP:COLLECTION:PROJECT:0bf9da68-4e33-45b3-9704-e3e0188dc54c:V1" ],
+    "tags" : [ "URN:AIP:COLLECTION:PROJECT:5590d3a2-1251-46fa-ae19-daf31f45bb37:V1" ],
     "groups" : [ ],
     "feature" : {
       "providerId" : "ProviderId1new",
@@ -41,8 +41,8 @@
       "label" : "collection1clone",
       "model" : "modelName1",
       "files" : { },
-      "tags" : [ "URN:AIP:COLLECTION:PROJECT:0bf9da68-4e33-45b3-9704-e3e0188dc54c:V1" ],
-      "id" : "URN:AIP:COLLECTION:PROJECT:e6487905-90e3-4245-bd8f-54bde6fd58c1:V1",
+      "tags" : [ "URN:AIP:COLLECTION:PROJECT:5590d3a2-1251-46fa-ae19-daf31f45bb37:V1" ],
+      "id" : "URN:AIP:COLLECTION:PROJECT:3c114c21-149d-4f1e-96d2-0f1f939a2bdf:V1",
       "properties" : { },
       "type" : "Feature"
     }

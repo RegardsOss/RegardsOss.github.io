@@ -25,15 +25,14 @@
     "associatedDatasets" : 0,
     "id" : 60,
     "pluginId" : "MockDatasourcePlugin",
-    "label" : "the label of the data source with from clause",
+    "label" : "76cffa14-8dd7-4b5e-9644-3eccfb56bf89",
+    "businessId" : "6f2fe43b-e7da-4a39-a20c-fa60b3925523",
     "version" : "alpha",
     "priorityOrder" : 0,
     "active" : true,
-    "pluginClassName" : "fr.cnes.regards.modules.dam.rest.datasources.MockDatasourcePlugin",
-    "interfaceNames" : [ "fr.cnes.regards.modules.dam.domain.datasources.plugins.IDBDataSourcePlugin", "fr.cnes.regards.modules.dam.domain.datasources.plugins.IDataSourcePlugin" ],
     "parameters" : [ {
-      "id" : 37,
       "name" : "mapping",
+      "type" : "COLLECTION",
       "value" : [ {
         "name" : "providerId",
         "type" : "LONG",
@@ -93,86 +92,33 @@
         "nameDS" : "update",
         "attributeType" : "DYNAMIC"
       } ],
-      "dynamic" : false,
-      "dynamicsValues" : [ ],
-      "onlyDynamic" : false
+      "dynamic" : false
     }, {
-      "id" : 38,
       "name" : "fromClause",
+      "type" : "STRING",
       "value" : "from T_TEST_PLUGIN_DATA_SOURCE",
-      "dynamic" : false,
-      "dynamicsValues" : [ ],
-      "onlyDynamic" : false
+      "dynamic" : false
     }, {
-      "id" : 39,
       "name" : "modelName",
+      "type" : "STRING",
       "value" : "VALIDATION_MODEL_2",
-      "dynamic" : false,
-      "dynamicsValues" : [ ],
-      "onlyDynamic" : false
+      "dynamic" : false
     }, {
-      "id" : 40,
       "name" : "connection",
-      "pluginConfiguration" : {
-        "id" : 61,
-        "pluginId" : "MockConnectionPlugin",
-        "label" : "64fab5c6-3daf-4efa-b803-e07f9e5fb23f",
-        "version" : "alpha",
-        "priorityOrder" : 0,
-        "active" : true,
-        "pluginClassName" : "fr.cnes.regards.modules.dam.rest.datasources.MockConnectionPlugin",
-        "interfaceNames" : [ "fr.cnes.regards.modules.dam.domain.datasources.plugins.IDBConnectionPlugin", "fr.cnes.regards.modules.dam.domain.datasources.plugins.IConnectionPlugin" ],
-        "parameters" : [ {
-          "id" : 41,
-          "name" : "dbPort",
-          "value" : "5432",
-          "dynamic" : false,
-          "dynamicsValues" : [ ],
-          "onlyDynamic" : false
-        }, {
-          "id" : 42,
-          "name" : "password",
-          "value" : "azertyuiop123456789",
-          "dynamic" : false,
-          "dynamicsValues" : [ ],
-          "onlyDynamic" : false
-        }, {
-          "id" : 43,
-          "name" : "dbName",
-          "value" : "rs_testdb_tux",
-          "dynamic" : false,
-          "dynamicsValues" : [ ],
-          "onlyDynamic" : false
-        }, {
-          "id" : 44,
-          "name" : "dbHost",
-          "value" : "rs-postgres",
-          "dynamic" : false,
-          "dynamicsValues" : [ ],
-          "onlyDynamic" : false
-        }, {
-          "id" : 45,
-          "name" : "user",
-          "value" : "azertyuiop123456789",
-          "dynamic" : false,
-          "dynamicsValues" : [ ],
-          "onlyDynamic" : false
-        } ]
-      },
-      "dynamic" : false,
-      "dynamicsValues" : [ ],
-      "onlyDynamic" : false
+      "type" : "PLUGIN",
+      "value" : "51e1b6e9-07a9-4965-9eca-8b35db561f8d",
+      "dynamic" : false
     } ]
   },
   "links" : [ {
     "rel" : "self",
-    "href" : "http://localhost:8080/datasources/60"
+    "href" : "http://localhost:8080/datasources/6f2fe43b-e7da-4a39-a20c-fa60b3925523"
   }, {
     "rel" : "delete",
-    "href" : "http://localhost:8080/datasources/60"
+    "href" : "http://localhost:8080/datasources/6f2fe43b-e7da-4a39-a20c-fa60b3925523"
   }, {
     "rel" : "update",
-    "href" : "http://localhost:8080/datasources/60"
+    "href" : "http://localhost:8080/datasources/6f2fe43b-e7da-4a39-a20c-fa60b3925523"
   }, {
     "rel" : "list",
     "href" : "http://localhost:8080/datasources"

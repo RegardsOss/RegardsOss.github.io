@@ -2,7 +2,7 @@
 
         ***URL**
 
-        `/accessrights/isAccessible?dataset=URN%3AAIP%3ADATASET%3APROJECT%3A26e05bf1-fced-4141-ae2d-bd6e35f30dd9%3AV1&user=not.existingtest%40email.com`
+        `/accessrights/isAccessible?dataset=URN%3AAIP%3ADATASET%3APROJECT%3Af94d5890-b895-4e9b-892f-b2576c5b11ec%3AV1&user=not.existingtest%40email.com`
 
         ***URL template**
 

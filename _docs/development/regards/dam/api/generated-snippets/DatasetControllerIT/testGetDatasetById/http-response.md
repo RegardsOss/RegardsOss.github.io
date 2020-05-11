@@ -27,15 +27,15 @@
       "dataObjectsGroups" : { }
     },
     "id" : 17,
-    "ipId" : "URN:AIP:DATASET:PROJECT:c664cc23-8626-4c58-9d6d-c3235856276c:V1",
-    "creationDate" : "2019-07-19T17:14:54.125Z",
+    "ipId" : "URN:AIP:DATASET:PROJECT:8c130e3a-fc80-43f6-bc6d-52b30d8798ec:V1",
+    "creationDate" : "2020-05-11T11:37:38.438Z",
     "model" : {
       "id" : 14,
       "name" : "modelName1",
       "description" : "model desc",
       "type" : "DATASET"
     },
-    "tags" : [ "URN:AIP:DATASET:PROJECT:2c8e63f3-c340-48d6-aedc-6a3687b0d1ac:V1" ],
+    "tags" : [ "URN:AIP:DATASET:PROJECT:5b09ee5c-a1ea-4112-89fd-0efef4cd3435:V1" ],
     "groups" : [ ],
     "feature" : {
       "licence" : "licence",
@@ -44,8 +44,8 @@
       "label" : "label",
       "model" : "modelName1",
       "files" : { },
-      "tags" : [ "URN:AIP:DATASET:PROJECT:2c8e63f3-c340-48d6-aedc-6a3687b0d1ac:V1" ],
-      "id" : "URN:AIP:DATASET:PROJECT:c664cc23-8626-4c58-9d6d-c3235856276c:V1",
+      "tags" : [ "URN:AIP:DATASET:PROJECT:5b09ee5c-a1ea-4112-89fd-0efef4cd3435:V1" ],
+      "id" : "URN:AIP:DATASET:PROJECT:8c130e3a-fc80-43f6-bc6d-52b30d8798ec:V1",
       "properties" : { },
       "type" : "Feature"
     }

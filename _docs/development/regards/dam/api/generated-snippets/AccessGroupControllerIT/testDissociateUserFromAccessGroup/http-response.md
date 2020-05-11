@@ -23,7 +23,7 @@
     
 {
   "content" : {
-    "id" : 6,
+    "id" : 57,
     "name" : "AG1",
     "users" : [ ],
     "isPublic" : false,

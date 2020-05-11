@@ -36,17 +36,15 @@
         "qualityLevel" : "ACCEPTED"
       },
       "accessLevel" : "FULL_ACCESS",
-      "dataAccessRight" : {
-        "dataAccessLevel" : "NO_ACCESS"
-      },
+      "dataAccessLevel" : "NO_ACCESS",
       "dataset" : {
         "type" : "DATASET",
         "metadata" : {
           "dataObjectsGroups" : { }
         },
         "id" : 11,
-        "ipId" : "URN:AIP:DATASET:PROJECT:aaa42286-e558-4c2e-b953-d4aca63e95e7:V1",
-        "creationDate" : "2019-07-19T17:13:40.393Z",
+        "ipId" : "URN:AIP:DATASET:PROJECT:4ed8e419-0fa0-479b-b50e-23163212eed9:V1",
+        "creationDate" : "2020-05-11T11:42:21.499Z",
         "model" : {
           "id" : 6,
           "name" : "model1",
@@ -63,13 +61,13 @@
           "model" : "model1",
           "files" : { },
           "tags" : [ ],
-          "id" : "URN:AIP:DATASET:PROJECT:aaa42286-e558-4c2e-b953-d4aca63e95e7:V1",
+          "id" : "URN:AIP:DATASET:PROJECT:4ed8e419-0fa0-479b-b50e-23163212eed9:V1",
           "properties" : { },
           "type" : "Feature"
         }
       },
       "accessGroup" : {
-        "id" : 63,
+        "id" : 12,
         "name" : "AG1",
         "users" : [ {
           "email" : "test@email.com"
