@@ -28,19 +28,23 @@ pipeline {
                 sh 'docker run --rm -i \
                 	-v ${WORKSPACE}/nginx/doc-static:/src/ \
                 	-v ${WORKSPACE}/:/srv/jekyll \
+                    -u $(id -u ${USER}):$(id -g ${USER}) \
                 	172.26.46.158/regards-doc-generator bash -c "jekyll build -d /src/"'
-            }
-            post {
-                always {
-	                sh 'sudo chown -R jenkins:jenkins nginx/doc-static'
-	            }
+
+                sh 'cd nginx/doc-static && \
+                    rm  CONTRIBUTING.md \
+                        Dockerfile \
+                        docker-compose.yml \
+                        .gitignore \
+                        ISSUE_TEMPLATE.md \
+                        Jenkinsfile \
+                        LICENSE.md \
+                        README.md'
             }
         }
         stage('Create static website') {
             steps {
-                sh 'cd nginx && docker build --build-arg https_proxy=$HTTP_PROXY --build-arg http_proxy=$HTTP_PROXY \
-	                  --build-arg HTTP_PROXY=$HTTP_PROXY --build-arg HTTPS_PROXY=$HTTP_PROXY --build-arg no_proxy=$no_proxy \
-                      -t 172.26.46.158/rs_doc:$BRANCH_NAME .'
+                sh 'cd nginx && docker build -t 172.26.46.158/rs_doc:$BRANCH_NAME .'
                 sh 'docker push 172.26.46.158/rs_doc:$BRANCH_NAME'
             }
         }

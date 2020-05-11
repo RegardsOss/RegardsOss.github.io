@@ -6,7 +6,7 @@ services:
     build:
       context: ./
       args:
-        - http_proxy
+        http_proxy: ${HTTP_PROXY}
     ports:
       - 4000:4000
       - 35729:35729
