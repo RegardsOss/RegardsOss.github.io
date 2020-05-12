@@ -43,7 +43,7 @@
   } ]
 }, {
   "content" : {
-    "id" : 18,
+    "id" : 261,
     "name" : "TEST_ROLE",
     "parentRole" : {
       "id" : 1,
@@ -105,7 +105,7 @@
 }, {
   "content" : {
     "id" : 3,
-    "name" : "ADMIN",
+    "name" : "EXPLOIT",
     "parentRole" : {
       "id" : 2,
       "name" : "REGISTERED_USER",
@@ -118,6 +118,48 @@
       },
       "authorizedAddresses" : [ ],
       "isDefault" : true,
+      "isNative" : true
+    },
+    "authorizedAddresses" : [ ],
+    "isDefault" : false,
+    "isNative" : true
+  },
+  "links" : [ {
+    "rel" : "self",
+    "href" : "http://localhost:8080/roles/EXPLOIT"
+  }, {
+    "rel" : "manage-resource-access",
+    "href" : "http://localhost:8080/roles/EXPLOIT/resources"
+  }, {
+    "rel" : "list",
+    "href" : "http://localhost:8080/roles"
+  }, {
+    "rel" : "borrowable",
+    "href" : "http://localhost:8080/roles/borrowables"
+  } ]
+}, {
+  "content" : {
+    "id" : 4,
+    "name" : "ADMIN",
+    "parentRole" : {
+      "id" : 3,
+      "name" : "EXPLOIT",
+      "parentRole" : {
+        "id" : 2,
+        "name" : "REGISTERED_USER",
+        "parentRole" : {
+          "id" : 1,
+          "name" : "PUBLIC",
+          "authorizedAddresses" : [ ],
+          "isDefault" : false,
+          "isNative" : true
+        },
+        "authorizedAddresses" : [ ],
+        "isDefault" : true,
+        "isNative" : true
+      },
+      "authorizedAddresses" : [ ],
+      "isDefault" : false,
       "isNative" : true
     },
     "authorizedAddresses" : [ ],
@@ -139,7 +181,7 @@
   } ]
 }, {
   "content" : {
-    "id" : 4,
+    "id" : 5,
     "name" : "PROJECT_ADMIN",
     "authorizedAddresses" : [ ],
     "isDefault" : false,

@@ -2,7 +2,7 @@
 
         ***URL**
 
-        `/accesses/7/deny`
+        `/accesses/252/deny`
 
         ***URL template**
 

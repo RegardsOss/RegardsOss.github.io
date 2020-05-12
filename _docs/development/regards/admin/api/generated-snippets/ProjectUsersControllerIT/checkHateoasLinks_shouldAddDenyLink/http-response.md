@@ -22,9 +22,9 @@
     
 {
   "content" : {
-    "id" : 23,
+    "id" : 360,
     "email" : "email@test.com",
-    "lastUpdate" : "2019-07-22T18:18:07.618Z",
+    "lastUpdate" : "2020-05-11T14:12:07.35Z",
     "status" : "WAITING_ACCESS",
     "metadata" : [ ],
     "role" : {
@@ -38,22 +38,22 @@
   },
   "links" : [ {
     "rel" : "self",
-    "href" : "http://localhost:8080/users/23"
+    "href" : "http://localhost:8080/users/360"
   }, {
     "rel" : "update",
-    "href" : "http://localhost:8080/users/23"
+    "href" : "http://localhost:8080/users/360"
   }, {
     "rel" : "delete",
-    "href" : "http://localhost:8080/users/23"
+    "href" : "http://localhost:8080/users/360"
   }, {
     "rel" : "list",
     "href" : "http://localhost:8080/users"
   }, {
     "rel" : "accept",
-    "href" : "http://localhost:8080/accesses/23/accept"
+    "href" : "http://localhost:8080/accesses/360/accept"
   }, {
     "rel" : "deny",
-    "href" : "http://localhost:8080/accesses/23/deny"
+    "href" : "http://localhost:8080/accesses/360/deny"
   } ]
 }
 ```

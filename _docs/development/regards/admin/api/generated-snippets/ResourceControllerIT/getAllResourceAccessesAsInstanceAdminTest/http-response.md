@@ -23,7 +23,7 @@
 {
   "metadata" : {
     "size" : 10,
-    "totalElements" : 61,
+    "totalElements" : 62,
     "totalPages" : 7,
     "number" : 0
   },
@@ -130,12 +130,12 @@
   }, {
     "content" : {
       "id" : 6,
-      "description" : "Register all endpoints of a microservice",
+      "description" : "Retrieve all resources for the given microservice and the given controller",
       "microservice" : "Test application",
       "controllerSimpleName" : "MicroserviceResourceController",
-      "resource" : "/resources/microservices/{microservicename}",
-      "verb" : "POST",
-      "defaultRole" : "INSTANCE_ADMIN"
+      "resource" : "/resources/microservices/{microservicename}/controllers",
+      "verb" : "GET",
+      "defaultRole" : "PROJECT_ADMIN"
     },
     "links" : [ {
       "rel" : "list",
@@ -150,12 +150,12 @@
   }, {
     "content" : {
       "id" : 7,
-      "description" : "Retrieve accessible resource accesses of the user among the given microservice",
+      "description" : "Retrieve all resources for the given microservice and the given controller",
       "microservice" : "Test application",
       "controllerSimpleName" : "MicroserviceResourceController",
-      "resource" : "/resources/microservices/{microservicename}",
+      "resource" : "/resources/microservices/{microservicename}/controllers/{controllername}",
       "verb" : "GET",
-      "defaultRole" : "PUBLIC"
+      "defaultRole" : "PROJECT_ADMIN"
     },
     "links" : [ {
       "rel" : "list",
@@ -170,12 +170,12 @@
   }, {
     "content" : {
       "id" : 8,
-      "description" : "Retrieve all resources for the given microservice and the given controller",
+      "description" : "Register all endpoints of a microservice",
       "microservice" : "Test application",
       "controllerSimpleName" : "MicroserviceResourceController",
-      "resource" : "/resources/microservices/{microservicename}/controllers",
-      "verb" : "GET",
-      "defaultRole" : "PROJECT_ADMIN"
+      "resource" : "/resources/microservices/{microservicename}",
+      "verb" : "POST",
+      "defaultRole" : "INSTANCE_ADMIN"
     },
     "links" : [ {
       "rel" : "list",
@@ -190,12 +190,12 @@
   }, {
     "content" : {
       "id" : 9,
-      "description" : "Retrieve all resources for the given microservice and the given controller",
+      "description" : "Retrieve accessible resource accesses of the user among the given microservice",
       "microservice" : "Test application",
       "controllerSimpleName" : "MicroserviceResourceController",
-      "resource" : "/resources/microservices/{microservicename}/controllers/{controllername}",
+      "resource" : "/resources/microservices/{microservicename}",
       "verb" : "GET",
-      "defaultRole" : "PROJECT_ADMIN"
+      "defaultRole" : "PUBLIC"
     },
     "links" : [ {
       "rel" : "list",
@@ -210,11 +210,11 @@
   }, {
     "content" : {
       "id" : 10,
-      "description" : "retrieve the list of all metadata of the user",
+      "description" : "update the list of all metadata of the user",
       "microservice" : "Test application",
       "controllerSimpleName" : "ProjectUserMetadataController",
       "resource" : "/users/{user_id}/metadatas",
-      "verb" : "GET",
+      "verb" : "PUT",
       "defaultRole" : "PROJECT_ADMIN"
     },
     "links" : [ {

@@ -2,11 +2,11 @@
 
 ```json
     {
-  "id" : 50,
-  "description" : "Test the tenant connection",
+  "id" : 15,
+  "description" : "Retrieve the list of project users (crawls through parents' hierarchy) of the role with role_name",
   "microservice" : "Test application",
-  "controllerSimpleName" : "JpaMultitenantController",
-  "resource" : "/regards/{tenant}/datasource/test",
+  "controllerSimpleName" : "ProjectUsersController",
+  "resource" : "/users/roles",
   "verb" : "GET",
   "defaultRole" : "ADMIN"
 }

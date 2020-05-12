@@ -29,7 +29,7 @@
   },
   "content" : [ {
     "content" : {
-      "id" : 29,
+      "id" : 25,
       "description" : "Request for a new projectUser (Public feature).",
       "microservice" : "Test application",
       "controllerSimpleName" : "RegistrationController",
@@ -42,7 +42,7 @@
       "href" : "http://localhost:8080/resources"
     }, {
       "rel" : "self",
-      "href" : "http://localhost:8080/resources/29"
+      "href" : "http://localhost:8080/resources/25"
     } ]
   }, {
     "content" : {
@@ -63,23 +63,6 @@
     } ]
   }, {
     "content" : {
-      "id" : 4,
-      "description" : "Retrieve if the current user has accepted the license of the project",
-      "microservice" : "Test application",
-      "controllerSimpleName" : "LicenseController",
-      "resource" : "/license",
-      "verb" : "GET",
-      "defaultRole" : "PUBLIC"
-    },
-    "links" : [ {
-      "rel" : "list",
-      "href" : "http://localhost:8080/resources"
-    }, {
-      "rel" : "self",
-      "href" : "http://localhost:8080/resources/4"
-    } ]
-  }, {
-    "content" : {
       "id" : 5,
       "description" : "Allow current user to accept the license of the project",
       "microservice" : "Test application",
@@ -94,6 +77,23 @@
     }, {
       "rel" : "self",
       "href" : "http://localhost:8080/resources/5"
+    } ]
+  }, {
+    "content" : {
+      "id" : 4,
+      "description" : "Retrieve if the current user has accepted the license of the project",
+      "microservice" : "Test application",
+      "controllerSimpleName" : "LicenseController",
+      "resource" : "/license",
+      "verb" : "GET",
+      "defaultRole" : "PUBLIC"
+    },
+    "links" : [ {
+      "rel" : "list",
+      "href" : "http://localhost:8080/resources"
+    }, {
+      "rel" : "self",
+      "href" : "http://localhost:8080/resources/4"
     } ]
   }, {
     "content" : {
@@ -114,7 +114,7 @@
     } ]
   }, {
     "content" : {
-      "id" : 35,
+      "id" : 34,
       "description" : "Retrieve accessible resource accesses of the user among the system",
       "microservice" : "Test application",
       "controllerSimpleName" : "ResourceController",
@@ -127,11 +127,11 @@
       "href" : "http://localhost:8080/resources"
     }, {
       "rel" : "self",
-      "href" : "http://localhost:8080/resources/35"
+      "href" : "http://localhost:8080/resources/34"
     } ]
   }, {
     "content" : {
-      "id" : 7,
+      "id" : 9,
       "description" : "Retrieve accessible resource accesses of the user among the given microservice",
       "microservice" : "Test application",
       "controllerSimpleName" : "MicroserviceResourceController",
@@ -144,7 +144,7 @@
       "href" : "http://localhost:8080/resources"
     }, {
       "rel" : "self",
-      "href" : "http://localhost:8080/resources/7"
+      "href" : "http://localhost:8080/resources/9"
     } ]
   }, {
     "content" : {
@@ -182,7 +182,7 @@
     } ]
   }, {
     "content" : {
-      "id" : 19,
+      "id" : 22,
       "description" : "tell if user has role admin",
       "microservice" : "Test application",
       "controllerSimpleName" : "ProjectUsersController",
@@ -195,7 +195,7 @@
       "href" : "http://localhost:8080/resources"
     }, {
       "rel" : "self",
-      "href" : "http://localhost:8080/resources/19"
+      "href" : "http://localhost:8080/resources/22"
     } ]
   } ],
   "links" : [ {
