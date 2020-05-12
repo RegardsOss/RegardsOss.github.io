@@ -33,7 +33,7 @@
 - name: Getting Started
   icon: /assets/img/icons/rocket2.svg
   children:
-    - name: Installation manual
+    - name: Manual installation
       children: 
         - name: Install from sources
           link: getting-started/from-sources/
@@ -47,6 +47,10 @@
           link: getting-started/cli/
         - name: FAQ
           link: getting-started/faq/
+    - name: Swarm installation 
+      children: 
+        - name: Install swarm
+          link : getting-started/swarm/
     - name: Development
       children: 
         - name: Tutorials
