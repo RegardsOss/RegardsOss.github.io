@@ -93,25 +93,6 @@ title: REGARDS Access API
 
 {% include_relative generated-snippets/UIPluginConfigurationControllerIT/retrieveConfigurations/http-response.md %}
 
-# UILayoutController
-
-
-## Retrieve user application layout
-
-{% include_relative generated-snippets/UILayoutControllerIT/getUserApplicationLayout/http-request.md %}
-
-{% include_relative generated-snippets/UILayoutControllerIT/getUserApplicationLayout/request-body.md %}
-
-{% include_relative generated-snippets/UILayoutControllerIT/getUserApplicationLayout/http-response.md %}
-
-## Update a layout
-
-{% include_relative generated-snippets/UILayoutControllerIT/updateLayout/http-request.md %}
-
-{% include_relative generated-snippets/UILayoutControllerIT/updateLayout/request-body.md %}
-
-{% include_relative generated-snippets/UILayoutControllerIT/updateLayout/http-response.md %}
-
 # UIPluginServiceController
 
  Allows to a handle UI Service plugins
