@@ -28,9 +28,9 @@ We won't treat here how to setup these requirements as they have some good tutor
 
 - `/var/lib/docker` must exists
 - You must provide a network volume (`NFS` or equivalent) to swarm workers
-- An user having **sudo rights**
-- A container registry with our images pushed, your user has access to REGARDS images
-- Docker with user namespace
+- A Docker registry with our images pushed
+- An user having **sudo rights** and access to the Docker registry
+- Docker is setup with user namespace
 - Swarm workers are connected to master
 - Either an access to mutualised COTS, or the right configuration on the host. We already treat the basic setup of these COTS [here](/getting-started/configuration), you need to look for `kernel.shmmax`, `vm.max_map_count`
 
@@ -54,7 +54,7 @@ First usecase: there is an IPA managing users / groups on your targeted VMs. We 
 |`dockermapuid`| `dockermapgid` |Used by the docker daemon|This group is internal to the server|
 || `gregards_admin` |Regroup all users that are allowed to monitor the stack|Facultative, `johndoe` can also replace this one|
 |`docker-regards-data`| `gregards_data` |IPA User/Group owning all files created by REGARDS|Your user should be inside that group|
-|`johndoe`| `johndoe`, `dockermapgid`, `gregards_admin`, `gregards_data` |Your personnal user|Your user has access to Docker, to the stack and the workspace|
+|`johndoe`| `johndoe`, `dockermapgid`, `gregards_admin`, `gregards_data` |Your personnal user|Your user has access to Docker, to the stack and data|
 |`mariecurie`| `mariecurie`, `gregards_data` |Some user|She has access to data, not the stack itself|
 {:.table.table-striped}
 
@@ -64,7 +64,7 @@ Other usecase. You install everything as root, you don't have an IPA.
 |:--:|:--:|:---------:|:---------:|
 |`dockermapuid`| `dockermapgid` |Used by the docker daemon||
 |`docker-regards-data`| `gregards_data` |Local User/Group owning all files created by REGARDS|Even with root install, we still respect Docker user namespace !!|
-|`root`| `root` |Used to install the stack|
+|`root`| `root` |Used to install and run the stack|
 {:.table.table-striped}
 
 ## Ansible
@@ -81,15 +81,15 @@ You will find :
 
 ### Create your inventory
 
-Let's create our new inventory. You should create a new inventory each time you deploy REGARDS on a new stack.
-In this guide, we'll create a new inventory named `prod-regards-cnes` (our convention is `<dev|prod>-<swarm-master-hostname>`)
+Let's create our new inventory. You should create a new inventory each time you deploy REGARDS on a new stack.  
+In this guide, we'll create a new inventory named `prod-regards-cnes` (`<dev|prod>-<swarm-master-hostname>`)
 
 ```bash
 cd playbooks/inventories/
 mkdir prod-regards-cnes
 ```
 
-Now you can create the `hosts` file inside your folder `playbooks/inventories/prod-regards-cnes` with the following:
+Now you can create the `hosts` file `playbooks/inventories/prod-regards-cnes/hosts` with the following:
 
 ```env
 [master]
@@ -116,7 +116,7 @@ Let's see this step by step :
 swarm-host ansible_host=regards-cnes-d21-myorganisation.com
 ```
 
-Here we create inside the `master` tag a node named `swarm-host`. We provide the `ansible_host`, but we do not provide `ansible_user=root` or `ansible_password=rootpassword` so it will use the current user (and Ansible doesn't expect password prompt).
+Here we create inside the `master` tag a node named `swarm-host`. We provide the `ansible_host`, but we do not provide `ansible_user=root` or `ansible_password=rootpassword`, so Ansible will use the current user (and doesn't expect password prompt).
 
 ```env
 [slaves]
@@ -260,17 +260,17 @@ Global properties :
 |`dockermapuid`| `String` |Network disk shared accross every nodes|Required|
 |`group_workdir_network_allow_root`| `Bool` |Do we allow root inside the network volume?|Required|
 |`group_workdir_local`| `String` |Local folder where regards is installed on every node|Required|
-|`group_stack_name`| `String` |Unique stack name (for swarm)|Required. `[a-z-]*`|
+|`group_stack_name`| `String` |Unique stack name (for swarm)|Required. `[a-z-]+`|
 |`group_setype`| `String` |SELinux type|Required|
 |`group_seuser`| `String` |SELinux user|Required|
 |`group_container_root_user`| `String` |User owning the REGARDS folder tree, Docker must have read/write access|Required|
 |`group_container_root_group`| `String` |Group owning the REGARDS folder tree|Required|
 |`group_container_run_user`| `String` |All files created by containers will use this user|Required|
-|`group_container_run_group`| `String` |All files created by containers will use this user|Required|
-|`group_container_run_uid`| `Int` |Run user id. The container is also run with this id + your docker user namespace (See `group_container_run_user`)|Required|
+|`group_container_run_group`| `String` |All files created by containers will use this group|Required|
+|`group_container_run_uid`| `Int` |Run user id. (See `group_container_run_user`)|Required|
 |`group_container_run_gid`| `Int` |Run group id. (See `group_container_run_group`)|Required|
 |`group_docker_network_name`| `String` |Docker network name. Automatically created by Ansible|Required|
-|`group_docker_network_ip_network`| `String` |Docker network ip|Required. If a basic IPV4 looks like `A.B.C.D`, you must to provide `A.B.C.`|
+|`group_docker_network_ip_network`| `String` |Docker network ip|Required. If a basic IPV4 looks like `A.B.C.D`, you must provide `A.B.C.`|
 |`group_docker_registry`| `String` |Docker registry holding REGARDS images|Required|
 {:.table.table-striped}
 
@@ -287,10 +287,14 @@ Microservices properties :
 |`group_docker_mservices.<anybackendmicroservice>.http`| `String` |Open the public HTTP port of the service (bypass reverse proxy + gateway)|Facultative.|
 |`group_docker_mservices.<anybackendmicroservice>.jdwp`| `String` |Open a public port to debug a microservice with your IDE|Facultative.|
 |`group_docker_mservices.<anybackendmicroservice>.jmx`| `String` |Open the JMX port|Facultative.|
+|`group_docker_mservices.front`| `Object` |When defined, boots the frontend, which is also the reverse proxy to the gateway|Facultative.|
 |`group_docker_mservices.front.tag`| `String` |Docker image tag that will be deployed|Required.|
 |`group_docker_mservices.front.http`| `Int` |Open the HTTP port of the NGINX to let users access to the front|Facultative.|
-|`group_docker_mservices.front.public_url`| `String` |Public adress that will be used to access to the front|Facultative.|
+|`group_docker_mservices.front.public_url`| `String` |Public adress that will be used to access to the front|Required.|
 {:.table.table-striped}
+
+> `group_docker_mservices.front` is facultative, but `group_docker_mservices.front.tag` is required. It means that if you define the `front` key, then you must specify its required subkeys. But you can safely ignore the entire `front` object if you want to.
+{: .tip .info}
 
 If you don't have mutualised COTS, don't worry. You can deploy yours and use mutualised ones later.
 
@@ -367,12 +371,12 @@ swarm-worker-1             : ok=18   changed=6    unreachable=0    failed=0    s
 swarm-worker-2             : ok=17   changed=5    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0
 ```
 
-That's it!
+That's it! You can safely rerun this command again and again without any risk, it will just make your change from your playbook happen on the server.
 
 # Administration
 
-Connect to the master node of your stack, and open the working directory of REGARDS.  
-You need these two values from your inventories :
+Connect to the master node of your stack, and open the REGARDS working directory.  
+To do that, you need these two values from your inventories :
 
 ```yaml
 group_workdir_local: /opt/regards/
