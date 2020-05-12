@@ -38,7 +38,7 @@
   "layers" : [ {
     "category" : "Catalog",
     "type" : "OpenSearch",
-    "baseUrl" : "http://localhost:8080/api/v1/rs-catalog/engines/opensearch/datasets/URN:A:B:C:D:E:F/dataobjects/search/opensearchDescription.xml?token=eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJkZWZhdWx0X3VzZXJAcmVnYXJkcy5mciIsInJvbGUiOiJST0xFX0RFRkFVTFQiLCJleHAiOjE1NjM3ODc3MDIsInRlbmFudCI6IlBST0pFQ1QiLCJlbWFpbCI6ImRlZmF1bHRfdXNlckByZWdhcmRzLmZyIn0.32EcMpRzAq9stLa8noC4F_ic7YpND3pQyuLHpWL5LqNbNTxjz7qDa--f2GCh-POPfpnFxMigX7-JcZ2ItWV31Q",
+    "baseUrl" : "http://localhost:8080/api/v1/rs-catalog/engines/opensearch/datasets/URN:A:B:C:D:E:F/dataobjects/search/opensearchDescription.xml?token=eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJkZWZhdWx0X3VzZXJAcmVnYXJkcy5mciIsInJvbGUiOiJST0xFX0RFRkFVTFQiLCJleHAiOjE1ODkyODA3NDMsInRlbmFudCI6IlBST0pFQ1QiLCJlbWFpbCI6ImRlZmF1bHRfdXNlckByZWdhcmRzLmZyIn0.2LIC4XzNFkUclqUrs-a2XTKjbWLwgJoo8AtbySjrYAJSlWOU7C2jrES20xcv0N6K26HuTUeTL4aldlrT6NfAOg",
     "visible" : false
   }, {
     "category" : "Other",

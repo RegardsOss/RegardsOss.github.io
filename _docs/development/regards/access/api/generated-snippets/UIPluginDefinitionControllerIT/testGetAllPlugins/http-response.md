@@ -29,7 +29,7 @@
   },
   "content" : [ {
     "content" : {
-      "id" : 52,
+      "id" : 1,
       "name" : "string-criteria",
       "type" : "CRITERIA",
       "sourcePath" : "/plugins/criterion/string/plugin.js",
@@ -39,7 +39,7 @@
     "links" : [ ]
   }, {
     "content" : {
-      "id" : 53,
+      "id" : 2,
       "name" : "full-text-criteria",
       "type" : "CRITERIA",
       "sourcePath" : "/plugins/criterion/full-text/plugin.js",
@@ -49,7 +49,7 @@
     "links" : [ ]
   }, {
     "content" : {
-      "id" : 54,
+      "id" : 3,
       "name" : "numerical-criteria",
       "type" : "CRITERIA",
       "sourcePath" : "/plugins/criterion/numerical/plugin.js",
@@ -59,7 +59,7 @@
     "links" : [ ]
   }, {
     "content" : {
-      "id" : 55,
+      "id" : 4,
       "name" : "two-numerical-criteria",
       "type" : "CRITERIA",
       "sourcePath" : "/plugins/criterion/two-numerical/plugin.js",
@@ -69,7 +69,7 @@
     "links" : [ ]
   }, {
     "content" : {
-      "id" : 56,
+      "id" : 5,
       "name" : "temporal-criteria",
       "type" : "CRITERIA",
       "sourcePath" : "/plugins/criterion/temporal/plugin.js",
@@ -79,7 +79,7 @@
     "links" : [ ]
   }, {
     "content" : {
-      "id" : 57,
+      "id" : 6,
       "name" : "two-temporal-criteria",
       "type" : "CRITERIA",
       "sourcePath" : "/plugins/criterion/two-temporal/plugin.js",
@@ -89,7 +89,7 @@
     "links" : [ ]
   }, {
     "content" : {
-      "id" : 58,
+      "id" : 7,
       "name" : "enumerated-criteria",
       "type" : "CRITERIA",
       "sourcePath" : "/plugins/criterion/enumerated/plugin.js",
@@ -99,7 +99,7 @@
     "links" : [ ]
   }, {
     "content" : {
-      "id" : 59,
+      "id" : 52,
       "name" : "PluginTest",
       "type" : "CRITERIA",
       "sourcePath" : "plugins/test/bundle.js",
@@ -109,7 +109,7 @@
     "links" : [ ]
   }, {
     "content" : {
-      "id" : 60,
+      "id" : 53,
       "name" : "PluginTest",
       "type" : "CRITERIA",
       "sourcePath" : "plugins/test/bundle.js",
@@ -119,7 +119,7 @@
     "links" : [ ]
   }, {
     "content" : {
-      "id" : 61,
+      "id" : 54,
       "name" : "PluginTest",
       "type" : "SERVICE",
       "sourcePath" : "plugins/test/bundle.js",

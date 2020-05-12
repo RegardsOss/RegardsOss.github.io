@@ -29,9 +29,9 @@
   },
   "content" : [ {
     "content" : {
-      "id" : 36,
+      "id" : 52,
       "pluginDefinition" : {
-        "id" : 88,
+        "id" : 102,
         "name" : "PluginTest",
         "type" : "CRITERIA",
         "sourcePath" : "plugins/test/bundle.js",
@@ -46,9 +46,9 @@
     "links" : [ ]
   }, {
     "content" : {
-      "id" : 37,
+      "id" : 53,
       "pluginDefinition" : {
-        "id" : 88,
+        "id" : 102,
         "name" : "PluginTest",
         "type" : "CRITERIA",
         "sourcePath" : "plugins/test/bundle.js",
@@ -63,9 +63,9 @@
     "links" : [ ]
   }, {
     "content" : {
-      "id" : 38,
+      "id" : 54,
       "pluginDefinition" : {
-        "id" : 88,
+        "id" : 102,
         "name" : "PluginTest",
         "type" : "CRITERIA",
         "sourcePath" : "plugins/test/bundle.js",
@@ -81,7 +81,7 @@
   } ],
   "links" : [ {
     "rel" : "self",
-    "href" : "http://localhost:8080/uiplugins/88/configurations?page=0&size=10&sort=id,asc"
+    "href" : "http://localhost:8080/uiplugins/102/configurations?page=0&size=10&sort=id,asc"
   } ]
 }
 ```

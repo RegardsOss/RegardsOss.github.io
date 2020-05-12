@@ -21,6 +21,6 @@
 ```json
     
 {
-  "messages" : [ "Entity fr.cnes.regards.modules.access.services.domain.ui.UIPluginDefinition with id : 75 doesn't exist" ]
+  "messages" : [ "Entity fr.cnes.regards.modules.access.services.domain.ui.UIPluginDefinition with id : 68 doesn't exist" ]
 }
 ```

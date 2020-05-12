@@ -3,7 +3,7 @@
 ```json
     {
   "pluginDefinition" : {
-    "id" : 96,
+    "id" : 110,
     "name" : "PluginTest",
     "type" : "CRITERIA",
     "sourcePath" : "plugins/test/bundle.js",

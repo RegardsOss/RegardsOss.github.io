@@ -36,7 +36,7 @@
         "oaisIdentifier" : "AIP",
         "entityType" : "DATASET",
         "tenant" : "PROJECT",
-        "entityId" : "9dc2ffd1-214b-4851-ab98-e3d771ce9333",
+        "entityId" : "0504e33a-1452-4c69-a6eb-1498dac32c13",
         "version" : 1
       },
       "model" : {
@@ -59,7 +59,7 @@
           "oaisIdentifier" : "AIP",
           "entityType" : "DATASET",
           "tenant" : "PROJECT",
-          "entityId" : "9dc2ffd1-214b-4851-ab98-e3d771ce9333",
+          "entityId" : "0504e33a-1452-4c69-a6eb-1498dac32c13",
           "version" : 1
         },
         "geometry" : {
@@ -83,14 +83,14 @@
         "oaisIdentifier" : "AIP",
         "entityType" : "DATASET",
         "tenant" : "PROJECT",
-        "entityId" : "1f3f019f-3da0-4fd4-9de7-8c05c632117b",
+        "entityId" : "bfab4738-3254-458b-a654-5bbfb13defff",
         "version" : 1
       },
       "model" : {
         "name" : "datasetModel",
         "type" : "DATASET"
       },
-      "tags" : [ "URN:AIP:DATASET:PROJECT:9dc2ffd1-214b-4851-ab98-e3d771ce9333:V1" ],
+      "tags" : [ "URN:AIP:DATASET:PROJECT:0504e33a-1452-4c69-a6eb-1498dac32c13:V1" ],
       "groups" : [ ],
       "wgs84" : {
         "type" : "UNLOCATED"
@@ -101,12 +101,12 @@
         "label" : "dataset1",
         "model" : "datasetModel",
         "files" : { },
-        "tags" : [ "URN:AIP:DATASET:PROJECT:9dc2ffd1-214b-4851-ab98-e3d771ce9333:V1" ],
+        "tags" : [ "URN:AIP:DATASET:PROJECT:0504e33a-1452-4c69-a6eb-1498dac32c13:V1" ],
         "id" : {
           "oaisIdentifier" : "AIP",
           "entityType" : "DATASET",
           "tenant" : "PROJECT",
-          "entityId" : "1f3f019f-3da0-4fd4-9de7-8c05c632117b",
+          "entityId" : "bfab4738-3254-458b-a654-5bbfb13defff",
           "version" : 1
         },
         "geometry" : {
@@ -120,7 +120,7 @@
       },
       "services" : [ {
         "content" : {
-          "configId" : 1,
+          "configId" : "c1adaf22-3448-4038-a3df-3bd8ec0c39dc",
           "label" : "conf0",
           "applicationModes" : [ "MANY", "ONE" ],
           "entityTypes" : [ "DATA" ],
@@ -129,7 +129,7 @@
         "links" : [ ]
       }, {
         "content" : {
-          "configId" : 3,
+          "configId" : "3",
           "label" : "uiPluginConfiguration2",
           "applicationModes" : [ "MANY" ],
           "entityTypes" : [ "COLLECTION" ],

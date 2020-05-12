@@ -29,24 +29,24 @@
   },
   "content" : [ {
     "content" : {
-      "datasetModelIds" : [ ],
+      "datasetModelNames" : [ ],
       "metadata" : {
         "groups" : { },
-        "modelIds" : { }
+        "modelNames" : { }
       },
       "internal" : true,
       "ipId" : {
         "oaisIdentifier" : "AIP",
         "entityType" : "DATA",
         "tenant" : "PROJECT",
-        "entityId" : "00000000-0000-0000-0000-001463493969",
+        "entityId" : "00000000-0000-0000-0000-001333276354",
         "version" : 1
       },
       "model" : {
         "name" : "dataobjectModel",
         "type" : "DATA"
       },
-      "tags" : [ "URN:AIP:DATASET:PROJECT:9dc2ffd1-214b-4851-ab98-e3d771ce9333:V1", "string_tag" ],
+      "tags" : [ "URN:AIP:DATASET:PROJECT:0504e33a-1452-4c69-a6eb-1498dac32c13:V1", "string_tag" ],
       "groups" : [ ],
       "wgs84" : {
         "type" : "UNLOCATED"
@@ -57,12 +57,12 @@
         "label" : "dataobject",
         "model" : "dataobjectModel",
         "files" : { },
-        "tags" : [ "URN:AIP:DATASET:PROJECT:9dc2ffd1-214b-4851-ab98-e3d771ce9333:V1", "string_tag" ],
+        "tags" : [ "URN:AIP:DATASET:PROJECT:0504e33a-1452-4c69-a6eb-1498dac32c13:V1", "string_tag" ],
         "id" : {
           "oaisIdentifier" : "AIP",
           "entityType" : "DATA",
           "tenant" : "PROJECT",
-          "entityId" : "00000000-0000-0000-0000-001463493969",
+          "entityId" : "00000000-0000-0000-0000-001333276354",
           "version" : 1
         },
         "geometry" : {
@@ -76,7 +76,7 @@
       },
       "services" : [ {
         "content" : {
-          "configId" : 1,
+          "configId" : "c1adaf22-3448-4038-a3df-3bd8ec0c39dc",
           "label" : "conf0",
           "applicationModes" : [ "MANY", "ONE" ],
           "entityTypes" : [ "DATA" ],
@@ -85,7 +85,7 @@
         "links" : [ ]
       }, {
         "content" : {
-          "configId" : 3,
+          "configId" : "3",
           "label" : "uiPluginConfiguration2",
           "applicationModes" : [ "MANY" ],
           "entityTypes" : [ "COLLECTION" ],
@@ -101,14 +101,14 @@
         "oaisIdentifier" : "AIP",
         "entityType" : "COLLECTION",
         "tenant" : "PROJECT",
-        "entityId" : "daf8b9e9-2d5a-4b78-85a0-60aca6821ca3",
+        "entityId" : "12bfb848-8e6f-40d2-b530-e7ff98f319a1",
         "version" : 1
       },
       "model" : {
         "name" : "colelctiontModel",
         "type" : "COLLECTION"
       },
-      "tags" : [ "URN:AIP:DATASET:PROJECT:1f3f019f-3da0-4fd4-9de7-8c05c632117b:V1" ],
+      "tags" : [ "URN:AIP:DATASET:PROJECT:bfab4738-3254-458b-a654-5bbfb13defff:V1" ],
       "groups" : [ ],
       "wgs84" : {
         "type" : "UNLOCATED"
@@ -119,12 +119,12 @@
         "label" : "collection",
         "model" : "colelctiontModel",
         "files" : { },
-        "tags" : [ "URN:AIP:DATASET:PROJECT:1f3f019f-3da0-4fd4-9de7-8c05c632117b:V1" ],
+        "tags" : [ "URN:AIP:DATASET:PROJECT:bfab4738-3254-458b-a654-5bbfb13defff:V1" ],
         "id" : {
           "oaisIdentifier" : "AIP",
           "entityType" : "COLLECTION",
           "tenant" : "PROJECT",
-          "entityId" : "daf8b9e9-2d5a-4b78-85a0-60aca6821ca3",
+          "entityId" : "12bfb848-8e6f-40d2-b530-e7ff98f319a1",
           "version" : 1
         },
         "geometry" : {
@@ -138,7 +138,7 @@
       },
       "services" : [ {
         "content" : {
-          "configId" : 2,
+          "configId" : "685a72b7-d103-4793-9462-5f8051ff8a2f",
           "label" : "conf1",
           "applicationModes" : [ "MANY", "ONE" ],
           "entityTypes" : [ "DATA" ],

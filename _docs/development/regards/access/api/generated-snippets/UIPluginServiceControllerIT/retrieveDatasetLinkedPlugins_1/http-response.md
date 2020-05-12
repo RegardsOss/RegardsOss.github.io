@@ -22,9 +22,9 @@
     
 [ {
   "content" : {
-    "id" : 8,
+    "id" : 102,
     "pluginDefinition" : {
-      "id" : 81,
+      "id" : 153,
       "name" : "PluginTest",
       "type" : "SERVICE",
       "sourcePath" : "plugins/test/bundle.js",
@@ -39,9 +39,9 @@
   "links" : [ ]
 }, {
   "content" : {
-    "id" : 12,
+    "id" : 106,
     "pluginDefinition" : {
-      "id" : 81,
+      "id" : 153,
       "name" : "PluginTest",
       "type" : "SERVICE",
       "sourcePath" : "plugins/test/bundle.js",

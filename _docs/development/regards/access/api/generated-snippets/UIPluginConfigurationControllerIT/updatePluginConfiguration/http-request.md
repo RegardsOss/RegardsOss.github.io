@@ -2,7 +2,7 @@
 
         ***URL**
 
-        `/uiplugins/configurations/57`
+        `/uiplugins/configurations/73`
 
         ***URL template**
 

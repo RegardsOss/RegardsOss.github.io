@@ -2,15 +2,15 @@
 
         ***URL**
 
-        `/uiplugins/configurations/60`
+        `/layouts/user`
 
         ***URL template**
 
-        `/uiplugins/configurations/{pluginConfId}`
+        `/layouts/{applicationId}`
 
         ***Method**
 
-        `DELETE`
+        `GET`
 
         ***Headers**
 

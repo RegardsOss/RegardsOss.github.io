@@ -22,23 +22,13 @@
     
 {
   "content" : {
-    "id" : 72,
-    "pluginDefinition" : {
-      "id" : 110,
-      "name" : "PluginTest",
-      "type" : "CRITERIA",
-      "sourcePath" : "plugins/test/bundle.js",
-      "applicationModes" : [ ],
-      "entityTypes" : [ ]
-    },
-    "active" : true,
-    "label" : "label",
-    "linkedToAllEntities" : true,
-    "conf" : "{\"param\":\"value\"}"
+    "id" : 1,
+    "applicationId" : "user",
+    "layout" : "{\"test\":\"ok\"}"
   },
   "links" : [ {
-    "rel" : "delete",
-    "href" : "http://localhost:8080/uiplugins/configurations/72"
+    "rel" : "update",
+    "href" : "http://localhost:8080/layouts/user"
   } ]
 }
 ```

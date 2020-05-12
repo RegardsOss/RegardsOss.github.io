@@ -21,6 +21,6 @@
 ```json
     
 {
-  "messages" : [ "Entity fr.cnes.regards.modules.configuration.domain.Module with id : 57 doesn't exist" ]
+  "messages" : [ "Entity fr.cnes.regards.modules.configuration.domain.Module with id : 54 doesn't exist" ]
 }
 ```

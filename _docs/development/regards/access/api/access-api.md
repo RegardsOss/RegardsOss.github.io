@@ -19,6 +19,33 @@ title: REGARDS Access API
 
 {% include_relative generated-snippets/LinkUIPluginDatasetsIT/linkConfToDataset/http-response.md %}
 
+# UIConfigurationController
+
+
+## Add a configuration
+
+{% include_relative generated-snippets/UIConfigurationControllerIT/addConfiguration/http-request.md %}
+
+{% include_relative generated-snippets/UIConfigurationControllerIT/addConfiguration/request-body.md %}
+
+{% include_relative generated-snippets/UIConfigurationControllerIT/addConfiguration/http-response.md %}
+
+## Get a configuration
+
+{% include_relative generated-snippets/UIConfigurationControllerIT/getConfiguration/http-request.md %}
+
+{% include_relative generated-snippets/UIConfigurationControllerIT/getConfiguration/request-body.md %}
+
+{% include_relative generated-snippets/UIConfigurationControllerIT/getConfiguration/http-response.md %}
+
+## Update a configuration
+
+{% include_relative generated-snippets/UIConfigurationControllerIT/updateConfiguration/http-request.md %}
+
+{% include_relative generated-snippets/UIConfigurationControllerIT/updateConfiguration/request-body.md %}
+
+{% include_relative generated-snippets/UIConfigurationControllerIT/updateConfiguration/http-response.md %}
+
 # UIPluginConfigurationController
 
 
@@ -65,6 +92,25 @@ title: REGARDS Access API
 {% include_relative generated-snippets/UIPluginConfigurationControllerIT/retrieveConfigurations/request-body.md %}
 
 {% include_relative generated-snippets/UIPluginConfigurationControllerIT/retrieveConfigurations/http-response.md %}
+
+# UILayoutController
+
+
+## Retrieve user application layout
+
+{% include_relative generated-snippets/UILayoutControllerIT/getUserApplicationLayout/http-request.md %}
+
+{% include_relative generated-snippets/UILayoutControllerIT/getUserApplicationLayout/request-body.md %}
+
+{% include_relative generated-snippets/UILayoutControllerIT/getUserApplicationLayout/http-response.md %}
+
+## Update a layout
+
+{% include_relative generated-snippets/UILayoutControllerIT/updateLayout/http-request.md %}
+
+{% include_relative generated-snippets/UILayoutControllerIT/updateLayout/request-body.md %}
+
+{% include_relative generated-snippets/UILayoutControllerIT/updateLayout/http-response.md %}
 
 # UIPluginServiceController
 

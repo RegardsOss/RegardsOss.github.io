@@ -22,7 +22,7 @@
     
 {
   "content" : {
-    "id" : 65,
+    "id" : 58,
     "name" : "PluginTest",
     "type" : "CRITERIA",
     "sourcePath" : "plugins/new/bundle.js",
@@ -31,10 +31,10 @@
   },
   "links" : [ {
     "rel" : "self",
-    "href" : "http://localhost:8080/uiplugins/definition/65"
+    "href" : "http://localhost:8080/uiplugins/definition/58"
   }, {
     "rel" : "update",
-    "href" : "http://localhost:8080/uiplugins/definition/65"
+    "href" : "http://localhost:8080/uiplugins/definition/58"
   } ]
 }
 ```

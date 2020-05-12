@@ -33,14 +33,14 @@
         "oaisIdentifier" : "AIP",
         "entityType" : "COLLECTION",
         "tenant" : "PROJECT",
-        "entityId" : "daf8b9e9-2d5a-4b78-85a0-60aca6821ca3",
+        "entityId" : "12bfb848-8e6f-40d2-b530-e7ff98f319a1",
         "version" : 1
       },
       "model" : {
         "name" : "colelctiontModel",
         "type" : "COLLECTION"
       },
-      "tags" : [ "URN:AIP:DATASET:PROJECT:1f3f019f-3da0-4fd4-9de7-8c05c632117b:V1" ],
+      "tags" : [ "URN:AIP:DATASET:PROJECT:bfab4738-3254-458b-a654-5bbfb13defff:V1" ],
       "groups" : [ ],
       "wgs84" : {
         "type" : "UNLOCATED"
@@ -51,12 +51,12 @@
         "label" : "collection",
         "model" : "colelctiontModel",
         "files" : { },
-        "tags" : [ "URN:AIP:DATASET:PROJECT:1f3f019f-3da0-4fd4-9de7-8c05c632117b:V1" ],
+        "tags" : [ "URN:AIP:DATASET:PROJECT:bfab4738-3254-458b-a654-5bbfb13defff:V1" ],
         "id" : {
           "oaisIdentifier" : "AIP",
           "entityType" : "COLLECTION",
           "tenant" : "PROJECT",
-          "entityId" : "daf8b9e9-2d5a-4b78-85a0-60aca6821ca3",
+          "entityId" : "12bfb848-8e6f-40d2-b530-e7ff98f319a1",
           "version" : 1
         },
         "geometry" : {
@@ -70,7 +70,7 @@
       },
       "services" : [ {
         "content" : {
-          "configId" : 2,
+          "configId" : "685a72b7-d103-4793-9462-5f8051ff8a2f",
           "label" : "conf1",
           "applicationModes" : [ "MANY", "ONE" ],
           "entityTypes" : [ "DATA" ],

@@ -2,7 +2,7 @@
 
         ***URL**
 
-        `/uiplugins/definition/75`
+        `/uiplugins/definition/68`
 
         ***URL template**
 
