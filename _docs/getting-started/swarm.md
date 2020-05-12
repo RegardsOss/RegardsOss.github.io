@@ -15,7 +15,7 @@ Let's install REGARDS on a swarm server !
 
 ## Requirements
 
-We won't threat here how to setup these requirements as they have some good tutorials outhere.
+We won't treat here how to setup these requirements as they have some good tutorials outhere.
 
 ### Software requirements
 
@@ -28,7 +28,7 @@ We won't threat here how to setup these requirements as they have some good tuto
 
 - `/var/lib/docker` must exists
 - You must provide a network volume (`NFS` or equivalent) to swarm workers
-- an user having **sudo rights**
+- An user having **sudo rights**
 - A container registry with our images pushed, your user has access to REGARDS images
 - Docker with user namespace
 - Swarm workers are connected to master
@@ -435,7 +435,7 @@ jd..    regards-cnes_rs-front.1                            myregistry/rs-front:V
 y4..    regards-cnes_rs-admin-instance.1                   myregistry/rs-administration-instance:V1.1.0  regards-cnes-d13.myorganisation.com      Running 23 hours ago
 ```
 
-In the history, there is no container starting again and again every minuts. That's what we're expecting in a production environment.  
+In the history, there is no container starting again and again every minutes. That's what we're expecting in a production environment.  
 Moreover, we display the number of running containers and the number of expected ones. In this exemple everything is fine (`[RUNNING]	25/25`).
 The current state of these containers is also important. You need to wait 5 to 15 minutes to see if containers succeed to boot, some containers are waiting to others so they usually crash in that short period if there is some files unwritable, COTS not accessible...
 
