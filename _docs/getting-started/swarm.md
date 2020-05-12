@@ -321,6 +321,9 @@ If you don't have mutualised COTS, don't worry. You can deploy yours and use mut
 |`group_docker_cots.rabbitmq`| `Object` |When defined, boots a RabbitMQ|Facultative.|
 |`group_docker_cots.rabbitmq.client`| `Int` |When defined, open the TCP port|Facultative.|
 |`group_docker_cots.rabbitmq.http`| `Int` |When defined, open the HTTP port|Facultative.|
+|`group_docker_cots.doc`| `Object` |When defined, boots the REGARDS documentation|Facultative.|
+|`group_docker_cots.doc.tag`| `String` |Documentation docker image tag that will be deployed|Required.|
+|`group_docker_cots.doc.http`| `Int` |When defined, open the HTTP port|Facultative.|
 |`group_docker_cots_configuration`| `Object` |List COTS specific configuration|Required. Can be empty|
 |`group_docker_cots_configuration.postgres.nbTenant`| `Int` |Use to deduce the number of connections Postgres should allow|Required when `group_docker_cots.postgres` is defined|
 |`group_docker_cots_configuration.elasticsearch.cluster_name`| `Int` |Elasticsearch cluster name|Required when `group_docker_cots.elasticsearch` is defined|

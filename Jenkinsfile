@@ -44,8 +44,8 @@ pipeline {
         }
         stage('Create static website') {
             steps {
-                sh 'cd nginx && docker build -t 172.26.46.158/rs_doc:$BRANCH_NAME .'
-                sh 'docker push 172.26.46.158/rs_doc:$BRANCH_NAME'
+                sh 'cd nginx && docker build -t 172.26.46.158/regards-doc:$BRANCH_NAME .'
+                sh 'docker push 172.26.46.158/regards-doc:$BRANCH_NAME'
             }
         }
     }
