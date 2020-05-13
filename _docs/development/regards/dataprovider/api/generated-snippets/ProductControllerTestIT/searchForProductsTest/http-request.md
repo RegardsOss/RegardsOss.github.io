@@ -2,7 +2,7 @@
 
         ***URL**
 
-        `/products?sipState=NOT_SCHEDULED&sipState=QUEUED`
+        `/products?sipState=NOT_SCHEDULED&sipState=SUBMITTED`
 
         ***URL template**
 

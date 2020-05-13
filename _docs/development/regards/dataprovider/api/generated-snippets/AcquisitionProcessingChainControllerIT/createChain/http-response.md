@@ -22,31 +22,39 @@
     
 {
   "content" : {
-    "id" : 6,
+    "id" : 107,
     "label" : "Processing chain 1",
     "active" : true,
     "mode" : "MANUAL",
     "locked" : false,
+    "periodicity" : "0 * * * * *",
     "ingestChain" : "DefaultIngestChain",
+    "storages" : [ {
+      "pluginBusinessId" : "AWS",
+      "storePath" : "/path/to/file",
+      "targetTypes" : [ ]
+    }, {
+      "pluginBusinessId" : "HELLO",
+      "storePath" : "/other/path/to/file",
+      "targetTypes" : [ ]
+    } ],
+    "categories" : [ ],
     "fileInfos" : [ {
-      "id" : 6,
+      "id" : 107,
       "mandatory" : true,
       "scanPlugin" : {
-        "id" : 23,
+        "id" : 124,
         "pluginId" : "GlobDiskScanning",
         "label" : "post : Scan plugin",
+        "businessId" : "a8371d92-8bdf-4a8d-affa-41036a80457e",
         "version" : "1.0.0-SNAPSHOT",
         "priorityOrder" : 0,
         "active" : true,
-        "pluginClassName" : "fr.cnes.regards.modules.acquisition.service.plugins.GlobDiskScanning",
-        "interfaceNames" : [ "fr.cnes.regards.modules.acquisition.plugins.IScanPlugin" ],
         "parameters" : [ {
-          "id" : 8,
           "name" : "directories",
+          "type" : "COLLECTION",
           "value" : [ ],
-          "dynamic" : false,
-          "dynamicsValues" : [ ],
-          "onlyDynamic" : false
+          "dynamic" : false
         } ]
       },
       "mimeType" : "application/octet-stream",
@@ -54,46 +62,45 @@
       "comment" : "A comment"
     } ],
     "validationPluginConf" : {
-      "id" : 24,
+      "id" : 125,
       "pluginId" : "DefaultFileValidation",
       "label" : "post : Validation plugin",
+      "businessId" : "f17562b7-42f5-4c5c-b5ef-a525724b1534",
       "version" : "1.0.0-SNAPSHOT",
       "priorityOrder" : 0,
       "active" : true,
-      "pluginClassName" : "fr.cnes.regards.modules.acquisition.service.plugins.DefaultFileValidation",
-      "interfaceNames" : [ "fr.cnes.regards.modules.acquisition.plugins.IValidationPlugin" ],
       "parameters" : [ ]
     },
     "productPluginConf" : {
-      "id" : 25,
+      "id" : 126,
       "pluginId" : "DefaultProductPlugin",
       "label" : "post : Product plugin",
+      "businessId" : "95240aec-f694-4848-8c16-2f6306625daf",
       "version" : "1.0.0-SNAPSHOT",
       "priorityOrder" : 0,
       "active" : true,
-      "pluginClassName" : "fr.cnes.regards.modules.acquisition.service.plugins.DefaultProductPlugin",
-      "interfaceNames" : [ "fr.cnes.regards.modules.acquisition.plugins.IProductPlugin" ],
       "parameters" : [ ]
     },
     "generateSipPluginConf" : {
-      "id" : 26,
+      "id" : 127,
       "pluginId" : "DefaultSIPGeneration",
       "label" : "post : SIP generation plugin",
+      "businessId" : "3e26bb35-bb74-4a80-8712-4018ee196054",
       "version" : "1.0.0-SNAPSHOT",
       "priorityOrder" : 0,
       "active" : true,
-      "pluginClassName" : "fr.cnes.regards.modules.acquisition.service.plugins.DefaultSIPGeneration",
-      "interfaceNames" : [ "fr.cnes.regards.modules.acquisition.plugins.ISipGenerationPlugin" ],
       "parameters" : [ ]
-    },
-    "generationRetryEnabled" : false
+    }
   },
   "links" : [ {
     "rel" : "list",
     "href" : "http://localhost:8080/chains"
   }, {
     "rel" : "update",
-    "href" : "http://localhost:8080/chains/6"
+    "href" : "http://localhost:8080/chains/107"
+  }, {
+    "rel" : "patch",
+    "href" : "http://localhost:8080/chains/107"
   } ]
 }
 ```

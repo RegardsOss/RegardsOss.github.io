@@ -32,7 +32,7 @@
       "id" : 1,
       "state" : "ACQUIRING",
       "sipState" : "NOT_SCHEDULED",
-      "lastUpdate" : "2019-07-19T17:39:58.737Z",
+      "lastUpdate" : "2020-05-13T09:35:50.206Z",
       "productName" : "ProductName",
       "session" : "MySession",
       "ipId" : "ipId"

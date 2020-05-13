@@ -20,9 +20,9 @@
 
 ```json
     
-{
+[ {
   "content" : {
-    "id" : 106,
+    "id" : 102,
     "label" : "Processing chain 1",
     "active" : true,
     "mode" : "MANUAL",
@@ -40,13 +40,13 @@
     } ],
     "categories" : [ ],
     "fileInfos" : [ {
-      "id" : 106,
+      "id" : 102,
       "mandatory" : true,
       "scanPlugin" : {
-        "id" : 123,
+        "id" : 102,
         "pluginId" : "GlobDiskScanning",
-        "label" : "Scan plugin update",
-        "businessId" : "be2a4b25-1463-4539-bbd2-b218d4a4851c",
+        "label" : "update : Scan plugin",
+        "businessId" : "f8a70e70-1ae6-4eae-b43b-5de9d3472d43",
         "version" : "1.0.0-SNAPSHOT",
         "priorityOrder" : 0,
         "active" : true,
@@ -62,30 +62,30 @@
       "comment" : "A comment"
     } ],
     "validationPluginConf" : {
-      "id" : 120,
+      "id" : 103,
       "pluginId" : "DefaultFileValidation",
       "label" : "update : Validation plugin",
-      "businessId" : "eed45b1d-031e-4333-9026-da25029ff379",
+      "businessId" : "14d8b692-9f35-48b3-b85f-436a8afa5332",
       "version" : "1.0.0-SNAPSHOT",
       "priorityOrder" : 0,
       "active" : true,
       "parameters" : [ ]
     },
     "productPluginConf" : {
-      "id" : 121,
+      "id" : 104,
       "pluginId" : "DefaultProductPlugin",
       "label" : "update : Product plugin",
-      "businessId" : "8a9b575b-ca37-400c-a4a3-c45216f1d4a9",
+      "businessId" : "1859842f-a6c5-490e-a275-dfb9a01096d9",
       "version" : "1.0.0-SNAPSHOT",
       "priorityOrder" : 0,
       "active" : true,
       "parameters" : [ ]
     },
     "generateSipPluginConf" : {
-      "id" : 122,
+      "id" : 105,
       "pluginId" : "DefaultSIPGeneration",
       "label" : "update : SIP generation plugin",
-      "businessId" : "4b4c0b5e-4002-4a4a-a723-99eb387861b0",
+      "businessId" : "83e99593-64d0-427c-af90-34c70281012c",
       "version" : "1.0.0-SNAPSHOT",
       "priorityOrder" : 0,
       "active" : true,
@@ -93,14 +93,8 @@
     }
   },
   "links" : [ {
-    "rel" : "list",
-    "href" : "http://localhost:8080/chains"
-  }, {
-    "rel" : "update",
-    "href" : "http://localhost:8080/chains/106"
-  }, {
     "rel" : "patch",
-    "href" : "http://localhost:8080/chains/106"
+    "href" : "http://localhost:8080/chains/102"
   } ]
-}
+} ]
 ```

@@ -30,21 +30,21 @@
   "content" : [ {
     "content" : {
       "id" : 3,
-      "filePath" : "/app_to_build/acquisition/acquisition-rest/src/test/resources/input/data_1.txt",
+      "filePath" : "/home/kevin/git/rs-dataprovider/acquisition/acquisition-rest/src/test/resources/input/data_1.txt",
       "state" : "IN_PROGRESS",
-      "acqDate" : "2019-07-19T17:40:00.945Z",
-      "checksum" : "a3d451bb4eafc1d9f530f87daa383b9a",
-      "checksumAlgorithm" : "MD5"
+      "sessionOwner" : "sessionOwner",
+      "session" : "session",
+      "acqDate" : "2020-05-13T09:36:07.548Z"
     },
     "links" : [ ]
   }, {
     "content" : {
       "id" : 4,
-      "filePath" : "/app_to_build/acquisition/acquisition-rest/src/test/resources/input/data_2.txt",
+      "filePath" : "/home/kevin/git/rs-dataprovider/acquisition/acquisition-rest/src/test/resources/input/data_2.txt",
       "state" : "IN_PROGRESS",
-      "acqDate" : "2019-07-19T17:40:00.954Z",
-      "checksum" : "a3d451bb4eafc1d9f530f87daa383b9a",
-      "checksumAlgorithm" : "MD5"
+      "sessionOwner" : "sessionOwner",
+      "session" : "session",
+      "acqDate" : "2020-05-13T09:36:07.654Z"
     },
     "links" : [ ]
   } ],

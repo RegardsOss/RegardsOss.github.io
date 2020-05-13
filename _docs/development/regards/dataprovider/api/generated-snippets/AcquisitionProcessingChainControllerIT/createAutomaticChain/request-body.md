@@ -6,24 +6,31 @@
   "active" : true,
   "mode" : "AUTO",
   "locked" : false,
-  "periodicity" : 10,
+  "periodicity" : "0 30 * * * *",
   "ingestChain" : "DefaultIngestChain",
+  "storages" : [ {
+    "pluginBusinessId" : "AWS",
+    "storePath" : "/path/to/file",
+    "targetTypes" : [ ]
+  }, {
+    "pluginBusinessId" : "HELLO",
+    "storePath" : "/other/path/to/file",
+    "targetTypes" : [ ]
+  } ],
+  "categories" : [ ],
   "fileInfos" : [ {
     "mandatory" : true,
     "scanPlugin" : {
       "pluginId" : "GlobDiskScanning",
       "label" : "Auto10s : Scan plugin",
-      "version" : "1.0.0-SNAPSHOT",
+      "businessId" : "1ede8062-0e2a-44cd-a349-edf9d6942148",
       "priorityOrder" : 0,
       "active" : true,
-      "pluginClassName" : "fr.cnes.regards.modules.acquisition.service.plugins.GlobDiskScanning",
-      "interfaceNames" : [ "fr.cnes.regards.modules.acquisition.plugins.IScanPlugin" ],
       "parameters" : [ {
         "name" : "directories",
+        "type" : "COLLECTION",
         "value" : [ ],
-        "dynamic" : false,
-        "dynamicsValues" : [ ],
-        "onlyDynamic" : false
+        "dynamic" : false
       } ]
     },
     "mimeType" : "application/octet-stream",
@@ -33,33 +40,26 @@
   "validationPluginConf" : {
     "pluginId" : "DefaultFileValidation",
     "label" : "Auto10s : Validation plugin",
-    "version" : "1.0.0-SNAPSHOT",
+    "businessId" : "6a3d8db5-8568-42ca-a741-163e99f0cf1a",
     "priorityOrder" : 0,
     "active" : true,
-    "pluginClassName" : "fr.cnes.regards.modules.acquisition.service.plugins.DefaultFileValidation",
-    "interfaceNames" : [ "fr.cnes.regards.modules.acquisition.plugins.IValidationPlugin" ],
     "parameters" : [ ]
   },
   "productPluginConf" : {
     "pluginId" : "DefaultProductPlugin",
     "label" : "Auto10s : Product plugin",
-    "version" : "1.0.0-SNAPSHOT",
+    "businessId" : "5792220f-6ac9-41ce-b7e9-39e653456f07",
     "priorityOrder" : 0,
     "active" : true,
-    "pluginClassName" : "fr.cnes.regards.modules.acquisition.service.plugins.DefaultProductPlugin",
-    "interfaceNames" : [ "fr.cnes.regards.modules.acquisition.plugins.IProductPlugin" ],
     "parameters" : [ ]
   },
   "generateSipPluginConf" : {
     "pluginId" : "DefaultSIPGeneration",
     "label" : "Auto10s : SIP generation plugin",
-    "version" : "1.0.0-SNAPSHOT",
+    "businessId" : "2c025cf5-f497-4039-a570-2bdd06af9943",
     "priorityOrder" : 0,
     "active" : true,
-    "pluginClassName" : "fr.cnes.regards.modules.acquisition.service.plugins.DefaultSIPGeneration",
-    "interfaceNames" : [ "fr.cnes.regards.modules.acquisition.plugins.ISipGenerationPlugin" ],
     "parameters" : [ ]
-  },
-  "generationRetryEnabled" : false
+  }
 }
 ```

@@ -2,15 +2,15 @@
 
         ***URL**
 
-        `/chains/106`
+        `/chains`
 
         ***URL template**
 
-        `/chains/{chainId}`
+        `/chains`
 
         ***Method**
 
-        `PUT`
+        `PATCH`
 
         ***Headers**
 

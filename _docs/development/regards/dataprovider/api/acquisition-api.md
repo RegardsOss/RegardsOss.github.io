@@ -60,6 +60,16 @@ See [Chain URL parameters](#chain-path-parameters).
 
 {% include_relative generated-snippets/AcquisitionProcessingChainControllerIT/updateChain/http-response.md %}
 
+## Update state and mode
+
+{% include_relative generated-snippets/AcquisitionProcessingChainControllerIT/updateStateAndMode/http-request.md %}
+
+{% include_relative generated-snippets/AcquisitionProcessingChainControllerIT/updateStateAndMode/path-parameters.md %}
+
+{% include_relative generated-snippets/AcquisitionProcessingChainControllerIT/updateStateAndMode/request-body.md %}
+
+{% include_relative generated-snippets/AcquisitionProcessingChainControllerIT/updateStateAndMode/http-response.md %}
+
 ## Delete an acquisition chain
 
 Only disabled acquisition chain can be deleted.
@@ -71,6 +81,24 @@ Only disabled acquisition chain can be deleted.
 {% include_relative generated-snippets/AcquisitionProcessingChainControllerIT/deleteChain/request-body.md %}
 
 {% include_relative generated-snippets/AcquisitionProcessingChainControllerIT/deleteChain/http-response.md %}
+
+## Export a configuration
+
+{% include_relative generated-snippets/AcquisitionProcessingChainControllerIT/exportConfiguration/http-request.md %}
+
+{% include_relative generated-snippets/AcquisitionProcessingChainControllerIT/exportConfiguration/request-fields.md %}
+
+{% include_relative generated-snippets/AcquisitionProcessingChainControllerIT/exportConfiguration/request-body.md %}
+
+{% include_relative generated-snippets/AcquisitionProcessingChainControllerIT/exportConfiguration/http-response.md %}
+
+## Import a configuration
+
+{% include_relative generated-snippets/AcquisitionProcessingChainControllerIT/importConfiguration/http-request.md %}
+
+{% include_relative generated-snippets/AcquisitionProcessingChainControllerIT/importConfiguration/request-body.md %}
+
+{% include_relative generated-snippets/AcquisitionProcessingChainControllerIT/importConfiguration/http-response.md %}
 
 # Search files API
 
