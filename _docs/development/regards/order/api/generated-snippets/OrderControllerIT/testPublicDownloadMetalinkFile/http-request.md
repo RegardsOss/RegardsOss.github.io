@@ -2,7 +2,7 @@
 
         ***URL**
 
-        `/user/orders/metalink/download?orderToken=eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJkZWZhdWx0X3VzZXJAcmVnYXJkcy5mciIsInJvbGUiOiJSRUdJU1RFUkVEX1VTRVIiLCJPUkRFUl9JRCI6IjIxIiwiZXhwIjoxNTY0MDM5ODAzLCJ0ZW5hbnQiOiJvcmRlcjEiLCJlbWFpbCI6ImRlZmF1bHRfdXNlckByZWdhcmRzLmZyIn0.jpkLs9zepSqDd4dDph6zY5aFn8BETltYw4ak6c7HxxQ`
+        `/user/orders/metalink/download?orderToken=eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJkZWZhdWx0X3VzZXJAcmVnYXJkcy5mciIsInJvbGUiOiJSRUdJU1RFUkVEX1VTRVIiLCJPUkRFUl9JRCI6IjE5IiwiZXhwIjoxNTg5NjMwNjc3LCJ0ZW5hbnQiOiJvcmRlcjEiLCJlbWFpbCI6ImRlZmF1bHRfdXNlckByZWdhcmRzLmZyIn0.jvTqh6cRhwNZz_3oO1hyr1qX-KciHtm56AqMCztbvXU`
 
         ***URL template**
 

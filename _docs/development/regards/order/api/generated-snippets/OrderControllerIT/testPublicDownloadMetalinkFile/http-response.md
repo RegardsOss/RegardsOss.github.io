@@ -10,8 +10,8 @@
         `X-Frame-Options:DENY`
         `X-Content-Type-Options:nosniff`
         `Access-Control-Allow-Headers:authorization, content-type, scope`
-        `Content-Disposition:attachment;filename=order_21_2019-07-22T07:30:04.096Z.metalink`
         `Access-Control-Max-Age:3600`
+        `Content-Disposition:attachment;filename=order_19_2020-05-13T14:04:40.355+02:00.metalink`
         `Access-Control-Allow-Origin:*`
         `Cache-Control:no-cache, no-store, max-age=0, must-revalidate`
         `Access-Control-Allow-Methods:POST, PUT, GET, OPTIONS, DELETE`

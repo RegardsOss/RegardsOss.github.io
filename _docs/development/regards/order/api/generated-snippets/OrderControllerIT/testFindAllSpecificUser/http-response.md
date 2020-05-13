@@ -29,15 +29,15 @@
   },
   "content" : [ {
     "content" : {
-      "id" : 27,
+      "id" : 24,
       "owner" : "other.user2@regards.fr",
-      "creationDate" : "2019-07-22T07:30:04.477Z",
-      "expirationDate" : "2019-07-25T07:30:04.477Z",
+      "creationDate" : "2020-05-13T12:04:46.351Z",
+      "expirationDate" : "2020-05-16T12:04:46.351Z",
       "percentCompleted" : 0,
       "filesInErrorCount" : 0,
       "availableFilesCount" : 0,
       "status" : "PENDING",
-      "statusDate" : "2019-07-22T07:30:04.477Z",
+      "statusDate" : "2020-05-13T12:04:46.351Z",
       "waitingForUser" : false,
       "datasetTasks" : [ ]
     },
