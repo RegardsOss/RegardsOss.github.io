@@ -10,7 +10,7 @@
 
         ***Method**
 
-        `GET`
+        `POST`
 
         ***Headers**
 

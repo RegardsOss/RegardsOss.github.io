@@ -3,8 +3,14 @@
 ```json
     {
   "metadata" : {
-    "processing" : "DefaultProcessingChain",
-    "session" : "sessionId"
+    "sessionOwner" : "sessionOwner",
+    "session" : "session",
+    "ingestChain" : "DefaultProcessingChain",
+    "storages" : [ {
+      "pluginBusinessId" : "disk",
+      "targetTypes" : [ ]
+    } ],
+    "categories" : [ "CAT" ]
   },
   "features" : [ {
     "ipType" : "DATA",
@@ -22,8 +28,9 @@
         },
         "dataObject" : {
           "regardsDataType" : "RAWDATA",
-          "reference" : false,
-          "urls" : [ "file:/app_to_build/ingest/ingest-rest/data1.fits" ],
+          "locations" : [ {
+            "url" : "file:/home/kevin/git/rs-ingest/ingest/ingest-rest/data1.fits"
+          } ],
           "filename" : "data1.fits",
           "algorithm" : "FAKE_ALGO",
           "checksum" : "sdsdfm1211vd"
@@ -37,9 +44,7 @@
         },
         "fixityInformation" : { },
         "accessRightInformation" : { }
-      },
-      "descriptiveInformation" : { },
-      "miscInformation" : { }
+      }
     },
     "type" : "Feature"
   }, {
@@ -58,8 +63,9 @@
         },
         "dataObject" : {
           "regardsDataType" : "RAWDATA",
-          "reference" : false,
-          "urls" : [ "file:/app_to_build/ingest/ingest-rest/data2.fits" ],
+          "locations" : [ {
+            "url" : "file:/home/kevin/git/rs-ingest/ingest/ingest-rest/data2.fits"
+          } ],
           "filename" : "data2.fits",
           "algorithm" : "MD5",
           "checksum" : "sdsdfm1211vsdfdsfd"
@@ -73,9 +79,7 @@
         },
         "fixityInformation" : { },
         "accessRightInformation" : { }
-      },
-      "descriptiveInformation" : { },
-      "miscInformation" : { }
+      }
     },
     "type" : "Feature"
   } ],

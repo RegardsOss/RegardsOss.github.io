@@ -202,3 +202,121 @@ request.
 {% include_relative generated-snippets/IngestProcessingChainControllerIT/exportProcessingChain/path-parameters.md %}
 
 {% include_relative generated-snippets/IngestProcessingChainControllerIT/exportProcessingChain/http-response.md %}
+
+# AIP API
+
+
+## Search AIPs
+
+{% include_relative generated-snippets/AIPControllerIT/searchAIPs/http-request.md %}
+
+{% include_relative generated-snippets/AIPControllerIT/searchAIPs/request-fields.md %}
+
+{% include_relative generated-snippets/AIPControllerIT/searchAIPs/request-body.md %}
+
+{% include_relative generated-snippets/AIPControllerIT/searchAIPs/http-response.md %}
+
+{% include_relative generated-snippets/AIPControllerIT/searchAIPs/response-fields.md %}
+
+## Search AIP categories
+
+{% include_relative generated-snippets/AIPControllerIT/searchAIPCategories/http-request.md %}
+
+{% include_relative generated-snippets/AIPControllerIT/searchAIPCategories/request-fields.md %}
+
+{% include_relative generated-snippets/AIPControllerIT/searchAIPCategories/request-body.md %}
+
+{% include_relative generated-snippets/AIPControllerIT/searchAIPCategories/http-response.md %}
+
+{% include_relative generated-snippets/AIPControllerIT/searchAIPCategories/response-fields.md %}
+
+## Search AIP storages
+
+{% include_relative generated-snippets/AIPControllerIT/searchAIPStorages/http-request.md %}
+
+{% include_relative generated-snippets/AIPControllerIT/searchAIPStorages/request-fields.md %}
+
+{% include_relative generated-snippets/AIPControllerIT/searchAIPStorages/request-body.md %}
+
+{% include_relative generated-snippets/AIPControllerIT/searchAIPStorages/http-response.md %}
+
+{% include_relative generated-snippets/AIPControllerIT/searchAIPStorages/response-fields.md %}
+
+## Search AIP tags
+
+{% include_relative generated-snippets/AIPControllerIT/searchAIPStorages/http-request.md %}
+
+{% include_relative generated-snippets/AIPControllerIT/searchAIPStorages/request-fields.md %}
+
+{% include_relative generated-snippets/AIPControllerIT/searchAIPStorages/request-body.md %}
+
+{% include_relative generated-snippets/AIPControllerIT/searchAIPStorages/http-response.md %}
+
+{% include_relative generated-snippets/AIPControllerIT/searchAIPStorages/response-fields.md %}
+
+## Delete AIPs
+
+{% include_relative generated-snippets/AIPControllerIT/testDeleteAips/http-request.md %}
+
+{% include_relative generated-snippets/AIPControllerIT/testDeleteAips/request-fields.md %}
+
+{% include_relative generated-snippets/AIPControllerIT/testDeleteAips/request-body.md %}
+
+{% include_relative generated-snippets/AIPControllerIT/testDeleteAips/http-response.md %}
+
+
+## Retrieve AIP version history
+
+{% include_relative generated-snippets/AIPControllerIT/testRetrieveAIPVersionHistory/http-request.md %}
+
+{% include_relative generated-snippets/AIPControllerIT/testRetrieveAIPVersionHistory/request-fields.md %}
+
+{% include_relative generated-snippets/AIPControllerIT/testRetrieveAIPVersionHistory/request-body.md %}
+
+{% include_relative generated-snippets/AIPControllerIT/testRetrieveAIPVersionHistory/http-response.md %}
+
+{% include_relative generated-snippets/AIPControllerIT/testRetrieveAIPVersionHistory/response-fields.md %}
+
+## Update AIP
+
+{% include_relative generated-snippets/AIPControllerIT/testUpdateAips/http-request.md %}
+
+{% include_relative generated-snippets/AIPControllerIT/testUpdateAips/request-fields.md %}
+
+{% include_relative generated-snippets/AIPControllerIT/testUpdateAips/request-body.md %}
+
+{% include_relative generated-snippets/AIPControllerIT/testUpdateAips/http-response.md %}
+
+
+# Request API
+
+
+## Search requests
+
+{% include_relative generated-snippets/RequestControllerIT/searchRequests/http-request.md %}
+
+{% include_relative generated-snippets/RequestControllerIT/searchRequests/request-fields.md %}
+
+{% include_relative generated-snippets/RequestControllerIT/searchRequests/request-body.md %}
+
+{% include_relative generated-snippets/RequestControllerIT/searchRequests/http-response.md %}
+
+## Delete requests 
+
+{% include_relative generated-snippets/RequestControllerIT/deleteRequests/http-request.md %}
+
+{% include_relative generated-snippets/RequestControllerIT/deleteRequests/request-fields.md %}
+
+{% include_relative generated-snippets/RequestControllerIT/deleteRequests/request-body.md %}
+
+{% include_relative generated-snippets/RequestControllerIT/deleteRequests/http-response.md %}
+
+## Retry requests 
+
+{% include_relative generated-snippets/RequestControllerIT/retryRequests/http-request.md %}
+
+{% include_relative generated-snippets/RequestControllerIT/retryRequests/request-fields.md %}
+
+{% include_relative generated-snippets/RequestControllerIT/retryRequests/request-body.md %}
+
+{% include_relative generated-snippets/RequestControllerIT/retryRequests/http-response.md %}

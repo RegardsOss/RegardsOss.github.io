@@ -1,6 +1,6 @@
 #### Request
 
-* **Code:** 206 Partial Content
+* **Code:** 200 OK
 
         **Headers:**
 
@@ -20,16 +20,15 @@
 
 ```json
     
-[ {
-  "id" : "providerId31",
-  "sipId" : "URN:SIP:DATA:PROJECT:48c45ca7-0b58-3763-96d6-26d83b2eedf4:V1",
-  "version" : 1,
-  "state" : "CREATED"
-}, {
-  "id" : "providerId32",
-  "sipId" : "URN:SIP:DATA:PROJECT:d6d1777c-e8d2-365c-a95a-c4da1c7d73d4:V1",
-  "version" : 1,
-  "state" : "REJECTED",
-  "rejectionCauses" : [ "{Validation annotation @fr.cnes.regards.framework.file.utils.validation.HandledMessageDigestAlgorithm validating PLOUF: it is not an handled algorithm for checksum computation at properties.contentInformations[0].dataObject.algorithm: rejected value [null].", "A representation information is required in content information at properties.contentInformations[0].representationInformation: rejected value [null].", "Information package type is required at ipType: rejected value [null]." ]
-} ]
+{
+  "granted" : {
+    "providerId31" : "a653e922-cb45-471a-890d-ab7fdaaf0b30"
+  },
+  "denied" : {
+    "providerId32" : "{Validation annotation @fr.cnes.regards.framework.file.utils.validation.HandledMessageDigestAlgorithm validating PLOUF: it is not an handled algorithm for checksum computation at properties.contentInformations[0].dataObject.algorithm: rejected value [null]., Information package type is required at ipType: rejected value [null]., A representation information is required in content information at properties.contentInformations[0].representationInformation: rejected value [null]."
+  },
+  "messages" : [ "SIP Collection ingestion scheduled" ],
+  "sessionOwner" : "sampleSessionOwner",
+  "session" : "sampleSession"
+}
 ```

@@ -3,8 +3,14 @@
 ```json
     {
   "metadata" : {
-    "processing" : "DefaultProcessingChain",
-    "session" : "sessionId"
+    "sessionOwner" : "sessionOwner",
+    "session" : "session",
+    "ingestChain" : "DefaultProcessingChain",
+    "storages" : [ {
+      "pluginBusinessId" : "disk",
+      "targetTypes" : [ ]
+    } ],
+    "categories" : [ "CAT" ]
   },
   "features" : [ {
     "ipType" : "DATA",
@@ -25,8 +31,9 @@
         },
         "dataObject" : {
           "regardsDataType" : "RAWDATA",
-          "reference" : false,
-          "urls" : [ "file:/app_to_build/ingest/ingest-rest/data1.fits" ],
+          "locations" : [ {
+            "url" : "file:/home/kevin/git/rs-ingest/ingest/ingest-rest/data1.fits"
+          } ],
           "filename" : "data1.fits",
           "algorithm" : "MD5",
           "checksum" : "b463726cfbb52d47e432bedf08edbec3",
@@ -85,11 +92,6 @@
         "dateProperty" : "2014-05-03T01:10:17Z",
         "longProperty" : 987654,
         "stringProperty" : "Lorem ipsum dolor sit amet"
-      },
-      "miscInformation" : {
-        "key-misc-1" : "misc value 1",
-        "key-misc-2" : "2014-02-10T00:00:01.123Z",
-        "key-misc-3" : "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
       }
     },
     "type" : "Feature",
