@@ -13,7 +13,7 @@ A front-end service plugin is a javascript bundle used by [search results module
 ![](/assets/images/frontend/plugins/services-example.png)
 *Some services example: on lines, services for one entity. On header, services for current selection.*
 
-**Notes**:  Service plugin also respects main plugin consideration. Thus, make sure reading [plugins page](/frontend/plugins/plugins) first!
+**Notes**:  Service plugin also respects main plugin consideration. Thus, make sure reading [plugins page](/frontend/plugins/plugins/) first!
 
 A service may work for one or for many data objects. It allows defining administrator (static) and user (dynamic) parameters for execution. 
 
@@ -202,7 +202,7 @@ class MyServiceContainer extends React.Component {
   // ...
 
 componentDidMount() {
-    const { getReducePromise, configuration: { dynamic: { pDate } } } = this.props
+    const { getReducePromise } = this.props
     getReducePromise((previousResult, entity, index) => {
       // retreat the entity and append treament result to previously managed entities array
       return [...previousResults, this.doSomethingWithEntity(entity)]

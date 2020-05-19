@@ -220,7 +220,7 @@ That component receives, no matter the plugin type, the property `pluginInstance
 
 **Notes:**
 * Other plugin properties are specific to the plugin type, see [criterion](/frontend/plugins/plugin-criteria/) or [service](/frontend/plugins/plugin-services/) plugin pages for more detail.
-* Component is instantiated with current **intl** and **intl** context (see [Internationalization](/frontend/components/internationalization) and [Theme](/frontend/components/theme) pages for more detail)
+* Component is instantiated with its own **intl** and **theme**, using current context (see [Internationalization](/frontend/components/internationalization/) and [Theme](/frontend/components/theme/) pages for more detail)
 
 
 ## Redux management in plugins

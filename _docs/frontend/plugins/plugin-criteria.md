@@ -14,7 +14,7 @@ A front-end criterion plugin is a javascript bundle used in [Search results modu
 *Example of search form, using many criterion plugins*
 
 **Notes** :
-* Criterion plugin also respects main plugin consideration. Thus, make sure reading [plugins page](/frontend/plugins/plugins) first!
+* Criterion plugin also respects main plugin consideration. Thus, make sure reading [plugins page](/frontend/plugins/plugins/) first!
 * OpenSearch requests are expressed using the [Lucene format](https://lucene.apache.org/core/2_9_4/queryparsersyntax.html).
 
 # Main principles
@@ -184,12 +184,14 @@ Optionally, criterion state can hold the field **error**, at state root. When th
 
 # Example
 
-To illustrate it, let take the following example: 
-we want to implement a criterion plugin that selects any data object where value **IS EQUAL TO** or **IS NOT EQUAL TO** the user entered value. In that example, let's call it `SimpleCriterion`, the user selects the operator to use and enters the value. To - artificially - manage an error state too, let's say the criterion is in error when user enters a negative number.
+To illustrate it, lets take the following example: 
+we want to implement a criterion plugin that selects any data object where value **IS EQUAL TO** or **IS NOT EQUAL TO** the user entered value. In that example, the user selects the operator to use and enters the value. To - artificially - manage an error state too, let's say the criterion is in error when user enters a negative number.
 
 The criterion request parameters would be expressed as following:
 * When IS EQUAL TO operator is selected: `{ q: "${attributeJsonPath}:${userEnteredValue}" }`, like `{ q: 'attr1: 18' }` for instance.
 * When IS NOT EQUAL TO operator is selected: `{ q: "${attributeJsonPath}:!${userEnteredValue}" }`, like `{ q:' attr1:!18' }` for instance.
+
+*Note that q is the search query parameter name. If multiple criteria provide a value for that parameter, it will hold all values like `q: p1 AND p2 AND p3`. Therefore many criteria can work with it at same time.
 
 ## Writing plugin-info.json
 
@@ -224,8 +226,7 @@ First, the requested attribute should be added to the configuration. Doing so le
 
 ## Initializing main file
 
-Lets name the main component `ExampleCriterionContainer`.jsx' here. As we will not use the reducers for that example,
-the 'main.js' file should hold the following code:
+Lets name the main component `ExampleCriterionContainer.jsx` here. As we will not use any reducer for that example, the 'main.js' file should hold the following code:
 ```js
 initPlugin(ExampleCriterionContainer, pluginInfo, getReducer, messages, styles)
 ```
@@ -238,7 +239,7 @@ First we should define what is the main component state. To build the query, the
 * the operator currently selected by user (equal or different)
 * The value entered by the user  
 
-As we also handle here and error state (when user inputs a negative number), the state would look like:
+As we also handle here an error state (when user inputs a negative number), the state would look like:
 
 ```js
 state={
@@ -345,7 +346,7 @@ Most of the time, in REGARDS, state management is performed in container and gra
 ## Graphical component implementation
 
 The graphical implementation is quite straightforward. To keep the code light we'll suppose here to have an OperatorSelector that renders and selects one of Operators values and a NumberInput that renders errors and current value. Although it is not exactly the same operators, similar examples can be found in most default plugins.
-Please note that the component renders itself in a table row, as search form is drawn using an HTML table. We will also use here the common applicative theme.
+Please note that the component renders itself in a table row, as search form is drawn using an HTML table. We will also use here the common application theme.
 
 ```jsx
 export class ExampleCriterionComponent extends React.Component {
@@ -373,7 +374,7 @@ export class ExampleCriterionComponent extends React.Component {
     const { intl, muiTheme } = this.context
      return (
       <tr>
-        {/* 1. First column: label (locale is found in intl context) */}
+        {/* 1. First column: label (current locale is found in intl context) */}
         <td style={muiTheme.module.searchResults.searchPane.criteria.firstCell}>
           {label[intl.locale]}
         </td>
