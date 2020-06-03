@@ -169,8 +169,11 @@ group_container_root_group: 'gregards_admin'
 # Used to create folders mounted by containers, all files created by containers will use this user
 group_container_run_user: 'docker-regards-data'
 group_container_run_group: 'gregards_data'
-# User and group ids to run containers, which shall be root inside containers
-# and fallback to group_container_run_user:group_container_run_group on the host server
+# When Docker user namespace is active, we substract from the run_user:run_group
+# the shift we setup in Docker. It ensures that
+# 1. containers are running with run_user:run_group on host server
+# 2. inside containers, prevent privilege escalation as uid:gid are at least the Docker uid:gid shift
+# When unactive, just provide run_user uid and run_group gid
 group_container_run_uid: 3050
 group_container_run_gid: 1050
 
@@ -446,7 +449,10 @@ In the history, there is no container starting again and again every minutes. Th
 Moreover, we display the number of running containers and the number of expected ones. In this exemple everything is fine (`[RUNNING]	25/25`).
 The current state of these containers is also important. You need to wait 5 to 15 minutes to see if containers succeed to boot, some containers are waiting to others so they usually crash in that short period if there is some files unwritable, COTS not accessible...
 
-Let's see how I can debug some microservice.
+> The number of running services depends of your inventory. You may see less actives services than this exemple, but the `[RUNNING]	X/X` must equals 100%.
+{: .tip .info}
+
+Now, let's see how you can debug some microservice.
 First, let's remove the elasticsearch:
 
 ```bash
