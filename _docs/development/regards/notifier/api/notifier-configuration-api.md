@@ -15,22 +15,33 @@ In order to make the configuration simple and easily adjustable, we use the impo
 {% include development/api/importexport/import-api.md %}
 
 Configuration parameters :
- - `Reset`: You can configure to delete all previous configuration before import new one.
+ - `resetBeforeImport`: You can configure to delete all previous configuration before import new one.
  - `RuleMatcher`: Configuration of rules based on [plugins](/development/regards/notifier/api/notifier-plugins/). Rules are used to define if a notification should be sent to associated RecipientSenders
  - `RecipientSender`: Configuration of notification senders based on [plugins](/development/regards/notifier/api/notifier-plugins/). Senders are used to define how to send notification to recipients.
  - `Rule/RecipientSenders assocation` : Configuration to associates one RuleMatcher to one or many RecipientSenders
 
-Configure global reset parameter :
+
 ```json
 {
- "key": "fr.cnes.regards.modules.notifier.dto.conf.NotifierConfigurationCleaner",
-  "value": {
-    "clean":true
-  }
-},
+  "microservice": "rs-notifier",
+  "modules": [
+    {
+      "module": {
+        "id": "notifier"
+      },
+      "resetBeforeImport":  true,
+      "configuration": [...]
+    }
+}
 ```
 
+Configure global reset parameter :
+
+Setting the `resetBeforeImport` parameter to true to reset all previous configuration of notifier before creating the imported one.
+
 Configure plugins (Rule or RecipientSender) :
+
+Add the here under part in the configuration property of the import configuration file :
 ```json
 {
   "key": "fr.cnes.regards.framework.modules.plugins.domain.PluginConfiguration",
@@ -48,6 +59,8 @@ Configure plugins (Rule or RecipientSender) :
 },
 ```
 Configure RuleMatcher/RecipientSenders  assocation :
+
+Add the here under part in the configuration property of the import configuration file :
 ```json
 {
   "key": "fr.cnes.regards.modules.notifier.dto.conf.RuleRecipientsAssociation",
@@ -68,6 +81,7 @@ Configure RuleMatcher/RecipientSenders  assocation :
       "module": {
         "id": "notifier"
       },
+      "resetBeforeImport":  true,
       "configuration": [
         {
           "key": "fr.cnes.regards.framework.modules.plugins.domain.PluginConfiguration",
@@ -111,6 +125,42 @@ Configure RuleMatcher/RecipientSenders  assocation :
   ]
 }
 ```
+
+#### Disable a configured rule
+
+In order to disable a configured rule you can import the same configuration file changing the `active` value from true to false.
+
+```json
+{
+  "microservice": "rs-notifier",
+  "modules": [
+    {
+      "module": {
+        "id": "notifier"
+      },
+      "resetBeforeImport":  false,
+      "configuration": [
+        {
+          "key": "fr.cnes.regards.framework.modules.plugins.domain.PluginConfiguration",
+          "value": {
+            "pluginId":"DefaultRuleMatcher",
+            "label":"Rule by type",
+            "businessId":"RuleByType",
+            "version":"1.0.0",
+            "priorityOrder":0,
+            "active":false,
+            "parameters":[
+              {"name":"attributeValueToSeek", "type":"STRING", "value":"L0A_LR_Packet"},
+              {"name":"attributeToSeek", "type":"STRING", "value":"type"}
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}
+```
+
 
 {% include development/api/importexport/export-api.md %}
 
