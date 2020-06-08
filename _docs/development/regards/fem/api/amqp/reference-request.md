@@ -13,7 +13,8 @@
         ],
         "priority": "NORMAL"
     },
-    "location": "http://www.test.com/filename.xml",
-    "factory": "{factory identifier}"
+    "factory": "{factory identifier}",
+    "parameters": {
+    }
 }
 ```

@@ -49,7 +49,7 @@ With following properties:
 |requestOwner| String of max 128 characters long|
 |requestDate| ISO 8601 date|
 |metadata|(look at [description above](#metadatappt))|
-|location| String referencing a file (URL format may be a good choice)|
+|parameters| Free JSON parameters able to be handled by related factory |
 |factory|Plugin business identifier representing the feature factory to use| 
 {:.table.table-striped}
 
