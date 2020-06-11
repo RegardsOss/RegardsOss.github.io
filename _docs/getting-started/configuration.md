@@ -204,8 +204,7 @@ If you want increased security on RabbitMQ, you can run `rabbitmqctl set_permiss
 
 ## Elasticsearch
 
-Install [ElasticSearch](https://www.elastic.co/fr/downloads) 5.6.X.  
-`Notice :` Do not use a further version like 6.X. 
+Install [ElasticSearch](https://www.elastic.co/fr/downloads) 6.5.X.  
 
 If `grep vm.max_map_count /etc/sysctl.conf` returns empty, you need to execute the following:
 
