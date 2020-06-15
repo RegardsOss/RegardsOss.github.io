@@ -14,10 +14,7 @@ Request has to be published on this exchange : `regards.broadcast.fr.cnes.regard
 With following properties:
 
 |Property|Type|
-|:--:|:---------:|
-|requestId| String of max 36 characters long|
-|requestOwner| String of max 128 characters long|
-|requestDate| ISO 8601 date|
+|----|-----------|
 |metadata|(look at [description above](#metadatappt))|
 |feature|(look at [description above](#payloadppt))|
 {:.table.table-striped}
@@ -25,11 +22,14 @@ With following properties:
 And following headers:
 
 |Header|Value|
-|:--:|:---------:|
-|regards.converter| GSON|
+|----|-----------|
 |regards.tenant| The tenant|
-|regards.type|fr.cnes.regards.modules.feature.dto.event.in.FeatureCreationRequestEvent|
+|regards.request.id| String of max 36 characters long|
+|regards.request.date| ISO 8601 date|
+|regards.request.owner| String of max 128 characters long|
 {:.table.table-striped}
+
+{% include_relative amqp/migration-1.2.0-1.3.0.md %}
 
 #### Example
 
@@ -44,12 +44,9 @@ Request has to be published on this exchange : `regards.broadcast.fr.cnes.regard
 With following properties:
 
 |Property|Type|
-|:--:|:---------:|
-|requestId| String of max 36 characters long|
-|requestOwner| String of max 128 characters long|
-|requestDate| ISO 8601 date|
+|----|-----------|
 |metadata|(look at [description above](#metadatappt))|
-|parameters| Free JSON parameters able to be handled by related factory |
+|parameters| Free JSON parameters to be used by related factory |
 |factory|Plugin business identifier representing the feature factory to use| 
 {:.table.table-striped}
 
@@ -59,16 +56,18 @@ With following properties:
 And following headers:
 
 |Header|Value|
-|:--:|:---------:|
-|regards.converter| GSON|
+|----|-----------|
 |regards.tenant| The tenant|
-|regards.type|fr.cnes.regards.modules.feature.dto.event.in.FeatureReferenceRequestEvent|
+|regards.request.id| String of max 36 characters long|
+|regards.request.date| ISO 8601 date|
+|regards.request.owner| String of max 128 characters long|
 {:.table.table-striped}
+
+{% include_relative amqp/migration-1.2.0-1.3.0.md %}
 
 #### Example
 
 {% include_relative amqp/reference-request.md %}
-
 
 ### Feature patch request
 
@@ -77,10 +76,7 @@ Request has to be published on this exchange : `regards.broadcast.fr.cnes.regard
 With following properties:
 
 |Property|Type|
-|:--:|:---------:|
-|requestId| String of max 36 characters long|
-|requestOwner| String of max 128 characters long|
-|requestDate| ISO 8601 date|
+|----|-----------|
 |metadata.priority|(look at [description above](#metadatappt))|
 |metadata.storages|(look at [description above](#metadatappt))|
 |feature|(look at [description above](#payloadppt))|
@@ -89,14 +85,17 @@ With following properties:
 > Only properties to be updated can be passed on ... they will be merged with existing ones.
 {: .tip .info}
 
-With following headers:
+And following headers:
 
 |Header|Value|
-|:--:|:---------:|
-|regards.converter| GSON|
+|----|-----------|
 |regards.tenant| The tenant|
-|regards.type|fr.cnes.regards.modules.feature.dto.event.in.FeatureUpdateRequestEvent|
+|regards.request.id| String of max 36 characters long|
+|regards.request.date| ISO 8601 date|
+|regards.request.owner| String of max 128 characters long|
 {:.table.table-striped}
+
+{% include_relative amqp/migration-1.2.0-1.3.0.md %}
 
 #### Example
 
@@ -107,10 +106,7 @@ With following headers:
 Request has to be published on this exchange : `regards.broadcast.fr.cnes.regards.modules.feature.dto.event.in.FeatureDeletionRequestEvent`
 
 |Property|Type|
-|:--:|:---------:|
-|requestId| String of max 36 characters long|
-|requestOwner| String of max 128 characters long|
-|requestDate| ISO 8601 date|
+|----|-----------|
 |priority|(look at [description above](#metadatappt))|
 |urn|Unique identifier of the feature|
 {:.table.table-striped}
@@ -118,11 +114,14 @@ Request has to be published on this exchange : `regards.broadcast.fr.cnes.regard
 With following headers:
 
 |Header|Value|
-|:--:|:---------:|
-|regards.converter| GSON|
+|----|-----------|
 |regards.tenant| The tenant|
-|regards.type|fr.cnes.regards.modules.feature.dto.event.in.FeatureDeletionRequestEvent|
+|regards.request.id| String of max 36 characters long|
+|regards.request.date| ISO 8601 date|
+|regards.request.owner| String of max 128 characters long|
 {:.table.table-striped}
+
+{% include_relative amqp/migration-1.2.0-1.3.0.md %}
 
 #### Example
 
@@ -136,8 +135,8 @@ Messages are published on this exchange : `regards.broadcast.fr.cnes.regards.mod
 
 Structure of the message is as follows :
 
-* The `requestId`,
-* The `requestOwner`,
+* The `requestId` (corresponds to `regards.request.id` header),
+* The `requestOwner` (corresponds to `regards.request.owner` header),
 * The related feature `id`,
 * The related feature `urn`,
 * The state of the request (`GRANTED`,`DENIED`,`ERROR` or `SUCCESS`),
@@ -149,15 +148,15 @@ Structure of the message is as follows :
 > If AMQP virtual host mode is set to `SINGLE`, this exchange will receive all messages of all tenants! So the receiver may have to filter them according to the tenant he wishes to manage.
 {: .tip .warning}
 
-> Malformed requests can be routed to AMQP Dead Letter Queue (DLQ) so no response will be published. However, a notification is sent to the administrators of the project in order to tell them to inspect DLQ.
+> Requests without `requestId` can be routed to AMQP Dead Letter Queue (DLQ) so no response will be published. However, a notification is sent to the administrators of the project in order to tell them to inspect DLQ.
 {: .tip .warning}
 
 #### Example of DENIED request
-
+|:
 ```json
 {
     "requestId": "{requestId}",
-    "requestId": "{requestOwner}",
+    "requestOwner": "{requestOwner}",
     "id": "{featureId}",
     "state": "DENIED",
     "errors": ["error1", "error2"]
@@ -169,7 +168,7 @@ Structure of the message is as follows :
 ```json
 {
     "requestId": "{requestId}",
-    "requestId": "{requestOwner}",
+    "requestOwner": "{requestOwner}",
     "id": "{featureId}",
     "state": "GRANTED"
 }
@@ -180,7 +179,7 @@ Structure of the message is as follows :
 ```json
 {
     "requestId": "{requestId}",
-    "requestId": "{requestOwner}",
+    "requestOwner": "{requestOwner}",
     "id": "{featureId}",
     "urn": "{featureGeneratedUrn}",
     "state": "SUCCESS"
@@ -193,7 +192,7 @@ Structure of the message is as follows :
 ```json
 {
     "requestId": "{requestId}",
-    "requestId": "{requestOwner}",
+    "requestOwner": "{requestOwner}",
     "id": "{featureId}",
     "urn": "{featureGeneratedUrn}",
     "state": "ERROR",

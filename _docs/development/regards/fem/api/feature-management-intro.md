@@ -6,14 +6,15 @@
 
 `Feature Management` reponsabilities:
 
-* Create, patch or Delete data references,
+* Create (directly or by reference), patch or delete data references,
+* Re-notify stakeholders of existing data references,
 * Delegate the storage of files (if any) to `Storage Management`.
 
-To edit this repository, a data producer has to send **edit requests**.
+To edit this repository, a data producer has to send **requests**.
 
 At the moment, 2 API are available :
 
-* Messaging API ([AMQP](https://www.amqp.org/)) allows to publish creation, patch or deletion requests on specific exchanges.
+* Messaging API ([AMQP](https://www.amqp.org/)) allows to publish creation, reference, patch, deletion and notification requests on specific exchanges.
 * HTTP REST API allows to submit creation requests (as `POST` HTTP requests), update requests (as `PATCH` HTTP requests) or deletion requests (as `DELETE` HTTP requests).
 
 ![Feature management architectural concepts](/assets/schemas/feature_management/architectural_concepts_fem.png)
