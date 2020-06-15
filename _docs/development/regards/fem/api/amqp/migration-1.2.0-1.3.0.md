@@ -15,7 +15,7 @@ Removed headers:
 |Header|Value|
 |----|-----------|
 |regards.converter| GSON|
-|regards.type|fr.cnes.regards.modules.feature.dto.event.in.FeatureCreationRequestEvent|
+|regards.type|fr.cnes.regards.modules.feature.dto.event.in.*|
 {:.table.table-striped}
 
 New headers:
