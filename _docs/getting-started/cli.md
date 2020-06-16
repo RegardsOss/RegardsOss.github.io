@@ -33,21 +33,27 @@ In order to start REGARDS, you will have to run specific commands.
 /opt/regards/REGARDS/bin/start_microservice.sh -t {component_name}
 ```
 
-microservices start order :
+Microservices start order :
  1. `config` : All microservices get their centralized configuration from this microservice
- 1. `registry` : All microservices register themself to this registry
- 1. `admin-instance` : All microservices get their database connections information from this microservice
- 1. `admin` : All microservices get users information from this microservice
- 1. `access-instance` : Configuration of instance HMI (admin instance & portal)
- 1. `access-project` : Configration of projet HMI
- 1. `gateway` : Load balancer
+ 2. `registry` : All microservices register themself to this registry
+ 3. `admin-instance` : All microservices get their database connections information from this microservice
+ 4. `admin` : All microservices get users information from this microservice
+ 5. `dam` : Handle data management
+ 
+ Once those microservices are up you start all remaining microservices
+
  1. `authentication` : All microservices use this microservice to check user authentications
- 1. `storage` : Handle data files storage
- 1. `dam` : Handle data management
- 1. `catalog` : Handle project catalog
- 1. `order` : handle orders
- 1. `ingest` : Handle SIP ingestion
- 1. `dataprovider` : Handle SIP generation
+ 2. `catalog` : Handle project catalog
+ 3. `storage` : Handle data files storage
+ 4. `ingest` : Handle SIP ingestion
+ 5. `fem` : Feature manager. Handle GeoJson features
+ 6. `dataprovider` : Handle SIP generation
+ 7. `order` : handle orders
+ 8. `frontend` : All microservices use this microservice to check user authentications
+ 9. `access-instance` : Configuration of instance HMI (admin instance & portal)
+ 10. `access-project` : Configration of projet HMI
+ 11. `gateway` : Load balancer
+ 
 
 ## Check the components status
 You can check if a given component is currently running.
