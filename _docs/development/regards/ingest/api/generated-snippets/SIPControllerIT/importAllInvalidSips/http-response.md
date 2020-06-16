@@ -1,6 +1,6 @@
 #### Request
 
-* **Code:** 422 Unprocessable Entity
+* **Code:** 200 OK
 
         **Headers:**
 
@@ -20,17 +20,15 @@
 
 ```json
     
-[ {
-  "id" : "providerId41",
-  "sipId" : "URN:SIP:DATA:PROJECT:0aa28452-06fe-32f1-8cea-7ba2a1400099:V1",
-  "version" : 1,
-  "state" : "REJECTED",
-  "rejectionCauses" : [ "Data file checksum is required at properties.contentInformations[0].dataObject.checksum: rejected value [null].", "A representation information is required in content information at properties.contentInformations[0].representationInformation: rejected value [null]." ]
-}, {
-  "id" : "providerId42",
-  "sipId" : "URN:SIP:DATA:PROJECT:a7768256-478a-3fa5-889e-e14cd48f04f1:V1",
-  "version" : 1,
-  "state" : "REJECTED",
-  "rejectionCauses" : [ "A representation information is required in content information at properties.contentInformations[0].representationInformation: rejected value [null].", "Information package type is required at ipType: rejected value [null].", "{Validation annotation @fr.cnes.regards.framework.file.utils.validation.HandledMessageDigestAlgorithm validating FAKE: it is not an handled algorithm for checksum computation at properties.contentInformations[0].dataObject.algorithm: rejected value [null]." ]
-} ]
+{
+  "granted" : {
+    "providerId41" : "a9f73d29-d652-485a-9499-eb7d08937aba"
+  },
+  "denied" : {
+    "providerId42" : "{Validation annotation @fr.cnes.regards.framework.file.utils.validation.HandledMessageDigestAlgorithm validating FAKE: it is not an handled algorithm for checksum computation at properties.contentInformations[0].dataObject.algorithm: rejected value [null]., Information package type is required at ipType: rejected value [null]., A representation information is required in content information at properties.contentInformations[0].representationInformation: rejected value [null]."
+  },
+  "messages" : [ "SIP Collection ingestion scheduled" ],
+  "sessionOwner" : "sampleSessionOwner",
+  "session" : "sampleSession"
+}
 ```

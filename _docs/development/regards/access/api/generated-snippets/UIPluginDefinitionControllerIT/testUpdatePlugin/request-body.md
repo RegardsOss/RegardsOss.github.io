@@ -2,7 +2,7 @@
 
 ```json
     {
-  "id" : 65,
+  "id" : 58,
   "name" : "PluginTest",
   "type" : "CRITERIA",
   "sourcePath" : "plugins/new/bundle.js",

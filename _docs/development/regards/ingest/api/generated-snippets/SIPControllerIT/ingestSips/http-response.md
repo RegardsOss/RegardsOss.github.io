@@ -1,6 +1,6 @@
 #### Request
 
-* **Code:** 201 Created
+* **Code:** 200 OK
 
         **Headers:**
 
@@ -20,10 +20,13 @@
 
 ```json
     
-[ {
-  "id" : "SIP_001",
-  "sipId" : "URN:SIP:DATA:PROJECT:dbbbbe05-b6b8-3300-8431-105f505cbb3c:V1",
-  "version" : 1,
-  "state" : "CREATED"
-} ]
+{
+  "granted" : {
+    "SIP_001" : "68d5481b-f2ba-4bce-91d0-a3542443daf4"
+  },
+  "denied" : { },
+  "messages" : [ "SIP Collection ingestion scheduled" ],
+  "sessionOwner" : "sessionOwner",
+  "session" : "session"
+}
 ```

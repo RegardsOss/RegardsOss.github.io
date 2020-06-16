@@ -2,7 +2,7 @@
 
         ***URL**
 
-        `/roles/NEW_ROLE/resources/29`
+        `/roles/NEW_ROLE/resources/25`
 
         ***URL template**
 

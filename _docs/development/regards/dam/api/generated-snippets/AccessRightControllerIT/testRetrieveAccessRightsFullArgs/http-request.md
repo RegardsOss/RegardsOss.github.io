@@ -2,11 +2,11 @@
 
         ***URL**
 
-        `/accessrights?dataset=URN:AIP:DATASET:PROJECT:aaa42286-e558-4c2e-b953-d4aca63e95e7:V1&accessgroup=AG1`
+        `/accessrights?dataset=URN:AIP:DATASET:PROJECT:4ed8e419-0fa0-479b-b50e-23163212eed9:V1&accessgroup=AG1`
 
         ***URL template**
 
-        `/accessrights?dataset=URN:AIP:DATASET:PROJECT:aaa42286-e558-4c2e-b953-d4aca63e95e7:V1&accessgroup=AG1`
+        `/accessrights?dataset=URN:AIP:DATASET:PROJECT:4ed8e419-0fa0-479b-b50e-23163212eed9:V1&accessgroup=AG1`
 
         ***Method**
 

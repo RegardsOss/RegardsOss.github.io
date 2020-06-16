@@ -24,9 +24,9 @@
   "content" : {
     "type" : "COLLECTION",
     "id" : 7,
-    "ipId" : "URN:AIP:COLLECTION:PROJECT:db2db091-35a9-4493-b191-990144e1da70:V1",
-    "creationDate" : "2019-07-19T17:15:15.45Z",
-    "lastUpdate" : "2019-07-19T17:15:15.469Z",
+    "ipId" : "URN:AIP:COLLECTION:PROJECT:2b1a3d3b-e92f-495e-9ab6-200a010b2894:V1",
+    "creationDate" : "2020-05-11T11:39:02.708Z",
+    "lastUpdate" : "2020-05-11T11:39:03.262Z",
     "model" : {
       "id" : 7,
       "name" : "MODEL",
@@ -44,27 +44,29 @@
         "DESCRIPTION" : [ {
           "dataType" : "DESCRIPTION",
           "reference" : false,
-          "uri" : "http://localhost:8080/entities/URN:AIP:COLLECTION:PROJECT:db2db091-35a9-4493-b191-990144e1da70:V1/files/dfbde11bc7762d4a38c38940c1c0a8c3",
-          "mimeType" : "application/pdf;charset=UTF-8",
-          "online" : true,
-          "checksum" : "dfbde11bc7762d4a38c38940c1c0a8c3",
-          "digestAlgorithm" : "MD5",
-          "filesize" : 8083,
-          "filename" : "description.pdf"
-        }, {
-          "dataType" : "DESCRIPTION",
-          "reference" : false,
-          "uri" : "http://localhost:8080/entities/URN:AIP:COLLECTION:PROJECT:db2db091-35a9-4493-b191-990144e1da70:V1/files/6e83e944899e788c361b9c0b6dcb6a90",
+          "uri" : "http://localhost:8080/entities/URN:AIP:COLLECTION:PROJECT:2b1a3d3b-e92f-495e-9ab6-200a010b2894:V1/files/6e83e944899e788c361b9c0b6dcb6a90",
           "mimeType" : "application/pdf;charset=UTF-8",
           "online" : true,
           "checksum" : "6e83e944899e788c361b9c0b6dcb6a90",
           "digestAlgorithm" : "MD5",
           "filesize" : 8092,
-          "filename" : "description2.pdf"
+          "filename" : "description2.pdf",
+          "types" : [ ]
+        }, {
+          "dataType" : "DESCRIPTION",
+          "reference" : false,
+          "uri" : "http://localhost:8080/entities/URN:AIP:COLLECTION:PROJECT:2b1a3d3b-e92f-495e-9ab6-200a010b2894:V1/files/dfbde11bc7762d4a38c38940c1c0a8c3",
+          "mimeType" : "application/pdf;charset=UTF-8",
+          "online" : true,
+          "checksum" : "dfbde11bc7762d4a38c38940c1c0a8c3",
+          "digestAlgorithm" : "MD5",
+          "filesize" : 8083,
+          "filename" : "description.pdf",
+          "types" : [ ]
         } ]
       },
       "tags" : [ ],
-      "id" : "URN:AIP:COLLECTION:PROJECT:db2db091-35a9-4493-b191-990144e1da70:V1",
+      "id" : "URN:AIP:COLLECTION:PROJECT:2b1a3d3b-e92f-495e-9ab6-200a010b2894:V1",
       "properties" : { },
       "type" : "Feature"
     }

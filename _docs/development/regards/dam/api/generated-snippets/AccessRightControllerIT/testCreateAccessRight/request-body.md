@@ -14,8 +14,8 @@
       "dataObjectsGroups" : { }
     },
     "id" : 15,
-    "ipId" : "URN:AIP:DATASET:PROJECT:98cc6510-04c4-4a84-a051-51bad12a1e5a:V1",
-    "creationDate" : "2019-07-19T17:13:40.608Z",
+    "ipId" : "URN:AIP:DATASET:PROJECT:cdebd3ea-b456-4743-85ce-9b5f4e207388:V1",
+    "creationDate" : "2020-05-11T11:42:26.314Z",
     "model" : {
       "id" : 8,
       "name" : "model1",
@@ -32,13 +32,13 @@
       "model" : "model1",
       "files" : { },
       "tags" : [ ],
-      "id" : "URN:AIP:DATASET:PROJECT:98cc6510-04c4-4a84-a051-51bad12a1e5a:V1",
+      "id" : "URN:AIP:DATASET:PROJECT:cdebd3ea-b456-4743-85ce-9b5f4e207388:V1",
       "properties" : { },
       "type" : "Feature"
     }
   },
   "accessGroup" : {
-    "id" : 68,
+    "id" : 17,
     "name" : "AG2",
     "users" : [ ],
     "isPublic" : false,

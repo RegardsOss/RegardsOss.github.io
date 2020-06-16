@@ -1,3 +1,10 @@
     ***Data params**
 
-        None
+```json
+    {
+  "states" : [ ],
+  "providerIds" : [ ],
+  "categories" : [ ],
+  "tags" : [ ]
+}
+```

@@ -29,7 +29,7 @@
   },
   "content" : [ {
     "content" : {
-      "id" : 10,
+      "id" : 61,
       "name" : "AG1",
       "users" : [ ],
       "isPublic" : false,
@@ -41,7 +41,7 @@
     } ]
   }, {
     "content" : {
-      "id" : 11,
+      "id" : 62,
       "name" : "AG2",
       "users" : [ ],
       "isPublic" : true,

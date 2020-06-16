@@ -28,33 +28,31 @@
       "id" : "ingest",
       "name" : "SIP management module",
       "description" : "SIP submission and management",
-      "version" : "0.4.1",
+      "version" : "0.5.0",
       "author" : "CSSI",
       "legalOwner" : "CNES",
       "documentation" : "https://github.com/RegardsOss"
     },
     "configuration" : [ {
-      "key" : "fr.cnes.regards.modules.ingest.domain.entity.IngestProcessingChain",
+      "key" : "fr.cnes.regards.modules.ingest.domain.chain.IngestProcessingChain",
       "value" : {
         "name" : "DefaultProcessingChain",
         "validationPlugin" : {
           "pluginId" : "DefaultSipValidation",
           "label" : "DefaultSIPValidation",
+          "businessId" : "867315dc-62c8-4e90-95c1-369aa5220590",
           "version" : "1.0.0",
           "priorityOrder" : 0,
           "active" : true,
-          "pluginClassName" : "fr.cnes.regards.modules.ingest.service.plugin.DefaultSipValidation",
-          "interfaceNames" : [ "fr.cnes.regards.modules.ingest.domain.plugin.ISipValidation" ],
           "parameters" : [ ]
         },
         "generationPlugin" : {
           "pluginId" : "DefaultSingleAIPGeneration",
           "label" : "DefaultAIPGeneration",
+          "businessId" : "39ed9c5d-6c43-45ef-9199-9e18b5a6f7c9",
           "version" : "1.0.0",
           "priorityOrder" : 0,
           "active" : true,
-          "pluginClassName" : "fr.cnes.regards.modules.ingest.service.plugin.DefaultSingleAIPGeneration",
-          "interfaceNames" : [ "fr.cnes.regards.modules.ingest.domain.plugin.IAipGeneration" ],
           "parameters" : [ ]
         }
       }

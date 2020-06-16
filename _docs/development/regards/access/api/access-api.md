@@ -19,6 +19,33 @@ title: REGARDS Access API
 
 {% include_relative generated-snippets/LinkUIPluginDatasetsIT/linkConfToDataset/http-response.md %}
 
+# UIConfigurationController
+
+
+## Add a configuration
+
+{% include_relative generated-snippets/UIConfigurationControllerIT/addConfiguration/http-request.md %}
+
+{% include_relative generated-snippets/UIConfigurationControllerIT/addConfiguration/request-body.md %}
+
+{% include_relative generated-snippets/UIConfigurationControllerIT/addConfiguration/http-response.md %}
+
+## Get a configuration
+
+{% include_relative generated-snippets/UIConfigurationControllerIT/getConfiguration/http-request.md %}
+
+{% include_relative generated-snippets/UIConfigurationControllerIT/getConfiguration/request-body.md %}
+
+{% include_relative generated-snippets/UIConfigurationControllerIT/getConfiguration/http-response.md %}
+
+## Update a configuration
+
+{% include_relative generated-snippets/UIConfigurationControllerIT/updateConfiguration/http-request.md %}
+
+{% include_relative generated-snippets/UIConfigurationControllerIT/updateConfiguration/request-body.md %}
+
+{% include_relative generated-snippets/UIConfigurationControllerIT/updateConfiguration/http-response.md %}
+
 # UIPluginConfigurationController
 
 

@@ -1,6 +1,6 @@
 #### Request
 
-* **Code:** 201 Created
+* **Code:** 200 OK
 
         **Headers:**
 
@@ -20,10 +20,13 @@
 
 ```json
     
-[ {
-  "id" : "JA2_VPF_AXVCNE20081204_095500_20081204_215527_20081205_002323",
-  "sipId" : "URN:SIP:DATA:PROJECT:63d9819d-973f-3b88-887d-43a5f942fc9e:V1",
-  "version" : 1,
-  "state" : "CREATED"
-} ]
+{
+  "granted" : {
+    "JA2_VPF_AXVCNE20081204_095500_20081204_215527_20081205_002323" : "87137c8f-04ec-4cc2-b7be-8ac3e8bee619"
+  },
+  "denied" : { },
+  "messages" : [ "SIP Collection ingestion scheduled" ],
+  "sessionOwner" : "sampleSessionOwner",
+  "session" : "sampleSession"
+}
 ```

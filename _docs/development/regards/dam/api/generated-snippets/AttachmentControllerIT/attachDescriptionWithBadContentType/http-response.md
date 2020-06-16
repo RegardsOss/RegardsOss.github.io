@@ -21,6 +21,6 @@
 ```json
     
 {
-  "messages" : [ "Invalid data file : unexpected content type application/atom+xml (one of [application/pdf, text/markdown, text/x-markdown] required)" ]
+  "messages" : [ "Invalid data file : unexpected content type application/atom+xml (one of [application/pdf, text/markdown, text/x-markdown, text/html] required)" ]
 }
 ```

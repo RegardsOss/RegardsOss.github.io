@@ -22,7 +22,7 @@
     
 {
   "content" : {
-    "id" : 62,
+    "id" : 55,
     "name" : "PluginTest",
     "type" : "CRITERIA",
     "sourcePath" : "plugins/test/bundle.js",
@@ -31,7 +31,7 @@
   },
   "links" : [ {
     "rel" : "self",
-    "href" : "http://localhost:8080/uiplugins/definition/62"
+    "href" : "http://localhost:8080/uiplugins/definition/55"
   } ]
 }
 ```

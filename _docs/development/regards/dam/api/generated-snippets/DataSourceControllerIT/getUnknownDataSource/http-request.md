@@ -6,7 +6,7 @@
 
         ***URL template**
 
-        `/datasources/{pluginConfId}`
+        `/datasources/{businessId}`
 
         ***Method**
 

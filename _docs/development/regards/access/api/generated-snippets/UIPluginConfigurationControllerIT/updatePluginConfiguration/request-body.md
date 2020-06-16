@@ -2,9 +2,9 @@
 
 ```json
     {
-  "id" : 57,
+  "id" : 73,
   "pluginDefinition" : {
-    "id" : 98,
+    "id" : 112,
     "name" : "PluginTest",
     "type" : "CRITERIA",
     "sourcePath" : "plugins/test/bundle.js",

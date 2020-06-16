@@ -21,6 +21,6 @@
 ```json
     
 {
-  "messages" : [ "Missing periodicity for automatic acquisition processing chain" ]
+  "messages" : [ "Invalid cron periodicity. You must start your periodicity with 0 (for 0 second) as the lowest definition is minutes. e.g: 0 * 18 * * *" ]
 }
 ```

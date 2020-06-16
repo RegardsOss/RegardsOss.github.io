@@ -29,7 +29,7 @@
   },
   "content" : [ {
     "content" : {
-      "id" : 52,
+      "id" : 1,
       "name" : "string-criteria",
       "type" : "CRITERIA",
       "sourcePath" : "/plugins/criterion/string/plugin.js",
@@ -38,14 +38,14 @@
     },
     "links" : [ {
       "rel" : "self",
-      "href" : "http://localhost:8080/uiplugins/definition/52"
+      "href" : "http://localhost:8080/uiplugins/definition/1"
     }, {
       "rel" : "update",
-      "href" : "http://localhost:8080/uiplugins/definition/52"
+      "href" : "http://localhost:8080/uiplugins/definition/1"
     } ]
   }, {
     "content" : {
-      "id" : 53,
+      "id" : 2,
       "name" : "full-text-criteria",
       "type" : "CRITERIA",
       "sourcePath" : "/plugins/criterion/full-text/plugin.js",
@@ -54,14 +54,14 @@
     },
     "links" : [ {
       "rel" : "self",
-      "href" : "http://localhost:8080/uiplugins/definition/53"
+      "href" : "http://localhost:8080/uiplugins/definition/2"
     }, {
       "rel" : "update",
-      "href" : "http://localhost:8080/uiplugins/definition/53"
+      "href" : "http://localhost:8080/uiplugins/definition/2"
     } ]
   }, {
     "content" : {
-      "id" : 54,
+      "id" : 3,
       "name" : "numerical-criteria",
       "type" : "CRITERIA",
       "sourcePath" : "/plugins/criterion/numerical/plugin.js",
@@ -70,14 +70,14 @@
     },
     "links" : [ {
       "rel" : "self",
-      "href" : "http://localhost:8080/uiplugins/definition/54"
+      "href" : "http://localhost:8080/uiplugins/definition/3"
     }, {
       "rel" : "update",
-      "href" : "http://localhost:8080/uiplugins/definition/54"
+      "href" : "http://localhost:8080/uiplugins/definition/3"
     } ]
   }, {
     "content" : {
-      "id" : 55,
+      "id" : 4,
       "name" : "two-numerical-criteria",
       "type" : "CRITERIA",
       "sourcePath" : "/plugins/criterion/two-numerical/plugin.js",
@@ -86,14 +86,14 @@
     },
     "links" : [ {
       "rel" : "self",
-      "href" : "http://localhost:8080/uiplugins/definition/55"
+      "href" : "http://localhost:8080/uiplugins/definition/4"
     }, {
       "rel" : "update",
-      "href" : "http://localhost:8080/uiplugins/definition/55"
+      "href" : "http://localhost:8080/uiplugins/definition/4"
     } ]
   }, {
     "content" : {
-      "id" : 56,
+      "id" : 5,
       "name" : "temporal-criteria",
       "type" : "CRITERIA",
       "sourcePath" : "/plugins/criterion/temporal/plugin.js",
@@ -102,14 +102,14 @@
     },
     "links" : [ {
       "rel" : "self",
-      "href" : "http://localhost:8080/uiplugins/definition/56"
+      "href" : "http://localhost:8080/uiplugins/definition/5"
     }, {
       "rel" : "update",
-      "href" : "http://localhost:8080/uiplugins/definition/56"
+      "href" : "http://localhost:8080/uiplugins/definition/5"
     } ]
   }, {
     "content" : {
-      "id" : 57,
+      "id" : 6,
       "name" : "two-temporal-criteria",
       "type" : "CRITERIA",
       "sourcePath" : "/plugins/criterion/two-temporal/plugin.js",
@@ -118,14 +118,14 @@
     },
     "links" : [ {
       "rel" : "self",
-      "href" : "http://localhost:8080/uiplugins/definition/57"
+      "href" : "http://localhost:8080/uiplugins/definition/6"
     }, {
       "rel" : "update",
-      "href" : "http://localhost:8080/uiplugins/definition/57"
+      "href" : "http://localhost:8080/uiplugins/definition/6"
     } ]
   }, {
     "content" : {
-      "id" : 58,
+      "id" : 7,
       "name" : "enumerated-criteria",
       "type" : "CRITERIA",
       "sourcePath" : "/plugins/criterion/enumerated/plugin.js",
@@ -134,14 +134,14 @@
     },
     "links" : [ {
       "rel" : "self",
-      "href" : "http://localhost:8080/uiplugins/definition/58"
+      "href" : "http://localhost:8080/uiplugins/definition/7"
     }, {
       "rel" : "update",
-      "href" : "http://localhost:8080/uiplugins/definition/58"
+      "href" : "http://localhost:8080/uiplugins/definition/7"
     } ]
   }, {
     "content" : {
-      "id" : 68,
+      "id" : 61,
       "name" : "PluginTest",
       "type" : "CRITERIA",
       "sourcePath" : "plugins/test/bundle.js",
@@ -150,14 +150,14 @@
     },
     "links" : [ {
       "rel" : "self",
-      "href" : "http://localhost:8080/uiplugins/definition/68"
+      "href" : "http://localhost:8080/uiplugins/definition/61"
     }, {
       "rel" : "update",
-      "href" : "http://localhost:8080/uiplugins/definition/68"
+      "href" : "http://localhost:8080/uiplugins/definition/61"
     } ]
   }, {
     "content" : {
-      "id" : 69,
+      "id" : 62,
       "name" : "PluginTest",
       "type" : "CRITERIA",
       "sourcePath" : "plugins/test/bundle.js",
@@ -166,14 +166,14 @@
     },
     "links" : [ {
       "rel" : "self",
-      "href" : "http://localhost:8080/uiplugins/definition/69"
+      "href" : "http://localhost:8080/uiplugins/definition/62"
     }, {
       "rel" : "update",
-      "href" : "http://localhost:8080/uiplugins/definition/69"
+      "href" : "http://localhost:8080/uiplugins/definition/62"
     } ]
   }, {
     "content" : {
-      "id" : 70,
+      "id" : 63,
       "name" : "PluginTest",
       "type" : "SERVICE",
       "sourcePath" : "plugins/test/bundle.js",
@@ -182,14 +182,14 @@
     },
     "links" : [ {
       "rel" : "self",
-      "href" : "http://localhost:8080/uiplugins/definition/70"
+      "href" : "http://localhost:8080/uiplugins/definition/63"
     }, {
       "rel" : "update",
-      "href" : "http://localhost:8080/uiplugins/definition/70"
+      "href" : "http://localhost:8080/uiplugins/definition/63"
     } ]
   }, {
     "content" : {
-      "id" : 71,
+      "id" : 64,
       "name" : "PluginTest",
       "type" : "SERVICE",
       "sourcePath" : "plugins/test/bundle.js",
@@ -198,10 +198,10 @@
     },
     "links" : [ {
       "rel" : "self",
-      "href" : "http://localhost:8080/uiplugins/definition/71"
+      "href" : "http://localhost:8080/uiplugins/definition/64"
     }, {
       "rel" : "update",
-      "href" : "http://localhost:8080/uiplugins/definition/71"
+      "href" : "http://localhost:8080/uiplugins/definition/64"
     } ]
   } ],
   "links" : [ {

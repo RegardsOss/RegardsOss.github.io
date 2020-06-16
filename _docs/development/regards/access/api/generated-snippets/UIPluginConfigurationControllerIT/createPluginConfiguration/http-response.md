@@ -22,9 +22,9 @@
     
 {
   "content" : {
-    "id" : 56,
+    "id" : 72,
     "pluginDefinition" : {
-      "id" : 96,
+      "id" : 110,
       "name" : "PluginTest",
       "type" : "CRITERIA",
       "sourcePath" : "plugins/test/bundle.js",
@@ -38,7 +38,7 @@
   },
   "links" : [ {
     "rel" : "delete",
-    "href" : "http://localhost:8080/uiplugins/configurations/56"
+    "href" : "http://localhost:8080/uiplugins/configurations/72"
   } ]
 }
 ```

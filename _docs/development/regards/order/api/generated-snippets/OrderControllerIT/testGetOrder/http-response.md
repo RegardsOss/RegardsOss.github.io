@@ -24,13 +24,13 @@
   "content" : {
     "id" : 1,
     "owner" : "default_user@regards.fr",
-    "creationDate" : "2019-07-22T07:30:00.629Z",
-    "expirationDate" : "2019-07-25T07:30:00.629Z",
+    "creationDate" : "2020-05-13T12:04:04.542Z",
+    "expirationDate" : "2020-05-16T12:04:04.542Z",
     "percentCompleted" : 23,
     "filesInErrorCount" : 0,
     "availableFilesCount" : 2,
     "status" : "RUNNING",
-    "statusDate" : "2019-07-22T07:30:00.749Z",
+    "statusDate" : "2020-05-13T12:04:05.905Z",
     "waitingForUser" : false,
     "datasetTasks" : [ {
       "id" : 1,

@@ -29,9 +29,9 @@
   },
   "content" : [ {
     "content" : {
-      "id" : 18,
+      "id" : 355,
       "email" : "email@test.com",
-      "lastUpdate" : "2019-07-22T18:18:07.415Z",
+      "lastUpdate" : "2020-05-11T14:12:05.57Z",
       "status" : "WAITING_ACCOUNT_ACTIVE",
       "metadata" : [ ],
       "role" : {
@@ -45,13 +45,13 @@
     },
     "links" : [ {
       "rel" : "self",
-      "href" : "http://localhost:8080/users/18"
+      "href" : "http://localhost:8080/users/355"
     }, {
       "rel" : "update",
-      "href" : "http://localhost:8080/users/18"
+      "href" : "http://localhost:8080/users/355"
     }, {
       "rel" : "delete",
-      "href" : "http://localhost:8080/users/18"
+      "href" : "http://localhost:8080/users/355"
     }, {
       "rel" : "list",
       "href" : "http://localhost:8080/users"

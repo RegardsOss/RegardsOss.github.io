@@ -2,7 +2,7 @@
 
         ***URL**
 
-        `/accesses/13/inactive`
+        `/accesses/258/inactive`
 
         ***URL template**
 

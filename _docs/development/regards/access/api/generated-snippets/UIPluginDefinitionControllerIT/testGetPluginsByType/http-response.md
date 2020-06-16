@@ -29,7 +29,7 @@
   },
   "content" : [ {
     "content" : {
-      "id" : 74,
+      "id" : 67,
       "name" : "PluginTest",
       "type" : "SERVICE",
       "sourcePath" : "plugins/test/bundle.js",
@@ -38,10 +38,10 @@
     },
     "links" : [ {
       "rel" : "self",
-      "href" : "http://localhost:8080/uiplugins/definition/74"
+      "href" : "http://localhost:8080/uiplugins/definition/67"
     }, {
       "rel" : "update",
-      "href" : "http://localhost:8080/uiplugins/definition/74"
+      "href" : "http://localhost:8080/uiplugins/definition/67"
     } ]
   } ],
   "links" : [ {

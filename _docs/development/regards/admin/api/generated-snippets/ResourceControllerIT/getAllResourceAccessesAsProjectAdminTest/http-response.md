@@ -23,8 +23,8 @@
 {
   "metadata" : {
     "size" : 10,
-    "totalElements" : 60,
-    "totalPages" : 6,
+    "totalElements" : 61,
+    "totalPages" : 7,
     "number" : 0
   },
   "content" : [ {
@@ -129,27 +129,7 @@
     } ]
   }, {
     "content" : {
-      "id" : 7,
-      "description" : "Retrieve accessible resource accesses of the user among the given microservice",
-      "microservice" : "Test application",
-      "controllerSimpleName" : "MicroserviceResourceController",
-      "resource" : "/resources/microservices/{microservicename}",
-      "verb" : "GET",
-      "defaultRole" : "PUBLIC"
-    },
-    "links" : [ {
-      "rel" : "list",
-      "href" : "http://localhost:8080/resources"
-    }, {
-      "rel" : "self",
-      "href" : "http://localhost:8080/resources/7"
-    }, {
-      "rel" : "update",
-      "href" : "http://localhost:8080/resources/7"
-    } ]
-  }, {
-    "content" : {
-      "id" : 8,
+      "id" : 6,
       "description" : "Retrieve all resources for the given microservice and the given controller",
       "microservice" : "Test application",
       "controllerSimpleName" : "MicroserviceResourceController",
@@ -162,20 +142,40 @@
       "href" : "http://localhost:8080/resources"
     }, {
       "rel" : "self",
-      "href" : "http://localhost:8080/resources/8"
+      "href" : "http://localhost:8080/resources/6"
     }, {
       "rel" : "update",
-      "href" : "http://localhost:8080/resources/8"
+      "href" : "http://localhost:8080/resources/6"
     } ]
   }, {
     "content" : {
-      "id" : 9,
+      "id" : 7,
       "description" : "Retrieve all resources for the given microservice and the given controller",
       "microservice" : "Test application",
       "controllerSimpleName" : "MicroserviceResourceController",
       "resource" : "/resources/microservices/{microservicename}/controllers/{controllername}",
       "verb" : "GET",
       "defaultRole" : "PROJECT_ADMIN"
+    },
+    "links" : [ {
+      "rel" : "list",
+      "href" : "http://localhost:8080/resources"
+    }, {
+      "rel" : "self",
+      "href" : "http://localhost:8080/resources/7"
+    }, {
+      "rel" : "update",
+      "href" : "http://localhost:8080/resources/7"
+    } ]
+  }, {
+    "content" : {
+      "id" : 9,
+      "description" : "Retrieve accessible resource accesses of the user among the given microservice",
+      "microservice" : "Test application",
+      "controllerSimpleName" : "MicroserviceResourceController",
+      "resource" : "/resources/microservices/{microservicename}",
+      "verb" : "GET",
+      "defaultRole" : "PUBLIC"
     },
     "links" : [ {
       "rel" : "list",
@@ -190,11 +190,11 @@
   }, {
     "content" : {
       "id" : 10,
-      "description" : "retrieve the list of all metadata of the user",
+      "description" : "update the list of all metadata of the user",
       "microservice" : "Test application",
       "controllerSimpleName" : "ProjectUserMetadataController",
       "resource" : "/users/{user_id}/metadatas",
-      "verb" : "GET",
+      "verb" : "PUT",
       "defaultRole" : "PROJECT_ADMIN"
     },
     "links" : [ {
@@ -210,11 +210,11 @@
   }, {
     "content" : {
       "id" : 11,
-      "description" : "update the list of all metadata of the user",
+      "description" : "remove all the metadata of the user",
       "microservice" : "Test application",
       "controllerSimpleName" : "ProjectUserMetadataController",
       "resource" : "/users/{user_id}/metadatas",
-      "verb" : "PUT",
+      "verb" : "DELETE",
       "defaultRole" : "PROJECT_ADMIN"
     },
     "links" : [ {
@@ -239,7 +239,7 @@
     "href" : "http://localhost:8080/resources?page=1&size=10&sort=id,asc"
   }, {
     "rel" : "last",
-    "href" : "http://localhost:8080/resources?page=5&size=10&sort=id,asc"
+    "href" : "http://localhost:8080/resources?page=6&size=10&sort=id,asc"
   } ]
 }
 ```

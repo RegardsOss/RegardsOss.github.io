@@ -24,9 +24,9 @@
   "content" : {
     "type" : "COLLECTION",
     "id" : 1,
-    "ipId" : "URN:AIP:COLLECTION:PROJECT:a8086fcd-57ac-4ce1-acf8-21f6f29ba9a4:V1",
-    "creationDate" : "2019-07-19T17:15:14.741Z",
-    "lastUpdate" : "2019-07-19T17:15:15.061Z",
+    "ipId" : "URN:AIP:COLLECTION:PROJECT:d4e9289d-459c-4fb0-8240-8aa97d210305:V1",
+    "creationDate" : "2020-05-11T11:38:58.341Z",
+    "lastUpdate" : "2020-05-11T11:38:58.939Z",
     "model" : {
       "id" : 1,
       "name" : "MODEL",
@@ -49,11 +49,12 @@
           "online" : true,
           "checksum" : "7a24604603987e930102902ad28fb1b8",
           "digestAlgorithm" : "MD5",
-          "filename" : "rfc7946"
+          "filename" : "rfc7946",
+          "types" : [ ]
         } ]
       },
       "tags" : [ ],
-      "id" : "URN:AIP:COLLECTION:PROJECT:a8086fcd-57ac-4ce1-acf8-21f6f29ba9a4:V1",
+      "id" : "URN:AIP:COLLECTION:PROJECT:d4e9289d-459c-4fb0-8240-8aa97d210305:V1",
       "properties" : { },
       "type" : "Feature"
     }

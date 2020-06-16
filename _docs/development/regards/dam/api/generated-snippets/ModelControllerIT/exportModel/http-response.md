@@ -26,15 +26,15 @@
     <name>EXPORT_MODEL</name>
     <description>Exported model</description>
     <type>COLLECTION</type>
-    <attribute alterable="false" optional="false">
-        <label>ForTests</label>
-        <name>att_string</name>
-        <type>STRING</type>
-    </attribute>
     <attribute alterable="true" optional="false">
         <label>ForTests</label>
         <name>att_boolean</name>
         <type>BOOLEAN</type>
+    </attribute>
+    <attribute alterable="false" optional="false">
+        <label>ForTests</label>
+        <name>att_string</name>
+        <type>STRING</type>
     </attribute>
     <fragment>
         <name>GEO</name>

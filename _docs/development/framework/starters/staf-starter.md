@@ -136,7 +136,7 @@ Set<URL> deletedSTAFFiles = stafController.deleteFiles(filesToDelete);
 
 # 3\. Use a STAF standalone executable
 
-The STAF libraby provide a standalone executable jar `staf-<version>-jar-with-dependencies.jar`.  
+The STAF libraby provide a standalone executable jar `staf-standalone-<version>-.jar`.  
   
 <b>Usage to archive files :</b>  
 java -jar \  
@@ -146,7 +146,7 @@ java -jar \
   -Dnode=\<STAF Node where to archive\> \  
   -Ddir=\<Absolute path to directory where to find files to archive\>
   -Dworkspace=\<Absolute path to local STAF workspace\>
-  staf-<version>-jar-with-dependencies.jar
+  staf-standalone--<version>.jar
   
 <b>Usage to retrieve files :</b>  
 java -jar \  
@@ -155,9 +155,9 @@ java -jar \
   -Darchive.password=\<STAF Archive password\> \  
   -Dworkspace=\<Absolute path to local STAF workspace\> \
   -Douputdir=\<Absolute path to directory where to restore files\> \  
-  staf-<version>-jar-with-dependencies.jar files...
+  staf-standalone--<version>.jar [STAF Files to retrieve]
   
-<b>Note :</b> files... : is a list of STAF URL to retrieve (exeple staf://ARCHIVE/NODE/file)  
+<b>Note :</b> [STAF Files] : is a list of STAF URL to retrieve (exeple staf://ARCHIVE/NODE/file)  
 
 <b>Usage to delete files :</b>  
 java -jar \  
@@ -165,6 +165,11 @@ java -jar \
   -Darchive.name=\<STAF Archive\> \  
   -Darchive.password=\<STAF Archive password\> \
   -Dworkspace=\<Absolute path to local STAF workspace\> \
-  staf-<version>-jar-with-dependencies.jar files...
+  staf-standalone--<version>.jar [STAF Files to delete]
   
-<b>Note :</b> files... : is a list of STAF URL to delete (exeple staf://ARCHIVE/NODE/file)  
+<b>Note :</b> [STAF Files] : is a list of STAF URL to delete (exeple staf://ARCHIVE/NODE/file)
+
+<b>STAF Files url format</b>
+ - Direct acccess to file : staf://\<ARCHIVE\>/\<NODE PATH\>/\<FileName\>
+ - Acccess a file into an archive (tar only) : staf://\<ARCHIVE\>/\<NODE PATH\>/\<TarFileName\>.tar?fileName=\<fileName\>
+ - Acccess a file cut in multiple parts : staf://\<ARCHIVE\>/\<NODE PATH\>/\<FileName\>?parts=\<Number of parts\>

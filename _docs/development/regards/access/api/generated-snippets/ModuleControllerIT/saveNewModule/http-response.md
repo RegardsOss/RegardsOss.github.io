@@ -29,7 +29,7 @@
   },
   "content" : [ {
     "content" : {
-      "id" : 62,
+      "id" : 59,
       "type" : "Module",
       "description" : "Description",
       "applicationId" : "TEST",
@@ -42,14 +42,14 @@
     },
     "links" : [ {
       "rel" : "self",
-      "href" : "http://localhost:8080/applications/TEST/modules/62"
+      "href" : "http://localhost:8080/applications/TEST/modules/59"
     }, {
       "rel" : "delete",
-      "href" : "http://localhost:8080/applications/TEST/modules/62"
+      "href" : "http://localhost:8080/applications/TEST/modules/59"
     } ]
   }, {
     "content" : {
-      "id" : 63,
+      "id" : 60,
       "type" : "Module",
       "description" : "Description",
       "applicationId" : "TEST",
@@ -62,14 +62,14 @@
     },
     "links" : [ {
       "rel" : "self",
-      "href" : "http://localhost:8080/applications/TEST/modules/63"
+      "href" : "http://localhost:8080/applications/TEST/modules/60"
     }, {
       "rel" : "delete",
-      "href" : "http://localhost:8080/applications/TEST/modules/63"
+      "href" : "http://localhost:8080/applications/TEST/modules/60"
     } ]
   }, {
     "content" : {
-      "id" : 64,
+      "id" : 61,
       "type" : "Module",
       "description" : "Description",
       "applicationId" : "TEST",
@@ -82,10 +82,10 @@
     },
     "links" : [ {
       "rel" : "self",
-      "href" : "http://localhost:8080/applications/TEST/modules/64"
+      "href" : "http://localhost:8080/applications/TEST/modules/61"
     }, {
       "rel" : "delete",
-      "href" : "http://localhost:8080/applications/TEST/modules/64"
+      "href" : "http://localhost:8080/applications/TEST/modules/61"
     } ]
   } ],
   "links" : [ {

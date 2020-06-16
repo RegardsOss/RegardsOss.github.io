@@ -7,21 +7,17 @@
   "validationPlugin" : {
     "pluginId" : "FakeValidationTestPlugin",
     "label" : "FakeValidationTestPlugin",
-    "version" : "1.0.0",
+    "businessId" : "55fe8a50-7c9b-4548-80e5-ef889902b4b6",
     "priorityOrder" : 0,
     "active" : true,
-    "pluginClassName" : "fr.cnes.regards.modules.ingest.service.plugin.FakeValidationTestPlugin",
-    "interfaceNames" : [ "fr.cnes.regards.modules.ingest.domain.plugin.ISipValidation" ],
     "parameters" : [ ]
   },
   "generationPlugin" : {
     "pluginId" : "FakeAIPGenerationTestPlugin",
     "label" : "FakeAIPGenerationTestPlugin",
-    "version" : "1.0.0",
+    "businessId" : "e000241a-0057-4c89-95d3-142c5a5216ff",
     "priorityOrder" : 0,
     "active" : true,
-    "pluginClassName" : "fr.cnes.regards.modules.ingest.service.plugin.FakeAIPGenerationTestPlugin",
-    "interfaceNames" : [ "fr.cnes.regards.modules.ingest.domain.plugin.IAipGeneration" ],
     "parameters" : [ ]
   }
 }

@@ -3,6 +3,6 @@
 ```json
     {
   "datasetIds" : [ ],
-  "modelIds" : [ 4 ]
+  "modelNames" : [ "datasetModel" ]
 }
 ```

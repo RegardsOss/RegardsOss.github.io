@@ -2,7 +2,7 @@
 
         ***URL**
 
-        `/uiplugins/88/configurations`
+        `/uiplugins/102/configurations`
 
         ***URL template**
 

@@ -22,7 +22,7 @@
     
 {
   "content" : {
-    "id" : 92,
+    "id" : 302,
     "description" : "description",
     "microservice" : "rs-test",
     "controllerSimpleName" : "testController",
@@ -35,7 +35,7 @@
     "href" : "http://localhost:8080/resources"
   }, {
     "rel" : "self",
-    "href" : "http://localhost:8080/resources/92"
+    "href" : "http://localhost:8080/resources/302"
   } ]
 }
 ```

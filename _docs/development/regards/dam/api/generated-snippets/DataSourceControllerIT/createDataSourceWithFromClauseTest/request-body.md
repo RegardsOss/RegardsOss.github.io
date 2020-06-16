@@ -2,14 +2,14 @@
 
 ```json
     {
-  "label" : "the label of the data source with from clause",
-  "version" : "alpha",
+  "pluginId" : "MockDatasourcePlugin",
+  "label" : "6be79a75-8dac-41be-9669-3a70afb3eba4",
+  "businessId" : "a307a268-a9f3-4368-8e9b-963f81d63232",
   "priorityOrder" : 0,
   "active" : true,
-  "pluginClassName" : "fr.cnes.regards.modules.dam.rest.datasources.MockDatasourcePlugin",
-  "interfaceNames" : [ ],
   "parameters" : [ {
     "name" : "mapping",
+    "type" : "COLLECTION",
     "value" : [ {
       "name" : "providerId",
       "type" : "LONG",
@@ -69,72 +69,22 @@
       "nameDS" : "update",
       "attributeType" : "DYNAMIC"
     } ],
-    "dynamic" : false,
-    "dynamicsValues" : [ ],
-    "onlyDynamic" : false
+    "dynamic" : false
   }, {
     "name" : "fromClause",
+    "type" : "STRING",
     "value" : "from T_TEST_PLUGIN_DATA_SOURCE",
-    "dynamic" : false,
-    "dynamicsValues" : [ ],
-    "onlyDynamic" : false
+    "dynamic" : false
   }, {
     "name" : "modelName",
+    "type" : "STRING",
     "value" : "VALIDATION_MODEL_2",
-    "dynamic" : false,
-    "dynamicsValues" : [ ],
-    "onlyDynamic" : false
+    "dynamic" : false
   }, {
     "name" : "connection",
-    "pluginConfiguration" : {
-      "id" : 64,
-      "pluginId" : "MockConnectionPlugin",
-      "label" : "868fc85c-153c-47cb-9458-c33f55393a3e",
-      "version" : "alpha",
-      "priorityOrder" : 0,
-      "active" : true,
-      "pluginClassName" : "fr.cnes.regards.modules.dam.rest.datasources.MockConnectionPlugin",
-      "interfaceNames" : [ "fr.cnes.regards.modules.dam.domain.datasources.plugins.IDBConnectionPlugin", "fr.cnes.regards.modules.dam.domain.datasources.plugins.IConnectionPlugin" ],
-      "parameters" : [ {
-        "id" : 55,
-        "name" : "dbPort",
-        "value" : "5432",
-        "dynamic" : false,
-        "dynamicsValues" : [ ],
-        "onlyDynamic" : false
-      }, {
-        "id" : 56,
-        "name" : "password",
-        "value" : "azertyuiop123456789",
-        "dynamic" : false,
-        "dynamicsValues" : [ ],
-        "onlyDynamic" : false
-      }, {
-        "id" : 57,
-        "name" : "dbName",
-        "value" : "rs_testdb_tux",
-        "dynamic" : false,
-        "dynamicsValues" : [ ],
-        "onlyDynamic" : false
-      }, {
-        "id" : 58,
-        "name" : "dbHost",
-        "value" : "rs-postgres",
-        "dynamic" : false,
-        "dynamicsValues" : [ ],
-        "onlyDynamic" : false
-      }, {
-        "id" : 59,
-        "name" : "user",
-        "value" : "azertyuiop123456789",
-        "dynamic" : false,
-        "dynamicsValues" : [ ],
-        "onlyDynamic" : false
-      } ]
-    },
-    "dynamic" : false,
-    "dynamicsValues" : [ ],
-    "onlyDynamic" : false
+    "type" : "PLUGIN",
+    "value" : "d0850bd4-8900-4a5b-8783-4457ea3478e0",
+    "dynamic" : false
   } ]
 }
 ```

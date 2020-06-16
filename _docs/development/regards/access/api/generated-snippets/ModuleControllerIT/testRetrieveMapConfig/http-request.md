@@ -2,7 +2,7 @@
 
         ***URL**
 
-        `/applications/TEST/modules/61/map`
+        `/applications/TEST/modules/58/map`
 
         ***URL template**
 

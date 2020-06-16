@@ -29,7 +29,7 @@
   },
   "content" : [ {
     "content" : {
-      "id" : 9,
+      "id" : 60,
       "name" : "AG2",
       "users" : [ ],
       "isPublic" : true,

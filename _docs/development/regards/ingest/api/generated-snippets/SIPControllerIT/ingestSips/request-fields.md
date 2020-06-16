@@ -1,6 +1,10 @@
     |Path|Type|Description|Constraints| |:--:|:--:|:---------:|:---------:|
-        |metadata.processing| `String` |The ingest processing chain to used||
-        |metadata.session| `String` |The ingestion session identifier||
+        |metadata.ingestChain| `String` |The ingest processing chain to used||
+        |metadata.session| `String` |The ingestion session name||
+        |metadata.sessionOwner| `String` |The ingestion session source||
+        |metadata.storages| `Array` |Target storages||
+        |metadata.storages[].pluginBusinessId| `String` |Storage identifier||
+        |metadata.storages[].targetTypes| `Array` |List of data object types accepted by this storage location (when storing AIPs)||
         |type| `String` |Feature collection|Must not be null|
         |features| `Array` |Array of feature||
         |features[].id| `String` |SIP id||
@@ -17,7 +21,8 @@
         |features[].properties.contentInformations[].dataObject| `Object` |A data object|Must not be null|
         |features[].properties.contentInformations[].dataObject.regardsDataType| `String` |REGARDS data object type|Must not be null. Allowed values : RAWDATA, QUICKLOOK_SD, QUICKLOOK_MD, QUICKLOOK_HD, DOCUMENT, THUMBNAIL, OTHER, AIP, DESCRIPTION|
         |features[].properties.contentInformations[].dataObject.filename| `String` |The data object file name|Must not be blank|
-        |features[].properties.contentInformations[].dataObject.urls| `Array` |A set of URL|Must not be empty|
+        |features[].properties.contentInformations[].dataObject.locations| `Array` |A set of locations|Must not be empty|
+        |features[].properties.contentInformations[].dataObject.locations[].url| `String` |URL location associated to optional storage property||
         |features[].properties.contentInformations[].dataObject.fileSize| `Long` |The data object size in bytes||
         |features[].properties.contentInformations[].dataObject.checksum| `String` |The calculated data object checksum||
         |features[].properties.contentInformations[].dataObject.algorithm| `String` |The checksum algorithm used|see https://docs.oracle.com/javase/8/docs/api/java/security/MessageDigest.html[java.security.MessageDigest]|

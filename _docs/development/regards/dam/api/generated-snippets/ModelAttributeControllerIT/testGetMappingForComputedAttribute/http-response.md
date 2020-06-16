@@ -50,26 +50,21 @@
       "content" : {
         "id" : 1,
         "pluginId" : "IntSumComputePlugin",
-        "label" : "50fe325e-b96e-47cb-8921-84af0b3ca8fd",
+        "label" : "f097a0ea-43db-4dce-97a4-abd137a55f89",
+        "businessId" : "26d193c3-c6a7-4270-9854-3d6c6423b2e2",
         "version" : "1.0.0",
         "priorityOrder" : 0,
         "active" : true,
-        "pluginClassName" : "fr.cnes.regards.modules.dam.plugin.entities.IntSumComputePlugin",
-        "interfaceNames" : [ "fr.cnes.regards.modules.dam.domain.models.IComputedAttribute" ],
         "parameters" : [ {
-          "id" : 1,
           "name" : "resultAttributeName",
+          "type" : "STRING",
           "value" : "titi",
-          "dynamic" : false,
-          "dynamicsValues" : [ ],
-          "onlyDynamic" : false
+          "dynamic" : false
         }, {
-          "id" : 2,
           "name" : "parameterAttributeName",
+          "type" : "STRING",
           "value" : "toto",
-          "dynamic" : false,
-          "dynamicsValues" : [ ],
-          "onlyDynamic" : false
+          "dynamic" : false
         } ]
       },
       "links" : [ ]
@@ -91,45 +86,33 @@
           "name" : "parameterAttributeName",
           "label" : "Parameter attribute name",
           "description" : "Name of parameter attribute used to compute result attribute.",
-          "markdown" : "",
-          "type" : "java.lang.String",
-          "paramType" : "PRIMITIVE",
+          "type" : "STRING",
           "optional" : false,
           "sensitive" : false,
-          "parameters" : [ ],
           "unconfigurable" : false
         }, {
           "name" : "parameterAttributeFragmentName",
           "label" : "Parameter fragment name",
           "description" : "Name of parameter attribute fragment. If parameter attribute belongs to default fragment, leave this field empty.",
-          "markdown" : "",
-          "type" : "java.lang.String",
-          "paramType" : "PRIMITIVE",
+          "type" : "STRING",
           "optional" : true,
           "sensitive" : false,
-          "parameters" : [ ],
           "unconfigurable" : false
         }, {
           "name" : "resultAttributeName",
           "label" : "Result attribute name",
           "description" : "Name of attribute to compute (ie result attribute).",
-          "markdown" : "",
-          "type" : "java.lang.String",
-          "paramType" : "PRIMITIVE",
+          "type" : "STRING",
           "optional" : false,
           "sensitive" : false,
-          "parameters" : [ ],
           "unconfigurable" : true
         }, {
           "name" : "resultAttributeFragmentName",
           "label" : "Result fragment name",
           "description" : "Name of attribute to compute fragment. If computed attribute belongs to default fragment, this value can be set to null.",
-          "markdown" : "",
-          "type" : "java.lang.String",
-          "paramType" : "PRIMITIVE",
+          "type" : "STRING",
           "optional" : true,
           "sensitive" : false,
-          "parameters" : [ ],
           "unconfigurable" : true
         } ]
       },
@@ -165,45 +148,33 @@
           "name" : "parameterAttributeName",
           "label" : "Parameter attribute name",
           "description" : "Name of parameter attribute used to compute result attribute.",
-          "markdown" : "",
-          "type" : "java.lang.String",
-          "paramType" : "PRIMITIVE",
+          "type" : "STRING",
           "optional" : false,
           "sensitive" : false,
-          "parameters" : [ ],
           "unconfigurable" : false
         }, {
           "name" : "parameterAttributeFragmentName",
           "label" : "Parameter fragment name",
           "description" : "Name of parameter attribute fragment. If parameter attribute belongs to default fragment, leave this field empty.",
-          "markdown" : "",
-          "type" : "java.lang.String",
-          "paramType" : "PRIMITIVE",
+          "type" : "STRING",
           "optional" : true,
           "sensitive" : false,
-          "parameters" : [ ],
           "unconfigurable" : false
         }, {
           "name" : "resultAttributeName",
           "label" : "Result attribute name",
           "description" : "Name of attribute to compute (ie result attribute).",
-          "markdown" : "",
-          "type" : "java.lang.String",
-          "paramType" : "PRIMITIVE",
+          "type" : "STRING",
           "optional" : false,
           "sensitive" : false,
-          "parameters" : [ ],
           "unconfigurable" : true
         }, {
           "name" : "resultAttributeFragmentName",
           "label" : "Result fragment name",
           "description" : "Name of attribute to compute fragment. If computed attribute belongs to default fragment, this value can be set to null.",
-          "markdown" : "",
-          "type" : "java.lang.String",
-          "paramType" : "PRIMITIVE",
+          "type" : "STRING",
           "optional" : true,
           "sensitive" : false,
-          "parameters" : [ ],
           "unconfigurable" : true
         } ]
       },
@@ -225,45 +196,33 @@
           "name" : "parameterAttributeName",
           "label" : "Parameter attribute name",
           "description" : "Name of parameter attribute used to compute result attribute.",
-          "markdown" : "",
-          "type" : "java.lang.String",
-          "paramType" : "PRIMITIVE",
+          "type" : "STRING",
           "optional" : false,
           "sensitive" : false,
-          "parameters" : [ ],
           "unconfigurable" : false
         }, {
           "name" : "parameterAttributeFragmentName",
           "label" : "Parameter fragment name",
           "description" : "Name of the parameter attribute fragment. If the parameter attribute belongs to the default fragment, leave this field empty.",
-          "markdown" : "",
-          "type" : "java.lang.String",
-          "paramType" : "PRIMITIVE",
+          "type" : "STRING",
           "optional" : true,
           "sensitive" : false,
-          "parameters" : [ ],
           "unconfigurable" : false
         }, {
           "name" : "resultAttributeName",
           "label" : "Result attribute name",
           "description" : "Name of attribute to compute (ie result attribute).",
-          "markdown" : "",
-          "type" : "java.lang.String",
-          "paramType" : "PRIMITIVE",
+          "type" : "STRING",
           "optional" : false,
           "sensitive" : false,
-          "parameters" : [ ],
           "unconfigurable" : true
         }, {
           "name" : "resultAttributeFragmentName",
           "label" : "Result fragment name",
           "description" : "Name of attribute to compute fragment. If computed attribute belongs to default fragment, this value can be set to null.",
-          "markdown" : "",
-          "type" : "java.lang.String",
-          "paramType" : "PRIMITIVE",
+          "type" : "STRING",
           "optional" : true,
           "sensitive" : false,
-          "parameters" : [ ],
           "unconfigurable" : true
         } ]
       },
@@ -340,44 +299,6 @@
     "pluginConfigurations" : [ ],
     "pluginMetaDatas" : [ {
       "content" : {
-        "pluginClassName" : "fr.cnes.regards.modules.dam.plugin.entities.CountPlugin",
-        "interfaceNames" : [ "fr.cnes.regards.modules.dam.domain.models.IComputedAttribute" ],
-        "author" : "REGARDS Team",
-        "pluginId" : "CountPlugin",
-        "version" : "1.0.0",
-        "description" : "allows to compute the number of data of a Dataset",
-        "markdown" : "",
-        "url" : "https://github.com/RegardsOss",
-        "contact" : "regards@c-s.fr",
-        "owner" : "CSSI",
-        "license" : "GPLv3",
-        "parameters" : [ {
-          "name" : "resultAttributeName",
-          "label" : "Result attribute name",
-          "description" : "Name of attribute to compute (ie result attribute).",
-          "markdown" : "",
-          "type" : "java.lang.String",
-          "paramType" : "PRIMITIVE",
-          "optional" : false,
-          "sensitive" : false,
-          "parameters" : [ ],
-          "unconfigurable" : true
-        }, {
-          "name" : "resultAttributeFragmentName",
-          "label" : "Result fragment name",
-          "description" : "Name of attribute to compute fragment. If computed attribute belongs to default fragment, this value can be set to null.",
-          "markdown" : "",
-          "type" : "java.lang.String",
-          "paramType" : "PRIMITIVE",
-          "optional" : true,
-          "sensitive" : false,
-          "parameters" : [ ],
-          "unconfigurable" : true
-        } ]
-      },
-      "links" : [ ]
-    }, {
-      "content" : {
         "pluginClassName" : "fr.cnes.regards.modules.dam.plugin.entities.LongSumComputePlugin",
         "interfaceNames" : [ "fr.cnes.regards.modules.dam.domain.models.IComputedAttribute" ],
         "author" : "REGARDS Team",
@@ -393,45 +314,65 @@
           "name" : "parameterAttributeName",
           "label" : "Parameter attribute name",
           "description" : "Name of parameter attribute used to compute result attribute.",
-          "markdown" : "",
-          "type" : "java.lang.String",
-          "paramType" : "PRIMITIVE",
+          "type" : "STRING",
           "optional" : false,
           "sensitive" : false,
-          "parameters" : [ ],
           "unconfigurable" : false
         }, {
           "name" : "parameterAttributeFragmentName",
           "label" : "Parameter fragment name",
           "description" : "Name of parameter attribute fragment. If parameter attribute belongs to default fragment, leave this field empty.",
-          "markdown" : "",
-          "type" : "java.lang.String",
-          "paramType" : "PRIMITIVE",
+          "type" : "STRING",
           "optional" : true,
           "sensitive" : false,
-          "parameters" : [ ],
           "unconfigurable" : false
         }, {
           "name" : "resultAttributeName",
           "label" : "Result attribute name",
           "description" : "Name of attribute to compute (ie result attribute).",
-          "markdown" : "",
-          "type" : "java.lang.String",
-          "paramType" : "PRIMITIVE",
+          "type" : "STRING",
           "optional" : false,
           "sensitive" : false,
-          "parameters" : [ ],
           "unconfigurable" : true
         }, {
           "name" : "resultAttributeFragmentName",
           "label" : "Result fragment name",
           "description" : "Name of attribute to compute fragment. If computed attribute belongs to default fragment, this value can be set to null.",
-          "markdown" : "",
-          "type" : "java.lang.String",
-          "paramType" : "PRIMITIVE",
+          "type" : "STRING",
           "optional" : true,
           "sensitive" : false,
-          "parameters" : [ ],
+          "unconfigurable" : true
+        } ]
+      },
+      "links" : [ ]
+    }, {
+      "content" : {
+        "pluginClassName" : "fr.cnes.regards.modules.dam.plugin.entities.CountPlugin",
+        "interfaceNames" : [ "fr.cnes.regards.modules.dam.domain.models.IComputedAttribute" ],
+        "author" : "REGARDS Team",
+        "pluginId" : "CountPlugin",
+        "version" : "1.0.0",
+        "description" : "allows to compute the number of data of a Dataset",
+        "markdown" : "",
+        "url" : "https://github.com/RegardsOss",
+        "contact" : "regards@c-s.fr",
+        "owner" : "CSSI",
+        "license" : "GPLv3",
+        "parameters" : [ {
+          "name" : "resultAttributeName",
+          "label" : "Result attribute name",
+          "description" : "Name of attribute to compute (ie result attribute).",
+          "type" : "STRING",
+          "optional" : false,
+          "sensitive" : false,
+          "unconfigurable" : true
+        }, {
+          "name" : "resultAttributeFragmentName",
+          "label" : "Result fragment name",
+          "description" : "Name of attribute to compute fragment. If computed attribute belongs to default fragment, this value can be set to null.",
+          "type" : "STRING",
+          "optional" : true,
+          "sensitive" : false,
           "unconfigurable" : true
         } ]
       },

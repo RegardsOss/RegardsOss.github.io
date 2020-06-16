@@ -2,7 +2,7 @@
 
         ***URL**
 
-        `/user/orders/remove/22`
+        `/user/orders/remove/20`
 
         ***URL template**
 

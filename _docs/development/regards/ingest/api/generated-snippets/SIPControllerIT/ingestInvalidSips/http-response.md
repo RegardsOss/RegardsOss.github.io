@@ -1,6 +1,6 @@
 #### Request
 
-* **Code:** 206 Partial Content
+* **Code:** 200 OK
 
         **Headers:**
 
@@ -20,16 +20,15 @@
 
 ```json
     
-[ {
-  "id" : "SIP_001",
-  "sipId" : "URN:SIP:DATA:PROJECT:dbbbbe05-b6b8-3300-8431-105f505cbb3c:V1",
-  "version" : 1,
-  "state" : "REJECTED",
-  "rejectionCauses" : [ "{Validation annotation @fr.cnes.regards.framework.file.utils.validation.HandledMessageDigestAlgorithm validating FAKE_ALGO: it is not an handled algorithm for checksum computation at properties.contentInformations[0].dataObject.algorithm: rejected value [null]." ]
-}, {
-  "id" : "SIP_002",
-  "sipId" : "URN:SIP:DATA:PROJECT:bdacbc80-624d-3a7c-8de7-464743b3d1f9:V1",
-  "version" : 1,
-  "state" : "CREATED"
-} ]
+{
+  "granted" : {
+    "SIP_002" : "edf1f854-df59-4cbe-a977-fbac3b4c32e3"
+  },
+  "denied" : {
+    "SIP_001" : "{Validation annotation @fr.cnes.regards.framework.file.utils.validation.HandledMessageDigestAlgorithm validating FAKE_ALGO: it is not an handled algorithm for checksum computation at properties.contentInformations[0].dataObject.algorithm: rejected value [null]."
+  },
+  "messages" : [ "SIP Collection ingestion scheduled" ],
+  "sessionOwner" : "sessionOwner",
+  "session" : "session"
+}
 ```

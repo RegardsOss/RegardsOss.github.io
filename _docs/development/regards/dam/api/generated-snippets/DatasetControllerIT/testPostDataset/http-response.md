@@ -30,8 +30,8 @@
       "dataObjectsGroups" : { }
     },
     "id" : 24,
-    "ipId" : "URN:AIP:DATASET:PROJECT:21caaf70-eed0-4e04-97f7-a2b90b0346cf:V1",
-    "creationDate" : "2019-07-19T17:14:54.413Z",
+    "ipId" : "URN:AIP:DATASET:PROJECT:5e80e118-4262-4995-baaf-a4972ae1a941:V1",
+    "creationDate" : "2020-05-11T11:37:51.931Z",
     "model" : {
       "id" : 16,
       "name" : "modelName1",
@@ -48,7 +48,7 @@
       "model" : "modelName1",
       "files" : { },
       "tags" : [ ],
-      "id" : "URN:AIP:DATASET:PROJECT:21caaf70-eed0-4e04-97f7-a2b90b0346cf:V1",
+      "id" : "URN:AIP:DATASET:PROJECT:5e80e118-4262-4995-baaf-a4972ae1a941:V1",
       "properties" : { },
       "type" : "Feature"
     }

@@ -29,42 +29,10 @@
   },
   "content" : [ {
     "content" : {
-      "id" : 71,
+      "id" : 58,
       "state" : "AVAILABLE",
-      "orderId" : 17,
-      "ipId" : "URN:AIP:DATA:ORDER:6041a22f-9c63-4b05-bfaf-8a7ace209aa6:V1",
-      "dataType" : "RAWDATA",
-      "reference" : false,
-      "uri" : "file:///test/files/file1.txt",
-      "mimeType" : "text/plain",
-      "online" : true,
-      "checksum" : "file1.txt",
-      "filesize" : 91,
-      "filename" : "file1.txt"
-    },
-    "links" : [ ]
-  }, {
-    "content" : {
-      "id" : 74,
-      "state" : "AVAILABLE",
-      "orderId" : 17,
-      "ipId" : "URN:AIP:DATA:ORDER:6041a22f-9c63-4b05-bfaf-8a7ace209aa6:V1",
-      "dataType" : "RAWDATA",
-      "reference" : false,
-      "uri" : "file:///test/files/file1_ql_sd.txt",
-      "mimeType" : "text/plain",
-      "online" : true,
-      "checksum" : "file1_ql_sd.txt",
-      "filesize" : 22,
-      "filename" : "file1_ql_sd.txt"
-    },
-    "links" : [ ]
-  }, {
-    "content" : {
-      "id" : 72,
-      "state" : "AVAILABLE",
-      "orderId" : 17,
-      "ipId" : "URN:AIP:DATA:ORDER:6041a22f-9c63-4b05-bfaf-8a7ace209aa6:V1",
+      "orderId" : 15,
+      "ipId" : "URN:AIP:DATA:ORDER:f49f3808-0bbb-4c56-bd0f-f5e910e069a4:V1",
       "dataType" : "RAWDATA",
       "reference" : false,
       "uri" : "file:///test/files/file1_ql_hd.txt",
@@ -72,15 +40,16 @@
       "online" : true,
       "checksum" : "file1_ql_hd.txt",
       "filesize" : 22,
-      "filename" : "file1_ql_hd.txt"
+      "filename" : "file1_ql_hd.txt",
+      "types" : [ ]
     },
     "links" : [ ]
   }, {
     "content" : {
-      "id" : 73,
+      "id" : 59,
       "state" : "AVAILABLE",
-      "orderId" : 17,
-      "ipId" : "URN:AIP:DATA:ORDER:6041a22f-9c63-4b05-bfaf-8a7ace209aa6:V1",
+      "orderId" : 15,
+      "ipId" : "URN:AIP:DATA:ORDER:f49f3808-0bbb-4c56-bd0f-f5e910e069a4:V1",
       "dataType" : "RAWDATA",
       "reference" : false,
       "uri" : "file:///test/files/file1_ql_md.txt",
@@ -88,13 +57,48 @@
       "online" : true,
       "checksum" : "file1_ql_md.txt",
       "filesize" : 22,
-      "filename" : "file1_ql_md.txt"
+      "filename" : "file1_ql_md.txt",
+      "types" : [ ]
+    },
+    "links" : [ ]
+  }, {
+    "content" : {
+      "id" : 57,
+      "state" : "AVAILABLE",
+      "orderId" : 15,
+      "ipId" : "URN:AIP:DATA:ORDER:f49f3808-0bbb-4c56-bd0f-f5e910e069a4:V1",
+      "dataType" : "RAWDATA",
+      "reference" : false,
+      "uri" : "file:///test/files/file1.txt",
+      "mimeType" : "text/plain",
+      "online" : true,
+      "checksum" : "file1.txt",
+      "filesize" : 91,
+      "filename" : "file1.txt",
+      "types" : [ ]
+    },
+    "links" : [ ]
+  }, {
+    "content" : {
+      "id" : 60,
+      "state" : "AVAILABLE",
+      "orderId" : 15,
+      "ipId" : "URN:AIP:DATA:ORDER:f49f3808-0bbb-4c56-bd0f-f5e910e069a4:V1",
+      "dataType" : "RAWDATA",
+      "reference" : false,
+      "uri" : "file:///test/files/file1_ql_sd.txt",
+      "mimeType" : "text/plain",
+      "online" : true,
+      "checksum" : "file1_ql_sd.txt",
+      "filesize" : 22,
+      "filename" : "file1_ql_sd.txt",
+      "types" : [ ]
     },
     "links" : [ ]
   } ],
   "links" : [ {
     "rel" : "self",
-    "href" : "http://localhost:8080/orders/17/dataset/16/files?page=0&size=20"
+    "href" : "http://localhost:8080/orders/15/dataset/11/files?page=0&size=20"
   } ]
 }
 ```

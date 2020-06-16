@@ -22,7 +22,7 @@
     
 [ {
   "content" : {
-    "id" : 29,
+    "id" : 25,
     "description" : "Request for a new projectUser (Public feature).",
     "microservice" : "Test application",
     "controllerSimpleName" : "RegistrationController",
@@ -62,12 +62,12 @@
   } ]
 }, {
   "content" : {
-    "id" : 4,
-    "description" : "Retrieve if the current user has accepted the license of the project",
+    "id" : 5,
+    "description" : "Allow current user to accept the license of the project",
     "microservice" : "Test application",
     "controllerSimpleName" : "LicenseController",
     "resource" : "/license",
-    "verb" : "GET",
+    "verb" : "PUT",
     "defaultRole" : "PUBLIC"
   },
   "links" : [ {
@@ -82,12 +82,12 @@
   } ]
 }, {
   "content" : {
-    "id" : 5,
-    "description" : "Allow current user to accept the license of the project",
+    "id" : 4,
+    "description" : "Retrieve if the current user has accepted the license of the project",
     "microservice" : "Test application",
     "controllerSimpleName" : "LicenseController",
     "resource" : "/license",
-    "verb" : "PUT",
+    "verb" : "GET",
     "defaultRole" : "PUBLIC"
   },
   "links" : [ {
@@ -122,7 +122,7 @@
   } ]
 }, {
   "content" : {
-    "id" : 35,
+    "id" : 34,
     "description" : "Retrieve accessible resource accesses of the user among the system",
     "microservice" : "Test application",
     "controllerSimpleName" : "ResourceController",
@@ -142,7 +142,7 @@
   } ]
 }, {
   "content" : {
-    "id" : 7,
+    "id" : 9,
     "description" : "Retrieve accessible resource accesses of the user among the given microservice",
     "microservice" : "Test application",
     "controllerSimpleName" : "MicroserviceResourceController",
@@ -202,7 +202,7 @@
   } ]
 }, {
   "content" : {
-    "id" : 19,
+    "id" : 22,
     "description" : "tell if user has role admin",
     "microservice" : "Test application",
     "controllerSimpleName" : "ProjectUsersController",
@@ -222,12 +222,12 @@
   } ]
 }, {
   "content" : {
-    "id" : 23,
-    "description" : "retrieve the current authenticated project user and only display  metadata",
+    "id" : 24,
+    "description" : "Update the current authenticated project user",
     "microservice" : "Test application",
     "controllerSimpleName" : "ProjectUsersController",
     "resource" : "/users/myuser",
-    "verb" : "GET",
+    "verb" : "PUT",
     "defaultRole" : "REGISTERED_USER"
   },
   "links" : [ {
@@ -242,12 +242,12 @@
   } ]
 }, {
   "content" : {
-    "id" : 24,
-    "description" : "Update the current authenticated project user",
+    "id" : 23,
+    "description" : "retrieve the current authenticated project user and only display  metadata",
     "microservice" : "Test application",
     "controllerSimpleName" : "ProjectUsersController",
     "resource" : "/users/myuser",
-    "verb" : "PUT",
+    "verb" : "GET",
     "defaultRole" : "REGISTERED_USER"
   },
   "links" : [ {

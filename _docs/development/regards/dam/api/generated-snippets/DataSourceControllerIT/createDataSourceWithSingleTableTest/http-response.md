@@ -25,15 +25,14 @@
     "associatedDatasets" : 0,
     "id" : 63,
     "pluginId" : "MockDatasourcePlugin",
-    "label" : "the label of the data source with table name",
+    "label" : "ac6fcd4c-2780-4a85-862a-44bb66f28b97",
+    "businessId" : "02fa086a-b98d-4af7-8b53-333d68eca9d0",
     "version" : "alpha",
     "priorityOrder" : 0,
     "active" : true,
-    "pluginClassName" : "fr.cnes.regards.modules.dam.rest.datasources.MockDatasourcePlugin",
-    "interfaceNames" : [ "fr.cnes.regards.modules.dam.domain.datasources.plugins.IDBDataSourcePlugin", "fr.cnes.regards.modules.dam.domain.datasources.plugins.IDataSourcePlugin" ],
     "parameters" : [ {
-      "id" : 51,
       "name" : "mapping",
+      "type" : "COLLECTION",
       "value" : [ {
         "name" : "providerId",
         "type" : "LONG",
@@ -93,86 +92,33 @@
         "nameDS" : "update",
         "attributeType" : "DYNAMIC"
       } ],
-      "dynamic" : false,
-      "dynamicsValues" : [ ],
-      "onlyDynamic" : false
+      "dynamic" : false
     }, {
-      "id" : 52,
       "name" : "modelName",
+      "type" : "STRING",
       "value" : "VALIDATION_MODEL_2",
-      "dynamic" : false,
-      "dynamicsValues" : [ ],
-      "onlyDynamic" : false
+      "dynamic" : false
     }, {
-      "id" : 53,
       "name" : "connection",
-      "pluginConfiguration" : {
-        "id" : 62,
-        "pluginId" : "MockConnectionPlugin",
-        "label" : "ae4ae851-7724-48bb-883f-210077731b75",
-        "version" : "alpha",
-        "priorityOrder" : 0,
-        "active" : true,
-        "pluginClassName" : "fr.cnes.regards.modules.dam.rest.datasources.MockConnectionPlugin",
-        "interfaceNames" : [ "fr.cnes.regards.modules.dam.domain.datasources.plugins.IDBConnectionPlugin", "fr.cnes.regards.modules.dam.domain.datasources.plugins.IConnectionPlugin" ],
-        "parameters" : [ {
-          "id" : 46,
-          "name" : "dbPort",
-          "value" : "5432",
-          "dynamic" : false,
-          "dynamicsValues" : [ ],
-          "onlyDynamic" : false
-        }, {
-          "id" : 47,
-          "name" : "password",
-          "value" : "azertyuiop123456789",
-          "dynamic" : false,
-          "dynamicsValues" : [ ],
-          "onlyDynamic" : false
-        }, {
-          "id" : 48,
-          "name" : "dbName",
-          "value" : "rs_testdb_tux",
-          "dynamic" : false,
-          "dynamicsValues" : [ ],
-          "onlyDynamic" : false
-        }, {
-          "id" : 49,
-          "name" : "dbHost",
-          "value" : "rs-postgres",
-          "dynamic" : false,
-          "dynamicsValues" : [ ],
-          "onlyDynamic" : false
-        }, {
-          "id" : 50,
-          "name" : "user",
-          "value" : "azertyuiop123456789",
-          "dynamic" : false,
-          "dynamicsValues" : [ ],
-          "onlyDynamic" : false
-        } ]
-      },
-      "dynamic" : false,
-      "dynamicsValues" : [ ],
-      "onlyDynamic" : false
+      "type" : "PLUGIN",
+      "value" : "638f9b06-d09d-491d-bbac-044c1a82a7b1",
+      "dynamic" : false
     }, {
-      "id" : 54,
       "name" : "table",
+      "type" : "STRING",
       "value" : "t_test_plugin_data_source",
-      "dynamic" : false,
-      "dynamicsValues" : [ ],
-      "onlyDynamic" : false
+      "dynamic" : false
     } ]
   },
   "links" : [ {
     "rel" : "self",
-    "href" : "http://localhost:8080/datasources/63"
+    "href" : "http://localhost:8080/datasources/02fa086a-b98d-4af7-8b53-333d68eca9d0"
   }, {
     "rel" : "delete",
-    "href" : "http://localhost:8080/datasources/63"
+    "href" : "http://localhost:8080/datasources/02fa086a-b98d-4af7-8b53-333d68eca9d0"
   }, {
     "rel" : "update",
-    "href" : "http://localhost:8080/datasources/63"
+    "href" : "http://localhost:8080/datasources/02fa086a-b98d-4af7-8b53-333d68eca9d0"
   }, {
     "rel" : "list",
     "href" : "http://localhost:8080/datasources"

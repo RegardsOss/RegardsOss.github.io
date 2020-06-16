@@ -21,7 +21,7 @@
 ```json
     
 {
-  "date" : "2019-07-22T18:17:20.728Z",
+  "date" : "2020-05-11T14:54:47.22Z",
   "id" : 7,
   "message" : "Lets test",
   "roleRecipients" : [ "PROJECT_ADMIN" ],

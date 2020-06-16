@@ -21,6 +21,6 @@
 ```json
     
 {
-  "messages" : [ "Operation on entity \"fr.cnes.regards.modules.accessrights.domain.projects.ProjectUser\" with id: \"7\" is forbidden: The transition denyAccess called on this state-managed entity is illegal for its current state ACCESS_DENIED" ]
+  "messages" : [ "Operation on entity \"fr.cnes.regards.modules.accessrights.domain.projects.ProjectUser\" with id: \"252\" is forbidden: The transition denyAccess called on this state-managed entity is illegal for its current state ACCESS_DENIED" ]
 }
 ```

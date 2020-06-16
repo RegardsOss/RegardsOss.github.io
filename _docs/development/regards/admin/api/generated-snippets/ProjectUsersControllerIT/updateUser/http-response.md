@@ -21,6 +21,6 @@
 ```json
     
 {
-  "messages" : [ "Inconsistent entity update request for \"fr.cnes.regards.modules.accessrights.domain.projects.ProjectUser\". Path identifier \"99\" does not match request body identifier \"19\"." ]
+  "messages" : [ "Inconsistent entity update request for \"fr.cnes.regards.modules.accessrights.domain.projects.ProjectUser\". Path identifier \"99\" does not match request body identifier \"356\"." ]
 }
 ```

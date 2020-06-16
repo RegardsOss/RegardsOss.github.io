@@ -117,7 +117,7 @@
   "model" : {
     "id" : 7,
     "name" : "modelGMA3",
-    "type" : "DOCUMENT"
+    "type" : "COLLECTION"
   },
   "pos" : 0
 }, {
@@ -142,7 +142,7 @@
   "model" : {
     "id" : 8,
     "name" : "modelGMA4",
-    "type" : "COLLECTION"
+    "type" : "DATA"
   },
   "pos" : 0
 }, {
@@ -167,7 +167,7 @@
   "model" : {
     "id" : 9,
     "name" : "modelGMA5",
-    "type" : "DATA"
+    "type" : "DATASET"
   },
   "pos" : 0
 }, {
@@ -192,7 +192,7 @@
   "model" : {
     "id" : 10,
     "name" : "modelGMA6",
-    "type" : "DATASET"
+    "type" : "COLLECTION"
   },
   "pos" : 0
 }, {
@@ -217,7 +217,7 @@
   "model" : {
     "id" : 11,
     "name" : "modelGMA7",
-    "type" : "DOCUMENT"
+    "type" : "DATA"
   },
   "pos" : 0
 }, {
@@ -242,7 +242,7 @@
   "model" : {
     "id" : 12,
     "name" : "modelGMA8",
-    "type" : "COLLECTION"
+    "type" : "DATASET"
   },
   "pos" : 0
 }, {
@@ -267,7 +267,7 @@
   "model" : {
     "id" : 13,
     "name" : "modelGMA9",
-    "type" : "DATA"
+    "type" : "COLLECTION"
   },
   "pos" : 0
 }, {
@@ -292,7 +292,7 @@
   "model" : {
     "id" : 14,
     "name" : "modelGMA10",
-    "type" : "DATASET"
+    "type" : "DATA"
   },
   "pos" : 0
 }, {
@@ -317,7 +317,7 @@
   "model" : {
     "id" : 15,
     "name" : "modelGMA11",
-    "type" : "DOCUMENT"
+    "type" : "DATASET"
   },
   "pos" : 0
 }, {
@@ -417,7 +417,7 @@
   "model" : {
     "id" : 19,
     "name" : "modelGMA15",
-    "type" : "DOCUMENT"
+    "type" : "COLLECTION"
   },
   "pos" : 0
 }, {
@@ -442,7 +442,7 @@
   "model" : {
     "id" : 20,
     "name" : "modelGMA16",
-    "type" : "COLLECTION"
+    "type" : "DATA"
   },
   "pos" : 0
 }, {
@@ -467,7 +467,7 @@
   "model" : {
     "id" : 21,
     "name" : "modelGMA17",
-    "type" : "DATA"
+    "type" : "DATASET"
   },
   "pos" : 0
 }, {
@@ -492,7 +492,7 @@
   "model" : {
     "id" : 22,
     "name" : "modelGMA18",
-    "type" : "DATASET"
+    "type" : "COLLECTION"
   },
   "pos" : 0
 }, {
@@ -517,7 +517,7 @@
   "model" : {
     "id" : 23,
     "name" : "modelGMA19",
-    "type" : "DOCUMENT"
+    "type" : "DATA"
   },
   "pos" : 0
 } ]

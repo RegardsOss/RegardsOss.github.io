@@ -3,8 +3,8 @@
 ```json
     {
   "type" : "COLLECTION",
-  "ipId" : "URN:AIP:COLLECTION:null:751343a9-eb1a-4b85-8d20-7fc378de9752:V1",
-  "creationDate" : "2019-07-19T17:14:38.979Z",
+  "ipId" : "URN:AIP:COLLECTION:null:07517e4e-673d-453d-bfef-18c1fe461f59:V1",
+  "creationDate" : "2020-05-11T11:36:28.667Z",
   "model" : {
     "id" : 3,
     "name" : "modelName1",
@@ -20,7 +20,7 @@
     "model" : "modelName1",
     "files" : { },
     "tags" : [ ],
-    "id" : "URN:AIP:COLLECTION:null:751343a9-eb1a-4b85-8d20-7fc378de9752:V1",
+    "id" : "URN:AIP:COLLECTION:null:07517e4e-673d-453d-bfef-18c1fe461f59:V1",
     "properties" : { },
     "type" : "Feature"
   }

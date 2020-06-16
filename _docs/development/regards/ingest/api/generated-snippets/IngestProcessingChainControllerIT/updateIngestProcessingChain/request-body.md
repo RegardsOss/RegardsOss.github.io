@@ -5,25 +5,21 @@
   "name" : "ingestProcessingChain_test",
   "description" : "the updated description",
   "validationPlugin" : {
-    "id" : 3,
+    "id" : 52,
     "pluginId" : "FakeValidationTestPlugin",
     "label" : "FakeValidationTestPlugin",
-    "version" : "1.0.0",
+    "businessId" : "fdcdea4a-6291-48e9-a482-162fa0a65311",
     "priorityOrder" : 0,
     "active" : true,
-    "pluginClassName" : "fr.cnes.regards.modules.ingest.service.plugin.FakeValidationTestPlugin",
-    "interfaceNames" : [ "fr.cnes.regards.modules.ingest.domain.plugin.ISipValidation" ],
     "parameters" : [ ]
   },
   "generationPlugin" : {
-    "id" : 4,
+    "id" : 53,
     "pluginId" : "FakeAIPGenerationTestPlugin",
     "label" : "FakeAIPGenerationTestPlugin",
-    "version" : "1.0.0",
+    "businessId" : "94a12f2b-fa02-46c1-8b64-f82f6a78bc29",
     "priorityOrder" : 0,
     "active" : true,
-    "pluginClassName" : "fr.cnes.regards.modules.ingest.service.plugin.FakeAIPGenerationTestPlugin",
-    "interfaceNames" : [ "fr.cnes.regards.modules.ingest.domain.plugin.IAipGeneration" ],
     "parameters" : [ ]
   }
 }

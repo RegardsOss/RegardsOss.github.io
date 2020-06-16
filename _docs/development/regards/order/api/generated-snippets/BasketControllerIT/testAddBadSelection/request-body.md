@@ -2,6 +2,6 @@
 
 ```json
     {
-  "selectionDate" : "2019-07-22T07:29:50.039Z"
+  "selectionDate" : "2020-05-13T12:05:10.586Z"
 }
 ```

@@ -4,6 +4,6 @@
 
         Parameter|Type|Description|Constraints
         :-------:|:--:|:---------:|:---------:
-        `modelType` |String|model type|Available values: COLLECTION, DOCUMENT, DATA, DATASET
+        `modelType` |String|model type|Available values: COLLECTION, DATA, DATASET
     {:.table.table-striped}
 

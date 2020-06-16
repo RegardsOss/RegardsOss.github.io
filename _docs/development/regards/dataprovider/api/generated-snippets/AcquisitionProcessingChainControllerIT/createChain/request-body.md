@@ -6,23 +6,31 @@
   "active" : true,
   "mode" : "MANUAL",
   "locked" : false,
+  "periodicity" : "0 * * * * *",
   "ingestChain" : "DefaultIngestChain",
+  "storages" : [ {
+    "pluginBusinessId" : "AWS",
+    "storePath" : "/path/to/file",
+    "targetTypes" : [ ]
+  }, {
+    "pluginBusinessId" : "HELLO",
+    "storePath" : "/other/path/to/file",
+    "targetTypes" : [ ]
+  } ],
+  "categories" : [ ],
   "fileInfos" : [ {
     "mandatory" : true,
     "scanPlugin" : {
       "pluginId" : "GlobDiskScanning",
       "label" : "post : Scan plugin",
-      "version" : "1.0.0-SNAPSHOT",
+      "businessId" : "a8371d92-8bdf-4a8d-affa-41036a80457e",
       "priorityOrder" : 0,
       "active" : true,
-      "pluginClassName" : "fr.cnes.regards.modules.acquisition.service.plugins.GlobDiskScanning",
-      "interfaceNames" : [ "fr.cnes.regards.modules.acquisition.plugins.IScanPlugin" ],
       "parameters" : [ {
         "name" : "directories",
+        "type" : "COLLECTION",
         "value" : [ ],
-        "dynamic" : false,
-        "dynamicsValues" : [ ],
-        "onlyDynamic" : false
+        "dynamic" : false
       } ]
     },
     "mimeType" : "application/octet-stream",
@@ -32,33 +40,26 @@
   "validationPluginConf" : {
     "pluginId" : "DefaultFileValidation",
     "label" : "post : Validation plugin",
-    "version" : "1.0.0-SNAPSHOT",
+    "businessId" : "f17562b7-42f5-4c5c-b5ef-a525724b1534",
     "priorityOrder" : 0,
     "active" : true,
-    "pluginClassName" : "fr.cnes.regards.modules.acquisition.service.plugins.DefaultFileValidation",
-    "interfaceNames" : [ "fr.cnes.regards.modules.acquisition.plugins.IValidationPlugin" ],
     "parameters" : [ ]
   },
   "productPluginConf" : {
     "pluginId" : "DefaultProductPlugin",
     "label" : "post : Product plugin",
-    "version" : "1.0.0-SNAPSHOT",
+    "businessId" : "95240aec-f694-4848-8c16-2f6306625daf",
     "priorityOrder" : 0,
     "active" : true,
-    "pluginClassName" : "fr.cnes.regards.modules.acquisition.service.plugins.DefaultProductPlugin",
-    "interfaceNames" : [ "fr.cnes.regards.modules.acquisition.plugins.IProductPlugin" ],
     "parameters" : [ ]
   },
   "generateSipPluginConf" : {
     "pluginId" : "DefaultSIPGeneration",
     "label" : "post : SIP generation plugin",
-    "version" : "1.0.0-SNAPSHOT",
+    "businessId" : "3e26bb35-bb74-4a80-8712-4018ee196054",
     "priorityOrder" : 0,
     "active" : true,
-    "pluginClassName" : "fr.cnes.regards.modules.acquisition.service.plugins.DefaultSIPGeneration",
-    "interfaceNames" : [ "fr.cnes.regards.modules.acquisition.plugins.ISipGenerationPlugin" ],
     "parameters" : [ ]
-  },
-  "generationRetryEnabled" : false
+  }
 }
 ```

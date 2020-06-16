@@ -29,9 +29,9 @@
   },
   "content" : [ {
     "content" : {
-      "id" : 51,
+      "id" : 67,
       "pluginDefinition" : {
-        "id" : 95,
+        "id" : 109,
         "name" : "PluginTest",
         "type" : "SERVICE",
         "sourcePath" : "plugins/test/bundle.js",
@@ -45,7 +45,7 @@
     },
     "links" : [ {
       "rel" : "delete",
-      "href" : "http://localhost:8080/uiplugins/configurations/51"
+      "href" : "http://localhost:8080/uiplugins/configurations/67"
     } ]
   } ],
   "links" : [ {

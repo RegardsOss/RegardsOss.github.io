@@ -22,28 +22,26 @@
     
 {
   "content" : {
-    "id" : 6,
+    "id" : 56,
     "name" : "TestProcessingChain",
     "validationPlugin" : {
-      "id" : 9,
+      "id" : 58,
       "pluginId" : "DefaultSipValidation",
       "label" : "TestSIPValidation",
+      "businessId" : "eb05434f-5087-4bc1-b027-46ea71f520ae",
       "version" : "1.0.0",
       "priorityOrder" : 0,
       "active" : true,
-      "pluginClassName" : "fr.cnes.regards.modules.ingest.service.plugin.DefaultSipValidation",
-      "interfaceNames" : [ "fr.cnes.regards.modules.ingest.domain.plugin.ISipValidation" ],
       "parameters" : [ ]
     },
     "generationPlugin" : {
-      "id" : 10,
+      "id" : 59,
       "pluginId" : "DefaultSingleAIPGeneration",
       "label" : "TestAIPGeneration",
+      "businessId" : "9e666134-6bc4-4c2c-b406-d7a19b81d4ae",
       "version" : "1.0.0",
       "priorityOrder" : 0,
       "active" : true,
-      "pluginClassName" : "fr.cnes.regards.modules.ingest.service.plugin.DefaultSingleAIPGeneration",
-      "interfaceNames" : [ "fr.cnes.regards.modules.ingest.domain.plugin.IAipGeneration" ],
       "parameters" : [ ]
     }
   },

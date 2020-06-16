@@ -24,9 +24,9 @@
   "content" : {
     "type" : "COLLECTION",
     "id" : 3,
-    "ipId" : "URN:AIP:COLLECTION:PROJECT:5c953581-9d35-4b19-aef8-a82f440f7a37:V1",
-    "creationDate" : "2019-07-19T17:15:15.187Z",
-    "lastUpdate" : "2019-07-19T17:15:15.305Z",
+    "ipId" : "URN:AIP:COLLECTION:PROJECT:ecac0e1a-c718-4d02-8996-45d5be2c6708:V1",
+    "creationDate" : "2020-05-11T11:39:00.55Z",
+    "lastUpdate" : "2020-05-11T11:39:00.898Z",
     "model" : {
       "id" : 3,
       "name" : "MODEL",
@@ -44,13 +44,14 @@
         "DESCRIPTION" : [ {
           "dataType" : "DESCRIPTION",
           "reference" : false,
-          "uri" : "http://localhost:8080/entities/URN:AIP:COLLECTION:PROJECT:5c953581-9d35-4b19-aef8-a82f440f7a37:V1/files/dfbde11bc7762d4a38c38940c1c0a8c3",
+          "uri" : "http://localhost:8080/entities/URN:AIP:COLLECTION:PROJECT:ecac0e1a-c718-4d02-8996-45d5be2c6708:V1/files/dfbde11bc7762d4a38c38940c1c0a8c3",
           "mimeType" : "application/pdf;charset=UTF-8",
           "online" : true,
           "checksum" : "dfbde11bc7762d4a38c38940c1c0a8c3",
           "digestAlgorithm" : "MD5",
           "filesize" : 8083,
-          "filename" : "description.pdf"
+          "filename" : "description.pdf",
+          "types" : [ ]
         }, {
           "dataType" : "DESCRIPTION",
           "reference" : true,
@@ -59,11 +60,12 @@
           "online" : true,
           "checksum" : "6c342551cb27c952b1e1d380f82f404a",
           "digestAlgorithm" : "MD5",
-          "filename" : "650x0m2.pdf"
+          "filename" : "650x0m2.pdf",
+          "types" : [ ]
         } ]
       },
       "tags" : [ ],
-      "id" : "URN:AIP:COLLECTION:PROJECT:5c953581-9d35-4b19-aef8-a82f440f7a37:V1",
+      "id" : "URN:AIP:COLLECTION:PROJECT:ecac0e1a-c718-4d02-8996-45d5be2c6708:V1",
       "properties" : { },
       "type" : "Feature"
     }

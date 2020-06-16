@@ -2,7 +2,7 @@
 
         ***URL**
 
-        `/resources/92`
+        `/resources/302`
 
         ***URL template**
 
