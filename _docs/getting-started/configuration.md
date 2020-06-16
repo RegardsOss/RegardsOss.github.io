@@ -200,11 +200,12 @@ rabbitmqctl set_user_tags regards_adm administrator
 rabbitmqctl set_permissions -p / regards_adm "." ".*" "."
 ```
 
-If you want increased security on RabbitMQ, you can run `rabbitmqctl set_permissions -p / regards_adm "^$"^$" "^$"` after REGARDS has been started at least once.
+If you want increased security on RabbitMQ, you can run `rabbitmqctl set_permissions -p / regards_adm "^$" "^$" "^$"` after REGARDS has been started at least once.
 
 ## Elasticsearch
 
-Install [ElasticSearch](https://www.elastic.co/fr/downloads) 6.5.X.  
+Install [ElasticSearch](https://www.elastic.co/fr/downloads) 6.X.  
+`Notice :` Do not use a further version like 7.X. 
 
 If `grep vm.max_map_count /etc/sysctl.conf` returns empty, you need to execute the following:
 
@@ -215,6 +216,7 @@ vm.max_map_count=262144" >> /etc/sysctl.conf
 ```
 
 We advise the following configuration for production environments:
+ -  change **network.host** to `0.0.0.0`
  -  change **cluster.name**
  -  change **node.name**
  -  change **path.data**
@@ -231,6 +233,34 @@ For Red Hat OS, you just need to start it :
 systemctl enable elasticsearch.service
 systemctl start elasticsearch.service
 ```
+
+If you have trouble we jna while starting Elasticsearch, it may come from the fact that your `/tmp` is mounted with **noexec** option. In that case, you have to do the following:
+
+1. In **/etc/sysconfig/elasticsearch**:
+```
+ES_JAVA_OPTS="-Djna.tmpdir=/opt/elasticsearch-jnatmp"
+```
+2. Create **/opt/elasticsearch-jnatmp**
+```
+mkdir /produit/elasticsearch-jnatmp
+chown elasticsearch:elasticsearc /produit/elasticsearch-jnatmp
+```
+3. Add a home dir to user elastisearch, in **/etc/passwd**:
+```
+elasticsearch:x:995:154:elasticsearch user:/home/elasticsearch:/sbin/nologin
+```
+4. Create elasticsearch home dir **/home/elasticsearch**, as root:
+```
+cd /home
+mkdir elasticsearch
+chown elasticsearch:elasticsearch elasticsearch/
+```
+5. In **/etc/systemd/system/elasticsearch.service.d/override.conf**
+```
+[Service]
+LimitMEMLOCK=infinity
+```
+
 
 ## Kibana
 
