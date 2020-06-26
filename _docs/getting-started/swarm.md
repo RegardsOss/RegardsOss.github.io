@@ -215,10 +215,6 @@ group_docker_mservices:
     tag: "{{ "{{" }} group_docker_tag }}"
   access:
     tag: "{{ "{{" }} group_docker_tag }}"
-  front:
-    http: 9080
-    public_url: http:\/\/regards-cnes-d21-myorganisation.com:9080
-    tag: "{{ "{{" }} group_docker_tag }}"
   storage:
     tag: "{{ "{{" }} group_docker_tag }}"
   order:
@@ -226,6 +222,11 @@ group_docker_mservices:
   ingest:
     tag: "{{ "{{" }} group_docker_tag }}"
   dataprovider:
+    tag: "{{ "{{" }} group_docker_tag }}"
+  front:
+    port: 9080
+    protocol: http
+    host: regards-cnes-d21-myorganisation.com
     tag: "{{ "{{" }} group_docker_tag }}"
 
 # COTS
@@ -285,19 +286,17 @@ Microservices properties :
 |`group_docker_plugins`| `Array` |Used to store docker plugins to execute.|Required. Can be empty.|
 |`group_docker_plugins[].image`| `String` |Docker image name of the plugin that stores plugins you want to install on REGARDS|Required.|
 |`group_docker_plugins[].tag`| `String` |Docker image tag|Required.|
-|`group_docker_mservices`| `Object` |List of microservices that will be deployed|Required. Some of these keys are facultative, but config, registry, gateway, admin_instance & admin should not be removed|
+|`group_docker_mservices`| `Object` |List of microservices that will be deployed|Required. Some of these keys are facultative, but config, registry, gateway, admin_instance, admin & front should not be removed|
 |`group_docker_mservices.<anybackendmicroservice>.tag`| `String` |Docker image tag that will be deployed|Required.|
 |`group_docker_mservices.<anybackendmicroservice>.http`| `String` |Open the public HTTP port of the service (bypass reverse proxy + gateway)|Facultative.|
 |`group_docker_mservices.<anybackendmicroservice>.jdwp`| `String` |Open a public port to debug a microservice with your IDE|Facultative.|
 |`group_docker_mservices.<anybackendmicroservice>.jmx`| `String` |Open the JMX port|Facultative.|
-|`group_docker_mservices.front`| `Object` |When defined, boots the frontend, which is also the reverse proxy to the gateway|Facultative.|
+|`group_docker_mservices.front`| `Object` |When defined, boots the frontend, which is also the reverse proxy to the gateway|Required.|
 |`group_docker_mservices.front.tag`| `String` |Docker image tag that will be deployed|Required.|
-|`group_docker_mservices.front.http`| `Int` |Open the HTTP port of the NGINX to let users access to the front|Facultative.|
-|`group_docker_mservices.front.public_url`| `String` |Public adress that will be used to access to the front|Required.|
+|`group_docker_mservices.front.port`| `Int` |Open the HTTP port of the NGINX to let users access to the front|Required.|
+|`group_docker_mservices.front.protocol`| `Int` |Protocol used to access to the front|Required.|
+|`group_docker_mservices.front.host`| `String` |Host used to access to the front|Required.|
 {:.table.table-striped}
-
-> `group_docker_mservices.front` is facultative, but `group_docker_mservices.front.tag` is required. It means that if you define the `front` key, then you must specify its required subkeys. But you can safely ignore the entire `front` object if you want to.
-{: .tip .info}
 
 If you don't have mutualised COTS, don't worry. You can deploy yours and use mutualised ones later.
 
@@ -343,6 +342,7 @@ The last but not least, the configuration of microservices :
 |`group_docker_mservices.instance_admin.user`| `String` |Name of the instance admin|Facultative. Default: `regards-admin@c-s.fr`|
 |`group_docker_mservices.instance_admin.password`| `String` |Password of the instance admin|Facultative. Default: `root_admin`|
 |`group_docker_mservices.jwt_secret`| `String` |JWT secret|Facultative. Recommended for production.|
+|`group_docker_mservices.access_token_validity`| `String` |Access token validity period in seconds|Facultative. Default: 1 hour|
 |`group_docker_mservices.cipher_iv`| `String` |Cipher IV|Facultative. Recommended for production.|
 |`group_docker_mservices.mail`| `Object` |Mail configuration used by microservices|Facultative.|
 |`group_docker_mservices.mail.host`| `String` |SMTP Host|Facultative. Default: `rs-maildev`|
