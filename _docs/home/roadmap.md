@@ -17,6 +17,8 @@ As with any roadmap, this is a living document that gives you an overview of the
 ## Upcoming version
 
 ---
+{% include_relative roadmap/V1.3.0.md %}
+
 {% include_relative roadmap/V1.2.0.md %}
 
 {% include_relative roadmap/V1.1.0.md %}
