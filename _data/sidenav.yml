@@ -6,29 +6,10 @@
     - name: Overview
       link: 
       children:
-        # - name: Acquisition and archiving with OAIS
-        #   link: home/features/acqarch/
-        # - name: Catalog harvesting and publication
-        #   link: home/features/harvesting/
-        # - name: OpenSearch API
-        #   link: home/features/opensearch/
         - name: Main features
           link:
         - name: Roadmap
           link: home/roadmap/
-    # - name: Introduction
-    #   link: home/introduction/
-    # - name: Roadmap
-    #   link: home/roadmap/
-    # - name: Features
-    #   link: home/features/
-    #   children:
-        # - name: Acquisition and archiving with OAIS
-        #   link: home/features/acqarch/
-        # - name: Catalog harvesting and publication
-        #   link: home/features/harvesting/
-        # - name: OpenSearch API
-        #   link: home/features/opensearch/
 # ========================================================================
 - name: Getting Started
   icon: /assets/img/icons/rocket2.svg
@@ -51,30 +32,78 @@
       children: 
         - name: Tutorials
           link : getting-started/tutorials/
-    # - name: Basic use cases
-    #   children: 
-    #     - name: External data source publication
-    #       link: getting-started/samples/basic-extds/
-    #     - name: Full OAIS workflow
-    #       link: getting-started/samples/basic-oais/   
 # ========================================================================
-# - name: User Documentation
-#   icon: /assets/img/icons/phone-book.svg
-#   children: 
-#     - name: Instance management
-#       link: user-documentation/instance-management/
-#     - name: Project management
-#       children: 
-#         - name: Authentication and authorization
-#           link: user-documentation/authentication/
-#         - name: Data management
-#           link: user-documentation/data-management/
-#         - name: Data acquisition and archiving
-#           link: user-documentation/data-acquisition-archiving/
-#         - name: Web application configuration
-#           link: user-documentation/webapp/
-#     - name: Public interface
-#       link: user-documentation/user-manual/
+ - name: User Documentation
+   icon: /assets/img/icons/phone-book.svg
+   children: 
+     - name: Projects configuration
+       children: 
+         - name: Create a new project
+           link: user-documentation/admin-instance/project-configuration/
+         - name: Users accounts
+           link: user-documentation/admin-instance/user-accounts/
+         - name: Portal
+           link: user-documentation/admin-instance/portal-configuration/
+     - name: Project configuration
+       children: 
+         - name: Project users management
+           link: user-documentation/admin/users/
+         - name: User interface configuration
+           link: user-documentation/admin/hmi-configuration/
+         - name: Data models
+           link: user-documentation/admin/models-configuration/
+         - name: Data organization
+           link: user-documentation/admin/datasets/
+         - name: Storage locations
+           link: user-documentation/admin/storages-configuration/
+         - name: Catalog search protocols
+           link: user-documentation/admin/search-protocols/
+         - name: Configure applicable services
+           link: user-documentation/admin/catalog-services/
+         - name: Data access rights
+           link: user-documentation/admin/data-access-rights/
+         - name: Users orders management
+           link: user-documentation/admin/users-orders/
+         - name: System health
+           link: user-documentation/admin/microservices/
+     - name: Add data from external data catalog
+       children: 
+         - name: Introduction
+           link: user-documentation/admin/crawler/introduction/
+         - name: Add data from a postgres database
+           link: user-documentation/admin/crawler/postgres/
+         - name: Add data from an opensearch webservice
+           link: user-documentation/admin/crawler/opensearch/
+     - name: Add data from OAIS Submission Information Package (SIP)
+       children: 
+         - name: Introduction
+           link: user-documentation/admin/oais/introduction/
+         - name: Configuration
+           link: user-documentation/admin/oais/configuration/
+         - name: Submission
+           link: user-documentation/admin/oais/submission/
+         - name: Monitoring
+           link: user-documentation/admin/oais/monitoring/
+     - name: Add data from scanned files
+       children: 
+         - name: Introduction
+           link: user-documentation/admin/dataprovider/introduction/
+         - name: Configuration
+           link: user-documentation/admin/dataprovider/configuration/
+         - name: Submission
+           link: user-documentation/admin/dataprovider/submission/
+         - name: Monitoring
+           link: user-documentation/admin/dataprovider/monitoring/
+     - name: Add data from standard Geojson features
+       children: 
+         - name: Introduction
+           link: user-documentation/admin/dataprovider/introduction/
+         - name: Configuration
+           link: user-documentation/admin/dataprovider/configuration/
+         - name: Submission
+           link: user-documentation/admin/dataprovider/submission/
+         - name: Monitoring
+           link: user-documentation/admin/dataprovider/monitoring/
 # ========================================================================
 - name: Backend
   icon: /assets/img/icons/cloud-computing-dev.svg
