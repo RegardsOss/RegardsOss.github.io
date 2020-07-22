@@ -33,77 +33,106 @@
         - name: Tutorials
           link : getting-started/tutorials/
 # ========================================================================
- - name: User Documentation
-   icon: /assets/img/icons/phone-book.svg
-   children: 
-     - name: Projects configuration
-       children: 
-         - name: Create a new project
-           link: user-documentation/admin-instance/project-configuration/
-         - name: Users accounts
-           link: user-documentation/admin-instance/user-accounts/
-         - name: Portal
-           link: user-documentation/admin-instance/portal-configuration/
-     - name: Project configuration
-       children: 
-         - name: Project users management
-           link: user-documentation/admin/users/
-         - name: User interface configuration
-           link: user-documentation/admin/hmi-configuration/
-         - name: Data models
-           link: user-documentation/admin/models-configuration/
-         - name: Data organization
-           link: user-documentation/admin/datasets/
-         - name: Storage locations
-           link: user-documentation/admin/storages-configuration/
-         - name: Catalog search protocols
-           link: user-documentation/admin/search-protocols/
-         - name: Configure applicable services
-           link: user-documentation/admin/catalog-services/
-         - name: Data access rights
-           link: user-documentation/admin/data-access-rights/
-         - name: Users orders management
-           link: user-documentation/admin/users-orders/
-         - name: System health
-           link: user-documentation/admin/microservices/
-     - name: Add data from external data catalog
-       children: 
-         - name: Introduction
-           link: user-documentation/admin/crawler/introduction/
-         - name: Add data from a postgres database
-           link: user-documentation/admin/crawler/postgres/
-         - name: Add data from an opensearch webservice
-           link: user-documentation/admin/crawler/opensearch/
-     - name: Add data from OAIS Submission Information Package (SIP)
-       children: 
-         - name: Introduction
-           link: user-documentation/admin/oais/introduction/
-         - name: Configuration
-           link: user-documentation/admin/oais/configuration/
-         - name: Submission
-           link: user-documentation/admin/oais/submission/
-         - name: Monitoring
-           link: user-documentation/admin/oais/monitoring/
-     - name: Add data from scanned files
-       children: 
-         - name: Introduction
-           link: user-documentation/admin/dataprovider/introduction/
-         - name: Configuration
-           link: user-documentation/admin/dataprovider/configuration/
-         - name: Submission
-           link: user-documentation/admin/dataprovider/submission/
-         - name: Monitoring
-           link: user-documentation/admin/dataprovider/monitoring/
-     - name: Add data from standard Geojson features
-       children: 
-         - name: Introduction
-           link: user-documentation/admin/dataprovider/introduction/
-         - name: Configuration
-           link: user-documentation/admin/dataprovider/configuration/
-         - name: Submission
-           link: user-documentation/admin/dataprovider/submission/
-         - name: Monitoring
-           link: user-documentation/admin/dataprovider/monitoring/
+- name: User Documentation
+  icon: /assets/img/icons/phone-book.svg
+  children: 
+    - name: Global configuration
+      link: user-documentation/admin-instance/description/
+      children: 
+        - name: Introduction
+          link: user-documentation/admin-instance/description/
+        - name: Projects
+          link: user-documentation/admin-instance/project-configuration/
+        - name: Users accounts
+          link: user-documentation/admin-instance/user-accounts/
+        - name: Portal
+          link: user-documentation/admin-instance/portal-configuration/
+    - name: Project configuration
+      link: user-documentation/admin/description/
+      children: 
+        - name: Users
+          link: user-documentation/admin/users/
+        - name: Data models
+          link: user-documentation/admin/models-configuration/
+        - name: Data organization
+          link: user-documentation/admin/datasets/
+        - name: Data access rights
+          link: user-documentation/admin/data-access-rights/
+        - name: Storage locations
+          link: user-documentation/admin/storages-configuration/
+        - name: Catalog search protocols
+          link: user-documentation/admin/search-protocols/
+        - name: Applicable services
+          link: user-documentation/admin/catalog-services/
+        - name: Data orders
+          link: user-documentation/admin/users-orders/
+        - name: User interface
+          link: user-documentation/admin/hmi-configuration/
+        - name: System health
+          link: user-documentation/admin/microservices/
+    - name: Add data from external data catalog
+      link: user-documentation/admin/crawler/introduction/
+      children: 
+        - name: Introduction
+          link: user-documentation/admin/crawler/introduction/
+        - name: Configuration
+          link: user-documentation/admin/crawler/configuration/
+        - name: Submission
+          link: user-documentation/admin/crawler/submission/
+        - name: Monitoring
+          link: user-documentation/admin/crawler/monitoring/
+    - name: Add data from OAIS Submission Information Package (SIP)
+      link: user-documentation/admin/oais/introduction/
+      children: 
+        - name: Introduction
+          link: user-documentation/admin/oais/introduction/
+        - name: Configuration
+          link: user-documentation/admin/oais/configuration/
+        - name: Submission
+          link: user-documentation/admin/oais/submission/
+        - name: Monitoring
+          link: user-documentation/admin/oais/monitoring/
+    - name: Add data from scanned files
+      link: user-documentation/admin/dataprovider/introduction/
+      children: 
+        - name: Introduction
+          link: user-documentation/admin/dataprovider/introduction/
+        - name: Configuration
+          link: user-documentation/admin/dataprovider/configuration/
+        - name: Submission
+          link: user-documentation/admin/dataprovider/submission/
+        - name: Monitoring
+          link: user-documentation/admin/dataprovider/monitoring/
+    - name: Add data from standard Geojson features
+      link: user-documentation/admin/dataprovider/introduction/
+      children: 
+        - name: Introduction
+          link: user-documentation/admin/dataprovider/introduction/
+        - name: Configuration
+          link: user-documentation/admin/dataprovider/configuration/
+        - name: Submission
+          link: user-documentation/admin/dataprovider/submission/
+        - name: Monitoring
+          link: user-documentation/admin/dataprovider/monitoring/
+    - name: Catalog consultation
+      link: user-documentation/user/consultation/
+      children: 
+        - name: Introduction
+          link: user-documentation/user/description/
+        - name: License
+          link: user-documentation/user/licence/description/
+        - name: Search
+          link: user-documentation/user/consultation/search/
+        - name: Views
+          link: user-documentation/user/consultation/views/
+        - name: Graph
+          link: user-documentation/user/consultation/graph/
+        - name: Data description
+          link: user-documentation/user/consultation/description/
+        - name: Applicable services
+          link: user-documentation/user/consultation/services/
+        - name: Order data
+          link: user-documentation/user/order/description/
 # ========================================================================
 - name: Backend
   icon: /assets/img/icons/cloud-computing-dev.svg
