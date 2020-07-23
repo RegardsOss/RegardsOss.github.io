@@ -119,6 +119,8 @@
       children: 
         - name: Introduction
           link: user-documentation/user/description/
+        - name: Authentication
+          link: user-documentation/user/authentication/description/
         - name: License
           link: user-documentation/user/licence/description/
         - name: Search
