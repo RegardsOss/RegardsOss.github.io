@@ -109,13 +109,13 @@
       link: user-documentation/admin/dataprovider/introduction/
       children: 
         - name: Introduction
-          link: user-documentation/admin/dataprovider/introduction/
+          link: user-documentation/admin/fem/introduction/
         - name: Configuration
-          link: user-documentation/admin/dataprovider/configuration/
+          link: user-documentation/admin/fem/configuration/
         - name: Submission
-          link: user-documentation/admin/dataprovider/submission/
+          link: user-documentation/admin/fem/submission/
         - name: Monitoring
-          link: user-documentation/admin/dataprovider/monitoring/
+          link: user-documentation/admin/fem/monitoring/
     - name: Catalog consultation
       link: user-documentation/user/consultation/
       children: 
