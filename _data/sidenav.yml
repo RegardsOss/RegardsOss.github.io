@@ -50,6 +50,8 @@
     - name: Project configuration
       link: user-documentation/admin/description/
       children: 
+        - name: Introduction
+          link: user-documentation/admin/description/
         - name: Users
           link: user-documentation/admin/users/
         - name: Data models
