@@ -323,6 +323,17 @@ If you don't have mutualised COTS, don't worry. You can deploy yours and use mut
 |`group_docker_cots.rabbitmq`| `Object` |When defined, boots a RabbitMQ|Facultative.|
 |`group_docker_cots.rabbitmq.client`| `Int` |When defined, open the TCP port|Facultative.|
 |`group_docker_cots.rabbitmq.http`| `Int` |When defined, open the HTTP port|Facultative.|
+|`group_docker_cots.rabbitmq.additional_users`| `Array` |When defined, adds or updates a RabbitMQ user in addition to the REGARDS admin (see `group_docker_mservices.amqp.user`) |Facultative.|
+|`group_docker_cots.rabbitmq.additional_users.name`| `String` |Username of the RabbitMQ user|Required.|
+|`group_docker_cots.rabbitmq.additional_users.password`| `String` |Password of the RabbitMQ user|Required.|
+|`group_docker_cots.rabbitmq.additional_users.tags`| `String` |Tags of the RabbitMQ user|Required. Can be empty, or a comma separated string with one of these values: `management`, `policymaker`, `monitoring`, `administrator`|
+|`group_docker_cots.rabbitmq.user_permissions`| `Array` |When defined, adds a RabbitMQ user permission|Facultative.|
+|`group_docker_cots.rabbitmq.user_permissions.user`| `String` |Username of this RabbitMQ user permission|Required.|
+|`group_docker_cots.rabbitmq.user_permissions.vhost`| `String` |VirtualHost of the RabbitMQ user|Required. Can be `/`, `regards.multitenant.manager` or `regards.instance.manager`|
+|`group_docker_cots.rabbitmq.user_permissions.configure`| `String` |Configuration authorisation of the RabbitMQ user|Required. Can be empty, `.*` or any other valid value|
+|`group_docker_cots.rabbitmq.user_permissions.write`| `String` |Write authorisation of the RabbitMQ user|Required. Can be empty, `.*` or any other valid value|
+|`group_docker_cots.rabbitmq.user_permissions.read`| `String` |Read authorisation of the RabbitMQ user|Required. Can be empty, `.*` or any other valid value|
+|`group_docker_cots.rabbitmq.additional_parameters`| `Array` |The `parameters` field of the `definitions.json` file, used for example to configure shovel|Facultative. `Download broker definitions` on your RabbitMQ to see valid format|
 |`group_docker_cots.doc`| `Object` |When defined, boots the REGARDS documentation|Facultative.|
 |`group_docker_cots.doc.tag`| `String` |Documentation docker image tag that will be deployed|Required.|
 |`group_docker_cots.doc.http`| `Int` |When defined, open the HTTP port|Facultative.|
