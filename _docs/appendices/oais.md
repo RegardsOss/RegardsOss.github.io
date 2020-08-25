@@ -238,6 +238,16 @@ A feature is a product to acquire in REGARDS.
 | url | x | Location of the file. If previous property `storage` is not provided, then the file will be copyed from this url to the storages defined in the metadata bloc, so ensure this url must be an accessible `file:///` url protocol from the Storage microservice. If a storage has been provided then this url can be any text that can be a known url for the given storage. | any text |
 {: .table .table-striped}
 
+NOTE : To reference an online file accessible through HTTP protocol, you have have to use the reference system as the exemple bellow. With this reference the file will be known by REGARDS as an online referenced file and will be accessible without any needs to configure a storage location associated. With this type of reference, the file url provided by regards catalog will be the original provided url. 
+
+```json
+"locations": [
+     {
+        "storage": "web",
+        "url": "https://regardsoss.github.io/appendices/oais"
+     }
+   ],
+``` 
 `representationInformation`
 
 ```json

@@ -33,7 +33,7 @@
 - name: Getting Started
   icon: /assets/img/icons/rocket2.svg
   children:
-    - name: Installation manual
+    - name: Manual installation
       children: 
         - name: Install from sources
           link: getting-started/from-sources/
@@ -47,6 +47,10 @@
           link: getting-started/cli/
         - name: FAQ
           link: getting-started/faq/
+    - name: Swarm installation 
+      children: 
+        - name: Install swarm
+          link : getting-started/swarm/
     - name: Development
       children: 
         - name: Tutorials
@@ -153,6 +157,24 @@
           link: development/regards/dam/plugins/data-source-plugins/
         - name: Bus message events
           link: development/regards/dam/events/events/
+    - name: Feature Manager
+      link: development/regards/fem/fem/
+      children:
+        - name: Feature Manager configuration API
+          link: development/regards/fem/api/feature-management-configuration/
+        - name: Feature Manager REST API
+          link: development/regards/fem/api/feature-management-rest-api/
+        - name: Feature Manager AMQP API
+          link: development/regards/fem/api/feature-management-amqp-api/
+    - name: Notifier
+      link: development/regards/notifier/notifier/
+      children:
+        - name: Notification configuration API
+          link: development/regards/notifier/api/notifier-configuration-api/
+        - name: Notification API
+          link: development/regards/notifier/api/notifier-api/
+        - name: Notifier plugins
+          link: development/regards/notifier/api/notifier-plugins/
     - name: Data provider
       link: development/regards/dataprovider/dataprovider/
       children:

@@ -170,7 +170,7 @@ chmod 0640  /etc/rabbitmq/*
 Without configuration rabbitmq will store all is files in /var/lib/rabbitmq. This can be a huge problem in production. To avoid this, follow the configuration here under.
 
 echo "
-RABITMQ_MNESIA_BASE=<data directory>
+RABBITMQ_MNESIA_BASE=<data directory>
 RABBITMQ_LOG_BASE=<logs directory>
 " >> /etc/rabbitmq/rabbitmq-env.conf
 
@@ -197,7 +197,7 @@ Then, using the [RabbitMQ REST API](https://www.rabbitmq.com/rabbitmqctl.8.html#
 # Create a RabbitMQ admin named regards_adm
 rabbitmqctl add_user regards_adm regards_adm
 rabbitmqctl set_user_tags regards_adm administrator
-rabbitmqctl set_permissions -p / regards_adm ". ".*" "."
+rabbitmqctl set_permissions -p / regards_adm "." ".*" "."
 ```
 
 If you want increased security on RabbitMQ, you can run `rabbitmqctl set_permissions -p / regards_adm "^$" "^$" "^$"` after REGARDS has been started at least once.
