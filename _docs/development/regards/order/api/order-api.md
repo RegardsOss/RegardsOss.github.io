@@ -15,17 +15,66 @@ URL specified here must be prefixed with this base URL.
 
 Allows to validate current basket and create corresponding order.
 
-## API endpoint description
+## With label
 
-{% include_relative generated-snippets/OrderControllerIT/testCreateNOK/http-request.md %}
+{% include_relative generated-snippets/OrderControllerIT/testCreateOKSimpleLabel/http-request.md %}
 
-{% include_relative generated-snippets/OrderControllerIT/testCreateNOK/request-fields.md %}
+{% include_relative generated-snippets/OrderControllerIT/testCreateOKSimpleLabel/request-fields.md %}
 
-{% include_relative generated-snippets/OrderControllerIT/testCreateNOK/request-body.md %}
+{% include_relative generated-snippets/OrderControllerIT/testCreateOKSimpleLabel/request-body.md %}
 
-{% include_relative generated-snippets/OrderControllerIT/testCreateNOK/http-response.md %}
+{% include_relative generated-snippets/OrderControllerIT/testCreateOKSimpleLabel/http-response.md %}
+
+## Without label (generated)
+
+{% include_relative generated-snippets/OrderControllerIT/testCreateOKGenLabel/http-request.md %}
+
+{% include_relative generated-snippets/OrderControllerIT/testCreateOKGenLabel/request-fields.md %}
+
+{% include_relative generated-snippets/OrderControllerIT/testCreateOKGenLabel/request-body.md %}
+
+{% include_relative generated-snippets/OrderControllerIT/testCreateOKGenLabel/http-response.md %}
+
+## With empty basket
+
+{% include_relative generated-snippets/OrderControllerIT/testCreationWithEmptyBasket/http-request.md %}
+
+{% include_relative generated-snippets/OrderControllerIT/testCreationWithEmptyBasket/request-fields.md %}
+
+{% include_relative generated-snippets/OrderControllerIT/testCreationWithEmptyBasket/request-body.md %}
 
 {% include_relative generated-snippets/OrderControllerIT/testCreationWithEmptyBasket/http-response.md %}
+
+## Without basket (error case)
+
+{% include_relative generated-snippets/OrderControllerIT/testCreateNOKNoBasket/http-request.md %}
+
+{% include_relative generated-snippets/OrderControllerIT/testCreateNOKNoBasket/request-fields.md %}
+
+{% include_relative generated-snippets/OrderControllerIT/testCreateNOKNoBasket/request-body.md %}
+
+{% include_relative generated-snippets/OrderControllerIT/testCreateNOKNoBasket/http-response.md %}
+
+## Label too long (error case)
+
+{% include_relative generated-snippets/OrderControllerIT/testCreateNOKLabelTooLong/http-request.md %}
+
+{% include_relative generated-snippets/OrderControllerIT/testCreateNOKLabelTooLong/request-fields.md %}
+
+{% include_relative generated-snippets/OrderControllerIT/testCreateNOKLabelTooLong/request-body.md %}
+
+{% include_relative generated-snippets/OrderControllerIT/testCreateNOKLabelTooLong/http-response.md %}
+
+## Label not unique for user (error case)
+
+{% include_relative generated-snippets/OrderControllerIT/testCreateNOKLabelNonUnique/http-request.md %}
+
+{% include_relative generated-snippets/OrderControllerIT/testCreateNOKLabelNonUnique/request-fields.md %}
+
+{% include_relative generated-snippets/OrderControllerIT/testCreateNOKLabelNonUnique/request-body.md %}
+
+{% include_relative generated-snippets/OrderControllerIT/testCreateNOKLabelNonUnique/http-response.md %}
+
 
 # Retrieve an order
 

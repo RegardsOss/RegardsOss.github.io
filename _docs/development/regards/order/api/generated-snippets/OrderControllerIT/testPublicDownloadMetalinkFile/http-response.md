@@ -1,22 +1,22 @@
-#### Request
+### Response
 
 * **Code:** 200 OK
 
-        **Headers:**
+**Headers:**
 
-        `Pragma:no-cache`
-        `X-XSS-Protection:1; mode=block`
-        `Expires:0`
-        `X-Frame-Options:DENY`
-        `X-Content-Type-Options:nosniff`
-        `Access-Control-Allow-Headers:authorization, content-type, scope`
-        `Access-Control-Max-Age:3600`
-        `Content-Disposition:attachment;filename=order_19_2020-05-13T14:04:40.355+02:00.metalink`
-        `Access-Control-Allow-Origin:*`
-        `Cache-Control:no-cache, no-store, max-age=0, must-revalidate`
-        `Access-Control-Allow-Methods:POST, PUT, GET, OPTIONS, DELETE`
-        `Content-Type:application/metalink+xml`
+`Access-Control-Allow-Origin:*`  
+`Access-Control-Allow-Methods:POST, PUT, GET, OPTIONS, DELETE`  
+`Access-Control-Allow-Headers:authorization, content-type, scope`  
+`Access-Control-Max-Age:3600`  
+`Content-Disposition:attachment;filename=order_22_2020-09-07T14:46:30.760Z.metalink`  
+`Content-Type:application/metalink+xml`  
+`X-Content-Type-Options:nosniff`  
+`X-XSS-Protection:1; mode=block`  
+`Cache-Control:no-cache, no-store, max-age=0, must-revalidate`  
+`Pragma:no-cache`  
+`Expires:0`  
+`X-Frame-Options:DENY`  
 
-        **Content:**
+**Content:**
 
         None

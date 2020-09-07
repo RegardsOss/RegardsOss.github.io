@@ -1,19 +1,19 @@
-    #### Request
+### Request
 
-        ***URL**
+**URL**
 
-        `/user/orders/1`
+`/user/orders/1`
 
-        ***URL template**
+**URL template**
 
-        `/user/orders/{orderId}`
+`/user/orders/{orderId}`
 
-        ***Method**
+**Method**
 
-        `GET`
+`GET`
 
-        ***Headers**
+**Headers**
 
-        `Authorization:Bearer{token}`
-        `Accept:application/json`
-        `Content-Type:application/json;charset=UTF-8`
+`Authorization:Bearer{token}`  
+`Content-Type:application/json;charset=UTF-8`  
+`Accept:application/json`  
