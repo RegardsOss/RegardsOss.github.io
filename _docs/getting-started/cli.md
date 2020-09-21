@@ -13,18 +13,20 @@ In order to start REGARDS, you will have to run specific commands.
 - If the `Security Level` you choosed was `Enforce`
   - and you installed **all** the components on the current host, you can start the whole system in a single command:
   ```shell
-  sudo /opt/regards/REGARDS/sbin/microservice_regards.sh start
+  /opt/regards/REGARDS/sbin/microservice_regards.sh start
   ```
 
-    Previously, it is necessary to add this command to the **sudoers** configuration file:
+    Previously, it is necessary to add these commands to the **sudoers** configuration file:
   ```shell
   vi /etc/sudoers.d/regards
-  rsadmin      ALL=(root)       NOPASSWD: /opt/regards/REGARDS/sbin/microservice_regards.sh
+  %rsadmin      ALL=(regards)       NOPASSWD: /opt/regards/REGARDS/bin/start_microservice.sh
+  %rsadmin      ALL=(regards)       NOPASSWD: /opt/regards/REGARDS/bin/status_microservice.sh
+  %rsadmin      ALL=(regards)       NOPASSWD: /opt/regards/REGARDS/bin/stop_microservice.sh
   ```
 
   - and you installed **some** components on the current host, you will need to start each component installed with the following command (remember to always begin the components in the good start order):
   ```shell
-  sudo /opt/regards/REGARDS/sbin/microservice_regards.sh -t {component_name} start
+  /opt/regards/REGARDS/sbin/microservice_regards.sh -t {component_name} start
   ```
 
 
@@ -58,27 +60,15 @@ Microservices start order :
 ## Check the components status
 You can check if a given component is currently running.
 
-- If the `Security Level` you chose was `Enforce`, use the command:
-  ```shell
-  sudo /opt/regards/REGARDS/sbin/microservice_regards.sh -t {component_name} status
-  ```
-
-- If the `Security Level` you chose was `Standard`, use the following command:
 ```shell
-/opt/regards/REGARDS/bin/status_microservice.sh -t {component_name}
+/opt/regards/REGARDS/sbin/microservice_regards.sh -t {component_name} status
 ```
 
 ## Stop the components
 You can stop a given component which is currently running.
 
-- If the `Security Level` you chose was `Enforce`, use the command:
-  ```shell
-  sudo /opt/regards/REGARDS/sbin/microservice_regards.sh -t {component_name} stop
-  ```
-
-- If the `Security Level` you chose was `Standard`, use the following command:
 ```shell
-/opt/regards/REGARDS/bin/stop_microservice.sh -t {component_name}
+/opt/regards/REGARDS/bin/stop_microservice.sh -t {component_name} stop
 ```
 
 
