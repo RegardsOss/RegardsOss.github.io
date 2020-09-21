@@ -242,8 +242,8 @@ ES_JAVA_OPTS="-Djna.tmpdir=/opt/elasticsearch-jnatmp"
 ```
 2. Create **/opt/elasticsearch-jnatmp**
 ```
-mkdir /produit/elasticsearch-jnatmp
-chown elasticsearch:elasticsearc /produit/elasticsearch-jnatmp
+mkdir /opt/elasticsearch-jnatmp
+chown elasticsearch:elasticsearc /opt/elasticsearch-jnatmp
 ```
 3. Add a home dir to user elastisearch, in **/etc/passwd**:
 ```
