@@ -1,19 +1,19 @@
-    #### Request
+### Request
 
-        ***URL**
+**URL**
 
-        `/user/orders/remove/20`
+`/user/orders/remove/23`
 
-        ***URL template**
+**URL template**
 
-        `/user/orders/remove/{orderId}`
+`/user/orders/remove/{orderId}`
 
-        ***Method**
+**Method**
 
-        `DELETE`
+`DELETE`
 
-        ***Headers**
+**Headers**
 
-        `Authorization:Bearer{token}`
-        `Accept:application/json`
-        `Content-Type:application/json;charset=UTF-8`
+`Authorization:Bearer{token}`  
+`Content-Type:application/json;charset=UTF-8`  
+`Accept:application/json`  
