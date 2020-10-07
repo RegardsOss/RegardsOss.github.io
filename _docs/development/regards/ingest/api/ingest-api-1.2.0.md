@@ -19,7 +19,7 @@
 
 Désormais il est de la responsabilité du fournisseur d'indiquer ou stocker les données dans la section storage avec les informations :   
  - `pluginBusinessId` : Nom de l'espace de stockage configuré dans l'instance REGARDS ou stocker les fichiers de données et de métadonnées associés.  
- - `targetTypes` : [RAWDATA|QUICKLOOK_SD|QUICKLOOK_MD|QUICKLOOK_HD|DOCUMENT|THUMBNAIL|OTHER|AIP|DESCRIPTION] Ce champ peut êre laissé vide, dans le cas ou tous les types de fichiers sont à stocker sur cet espace de stockage. Ce paramètre permet uniquement de stocker sur divers espaces de stockage les divers types de fichiers.  
+ - `targetTypes` : [RAWDATA|QUICKLOOK_SD|QUICKLOOK_MD|QUICKLOOK_HD|DOCUMENT|THUMBNAIL|OTHER|AIP|DESCRIPTION] Ce champ peut êre laissé vide ou être une liste vide dans le cas ou tous les types de fichiers sont à stocker sur cet espace de stockage. Ce paramètre permet uniquement de stocker sur divers espaces de stockage les divers types de fichiers.  
 - `categories` : Nouveau paramètre permettant d'ajouter des mot-clefs métier à chaque AIP généré et catalogué. Ces mot-clefs peuvent ensuite être utilisé pour le regroupement des données dans les jeux de données.  
 
 ## Modification de format des SIPs à envoyer
