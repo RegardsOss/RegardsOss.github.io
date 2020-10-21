@@ -13,6 +13,9 @@ short-title: Swarm install
 This section introduce how to deploy a REGARDS stack thanks to ansible on a docker swarm environment.  
 All REGARDS docker images are available on our [github repository](https://github.com/orgs/RegardsOss/packages?repo_name=regards-deployment).
 
+> ATTENTION : As REGARDS docker swarm environment installed is securized, the docker configuration is rewritten by our ansible scripts for each nodes configured.
+{: .tip .warning}
+
 ### Pre-requisites
 
 > Docker swarm installation of REGARDS is available for CentOS, Ubuntu and fedora linux distributions.
