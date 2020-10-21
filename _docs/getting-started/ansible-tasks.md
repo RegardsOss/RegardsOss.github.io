@@ -1,6 +1,6 @@
 ---
 layout: classic-docs
-title: REGARDS ansible tasks
+title: Ansible tasks
 short-title: ansible tasks
 ---
 

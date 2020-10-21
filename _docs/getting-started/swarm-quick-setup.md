@@ -1,6 +1,6 @@
 ---
 layout: classic-docs
-title: Getting started with Docker Swarm using Ansible
+title: Quick setup
 short-title: Swarm install
 ---
 
