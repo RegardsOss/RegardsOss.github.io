@@ -33,24 +33,16 @@
 - name: Getting Started
   icon: /assets/img/icons/rocket2.svg
   children:
-    - name: Manual installation
+    - name: Installation - Docker swarm
       children: 
-        - name: Install from sources
-          link: getting-started/from-sources/
-        - name: Server configuration
-          link: getting-started/configuration/
-        - name: Deploy using IZPACK
-          link: getting-started/izpack/
-        - name: Install plugins
-          link: getting-started/plugins/
-        - name: Regards CLI 
-          link: getting-started/cli/
-        - name: FAQ
-          link: getting-started/faq/
-    - name: Swarm installation 
-      children: 
-        - name: Install swarm
-          link : getting-started/swarm/
+        - name: Quick setup
+          link : getting-started/swarm-quick-setup/
+        - name: Administration
+          link : getting-started/swarm-cli/
+        - name: Ansible playbook tasks
+          link : getting-started/ansible-tasks/
+        - name: Advanced setup
+          link : getting-started/swarm-advanced-setup/
     - name: Development
       children: 
         - name: Tutorials
