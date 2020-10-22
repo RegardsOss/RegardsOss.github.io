@@ -13,7 +13,7 @@ short-title: Swarm install
 This section introduce how to deploy a REGARDS stack thanks to ansible on a docker swarm environment.  
 All REGARDS docker images are available on our [github repository](https://github.com/orgs/RegardsOss/packages?repo_name=regards-deployment).
 
-> ATTENTION : As REGARDS docker swarm environment installed is securized, the docker configuration is rewritten by our ansible scripts for each nodes configured.
+> As we install REGARDS docker swarm in a securized way, the docker configuration is rewritten by our ansible playbook on every nodes configured.
 {: .tip .warning}
 
 ### Pre-requisites
@@ -22,20 +22,19 @@ All REGARDS docker images are available on our [github repository](https://githu
 {: .tip .info}
 
 1. Install Ansible [docs.ansible.com](https://docs.ansible.com/ansible/latest/installation_guide/intro_installation.html)
-2. Download ansible [regards-playbook](https://github.com/RegardsOss/RegardsOss.github.io/releases/download/V1.2.1/regards-playbook.zip)
-3. Extract downloaded ansible regards-playbook zip archive 
+1. Download ansible and extract the [regards-playbook](https://github.com/RegardsOss/RegardsOss.github.io/releases/download/V1.2.1/regards-playbook.zip)
 
 ### Deploy demo
 
-The demo inventory is preconfigured to deploy REGARDS stack on one docker node.
+The demo inventory is preconfigured to deploy REGARDS stack on one docker node.  
 You need to edit the `inventories/demo/group_vars/all/main.yml` to configure installation with :
 
 |Variable|Description|
 |:------|:---------|
-|`global_stack.master_node_host_name` | hostname of server to install regards stack. For local installation you can use the `hostname` unix command to find it |
+|`global_stack.master_node_host_name` | Server hostname where the regards stack is installed. For local installation you can use the `hostname` unix command to find it |
 |`global_stack.workdir` | REGARDS swarm stack install directory |
-|`global_stack.docker.workdir` | Docker install directory |
-|`global_stack.docker.network_interface` | Docker network interface to use. For local installation you can use the `ifconfig` unix command to find it |
+|`global_stack.docker.workdir` | Docker working directory |
+|`global_stack.docker.network_interface` | Name of the network interface used to access to your server. For local installation you can use the `ifconfig` unix command to find it |
 |`global_regards.version` | Version of REGARDS to install |
 {:.table.table-striped}
 
@@ -55,7 +54,7 @@ Congratulations your REGARDS installation is over. System is starting and will b
  - Portal : http://\<master_node_host_name\>
  - User interface : http://\<master_node_host_name\>/user/demo
 
-You can now monitor and administrate the deployed stack thanks to cli commands as explained at [Stack administration](/getting-started/swarm-cli)
+You can now monitor and administrate the deployed stack thanks to cli commands as explained at [Administration](/getting-started/swarm-cli)
 
 ### Deploy multihosts
 
@@ -64,10 +63,10 @@ You need to cnfigure the `inventories/multihosts/group_vars/all/main.yml` file w
 
 |Variable|Description|
 |:------|:---------|
-|`global_stack.master_node_host_name`| hostname of server to install regards stack. For local installation you can use the `hostname` unix command to find it |
+|`global_stack.master_node_host_name` | Server hostname where the regards stack is installed. For local installation you can use the `hostname` unix command to find it |
 |`global_stack.workdir` | REGARDS swarm stack install directory |
-|`global_stack.docker.workdir` | Docker install directory |
-|`global_stack.docker.network_interface` | Docker network interface to use. For local installation you can use the `ifconfig` unix command to find it |
+|`global_stack.docker.workdir` | Docker working directory |
+|`global_stack.docker.network_interface` | Name of the network interface used to access to your server. For local installation you can use the `ifconfig` unix command to find it |
 |`global_regards.version` | Version of REGARDS to install |
 {:.table.table-striped}
 
@@ -100,4 +99,4 @@ Congratulations your REGARDS installation is over. System is starting and will b
  - Portal : http://\<master_node_host_name\>
  - User interface : http://\<master_node_host_name\>/user/demo
 
-You can now monitor and administrate the deployed stack thanks to cli commands as explained at [Stack administration](/getting-started/swarm-cli)
+You can now monitor and administrate the deployed stack thanks to cli commands as explained at [Administration](/getting-started/swarm-cli)

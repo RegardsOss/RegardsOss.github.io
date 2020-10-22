@@ -74,6 +74,8 @@ The current state of these containers is also important. You need to wait 5 to 1
 > The number of running services depends of your inventory. You may see less actives services than this exemple, but the `[RUNNING]	X/X` must equals 100%.
 {: .tip .info}
 
+## Simple debugging
+
 Now, let's see how you can debug some microservice.
 First, let's remove the elasticsearch:
 
@@ -96,7 +98,7 @@ regards-cnes_rs-dam.1.w5gxg6x1mn2x@regards-cnes-d13.myorganisation.com    | 2020
 regards-cnes_rs-dam.1.w5gxg6x1mn2x@regards-cnes-d13.myorganisation.com    | Caused by: java.net.UnknownHostException: rs-elasticsearch: Try again
 ```
 
-Not, it doesn't like it. Now we can restart the ElasticSearch by just running :
+Definitly, it doesn't like it. Now we can restart the ElasticSearch by just running :
 
 ```bash
 ./update-all.sh
@@ -108,11 +110,11 @@ Now we can run again `status.sh` :
 # ./status.sh 
 [HISTORY]	5 PREVIOUS CONTAINERS
 ID      NAME                                               IMAGE                                                                     NODE                                  DESIRED STATE CURRENT STATE [..]
-86m..   regards-cnes_rs-fluent.w4pf3rfr47yjny8y2jmvy9n0s   172.26.46.158/regards-fluent:latest@sha256:4e733e[...]                    regards-cnes-d12.myorganisation.com   Shutdown      Shutdown 2 minutes ago
-nhu..   regards-cnes_rs-fluent.jh7i65fsxbrnce85yjexucna3   172.26.46.158/regards-fluent:latest@sha256:4e733e[...]                    regards-cnes-d13.myorganisation.com   Shutdown      Shutdown 2 minutes ago
-778..   regards-cnes_rs-fluent.iodt1aszolajpqq5f12q12v1w   172.26.46.158/regards-fluent:latest@sha256:4e733e[...]                    regards-cnes-d11.myorganisation.com   Shutdown      Shutdown 2 minutes ago
-ty0..   regards-cnes_rs-authentication.1                   172.26.46.158/rs-authentication:fast-release-V1.1.0@sha256:875ca2aa[..]   regards-cnes-d13.myorganisation.com   Shutdown      Shutdown 3 minute ago
-7yw..   regards-cnes_rs-access-project.1                   172.26.46.158/rs-access-project:fast-release-V1.1.0@sha256:17a0d7e9[..]   regards-cnes-d13.myorganisation.com   Shutdown      Shutdown 3 minute ago
+86m..   regards-cnes_rs-fluent.w4pf3rfr47yjny8y2jmvy9n0s   myregistry/regards-fluent:latest@sha256:4e733e[...]      regards-cnes-d12.myorganisation.com   Shutdown      Shutdown 2 minutes ago
+nhu..   regards-cnes_rs-fluent.jh7i65fsxbrnce85yjexucna3   myregistry/regards-fluent:latest@sha256:4e733e[...]      regards-cnes-d13.myorganisation.com   Shutdown      Shutdown 2 minutes ago
+778..   regards-cnes_rs-fluent.iodt1aszolajpqq5f12q12v1w   myregistry/regards-fluent:latest@sha256:4e733e[...]      regards-cnes-d11.myorganisation.com   Shutdown      Shutdown 2 minutes ago
+ty0..   regards-cnes_rs-authentication.1                   myregistry/rs-authentication:V1.1.0@sha256:875ca2aa[..]  regards-cnes-d13.myorganisation.com   Shutdown      Shutdown 3 minute ago
+7yw..   regards-cnes_rs-access-project.1                   myregistry/rs-access-project:V1.1.0@sha256:17a0d7e9[..]  regards-cnes-d13.myorganisation.com   Shutdown      Shutdown 3 minute ago
 [RUNNING]	25/25
 [..]
 ```
