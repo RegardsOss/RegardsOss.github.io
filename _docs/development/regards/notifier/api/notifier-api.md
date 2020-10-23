@@ -38,37 +38,39 @@ Under the hood, all the real work is done by the **plugins** :
 
 ### Send an event to notifier
 
-Message has to be published on this exchange : `regards.broadcast.fr.cnes.regards.modules.notifier.dto.in.NotificationActionEvent`
+Message has to be published on this exchange : `regards.broadcast.fr.cnes.regards.modules.notifier.dto.in.NotificationRequestEvent`
 
 With following properties:
 
 |Property|Type|
 |:--:|:---------:|
-|action| A free string action.|
-|element| A free JSON element|
+|metadata| A free JSON element|
+|payload| A free JSON element|
 {:.table.table-striped}
 
 And following headers:
 
 |Header|Value|
 |:--:|:---------:|
-|regards.converter| GSON|
 |regards.tenant| The tenant|
-|regards.type|fr.cnes.regards.modules.notifier.dto.in.NotificationActionEvent|
+|regards.request.id| String of max 36 characters long|
+|regards.request.date| ISO 8601 date|
+|regards.request.owner| String of max 128 characters long|
 {:.table.table-striped}
 
-### Integration with `Feature Manager`
+### Integration with `Feature Manager` and `Ingest`
 
-Each time a feature is created, updated or deleted, this feature is propagated to `Notifier`.
+Creations, updates or deletions of features or AIPs are optionnaly sent to `Notifier`, this consist of the **payload**.
 
-Action is set according to reason of change : `CREATION`, `UPDATE` or `DELETION`.
+**metadata** is a field allowing `Ingest` or `Feature Manager` to send additionnal information to `Notifier` that rules and notification plugins might use or require.
 
 #### Template of notified feature
 
 ```json
 {
-    "action": "{CREATION|UPDATE|DELETION}",
-    "element": "{feature}"
+    "metadata": "{whatEverIsNeededOrWanted}",
+    "payload": "{feature}"
 }
 ```
 
+{% include_relative notifier-management-api.md %}

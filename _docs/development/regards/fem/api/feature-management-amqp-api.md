@@ -39,7 +39,7 @@ And following headers:
 
 This API allows to generate feature by extracting metadata from the passed location.
 
-Request has to be published on this exchange : `regards.broadcast.fr.cnes.regards.modules.feature.dto.event.in.FeatureReferenceRequestEvent`
+Request has to be published on this exchange : `regards.broadcast.fr.cnes.regards.modules.featureprovider.domain.FeatureExtractionRequestEvent`
 
 With following properties:
 
@@ -127,18 +127,17 @@ With following headers:
 
 {% include_relative amqp/delete-request.md %}
 
-## AMQP monitoring API
+## AMQP monitoring API...
 
-`Feature manager` microservice publishes request messages to monitor request lifecycle.
+`Feature manager` microservice publishes AMQP messages to monitor request lifecycle.
 
-Messages are published on this exchange : `regards.broadcast.fr.cnes.regards.modules.feature.dto.event.out.FeatureRequestEvent`
-
-Structure of the message is as follows :
+Messages are published to two different exchanges because under the hood `Feature manager` is in reality composed of two modules: `feature` and `featureprovider`. Whatever the exchange to which those monitoring messages are comming from, they have the same structure, that is:
 
 * The `requestId` (corresponds to `regards.request.id` header),
 * The `requestOwner` (corresponds to `regards.request.owner` header),
 * The related feature `id`,
 * The related feature `urn`,
+* The request type (`EXTRACTION`,`CREATION`,`PATCH`,`DELETION`,`NOTIFICATION`,`FILE_COPY`,`SAVE_METADATA`)
 * The state of the request (`GRANTED`,`DENIED`,`ERROR` or `SUCCESS`),
 * A list of `errors` if any.
 
@@ -158,6 +157,7 @@ Structure of the message is as follows :
     "requestId": "{requestId}",
     "requestOwner": "{requestOwner}",
     "id": "{featureId}",
+    "type": "{requestType}",
     "state": "DENIED",
     "errors": ["error1", "error2"]
 }
@@ -170,6 +170,7 @@ Structure of the message is as follows :
     "requestId": "{requestId}",
     "requestOwner": "{requestOwner}",
     "id": "{featureId}",
+    "type": "{requestType}",
     "state": "GRANTED"
 }
 ```
@@ -182,6 +183,7 @@ Structure of the message is as follows :
     "requestOwner": "{requestOwner}",
     "id": "{featureId}",
     "urn": "{featureGeneratedUrn}",
+    "type": "{requestType}",
     "state": "SUCCESS"
 }
 ```
@@ -195,9 +197,19 @@ Structure of the message is as follows :
     "requestOwner": "{requestOwner}",
     "id": "{featureId}",
     "urn": "{featureGeneratedUrn}",
+    "type": "{requestType}",
     "state": "ERROR",
     "errors": ["error1", "error2"]
 }
 ```
+### ...For feature module
+
+Messages are published on this exchange : `regards.broadcast.fr.cnes.regards.modules.feature.dto.event.out.FeatureRequestEvent`
+
+### ...For featureprovider module
+
+Messages are published on this exchange : `regards.broadcast.fr.cnes.regards.modules.featureprovider.domain.FeatureExtractionResponseEvent`
+
+In other words, it means that to migrate from **V1.3.x** to **V1.4.0**, you need to change the exchange to which you subscribe to receive extraction monitoring messages. Or you might be able to configure your AMQP broker to automatically redirect messages from this exchange to the old one (`regards.broadcast.fr.cnes.regards.modules.feature.dto.event.out.FeatureRequestEvent`).
 
 

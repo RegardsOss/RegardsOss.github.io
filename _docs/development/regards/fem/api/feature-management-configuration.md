@@ -24,11 +24,11 @@ Value between brackets must be adapted!
   "modules": [
     {
       "module": {
-        "id": "feature",
-        "name": "Feature management module",
-        "description": "GeoJSON catalog manager",
-        "version": "1.0.0", 
-        "author": "CSSI",
+        "id": "featureprovider",
+        "name": "Feature provider management module",
+        "description": "GeoJSON catalog provider",
+        "version": "1.4.0",
+        "author": "REGARDS",
         "legalOwner": "CNES",
         "documentation": "https://github.com/RegardsOss"
       },
@@ -53,6 +53,35 @@ Value between brackets must be adapted!
                 "value": "{/input}",
               }
             ]
+          }
+        }
+      ]
+    },
+    {
+      "module": {
+        "id": "feature",
+        "name": "Feature management module",
+        "description": "GeoJSON catalog manager",
+        "version": "1.4.0",
+        "author": "REGARDS",
+        "legalOwner": "CNES",
+        "documentation": "https://github.com/RegardsOss"
+      },
+      "resetBeforeImport": true,
+      "configuration": [
+        {
+          "key": "fr.cnes.regards.framework.modules.dump.domain.DumpSettings",
+          "value": {
+            "id": 0,
+            "activeModule": true,
+            "cronTrigger": "0 0 0 1-7 * SUN"
+          }
+        },
+        {
+          "key": "fr.cnes.regards.modules.feature.domain.settings.FeatureNotificationSettings",
+          "value": {
+            "id": 0,
+            "activeNotification": true
           }
         }
       ]

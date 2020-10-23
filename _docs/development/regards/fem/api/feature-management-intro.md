@@ -6,7 +6,8 @@
 
 `Feature Management` reponsabilities:
 
-* Create (directly or by reference), patch or delete data references,
+* Extract data references,
+* Create, patch or delete data references,
 * Re-notify stakeholders of existing data references,
 * Delegate the storage of files (if any) to `Storage Management`.
 
@@ -18,6 +19,8 @@ At the moment, 2 API are available :
 * HTTP REST API allows to submit creation requests (as `POST` HTTP requests), update requests (as `PATCH` HTTP requests) or deletion requests (as `DELETE` HTTP requests).
 
 ![Feature management architectural concepts](/assets/schemas/feature_management/architectural_concepts_fem.png)
+
+Under the hood, those reponsabilities are divided between two modules: `featureprovider` and `feature`. `featureprovider` is only responsible for handling data references extraction requests, that is extraction of information needed from physical files to create a data reference that is then handled by the `feature` module.
 
 API are documented in detail below.
 
