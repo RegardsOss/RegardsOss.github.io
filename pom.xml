@@ -80,6 +80,7 @@
                 <version>2.9.0</version>
                 <configuration>
                     <builder>html</builder>
+                    <sourceDirectory>${basedir}/docs</sourceDirectory>
                     <outputDirectory>${project.build.directory}/docs</outputDirectory>
                 </configuration>
                 <executions>
