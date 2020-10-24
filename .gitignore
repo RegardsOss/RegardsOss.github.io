@@ -8,3 +8,5 @@ _site/
 .jekyll-metadata
 
 .vscode/
+
+target/
