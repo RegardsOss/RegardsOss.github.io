@@ -1,1 +1,6 @@
-sphinxcontrib-plantuml
+sphinx.ext.autodoc
+sphinxcontrib.plantuml
+sphinxcontrib.redoc
+sphinxcontrib.openapi
+sphinx_markdown_tables
+recommonmark
