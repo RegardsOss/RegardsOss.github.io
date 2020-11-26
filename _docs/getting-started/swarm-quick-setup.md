@@ -19,7 +19,7 @@ All REGARDS docker images are available on our [github repository](https://githu
 > Docker swarm installation of REGARDS is available for CentOS, Ubuntu and fedora linux distributions.
 {: .tip .info}
 
-1. Install Ansible [docs.ansible.com](https://docs.ansible.com/ansible/latest/installation_guide/intro_installation.html)
+1. Install Ansible version `2.6.2` at least [docs.ansible.com](https://docs.ansible.com/ansible/latest/installation_guide/intro_installation.html)
 1. Download [regards-playbook](https://github.com/RegardsOss/RegardsOss.github.io/releases/download/V1.2.1/regards-playbook.zip).
 
 ## Create your inventory
