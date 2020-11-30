@@ -15,15 +15,15 @@ title: Notifier API
 At the moment, 2 API are available :
 
 * A REST API to manage configuration,
-* A messaging API ([AMQP](https://www.amqp.org/)) for the receipt of the features to be processed.
+* A messaging API ([AMQP](https://www.amqp.org/)) for the receipt of the requests to be processed.
 
-![Notifier architectural concepts](/assets/schemas/notification_management/architectural_concepts_notifier2.png)
+![Notifier architectural concepts](/assets/schemas/notification_management/architectural_concepts_notifier.png)
 
-This microservice receives feature from `Feature manager`.
+This microservice receives requests from `Feature manager` and `Ingest`.
 
-All messages are then processed as they arrive:
+All requests are then processed as they arrive:
 
-* Rules is applied by type of feature to identify target recipients,
+* All rules are applied to all requests in order to identify target recipients,
 * Notifications are then sent to these recipients.
 
 Under the hood, all the real work is done by the **plugins** :

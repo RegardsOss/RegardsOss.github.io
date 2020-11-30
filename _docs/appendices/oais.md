@@ -28,6 +28,7 @@ Exemple :
     "session": "Monday acquisition",
     "ingestChain": "DefaultProcessingChain",
     "categories": ["ISS_MISSION1_DATA"],
+    "versioningMode": "INC_VERSION",
     "storages": [
       {
         "pluginBusinessId": "Local",
@@ -110,8 +111,15 @@ Exemple :
 | session | x | Identifier of the current group of data. Used to monitor a subset of the session products. | any text, max 128 characters |
 | ingestChain | x | Name of the configured ingest chain. This chain can be configured through administration HMI and contains all the configuration to generate the final product, the AIP, from the provided SIP. | Any chain name configured |
 | categories |  | List of keywords. Thoses keywords can be used lately to select products to add in the metacatalog | any text |
+| versioningMode | x | How to handle new version of same product (same feature id) | IGNORE, INC_VERSION, MANUAL, REPLACE |
 | storages | x | List of storage configuration that define how to store physical files associated to the provided list of features | - |
 {: .table .table-striped}
+
+Versionning mode values :  
+ - IGNORE : New version  of same feature are not ingested.
+ - INC_VERSION : New version of same feature are ingested with version incremented.
+ - MANUAL : Wait for project administrator to choose how to handle new version.
+ - REPLACE : New version of same feature are ingested with version incremented and previous versions are deleted.
 
 `storages`
   
