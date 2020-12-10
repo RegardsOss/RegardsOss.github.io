@@ -18,7 +18,6 @@ categories:
 
 * [Configuration API](/development/regards/notifier/api/notifier-configuration-api/)
 * [API](/development/regards/notifier/api/notifier-api/)
-* [Management API](/development/regards/notifier/api/notifier-management-api/)
 
 ## Available Plugins
 
