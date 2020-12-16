@@ -565,3 +565,7 @@ The `Processing` service can be specifically configured with the following prope
 
 ## Available APIs
 
+- [Process](/development/regards/order/api/process-api/) : API to list/find existing processes
+- [Batch](/development/regards/order/api/batch-api/) : API to create batches
+- [Monitoring](/development/regards/order/api/monitoring-api/) : API to monitor existing executions
+- [Rights Plugin Configurations](/development/regards/order/api/rights-plugin-configuration-api/) : API to manage processes as plugins
