@@ -1,4 +1,4 @@
-# V1.2.1 to V1.4.0 migration
+# V1.3.0 to V1.4.0 migration
 
 ## AMQP Feature requests
 
