@@ -33,15 +33,5 @@ In new version :
  - All Creation/Notification/Deletion/Update requests responses are sent to : `regards.broadcast.fr.cnes.regards.modules.feature.dto.event.out.FeatureRequestEvent`
  - Extraction requests responses are sent to : `regards.broadcast.fr.cnes.regards.modules.featureprovider.domain.FeatureExtractionResponseEvent`
 
-Responses are updated to add a new information field `type` :
-```json
-{
-    "requestId": "{requestId}",
-    "requestOwner": "{requestOwner}",
-    "id": "{featureId}",
-    "type": "{requestType}",
-    "state": "DENIED",
-    "errors": ["error1", "error2"]
-}
 
 
