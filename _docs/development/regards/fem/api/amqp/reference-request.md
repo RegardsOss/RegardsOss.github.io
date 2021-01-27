@@ -20,7 +20,7 @@ regards.request.date=2019-07-04T01:03:00
     },
     "factory": "{factory identifier}",
     "parameters": {
-        "url":"my/file/location"
+        "location":"my/file/location"
     }
 }
 ```
