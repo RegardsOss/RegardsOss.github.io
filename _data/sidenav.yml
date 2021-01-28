@@ -2,9 +2,9 @@
 - name: Home
   icon: /assets/img/icons/if_globe_1055048.svg
   link:
-  children: 
+  children:
     - name: Overview
-      link: 
+      link:
       children:
         - name: Main features
           link:
@@ -15,7 +15,7 @@
   icon: /assets/img/icons/rocket2.svg
   children:
     - name: Installation manual
-      children: 
+      children:
         - name: Install from sources
           link: getting-started/from-sources/
         - name: Server configuration
@@ -24,21 +24,21 @@
           link: getting-started/izpack/
         - name: Install plugins
           link: getting-started/plugins/
-        - name: Regards CLI 
+        - name: Regards CLI
           link: getting-started/cli/
         - name: FAQ
           link: getting-started/faq/
     - name: Development
-      children: 
+      children:
         - name: Tutorials
           link : getting-started/tutorials/
 # ========================================================================
 - name: User Documentation
   icon: /assets/img/icons/phone-book.svg
-  children: 
+  children:
     - name: Global configuration
       link: user-documentation/admin-instance/description/
-      children: 
+      children:
         - name: Introduction
           link: user-documentation/admin-instance/description/
         - name: Projects
@@ -49,110 +49,107 @@
           link: user-documentation/admin-instance/portal-configuration/
     - name: Project configuration
       link: user-documentation/admin/description/
-      children: 
+      children:
         - name: Introduction
-          link: user-documentation/admin/description/
+          link: user-documentation/admin/configuration/description/
         - name: Users
-          link: user-documentation/admin/users/
+          link: user-documentation/admin/configuration/users/
         - name: Data models
-          link: user-documentation/admin/models-configuration/
+          link: user-documentation/admin/configuration/models-configuration/
         - name: Data organization
-          link: user-documentation/admin/datasets/
+          link: user-documentation/admin/configuration/datasets/
         - name: Data access rights
-          link: user-documentation/admin/data-access-rights/
+          link: user-documentation/admin/configuration/data-access-rights/
         - name: Storage locations
-          link: user-documentation/admin/storages-configuration/
+          link: user-documentation/admin/configuration/configure-storage/
         - name: Catalog search protocols
-          link: user-documentation/admin/search-protocols/
+          link: user-documentation/admin/configuration/search-protocols/
         - name: Applicable services
-          link: user-documentation/admin/catalog-services/
+          link: user-documentation/admin/configuration/catalog-services/
         - name: Data orders
-          link: user-documentation/admin/users-orders/
+          link: user-documentation/admin/configuration/user-orders/
         - name: User interface
-          link: user-documentation/admin/hmi-configuration/
-        - name: System health
-          link: user-documentation/admin/microservices/
-    - name: Add data from external data catalog
-      link: user-documentation/admin/crawler/introduction/
-      children: 
+          link: user-documentation/admin/configuration/ui-configuration/
+        - name: Microservice configurations
+          link: user-documentation/admin/configuration/microservices/
+    - name: Products Manager (OAIS)
+      link: user-documentation/admin/ingest/introduction-ingest/
+      children:
         - name: Introduction
-          link: user-documentation/admin/crawler/introduction/
-        - name: Configuration
-          link: user-documentation/admin/crawler/configuration/
-        - name: Submission
-          link: user-documentation/admin/crawler/submission/
-        - name: Monitoring
-          link: user-documentation/admin/crawler/monitoring/
-    - name: Add data from OAIS Submission Information Package (SIP)
-      link: user-documentation/admin/oais/introduction/
-      children: 
+          link: user-documentation/admin/ingest/introduction-ingest/
+        - name: Configure ingestion chains
+          link: user-documentation/admin/ingest/configure-ingestion-chain/
+        - name: Submit SIPs
+          link: user-documentation/admin/ingest/submit-products/
+        - name: Manage products
+          link: user-documentation/admin/ingest/manage-products/
+    - name: Data acquisition
+      link: user-documentation/admin/dataprovider/introduction-dataprovider/
+      children:
         - name: Introduction
-          link: user-documentation/admin/oais/introduction/
-        - name: Configuration
-          link: user-documentation/admin/oais/configuration/
-        - name: Submission
-          link: user-documentation/admin/oais/submission/
-        - name: Monitoring
-          link: user-documentation/admin/oais/monitoring/
-    - name: Add data from scanned files
-      link: user-documentation/admin/dataprovider/introduction/
-      children: 
+          link: user-documentation/admin/dataprovider/introduction-acquisition/
+        - name: Configure acquisition chains
+          link: user-documentation/admin/dataprovider/configure-acquisition-chain/
+        - name: Monitor session acquisitions
+          link: user-documentation/admin/dataprovider/monitor-session/
+    - name: Crawling
+      link: user-documentation/admin/crawler/introduction-crawler/
+      children:
         - name: Introduction
-          link: user-documentation/admin/dataprovider/introduction/
-        - name: Configuration
-          link: user-documentation/admin/dataprovider/configuration/
-        - name: Submission
-          link: user-documentation/admin/dataprovider/submission/
-        - name: Monitoring
-          link: user-documentation/admin/dataprovider/monitoring/
-    - name: Add data from standard Geojson features
-      link: user-documentation/admin/dataprovider/introduction/
-      children: 
-        - name: Introduction
-          link: user-documentation/admin/fem/introduction/
-        - name: Configuration
-          link: user-documentation/admin/fem/configuration/
-        - name: Submission
-          link: user-documentation/admin/fem/submission/
-        - name: Monitoring
-          link: user-documentation/admin/fem/monitoring/
+          link: user-documentation/admin/crawler/introduction-crawler/
+        - name: Configure external connections
+          link: user-documentation/admin/crawler/configure-database/
+        - name: Configure datasources
+          link: user-documentation/admin/crawler/configure-datasource/
+        - name: Crawl data from external databases
+          link: user-documentation/admin/crawler/database/
+        - name: Crawl data from opensearch
+          link: user-documentation/admin/crawler/opensearch/
+        - name: Crawl geojson aips
+          link: user-documentation/admin/crawler/aip/
+        - name: Crawl features
+          link: user-documentation/admin/crawler/fem/
+        - name: Monitor datasource crawlings
+          link: user-documentation/admin/crawler/monitor-crawling/
+        - name: Reset the catalog
+          link: user-documentation/admin/crawler/reset-catalog/
     - name: Catalog consultation
-      link: user-documentation/user/consultation/
-      children: 
+      link: user-documentation/user/introduction-user/
+      children:
         - name: Introduction
-          link: user-documentation/user/description/
+          link: user-documentation/user/introduction-user/
         - name: Authentication
-          link: user-documentation/user/authentication/description/
+          link: user-documentation/user/authentication-description/
         - name: License
-          link: user-documentation/user/licence/description/
+          link: user-documentation/user/licence-description/
         - name: Search
-          link: user-documentation/user/consultation/search/
+          link: user-documentation/user/consultation-search/
         - name: Views
-          link: user-documentation/user/consultation/views/
+          link: user-documentation/user/consultation-views/
         - name: Graph
-          link: user-documentation/user/consultation/graph/
+          link: user-documentation/user/consultation-graph/
         - name: Data description
-          link: user-documentation/user/consultation/description/
+          link: user-documentation/user/consultation-description/
         - name: Applicable services
-          link: user-documentation/user/consultation/services/
+          link: user-documentation/user/consultation-services/
         - name: Order data
-          link: user-documentation/user/order/description/
+          link: user-documentation/user/order-description/
 # ========================================================================
 - name: Backend
   icon: /assets/img/icons/cloud-computing-dev.svg
-  children: 
+  children:
     - name: Architecture
       children:
         - name: Concepts
           link: development/architecture/concepts/
         - name: Overview
-          link: development/architecture/overview/     
+          link: development/architecture/overview/
     - name: Framework
       children:
         - name: Getting Started
           link: development/framework/getting-started/
         - name: Starters
-          link: development/framework/starters/        
+          link: development/framework/starters/
         - name: Jobs
           link: development/framework/modules/jobs/
         - name: Plugins
@@ -284,10 +281,10 @@
 # ========================================================================      
 - name: Frontend
   icon: /assets/img/icons/coding.svg
-  children: 
+  children:
     - name: Introduction
       link: frontend/developers-index/
-      children: 
+      children:
         - name: Installation
           link: frontend/setup/
         - name: Setting up an IDE
@@ -297,13 +294,13 @@
         - name: Lint
           link: frontend/eslint-config-es6-rules/
     - name: Data
-      children: 
+      children:
         - name: Data store & Request
           link: frontend/data/
         - name: Backend interactions
           link: frontend/components/clients/
     - name: View
-      children: 
+      children:
         - name: Internationalization
           link: frontend/components/internationalization/
         - name: Theme
@@ -312,7 +309,7 @@
           link: frontend/components/redux-forms/
     - name: Packages
       link: frontend/developers-index/
-      children: 
+      children:
         - name: Re-usable components
           link: frontend/components/components/
         - name: Business components
@@ -321,14 +318,14 @@
           link: frontend/modules/dynamic-modules/
     - name: Plugins
       link: frontend/plugins/plugins/
-      children: 
+      children:
         - name: Criteria
           link: frontend/plugins/plugin-criteria/
         - name: Services
           link: frontend/plugins/plugin-services/
     - name: User guide
       link: frontend/layout-configuration/
-      children: 
+      children:
         - name: Layout configuration
           link: frontend/layout-configuration/
 # ========================================================================
@@ -336,7 +333,7 @@
   icon: /assets/img/icons/info.svg
   children:
     - name: Documentation guide
-      link: appendices/doc-guide/   
-      children: 
-        - name: REGARDS OAIS 
+      link: appendices/doc-guide/
+      children:
+        - name: REGARDS OAIS
           link: appendices/oais/
