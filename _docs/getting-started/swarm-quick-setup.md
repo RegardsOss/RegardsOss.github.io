@@ -135,6 +135,15 @@ Edit the file `regards-cnes/group_vars/all/main.yml` with :
 > In multi nodes deployment mode, the `global_stack.workdir` value have to be the same accessible directory on each nodes (e.g. NFS mount).
 {: .tip .warning}
 
+## Login to Docker registry
+
+We're currently storing our Docker image on Github. To be able to fetch them, you require an access token.
+
+Visit [this link](https://docs.github.com/en/packages/guides/configuring-docker-for-use-with-github-packages#authenticating-with-a-personal-access-token) and [this link](https://docs.github.com/en/github/authenticating-to-github/creating-a-personal-access-token) to get an overview on how to let your Docker engine be able to fetch REGARDS images.
+
+> If you do not fetch image directly on Github, adapt this step to your environment.
+{: .tip .info}
+
 ## Install the stack
 
 When configuration have been saved, you need to run the following command :
@@ -142,6 +151,8 @@ When configuration have been saved, you need to run the following command :
 ```bash
 # cd regards-playbook/
 ansible-playbook -i inventories/<inventory name> setup-vm.yml <additional parameters>
+# Connect threw SSH to your master node and login to Github or adapt it to your environment
+# cat ~/TOKEN.txt | docker login https://docker.pkg.github.com -u <MY USERNAME> --password-stdin
 ansible-playbook -i inventories/<inventory name> regards.yml <additional parameters>
 ```
 
