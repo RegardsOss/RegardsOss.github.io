@@ -27,6 +27,24 @@
 		max-width: 60%;
 	}
 }
+
+//Overview
+.overview-ligne{
+	padding: 2rem 0 2rem;
+	position: relative;
+	h2 {
+		margin-bottom: 1.5rem;
+	}
+	p {
+		line-height: 1.5rem;
+        font-size: 1.2rem;
+        text-align: justify;
+	}
+	img {
+		max-width: 50%;
+	}
+}
+
 @media (min-width: 992px) {
 	.logo-footer-wrapper {
 		display: flex;

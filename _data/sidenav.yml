@@ -36,104 +36,134 @@
 - name: User Documentation
   icon: /assets/img/icons/phone-book.svg
   children:
-    - name: Global configuration
-      link: user-documentation/admin-instance/description/
+    - name: Overview
+      link: user-documentation/overview/
+      children:
+        - name: Project overview
+          link: user-documentation/0-overview/overview
+        - name: Glossary
+          link: user-documentation/0-overview/glossary/
+    - name: Administrator configuration
+      link: user-documentation/1-global-configuration/introduction-global-configuration/
       children:
         - name: Introduction
-          link: user-documentation/admin-instance/description/
-        - name: Projects
-          link: user-documentation/admin-instance/project-configuration/
-        - name: Users accounts
-          link: user-documentation/admin-instance/user-accounts/
-        - name: Portal
-          link: user-documentation/admin-instance/portal-configuration/
+          link: user-documentation/1-global-configuration/introduction-global-configuration/
+        - name: Manage projects
+          link: user-documentation/1-global-configuration/project-configuration/
+        - name: Manage user accounts
+          link: user-documentation/1-global-configuration/user-accounts/
+        - name: Customize portal interface
+          link: user-documentation/1-global-configuration/portal-configuration/
     - name: Project configuration
-      link: user-documentation/admin/description/
+      link: user-documentation/2-project-configuration/introduction-project-configuration/
       children:
         - name: Introduction
-          link: user-documentation/admin/configuration/description/
-        - name: Users
-          link: user-documentation/admin/configuration/users/
+          link: user-documentation/2-project-configuration/introduction-project-configuration/
+        - name: Manage project users
+          link: user-documentation/2-project-configuration/users/
+        - name: Customize user interface
+          link: user-documentation/2-project-configuration/user-configuration/
+        - name: Manage microservices
+          link: user-documentation/2-project-configuration/microservices/
+        - name: Manage storage locations
+          link: user-documentation/2-project-configuration/storage-configuration/
+    - name: Data organization
+      link: user-documentation/3-data-organization/introduction/
+      children:
+        - name: Introduction
+          link: user-documentation/3-data-organization/introduction-organization/
         - name: Data models
-          link: user-documentation/admin/configuration/models-configuration/
-        - name: Data organization
-          link: user-documentation/admin/configuration/datasets/
+          link: user-documentation/3-data-organization/models/
+        - name: Datasets & Collections
+          link: user-documentation/3-data-organization/dataset-collection/
         - name: Data access rights
-          link: user-documentation/admin/configuration/data-access-rights/
-        - name: Storage locations
-          link: user-documentation/admin/configuration/configure-storage/
-        - name: Catalog search protocols
-          link: user-documentation/admin/configuration/search-protocols/
-        - name: Applicable services
-          link: user-documentation/admin/configuration/catalog-services/
-        - name: Data orders
-          link: user-documentation/admin/configuration/user-orders/
-        - name: User interface
-          link: user-documentation/admin/configuration/ui-configuration/
-        - name: Microservice configurations
-          link: user-documentation/admin/configuration/microservices/
-    - name: Products Manager (OAIS)
-      link: user-documentation/admin/ingest/introduction-ingest/
+          link: user-documentation/3-data-organization/data-access-rights/
+    - name: Import data
+      link: user-documentation/4-import-data/import-data/
+      children:
+        - name: Import data introduction
+          link: user-documentation/4-import-data/import-data/
+    - name: Import data - OAIS files
+      link: user-documentation/4_1-ingest/introduction-ingest/
       children:
         - name: Introduction
-          link: user-documentation/admin/ingest/introduction-ingest/
+          link: user-documentation/4_1-ingest/introduction-ingest/
         - name: Configure ingestion chains
-          link: user-documentation/admin/ingest/configure-ingestion-chain/
-        - name: Submit SIPs
-          link: user-documentation/admin/ingest/submit-products/
+          link: user-documentation/4_1-ingest/ingestion-chain-configuration/
+        - name: Submit OAIS files
+          link: user-documentation/4_1-ingest/submit-products/
         - name: Manage products
-          link: user-documentation/admin/ingest/manage-products/
-    - name: Data acquisition
-      link: user-documentation/admin/dataprovider/introduction-dataprovider/
+          link: user-documentation/4_1-ingest/manage-products/
+    - name: Import data - Scanned files
+      link: user-documentation/4_2-dataprovider/introduction-dataprovider/
       children:
         - name: Introduction
-          link: user-documentation/admin/dataprovider/introduction-acquisition/
+          link: user-documentation/4_2-dataprovider/introduction-acquisition/
         - name: Configure acquisition chains
-          link: user-documentation/admin/dataprovider/configure-acquisition-chain/
+          link: user-documentation/4_2-dataprovider/acquisition-chain-configuration/
         - name: Monitor session acquisitions
-          link: user-documentation/admin/dataprovider/monitor-session/
-    - name: Crawling
-      link: user-documentation/admin/crawler/introduction-crawler/
+          link: user-documentation/4_2-dataprovider/monitor-session/
+    - name: Import data - FEM
+      link: user-documentation/4_3-fem/introduction-fem/
       children:
         - name: Introduction
-          link: user-documentation/admin/crawler/introduction-crawler/
+          link: user-documentation/4_3-fem/introduction-fem/
+        - name: Configure fem
+          link: user-documentation/4_3-fem/fem-configuration/
+        - name: Submit features
+          link: user-documentation/4_3-fem/submit-features/
+        - name: Manage features
+          link: user-documentation/4_3-fem/manage-features/
+    - name: Populate the catalog
+      link: user-documentation/5-crawler/introduction-crawler/
+      children:
+        - name: Introduction
+          link: user-documentation/5-crawler/introduction-crawler/
         - name: Configure external connections
-          link: user-documentation/admin/crawler/configure-database/
+          link: user-documentation/5-crawler/configure-database/
         - name: Configure datasources
-          link: user-documentation/admin/crawler/configure-datasource/
-        - name: Crawl data from external databases
-          link: user-documentation/admin/crawler/database/
-        - name: Crawl data from opensearch
-          link: user-documentation/admin/crawler/opensearch/
-        - name: Crawl geojson aips
-          link: user-documentation/admin/crawler/aip/
-        - name: Crawl features
-          link: user-documentation/admin/crawler/fem/
+          link: user-documentation/5-crawler/configure-datasource/
+        - name: -- Crawl data from external databases
+          link: user-documentation/5-crawler/database/
+        - name: -- Crawl data from Opensearch sources
+          link: user-documentation/5-crawler/opensearch/
+        - name: -- Crawl aips
+          link: user-documentation/5-crawler/aip/
+        - name: -- Crawl features from fem
+          link: user-documentation/5-crawler/fem/
         - name: Monitor datasource crawlings
-          link: user-documentation/admin/crawler/monitor-crawling/
+          link: user-documentation/5-crawler/monitor-crawling/
         - name: Reset the catalog
-          link: user-documentation/admin/crawler/reset-catalog/
+          link: user-documentation/5-crawler/reset-catalog/
     - name: Catalog consultation
-      link: user-documentation/user/introduction-user/
+      link: user-documentation/6-catalog-consultation/introduction-catalog/
+      children:
+        - name: Configure the catalog
+          link: user-documentation/6-catalog-consultation/catalog-configuration/
+        - name: Use the catalog
+          link: user-documentation/6-catalog-consultation/catalog-manipulation/
+        - name: Interoperability protocols
+          link: user-documentation/6-catalog-consultation/protocols/
+    - name: Data services
+      link: user-documentation/7-data-services/introduction-services/
       children:
         - name: Introduction
-          link: user-documentation/user/introduction-user/
-        - name: Authentication
-          link: user-documentation/user/authentication-description/
-        - name: License
-          link: user-documentation/user/licence-description/
-        - name: Search
-          link: user-documentation/user/consultation-search/
-        - name: Views
-          link: user-documentation/user/consultation-views/
-        - name: Graph
-          link: user-documentation/user/consultation-graph/
-        - name: Data description
-          link: user-documentation/user/consultation-description/
-        - name: Applicable services
-          link: user-documentation/user/consultation-services/
-        - name: Order data
-          link: user-documentation/user/order-description/
+          link: user-documentation/7-data-services/introduction-services/
+        - name: Add UI services
+          link: user-documentation/7-data-services/ui-services/
+        - name: Add processing services
+          link: user-documentation/7-data-services/processing-services/
+    - name: Order data
+      link: user-documentation/8-order-data/introduction-user/
+      children:
+        - name: Introduction
+          link: user-documentation/8-order-data/introduction-order/
+        - name: Configure order modules
+          link: user-documentation/8-order-data/module-order-configuration/
+        - name: Add data processing
+          link: user-documentation/8-order-data/processing/
+        - name: Manage orders
+          link: user-documentation/8-order-data/manage-orders/
 # ========================================================================
 - name: Backend
   icon: /assets/img/icons/cloud-computing-dev.svg
