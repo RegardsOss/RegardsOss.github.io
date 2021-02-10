@@ -11,7 +11,7 @@ No changes in amqp interfaces.
 Reference requests in previous version are renamed to "Extraction requests" in V1.4.0.
 
 New extraction requests has to be published on this exchange : `regards.broadcast.fr.cnes.regards.modules.featureprovider.domain.FeatureExtractionRequestEvent` 
-In previous version reference request was sent to : `regards.broadcast.fr.cnes.regards.modules.feature.dto.event.in.FeatureReferenceRequestEvent`
+In previous version reference requests were sent to : `regards.broadcast.fr.cnes.regards.modules.feature.dto.event.in.FeatureReferenceRequestEvent`
 
 The requests body and header has not changed.
 

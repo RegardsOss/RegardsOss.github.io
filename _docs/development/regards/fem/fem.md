@@ -10,6 +10,7 @@ categories:
 
 `Fem` reponsabilities:
 
+* Feature extraction thanks to one of [IFeatureFactoryPlugin](/development/regards/fem/plugins/feature-factory-plugins) implementation,
 * Feature creation,
 * Feature update,
 * Feature deletion.

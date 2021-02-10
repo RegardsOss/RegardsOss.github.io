@@ -29,7 +29,7 @@ And following headers:
 |regards.request.owner| String of max 128 characters long|
 {:.table.table-striped}
 
-{% include_relative amqp/migration-1.2.0-1.3.0.md %}
+{% include_relative amqp/migrations/migration-1.1.0-1.2.0.md %}
 
 #### Example
 
@@ -63,7 +63,16 @@ And following headers:
 |regards.request.owner| String of max 128 characters long|
 {:.table.table-striped}
 
-{% include_relative amqp/migration-1.2.0-1.3.0.md %}
+{% include_relative amqp/migrations/migration-1.1.0-1.2.0.md %}
+
+#### V1.3.0 to V1.4.0 migration
+
+{% comment %}
+FIXME this should not be duplicated and way to document migration should be decided and harmonized between each feature giving its migration issues or adding a global migration guide
+{% endcomment %}
+
+New extraction requests has to be published on this exchange : `regards.broadcast.fr.cnes.regards.modules.featureprovider.domain.FeatureExtractionRequestEvent` 
+In previous version reference requests were sent to : `regards.broadcast.fr.cnes.regards.modules.feature.dto.event.in.FeatureReferenceRequestEvent`
 
 #### Example
 
@@ -95,7 +104,7 @@ And following headers:
 |regards.request.owner| String of max 128 characters long|
 {:.table.table-striped}
 
-{% include_relative amqp/migration-1.2.0-1.3.0.md %}
+{% include_relative amqp/migrations/migration-1.1.0-1.2.0.md %}
 
 #### Example
 
@@ -121,7 +130,7 @@ With following headers:
 |regards.request.owner| String of max 128 characters long|
 {:.table.table-striped}
 
-{% include_relative amqp/migration-1.2.0-1.3.0.md %}
+{% include_relative amqp/migrations/migration-1.1.0-1.2.0.md %}
 
 #### Example
 
