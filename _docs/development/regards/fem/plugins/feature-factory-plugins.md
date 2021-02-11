@@ -5,13 +5,13 @@ title: Feature Factory Plugins
 
 {% include toc.md %}
 
-# Available implementations
+## Available implementations
 
 There is no widely distributed implementation of this plugin type because it is an optional way to create features and very specific to your use case as features are to be validated against your own model.
 
-# How to implement a new feature factory plugin
+## How to implement a new feature factory plugin
 
-## Interface to implement
+### Interface to implement
 
 ```java
 @PluginInterface(description = "Generate a feature from a reference request")
@@ -26,7 +26,7 @@ public interface IFeatureFactoryPlugin {
 }
 ```
 
-## Implementation
+### Implementation
 
 As use cases are quite specific to your need, parameters are generic, that means you can do pretty much what you want and use whatever you can receive to generate a Feature.
 
@@ -61,6 +61,6 @@ public class DummyFeatureFactoryPlugin implements IFeatureFactoryPlugin {
 
 For more information on what can be used in plugins, please refer to [Plugin documentation](/development/framework/modules/plugins/).
 
-## How your parameters will be received
+### How your parameters will be received
 
 When [requesting an extraction](/development/regards/fem/api/feature-management-amqp-api/#feature-creation-request-by-file-reference), the attribute `parameters` of the request represents the parameters given to this plugin when the method `IFeatureFactoryPlugin#generateFeature` is called
