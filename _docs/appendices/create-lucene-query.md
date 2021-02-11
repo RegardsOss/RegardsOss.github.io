@@ -1,17 +1,21 @@
 ---
 layout: classic-docs
-title: Create a Lucene standard query parser
+title: Lucene query format
 short-title: Model
 ---
 
+In order to search into REGARDS catalog the standard API allows you to use a lucene query parser.
+To do so, the `q` query parameter value is parsed with Lucene standard query parser as describe here under.
 
-`q` query parameter value is parsed with Lucene standard query parser. 
+### String searches
 
-#### String searches
+Lucene is only used for syntax. Value semantic is interpreted thanks to wildcard expressions except for " character. To do exact searches, you have to put " around your value otherwise it will be considered a regular expression.
 
-Lucene is only used for syntax. Value semantic is interpreted thanks to regular expressions except for " character. To do exact searches, you have to put " around your value otherwise it will be considered a regular expression.
+To use regular expressions you need to wrap your search between '/' caracters as the exemple query here under
 
-#### Fields
+`name:/Jhon [a-zA-Z]/`
+
+### Fields
 
 When performing a search you must specify a field (See section parameters above for available fields).
 
@@ -27,17 +31,17 @@ For example, if you want to find the document entitled "The Right Way" which con
 > * geospatial parameters : `g` for WKT search or `lon`, `lat`, `r` for circle search
 {: .tip .plus}
 
-#### Exclude Searches
+### Exclude Searches
 
 `NOT "Test"` or `label:(NOT "test")`
 
-#### Range Searches
+### Range Searches
 
 Range Queries allow one to match items whose field(s) values are between the lower and upper bound specified by the Range Query.
 
 Range Queries can be inclusive or exclusive of the upper and lower bounds. Inclusive range queries are denoted by square brackets ("[" and "]"). Exclusive range queries are denoted by curly brackets ("{" and "}").
 
-##### Number
+#### Number
 
 The API support range searches on numbers. According to the expected model's attribute type, the value will be parsed as an integer, a double, a long or a float.
 
@@ -45,7 +49,7 @@ The API support range searches on numbers. According to the expected model's att
 
 This will find all items whose altitude attribute are between 0 and 2000, but not including 0 and 2000.
 
-##### Date
+#### Date
 
 The API supports range searches on dates. The expected date format is a date-time without a time-zone in the ISO-8601 calendar system, such as 2007-12-03T10:15:30.
 
@@ -53,11 +57,11 @@ The API supports range searches on dates. The expected date format is a date-tim
 
 This will find items whose date fields have values between 03/12/2007 at 10:15:30 and 03/12/2007 at 11:15:30, inclusive.
 
-#### Boolean operators
+### Boolean operators
 
 Boolean operators allow terms to be combined through logic operators.
 
-##### OR
+#### OR
 
 The OR operator is the default conjunction operator. This means that if there is no Boolean operator between two terms, the OR operator is used. The OR operator links two terms and finds a matching document if either of the terms exist in a document. This is equivalent to a union using sets. The symbol `||` can be used in place of the word OR.
 
@@ -69,7 +73,7 @@ or
 
 `title:(uranus OR neptune)`
 
-##### AND
+#### AND
 
 The AND operator matches items where both terms exist anywhere in the text of a single document. This is equivalent to an intersection using sets. The symbol `&&` can be used in place of the word AND.
 
@@ -77,7 +81,7 @@ To search for items which title contain "uranus" and which author is "neptune" u
 
 `title:"uranus" AND author:"neptune"`
 
-#### Escaping special characters
+### Escaping special characters
 
 The API supports escaping special characters that are part of the query syntax. The current list special characters are :
 
