@@ -5,31 +5,25 @@ short-title: Database
 categories:
   - user-documentation
 ---
+
+<i>Peuplez le catalogue avec les données contenues dans une base externe à REGARDS</i>
+
+*****************
  
-Vous trouverez ci-dessous les trois étapes principales pour configurer une aspiration de données depuis une base de données externe.
-
-#### Etape 1 : Importez un modèle pour la configuration des données
-- Depuis le menu latéral, cliquez sur ***Data models*** puis dans la carte ***Models*** appuyez sur ***Add***. 
-La façon la plus simple d'ajouter un modèle de données est d'envoyer un fichier XML contenant le modèle, ses fragments 
-et ses attributs. 
-Pour cela, cliquez sur ***Select a file***, sélectionnez un fichier au format XML dans l'explorateur de données puis appuyez sur ***Save***. Si vous souhaitez en savoir plus sur l'import de modèle de données, veuillez vous référer à la page [create a model](/user-documentation/3-data-organization/models/).
+> Avant de pouvoir configurer une source de données depuis une base externe, vous devez obligatoirement avoir [créé un modèle de données](/user-documentation/3-data-organization/models/) de type ***Data***, il servira à mettre en correspondance vos données et le modèle utilisé par le catalogue 
+{: .tip .warning}
 
 
-#### Etape 2 : Configurez une base de données externe
-- Vous devez normalement déjà avoir configurer une connexion à une base de données externe. Si ce n'est pas le cas, effectuez les opérations de la page suivante [configure a connection to an external database](/user-documentation/5-crawler/configure-database)
-
-
-#### Etape 3 : Configurez une aspiration depuis une base de données externe
-- Dans la carte ***Crawling***, cliquez sur ***Map datasources to internal models*** puis sur ***Add***.
+Dans la carte ***Crawling***, cliquez sur ***Map datasources to internal models*** puis sur ***Add***.
 
 <div align="center">
-    <img src="/assets/images/user-documentation/5-crawler/crawler-add-datasource.png" alt="add datasource" width="800"> 
+  <img src="/assets/images/user-documentation/5-crawler/crawler-add-datasource.png" alt="add datasource" width="800"> 
 </div>
 
 - Sélectionnez ensuite le mode ***crawl data from an external data source***. 
 
 <div align="center">
-    <img src="/assets/images/user-documentation/5-crawler/crawler-add-datasource-database.png" alt="database" width="800"> 
+  <img src="/assets/images/user-documentation/5-crawler/crawler-add-datasource-database.png" alt="database" width="800"> 
 </div>
 
 Vous entrez ensuite l'éditeur de création d'une source de données composé de trois étapes successives.
@@ -40,12 +34,16 @@ sur ***Next***
 2. ***Specify datasource attributes***
    - Configurez ensuite les attributs correspondants à votre source de données :
      - entrez le libellé de votre choix,
-     - la durée entre deux rafraichissements en secondes, dont vous pouvez modifier la valeur par défaut. Celle-ci conditionnera la durée entre deux scans de la source de données pour indexer le catalogue. Cela peut s'avérer utile lorsque des données sont régulièrement ajoutées,
+     - la durée entre deux rafraichissements en secondes. Celle-ci conditionnera la durée entre deux scans de la source de données pour indexer le catalogue. Cela peut s'avérer utile lorsque des données sont régulièrement ajoutées,
      - choisissez ensuite le modèle que vous avez précédemment importé,
      - le type de plugin pour définir la manière dont les données de la base de données externe vont être mappées. Il y a actuellement deux types de mappings. Le plugin *postgresql-datasource* permet de lier plusieurs attributs de plusieurs tables externes au modèle de données et *postgresql-datasource-single-table*, permettant de lier les attributs d'une seule table.
      - Vous pouvez associer si vous le voulez une liste de tags aux données qui seront aspirées. Ils pourront faciliter les recherches dans le catalogue.
 3. ***Data mapping*** : 
    - C'est sur cet écran que le mapping entre les données de la base externe et le modèle de REGARDS s’effectue. 
+<div align="center">
+  <img src="/assets/images/user-documentation/5-crawler/crawler-add-datasource-database-step-3.png" alt="database" width="800"> 
+</div>   
+
    - Dans le bloc ***Connection browser*** vous pouvez visualiser les tables externes.
    - Quel que soit le plugin de mapping que vous utilisez :
      - vous devrez faire la correspondance des attributs dans la section ***Links between model attributes and the connection***. 

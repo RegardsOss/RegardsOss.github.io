@@ -40,7 +40,7 @@ Appuyez ensuite sur le bouton ***Confirm*** pour valider la configuration.
 
 #### Création de compte par un utilisateur 
 
-Si vous êtes un nouvel utilisateur, vous pouvez vous enregistrer sur l'interface utilisateur de votre projet. Accédez à l'url `http://<regards host>/user/<project>` puis cliquez sur ***Login*** puis le bouton ***New user ?***
+Si vous êtes un nouvel utilisateur, vous pouvez vous enregistrer sur l'interface utilisateur de votre projet. Accédez à l'url `http://<regards host>/user/<project>` puis cliquez sur ***Login*** puis le bouton ***New user ?***.
 
 <div align="center">
   <img src="/assets/images/user-documentation/2-project-configuration/users/new-user.png" alt="new user" width="800"> 
@@ -48,14 +48,27 @@ Si vous êtes un nouvel utilisateur, vous pouvez vous enregistrer sur l'interfac
 
 Suivant la configuration de votre projet, deux actions sont possibles suite à votre demande :
 - **votre compte est automatiquement créé**, dans ce cas, activez votre compte avec le mail reçu à l'adresse renseignée, vous pourrez ensuite vous connecter à l'interface. En tant qu'utilisateur enregistré, vous n'aurez accès qu'à un nombre très limité de fonctionnalités. Il vous faut demander à l'administrateur de votre projet de vous fournir un rôle plus élevé si vous en avez le besoin.
-- **votre compte n'est pas créé automatiquement** et doit attendre d'être approuvé par un administrateur. [completer]
+- **votre compte n'est pas créé automatiquement** et doit attendre d'être approuvé par un administrateur. Vous recevrez un mail une fois que l'administrateur aura approuvé votre compte.
 
 
 #### Création de compte par un administrateur 
 
-Si vous êtes un administrateur de projet, vous avez la possibilité de créer directement des comptes utilisateurs.
+Si vous êtes un administrateur de projet, vous avez la possibilité de créer directement des comptes utilisateurs. Cliquez sur le bouton <img src="/assets/images/user-documentation/regards-icons/admin/add.png" alt="add" height="30"> ***Add***, vous serez redirigé vers l'écran de création d'un utilisateur.
 
-[completer]
+> Si l'utilisateur possède déjà un compte au niveau instance, cochez la case ***The user already has a REGARDS user account***, vous n'aurez pas à compléter tous les champs.
+{: .tip .info}
+
+Remplissez les champs suivants :
+- ***Email*** *[Obligatoire]* l'adresse mail de l'utilisateur
+- ***Role*** *[Obligatoire]* le rôle de l'utilisateur dans REGARDS. Référez-vous à la section ***Rôles des utilisateurs*** plus bas dans la page pour en savoir plus.
+- ***Max quota*** *[Obligatoire]* le nombre de téléchargements de données autorisé
+- ***Rate limit*** *[Obligatoire]* le nombre de téléchargements de données simultanés autorisé
+- ***Address*** *[Optionnel]* l'adresse postale 
+- ***Address*** *[Obligatoire]* le pays d'origine
+- ***Organization*** *[Obligatoire]* la structure de rattachement 
+- ***Registration reason*** *[Obligatoire]* la raison d'inscription
+
+Dans la partie Groups, associez l'utilisateur à des groupes d'accès aux données en appuyant sur le bouton ***Add***. Pour en savoir plus, reportez-vous à la page [Configure data access rights](/user-documentation/3-data-organization/data-access-rights/)
 
 ### <img src="/assets/images/user-documentation/doc-icons/right-arrow.png" alt="arrow" height="12"> Gestion des utilisateurs
 
@@ -63,30 +76,10 @@ Si vous êtes un administrateur de projet, vous avez la possibilité de créer d
 
 Lorsqu'un utilisateur demande l'accès au projet, il est automatiquement associé au rôle ***Registered User*** et n'est associé à aucun groupe d'accès aux données. Il est à la charge de l'administrateur de lui associer si nécessaire un rôle différent et un ou plusieurs groupes d'accès aux données.
 
-#### Modification & Suppression
-
-Dans la liste ***Users*** accessible depuis la carte ***Users***, vous pourrez effectuer de nombreuses actions sur chacun des utilisateurs.
-
-- <img src="/assets/images/user-documentation/regards-icons/admin/quota.png" alt="quota" height="30"> ***Set max quota*** vous permet de définir les quotas de téléchargement associés à l'utilisateur
-- <img src="/assets/images/user-documentation/regards-icons/admin/enable-user.png" alt="enable user" height="25"> ***Enable access*** pour autoriser l'utilisateur à accéder au projet
-- <img src="/assets/images/user-documentation/regards-icons/admin/disable-user.png" alt="disable user" height="25"> ***Disable access*** pour interdire l'accès au projet à l'utilisateur
-- <img src="/assets/images/user-documentation/regards-icons/admin/edit.png" alt="edit" height="25"> ***Edit*** pour :
-  - Modifier les informations personnelles d'un utilisateur
-  - Modifier le rôle d'un utilisateur
-  - Modifier les groupes d'accès associés à l'utilisateur
-- <img src="/assets/images/user-documentation/regards-icons/admin/delete.png" alt="delete" height="25"> ***Remove user*** pour supprimer un utilisateur
-
-<div align="center">
-  <img src="/assets/images/user-documentation/2-project-configuration/users/user-list.png" alt="user settings" width="800">
-</div>
-
-> La suppression d'un utilisateur n'entraîne que son retrait de la liste des utilisateurs du projet courant. Son [compte](/user-documentation/1-global-configuration/user-accounts/) au niveau de l'instance REGARDS est lui conservé.
-{: .tip .info}
-
 #### Rôles des utilisateurs
 
 Les rôles utilisateur permettent de définir les fonctionnalités accessibles pour un utilisateur donné.
-En cliquant sur le bouton ***List*** de la carte ***Roles*** <img src="/assets/images/user-documentation/regards-icons/admin/list.png" alt="list" height="25">, vous verrez les cinq rôles proposés par défaut :
+En cliquant sur le bouton <img src="/assets/images/user-documentation/regards-icons/admin/list.png" alt="list" height="25"> ***List*** de la carte ***Roles***, vous verrez les cinq rôles proposés par défaut :
 - ***Public*** : attribué aux utilisateurs non connectés. Les utilisateurs de ce rôle n'ont qu'un accès de consultation.
 - ***Registered users*** : attribué aux utilisateurs enregistrés. Les utilisateurs de ce rôle peuvent consulter, télécharger et commander des données.
 - ***Operator*** : attribué aux exploitants. Les utilisateurs de ce rôle se voient autorisé l'accès à un nombre limité de fonction d'administration lié à l'exploitation du projet.
@@ -111,8 +104,38 @@ Pour chaque microservice, vous pourrez gérer individuellement l'accès à chaqu
   <img src="/assets/images/user-documentation/2-project-configuration/users/authorize-role-actions.png" alt="add role" width="800">
 </div>
 
-
 #### Groupes d'accès aux données
 
 Chaque utilisateur peut faire partie d'un groupe lui permettant d'accéder à une partie des données contenues dans votre projet REGARDS.
 Pour savoir comment gérer les accès aux jeux de données, référez-vous à la page [Configure data access rights](/user-documentation/3-data-organization/data-access-rights/).
+
+#### Modification & Suppression
+
+Dans la liste ***Users*** accessible depuis la carte ***Users***, vous pourrez effectuer de nombreuses actions sur chacun des utilisateurs.
+
+- <img src="/assets/images/user-documentation/regards-icons/admin/quota.png" alt="quota" height="30"> ***Set max quota*** vous permet de définir les quotas de téléchargement associés à l'utilisateur
+- <img src="/assets/images/user-documentation/regards-icons/admin/enable-user.png" alt="enable user" height="25"> ***Enable access*** pour autoriser l'utilisateur à accéder au projet
+- <img src="/assets/images/user-documentation/regards-icons/admin/disable-user.png" alt="disable user" height="25"> ***Disable access*** pour interdire l'accès au projet à l'utilisateur
+- <img src="/assets/images/user-documentation/regards-icons/admin/edit.png" alt="edit" height="25"> ***Edit*** pour :
+  - Modifier les informations personnelles d'un utilisateur
+  - Modifier le rôle d'un utilisateur
+  - Modifier les groupes d'accès associés à l'utilisateur
+- <img src="/assets/images/user-documentation/regards-icons/admin/delete.png" alt="delete" height="25"> ***Remove*** pour supprimer un utilisateur
+
+<div align="center">
+  <img src="/assets/images/user-documentation/2-project-configuration/users/user-list.png" alt="user settings" width="800">
+</div>
+
+> La suppression d'un utilisateur n'entraîne que son retrait de la liste des utilisateurs du projet courant. Son [compte](/user-documentation/1-global-configuration/user-accounts/) au niveau de l'instance REGARDS est lui conservé.
+{: .tip .info}
+
+
+### <img src="/assets/images/user-documentation/doc-icons/right-arrow.png" alt="arrow" height="12"> Utilisation de comptes utilisateur externes
+
+REGARDS permet la connexion d'utilisateurs depuis un système extérieur. Il ne gérera ainsi pas les comptes en interne.
+L'unique plugin fourni par défaut permet la connexion à un annuaire LDAP. Pour ajouter ce système d'authentification, cliquez sur le bouton ***Add*** de la carte ***Authentication system*** et configurez-le. Vous pourrez ensuite le retrouver dans la liste des systèmes d'authentification.
+
+
+
+
+

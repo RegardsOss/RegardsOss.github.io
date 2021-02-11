@@ -42,7 +42,7 @@ Vous avez deux manières de créer un modèle de données :
       - ***Collection*** est utilisé par les [collections de données](/user-documentation/3-data-organization/dataset-collection/)
       - ***Dataset*** est utilisé par les [jeux de données](/user-documentation/3-data-organization/dataset-collection/)
       - ***Data*** est utilisé par les [crawlers](/user-documentation/5-crawler/introduction-crawler) afin d'établir une correspondance entre vos données aspirées et le catalogue REGARDS
-- En important un fichier de données au format XML (2). C'est une solution qui est à privilégiée car elle permet de créer avec un seul fichier le modèle, ses attributs et éventuellement ses fragments. Pour sa rédaction, veuillez vous référez à [completer lien pour la structure du XML] et importez le modèle en appuyant sur le bouton ***Select a file***. 
+- En important un fichier de données au format XML (2). C'est une solution qui est à privilégiée car elle permet de créer avec un seul fichier le modèle, ses attributs et éventuellement ses fragments. Pour sa rédaction, veuillez vous référez à la page [Create a model](/appendices/create-model/) et importez le modèle en appuyant sur le bouton ***Select a file***. 
 
 Si vous avez choisi la création manuelle, suivez les étapes ci-dessous pour ajouter des attributs et des fragments au modèle de données.
 
@@ -53,7 +53,7 @@ Depuis ***Data models*** et la carte ***Fragments***, appuyez sur le bouton <img
 
 Vous pouvez :
  - soit créer un fragment manuellement en renseignant les champs ***Fragment name*** et ***Description*** puis appuyer sur le bouton ***Save***
- - soit importer un fichier XML qui importera directement un fragment et ses attributs. Lire [link] pour écrire ce fichier.
+ - soit importer un fichier XML qui importera directement un fragment et ses attributs. Lire [Create a model](/appendices/create-model/) pour écrire ce fichier.
 
 <div align="center">
   <img src="/assets/images/user-documentation/3-data-organization/models/model-create-fragment.png" alt="create fragment" width="800"> 
@@ -85,7 +85,16 @@ Une fois les attributs et, ou les fragments créés, vous pouvez les lier au mod
 
 #### Créer vos propres plugins de calcul
 
-[completer]
+Les plugins de calculs sont des algorithmiques permettant de calculer automatiquement des valeurs sur les modèles de type ***Dataset***. REGARDS en fournit de base :
+- ***CountPlugin*** calcule le nombre de données dans un jeu de données
+- ***IntSumComputePlugin*** calcule la somme des attributs de type Integer d'un jeu de données 
+- ***LongSumComputePlugin*** calcule la somme des attributs de type Long d'un jeu de données 
+- ***MaxDateComputePlugin*** trouve la date la plus récente d'un jeu de données
+- ***MinDateComputePlugin*** trouve la date la plus ancienne d'un jeu de données
+
+Pour configurer une instance de plugin de calcul, cliquez sur le bouton <img src="/assets/images/user-documentation/regards-icons/admin/add.png" alt="add" height="25"> ***Add*** de la carte ***Attribute calculation plugins***. Choisissez le plugin de calcul, remplissez éventuellement les paramètres et cliquez sur le bouton ***Add***. Vous serez ensuite redirigé vers l'écran listant toutes les configurations de plugins de calcul.
+
+Vous pouvez ensuite lier ce plugin à un attribut du modèle 
 
 #### Lier les attributs au modèle
 
@@ -101,9 +110,29 @@ Vous y trouverez l'interface suivante :
 
 Sur la gauche, les attributs appartenant au modèle et sur la droite, l'ensemble des attributs et éventuellement des fragments disponibles dans le projet. Les fragments sont représentés par des blocs contenant des titres. Pour ajouter un attribut ou un fragment, effectuez simple un drag and drop de la gauche vers la droite. 
 
+Si votre modèle est de type ***Dataset***, vous pourrez ajouter un plugin de calcul sur un attribut en appuyant sur le bouton ***Use a plugin***. Le type de retour du plugin doit être compatible avec le type d'attribut. Si la case est grisée, cela signifie qu'aucun plugin de calcul ne correspond à l'attribut en question.
+
+<div align="center">
+  <img src="/assets/images/user-documentation/3-data-organization/models/model-link-attribute-dataset.png" alt="dataset" width="800"> 
+</div>
+
 Une fois l'ensemble des éléments ajoutés à votre modèle, il sera prêt à être utilisé.
 
 
 ### <img src="/assets/images/user-documentation/doc-icons/right-arrow.png" alt="arrow" height="12"> Gérer les modèles de données
 
-[completer]
+Pour gérer les modèles de données, appuyez sur le bouton <img src="/assets/images/user-documentation/regards-icons/admin/list.png" alt="list" height="25"> de la carte ***Models***.
+
+<div align="center">
+  <img src="/assets/images/user-documentation/3-data-organization/models/model-list-model.png" alt="list" width="800"> 
+</div>
+
+Les boutons d'action vous permette d'effectuer différentes tâches :
+- <img src="/assets/images/user-documentation/regards-icons/admin/download.png" alt="download" height="25"> ***Download*** exporte le modèle au format XML
+- <img src="/assets/images/user-documentation/regards-icons/admin/link.png" alt="mapping" height="25"> ***Link attributes*** édite les attributs et les fragments liés au modèle
+- <img src="/assets/images/user-documentation/regards-icons/admin/edit.png" alt="edit" height="25"> ***Edit*** permet de changer la description du modèle
+- <img src="/assets/images/user-documentation/regards-icons/admin/duplicate.png" alt="duplicate" height="25"> ***Duplicate*** duplique le modèle. Attention, les plugins de calcul associés aux attributs du modèle d'origine ne seront pas copiés.
+- <img src="/assets/images/user-documentation/regards-icons/admin/delete.png" alt="delete" height="25"> ***Delete*** il n'est pour le moment pas possible de supprimer un modèle de données
+
+> Vous pouvez filtrer les modèles par nom pour les rechercher plus facilement dans la liste
+{: .tip .info}

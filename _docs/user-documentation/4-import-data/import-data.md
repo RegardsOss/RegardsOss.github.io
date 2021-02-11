@@ -1,21 +1,23 @@
 ---
 layout: classic-docs
-title: Import data introduction à completer
+title: Import data introduction
 short-title: Import data
 categories:
   - user-documentation
 ---
 
-<i>REGARDS permet d'importer des données de quatre manières principales afin de peupler le catalogue</i> 
 
 *****************
 
 
-
-Importer les données
-- *Internes*: 
-  - ***Import data from OAIS files***
-  - ***Import data from scanned files***
-  - ***Import data from FEM***
-- *Externes* : il est également possible d'importer des données externes à REGARDS en créant une passerelle depuis votre source externe. A la différence des données importées en interne, les données externes ne seront pas gérées par REGARDS. Reportez-vous à la section [Populate the catalog](/user-documentation/5-crawler/introduction-crawler).
-
+Le catalogue peut être peuplé principalement par deux sources de données, internes ou externes :
+- Depuis des sources de données internes
+    - [Depuis des AIPs](/user-documentation/5-crawler/aip/)
+    - [Depuis FEM](/user-documentation/5-crawler/fem/)
+- Depuis des sources de données externes
+    - [Depuis des bases de données externes](/user-documentation/5-crawler/configure-database/)
+    - [Depuis des sources de données web Opensearch](/user-documentation/5-crawler/opensearch/)
+    
+    
+> A la différence des données importées en interne, les données externes ne seront pas gérées par REGARDS.
+{: .tip .info}

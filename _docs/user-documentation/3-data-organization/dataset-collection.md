@@ -10,7 +10,9 @@ categories:
 
 <i>Une collection est un regroupement de données étroitement lié. C'est une information supplémentaire aidant à la compréhension de la donnée. Elle n'est pas obligatoire, mais il est recommandé d'en faire usage lorsque votre système commence à contenir une grande quantité de données, d'autant plus lorsqu'elles proviennent d'origines diverses et variées. Selon les recommandations OAIS, un système d'archivage doit fournir une méthode efficace de classification et d'organisation. Plus le système pourra compartimenter les informations, plus elles pourront être restituées de manière fiable et rapide.</i>
 
-<i>Un jeu de données est basé sur le même principe, à la différence près que les données sont issues d'une même source. Référez-vous à la partie [Crawler](/user-documentation/5-crawler/introduction-crawler) pour en savoir plus sur les sources de données. Vous pourrez également restreindre l'accès au jeu, ce qui n'est pas le cas d'une collection.</i>
+<i>Un jeu de données est basé sur le même principe, à la différence près que les données sont issues d'une même source. Référez-vous à la partie [Crawler](/user-documentation/5-crawler/introduction-crawler) pour en savoir plus sur les sources de données.</i>
+
+<i>Il permet également de restreindre l'accès à toutes les données qu'il contient, en se basant sur l'utilisation de rôles. Pour en savoir plus, suivez la [Configure data access rights](/user-documentation/3-data-organization/data-access-rights/). Ce n'est pas le cas des collections.</i>
 
 
 <div align="center">
@@ -24,7 +26,7 @@ categories:
 
 Avant de créer une collection, vous devez avoir créé un [modèle de données](/user-documentation/3-data-organization/models/) de type ***Collection***.
 
-Accédez à l'onglet ***Collections & Datasets***, depuis la carte ***Collections***, appuyez sur le bouton ***Add*** <img src="/assets/images/user-documentation/regards-icons/admin/add.png" alt="add" height="25"> pour créer votre première collection de données.
+Accédez à l'onglet ***Collections & Datasets***, depuis la carte ***Collections***, appuyez sur le bouton <img src="/assets/images/user-documentation/regards-icons/admin/add.png" alt="add" height="25"> ***Add*** pour créer votre première collection de données.
 
 Il y a trois étapes principales.
 
@@ -37,7 +39,7 @@ Il y a trois étapes principales.
 Renseignez les champs suivants :
 
 - ***Supplier identifier*** *[Obligatoire]* l'identifiant unique de la collection
-- ***Label*** *[Obligatoire]* désignant le nom donné à la collection
+- ***Label*** *[Obligatoire]* désigne le nom donné à la collection
 - ***Geometry*** *[Optionnel]* la zone géographique de la collection standardisée au format GeoJson
 - ***Collection models*** *[Obligatoire]* étant le modèle associé à votre collection
 
@@ -96,6 +98,8 @@ Les images suivantes contiennent des champs déjà remplis. Il s'agit d'une aide
 - ***Geometry*** *[Optionnel]* la zone géographique de la collection standardisée au format GeoJson
 - ***Data model*** *[Obligatoire]* étant le modèle associé à votre jeu de données
 
+Complétez les valeurs des attributs si celles-ci sont requises. 
+
 **Etape 2. Ajouter des paramètres supplémentaires**
 
 Cette étape est cruciale pour construire votre jeu de données. Écrivez dans le champ ***Filter request in OpenSearch***, le critère devant différencier votre sous-ensemble de données du reste des données. Dans l'exemple suivant, les produits aspirés possède le tag "DATA-01". Ainsi, seuls produits répondant à ce critère représenteront le jeu de données. Si vous ne précisez aucun filtre, tous les éléments de la source de données seront inclus. Les attributs de recherche sont listés dans la colonne de gauche.
@@ -125,6 +129,6 @@ Vous pourrez lier ce jeu de données à une ou plusieurs collections. Pour ce fa
 **Etape 5. Ajouter éventuellement des plugins, des services ihm ou des traitements associés à votre jeu**
 
 Sélectionnez ici les [plugins](/user-documentation/7-data-services/ui-services), les [services ihm](/user-documentation/2-project-configuration/user-configuration) ou les [traitements](/user-documentation/8-order-data/processing/) qui seront associés à toutes les données appartenant à votre jeu.
- Si vous n'avez pas encore créé ces fonctionnalités, vous pourrez toujours le faire plus tard, et ré-éditer ce jeu en cliquant sur le bouton <img src="/assets/images/user-documentation/regards-icons/admin/edit.png" alt="edit" height="25"> ***Edit*** de votre jeu de données accessible depuis l'écran ***Datasets*** (bouton <img src="/assets/images/user-documentation/regards-icons/admin/list.png" alt="list" height="25"> de la carte ***Datasets***).
+ Si vous n'avez pas encore créé ces fonctionnalités, vous pourrez toujours le faire plus tard, et ré-éditer ce jeu en cliquant sur le bouton <img src="/assets/images/user-documentation/regards-icons/admin/edit.png" alt="edit" height="25"> ***Edit*** de votre jeu de données accessible depuis l'écran ***Datasets*** (bouton <img src="/assets/images/user-documentation/regards-icons/admin/list.png" alt="list" height="25"> ***List*** de la carte ***Datasets***).
  
  Une fois toutes ces étapes effectuées, appuyez sur le bouton ***Finish***. Votre jeu de données est à présent visible dans la liste.

@@ -99,7 +99,7 @@
       children:
         - name: Introduction
           link: user-documentation/4_2-dataprovider/introduction-acquisition/
-        - name: Configure acquisition chains
+        - name: Manage acquisition chains
           link: user-documentation/4_2-dataprovider/acquisition-chain-configuration/
         - name: Monitor session acquisitions
           link: user-documentation/4_2-dataprovider/monitor-session/
@@ -108,10 +108,6 @@
       children:
         - name: Introduction
           link: user-documentation/4_3-fem/introduction-fem/
-        - name: Configure fem
-          link: user-documentation/4_3-fem/fem-configuration/
-        - name: Submit features
-          link: user-documentation/4_3-fem/submit-features/
         - name: Manage features
           link: user-documentation/4_3-fem/manage-features/
     - name: Populate the catalog
@@ -127,9 +123,9 @@
           link: user-documentation/5-crawler/database/
         - name: -- Crawl data from Opensearch sources
           link: user-documentation/5-crawler/opensearch/
-        - name: -- Crawl aips
+        - name: -- Crawl data from AIPs
           link: user-documentation/5-crawler/aip/
-        - name: -- Crawl features from fem
+        - name: -- Crawl features from FEM
           link: user-documentation/5-crawler/fem/
         - name: Monitor datasource crawlings
           link: user-documentation/5-crawler/monitor-crawling/
@@ -138,6 +134,8 @@
     - name: Catalog consultation
       link: user-documentation/6-catalog-consultation/introduction-catalog/
       children:
+        - name: Introduction
+          link: user-documentation/6-catalog-consultation/introduction-catalog/
         - name: Configure the catalog
           link: user-documentation/6-catalog-consultation/catalog-configuration/
         - name: Use the catalog
@@ -158,12 +156,12 @@
       children:
         - name: Introduction
           link: user-documentation/8-order-data/introduction-order/
-        - name: Configure order modules
-          link: user-documentation/8-order-data/module-order-configuration/
-        - name: Add data processing
-          link: user-documentation/8-order-data/processing/
         - name: Manage orders
           link: user-documentation/8-order-data/manage-orders/
+        - name: Add data processing
+          link: user-documentation/8-order-data/processing/
+        - name: Monitor orders
+          link: user-documentation/8-order-data/monitor-orders/
 # ========================================================================
 - name: Backend
   icon: /assets/img/icons/cloud-computing-dev.svg
@@ -367,3 +365,7 @@
       children:
         - name: REGARDS OAIS
           link: appendices/oais/
+        - name: Create a Lucene standard query parser
+          link: appendices/create-lucene-query/
+        - name: Create a model
+          link: appendices/create-model/

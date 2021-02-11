@@ -22,16 +22,16 @@ Le système d'archivage peut potentiellement stocker des millions de produits, l
   
 Il y a deux types de filtres, ceux communs aux produits et traitements, et ceux spécifiques à chacune de ces catégories. 
 - *filtres communs* :
-  - ***Source*** [completer]
-  - ***Session*** [completer]
-  - ***Provider ID*** [completer]
+  - ***Source*** précise le fournisseur de données. Dans le cas d'ajout de données par scan de fichiers, il s'agira du nom de la chaîne d'acquisition. Pour les dépôts directs de fichiers au format (OAIS), le champ *sessionOwner* sera utilisé.
+  - ***Session*** identifie toutes les données traitées lors d'une même acquisition ou ingestion. Il est utilisé pour suivre plus facilement les données importées dans REGARDS.  
+  - ***Provider ID*** correspond à l'identifiant du SIP
   - ***Date*** avec ce critère, vous pouvez trier les produits par la date de dernière mise à jour. Le format est le suivant 
  MM/dd/YYYY.
 - *filtres spécifiques aux produits*    
-  - ***Type*** [completer]
-  - ***State*** l'état de stockage du produit, ***Built*** s'il [completer], ***Stored*** s'il a été sauvegardé en base de données, ***Deleted*** s'il a été marqué comme supprimé.
+  - ***Type*** pour le moment seul le type **Data** est géré dans les produits OAIS
+  - ***State*** l'état de stockage du produit, ***Built*** si l'AIP a été générée par la chaîne d'ingestion et est prêt à être stocké, ***Stored*** si le produit a été sauvegardé en base de données, ***Deleted*** si l'AIP a été marquée comme supprimé mais est toujours présente en base.
   - ***Storage*** correspond à l'espace dans lequel votre produit a été sauvegardé. Cela dépend de la liste de stockage que vous avez paramétré.
-  - ***Version*** [completer]
+  - ***Version*** correspond à la version du produit, il peut exister plusieurs versions d'un même produit si des modifications ont été apportées
 - *filtres spécifiques aux traitements*
   - ***Type*** donne les types de traitement de données que l'on peut retrouver dans REGARDS (***Removal ACK***, ***Metadata storage***, ***Update***, ***Update research***, ***Create***, ***Delete***, ***Delete research***, ***Post process***).
   - ***State*** indique l'étape dans le traitement (***Waiting***, ***Created***, ***Blocked***, ***Waiting action...***, ***Ignored***, ***Running***, ***Error***, ***Aborted***)
@@ -60,9 +60,11 @@ Lorsque vous cliquez sur ***Modify selection***, trois modifications sont possib
 </div>
 
     
-- ***Storages*** [completer],
-- ***Categories*** ajouter ou modifier des catégories,
-- ***Tags*** ajouter ou modifier des tags.
+- ***Storages*** si un produit est stocké sur plusieurs espaces, vous avez la possibilité de le retirer d'un d'entre eux en cliquant sur le bouton de suppression de l'espace de stockage en question. Attention, vous ne pouvez pas le supprimer de tous les espaces de stockages, utilisez le bouton ***Delete selection*** dédié sur la ligne du produit.
+- ***Categories*** pour ajouter ou modifier des catégories,
+- ***Tags*** pour ajouter ou modifier des tags.
+
+Une fois les modifications terminées, appuyez sur le bouton ***Modify*** afin qu'elles soient prises en compte.
 
 Lorsque vous cliquez sur ***Delete selection***, la pop-up window suivante s'affiche :
 
@@ -77,13 +79,10 @@ Vous pouvez supprimer soit de manière irrévocable, soit en marquant le produit
  
 Il y a trois boutons d'action par ligne :
 
-- <img src="/assets/images/user-documentation/regards-icons/admin/load.png" alt="load product" height="20"> en cliquant sur la flèche, deux options s'affichent ***AIP*** ou ***SIP***. En cliquant sur l'un ou l'autre, une popup s'affichera pour affichant le contenu JSON associé.
+- <img src="/assets/images/user-documentation/regards-icons/admin/load.png" alt="load product" height="20"> en cliquant sur la flèche, deux options s'affichent ***AIP*** ou ***SIP***. En cliquant sur l'un ou l'autre, une popup affichera le contenu JSON associé.
 - <img src="/assets/images/user-documentation/regards-icons/admin/edit.png" alt="edit product" height="20"> ce bouton vous permettra d'éditer le produit de la même manière qu'en appuyant sur le bouton ***Modify selection*** (cf. ci-dessus)
 - <img src="/assets/images/user-documentation/regards-icons/admin/delete.png" alt="delete product" height="20"> ce bouton vous permettra de supprimer le produit de la même manière qu'en appuyant sur le bouton ***Delete selection*** (cf. ci-dessus)
 
-<div align="center">
-  <img src="/assets/images/user-documentation/4_1-ingest/ingest-submit-products.png" alt="submit products" width="800"> 
-</div>
 
 > #### Effectuer des actions sur les traitements
 
@@ -91,7 +90,7 @@ Il y a trois boutons d'action par ligne :
 
 En utilisant le sélecteur de lignes sur la gauche des produits, vous avez la possibilité d'effectuer plusieurs opérations sur l'ensemble de votre sélection.
 
-- ***Version option*** permet de [completer]
+- ***Version option*** sélectionne manuellement l'action de versioning lorsque le produit à ingérer existe déjà (si le providerId est le même) ou si le mode de versioning choisi dans le SIP est manuel
 - ***Retry selection*** permet de relancer des traitements, cela vous sera particulièrement utile dans le cas où des traitements ont échoués.
 - ***Delete selection*** suppriment les traitements présents dans la sélection de façon définitive
 

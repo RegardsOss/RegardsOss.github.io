@@ -6,7 +6,7 @@ categories:
   - user-documentation
 ---
 
-*Pour configurer une connexion à une base de données externes, veuillez suivre les étapes suivantes.*
+*Pour configurer une connexion à une base de données externe, veuillez suivre les étapes suivantes.*
 
 - Depuis ***Add data*** et la carte ***Crawling***, cliquez sur ***Configure connection to external databases*** puis sur ***Add***. 
 

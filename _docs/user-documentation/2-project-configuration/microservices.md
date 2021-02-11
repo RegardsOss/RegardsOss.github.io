@@ -27,5 +27,4 @@ Depuis cet écran, vous pourrez :
 </div>
 
 A partir de cette page vous pouvez télécharger la configuration du microservice en appuyant sur le bouton ***Export*** à droite de l'écran.
-
-Vous pouvez également importer un nouveau fichier de configuration. [completer explication structure du fichier]
+Vous pouvez également importer un nouveau fichier de configuration en appuyant sur le bouton ***Import from file***.

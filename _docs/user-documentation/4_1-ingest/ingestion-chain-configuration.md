@@ -33,7 +33,7 @@ A partir de l'écran ***Create a new processing chain***, vous avez deux façons
 
 #### Créer une chaîne à partir d'un fichier JSON (1)
 
-- Créez sur votre disque un fichier JSON décrivant une chaîne d'ingestion (veuillez vous référer à [completer] savoir comment le créer)
+- Créez sur votre disque un fichier JSON décrivant une chaîne d'ingestion (vous pouvez télécharger la *DefaultProcessingChain* présente par défaut pour comprendre comment construire une chaîne d'ingestion).
 - Cliquez sur le bouton ***Import from file***
 - Sélectionnez un fichier au format JSON dans l'explorateur de fichier en cliquant sur ***Select a file***. 
 - Appuyez sur ***Import***

@@ -6,9 +6,8 @@ categories:
   - user-documentation
 ---
 
-<i>REGARDS permet de modifier de nombreuses configurations afin d'adapter votre projet à vos besoins. Dans cette section, vous apprendrez à régler les paramètres de base.</i> 
 
-*****************
+REGARDS permet de modifier de nombreuses configurations afin d'adapter votre projet à vos besoins. Dans cette section, vous apprendrez à régler les paramètres de base pour démarrer l'utilisation de REGARDS.
 
 
 L'interface d'administration projet permet entre autres de :
