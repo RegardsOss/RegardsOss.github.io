@@ -26,7 +26,7 @@ Vous serez redirigé vers l'écran de création d'un nouveau projet, remplissez 
  - ***Description*** *[Optionnel]*, la présentation succincte de votre projet. Vous pourrez la retrouver dans la liste des projets.
  - ***HTTP link to icon*** *[Optionnel]*, l'adresse web d'accès à l'icône de représentation du projet. Elle est utilisée dans le [portail d'accès](/user-documentation/1-global-configuration/portal-configuration/) aux projets et comme favicon de l'interface web utilisateur.
  - ***HTTP link to project license*** *[Optionnel]*, l'adresse web d'accès au fichier de licence du projet au format ***html***, ***markdown*** ou ***pdf***. Cette license devra être acceptée par les utilisateurs avant de pouvoir accéder aux données.
- - ***REGARDS gateway public address*** *[Obligatoire]*, l'adresse publique d'accès à la passerelle REGARDS. Cette URL est l'unique point d'accès au système REGARDS depuis l'extérieur. Il correspond au microservice ***rs-gateway***. 
+ - ***REGARDS gateway public address*** *[Obligatoire]*, l'adresse publique d'accès à la passerelle REGARDS. Cette URL est l'unique point d'accès au système REGARDS depuis l'extérieur. Il correspond le plus souvent à l'adresse publique de votre reverse-proxy. 
  - ***Public project*** *[Optionnel]*, autorise l'accès au projet aux utilisateurs non enregistrés. Par défaut, le projet est privé.
  - ***Accessible project*** *[Optionnel]*, affiche le projet dans le [portail d'accès](/user-documentation/1-global-configuration/portal-configuration/)
  - ***Geometries Coordinate reference system***, le système de référence utilisé pour la gestion des données géo-référencées du projet.
