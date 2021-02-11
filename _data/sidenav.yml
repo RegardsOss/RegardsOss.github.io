@@ -2,33 +2,14 @@
 - name: Home
   icon: /assets/img/icons/if_globe_1055048.svg
   link:
-  children: 
+  children:
     - name: Overview
-      link: 
+      link:
       children:
-        # - name: Acquisition and archiving with OAIS
-        #   link: home/features/acqarch/
-        # - name: Catalog harvesting and publication
-        #   link: home/features/harvesting/
-        # - name: OpenSearch API
-        #   link: home/features/opensearch/
         - name: Main features
           link:
         - name: Roadmap
           link: home/roadmap/
-    # - name: Introduction
-    #   link: home/introduction/
-    # - name: Roadmap
-    #   link: home/roadmap/
-    # - name: Features
-    #   link: home/features/
-    #   children:
-        # - name: Acquisition and archiving with OAIS
-        #   link: home/features/acqarch/
-        # - name: Catalog harvesting and publication
-        #   link: home/features/harvesting/
-        # - name: OpenSearch API
-        #   link: home/features/opensearch/
 # ========================================================================
 - name: Getting Started
   icon: /assets/img/icons/rocket2.svg
@@ -44,49 +25,155 @@
         - name: Advanced setup
           link : getting-started/swarm-advanced-setup/
     - name: Development
-      children: 
+      children:
         - name: Tutorials
           link : getting-started/tutorials/
-    # - name: Basic use cases
-    #   children: 
-    #     - name: External data source publication
-    #       link: getting-started/samples/basic-extds/
-    #     - name: Full OAIS workflow
-    #       link: getting-started/samples/basic-oais/   
 # ========================================================================
-# - name: User Documentation
-#   icon: /assets/img/icons/phone-book.svg
-#   children: 
-#     - name: Instance management
-#       link: user-documentation/instance-management/
-#     - name: Project management
-#       children: 
-#         - name: Authentication and authorization
-#           link: user-documentation/authentication/
-#         - name: Data management
-#           link: user-documentation/data-management/
-#         - name: Data acquisition and archiving
-#           link: user-documentation/data-acquisition-archiving/
-#         - name: Web application configuration
-#           link: user-documentation/webapp/
-#     - name: Public interface
-#       link: user-documentation/user-manual/
+- name: User Documentation
+  icon: /assets/img/icons/phone-book.svg
+  children:
+    - name: Overview
+      link: user-documentation/overview/
+      children:
+        - name: Project overview
+          link: user-documentation/0-overview/overview
+        - name: Glossary
+          link: user-documentation/0-overview/glossary/
+    - name: Administrator configuration
+      link: user-documentation/1-global-configuration/introduction-global-configuration/
+      children:
+        - name: Introduction
+          link: user-documentation/1-global-configuration/introduction-global-configuration/
+        - name: Manage projects
+          link: user-documentation/1-global-configuration/project-configuration/
+        - name: Manage user accounts
+          link: user-documentation/1-global-configuration/user-accounts/
+        - name: Customize portal interface
+          link: user-documentation/1-global-configuration/portal-configuration/
+    - name: Project configuration
+      link: user-documentation/2-project-configuration/introduction-project-configuration/
+      children:
+        - name: Introduction
+          link: user-documentation/2-project-configuration/introduction-project-configuration/
+        - name: Manage project users
+          link: user-documentation/2-project-configuration/users/
+        - name: Customize user interface
+          link: user-documentation/2-project-configuration/user-configuration/
+        - name: Manage microservices
+          link: user-documentation/2-project-configuration/microservices/
+        - name: Manage storage locations
+          link: user-documentation/2-project-configuration/storage-configuration/
+    - name: Data organization
+      link: user-documentation/3-data-organization/introduction/
+      children:
+        - name: Introduction
+          link: user-documentation/3-data-organization/introduction-organization/
+        - name: Data models
+          link: user-documentation/3-data-organization/models/
+        - name: Datasets & Collections
+          link: user-documentation/3-data-organization/dataset-collection/
+        - name: Data access rights
+          link: user-documentation/3-data-organization/data-access-rights/
+    - name: Import data
+      link: user-documentation/4-import-data/import-data/
+      children:
+        - name: Import data introduction
+          link: user-documentation/4-import-data/import-data/
+    - name: Import data - OAIS files
+      link: user-documentation/4_1-ingest/introduction-ingest/
+      children:
+        - name: Introduction
+          link: user-documentation/4_1-ingest/introduction-ingest/
+        - name: Configure ingestion chains
+          link: user-documentation/4_1-ingest/ingestion-chain-configuration/
+        - name: Submit OAIS files
+          link: user-documentation/4_1-ingest/submit-products/
+        - name: Manage products
+          link: user-documentation/4_1-ingest/manage-products/
+    - name: Import data - Scanned files
+      link: user-documentation/4_2-dataprovider/introduction-dataprovider/
+      children:
+        - name: Introduction
+          link: user-documentation/4_2-dataprovider/introduction-acquisition/
+        - name: Manage acquisition chains
+          link: user-documentation/4_2-dataprovider/acquisition-chain-configuration/
+        - name: Monitor session acquisitions
+          link: user-documentation/4_2-dataprovider/monitor-session/
+    - name: Import data - FEM
+      link: user-documentation/4_3-fem/introduction-fem/
+      children:
+        - name: Introduction
+          link: user-documentation/4_3-fem/introduction-fem/
+        - name: Manage features
+          link: user-documentation/4_3-fem/manage-features/
+    - name: Populate the catalog
+      link: user-documentation/5-crawler/introduction-crawler/
+      children:
+        - name: Introduction
+          link: user-documentation/5-crawler/introduction-crawler/
+        - name: Configure external connections
+          link: user-documentation/5-crawler/configure-database/
+        - name: Configure datasources
+          link: user-documentation/5-crawler/configure-datasource/
+        - name: -- Crawl data from external databases
+          link: user-documentation/5-crawler/database/
+        - name: -- Crawl data from Opensearch sources
+          link: user-documentation/5-crawler/opensearch/
+        - name: -- Crawl data from AIPs
+          link: user-documentation/5-crawler/aip/
+        - name: -- Crawl features from FEM
+          link: user-documentation/5-crawler/fem/
+        - name: Monitor datasource crawlings
+          link: user-documentation/5-crawler/monitor-crawling/
+        - name: Reset the catalog
+          link: user-documentation/5-crawler/reset-catalog/
+    - name: Catalog consultation
+      link: user-documentation/6-catalog-consultation/introduction-catalog/
+      children:
+        - name: Introduction
+          link: user-documentation/6-catalog-consultation/introduction-catalog/
+        - name: Configure the catalog
+          link: user-documentation/6-catalog-consultation/catalog-configuration/
+        - name: Use the catalog
+          link: user-documentation/6-catalog-consultation/catalog-manipulation/
+        - name: Interoperability protocols
+          link: user-documentation/6-catalog-consultation/protocols/
+    - name: Data services
+      link: user-documentation/7-data-services/introduction-services/
+      children:
+        - name: Introduction
+          link: user-documentation/7-data-services/introduction-services/
+        - name: Add UI services
+          link: user-documentation/7-data-services/ui-services/
+        - name: Add processing services
+          link: user-documentation/7-data-services/processing-services/
+    - name: Order data
+      link: user-documentation/8-order-data/introduction-user/
+      children:
+        - name: Introduction
+          link: user-documentation/8-order-data/introduction-order/
+        - name: Manage orders
+          link: user-documentation/8-order-data/manage-orders/
+        - name: Add data processing
+          link: user-documentation/8-order-data/processing/
+        - name: Monitor orders
+          link: user-documentation/8-order-data/monitor-orders/
 # ========================================================================
 - name: Backend
   icon: /assets/img/icons/cloud-computing-dev.svg
-  children: 
+  children:
     - name: Architecture
       children:
         - name: Concepts
           link: development/architecture/concepts/
         - name: Overview
-          link: development/architecture/overview/     
+          link: development/architecture/overview/
     - name: Framework
       children:
         - name: Getting Started
           link: development/framework/getting-started/
         - name: Starters
-          link: development/framework/starters/        
+          link: development/framework/starters/
         - name: Jobs
           link: development/framework/modules/jobs/
         - name: Plugins
@@ -236,10 +323,10 @@
 # ========================================================================      
 - name: Frontend
   icon: /assets/img/icons/coding.svg
-  children: 
+  children:
     - name: Introduction
       link: frontend/developers-index/
-      children: 
+      children:
         - name: Installation
           link: frontend/setup/
         - name: Setting up an IDE
@@ -249,13 +336,13 @@
         - name: Lint
           link: frontend/eslint-config-es6-rules/
     - name: Data
-      children: 
+      children:
         - name: Data store & Request
           link: frontend/data/
         - name: Backend interactions
           link: frontend/components/clients/
     - name: View
-      children: 
+      children:
         - name: Internationalization
           link: frontend/components/internationalization/
         - name: Theme
@@ -264,7 +351,7 @@
           link: frontend/components/redux-forms/
     - name: Packages
       link: frontend/developers-index/
-      children: 
+      children:
         - name: Re-usable components
           link: frontend/components/components/
         - name: Business components
@@ -273,14 +360,14 @@
           link: frontend/modules/dynamic-modules/
     - name: Plugins
       link: frontend/plugins/plugins/
-      children: 
+      children:
         - name: Criteria
           link: frontend/plugins/plugin-criteria/
         - name: Services
           link: frontend/plugins/plugin-services/
     - name: User guide
       link: frontend/layout-configuration/
-      children: 
+      children:
         - name: Layout configuration
           link: frontend/layout-configuration/
 # ========================================================================
@@ -288,7 +375,11 @@
   icon: /assets/img/icons/info.svg
   children:
     - name: Documentation guide
-      link: appendices/doc-guide/   
-      children: 
-        - name: REGARDS OAIS 
+      link: appendices/doc-guide/
+      children:
+        - name: REGARDS OAIS
           link: appendices/oais/
+        - name: Create a Lucene standard query parser
+          link: appendices/create-lucene-query/
+        - name: Create a model
+          link: appendices/create-model/
