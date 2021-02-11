@@ -33,10 +33,10 @@
   icon: /assets/img/icons/phone-book.svg
   children:
     - name: Overview
-      link: user-documentation/overview/
+      link: user-documentation/0-overview/overview/
       children:
-        - name: Project overview
-          link: user-documentation/0-overview/overview
+        - name: Overview
+          link: user-documentation/0-overview/overview/
         - name: Glossary
           link: user-documentation/0-overview/glossary/
     - name: Administrator configuration
@@ -64,7 +64,7 @@
         - name: Manage storage locations
           link: user-documentation/2-project-configuration/storage-configuration/
     - name: Data organization
-      link: user-documentation/3-data-organization/introduction/
+      link: user-documentation/3-data-organization/introduction-organization/
       children:
         - name: Introduction
           link: user-documentation/3-data-organization/introduction-organization/
@@ -91,7 +91,7 @@
         - name: Manage products
           link: user-documentation/4_1-ingest/manage-products/
     - name: Import data - Scanned files
-      link: user-documentation/4_2-dataprovider/introduction-dataprovider/
+      link: user-documentation/4_2-dataprovider/introduction-acquisition/
       children:
         - name: Introduction
           link: user-documentation/4_2-dataprovider/introduction-acquisition/
@@ -148,7 +148,7 @@
         - name: Add processing services
           link: user-documentation/7-data-services/processing-services/
     - name: Order data
-      link: user-documentation/8-order-data/introduction-user/
+      link: user-documentation/8-order-data/introduction-order/
       children:
         - name: Introduction
           link: user-documentation/8-order-data/introduction-order/

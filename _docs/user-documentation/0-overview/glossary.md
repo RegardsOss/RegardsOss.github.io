@@ -20,7 +20,7 @@ categories:
 - ***Feature*** : donnée interne à REGARDS au format GeoJSON. Elle est gérée par le Feature Manager (FEM). 
 - ***Format OAIS*** : ensemble de recommandations fourni par le *Consultative Committee for Space Data Systems* (CCSDS) proposant un guide dans
  la mise en place d'un système ouvert d'archivage d'information (OAIS).
-- ***Jeu de données*** : regroupement de données issues d'une même source de données. Il propose en plus de la *Collection de données*, une restriction par rôles utilisateur.
+- ***Jeu de données*** : regroupement de données issues d'une même source de données. Il propose en plus de la *Collection de données*, une restriction d'accès par groupe utilisateur.
 - ***Métadonnées*** : informations décrivant la donnée. 
 - ***Modèle de données*** : représentation conceptuelle permettant de standardiser des données.
 - ***Plugin*** : composant logiciel permettant d'obtenir des fonctionnalités supplémentaires.
