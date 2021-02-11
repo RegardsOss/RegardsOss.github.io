@@ -379,7 +379,7 @@
       children:
         - name: REGARDS OAIS
           link: appendices/oais/
-        - name: Create a Lucene standard query parser
+        - name: Lucene query format
           link: appendices/create-lucene-query/
-        - name: Create a model
+        - name: REGARDS XML Models format
           link: appendices/create-model/
