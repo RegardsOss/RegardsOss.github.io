@@ -10,7 +10,7 @@ categories:
 
 
 <div align="center">
-  <img src="/assets/images/user-documentation/2-project-configuration/user-interface/ui-menu.png/" alt="ui menu" width="800"> 
+  <img src="/assets/images/user-documentation/2-project-configuration/user-interface/ui-menu.png" alt="ui menu" width="800"> 
 </div>
 
 {% include toc.md %}
