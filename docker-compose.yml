@@ -1,14 +1,17 @@
-jekyll:
-    image: jekyll/jekyll:3.8.4
-    command: bash -c "bundle && jekyll serve --livereload --incremental --trace"
+version: '3'
+services:
+  regards-doc-generator:
+    image: "${DOCKER_REGISTRY}regards-doc-generator:${TAG}"
+    command: bash -c "rm -rf _site && jekyll serve --livereload --incremental --trace"
+    build:
+      context: ./
+      args:
+        http_proxy: ${HTTP_PROXY}
     ports:
       - 4000:4000
       - 35729:35729
     volumes:
       - .:/srv/jekyll
     environment:
-      - HTTP_PROXY
-      - no_proxy
-      - http_proxy
-      - HTTPS_PROXY
-      - https_proxy
+      - JEKYLL_UID
+      - JEKYLL_GID

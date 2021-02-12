@@ -10,7 +10,7 @@ categories:
 
 
 <div align="center">
-  <img src="/assets/images/user-documentation/2-project-configuration/user-interface/ui-menu.png/" alt="ui menu" width="800"> 
+  <img src="/assets/images/user-documentation/2-project-configuration/user-interface/ui-menu.png" alt="ui menu" width="800"> 
 </div>
 
 {% include toc.md %}
@@ -159,7 +159,7 @@ Vous pouvez par exemple afficher la documentation REGARDS dans l'interface utili
   <img src="/assets/images/user-documentation/2-project-configuration/user-interface/ui-modules/embedded-user.png" alt="ui" width="800"> 
 </div>
 
-> Le site doit autoriser le partage de ressources entre origines multiples (CORS), il en existe très peu.
+> Le site en question doit explicitement autoriser l'ouverture de ses ressources à des utilisateurs extérieurs (CORS) car votre utilisateur va accéder à cette ressource en utilisant un autre nom de domaine que celui qui héberge la ressource en question.
 {: .tip .warning}
 
 ### <img src="/assets/images/user-documentation/doc-icons/right-arrow.png" alt="arrow" height="12"> Plugins configuration

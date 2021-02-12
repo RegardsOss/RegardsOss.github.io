@@ -14,20 +14,16 @@
 - name: Getting Started
   icon: /assets/img/icons/rocket2.svg
   children:
-    - name: Installation manual
-      children:
-        - name: Install from sources
-          link: getting-started/from-sources/
-        - name: Server configuration
-          link: getting-started/configuration/
-        - name: Deploy using IZPACK
-          link: getting-started/izpack/
-        - name: Install plugins
-          link: getting-started/plugins/
-        - name: Regards CLI
-          link: getting-started/cli/
-        - name: FAQ
-          link: getting-started/faq/
+    - name: Installation - Docker swarm
+      children: 
+        - name: Quick setup
+          link : getting-started/swarm-quick-setup/
+        - name: Administration
+          link : getting-started/swarm-cli/
+        - name: Ansible playbook tasks
+          link : getting-started/ansible-tasks/
+        - name: Advanced setup
+          link : getting-started/swarm-advanced-setup/
     - name: Development
       children:
         - name: Tutorials
@@ -37,10 +33,10 @@
   icon: /assets/img/icons/phone-book.svg
   children:
     - name: Overview
-      link: user-documentation/overview/
+      link: user-documentation/0-overview/overview/
       children:
-        - name: Project overview
-          link: user-documentation/0-overview/overview
+        - name: Overview
+          link: user-documentation/0-overview/overview/
         - name: Glossary
           link: user-documentation/0-overview/glossary/
     - name: Administrator configuration
@@ -68,7 +64,7 @@
         - name: Manage storage locations
           link: user-documentation/2-project-configuration/storage-configuration/
     - name: Data organization
-      link: user-documentation/3-data-organization/introduction/
+      link: user-documentation/3-data-organization/introduction-organization/
       children:
         - name: Introduction
           link: user-documentation/3-data-organization/introduction-organization/
@@ -95,7 +91,7 @@
         - name: Manage products
           link: user-documentation/4_1-ingest/manage-products/
     - name: Import data - Scanned files
-      link: user-documentation/4_2-dataprovider/introduction-dataprovider/
+      link: user-documentation/4_2-dataprovider/introduction-acquisition/
       children:
         - name: Introduction
           link: user-documentation/4_2-dataprovider/introduction-acquisition/
@@ -152,7 +148,7 @@
         - name: Add processing services
           link: user-documentation/7-data-services/processing-services/
     - name: Order data
-      link: user-documentation/8-order-data/introduction-user/
+      link: user-documentation/8-order-data/introduction-order/
       children:
         - name: Introduction
           link: user-documentation/8-order-data/introduction-order/
@@ -240,6 +236,24 @@
           link: development/regards/dam/plugins/data-source-plugins/
         - name: Bus message events
           link: development/regards/dam/events/events/
+    - name: Feature Manager
+      link: development/regards/fem/fem/
+      children:
+        - name: Feature Manager configuration API
+          link: development/regards/fem/api/feature-management-configuration/
+        - name: Feature Manager REST API
+          link: development/regards/fem/api/feature-management-rest-api/
+        - name: Feature Manager AMQP API
+          link: development/regards/fem/api/feature-management-amqp-api/
+    - name: Notifier
+      link: development/regards/notifier/notifier/
+      children:
+        - name: Notification configuration API
+          link: development/regards/notifier/api/notifier-configuration-api/
+        - name: Notification API
+          link: development/regards/notifier/api/notifier-api/
+        - name: Notifier plugins
+          link: development/regards/notifier/api/notifier-plugins/
     - name: Data provider
       link: development/regards/dataprovider/dataprovider/
       children:
@@ -365,7 +379,7 @@
       children:
         - name: REGARDS OAIS
           link: appendices/oais/
-        - name: Create a Lucene standard query parser
+        - name: Lucene query format
           link: appendices/create-lucene-query/
-        - name: Create a model
+        - name: REGARDS XML Models format
           link: appendices/create-model/

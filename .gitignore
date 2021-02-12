@@ -4,6 +4,9 @@
 .idea/
 _site/
 
-doc-static/
 .sass-cache/
 .jekyll-metadata
+
+.vscode/
+
+target/

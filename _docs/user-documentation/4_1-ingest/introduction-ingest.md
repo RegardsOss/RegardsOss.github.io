@@ -30,7 +30,7 @@ Dans le menu latéral, cliquez sur **Add data** et observez la carte **Product M
 
 #### <img src="/assets/images/user-documentation/regards-icons/admin/add.png" alt="add" height="30"> Submit products
 
-> Cet onglet permet de déposer vos SIPs au format OAIS>. 
+> Cet onglet permet de déposer vos SIPs au format OAIS. 
 
 <img src="/assets/images/user-documentation/doc-icons/link.png" alt="link" height="20"> *[Learn how to submit products](/user-documentation/4_1-ingest/submit-products/)*
 
