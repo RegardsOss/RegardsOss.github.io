@@ -141,7 +141,7 @@ We're currently storing our Docker image on Github. To be able to fetch them, yo
 
 Visit [this link](https://docs.github.com/en/packages/guides/configuring-docker-for-use-with-github-packages#authenticating-with-a-personal-access-token) and [this link](https://docs.github.com/en/github/authenticating-to-github/creating-a-personal-access-token) to get an overview on how to let your Docker engine be able to fetch REGARDS images.
 
-> If you do not fetch image directly on Github, adapt this step to your environment.
+> If you do not fetch image directly on Github, adapt this step to your environment, as you may need to login on your private Docker registry.
 {: .tip .info}
 
 ## Install the stack
@@ -155,7 +155,7 @@ ansible-playbook -i inventories/<inventory name> setup-vm.yml <additional parame
 # Connect threw SSH to your master node and login to Github or adapt it to your environment
 # cat ~/TOKEN.txt | docker login https://docker.pkg.github.com -u <MY USERNAME> --password-stdin
 
-# If you are installing locally REGARDS (`ansible_connection=local` inside inventories/<inventory name>/hosts), 
+# If you are installing locally REGARDS (ansible_connection=local inside inventories/<inventory name>/hosts), 
 # the setup-vm.yml has added you into a group but it won't be effective until you've restarted your session.
 # Ensures the command id return you the group `dockermapgid` or the next playbook will timeout
 
@@ -186,7 +186,9 @@ PLAY RECAP *********************************************************************
 regards-master   : ok=158 changed=8 unreachable=0 failed=0 skipped=22 rescued=0 ignored=0
 regards-slave-1  : ok=86 changed=8 unreachable=0 failed=0 skipped=4 rescued=0 ignored=0
 
-
+# I don't need to connect to the remote VM using SSH as:
+# - on my specific setup, Docker images are stored on a private repository
+# - the playbook is runned from my desktop and not directly on regards-master
 
 > ansible-playbook -i inventories/regards-cnes regards.yml --ask-become-pass
 [..]
@@ -194,6 +196,9 @@ PLAY RECAP *********************************************************************
 regards-master   : ok=23 changed=8 unreachable=0 failed=0 skipped=1 rescued=0 ignored=0
 regards-slave-1  : ok=23 changed=8 unreachable=0 failed=0 skipped=1 rescued=0 ignored=0
 ```
+
+> Seeing red lines is normal, as some tasks produce error that can safely ignored if they do not block the playbook execution. What really matters is `failed=0` in the recap.
+{: .tip .info}
 
 Congratulations, your REGARDS installation is over. System is starting and will be up soon. You can access web interfaces at :
  - Instance administration : http://\<master_node_host_name\>
