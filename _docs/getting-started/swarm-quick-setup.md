@@ -146,13 +146,19 @@ Visit [this link](https://docs.github.com/en/packages/guides/configuring-docker-
 
 ## Install the stack
 
-When configuration have been saved, you need to run the following command :
+When configuration has been saved, you need to run the following command :
 
 ```bash
 # cd regards-playbook/
 ansible-playbook -i inventories/<inventory name> setup-vm.yml <additional parameters>
+
 # Connect threw SSH to your master node and login to Github or adapt it to your environment
 # cat ~/TOKEN.txt | docker login https://docker.pkg.github.com -u <MY USERNAME> --password-stdin
+
+# If you are installing locally REGARDS (`ansible_connection=local` inside inventories/<inventory name>/hosts), 
+# the setup-vm.yml has added you into a group but it won't be effective until you've restarted your session.
+# Ensures the command id return you the group `dockermapgid` or the next playbook will timeout
+
 ansible-playbook -i inventories/<inventory name> regards.yml <additional parameters>
 ```
 
