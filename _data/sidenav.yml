@@ -136,6 +136,8 @@
           link: user-documentation/6-catalog-consultation/catalog-configuration/
         - name: Use the catalog
           link: user-documentation/6-catalog-consultation/catalog-manipulation/
+        - name: Toponyms server
+          link: user-documentation/6-catalog-consultation/toponyms-server/
         - name: Interoperability protocols
           link: user-documentation/6-catalog-consultation/protocols/
     - name: Data services
