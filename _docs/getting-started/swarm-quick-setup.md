@@ -40,16 +40,16 @@ Let's create an `hosts` file that defines nodes that will be used during this de
 ```bash
 cat >> hosts << FIN_CAT
 [ansible_host]
-ansible ansible_connection=local ansible_python_interpreter='{{ansible_playbook_python}}'
+ansible ansible_connection=local ansible_python_interpreter='{{ "{{" }} ansible_playbook_python }}'
 
 [ansible_host:vars]
 gen_certificates_group_name=docker_nodes
 
 [regards_nodes]
 [1] Keep next line if you run Ansible on the server where REGARDS will be installed. Do not edit ansible_host value.
-regards-master ansible_host='{{ global_stack.master_node_host_name }}' ansible_connection=local
+regards-master ansible_host='{{ "{{" }} global_stack.master_node_host_name }}' ansible_connection=local
 [2] Keep next line if you don't run Ansible on the server where REGARDS will be installed. Do not edit ansible_host value.
-regards-master ansible_host='{{ global_stack.master_node_host_name }}' ansible_user=XXX ansible_password=XXX
+regards-master ansible_host='{{ "{{" }} global_stack.master_node_host_name }}' ansible_user=XXX ansible_password=XXX
 [3] Keep next lines if you have more than 1 server.
 regards-slave-1 ansible_host=host-server2 ansible_user=XXX ansible_password=XXX
 regards-slave-2 ansible_host=host-server3 ansible_user=XXX ansible_password=XXX
