@@ -30,9 +30,10 @@ Let's look at these scripts :
 - `logs.sh`: let you display container logs from a running container. Once the stack is running fine, you should prefer to use Kibana to see logs
 - `reboot.sh`: let you reboot a container
 - `status.sh`: display the status of your stack (running container, how many containers are missing, history)
-- `update-all.sh`: boot or update the stack using stack files. It checks for updated images on the Docker registry, and track updates on files available on the master node.
-- `update.sh`: let you fetch an updated docker image and reboot only that single container. For advanced usage, you should prefer `update-all.sh`.
+- `deploy.sh`: boot or update the stack using stack files. It checks for updated images on the Docker registry, and track updates on files available on the master node.
+- `update.sh`: let you fetch an updated docker image and reboot only that single container. For advanced usage, you should prefer `deploy.sh`.
 - `shutdown.sh` : let you completly shutdown the regards swarm stack.
+- `health.sh` : let you retrieve microservices global heathness for a specific tenant.
 
 When you deploy the stack, you should run `status.sh` to see if containers are running:
 
@@ -74,6 +75,29 @@ The current state of these containers is also important. You need to wait 5 to 1
 > The number of running services depends of your inventory. You may see less actives services than this exemple, but the `[RUNNING]	X/X` must equals 100%.
 {: .tip .info}
 
+You can run the script `health.sh` to check the healthness returned by each microservice of the stack, for a specfic tenant.
+
+```bash
+./health.sh demo
+[200]	fem
+[200]	admin
+[200]	dam
+[200]	processing
+[200]	storage
+[200]	authentication
+[200]	ingest
+[200]	admin_instance
+[200]	access
+[200]	catalog
+[200]	access_instance
+[200]	order
+[200]	dataprovider
+[200]	notifier
+```
+
+> The microservice healthness is still in a early access and not heavily tested.
+{: .tip .info}
+
 ## Simple debugging
 
 Now, let's see how you can debug some microservice.
@@ -101,7 +125,7 @@ regards-cnes_rs-dam.1.w5gxg6x1mn2x@regards-cnes-d13.myorganisation.com    | Caus
 Definitly, it doesn't like it. Now we can restart the ElasticSearch by just running :
 
 ```bash
-./update-all.sh
+./deploy.sh
 ```
 
 Now we can run again `status.sh` :
