@@ -8,8 +8,8 @@ categories:
 
 <i>Suivez les commandes effectuées dans votre projet</i>
 
-<img src="/assets/images/user-documentation/8-order-data/command-menu.png/" alt="user menu" height="200"> 
-<img src="/assets/images/user-documentation/8-order-data/orders-card.png/" alt="user menu" height="200"> 
+<img src="/assets/images/user-documentation/8-order-data/command-menu.png" alt="user menu" height="200"> 
+<img src="/assets/images/user-documentation/8-order-data/orders-card.png" alt="user menu" height="200"> 
 
 
 *****************

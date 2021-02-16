@@ -9,8 +9,8 @@ categories:
 
 <i>Ajoutez des traitements lors de la commande données.</i>
 
-<img src="/assets/images/user-documentation/8-order-data/command-menu.png/" alt="user menu" height="200"> 
-<img src="/assets/images/user-documentation/8-order-data/processing-card.png/" alt="user menu" height="200"> 
+<img src="/assets/images/user-documentation/8-order-data/command-menu.png" alt="user menu" height="200"> 
+<img src="/assets/images/user-documentation/8-order-data/processing-card.png" alt="user menu" height="200"> 
 
 
 
@@ -38,7 +38,7 @@ Sélectionnez le plugin que vous avez développé (*dans le cas suivant, il s'ag
  Une fois la configuration du module terminée, cliquez sur le bouton ***Create***. Vous serez alors redirigé vers l'écran listant tous les processing configurés.
  
  <div align="center">
-   <img src="/assets/images/user-documentation/8-order-data/processing/processing-list.png/" alt="processing list" width="800"> 
+   <img src="/assets/images/user-documentation/8-order-data/processing/processing-list.png" alt="processing list" width="800"> 
  </div>
  
 ### <img src="/assets/images/user-documentation/doc-icons/right-arrow.png" alt="arrow" height="12"> Appliquez des plugins de traitement
@@ -48,13 +48,13 @@ Accédez à l'interface user depuis l'adresse `http://<regards host>/user/<proje
 Ajoutez des données au panier depuis le catalogue de données. Avant de commander, vous pouvez ajouter des plugins de traitements à toutes les données contenues dans un jeu en cliquant sur le bouton ***+ Process***. 
 
 <div align="center">
-   <img src="/assets/images/user-documentation/8-order-data/processing/processing-apply.png/" alt="processing apply" width="800"> 
+   <img src="/assets/images/user-documentation/8-order-data/processing/processing-apply.png" alt="processing apply" width="800"> 
  </div>
  
  Retournez ensuite dans l'interface d'administration, et depuis le menu ***Commands*** et la carte ***Processing***, cliquez sur le bouton <img src="/assets/images/user-documentation/regards-icons/admin/monitor.png" alt="monitor" height="25"> ***Monitor ongoing processing*** .
  
 <div align="center">
-   <img src="/assets/images/user-documentation/8-order-data/processing/processing-monitor.png/" alt="processing monitor" width="800"> 
+   <img src="/assets/images/user-documentation/8-order-data/processing/processing-monitor.png" alt="processing monitor" width="800"> 
  </div>
  
 Depuis cette page, vous aurez une vision globale de tous les traitements effectués dans votre projet. Il peut y en avoir énormément au sein de votre projet, les filtres vous aideront à retrouver des traitements particuliers soit par :
