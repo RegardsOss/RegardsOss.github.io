@@ -310,6 +310,8 @@
       children:
         - name: Overview
           link: development/regards/processing/processing
+        - name: OpenAPI
+          link: development/regards/processing/openapi/openapi/
         - name: Batch API
           link: development/regards/processing/api/batch-api/
         - name: Process API
@@ -317,7 +319,7 @@
         - name: Monitoring API
           link: development/regards/processing/api/monitoring-api/
         - name: Plugin configuration API
-          link: development/regards/processing/api/right-plugin-configuration-api/
+          link: development/regards/processing/api/rights-plugin-configuration-api/
     - name: Storage
       link: development/regards/storage/storage/
       children:
