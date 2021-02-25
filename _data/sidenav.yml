@@ -310,8 +310,6 @@
       children:
         - name: Overview
           link: development/regards/processing/processing
-        - name: OpenAPI
-          link: development/regards/processing/openapi/openapi/
         - name: Batch API
           link: development/regards/processing/api/batch-api/
         - name: Process API
