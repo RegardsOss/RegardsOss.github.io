@@ -305,6 +305,19 @@
           link: development/regards/order/api/basket-api/
         - name: Order API
           link: development/regards/order/api/order-api/
+    - name: Processing
+      link: development/regards/processing/processing/
+      children:
+        - name: Overview
+          link: development/regards/processing/processing
+        - name: Batch API
+          link: development/regards/processing/api/batch-api/
+        - name: Process API
+          link: development/regards/processing/api/process-api/
+        - name: Monitoring API
+          link: development/regards/processing/api/monitoring-api/
+        - name: Plugin configuration API
+          link: development/regards/processing/api/right-plugin-configuration-api/
     - name: Storage
       link: development/regards/storage/storage/
       children:
