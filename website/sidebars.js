@@ -145,6 +145,7 @@ module.exports = {
         "user-documentation/6-catalog-consultation/catalog-introduction",
         "user-documentation/6-catalog-consultation/catalog-configuration",
         "user-documentation/6-catalog-consultation/catalog-use",
+        "user-documentation/6-catalog-consultation/catalog-toponyms",
         "user-documentation/6-catalog-consultation/catalog-protocols",
       ],
     },
