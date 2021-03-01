@@ -1,0 +1,104 @@
+/* stylelint-disable docusaurus/copyright-header */
+
+/**
+ * CSS files with the .module.css suffix will be treated as CSS modules
+ * and scoped locally.
+ */
+
+video {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  z-index: -1;
+}
+
+.heroContainer {
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  align-items: center;
+  box-shadow: inset 0 0 0 1000px rgba(0, 0, 0, 0.2);
+  object-fit: contain;
+}
+
+.heroContainer > h1 {
+  color: white;
+  font-size: 8vh;
+  padding-top: 100px;
+}
+
+.heroContainer > h2 {
+  color: white;
+  font-size: 2.5vh;
+  padding-top: 20px;
+}
+
+.heroArrow {
+  position: absolute;
+  bottom: 10px;
+}
+
+#heroArrow {
+  text-align: center;
+  position: absolute;
+  bottom: 40px;
+}
+
+#heroArrow a {
+  color: #fff;
+  font-size: 18px;
+}
+#heroArrow a span {
+  position: absolute;
+  bottom: 80px;
+  left: 20%;
+  width: 30px;
+  height: 30px;
+  border-left: 1px solid #fff;
+  border-bottom: 1px solid #fff;
+  -webkit-transform: rotate(-45deg);
+  transform: rotate(-45deg);
+  -webkit-animation: arrow 2s infinite;
+  animation: arrow 2s infinite;
+  opacity: 0;
+  box-sizing: border-box;
+}
+#heroArrow a span:nth-of-type(1) {
+  -webkit-animation-delay: 0s;
+  animation-delay: 0s;
+}
+#heroArrow a span:nth-of-type(2) {
+  bottom: 65px;
+  -webkit-animation-delay: 0.3s;
+  animation-delay: 0.3s;
+}
+#heroArrow a span:nth-of-type(3) {
+  bottom: 50px;
+  -webkit-animation-delay: 0.6s;
+  animation-delay: 0.6s;
+}
+@-webkit-keyframes arrow {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+@keyframes arrow {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
