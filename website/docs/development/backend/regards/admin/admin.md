@@ -1,11 +1,9 @@
 ---
-layout: classic-docs
-title: 
-short-title: Admin
-categories:
-  - development
+id: backend-admin-overview
+title: REGARDS admin microservice 
+sidebar_label: Overview
+slug: /development/backend/admin/overview
 ---
-
 
 
 # Overview
@@ -22,4 +20,4 @@ categories:
 
 # Available APIs
 
-* [Admin](/development/regards/admin/api/admin-api/)
+* [Admin](api)

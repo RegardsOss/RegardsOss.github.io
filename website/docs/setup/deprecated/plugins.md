@@ -18,7 +18,7 @@ chown <regards_exec_user> /home/REGARDS/plugins/<microservice>/plugin.jar
 chmod 640 /home/REGARDS/plugins/<microservice>/plugin.jar
 ```
 
-After a new plugin is added to a microservice, you need to restart it. To do so, stop and start the microservice as explained in [Regards CLI](/getting-started/cli/)
+After a new plugin is added to a microservice, you need to restart it. To do so, stop and start the microservice as explained in [Regards CLI]
 
 Then you can see that the plugin is well installed from the project HMI in the 'microservices' section.
 

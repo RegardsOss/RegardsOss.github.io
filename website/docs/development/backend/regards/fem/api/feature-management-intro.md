@@ -6,7 +6,7 @@
 
 `Feature Management` reponsabilities:
 
-* Extract data references thanks to [IFeatureFactoryPlugins](../plugins/feature-factory),
+* Extract data references thanks to [IFeatureFactoryPlugins],
 * Create, patch or delete data references,
 * Re-notify stakeholders of existing data references,
 * Delegate the storage of files (if any) to `Storage Management`.

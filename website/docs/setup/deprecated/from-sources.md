@@ -5,7 +5,7 @@ slug: /setup/deprecated/installation-source
 ---
 
 Here is the tutorial to compile the IzPack installer that you can use to install REGARDS on any server.  
-If you do not care about compiling REGARDS by yourself, jump [to the next step](/getting-started/configuration/#section=getting-started).
+If you do not care about compiling REGARDS by yourself, jump [to the next step].
 
 ## Requirements
 
@@ -100,7 +100,7 @@ mvn install -DskipTests -P install,delivery
 ```
 
 Inside the `regards-deployment` repository, grab the IzPack installer located in `./izpack/installer/target/REGARDS-OSS-Installer.jar`.  
-You will use that file [in the IzPack setup](/getting-started/izpack/#section=getting-started) to continue the installation.
+You will use that file [in the IzPack setup] to continue the installation.
 
 ## Install with root
 

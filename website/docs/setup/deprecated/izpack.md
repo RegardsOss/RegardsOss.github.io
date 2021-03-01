@@ -8,7 +8,7 @@ For now, the only way to deploy REGARDS on servers is to use an [**IzPack** pack
 
 If you don't have compiled the REGARDS IzPack installer, feel free to download it on our [github release page](https://github.com/RegardsOss/regards-deployment/releases).
 
-Ensure you have [setup components (COTS) that REGARDS relies on](/getting-started/configuration/#section=getting-started) before continuing this tutorial.
+Ensure you have [setup components (COTS) that REGARDS relies on] before continuing this tutorial.
 
 ## Prerequisites
 
@@ -195,7 +195,7 @@ What system security do you want to use?
 Input selection:
 ```
 
-If you have correctly followed the [Configuration guide](/getting-started/configuration/#section=getting-started), you can select the Enhanced security mode. If you don't, just pass to the next section.
+If you have correctly followed the [Configuration guide], you can select the Enhanced security mode. If you don't, just pass to the next section.
 
 REGARDS needs to know which users and groups you have setup on your system. You can just accept default values.
 
@@ -254,7 +254,7 @@ Cipher initialization vector []
 1234567812345678
 ```
 
-If you followed the [Configuration guide](/getting-started/configuration/#section=getting-started), the Cipher key location is `/opt/regards/regards.key`. The Cipher initialization vector must contain 16 digits.
+If you followed the [Configuration guide], the Cipher key location is `/opt/regards/regards.key`. The Cipher initialization vector must contain 16 digits.
 
 ### Microservice configuration
 
@@ -506,4 +506,4 @@ Url [http://localhost:8000]
 
 Set the public URI of REGARDS
 
-That's it ! You can jump to the [CLI guide](/getting-started/cli/#section=getting-started) to launch REGARDS.
+That's it ! You can jump to the [CLI guide] to launch REGARDS.

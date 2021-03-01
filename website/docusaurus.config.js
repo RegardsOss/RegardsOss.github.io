@@ -1,7 +1,7 @@
 module.exports = {
   title: "REGARDS",
   tagline: "An opensource software to store and add value to your data.",
-  url: "https://github.com/RegardsOss/RegardsOss.github.io",
+  url: "https://RegardsOss.github.io",
   baseUrl: "/",
   onBrokenLinks: "throw",
   onBrokenMarkdownLinks: "warn",
@@ -91,7 +91,7 @@ module.exports = {
             },
             {
               label: "Frontend",
-              href: "/docs/development/frontend/introduction/installation",
+              href: "/docs/development/frontend/introduction/setup",
             },
           ],
         },

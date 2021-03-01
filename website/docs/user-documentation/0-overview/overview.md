@@ -160,7 +160,7 @@ REGARDS (**_RE_**nouvellement des outils **_G_**énériques d'**_A_**ccès et d'
     </a>
   </li>
   <li>
-    <a href="user-guide/data-organization/model-configuration">
+    <a href="user-guide/data-organization/models">
       Définir les modèles de données
     </a>
   </li>

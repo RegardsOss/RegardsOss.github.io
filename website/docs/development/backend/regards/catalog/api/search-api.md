@@ -67,7 +67,7 @@ curl http://<gateway host>:<gateway port>/{{ include.name }}/api/v1/<endpoint>
 * `size` : Size of the page you want to retrieve, defaults to 20.
 * `sort` : Properties that should be sorted by in the format `property,property(,ASC/DESC)`. Default sort direction is ascending. Use multiple `sort` parameters if you want to switch directions, e.g. `?sort=firstname&sort=lastname,asc.`
 
-### Using cURL to run search requests
+### Using CURL to run search requests
 
 To be able to run search request with cURL tool, you have to encode url parameters. To do so, you can use the here under cURL syntaxe to run GET request with encoded parameters :   
 ```bash
@@ -78,7 +78,7 @@ curl -G 'http://<host>/api/v1//rs-catalog/engines/legacy/dataobjects/search' \
 
 ### Using Lucene standard query parser
 
-See [Create a Lucene standard query parser](/appendices/create-lucene-query).
+See [Create a Lucene standard query parser](../../../development/appendices/lucene-query).
 
 ## Open Search API
 

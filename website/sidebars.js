@@ -252,6 +252,7 @@ module.exports = {
               type: "category",
               label: "Admin project",
               items: [
+                "development/backend/regards/admin/backend-admin-overview",
                 "development/backend/regards/admin/api/backend-admin-api",
               ],
             },
@@ -259,6 +260,7 @@ module.exports = {
               type: "category",
               label: "Access project",
               items: [
+                "development/backend/regards/access/backend-access-overview",
                 "development/backend/regards/access/api/backend-access-api",
               ],
             },

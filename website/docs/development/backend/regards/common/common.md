@@ -10,4 +10,4 @@ categories:
 
 ## Plugins API
 
-- [Common](/development/regards/common/api/plugins-api/)
+- [Common]

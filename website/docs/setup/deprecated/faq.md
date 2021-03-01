@@ -18,7 +18,7 @@ If you access HMI trough http://regards.domain, your gateway microservice must b
 GATEWAY_HOSTNAME = "http://regards.domain";
 ```
 
-This web server configuration is done with the step "Reverse Proxy" in our [Server configuration - Reverse Proxy](/getting-started/configuration/#httpd) guide. The httpd or Nginx web server supply access to HMI and to Gateway in the same vhost.
+This web server configuration is done with the step "Reverse Proxy" in our [Server configuration - Reverse Proxy] guide. The httpd or Nginx web server supply access to HMI and to Gateway in the same vhost.
 
 ```bash
 ProxyPass "/api/v1/" -> For gateway

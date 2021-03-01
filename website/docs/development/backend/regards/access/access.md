@@ -1,9 +1,8 @@
 ---
-layout: classic-docs
+id: backend-access-overview
 title: REGARDS access project microservice (Backend for Frontend)
-short-title: Access project
-categories:
-  - development
+sidebar_label: Overview
+slug: /development/backend/access/overview
 ---
 
 ## Overview
@@ -16,5 +15,5 @@ categories:
 
 ## Available APIs
 
-* [access api](/development/regards/access/api/access-api/)
+* [access api](api)
 

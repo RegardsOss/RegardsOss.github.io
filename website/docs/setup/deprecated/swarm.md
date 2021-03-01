@@ -32,7 +32,7 @@ We won't treat here how to setup these requirements as they have some good tutor
 - An user having **sudo rights** and access to the Docker registry
 - Docker is setup with user namespace
 - Swarm workers are connected to master
-- Either an access to mutualised COTS, or the right configuration on the host. We already treat the basic setup of these COTS [here](/getting-started/configuration), you need to look for `kernel.shmmax`, `vm.max_map_count`
+- Either an access to mutualised COTS, or the right configuration on the host. We already treat the basic setup of these COTS [here], you need to look for `kernel.shmmax`, `vm.max_map_count`
 
 :::info
 The root access is required to install files using Ansible with specific owner. You can release such user access after Ansible installation.
