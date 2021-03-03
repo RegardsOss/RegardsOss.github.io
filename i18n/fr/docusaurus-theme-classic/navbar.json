@@ -1,0 +1,26 @@
+{
+  "title": {
+    "message": "REGARDS",
+    "description": "The title in the navbar"
+  },
+  "item.label.Install": {
+    "message": "Installation",
+    "description": "Navbar item with label Install"
+  },
+  "item.label.Manual": {
+    "message": "Manuel",
+    "description": "Navbar item with label Manual"
+  },
+  "item.label.Developers": {
+    "message": "Developpeurs",
+    "description": "Navbar item with label Developers"
+  },
+  "item.label.Roadmap": {
+    "message": "Roadmap",
+    "description": "Navbar item with label Roadmap"
+  },
+  "item.label.About us": {
+    "message": "A propos",
+    "description": "Navbar item with label About us"
+  }
+}

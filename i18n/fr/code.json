@@ -1,0 +1,11 @@
+{
+  "homepage.tagline": {
+    "message": "Un framework et un ensemble de plugins pour gérer des archives scientifiques."
+  },
+  "homepage.title1": {
+    "message": "Bienvenue sur"
+  },
+  "homepage.title2": {
+    "message": "le site de REGARDS OSS"
+  }
+}

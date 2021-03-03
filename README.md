@@ -1,17 +1,15 @@
-## RegardsOss Homepage
-This repository contains RegardsOss website, https://RegardsOss.github.io
+# Website
 
-### Contributions
+This website is built using [Docusaurus 2](https://v2.docusaurus.io/), a modern static website generator.
+
+## Contributions
+
+This repository contains RegardsOss website, https://RegardsOss.github.io
 
 If you find any errors in our docs or have suggestions, please follow our [Contributing Guide](https://github.com/RegardsOss/Documentation/blob/master/CONTRIBUTING.md) to submit an issue or pull request.
 
-### Deployment and workflow
-* The `staging` branch is the development branch
-* The `master` branch is the current production branch
 
-**All development and pull requests should be done against the `staging` branch.**
-
-Deployments to production will be done by site admins, using pull requests from `staging` to `master`.
+## Licence
 
 ### Creative commons
 
@@ -21,9 +19,8 @@ This website is under the [creative commons](LICENSE.md). As stated in [CONTRIBU
 
 ### License
 
-This repository is a derived work from [Circle.ci](https://circleci.com/) documentation available [here](https://github.com/circleci/circleci-docs).  
 The documentation (guides, references, and associated images) and modification done by the REGARDS team and contributors are licensed as [Creative Commons Attribution-NonCommercial 4.0 International](https://creativecommons.org/licenses/by-nc/4.0/). ![CC BY NC](https://i.creativecommons.org/l/by-nc/4.0/88x31.png).  
-The core of this website (jekyll configuration and templates) is licensed as [MIT](https://github.com/circleci/circleci-docs/blob/master/LICENSE) by Circle.ci. 
+The core of this website is licensed as [MIT](https://github.com/circleci/circleci-docs/blob/master/LICENSE).
 
 <div>
 Icons made by [Freepik](https://www.freepik.com "Freepik") from [www.flaticon.com](https://www.flaticon.com/ "Flaticon") is licensed by [CC 3.0 BY](http://creativecommons.org/licenses/by/3.0/ "Creative Commons BY 3.0").

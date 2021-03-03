@@ -1,0 +1,194 @@
+{
+  "version.label": {
+    "message": "Next",
+    "description": "The label for version current"
+  },
+  "sidebar.roadmap.category.Upcoming version": {
+    "message": "Upcoming version",
+    "description": "The label for category Upcoming version in sidebar roadmap"
+  },
+  "sidebar.roadmap.category.Latest stable version": {
+    "message": "Latest stable version",
+    "description": "The label for category Latest stable version in sidebar roadmap"
+  },
+  "sidebar.roadmap.category.Old not maintained versions": {
+    "message": "Old not maintained versions",
+    "description": "The label for category Old not maintained versions in sidebar roadmap"
+  },
+  "sidebar.install.category.Installation - Docker Swarm": {
+    "message": "Installation - Docker Swarm",
+    "description": "The label for category Installation - Docker Swarm in sidebar install"
+  },
+  "sidebar.manual.category.Overview": {
+    "message": "Aperçu",
+    "description": "The label for category Overview in sidebar manual"
+  },
+  "sidebar.manual.category.Administrator configuration": {
+    "message": "Configuration administateur",
+    "description": "The label for category Administrator configuration in sidebar manual"
+  },
+  "sidebar.manual.category.Project configuration": {
+    "message": "Configuration projet",
+    "description": "The label for category Project configuration in sidebar manual"
+  },
+  "sidebar.manual.category.Data organization": {
+    "message": "Organisation de la donnée",
+    "description": "The label for category Data organization in sidebar manual"
+  },
+  "sidebar.manual.category.Import data": {
+    "message": "Importer les données",
+    "description": "The label for category Import data in sidebar manual"
+  },
+  "sidebar.manual.category.Import data - OAIS files": {
+    "message": "Importer les données - fichiers OAIS",
+    "description": "The label for category Import data - OAIS files in sidebar manual"
+  },
+  "sidebar.manual.category.Import data - Scanned files": {
+    "message": "Importer les données - fichiers scannés",
+    "description": "The label for category Import data - Scanned files in sidebar manual"
+  },
+  "sidebar.manual.category.Import data - FEM": {
+    "message": "Importer les données - FEM",
+    "description": "The label for category Import data - FEM in sidebar manual"
+  },
+  "sidebar.manual.category.Populate the catalog": {
+    "message": "Populer le catalogue",
+    "description": "The label for category Populate the catalog in sidebar manual"
+  },
+  "sidebar.manual.category.Configure datasources": {
+    "message": "Configurer les sources de données",
+    "description": "The label for category Configure datasources in sidebar manual"
+  },
+  "sidebar.manual.category.Catalog consultation": {
+    "message": "Consulter le catalogue",
+    "description": "The label for category Catalog consultation in sidebar manual"
+  },
+  "sidebar.manual.category.Data services": {
+    "message": "Services liés au données",
+    "description": "The label for category Data services in sidebar manual"
+  },
+  "sidebar.manual.category.Order data": {
+    "message": "Commander des données",
+    "description": "The label for category Order data in sidebar manual"
+  },
+  "sidebar.dev.category.Backend": {
+    "message": "Backend",
+    "description": "The label for category Backend in sidebar dev"
+  },
+  "sidebar.dev.category.Architecture": {
+    "message": "Architecture",
+    "description": "The label for category Architecture in sidebar dev"
+  },
+  "sidebar.dev.category.Framework": {
+    "message": "Framework",
+    "description": "The label for category Framework in sidebar dev"
+  },
+  "sidebar.dev.category.Starters": {
+    "message": "Starters",
+    "description": "The label for category Starters in sidebar dev"
+  },
+  "sidebar.dev.category.Starters API": {
+    "message": "Starters API",
+    "description": "The label for category Starters API in sidebar dev"
+  },
+  "sidebar.dev.category.Plugins": {
+    "message": "Plugins",
+    "description": "The label for category Plugins in sidebar dev"
+  },
+  "sidebar.dev.category.Services": {
+    "message": "Services",
+    "description": "The label for category Services in sidebar dev"
+  },
+  "sidebar.dev.category.Authentication": {
+    "message": "Authentication",
+    "description": "The label for category Authentication in sidebar dev"
+  },
+  "sidebar.dev.category.Admin project": {
+    "message": "Admin project",
+    "description": "The label for category Admin project in sidebar dev"
+  },
+  "sidebar.dev.category.Access project": {
+    "message": "Access project",
+    "description": "The label for category Access project in sidebar dev"
+  },
+  "sidebar.dev.category.Catalog": {
+    "message": "Catalog",
+    "description": "The label for category Catalog in sidebar dev"
+  },
+  "sidebar.dev.category.API": {
+    "message": "API",
+    "description": "The label for category API in sidebar dev"
+  },
+  "sidebar.dev.category.Data management": {
+    "message": "Data management",
+    "description": "The label for category Data management in sidebar dev"
+  },
+  "sidebar.dev.category.Feature manager": {
+    "message": "Feature manager",
+    "description": "The label for category Feature manager in sidebar dev"
+  },
+  "sidebar.dev.category.Notifier": {
+    "message": "Notifier",
+    "description": "The label for category Notifier in sidebar dev"
+  },
+  "sidebar.dev.category.Data provider": {
+    "message": "Data provider",
+    "description": "The label for category Data provider in sidebar dev"
+  },
+  "sidebar.dev.category.Ingest": {
+    "message": "Ingest",
+    "description": "The label for category Ingest in sidebar dev"
+  },
+  "sidebar.dev.category.Order": {
+    "message": "Order",
+    "description": "The label for category Order in sidebar dev"
+  },
+  "sidebar.dev.category.Processing": {
+    "message": "Processing",
+    "description": "The label for category Processing in sidebar dev"
+  },
+  "sidebar.dev.category.Storage": {
+    "message": "Storage",
+    "description": "The label for category Storage in sidebar dev"
+  },
+  "sidebar.dev.category.Frontend": {
+    "message": "Frontend",
+    "description": "The label for category Frontend in sidebar dev"
+  },
+  "sidebar.dev.category.Introduction": {
+    "message": "Introduction",
+    "description": "The label for category Introduction in sidebar dev"
+  },
+  "sidebar.dev.category.Data": {
+    "message": "Data",
+    "description": "The label for category Data in sidebar dev"
+  },
+  "sidebar.dev.category.View": {
+    "message": "View",
+    "description": "The label for category View in sidebar dev"
+  },
+  "sidebar.dev.category.Packages": {
+    "message": "Packages",
+    "description": "The label for category Packages in sidebar dev"
+  },
+  "sidebar.dev.category.Business components": {
+    "message": "Business components",
+    "description": "The label for category Business components in sidebar dev"
+  },
+  "sidebar.dev.category.Lazy modules": {
+    "message": "Lazy modules",
+    "description": "The label for category Lazy modules in sidebar dev"
+  },
+  "sidebar.dev.category.Configuration": {
+    "message": "Configuration",
+    "description": "The label for category Configuration in sidebar dev"
+  },
+  "sidebar.dev.category.Tutorials": {
+    "message": "Tutorials",
+    "description": "The label for category Tutorials in sidebar dev"
+  },
+  "sidebar.dev.category.Appendices": {
+    "message": "Appendices",
+    "description": "The label for category Appendices in sidebar dev"
+  }
+}
