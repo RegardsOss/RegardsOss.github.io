@@ -29,7 +29,7 @@
   },
   "link.item.label.GitHub": {
     "message": "GitHub",
-    "description": "The label of footer link with label=GitHub linking to https://github.com/ilianaghazali/ilianaghazali.github.io"
+    "description": "The label of footer link with label=GitHub linking to https://github.com/RegardsOss/RegardsOss.github.io"
   },
   "copyright": {
     "message": "Copyright © 2021 REGARDS, OSS. Built with Docusaurus.",

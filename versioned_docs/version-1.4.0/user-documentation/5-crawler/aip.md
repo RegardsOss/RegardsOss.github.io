@@ -46,14 +46,14 @@ extrait du fichier AIP
 {
 	"content": {
 		"id": 956,
-		"aipId": "URN:AIP:DATA:iliana:4655fa2b-4070-3836-8e63-b136cadbeff9:V1",
+		"aipId": "URN:AIP:DATA:example:4655fa2b-4070-3836-8e63-b136cadbeff9:V1",
 		"state": "STORED",
 		"aip": {
 			"providerId": "test-2241-data-01",
-			"sipId": "URN:SIP:DATA:iliana:4655fa2b-4070-3836-8e63-b136cadbeff9:V1",
+			"sipId": "URN:SIP:DATA:example:4655fa2b-4070-3836-8e63-b136cadbeff9:V1",
 			"version": 1,
 			"ipType": "DATA",
-			"id": "URN:AIP:DATA:iliana:4655fa2b-4070-3836-8e63-b136cadbeff9:V1",
+			"id": "URN:AIP:DATA:example:4655fa2b-4070-3836-8e63-b136cadbeff9:V1",
 			"geometry": null,
 			"normalizedGeometry": null,
 			"properties": {
