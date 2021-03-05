@@ -6,7 +6,7 @@ function AboutUs() {
     return (
         <Layout title="About us" description=" About us description">
             <div className={styles.main}>
-                <h1>REGARDS OSS (<b>O</b>pen <b>S</b>ource <b>S</b>oftware</h1>
+                <h1>REGARDS OSS (<b>O</b>pen <b>S</b>ource <b>S</b>oftware)</h1>
                 <p>In 2016, the <a href="https://cnes.fr">CNES</a> (<b>C</b>entre <b>N</b>ational d’<b>E</b>tudes <b>S</b>patiales, French Space Agency)
                 launched the realization of REGARDS, a new data archiving and valorization product based on new technologies that can be used as a true COTS
                 component of Ground Segment.</p>

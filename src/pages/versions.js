@@ -57,8 +57,7 @@ function Version() {
           <div className="margin-bottom--lg">
             <h3 id="archive">Past versions (Not maintained anymore)</h3>
             <p>
-              Here you can find documentation for previous versions of
-              Docusaurus.
+              Here you can find documentation for previous versions of REGARDS.
             </p>
             <table>
               <tbody>

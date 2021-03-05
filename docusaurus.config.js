@@ -145,6 +145,7 @@ module.exports = {
         path: "release_notes",
         routeBasePath: 'release-notes',
         sidebarPath: require.resolve("./sidebars_release_notes.js"),
+        remarkPlugins: [require("remark-import-partial")],
       }
     ]
   ],
