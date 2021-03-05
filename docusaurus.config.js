@@ -1,3 +1,5 @@
+const currentVersion = "1.5.0";
+
 module.exports = {
   title: "REGARDS",
   tagline: "An opensource software to store and add value to your data.",
@@ -59,9 +61,15 @@ module.exports = {
           ],
         },
         {
-          to: "docs/roadmap",
-          activeBasePath: "docs/roadmap",
+          to: "roadmap",
+          activeBasePath: "roadmap",
           label: "Roadmap",
+          position: "right",
+        },
+        {
+          to: "release-notes",
+          activeBasePath: "release-notes",
+          label: "Release notes",
           position: "right",
         },
         {
@@ -120,14 +128,42 @@ module.exports = {
       copyright: `Copyright © ${new Date().getFullYear()} REGARDS, OSS. Built with Docusaurus.`,
     },
   },
+  plugins: [
+    [
+      '@docusaurus/plugin-content-docs',
+      {
+        id: "roadmap",
+        path: "roadmap",
+        routeBasePath: 'roadmap',
+        sidebarPath: require.resolve("./sidebars_roadmap.js"),
+      },
+    ],
+    [
+      '@docusaurus/plugin-content-docs',
+      {
+        id: "release-notes",
+        path: "release_notes",
+        routeBasePath: 'release-notes',
+        sidebarPath: require.resolve("./sidebars_release_notes.js"),
+      }
+    ]
+  ],
   presets: [
     [
       "@docusaurus/preset-classic",
       {
         docs: {
-          remarkPlugins: [require("remark-import-partial")],
+          path: "docs",
           sidebarPath: require.resolve("./sidebars.js"),
           editUrl: "https://github.com/RegardsOss/RegardsOss.github.io/edit/master",
+          remarkPlugins: [require("remark-import-partial")],
+          lastVersion: "current",
+          versions: {
+            current: {
+              label: `${currentVersion}`
+            }
+          }
+
         },
         theme: {
           customCss: require.resolve("./src/css/custom.css"),

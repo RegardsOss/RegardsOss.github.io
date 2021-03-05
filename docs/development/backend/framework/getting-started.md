@@ -15,7 +15,7 @@ At the moment, the framework relies on:
   * [Spring Cloud](https://spring.io/projects/spring-cloud#learn) `Dalston SR5`
 
 :::caution
-Note that we are upgrading COTS : cf. [Roadmap](../../../roadmap)
+Note that we are upgrading COTS : cf. [Roadmap](../../../../roadmap)
 :::
 
 ![](/schemas/architecture/microservice_architecture_spring.png)

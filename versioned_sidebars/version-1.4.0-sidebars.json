@@ -1,67 +1,4 @@
 {
-  "version-1.4.0/roadmap": [
-    {
-      "type": "doc",
-      "id": "version-1.4.0/roadmap/roadmap-overview"
-    },
-    {
-      "collapsed": true,
-      "type": "category",
-      "label": "Upcoming version",
-      "items": [
-        {
-          "type": "doc",
-          "id": "version-1.4.0/roadmap/notes/roadmap-v1.3.0"
-        },
-        {
-          "type": "doc",
-          "id": "version-1.4.0/roadmap/notes/roadmap-v1.2.0"
-        },
-        {
-          "type": "doc",
-          "id": "version-1.4.0/roadmap/notes/roadmap-v1.1.0"
-        }
-      ]
-    },
-    {
-      "collapsed": true,
-      "type": "category",
-      "label": "Latest stable version",
-      "items": [
-        {
-          "type": "doc",
-          "id": "version-1.4.0/roadmap/notes/roadmap-v1.0.0"
-        }
-      ]
-    },
-    {
-      "collapsed": true,
-      "type": "category",
-      "label": "Old not maintained versions",
-      "items": [
-        {
-          "type": "doc",
-          "id": "version-1.4.0/roadmap/notes/roadmap-v0.4.1"
-        },
-        {
-          "type": "doc",
-          "id": "version-1.4.0/roadmap/notes/roadmap-v0.4.0"
-        },
-        {
-          "type": "doc",
-          "id": "version-1.4.0/roadmap/notes/roadmap-v0.3.0"
-        },
-        {
-          "type": "doc",
-          "id": "version-1.4.0/roadmap/notes/roadmap-v0.2.0"
-        },
-        {
-          "type": "doc",
-          "id": "version-1.4.0/roadmap/notes/roadmap-v0.1.1"
-        }
-      ]
-    }
-  ],
   "version-1.4.0/install": [
     {
       "collapsed": true,
@@ -310,10 +247,6 @@
         {
           "type": "doc",
           "id": "version-1.4.0/user-documentation/6-catalog-consultation/catalog-use"
-        },
-        {
-          "type": "doc",
-          "id": "version-1.4.0/user-documentation/6-catalog-consultation/catalog-toponyms"
         },
         {
           "type": "doc",

@@ -1,34 +1,4 @@
 module.exports = {
-  roadmap: [
-    "roadmap/roadmap-overview",
-    {
-      type: "category",
-      label: "Upcoming version",
-      items: [
-        "roadmap/notes/roadmap-v1.3.0",
-        "roadmap/notes/roadmap-v1.2.0",
-        "roadmap/notes/roadmap-v1.1.0",
-      ],
-    },
-    {
-      type: "category",
-      label: "Latest stable version",
-      items: [
-        "roadmap/notes/roadmap-v1.0.0",
-      ],
-    },
-    {
-      type: "category",
-      label: "Old not maintained versions",
-      items: [
-        "roadmap/notes/roadmap-v0.4.1",
-        "roadmap/notes/roadmap-v0.4.0",
-        "roadmap/notes/roadmap-v0.3.0",
-        "roadmap/notes/roadmap-v0.2.0",
-        "roadmap/notes/roadmap-v0.1.1",
-      ],
-    },
-  ],
   install: [
     {
       type: "category",
@@ -66,6 +36,7 @@ module.exports = {
       items: [
         "user-documentation/2-project-configuration/project-configuration-introduction",
         "user-documentation/2-project-configuration/project-configuration-users",
+        "user-documentation/2-project-configuration/project-configuration-users-authentication",
         "user-documentation/2-project-configuration/project-configuration-user-interface",
         "user-documentation/2-project-configuration/project-configuration-microservices",
         "user-documentation/2-project-configuration/project-configuration-storages",

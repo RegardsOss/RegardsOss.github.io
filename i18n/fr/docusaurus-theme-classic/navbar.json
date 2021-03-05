@@ -22,5 +22,9 @@
   "item.label.About us": {
     "message": "A propos",
     "description": "Navbar item with label About us"
+  },
+  "item.label.Release notes": {
+    "message": "Release notes",
+    "description": "Navbar item with label Release notes"
   }
 }
