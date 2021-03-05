@@ -71,9 +71,7 @@ And following headers:
 
 #### V1.3.0 to V1.4.0 migration
 
-{% comment %}
-FIXME this should not be duplicated and way to document migration should be decided and harmonized between each feature giving its migration issues or adding a global migration guide
-{% endcomment %}
+<!-- FIXME this should not be duplicated and way to document migration should be decided and harmonized between each feature giving its migration issues or adding a global migration guide -->
 
 New extraction requests has to be published on this exchange : `regards.broadcast.fr.cnes.regards.modules.featureprovider.domain.FeatureExtractionRequestEvent` 
 In previous version reference requests were sent to : `regards.broadcast.fr.cnes.regards.modules.feature.dto.event.in.FeatureReferenceRequestEvent`

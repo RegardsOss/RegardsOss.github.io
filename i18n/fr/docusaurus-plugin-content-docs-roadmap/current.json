@@ -1,0 +1,18 @@
+{
+  "version.label": {
+    "message": "Next",
+    "description": "The label for version current"
+  },
+  "sidebar.roadmap.category.Upcoming version": {
+    "message": "Upcoming version",
+    "description": "The label for category Upcoming version in sidebar roadmap"
+  },
+  "sidebar.roadmap.category.Latest stable version": {
+    "message": "Latest stable version",
+    "description": "The label for category Latest stable version in sidebar roadmap"
+  },
+  "sidebar.roadmap.category.Old not maintained versions": {
+    "message": "Old not maintained versions",
+    "description": "The label for category Old not maintained versions in sidebar roadmap"
+  }
+}

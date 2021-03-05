@@ -14,9 +14,6 @@ At the moment, the framework relies on:
   * [Spring Boot](https://spring.io/projects/spring-boot#learn) `1.5.X.RELEASE`
   * [Spring Cloud](https://spring.io/projects/spring-cloud#learn) `Dalston SR5`
 
-:::caution
-Note that we are upgrading COTS : cf. [Roadmap](../../../roadmap)
-:::
 
 ![](/schemas/architecture/microservice_architecture_spring.png)
 
