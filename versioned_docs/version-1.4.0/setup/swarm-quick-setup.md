@@ -102,7 +102,7 @@ cp -R ../../demo/group_vars ./
 cp -R ../../multihosts/group_vars ./
 ```
 
-Following chapter explains how to adapt these configurations to your needs, dependending the inventory you choosed. You can find [here](swarm/advanced-setup) the full list of possibilities that our playbook offers.
+Following chapter explains how to adapt these configurations to your needs, dependending the inventory you choosed. You can find [here](setup/swarm/advanced-setup) the full list of possibilities that our playbook offers.
 
 #### Customise a demo's based inventory
 
@@ -207,4 +207,4 @@ Congratulations, your REGARDS installation is over. System is starting and will 
 - Portal : http://<master_node_host_name>
 - User interface : http://<master_node_host_name>/user/demo
 
-You can now monitor and administrate the deployed stack thanks to cli commands as explained at [Administration](swarm/cli)
+You can now monitor and administrate the deployed stack thanks to cli commands as explained at [Administration](setup/swarm/cli)
