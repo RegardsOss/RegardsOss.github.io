@@ -72,8 +72,9 @@ In the history, there is no container starting again and again every minutes. Th
 Moreover, we display the number of running containers and the number of expected ones. In this exemple everything is fine (`[RUNNING]	25/25`).
 The current state of these containers is also important. You need to wait 5 to 15 minutes to see if containers succeed to boot, some containers are waiting to others so they usually crash in that short period if there is some files unwritable, COTS not accessible...
 
-> The number of running services depends of your inventory. You may see less actives services than this exemple, but the `[RUNNING]	X/X` must equals 100%.
-{: .tip .info}
+:::info
+The number of running services depends of your inventory. You may see less actives services than this exemple, but the `[RUNNING]	X/X` must equals 100%.
+:::
 
 You can run the script `health.sh` to check the healthness returned by each microservice of the stack, for a specfic tenant.
 
@@ -95,8 +96,9 @@ You can run the script `health.sh` to check the healthness returned by each micr
 [200]	notifier
 ```
 
+:::info
 > The microservice healthness is still in a early access and not heavily tested.
-{: .tip .info}
+:::
 
 ## Simple debugging
 
