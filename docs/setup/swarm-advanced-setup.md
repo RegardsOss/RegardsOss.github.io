@@ -22,6 +22,17 @@ Let's see how users created by the demo inventory are used:
 | `johndoe`             | `johndoe`, `dockermapgid`, `gregards_admin`, `gregards_data` | Your personnal user                                     | Your user has access to Docker, to the stack and data |
 | `mariecurie`          | `mariecurie`, `gregards_data`                                | Some user                                               | She has access to data, not the stack itself          |
 
+To setup these users and groups, you must follow these requirements:
+
+| User or group         | Value requirement                                                   |
+| :-------------------- | :------------------------------------------------------------------ |
+| `dockermapuid`        | `name_space_uid`                                                    |
+| `dockermapgid`        | `name_space_gid`                                                    |
+| `johndoe`             |  Any value inferior to `name_space_uid`                             |
+| `gregards_admin`      |  Any value inferior to `name_space_gid`. That user can be no login. |
+| `docker-regards-data` | `group_container_run_uid + name_space_uid`                          |
+| `gregards_data`       | `group_container_run_gid + name_space_gid`                          |
+
 ### Inventories configuration properties
 
 Global properties :
@@ -36,6 +47,7 @@ Global properties :
 | `group_seuser`                     | `String` | SELinux user                                                            | Required                                                                  |
 | `group_container_root_user`        | `String` | User owning the REGARDS folder tree, Docker must have read/write access | Required                                                                  |
 | `group_container_root_group`       | `String` | Group owning the REGARDS folder tree                                    | Required                                                                  |
+| `group_enable_setup_regards_users` | `Bool`   | Do we need to create `root_group`, `run_group` and `run_user` locally ? | Facultative. Default to true.                                             |
 | `group_container_run_user`         | `String` | All files created by containers will use this user                      | Required                                                                  |
 | `group_container_run_group`        | `String` | All files created by containers will use this group                     | Required                                                                  |
 | `group_container_run_uid`          | `Int`    | Run user id. (See `group_container_run_user`)                           | Required                                                                  |
@@ -106,7 +118,7 @@ If you don't have mutualised COTS, don't worry. You can deploy yours and use mut
 | `group_docker_cots_configuration.postgres.nbTenant`               | `Int`    | Use to deduce the number of connections Postgres should allow                                                           | Required when `group_docker_cots.postgres` is defined                                                                                    |
 | `group_docker_cots_configuration.elasticsearch.cluster_name`      | `Int`    | Elasticsearch cluster name                                                                                              | Required when `group_docker_cots.elasticsearch` is defined                                                                               |
 | `group_docker_cots_configuration.elasticsearch_logs.cluster_name` | `Int`    | Logging elasticsearch cluster name                                                                                      | Required when `group_docker_cots.elasticsearch_logs` is defined                                                                          |
-| `group_docker_cots_configuration.use_ungranular_workspace_on_workdir_network` | `Bool`    | When true, it means that folder created on a NAS where you don't have rights to elevate (sudo)             | Facultative. Default to false                                                                                                                            |
+| `group_docker_cots_configuration.use_ungranular_workspace_on_workdir_network` | `Bool`    | When true, it means you don't have rights to elevate (sudo) on group_workdir_network folders                     | Facultative. Default to false                                                                                                                            |
 
 The last but not least, the configuration of microservices :
 
@@ -144,3 +156,38 @@ The last but not least, the configuration of microservices :
 | `group_docker_mservices.proxy.url`               | `String` | Proxy URL                                | Facultative, false, or a valid URL           |
 | `group_docker_mservices.proxy.username`          | `String` | Proxy username                           | Facultative. Empty by default                |
 | `group_docker_mservices.proxy.password`          | `String` | Proxy password                           | Facultative. Empty by default                |
+
+### Add RabbitMQ shovel
+
+Here is an exemple for RabbitMQ shovel, here it receives some products from another system into the FEM (additional_parameters) and allows that system to receive setup another shovel using `myuser` (additional_users and user_permissions):  
+
+```
+group_docker_cots:
+  [...]
+  rabbitmq:
+    [...]
+    additional_users:
+      - name: myuser
+        password: myuserpw
+        tags: ''
+    user_permissions:
+      - user: chronos
+        vhost: regards.multitenant.manager
+        configure: ''
+        write: ''
+        read: .*
+    additional_parameters:
+      - component: shovel
+        name: Chronos events to Geode
+        vhost: regards.multitenant.manager
+        value:
+          ack-mode: on-confirm
+          dest-add-forward-headers: false
+          dest-protocol: amqp091
+          dest-exchange: regards.broadcast.fr.cnes.regards.modules.featureprovider.domain.FeatureExtractionRequestEvent
+          dest-uri: amqp://guest:guest@localhost/regards.multitenant.manager
+          src-delete-after: never
+          src-protocol: amqp091
+          src-queue: postprocess.external.messages.geode
+          src-uri: amqp://geode:geodepw@chronos.cnes.fr:5672
+```
