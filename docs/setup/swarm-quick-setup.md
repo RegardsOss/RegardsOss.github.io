@@ -83,7 +83,7 @@ FIN_CAT
 | `ansible_user`     | user login to log on by ssh to configure & install    |
 | `ansible_password` | user password to log on by ssh to configure & install |
 
-Remove all lines begining with `[1-7]` and make appropriate changes following your needs. You have two exemples provided inside regards-playbook: `inventories/demo/hosts` and `inventories/demo/hosts`.
+Remove all lines begining with `[1-7]` and make appropriate changes following your needs. You have two exemples provided inside regards-playbook: `inventories/demo/hosts` and `inventories/multihosts/hosts`.
 
 ### Create your group_vars folder
 
