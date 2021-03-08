@@ -8,20 +8,11 @@ slug: /setup/swarm/advanced-setup
 
 ### Introduction
 
-This section introduce how to deploy a REGARDS stack thanks to ansible on a docker swarm environment.  
-All REGARDS docker images are available on our [github repository](https://github.com/orgs/RegardsOss/packages?repo_name=regards-deployment).
-
-### Pre-requisites
-
-1. Install Ansible version `2.6.2` at least [docs.ansible.com](https://docs.ansible.com/ansible/latest/installation_guide/intro_installation.html)
-2. Download ansible [regards-playbook]
-3. Extract downloaded ansible regards-playbook zip archive
-
-### Deploy custom inventory
-
-To deploy a custom inventory with some special configuration, you can copy one of the demo or multihost invotory and modify configuration properties.
+This page covers some of the possibilities offered by our inventory, specially the file `regards-playbook/inventories/regards-cnes/group_vars/all/main.yml`.
 
 ### Users & groups
+
+Let's see how users created by the demo inventory are used:
 
 | User                  | Group                                                        | Description                                             | Tips                                                  |
 | :-------------------- | :----------------------------------------------------------- | :------------------------------------------------------ | :---------------------------------------------------- |
@@ -115,6 +106,7 @@ If you don't have mutualised COTS, don't worry. You can deploy yours and use mut
 | `group_docker_cots_configuration.postgres.nbTenant`               | `Int`    | Use to deduce the number of connections Postgres should allow                                                           | Required when `group_docker_cots.postgres` is defined                                                                                    |
 | `group_docker_cots_configuration.elasticsearch.cluster_name`      | `Int`    | Elasticsearch cluster name                                                                                              | Required when `group_docker_cots.elasticsearch` is defined                                                                               |
 | `group_docker_cots_configuration.elasticsearch_logs.cluster_name` | `Int`    | Logging elasticsearch cluster name                                                                                      | Required when `group_docker_cots.elasticsearch_logs` is defined                                                                          |
+| `group_docker_cots_configuration.use_ungranular_workspace_on_workdir_network` | `Bool`    | When true, it means that folder created on a NAS where you don't have rights to elevate (sudo)             | Facultative. Default to false                                                                                                                            |
 
 The last but not least, the configuration of microservices :
 
@@ -138,10 +130,17 @@ The last but not least, the configuration of microservices :
 | `group_docker_mservices.amqp.user`               | `String` | AMQP username                            | Facultative. Default: `guest`                |
 | `group_docker_mservices.amqp.password`           | `String` | AMQP password                            | Facultative. Default: `guest`                |
 | `group_docker_mservices.postgres`                | `Object` | Postgres configuration                   | Facultative.                                 |
-| `group_docker_mservices.postgres.user`           | `String` | Postgres username                        | Facultative. Default: `azertyuiop123456789`  |
-| `group_docker_mservices.postgres.password`       | `String` | Postgres password                        | Facultative. Default: `azertyuiop123456789`  |
+| `group_docker_mservices.postgres.instance.user`  | `String` | Postgres instance username               | Facultative. Default: `azertyuiop123456789`  |
+| `group_docker_mservices.postgres.instance.password` | `String` | Postgres instance password            | Facultative. Default: `azertyuiop123456789`  |
+| `group_docker_mservices.postgres.instance.host`  | `String` | Postgres instance host                   | Facultative. Empty by default                |
+| `group_docker_mservices.postgres.instance.port`  | `Int`    | Postgres instance port                   | Facultative. Empty by default                |
+| `group_docker_mservices.postgres.instance.db`    | `String` | Postgres instance db                     | Facultative. Empty by default                |
+| `group_docker_mservices.postgres.init_project.user`  | `String` | Postgres init project username       | Facultative. Default: `azertyuiop123456789`  |
+| `group_docker_mservices.postgres.init_project.password` | `String` | Postgres init project password    | Facultative. Default: `azertyuiop123456789`  |
+| `group_docker_mservices.postgres.init_project.host`  | `String` | Postgres init project host           | Facultative. Empty by default                |
+| `group_docker_mservices.postgres.init_project.port`  | `Int`    | Postgres init project port           | Facultative. Empty by default                |
+| `group_docker_mservices.postgres.init_project.db`    | `String` | Postgres init project db             | Facultative. Empty by default                |
 | `group_docker_mservices.proxy`                   | `Object` | Proxy configuration                      | Facultative.                                 |
-| `group_docker_mservices.proxy.host`              | `String` | Proxy username                           | Facultative. Empty by default                |
-| `group_docker_mservices.proxy.port`              | `Int`    | Proxy port                               | Facultative. Empty by default                |
+| `group_docker_mservices.proxy.url`               | `String` | Proxy URL                                | Facultative, false, or a valid URL           |
 | `group_docker_mservices.proxy.username`          | `String` | Proxy username                           | Facultative. Empty by default                |
 | `group_docker_mservices.proxy.password`          | `String` | Proxy password                           | Facultative. Empty by default                |
