@@ -2,7 +2,7 @@
 
 #### Feature creation request
 
-:::note diclamer
+:::note disclaimer
 No changes in amqp interfaces.
 :::
 
@@ -14,19 +14,19 @@ No changes in amqp interfaces.
 - In previous version reference requests were sent to :
    - <b>regards.broadcast.fr.cnes.regards.modules.feature.dto.event.in.FeatureReferenceRequestEvent</b>
 
-:::note diclamer
+:::note disclaimer
 The requests body and header has not changed.
 :::
 
 #### Feature patch request
 
-:::note diclamer
+:::note disclaimer
 No changes in amqp interfaces.
 :::
 
 #### Feature deletion request
 
-:::note diclamer
+:::note disclaimer
 No changes in amqp interfaces.
 :::
 
