@@ -72,3 +72,4 @@ Vous observez :
   - <img src="/images/user-documentation/regards-icons/user/globe.png" alt="globe" height="25"/> affiche la vue 3D
   - <img src="/images/user-documentation/regards-icons/user/planisphere.png" alt="planisphere" height="25"/> affiche la vue 2D
   - <img src="/images/user-documentation/regards-icons/user/drop.png" alt="drop" height="25"/> en cliquant sur ce bouton un curseur apparaîtra pour régler la transparence des layers de superposition (seulement dans le cas où vous en avez configuré)
+- une barre de recherche de toponyme qui permet de filter les résultats contenus dans une zone géographique

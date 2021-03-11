@@ -132,6 +132,7 @@ En revanche, vous pouvez créer un autre catalogue selon les missions sur lesque
   - ***temporal-criteria*** base la recherche sur une date
   - ***two-numerical-criteria*** base la recherche sur deux nombres
   - ***two-temporal-criteria*** base la recherche sur deux dates
+  - ***toponym-criteria*** recherche des données contenus dans une zone géographique
 - Donnez un nom au critère en anglais et en français.
 - Selon le plugin sélectionné, l'indication ***No configuration*** pourra s'afficher en rouge. Si tel est le cas, cliquez sur ce bouton et choisissez l'attribut du modèle sur lequel la recherche se fera puis appuyez sur ***Confirm***
 - Ajoutez un critère supplémentaire au besoin en cliquant sur le bouton ***Insert*** de la ligne et ***Insert criterion before*** ou ***Insert criterion after***. Si vous souhaitez ajouter un groupe cliquez également sur ***Insert*** puis ***Insert group before*** ou ***Insert criterion after***.
