@@ -37,6 +37,7 @@ module.exports = {
         "user-documentation/2-project-configuration/project-configuration-introduction",
         "user-documentation/2-project-configuration/project-configuration-users",
         "user-documentation/2-project-configuration/project-configuration-users-authentication",
+        "user-documentation/2-project-configuration/project-configuration-users-authentication-openid",
         "user-documentation/2-project-configuration/project-configuration-user-interface",
         "user-documentation/2-project-configuration/project-configuration-microservices",
         "user-documentation/2-project-configuration/project-configuration-storages",

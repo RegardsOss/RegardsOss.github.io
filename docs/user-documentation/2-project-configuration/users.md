@@ -21,13 +21,15 @@ Si vous êtes administrateur du projet, vous pouvez paramétrer le type de valid
 </div>
 Réglez les paramètres suivants :
 
-- **_Validation mode_**
-  - **_Automatic_**, l'approbation de chaque nouvelle demande de compte est automatique et ne nécessite pas votre accord.
+- **_Mode de validation_**
+  - **_Automatique_**, l'approbation de chaque nouvelle demande de compte est automatique et ne nécessite pas votre accord.
   - **_Manuel_**, vous déciderez de valider manuellement chaque demande d'inscription
-- **_Default max quota_**, attribuez par défaut le nombre de téléchargements de données autorisé pour tous les utilisateurs
+- **_Quota maximal par défaut_**, attribuez par défaut le nombre de téléchargements de données autorisé pour tous les utilisateurs
   - les valeurs possibles sont -1, pour un nombre illimité, 0, pour aucun téléchargement ou n'importe quel nombre entier positif.
-- **_Default rate limit_** déterminez par défaut le nombre de téléchargements de données simultanés autorisés
+- **_Vitesse maximale de téléchargement par défaut_** déterminez par défaut le nombre de téléchargements de données simultanés autorisés
   - les valeurs possibles sont -1, pour un nombre illimité, 0, pour aucun téléchargement simultané ou n'importe quel nombre entier positif.
+- **_Rôle par défaut_** déterminez par défaut le rôle appliqué à un utilisateur se connectant via un Service Provider
+- **_Groupes_** déterminez par défaut les groupes d'accès appliqués à un utilisateur se connectant via un Service Provider
 
 Appuyez ensuite sur le bouton **_Confirm_** pour valider la configuration.
 
@@ -137,4 +139,14 @@ La suppression d'un utilisateur n'entraîne que son retrait de la liste des util
 ### <img src="/images/user-documentation/doc-icons/right-arrow.png" alt="arrow" height="12"/> Utilisation de comptes utilisateur externes
 
 REGARDS permet la connexion d'utilisateurs depuis un système extérieur. Il ne gérera ainsi pas les comptes en interne.
-L'unique plugin fourni par défaut permet la connexion à un annuaire LDAP. Pour ajouter ce système d'authentification, cliquez sur le bouton **_Add_** de la carte **_Authentication system_** et configurez-le. Vous pourrez ensuite le retrouver dans la liste des systèmes d'authentification.
+
+<div align="center">
+  <img src="/images/user-documentation/2-project-configuration/users/authentication-list.png" alt="authentication systems" width="800"/>
+</div>
+
+La connexion peut se faire par le biais d'un système d'authentification déporté (Identity provider) ou externalisé (Service provider).
+
+  - L'unique plugin d'authentification déporté fourni par défaut permet la connexion à un annuaire LDAP.
+  - L'unique plugin d'authentification externe fourni par défaut permet la connexion par [OpenID Connect](openid).
+
+Pour ajouter un système d'authentification, cliquez sur le bouton **_Liste_** de la carte **_Authentication system_**, choisissez **_Ajouter un identity provider_** ou **_Ajouter un service provider_** et configurez-le. Vous pourrez ensuite le retrouver dans la liste des systèmes d'authentification.
