@@ -28,8 +28,8 @@ Réglez les paramètres suivants :
   - les valeurs possibles sont -1, pour un nombre illimité, 0, pour aucun téléchargement ou n'importe quel nombre entier positif.
 - **_Vitesse maximale de téléchargement par défaut_** déterminez par défaut le nombre de téléchargements de données simultanés autorisés
   - les valeurs possibles sont -1, pour un nombre illimité, 0, pour aucun téléchargement simultané ou n'importe quel nombre entier positif.
-- **_Rôle par défaut_** déterminez par défaut le rôle appliqué à un utilisateur se connectant via un Service Provider
-- **_Groupes_** déterminez par défaut les groupes d'accès appliqués à un utilisateur se connectant via un Service Provider
+- **_Rôle par défaut_** déterminez par défaut le rôle appliqué à un nouveau compte utilisateur.
+- **_Groupes_** déterminez par défaut les groupes d'accès appliqués à un nouveau compte utilisateur.
 
 Appuyez ensuite sur le bouton **_Confirm_** pour valider la configuration.
 
@@ -77,7 +77,7 @@ Dans la partie Groups, associez l'utilisateur à des groupes d'accès aux donné
 
 #### Configuration des utilisateurs
 
-Lorsqu'un utilisateur demande l'accès au projet, il est automatiquement associé au rôle **_Registered User_** et n'est associé à aucun groupe d'accès aux données. Il est à la charge de l'administrateur de lui associer si nécessaire un rôle différent et un ou plusieurs groupes d'accès aux données.
+Lorsqu'un utilisateur demande l'accès au projet, il est automatiquement associé au rôle et aux groupes d'accès aux données configurés dans la **_Configuration de la validation des comptes utilisateur_**. Il est à la charge de l'administrateur de lui associer si nécessaire un rôle différent ou des groupes d'accès aux données différents.
 
 #### Rôles des utilisateurs
 
