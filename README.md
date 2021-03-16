@@ -6,7 +6,7 @@ This website is built using [Docusaurus 2](https://v2.docusaurus.io/), a modern 
 
 This repository contains RegardsOss website, https://RegardsOss.github.io
 
-If you find any errors in our docs or have suggestions, please follow our [Contributing Guide](https://github.com/RegardsOss/Documentation/blob/master/CONTRIBUTING.md) to submit an issue or pull request.
+If you find any errors in our docs or have suggestions, please follow our [Contributing Guide](CONTRIBUTING.md) to submit an issue or pull request.
 
 
 ## Licence

@@ -75,4 +75,10 @@ Creations, updates or deletions of features or AIPs are optionnaly sent to `Noti
 }
 ```
 
+##### Migration from 1.4 to 1.5
+
+Notification format using **RabbitMQSender** plugin has been updated between version 1.4 and 1.5:
+1. `element` has been renamed to `payload`
+1. `action` has been moved into objet `metadata` and is now located at `$.metadata.action` instead of `$.action`
+
 {@import notifier-management-api.md}

@@ -41,7 +41,7 @@ Rules are used to define if a notification should be sent to associated Recipien
 Senders are used to define how to send notification to recipients.
 
 `RabbitMQSender :`  
-This  sender is used to send notification on a specific RabbitMQ couple exchange/queue.  
+This  sender is used to send notification on a specific RabbitMQ couple exchange/queue with no transformation applied to the input.  
 Configuration parameters are :
  - exchange : Name  of the  exchange to use
  - queueName : Name of the queue to use
