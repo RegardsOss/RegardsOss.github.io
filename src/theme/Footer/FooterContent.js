@@ -22,7 +22,7 @@ function FooterContent() {
         Our goal is to allow a strong commitment from user community in the
         development of modules and plugins.</p>
       <p>
-        <strong>We welcome <a href={`${siteConfig.url}/blob/master/CONTRIBUTING.md`}>your contributions</a> to make these documents better.</strong>
+        <strong>We welcome <a href="https://github.com/RegardsOss/RegardsOss.github.io/blob/master/CONTRIBUTING.md">your contributions</a> to make these documents better.</strong>
       </p>
       <div>
         <img src="/img/logos/courbe-institutionnelle-signature_y110-inverser.png" />
