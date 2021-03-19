@@ -1,7 +1,7 @@
 ---
 id: catalog-configuration
 title: Configure the catalog
-slug: /user-guide/catalog/configuration
+slug: /user-guide/catalog/configuration/
 ---
 
 *Configurez le catalogue de données pour visualiser les données aspirées.*
@@ -160,7 +160,7 @@ Dans ***Module settings -> Data*** vous pouvez régler l'affichage de l'onglet *
   - ***Option***
     - ***Show refresh button*** affiche le bouton ***Refresh*** dans la barre ***Data***, cliquez dessus afin d'actualiser le contenu du catalogue.
     - ***Show related files download option*** affiche sur chaque ligne de donnée une icône de téléchargement pour éventuellement télécharger les fichiers liés s'ils existent.
-    - ***Show related services options*** affiche l'icône <img src="/images/user-documentation/regards-icons/admin/gear-wheel.png" alt="gear wheel" height="25"/> ***Services*** sur chaque ligne de données pour exécuter des actions supplémentaires. Vous pouvez ajouter des services de type [processing](../data-services/processing-services) ou de [visualisation de données](../data-services/ui-services).
+    - ***Show related services options*** affiche l'icône <img src="/images/user-documentation/regards-icons/admin/gear-wheel.png" alt="gear wheel" height="25"/> ***Services*** sur chaque ligne de données pour exécuter des actions supplémentaires. Vous pouvez ajouter des services de type [processing](../../data-services/processing-services/) ou de [visualisation de données](../../data-services/ui-services/).
 - ***Sorting*** choisissez le tri initial effectué sur les données. Ajoutez une ou plusieurs colonnes parmi celles affichées dans l'interface ***user*** et déterminez l'ordre d'affichage de celles-ci. La première ligne de la liste correspondra au premier tri effectué dans l'interface et ainsi de suite.
 - ***List and table*** sélectionnez les colonnes qui seront affichées dans la vue <img src="/images/user-documentation/regards-icons/user/list.png" alt="list" height="25"/> ***List*** et <img src="/images/user-documentation/regards-icons/user/table.png" alt="table" height="25"/> ***Table***.
 - ***Quicklook*** de la même manière que dans ***List and table***, choisissez les informations qui seront affichées dans la vue <img src="/images/user-documentation/regards-icons/user/quicklook.png" alt="quicklook" height="25"/> ***Quicklooks***. A la différence de la vue ***List and table***, les informations s'afficheront dans des images associées aux données.
@@ -227,7 +227,7 @@ Une fois tous les éléments complétés, cliquez sur le bouton ***Update module
 
 Rendez-vous dans l'interface utilisateur et le module ***Data map*** nouvellement créé. Cliquez sur la vue carte ***Display results over map*** depuis la barre principale.
 
-Cliquez alternativement sur l'icône ***3D mode*** et ***2D mode*** pour voir les modes 2D ou 3D. L'icône en forme de goutte ***Change layer opacity*** sert à modifier l'opacité des ***Layers*** s'affichant en superposition sur les modes 2D ou 3D. Apprenez à manipuler cette vue dans la page [Use the catalog](use).
+Cliquez alternativement sur l'icône ***3D mode*** et ***2D mode*** pour voir les modes 2D ou 3D. L'icône en forme de goutte ***Change layer opacity*** sert à modifier l'opacité des ***Layers*** s'affichant en superposition sur les modes 2D ou 3D. Apprenez à manipuler cette vue dans la page [Use the catalog](../use/).
 
 <div align="center">
   <img src="/images/user-documentation/6-catalog-consultation/catalog/user/catalog-map-3D.png" alt="2D" width="800"/> 

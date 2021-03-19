@@ -2,7 +2,7 @@
 id: backend-processing-open-api
 title: REGARDS Processing Open API
 sidebar_label: Open
-slug: /development/backend/processing/api/open
+slug: /development/backend/processing/api/open/
 ---
 
 

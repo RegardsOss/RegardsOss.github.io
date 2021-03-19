@@ -1,7 +1,7 @@
 ---
 id: oais-files-manage-products
 title: Manage OAIS products
-slug: /user-guide/import-data/oais-files/manage-products
+slug: /user-guide/import-data/oais-files/manage-products/
 ---
 
 _La gestion des produits est accessible depuis le menu ***Add data***, puis la carte ***Products Manager (OAIS)*** et le bouton <img src="/images/user-documentation/regards-icons/admin/monitor.png" alt="show products" height="25"/> ***Show products***. L'écran ***OAIS products*** vous permet de visualiser tous les produits stockés dans votre projet ainsi que les traitements associés._

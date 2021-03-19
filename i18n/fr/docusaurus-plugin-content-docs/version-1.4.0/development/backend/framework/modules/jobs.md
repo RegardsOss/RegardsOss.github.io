@@ -2,7 +2,7 @@
 id: backend-framework-modules-jobs
 title: Jobs
 sidebar_label: Jobs
-slug: /development/backend/framework/modules/jobs
+slug: /development/backend/framework/modules/jobs/
 ---
 
 

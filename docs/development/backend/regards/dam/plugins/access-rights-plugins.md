@@ -2,7 +2,7 @@
 id: backend-dam-data-access-plugins
 title:  Data access rights plugin
 sidebar_label: Data access rights
-slug: /development/backend/dam/plugins/data-access-rights
+slug: /development/backend/dam/plugins/data-access-rights/
 ---
 
 
@@ -34,7 +34,7 @@ REGARDS provides many implementation of this extension point :
 
 ## Implementation
 
-To learn more about how to create your own plugin see [Plugins](../../framework/modules/plugins)
+To learn more about how to create your own plugin see [Plugins](../../../framework/modules/plugins/)
 
 Here under is an exemple of how to implements this extension point to create your own business logic.
 

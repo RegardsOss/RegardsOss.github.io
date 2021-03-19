@@ -1,7 +1,7 @@
 ---
 id: scanned-files-monitor-sessions
 title: Monitor session acquisitions
-slug: /user-guide/import-data/scanned-files/monitor-sessions
+slug: /user-guide/import-data/scanned-files/monitor-sessions/
 ---
 
 L'écran de suivi des sessions est accessible depuis ***Add data***, la carte ***Data acquisition*** et le bouton <img src="/images/user-documentation/regards-icons/admin/monitor.png" alt="monitor" height="25"/> ***Acquisition sessions***
@@ -12,9 +12,9 @@ Ce tableau de bord est commun au suivi de l'exécution des chaînes d'acquisitio
 
 _Si vous ne connaissez pas un de ces concepts, vous pouvez lire les rubriques suivantes pour en savoir plus :_
 
-- _[Acquisition chain](introduction)_
-- _[Ingestion chain](../oais-files/introduction)_
-- _[Crawl datasources chain](../../crawler/introduction)_
+- _[Acquisition chain](../introduction/)_
+- _[Ingestion chain](../../oais-files/introduction/)_
+- _[Crawl datasources chain](../../../crawler/introduction/)_
 
  <div align="center">
     <img src="/images/user-documentation/4_2-dataprovider/acquisition-sessions.png" alt="sessions" width="800"/> 
@@ -36,9 +36,9 @@ Vous trouverez les renseignements suivants sur cet écran.
   - ***Delete session product***. Pour pouvoir supprimer les produits liés à cette session, une fois cette action effectuée si vous cliquez de nouveau sur le bouton en pointillés vous pourrez supprimer la session. Attention ces actions sont définitives.
   - En cas d'erreur, une action supplémentaire s'affiche ***Acknowledge session products***. Appuyez sur ce bouton, par exemple, lorsqu'une vous avez effectué les modifications nécessaires pour relancer une chaîne sans erreur. La session ne sera plus considérée en échec et la ligne associée ne s'affichera plus en rouge.
 - Dans la case ***Archived products***
-  - ***List products*** qui vous redirigera vers la page de *[Manage products](../oais-files/manage-products)*
+  - ***List products*** qui vous redirigera vers la page de *[Manage products](../../oais-files/manage-products/)*
   - En cas d'erreur, vous pourrez lister les produits en erreur et leur traitement pour en connaître la cause. Une fois vos corrections effectuées vous pourrez relancer l'archivage des produits en erreur soit à partir du bouton en pointillés soit directement dans la page de ***Manage products***
-- Dans la case ***Indexed products***, vous pouvez suivre l'aspiration de données en cliquant sur ***View data crawlers***. Pour en savoir plus sur cete page, consultez _[Crawler monitoring](../../crawler/monitor-crawling)_
+- Dans la case ***Indexed products***, vous pouvez suivre l'aspiration de données en cliquant sur ***View data crawlers***. Pour en savoir plus sur cete page, consultez _[Crawler monitoring](../../../crawler/monitor-crawling/)_
 
 Pour information :
 

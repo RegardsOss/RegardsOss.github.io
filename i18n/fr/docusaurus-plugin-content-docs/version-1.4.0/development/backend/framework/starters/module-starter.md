@@ -1,7 +1,7 @@
 ---
 id: backend-framework-starters-module
 title: Module starter
-slug: /development/backend/framework/starters/module
+slug: /development/backend/framework/starters/module/
 ---
 
 

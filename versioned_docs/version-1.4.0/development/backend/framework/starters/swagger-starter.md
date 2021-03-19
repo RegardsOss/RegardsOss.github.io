@@ -1,7 +1,7 @@
 ---
 id: backend-framework-starters-swagger
 title: Swagger starter
-slug: /development/backend/framework/starters/swagger
+slug: /development/backend/framework/starters/swagger/
 ---
 
 Pre-requisite:

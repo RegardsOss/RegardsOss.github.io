@@ -1,7 +1,7 @@
 ---
 id: backend-framework-starters-geojson
 title: GeoJSON starter
-slug: /development/backend/framework/starters/geojson
+slug: /development/backend/framework/starters/geojson/
 ---
 
 
@@ -31,7 +31,7 @@ Business dependency
 
 Dependency :
 
-* [GSON starter](gson)
+* [GSON starter](../gson/)
 
 ## Autoconfiguration
 

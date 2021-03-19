@@ -2,7 +2,7 @@
 id: frontend-view-international
 title: Internationalization
 sidebar_label: Internationalization
-slug: /development/frontend/view/international
+slug: /development/frontend/view/international/
 ---
 
 ## Description

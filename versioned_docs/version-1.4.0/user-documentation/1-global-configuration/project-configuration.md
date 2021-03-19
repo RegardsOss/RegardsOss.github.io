@@ -1,7 +1,7 @@
 ---
 id: global-configuration-projects
 title: Manage projects
-slug: /user-guide/global-configuration/projects
+slug: /user-guide/global-configuration/projects/
 ---
 
 _Créez et gérez vos projets depuis le menu ***Projects*** de l'administration de l'instance REGARDS._
@@ -23,11 +23,11 @@ Vous serez redirigé vers l'écran de création d'un nouveau projet, remplissez 
 - ***Project name*** *[Obligatoire]*, l'identifiant unique de votre projet. Il sera utilisé par le système pour faire référence à votre projet.
 - ***Project label*** *[Obligatoire]*, le libellé de présentation du projet dans les interfaces web. Contrairement à l'identifiant, vous pouvez mettre des espaces pour plus de clarté.
 - ***Description*** *[Optionnel]*, la présentation succincte de votre projet. Vous pourrez la retrouver dans la liste des projets.
-- ***HTTP link to icon*** *[Optionnel]*, l'adresse web d'accès à l'icône de représentation du projet. Elle est utilisée dans le [portail d'accès](portal) aux projets et comme favicon de l'interface web utilisateur.
+- ***HTTP link to icon*** *[Optionnel]*, l'adresse web d'accès à l'icône de représentation du projet. Elle est utilisée dans le [portail d'accès](../portal/) aux projets et comme favicon de l'interface web utilisateur.
 - ***HTTP link to project license*** *[Optionnel]*, l'adresse web d'accès au fichier de licence du projet au format *html*, *markdown* ou *pdf*. Cette license devra être acceptée par les utilisateurs avant de pouvoir accéder aux données.
 - ***REGARDS gateway public address*** *[Obligatoire]*, l'adresse publique d'accès à la passerelle REGARDS. Cette URL est l'unique point d'accès au système REGARDS depuis l'extérieur. Il correspond le plus souvent à l'adresse publique de votre reverse-proxy.
 - ***Public project*** *[Optionnel]*, autorise l'accès au projet aux utilisateurs non enregistrés. Par défaut, le projet est privé.
-- ***Accessible project*** *[Optionnel]*, affiche le projet dans le [portail d'accès](portal)
+- ***Accessible project*** *[Optionnel]*, affiche le projet dans le [portail d'accès](../portal/)
 - ***Geometries Coordinate reference system***, le système de référence utilisé pour la gestion des données géo-référencées du projet.
 - ***Handle polar cap polygons***, ajoute une transformation sur les données géo-référencées passant par les pôles. Attention, le format des géométries des données référencés doivent ***toutes*** respecter la règle de la main droite pour les cercles extérieurs.
 

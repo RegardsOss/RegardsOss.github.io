@@ -1,10 +1,10 @@
 ---
 id: data-organization-data-access-rights
 title: Configure data access rights
-slug: /user-guide/data-organization/data-access-rights
+slug: /user-guide/data-organization/data-access-rights/
 ---
 
-_Contrôlez l'accès aux [Jeux de données](collections-datasets) REGARDS au travers de groupes d'utilisateurs. Les groupes utilisateur se gèrent depuis la carte ***Access group*** du menu ***Users***._
+_Contrôlez l'accès aux [Jeux de données](../collections-datasets/) REGARDS au travers de groupes d'utilisateurs. Les groupes utilisateur se gèrent depuis la carte ***Access group*** du menu ***Users***._
 
 <div align="center">
   <img src="/images/user-documentation/2-project-configuration/users/users.png" alt="user menu" width="800"/> 

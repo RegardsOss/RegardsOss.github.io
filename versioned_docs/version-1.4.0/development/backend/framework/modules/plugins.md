@@ -2,7 +2,7 @@
 id: backend-framework-modules-plugins
 title: Plugins introduction
 sidebar_label: Plugins introduction
-slug: /development/backend/framework/modules/plugins
+slug: /development/backend/framework/modules/plugins/
 ---
 
 ## Purpose

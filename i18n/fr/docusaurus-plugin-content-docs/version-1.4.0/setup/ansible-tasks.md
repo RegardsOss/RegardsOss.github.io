@@ -2,7 +2,7 @@
 id: ansible-tasks
 title: Ansible tasks
 sidebar_label: Ansible playbook tasks
-slug: /setup/ansible-tasks
+slug: /setup/ansible-tasks/
 ---
 
 ## Ansible tasks

@@ -1,7 +1,7 @@
 ---
 id: backend-framework-starters-web-socket
 title: Web socket starter
-slug: /development/backend/framework/starters/web-socket
+slug: /development/backend/framework/starters/web-socket/
 ---
 
 ```properties

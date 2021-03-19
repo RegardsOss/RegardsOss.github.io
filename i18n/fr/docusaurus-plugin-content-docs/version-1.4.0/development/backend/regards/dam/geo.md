@@ -2,7 +2,7 @@
 id: backend-dam-geo
 title: Geospatial features management
 sidebar_label: Geospatial features management
-slug: /development/backend/dam/geo
+slug: /development/backend/dam/geo/
 ---
 
 

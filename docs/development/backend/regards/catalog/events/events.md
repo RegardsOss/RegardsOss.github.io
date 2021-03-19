@@ -2,11 +2,11 @@
 id: backend-catalog-events
 title: Bus message events
 sidebar_label: Bus message events
-slug: /development/backend/catalog/events
+slug: /development/backend/catalog/events/
 ---
 
 :::info
-To know more about bus message mechanism look at [AMQP starter](../framework/starters/amqp)
+To know more about bus message mechanism look at [AMQP starter](../../framework/starters/amqp/)
 :::
 
  | Event    | Target   | Mode    | Description     |

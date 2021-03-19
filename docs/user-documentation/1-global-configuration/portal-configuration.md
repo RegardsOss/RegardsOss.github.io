@@ -1,7 +1,7 @@
 ---
 id: global-configuration-portal
 title: Customize portal interface
-slug: /user-guide/global-configuration/portal
+slug: /user-guide/global-configuration/portal/
 ---
 
 *Le portail d'accès est une interface permettant de configurer des modules pour afficher un menu principal et lister les projets de l'instance REGARDS. Il présente tous les projets publiques et visibles. *
@@ -27,4 +27,4 @@ Cette section permet de définir les modules à afficher dans l'interface web du
 
 ### Themes
 
-Cette section permet de configurer les thèmes proposés aux utilisateurs dans l'interface web du portail. Pour ajouter un nouveau thème, vous pouvez vous référer à la section Theme configuration de la page [Customize user interface](../project-configuration/user-interface/#theme-configuration).
+Cette section permet de configurer les thèmes proposés aux utilisateurs dans l'interface web du portail. Pour ajouter un nouveau thème, vous pouvez vous référer à la section Theme configuration de la page [Customize user interface](../../project-configuration/user-interface/#theme-configuration/).

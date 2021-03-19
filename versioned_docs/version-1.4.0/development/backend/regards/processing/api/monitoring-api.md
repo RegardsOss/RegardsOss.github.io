@@ -2,7 +2,7 @@
 id: backend-processing-monitoring-api
 title: REGARDS Processing Monitoring API
 sidebar_label: Monitoring
-slug: /development/backend/processing/api/monitoring
+slug: /development/backend/processing/api/monitoring/
 ---
 
 ## GET `/monitoring/executions`

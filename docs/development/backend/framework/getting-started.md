@@ -2,7 +2,7 @@
 id: backend-framework-getting-started
 title: Getting started with REGARDS framework
 sidebar_label: Getting started
-slug: /development/backend/framework/getting-started
+slug: /development/backend/framework/getting-started/
 ---
 
 ## Technology stack
@@ -15,7 +15,7 @@ At the moment, the framework relies on:
   * [Spring Cloud](https://spring.io/projects/spring-cloud#learn) `Dalston SR5`
 
 :::caution
-Note that we are upgrading COTS : cf. [Roadmap](../../../../roadmap)
+Note that we are upgrading COTS : cf. [Roadmap](../../../../../roadmap/)
 :::
 
 ![](/schemas/architecture/microservice_architecture_spring.png)
@@ -44,10 +44,10 @@ All dependencies are expressed in term of **Maven dependencies**.
 
 ## Starters
 
-REGARDS framework provides [building blocks (aka starters)](starters) to ease modules and microservices development.
+REGARDS framework provides [building blocks (aka starters)](../starters/) to ease modules and microservices development.
 
-Go to the [dedicated section](starters) to learn more.
+Go to the [dedicated section](../starters/) to learn more.
 
 ## Modules
 
-REGARDS framework provides common modules to manage [jobs](modules/jobs), [plugins](modules/plugins), [templates](modules/templates) and [workspace](modules/workspace).
+REGARDS framework provides common modules to manage [jobs](../modules/jobs/), [plugins](../modules/plugins/), [templates](../modules/templates/) and [workspace](../modules/workspace/).

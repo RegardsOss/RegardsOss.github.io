@@ -2,7 +2,7 @@
 id: backend-fem-rest-api
 title: Feature Manager REST API
 sidebar_label: Feature Manager REST
-slug: /development/backend/fem/api/rest
+slug: /development/backend/fem/api/rest/
 ---
 
 

@@ -2,7 +2,7 @@
 id: frontend-packages-business-components-microservice-plugin
 title: Microservice plugin configurator
 sidebar_label: Microservice plugin configurator
-slug: /development/frontend/packages/business-components/microservice-plugin-configurator
+slug: /development/frontend/packages/business-components/microservice-plugin-configurator/
 ---
 
 

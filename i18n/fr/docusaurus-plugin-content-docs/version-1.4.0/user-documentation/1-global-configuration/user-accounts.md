@@ -1,7 +1,7 @@
 ---
 id: global-configuration-users
 title: Manage user accounts
-slug: /user-guide/global-configuration/users
+slug: /user-guide/global-configuration/users/
 ---
 
 _Tout utilisateur d'un projet est associé à une instance de REGARDS, ainsi, un même utilisateur peut avoir accès à plusieurs projets.
@@ -17,7 +17,7 @@ Depuis le menu ***Account*** de l'interface d'administration, vous pourrez voir 
 
 Lorsqu'un utilisateur demande la création d'un nouveau compte, il est possible de configurer le système pour demander deux niveaux d'acceptation de la demande :
 
-1.  Validation du compte au niveau du projet. Pour plus d'information, reportez-vous à la page [Manage project users](../project-configuration/users)
+1.  Validation du compte au niveau du projet. Pour plus d'information, reportez-vous à la page [Manage project users](../../project-configuration/users/)
 2.  Validation du compte au niveau de l'instance
 
 La validation du compte au niveau instance est configurable depuis la section ***Accounts*** de l'interface administration.

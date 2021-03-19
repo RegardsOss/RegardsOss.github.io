@@ -2,7 +2,7 @@
 id: appendices-oais
 title: REGARDS OAIS implementation
 sidebar_label: REGARDS OAIS
-slug: /development/appendices/oais
+slug: /development/appendices/oais/
 ---
 
 ## OAIS recommendation

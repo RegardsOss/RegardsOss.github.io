@@ -2,7 +2,7 @@
 id: backend-fem-feature-factory-plugins
 title: Feature Factory Plugin
 sidebar_label: Feature Factory
-slug: /development/backend/fem/plugins/feature-factory
+slug: /development/backend/fem/plugins/feature-factory/
 ---
 
 
@@ -61,8 +61,8 @@ public class DummyFeatureFactoryPlugin implements IFeatureFactoryPlugin {
 }
 ```
 
-For more information on how to implement plugins, refer to [Plugin documentation](../../framework/modules/plugins/).
+For more information on how to implement plugins, refer to [Plugin documentation](../../../framework/modules/plugins/).
 
 ### How your parameters will be received
 
-When [requesting an extraction](../api/amqp#feature-creation-request-by-file-reference), the field `parameters` of the request contains the parameters given to this plugin when the method `IFeatureFactoryPlugin#generateFeature` is called
+When [requesting an extraction](../../api/amqp#feature-creation-request-by-file-reference/), the field `parameters` of the request contains the parameters given to this plugin when the method `IFeatureFactoryPlugin#generateFeature` is called

@@ -1,7 +1,7 @@
 ---
 id: depracated-installation-source
 title: Installation from source
-slug: /setup/deprecated/installation-source
+slug: /setup/deprecated/installation-source/
 ---
 
 Here is the tutorial to compile the IzPack installer that you can use to install REGARDS on any server.  

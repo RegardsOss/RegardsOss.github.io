@@ -1,7 +1,7 @@
 ---
 id: backend-framework-starters-jpa-multitenant
 title: JPA multitenant starter
-slug: /development/backend/framework/starters/jpa-multitenant
+slug: /development/backend/framework/starters/jpa-multitenant/
 ---
 
 
@@ -17,8 +17,8 @@ Add starter dependency to your POM (version depends on the REGARDS BOM)
 ```
 
 Dependency :
-- [Multitenant starter](multitenant)
-- [AMQP starter](amqp)
+- [Multitenant starter](../multitenant/)
+- [AMQP starter](../amqp/)
 
 ```properties
 regards.jpa.multitenant.enabled=true # Disable JPA multitenant support
@@ -50,7 +50,7 @@ Following endpoints are supplied to monitor datasources :
 
 JPA repositories have no specifities in your source code. Starter purpose is only to route request to the right datasource.
 
-To do so, multitenant router use `IRuntimeTenantResolver` from [Multitenant starter](multitenant) transparently.
+To do so, multitenant router use `IRuntimeTenantResolver` from [Multitenant starter](../multitenant/) transparently.
 
 ## 3.2. How to avoid transaction manager conflict
 

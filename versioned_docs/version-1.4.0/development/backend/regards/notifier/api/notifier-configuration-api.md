@@ -2,7 +2,7 @@
 id: backend-notifier-configuration-api
 title: Notifier configuration
 sidebar_label: Notifier configuration
-slug: /development/backend/notifier/api/configuration
+slug: /development/backend/notifier/api/configuration/
 ---
 
 In order to make the configuration simple and easily adjustable, we use the import/export REST API of the microservice.
@@ -16,8 +16,8 @@ Be careful, import will overwrite an existing plugin configuration with same `bu
 Configuration parameters :
 
 - `resetBeforeImport`: You can configure to delete all previous configuration before import new one.
-- `RuleMatcher`: Configuration of rules based on [plugins](../plugins#rule-matcher-plugins). Rules are used to define if a notification should be sent to associated RecipientSenders
-- `RecipientSender`: Configuration of notification senders based on [plugins](../plugins#recipient-sender-plugins). Senders are used to define how to send notification to recipients.
+- `RuleMatcher`: Configuration of rules based on [plugins](../../plugins#rule-matcher-plugins/). Rules are used to define if a notification should be sent to associated RecipientSenders
+- `RecipientSender`: Configuration of notification senders based on [plugins](../../plugins#recipient-sender-plugins/). Senders are used to define how to send notification to recipients.
 - `Rule/RecipientSenders assocation` : Configuration to associates one RuleMatcher to one or many RecipientSenders
 
 ```json

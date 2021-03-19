@@ -1,13 +1,13 @@
 ---
 id: backend-dam-events
 title: Bus message events
-slug: /development/backend/dam/events
+slug: /development/backend/dam/events/
 ---
 
 
 
 :::info
-To know more about bus message mechanism look at [AMQP starter](../framework/starters/amqp)
+To know more about bus message mechanism look at [AMQP starter](../../framework/starters/amqp/)
 :::
 
  | Event    | Target   | Mode    | Description     |

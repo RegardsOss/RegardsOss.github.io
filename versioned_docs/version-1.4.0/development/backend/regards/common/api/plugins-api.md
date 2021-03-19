@@ -2,7 +2,7 @@
 id: backend-framework-plugins-api
 title: REGARDS Plugins API
 sidebar_label: Plugins API
-slug: /development/backend/framework/plugins-api
+slug: /development/backend/framework/plugins-api/
 ---
 
 
@@ -14,7 +14,7 @@ You can request without auhentication by adding the REGARDS project in the reque
 ```bash
 curl http://localhost:<microservice port>/<endpoint>?scope=<project>
 ```
-Or you can authenticate to access admin endpoints. To do so, use the [authentication API](../authentication/api) to get a token and then add the token to the request headers.
+Or you can authenticate to access admin endpoints. To do so, use the [authentication API](../../authentication/api/) to get a token and then add the token to the request headers.
 
 ```bash
 curl http://localhost:<microservice port>/<endpoint> -H 'Authorization: bearer <token>'

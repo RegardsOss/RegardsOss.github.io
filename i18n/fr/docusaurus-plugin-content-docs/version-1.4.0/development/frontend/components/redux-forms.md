@@ -2,7 +2,7 @@
 id: frontend-view-forms
 title: Redux form
 sidebar_label: Forms
-slug: /development/frontend/view/forms
+slug: /development/frontend/view/forms/
 ---
 
 

@@ -2,7 +2,7 @@
 id: swarm-start
 title: Getting started with Docker Swarm using Ansible
 sidebar_label: Docker Swarm
-slug: /setup/deprecated/swarm/start
+slug: /setup/deprecated/swarm/start/
 ---
 
 :::info

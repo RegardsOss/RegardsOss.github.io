@@ -2,7 +2,7 @@
 id: backend-framework-dev-microservice
 title: Develop a new microservice
 sidebar_label: How to create a microservice
-slug: /development/backend/framework/dev-microservice
+slug: /development/backend/framework/dev-microservice/
 ---
 
 REGARDS Microservices are REST services exposed by a Jetty web server contained in a Spring boot application and composed of modules. Each microservice is a Maven project aggregating Maven modules. There is two modules by default: one responsible for running the microservice and one responsible for business. In case a microservice needs to be composed by more than one business module, a module archetype is available.

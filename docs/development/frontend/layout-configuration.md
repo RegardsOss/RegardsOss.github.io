@@ -2,7 +2,7 @@
 id: frontend-configuration-layout
 title: REGARDS layout configuration
 sidebar_label: Layout configuration
-slug: /development/frontend/configuration/layout
+slug: /development/frontend/configuration/layout/
 ---
 
 

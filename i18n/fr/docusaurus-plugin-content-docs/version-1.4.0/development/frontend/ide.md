@@ -2,7 +2,7 @@
 id: frontend-introduction-ide
 title: Integrated development environments
 sidebar_label: Setting up an IDE
-slug: /development/frontend/introduction/ide
+slug: /development/frontend/introduction/ide/
 ---
 
 ## Available IDEs

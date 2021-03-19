@@ -2,7 +2,7 @@
 id: frontend-packages-lazy-modules-search-graph
 title: Frontend - Dynamic module Search Graph
 sidebar_label: Search graph
-slug: /development/frontend/packages/lazy-modules/search-graph
+slug: /development/frontend/packages/lazy-modules/search-graph/
 ---
 
 

@@ -2,7 +2,7 @@
 id: appendices-lucene-query
 title: Lucene query format
 sidebar_label: Lucene query format
-slug: /development/appendices/lucene-query
+slug: /development/appendices/lucene-query/
 ---
 
 

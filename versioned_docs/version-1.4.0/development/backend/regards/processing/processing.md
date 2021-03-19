@@ -2,7 +2,7 @@
 id: backend-processing-overview
 title: REGARDS processing microservice
 sidebar_label: Overview
-slug: /development/backend/processing/overview
+slug: /development/backend/processing/overview/
 ---
 
 ## Overview
@@ -564,7 +564,7 @@ The `Processing` service can be specifically configured with the following prope
 
 ## Available APIs
 
-- [Process](api/process) : API to list/find existing processes
-- [Batch](api/batch) : API to create batches
-- [Monitoring](api/monitoring) : API to monitor existing executions
-- [Rights Plugin Configurations](plugins) : API to manage processes as plugins
+- [Process](../api/process/) : API to list/find existing processes
+- [Batch](../api/batch/) : API to create batches
+- [Monitoring](../api/monitoring/) : API to monitor existing executions
+- [Rights Plugin Configurations](../plugins/) : API to manage processes as plugins

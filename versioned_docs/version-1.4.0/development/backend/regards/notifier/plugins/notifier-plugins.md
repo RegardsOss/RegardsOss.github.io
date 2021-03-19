@@ -2,7 +2,7 @@
 id: backend-notifier-plugins
 title: Notifier plugins
 sidebar_label: Notifier 
-slug: /development/backend/notifier/plugins
+slug: /development/backend/notifier/plugins/
 ---
 
 ## Rule matcher plugins
@@ -15,7 +15,7 @@ Rules are used to define if a notification should be sent to associated Recipien
  - attributeToSeek : attribut name to search for the notification json content. 
  - attributeValueToSeek : attribut value to match.
 
- To configure this plugin use the here  under configuration block in import module [configuration](api/configuration)
+ To configure this plugin use the here  under configuration block in import module [configuration](../api/configuration/)
 
 ```json
  {
@@ -46,7 +46,7 @@ Configuration parameters are :
  - exchange : Name  of the  exchange to use
  - queueName : Name of the queue to use
 
- To configure this plugin use the here  under configuration block in import module [configuration](api/configuration)
+ To configure this plugin use the here  under configuration block in import module [configuration](../api/configuration/)
 
 ```json
  {

@@ -1,7 +1,7 @@
 ---
 id: crawler-aips
 title: Crawl data from AIPs
-slug: /user-guide/crawler/configure-datasources/aips
+slug: /user-guide/crawler/configure-datasources/aips/
 ---
 
 *Référencez des aips dans le catalogue de données.*
@@ -9,8 +9,8 @@ slug: /user-guide/crawler/configure-datasources/aips
 :::caution
 Vous devez déjà avoir :
 
-- créé des produits, référez-vous à la section [Import data - OAIS files](../../import-data/oais-files/introduction) si ce n'est déjà fait.
-- créé [un modèle de données](../../data-organization/models) commun de type _Data_ pour référencer vos aips
+- créé des produits, référez-vous à la section [Import data - OAIS files](../../../import-data/oais-files/introduction/) si ce n'est déjà fait.
+- créé [un modèle de données](../../../data-organization/models/) commun de type _Data_ pour référencer vos aips
 :::
 
 ---
@@ -76,4 +76,4 @@ extrait du fichier AIP
 
 - Lorsque vous avez complété tous les champs, appuyez sur ***Save***
 - Vérifiez que votre source de données se trouve dans la liste
-- Rendez-vous ensuite dans la section ***[Monitor data crawling](../monitor-crawling)*** pour suivre l'aspiration de vos AIPs.
+- Rendez-vous ensuite dans la section ***[Monitor data crawling](../../monitor-crawling/)*** pour suivre l'aspiration de vos AIPs.

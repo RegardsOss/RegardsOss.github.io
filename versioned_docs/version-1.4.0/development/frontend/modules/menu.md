@@ -2,7 +2,7 @@
 id: frontend-packages-lazy-modules-menu
 title: Frontend - Dynamic module Menu
 sidebar_label: Menu
-slug: /development/frontend/packages/lazy-modules/menu
+slug: /development/frontend/packages/lazy-modules/menu/
 ---
 
 

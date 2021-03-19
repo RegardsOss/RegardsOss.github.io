@@ -2,7 +2,7 @@
 id: backend-fem-configuration-api
 title: Feature Manager configuration API
 sidebar_label: Feature Manager configuration
-slug: /development/backend/fem/api/configuration
+slug: /development/backend/fem/api/configuration/
 ---
 
 ## Feature Manager configuration

@@ -2,7 +2,7 @@
 id: backend-dataprovider-overview
 title: REGARDS dataprovider microservice
 sidebar_label: Overview
-slug: /development/backend/dataprovider/overview
+slug: /development/backend/dataprovider/overview/
 ---
 
 
@@ -19,12 +19,12 @@ slug: /development/backend/dataprovider/overview
 
 ## Available APIs
 
-* [Data provider](api)
+* [Data provider](../api/)
 
 ## Available Extension points
 
-* [Scan plugins](plugins/scan)
-* [Validation plugins](plugins/validation)
-* [Product genertor plugins](plugins/product)
-* [SIP generation plugins](plugins/sip-generation)
-* [Post processing plugins](plugins/post-processing)
+* [Scan plugins](../plugins/scan/)
+* [Validation plugins](../plugins/validation/)
+* [Product genertor plugins](../plugins/product/)
+* [SIP generation plugins](../plugins/sip-generation/)
+* [Post processing plugins](../plugins/post-processing/)

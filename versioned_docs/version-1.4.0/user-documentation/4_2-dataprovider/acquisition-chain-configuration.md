@@ -1,7 +1,7 @@
 ---
 id: scanned-files-manage-acquisition-chains
 title: Manage acquisition chains
-slug: /user-guide/import-data/scanned-files/manage-acquisition-chains
+slug: /user-guide/import-data/scanned-files/manage-acquisition-chains/
 ---
 
 _Pour configurer les chaînes d'acquisition, allez dans le menu ***Add data***, dans la carte ***Data acquisition*** et cliquez sur le bouton <img src="/images/user-documentation/regards-icons/admin/configure.png" alt="configure" height="25"/> ***Acquisition chains***._
@@ -16,8 +16,8 @@ Une chaîne d'acquisition permet de générer un ou plusieurs SIPs à partir de 
 
 Avant de pouvoir créer une chaîne, vous devez obligatoirement avoir :
 
-- configuré une [chaîne d'ingestion](../oais-files/introduction)
-- paramétré un [espace de stokage](../../project-configuration/storages)
+- configuré une [chaîne d'ingestion](../../oais-files/introduction/)
+- paramétré un [espace de stokage](../../../project-configuration/storages/)
 
 Une fois, ces opérations effectuées, vous pouvez créer une chaîne d'acquisition en appuyez sur ***Create new Chain*** à partir de l'écran ***Acquisition chain***.
 Vous devrez remplir des champs servant à l'identification de la chaîne et sélectionner des plugins pour détecter vos données, les valider et produire des sips. Si vous ne trouvez pas de plugins correspondants à votre cas d'utilisation, vous pouvez développer votre propre plugin dans REGARDS.
@@ -99,7 +99,7 @@ REGARDS fournit des plugins de validation et de génération de SIPs par défaut
 La génération d'un SIP s'effectue en quatre étapes principales Chacune de ces étapes dépend de plugins effectuant des actions différentes :
 
 1. ***Data validation plugin*** *[Obligatoire]* utilisé pour valider vos données d'entrées. Sélectionnez celui correspondant à vos besoins en lisant la description de chaque plugin.
-2. ***Product generation plugin*** *[Obligatoire]* sert à la génération des SIPs à partir des ***Files*** configurés. REGARDS fournit un plugin par défaut ***Default product plugin***, qui créé des SIPs avec une structure de base précisée dans le [document suivant](../../../development/appendices/oais).
+2. ***Product generation plugin*** *[Obligatoire]* sert à la génération des SIPs à partir des ***Files*** configurés. REGARDS fournit un plugin par défaut ***Default product plugin***, qui créé des SIPs avec une structure de base précisée dans le [document suivant](../../../../development/appendices/oais/).
 3. ***Metadata generation plugin*** *[Obligatoire]* complète les SIPs avec des métadonnées liés aux fichiers scannés. Le plugin *Default Product Plugin\_ recherche des informations de base sur les fichiers comme la taille, le nom, la date de création, etc. Vous pouvez, si besoin, développer votre propre plugin afin qu'il recherche des valeurs spécifiques contenues dans les fichiers.
 4. ***Post treatment plugin*** *[Optionnelle]* il est possible d'effectuer un post-traitement suite à la génération de vos SIPs.
 
@@ -109,7 +109,7 @@ Pour finir la création de votre chaîne d'acquisition, appuyez sur le bouton **
 
 Pour lancer la génération de nouveaux produits, appuyez sur le bouton <img src="/images/user-documentation/regards-icons/admin/play.png" alt="play" height="26"/> ***Run acquisition chain*** associé à votre chaîne.
 
-Vous pourrez ensuite suivre ce processus en temps réel en cliquant sur le bouton <img src="/images/user-documentation/regards-icons/admin/session.png" alt="session" height="23"/> ***See session's details***. Référez-vous à la page ***[Monitor session](monitor-sessions)*** pour comprendre comment suivre l'acquisition.
+Vous pourrez ensuite suivre ce processus en temps réel en cliquant sur le bouton <img src="/images/user-documentation/regards-icons/admin/session.png" alt="session" height="23"/> ***See session's details***. Référez-vous à la page ***[Monitor session](../monitor-sessions/)*** pour comprendre comment suivre l'acquisition.
 
 ---
 
@@ -123,7 +123,7 @@ Par groupe :
 
 Par ligne :
 
-- <img src="/images/user-documentation/regards-icons/admin/session.png" alt="session" height="22"/> Vous pouvez retrouver la ou les sessions d'acquisition liées à votre chaîne. Voir <a href="monitor-sessions">Monitor session</a>.
+- <img src="/images/user-documentation/regards-icons/admin/session.png" alt="session" height="22"/> Vous pouvez retrouver la ou les sessions d'acquisition liées à votre chaîne. Voir <a href="../monitor-sessions/">Monitor session</a>.
 - <img src="/images/user-documentation/regards-icons/admin/stop.png" alt="stop" height="25"/> Arrêter la génération de produits en cours en appuyant sur le bouton stop
 - <img src="/images/user-documentation/regards-icons/admin/play.png" alt="play" height="25"/> Modifier les informations liées à une chaîne en cliquant sur le bouton en forme de crayon
 - <img src="/images/user-documentation/regards-icons/admin/duplicate.png" alt="duplicate" height="25"/> Dupliquer une chaîne d'acquisition si votre nouvelle chaîne contient des informations semblables

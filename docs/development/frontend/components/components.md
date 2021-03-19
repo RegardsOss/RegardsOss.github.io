@@ -2,7 +2,7 @@
 id: frontend-packages-components
 title: REGARDS components
 sidebar_label: Re-usable components
-slug: /development/frontend/packages/components
+slug: /development/frontend/packages/components/
 ---
 
 ## Description

@@ -1,7 +1,7 @@
 ---
 id: crawler-introduction
 title: Introduction
-slug: /user-guide/crawler/introduction
+slug: /user-guide/crawler/introduction/
 ---
 
 *REGARDS permet d’aspirer des données depuis n’importe quelle source. Celle-ci sert à l’indexation du catalogue de données accessible depuis l’IHM utilisateur. Ce catalogue permet de consulter les données et leurs métadonnées, référencées dans le système.*
@@ -17,7 +17,7 @@ Dans le menu latéral, cliquez sur **Add data** et observez la carte **Crawling*
 
 REGARDS peut automatiquement se connecter à une base de données externe afin de compléter votre catalogue. Avant de pouvoir ajouter des données par ce biais, vous devez configurer une nouvelle connexion externe.
 
-<img src="/images/user-documentation/doc-icons/link.png" height="20"/> <a href="configure-connection">Learn how to configure a connection to an external database</a>
+<img src="/images/user-documentation/doc-icons/link.png" height="20"/> <a href="../configure-connection/">Learn how to configure a connection to an external database</a>
 
 ---
 
@@ -26,12 +26,12 @@ REGARDS peut automatiquement se connecter à une base de données externe afin d
 Vous pouvez configurer et gérer des aspirations dans cette catégorie. Celles-ci vont vous permettre d'enrichir le catalogue REGARDS au travers de multiples sources de données.
 Il existe actuellement quatre manières d'ajouter des données au catalogue :
 
-- depuis des [AIPs au format GeoJSON](configure-datasources/aips)
-- depuis des [features du feature manager](configure-datasources/fem)
-- depuis une [base de données externe](configure-datasources/external-databases)
-- depuis une [source web OpenSearch](configure-datasources/opensearch)
+- depuis des [AIPs au format GeoJSON](../configure-datasources/aips/)
+- depuis des [features du feature manager](../configure-datasources/fem/)
+- depuis une [base de données externe](../configure-datasources/external-databases/)
+- depuis une [source web OpenSearch](../configure-datasources/opensearch/)
 
-<img src="/images/user-documentation/doc-icons/link.png" height="20"/> <a href="configure-datasources">Learn how to map data sources to internal models</a>
+<img src="/images/user-documentation/doc-icons/link.png" height="20"/> <a href="../configure-datasources/">Learn how to map data sources to internal models</a>
 
 ---
 
@@ -39,7 +39,7 @@ Il existe actuellement quatre manières d'ajouter des données au catalogue :
 
 Une fois les aspirations de données configurées, vous pouvez suivre leur avancement dans la rubrique de suivi des traitements.
 
-<img src="/images/user-documentation/doc-icons/link.png" height="20"/> <a href="monitor-crawling">Learn how to monitor data crawling</a>
+<img src="/images/user-documentation/doc-icons/link.png" height="20"/> <a href="../monitor-crawling/">Learn how to monitor data crawling</a>
 
 ---
 
@@ -47,6 +47,6 @@ Une fois les aspirations de données configurées, vous pouvez suivre leur avanc
 
 Cette dernière fonctionnalité vous permet de réinitialiser le catalogue. Cela pourra s'avérer utile si vous n'êtes pas sûr du contenu du catalogue. Cette opération recréera toutes les données à la date de réinitialisation en fonction des sources d'aspiration configurées.
 
-<img src="/images/user-documentation/doc-icons/link.png" height="20"/> <a href="reset-catalog">Learn how to reset data catalog</a>
+<img src="/images/user-documentation/doc-icons/link.png" height="20"/> <a href="../reset-catalog/">Learn how to reset data catalog</a>
 
 ---

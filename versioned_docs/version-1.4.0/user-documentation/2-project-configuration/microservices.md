@@ -1,7 +1,7 @@
 ---
 id: project-configuration-microservices
 title: Manage microservices
-slug: /user-guide/project-configuration/microservices
+slug: /user-guide/project-configuration/microservices/
 ---
 
 _Le panneau ***Microservices*** vous permet d'avoir une vision globale des différents microservices du système, de leur état de fonctionnement, et de leur configuration. Sur cette page vous pouvez retrouver la liste de tous les microservices utilisés dans REGARDS._

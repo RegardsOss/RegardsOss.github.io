@@ -1,7 +1,7 @@
 ---
 id: tutorial
 title: Tutorial
-slug: /setup/deprecated/tutorial
+slug: /setup/deprecated/tutorial/
 ---
 
 ## How to create backend microservices & plugins

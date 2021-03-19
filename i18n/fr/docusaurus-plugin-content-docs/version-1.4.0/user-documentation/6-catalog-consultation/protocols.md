@@ -1,7 +1,7 @@
 ---
 id: catalog-protocols
 title: Interoperability protocols
-slug: /user-guide/catalog/protocols
+slug: /user-guide/catalog/protocols/
 ---
 
 *Les protocoles de recherches sont indispensables afin de pouvoir explorer efficacement vos données dans le catalogue. Dans cette page, vous apprendrez à configurer un protocole de recherche standardisé basé sur OpenSearch, pour effectuer des recherches sur votre catalogue même depuis l'extérieur de REGARDS.*
@@ -93,5 +93,5 @@ En cliquant sur le bouton info, vous pourrez accéder au endpoint de recherche a
 </div>
 
 :::caution
-Pensez à rendre vos jeux de données disponibles depuis l'extérieur en autorisant l'accès aux jeux de données et objets pour le groupe public. Pour plus d'informations, référez-vous à la page [Configure data access rights](../data-organization/data-access-rights)
+Pensez à rendre vos jeux de données disponibles depuis l'extérieur en autorisant l'accès aux jeux de données et objets pour le groupe public. Pour plus d'informations, référez-vous à la page [Configure data access rights](../../data-organization/data-access-rights/)
 :::

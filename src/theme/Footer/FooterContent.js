@@ -5,7 +5,6 @@ import useDocusaurusContext from "@docusaurus/useDocusaurusContext";
 
 function FooterContent() {
   const context = useDocusaurusContext();
-  const { siteConfig = {} } = context;
 
   return (
     <div className={styles.col_1}>

@@ -2,7 +2,7 @@
 id: frontend-introduction-eslint
 title: REGARDS ESLint rules
 sidebar_label: Lint
-slug: /development/frontend/introduction/eslint
+slug: /development/frontend/introduction/eslint/
 ---
 
 

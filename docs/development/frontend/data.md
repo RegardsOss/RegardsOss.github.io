@@ -2,7 +2,7 @@
 id: frontend-data-ui
 title: REGARDS UI data
 sidebar_label: Data store & Request
-slug: /development/frontend/data/ui-data
+slug: /development/frontend/data/ui-data/
 ---
 
 

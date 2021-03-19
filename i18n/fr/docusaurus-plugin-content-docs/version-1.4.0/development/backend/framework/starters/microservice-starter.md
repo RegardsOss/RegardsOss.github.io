@@ -1,7 +1,7 @@
 ---
 id: backend-framework-starters-microservice
 title: Microservice starter
-slug: /development/backend/framework/starters/microservice
+slug: /development/backend/framework/starters/microservice/
 ---
 
 
@@ -31,8 +31,8 @@ Business dependency
 
 Dependencies :
 
-* [Multitenant starter](multitenant)
-* [Module starter](module) business package
+* [Multitenant starter](../multitenant/)
+* [Module starter](../module/) business package
 
 Properties :
 
@@ -73,4 +73,4 @@ API :
 * `GET /microservice/restart/enabled` : `200` if restart feature is implemented, else `501`.
 * `GET /microservice/restart` : Restart microservice modules.
 
-Look at [Module starter](module) to know how to implement configuration import/export, ready and restart features at the module level.
+Look at [Module starter](../module/) to know how to implement configuration import/export, ready and restart features at the module level.

@@ -2,7 +2,7 @@
 id: backend-catalog-search-api
 title: REGARDS search API
 sidebar_label: Search
-slug: /development/backend/catalog/search-api
+slug: /development/backend/catalog/search-api/
 ---
 
 At the moment, REGARDS can expose two search API :
@@ -23,7 +23,7 @@ You can request without auhentication by adding the REGARDS project in the reque
 ```bash
 curl http://localhost:<{{ include.name }} port>/<endpoint>?scope=<project>
 ```
-Or you can authenticate to access admin endpoints. To do so, use the [authentication API](../authentication/api) to get a token and then add the token to the request headers.
+Or you can authenticate to access admin endpoints. To do so, use the [authentication API](../../authentication/api/) to get a token and then add the token to the request headers.
 
 ```bash
 curl http://localhost:<{{ include.name }} port>/<endpoint> -H 'Authorization: bearer <token>'
@@ -78,7 +78,7 @@ curl -G 'http://<host>/api/v1//rs-catalog/engines/legacy/dataobjects/search' \
 
 ### Using Lucene standard query parser
 
-See [Create a Lucene standard query parser](../../../development/appendices/lucene-query).
+See [Create a Lucene standard query parser](../../../../development/appendices/lucene-query/).
 
 ## Open Search API
 

@@ -2,7 +2,7 @@
 id: backend-processing-batch-api
 title: REGARDS Processing Batch API
 sidebar_label: Batch
-slug: /development/backend/processing/api/batch
+slug: /development/backend/processing/api/batch/
 ---
 
 ## POST `/batch`

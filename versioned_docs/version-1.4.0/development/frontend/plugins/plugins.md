@@ -2,7 +2,7 @@
 id: frontend-plugins
 title: REGARDS Frontend Plugins
 sidebar_label: Plugins introduction
-slug: /development/frontend/plugins
+slug: /development/frontend/plugins/
 ---
 
 ## Presentation
@@ -11,12 +11,12 @@ REGARDS UI plugins are pieces of Javascript files bundled together that can be a
 They allow administrators creating dedicated UI parts to match project needs.
 There are two types of plugins:
 
-- `criterion plugins`, that are used in the search form of search-results module ([more details here](plugins/criteria))
+- `criterion plugins`, that are used in the search form of search-results module ([more details here](../plugins/criteria/))
 
 ![](/images/frontend/plugins/search-form.png)
 _A search form example, with several criteria plugins_
 
-- `service plugins`, that adds functionalities to an entity or a selection of entities ([more detail here](plugins/service)).
+- `service plugins`, that adds functionalities to an entity or a selection of entities ([more detail here](../plugins/service/)).
 
 ![](/images/frontend/plugins/services-example.png)
 _Some services example: on lines, services for one entity. On header, services for current selection._
@@ -82,7 +82,7 @@ Plugin `package.json` file holds NPM plugin commands to:
 - compute plugin report coverage
 - lint plugin code
 
-In order to use those commands, rs-frontend repository must have been installed (see [Frontend setup page](introduction/setup)), as it provides the core webpack DLLs, used to lower compilation duration and plugin bundle size.
+In order to use those commands, rs-frontend repository must have been installed (see [Frontend setup page](../introduction/setup/)), as it provides the core webpack DLLs, used to lower compilation duration and plugin bundle size.
 
 ### 1. Install plugin
 
@@ -229,8 +229,8 @@ That component receives, no matter the plugin type, the property `pluginInstance
 
 **Notes:**
 
-- Other plugin properties are specific to the plugin type, see [criterion](plugins/criteria) or [service](plugins/service) plugin pages for more detail.
-- Component is instantiated with its own **intl** and **theme**, using current context (see [Internationalization](view/international) and [Theme](view/theme) pages for more detail)
+- Other plugin properties are specific to the plugin type, see [criterion](../plugins/criteria/) or [service](../plugins/service/) plugin pages for more detail.
+- Component is instantiated with its own **intl** and **theme**, using current context (see [Internationalization](../view/international/) and [Theme](../view/theme/) pages for more detail)
 
 ### Redux management in plugins
 

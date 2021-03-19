@@ -2,7 +2,7 @@
 id: backend-ingest-post-processing-plugins
 title: SIP Post processing plugins
 sidebar_label: SIP post processing
-slug: /development/backend/ingest/plugins/sip-post-processing
+slug: /development/backend/ingest/plugins/sip-post-processing/
 ---
 
 
@@ -21,7 +21,7 @@ REGARDS do not provides any implementation of this extension point yet.
 
 ## Implementation
 
-To learn more about how to create your own plugin see [Plugins](../../framework/modules/plugins/)
+To learn more about how to create your own plugin see [Plugins](../../../framework/modules/plugins/)
 
 Here under is an exemple of how to implements this extension point to create your own business logic.
 

@@ -1,7 +1,7 @@
 ---
 id: backend-framework-starters-oais
 title: OAIS starter
-slug: /development/backend/framework/starters/oais
+slug: /development/backend/framework/starters/oais/
 ---
 
 
@@ -31,8 +31,8 @@ Business dependency :
 
 Dependency :
 
-* [GeoJSON starter](geojson)
-* [GSON starter](gson)
+* [GeoJSON starter](../geojson/)
+* [GSON starter](../gson/)
 
 ## Autoconfiguration
 

@@ -2,7 +2,7 @@
 id: backend-access-api
 title: REGARDS Access API
 sidebar_label: Access project API
-slug: /development/backend/access/api
+slug: /development/backend/access/api/
 ---
 
 
@@ -14,7 +14,7 @@ You can request without authentication by adding the REGARDS project in the requ
 ```bash
 curl http://localhost:<rs-access-project port>/<endpoint>?scope=<project>
 ```
-Or you can authenticate to access admin endpoints. To do so, use the [authentication API](../authentication/api) to get a token and then add the token to the request headers.
+Or you can authenticate to access admin endpoints. To do so, use the [authentication API](../../authentication/api/) to get a token and then add the token to the request headers.
 
 ```bash
 curl http://localhost:<rs-access-project port>/<endpoint> -H 'Authorization: bearer <token>'

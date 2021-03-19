@@ -1,7 +1,7 @@
 ---
 id: backend-framework-starters-authentication
 title: Authentication starter
-slug: /development/backend/framework/starters/authentication
+slug: /development/backend/framework/starters/authentication/
 ---
 
 
@@ -35,7 +35,7 @@ Dependency :
 
 Used by :
 
-* [Security starter](security)
+* [Security starter](../security/)
 
 ## Autoconfiguration
 

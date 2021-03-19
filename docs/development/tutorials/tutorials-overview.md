@@ -2,7 +2,7 @@
 id: development-tutorials-overview
 title: Tutorials
 sidebar_label: Overview
-slug: /development/tutorials/overview
+slug: /development/tutorials/overview/
 ---
 
 

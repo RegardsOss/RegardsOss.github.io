@@ -2,7 +2,7 @@
 id: frontend-introduction-setup
 title: Development setup and build
 sidebar_label: Setup
-slug: /development/frontend/introduction/setup
+slug: /development/frontend/introduction/setup/
 ---
 
 

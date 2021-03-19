@@ -1,7 +1,7 @@
 ---
 id: crawler-monitor-crawling
 title: Monitor datasource crawling
-slug: /user-guide/crawler/monitor-crawling
+slug: /user-guide/crawler/monitor-crawling/
 ---
 
 Pour suivre les aspirations de données, cliquez sur ***Ajout de données*** dans le menu latéral de REGARDS, puis dans la carte ***Crawling***, cliquez sur <img src="/images/user-documentation/regards-icons/admin/monitor.png" alt="monitor" height="25"/> ***Monitor data crawling*** .

@@ -2,7 +2,7 @@
 id: backend-catalog-service-plugins
 title: Catalog service plugins
 sidebar_label: Catalog service
-slug: /development/backend/catalog/service-plugins
+slug: /development/backend/catalog/service-plugins/
 ---
 
 ## Overview
@@ -54,7 +54,7 @@ Each business service plugin return a stream of typed data in the response heade
 
 ### Apply service on entities from a search query
 
-You can see the [How to build a query](search-api) page. The query is provided in the body like :
+You can see the [How to build a query](../search-api/) page. The query is provided in the body like :
 
  ```json
  {
@@ -90,7 +90,7 @@ For a search query application you can also execlude some entites from the searc
 
 ## Implementation
 
-To learn more about how to create your own plugin see [Plugins](../framework/modules/plugins/).
+To learn more about how to create your own plugin see [Plugins](../../framework/modules/plugins/).
 
 You can implements two type of catalog services following the here under exemples :  
 

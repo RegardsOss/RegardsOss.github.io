@@ -2,7 +2,7 @@
 id: backend-architecture-concepts
 title: REGARDS architecture concepts
 sidebar_label: Concepts
-slug: /development/backend/architecture/concepts
+slug: /development/backend/architecture/concepts/
 ---
 
 ## OAIS recommandation

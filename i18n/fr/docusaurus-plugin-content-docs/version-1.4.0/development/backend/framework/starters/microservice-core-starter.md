@@ -1,7 +1,7 @@
 ---
 id: backend-framework-starters-microservice-core
 title: Microservice core starter
-slug: /development/backend/framework/starters/microservice-core
+slug: /development/backend/framework/starters/microservice-core/
 ---
 
 
@@ -22,13 +22,13 @@ Add starter dependency to your POM (version depends on the BOM)
 
 Dependencies :
 
-* [Microservice starter](microservice)
-  * [Multitenant starter](multitenant)
-* [Module starter](module)
-* [GSON starter](gson)
-* [Security starter](security)
-  * [Multitenant starter](multitenant)
-  * [Authentication starter](authentication)
-  * [AMQP starter](amqp)
-* [Swagger starter](swagger)
-* [Cloud starter](cloud)
+* [Microservice starter](../microservice/)
+  * [Multitenant starter](../multitenant/)
+* [Module starter](../module/)
+* [GSON starter](../gson/)
+* [Security starter](../security/)
+  * [Multitenant starter](../multitenant/)
+  * [Authentication starter](../authentication/)
+  * [AMQP starter](../amqp/)
+* [Swagger starter](../swagger/)
+* [Cloud starter](../cloud/)

@@ -2,7 +2,7 @@
 id: backend-fem-amqp-api
 title: Feature Manager AMQP API
 sidebar_label: Feature Manager AMQP
-slug: /development/backend/fem/api/amqp
+slug: /development/backend/fem/api/amqp/
 ---
 
 

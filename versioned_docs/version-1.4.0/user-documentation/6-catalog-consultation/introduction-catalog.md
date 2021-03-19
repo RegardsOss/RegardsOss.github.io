@@ -1,10 +1,10 @@
 ---
 id: catalog-introduction
 title: Introduction
-slug: /user-guide/catalog/introduction
+slug: /user-guide/catalog/introduction/
 ---
 
-Le catalogue est un élément indispensable dans REGARDS, permettant de centraliser, consulter et décrire un ensemble de données et de métadonnées, de manière structurée au travers de modèles, et organisée grâce aux jeux et collections. Il contiendra toutes les données aspirées depuis différentes sources internes ou externes à REGARDS. Pour en savoir plus, lire la partie [Populate the catalog](../crawler/introduction).
+Le catalogue est un élément indispensable dans REGARDS, permettant de centraliser, consulter et décrire un ensemble de données et de métadonnées, de manière structurée au travers de modèles, et organisée grâce aux jeux et collections. Il contiendra toutes les données aspirées depuis différentes sources internes ou externes à REGARDS. Pour en savoir plus, lire la partie [Populate the catalog](../../crawler/introduction/).
 
 Il permet de :
 
@@ -16,6 +16,6 @@ Il permet de :
 
 Dans cette section vous apprendrez à :
 
-- [configurer le catalogue de données](configuration)
-- [manipuler le catalogue](use)
-- [paramétrer des protocoles de recherche](protocols) basés sur OpenSearch pour rendre les données disponibles depuis l'extérieur
+- [configurer le catalogue de données](../configuration/)
+- [manipuler le catalogue](../use/)
+- [paramétrer des protocoles de recherche](../protocols/) basés sur OpenSearch pour rendre les données disponibles depuis l'extérieur

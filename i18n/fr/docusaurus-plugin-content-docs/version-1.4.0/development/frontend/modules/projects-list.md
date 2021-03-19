@@ -2,7 +2,7 @@
 id: frontend-packages-lazy-modules-project-list
 title: Frontend - Dynamic module Project List
 sidebar_label: Project list
-slug: /development/frontend/packages/lazy-modules/project-list
+slug: /development/frontend/packages/lazy-modules/project-list/
 ---
 
 

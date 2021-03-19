@@ -2,7 +2,7 @@
 id: backend-ingest-validation-plugins
 title: SIP validation plugins
 sidebar_label: SIP validation
-slug: /development/backend/ingest/plugins/sip-validation
+slug: /development/backend/ingest/plugins/sip-validation/
 ---
 
 
@@ -21,7 +21,7 @@ REGARDS provides many implementation of this extension point :
 
 ## Implementation
 
-To learn more about how to create your own plugin see [Plugins](../../framework/modules/plugins/)
+To learn more about how to create your own plugin see [Plugins](../../../framework/modules/plugins/)
 
 Here under is an exemple of how to implements this extension point to create your own business logic.
 

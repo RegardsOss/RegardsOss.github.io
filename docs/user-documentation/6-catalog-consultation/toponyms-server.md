@@ -1,7 +1,7 @@
 ---
 id: catalog-toponyms
 title: Toponyms server
-slug: /user-guide/catalog/toponyms
+slug: /user-guide/catalog/toponyms/
 ---
 
 

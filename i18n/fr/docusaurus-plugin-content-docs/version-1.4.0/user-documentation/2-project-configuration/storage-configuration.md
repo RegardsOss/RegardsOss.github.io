@@ -1,7 +1,7 @@
 ---
 id: project-configuration-storages
 title: Manage storage locations
-slug: /user-guide/project-configuration/storages
+slug: /user-guide/project-configuration/storages/
 ---
 
 _Définissez des espaces de stockage pour conserver les données créées dans REGARDS depuis le menu ***Add data*** et la carte ***Storage***._
@@ -62,7 +62,7 @@ Sur chaque ligne d'espace de stockage vous trouverez :
 - ***Name*** le nom de l'espace
 - ***Type*** le type de stockage
 - ***Stored files*** le nombre de fichiers qui y sont stockés
-- ***Total size*** l'espace mémoire occupé. Notez que dans le cas où sa limite serait atteinte, le service se mettrait en état de maintenance. Voir la partie [Manage microservices](microservices) pour plus d'information
+- ***Total size*** l'espace mémoire occupé. Notez que dans le cas où sa limite serait atteinte, le service se mettrait en état de maintenance. Voir la partie [Manage microservices](../microservices/) pour plus d'information
 - ***Storage error*** le nombre de fichiers n'ayant pas été correctement stockés. Dans ce cas, une flèche s'affichera à côté des erreurs de stockage vous permettant d'effectuer les actions suivantes : ***Relaunch storage errors***, ***Delete storage errors***, ***View storage errors***
 - ***Deletion errors*** le nombre de fichiers ne s'étant pas correctement supprimés. Dans ce cas, une flèche s'affichera à côté des erreurs de stockage vous permettant d'effectuer les actions suivantes : ***Relaunch deletion errors***, ***Delete deletion errors***, ***View deletion errors***
 - ***Activity*** indique s'il y a des traitements de données en cours

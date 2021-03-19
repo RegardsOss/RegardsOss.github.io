@@ -2,7 +2,7 @@
 id: frontend-packages-lazy-modules-storage-monitoring
 title: Frontend - Dynamic module Storage monitoring
 sidebar_label: Storage monitoring
-slug: /development/frontend/packages/lazy-modules/storage-monitoring
+slug: /development/frontend/packages/lazy-modules/storage-monitoring/
 ---
 
 

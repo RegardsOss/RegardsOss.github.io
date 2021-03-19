@@ -2,7 +2,7 @@
 id: backend-admin-overview
 title: REGARDS admin microservice 
 sidebar_label: Overview
-slug: /development/backend/admin/overview
+slug: /development/backend/admin/overview/
 ---
 
 
@@ -20,4 +20,4 @@ slug: /development/backend/admin/overview
 
 # Available APIs
 
-* [Admin](api)
+* [Admin](../api/)

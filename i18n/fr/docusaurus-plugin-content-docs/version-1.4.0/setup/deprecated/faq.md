@@ -1,7 +1,7 @@
 ---
 id: depracated-faq
 title: Frequently Asked Questions
-slug: /setup/deprecated/faq
+slug: /setup/deprecated/faq/
 ---
 
 ## Microservices are not accessible using HIMs

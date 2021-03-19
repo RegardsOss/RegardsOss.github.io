@@ -1,7 +1,7 @@
 ---
 id: backend-framework-starters-amqp-monitoring
 title: AMQP monitoring starter
-slug: /development/backend/framework/starters/amqp-monitoring
+slug: /development/backend/framework/starters/amqp-monitoring/
 ---
 
 

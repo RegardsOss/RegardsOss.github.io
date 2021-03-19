@@ -1,7 +1,7 @@
 ---
 id: depracated-izpack
 title: Deploy with IzPack
-slug: /setup/deprecated/izpack
+slug: /setup/deprecated/izpack/
 ---
 
 For now, the only way to deploy REGARDS on servers is to use an [**IzPack** package](http://izpack.org/).

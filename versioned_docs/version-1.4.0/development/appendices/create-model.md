@@ -2,7 +2,7 @@
 id: appendices-create-model
 title: Create a model
 sidebar_label: REGARDS XML Models format
-slug: /development/appendices/create-model
+slug: /development/appendices/create-model/
 ---
 
 ### Example of a **_DATA_** type model

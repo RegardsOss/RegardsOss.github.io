@@ -1,7 +1,7 @@
 ---
 id: backend-framework-starters-gson
 title: GSON starter
-slug: /development/backend/framework/starters/gson
+slug: /development/backend/framework/starters/gson/
 ---
 
 

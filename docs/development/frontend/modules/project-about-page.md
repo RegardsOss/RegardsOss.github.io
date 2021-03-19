@@ -2,7 +2,7 @@
 id: frontend-packages-lazy-modules-project-about-page
 title: Frontend - Dynamic module Project About Page
 sidebar_label: Project about page
-slug: /development/frontend/packages/lazy-modules/project-about-page
+slug: /development/frontend/packages/lazy-modules/project-about-page/
 ---
 
 

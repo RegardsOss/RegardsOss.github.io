@@ -32,20 +32,20 @@ module.exports = {
       },
       items: [
         {
-          to: "docs/setup",
-          activeBasePath: "docs/setup",
+          to: "docs/setup/",
+          activeBasePath: "docs/setup/",
           label: "Install",
           position: "left",
         },
         {
-          to: "docs/user-guide",
-          activeBasePath: "docs/user-guide",
+          to: "docs/user-guide/",
+          activeBasePath: "docs/user-guide/",
           label: "Manual",
           position: "left",
         },
         {
-          to: "docs/development",
-          activeBasePath: "docs/development",
+          to: "docs/development/",
+          activeBasePath: "docs/development/",
           label: "Developers",
           position: "left",
         },
@@ -61,20 +61,20 @@ module.exports = {
           ],
         },
         {
-          to: "roadmap",
-          activeBasePath: "roadmap",
+          to: "roadmap/",
+          activeBasePath: "roadmap/",
           label: "Roadmap",
           position: "right",
         },
         {
-          to: "release-notes",
-          activeBasePath: "release-notes",
+          to: "release-notes/",
+          activeBasePath: "release-notes/",
           label: "Release notes",
           position: "right",
         },
         {
-          to: "aboutus",
-          activeBasePath: "aboutus",
+          to: "aboutus/",
+          activeBasePath: "aboutus/",
           label: "About us",
           position: "right",
         },
@@ -94,7 +94,7 @@ module.exports = {
           items: [
             {
               label: "Manual",
-              to: "/docs/user-guide",
+              to: "/docs/user-guide/",
             },
           ],
         },
@@ -103,15 +103,15 @@ module.exports = {
           items: [
             {
               label: "Install",
-              href: "/docs/setup",
+              href: "/docs/setup/",
             },
             {
               label: "Backend",
-              href: "/docs/development/backend/architecture/concepts",
+              href: "/docs/development/backend/architecture/concepts/",
             },
             {
               label: "Frontend",
-              href: "/docs/development/frontend/introduction/setup",
+              href: "/docs/development/frontend/introduction/setup/",
             },
           ],
         },
@@ -133,8 +133,8 @@ module.exports = {
       '@docusaurus/plugin-content-docs',
       {
         id: "roadmap",
-        path: "roadmap",
-        routeBasePath: 'roadmap',
+        path: "roadmap/",
+        routeBasePath: 'roadmap/',
         sidebarPath: require.resolve("./sidebars_roadmap.js"),
       },
     ],
@@ -142,8 +142,8 @@ module.exports = {
       '@docusaurus/plugin-content-docs',
       {
         id: "release-notes",
-        path: "release_notes",
-        routeBasePath: 'release-notes',
+        path: "release_notes/",
+        routeBasePath: 'release-notes/',
         sidebarPath: require.resolve("./sidebars_release_notes.js"),
         remarkPlugins: [require("remark-import-partial")],
       }

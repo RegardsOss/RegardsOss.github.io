@@ -2,7 +2,7 @@
 id: backend-processing-plugins
 title: REGARDS Processing Plugin API
 sidebar_label: Processing
-slug: /development/backend/processing/plugins
+slug: /development/backend/processing/plugins/
 ---
 
 

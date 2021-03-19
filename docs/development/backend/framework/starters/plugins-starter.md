@@ -1,7 +1,7 @@
 ---
 id: backend-framework-starters-plugins
 title: Plugins starter
-slug: /development/backend/framework/starters/plugins
+slug: /development/backend/framework/starters/plugins/
 ---
 
 

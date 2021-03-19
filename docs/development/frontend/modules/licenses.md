@@ -2,7 +2,7 @@
 id: frontend-packages-lazy-modules-licenses
 title: Frontend - Dynamic module Licenses
 sidebar_label: Licences
-slug: /development/frontend/packages/lazy-modules/licenses
+slug: /development/frontend/packages/lazy-modules/licenses/
 ---
 
 

@@ -2,7 +2,7 @@
 id: backend-storage-api
 title: REGARDS Storage API
 sidebar_label: Storage
-slug: /development/backend/storage/api
+slug: /development/backend/storage/api/
 ---
 
 
@@ -14,7 +14,7 @@ You can request without auhentication by adding the REGARDS project in the reque
 ```bash
 curl http://localhost:<rs-storage port>/<endpoint>?scope=<project>
 ```
-Or you can authenticate to access admin endpoints. To do so, use the [authentication API](../authentication/api) to get a token and then add the token to the request headers.
+Or you can authenticate to access admin endpoints. To do so, use the [authentication API](../../authentication/api/) to get a token and then add the token to the request headers.
 
 ```bash
 curl http://localhost:<rs-storage port>/<endpoint> -H 'Authorization: bearer <token>'

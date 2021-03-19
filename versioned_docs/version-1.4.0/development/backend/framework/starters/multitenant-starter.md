@@ -1,7 +1,7 @@
 ---
 id: backend-framework-starters-multitenant
 title: Multitenant starter
-slug: /development/backend/framework/starters/multitenant
+slug: /development/backend/framework/starters/multitenant/
 ---
 
 

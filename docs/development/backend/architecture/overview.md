@@ -2,7 +2,7 @@
 id: backend-architecture-overview
 title: REGARDS architecture overview
 sidebar_label: Overview
-slug: /development/backend/architecture/overview
+slug: /development/backend/architecture/overview/
 ---
 
 ## Microservice architecture

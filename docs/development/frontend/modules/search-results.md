@@ -2,7 +2,7 @@
 id: frontend-packages-lazy-modules-search-results
 title: Frontend - Dynamic module Search Results
 sidebar_label: Search results
-slug: /development/frontend/packages/lazy-modules/search-results
+slug: /development/frontend/packages/lazy-modules/search-results/
 ---
 
 

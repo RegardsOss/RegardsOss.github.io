@@ -2,7 +2,7 @@
 id: frontend-packages-lazy-modules-embedded-html
 title: Frontend - Dynamic module Embedded HTML
 sidebar_label: Embedded HTML
-slug: /development/frontend/packages/lazy-modules/embedded-html
+slug: /development/frontend/packages/lazy-modules/embedded-html/
 ---
 
 

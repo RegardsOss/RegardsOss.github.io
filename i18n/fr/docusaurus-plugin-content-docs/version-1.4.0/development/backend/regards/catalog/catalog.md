@@ -2,7 +2,7 @@
 id: backend-catalog-overview
 title: REGARDS catalog microservice
 sidebar_label: Overview
-slug: /development/backend/catalog/overview
+slug: /development/backend/catalog/overview/
 ---
 
 ## Overview
@@ -18,13 +18,13 @@ slug: /development/backend/catalog/overview
 
 ### Search API
 
-* [Catalog](search-api)
+* [Catalog](../search-api/)
 
 ## Available Extension points
 
-* [Catalog service](service-plugins)
-* [Search engine](search-engine-plugins)
+* [Catalog service](../service-plugins/)
+* [Search engine](../search-engine-plugins/)
 
 ## Bus message events
 
- * [Events](events)
+ * [Events](../events/)

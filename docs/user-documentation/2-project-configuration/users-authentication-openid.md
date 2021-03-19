@@ -1,7 +1,7 @@
 ---
 id: project-configuration-users-authentication-openid
 title: Configure OpenID Connect
-slug: /user-guide/project-configuration/users/openid
+slug: /user-guide/project-configuration/users/openid/
 ---
 
 _Configurez les paramètres de connexion à un Service provider pour authentification via OpenID Connect_.

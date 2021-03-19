@@ -2,7 +2,7 @@
 id: backend-fem-overview
 title: REGARDS feature management microservice
 sidebar_label: Overview
-slug: /development/backend/fem/overview
+slug: /development/backend/fem/overview/
 ---
 
 
@@ -10,14 +10,14 @@ slug: /development/backend/fem/overview
 
 `Fem` reponsabilities:
 
-* Feature extraction thanks to one of [IFeatureFactoryPlugin](plugins/feature-factory) implementation,
+* Feature extraction thanks to one of [IFeatureFactoryPlugin](../plugins/feature-factory/) implementation,
 * Feature creation,
 * Feature update,
 * Feature deletion.
 
 ## Available APIs
 
-* [Configuration REST API](api/configuration)
-* [REST API](api/rest)
-* [AMQP API](api/amqp)
+* [Configuration REST API](../api/configuration/)
+* [REST API](../api/rest/)
+* [AMQP API](../api/amqp/)
 

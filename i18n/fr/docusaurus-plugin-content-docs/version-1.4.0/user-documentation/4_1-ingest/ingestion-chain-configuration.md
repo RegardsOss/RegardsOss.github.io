@@ -1,7 +1,7 @@
 ---
 id: oais-files-configure-ingestion-chains
 title: Configure ingestion chains
-slug: /user-guide/import-data/oais-files/configure-ingestion-chains
+slug: /user-guide/import-data/oais-files/configure-ingestion-chains/
 ---
 
 _Pour configurer les chaînes d'ingestion, allez dans le menu ***Add data***, dans la carte ***Products Manager (OAIS)*** et cliquez sur le bouton <img src="/images/user-documentation/regards-icons/admin/configure.png" alt="configure" height="25"/> ***Configure***. Appuyez ensuite sur ***Create new Chain***._
@@ -36,7 +36,7 @@ A partir de l'écran ***Create a new processing chain***, vous avez deux façons
 - Appuyez sur ***Import***
 - Appuyez ensuite sur ***Create***
 - Vérifiez la création de votre chaîne dans la liste
-- Vous pouvez désormais ***[soumettre des SIPs](submit-products)*** avec la chaîne que vous venez de créer.
+- Vous pouvez désormais ***[soumettre des SIPs](../submit-products/)*** avec la chaîne que vous venez de créer.
 
 ### Créer une chaîne manuellement (2)
 
@@ -47,7 +47,7 @@ Complétez les champs suivants :
 - Choisissez les plugins associés à chacune des étapes d'ingestion présentées ci-dessus. Seuls deux plugins sont obligatoires ***Data validation*** et ***Data generation***
 - Appuyez ensuite sur ***Create***
 - Vérifiez la création de votre chaîne dans la liste
-- Vous pouvez désormais ***[soumettre des SIPs](submit-products)*** avec la chaîne que vous venez de créer.
+- Vous pouvez désormais ***[soumettre des SIPs](../submit-products/)*** avec la chaîne que vous venez de créer.
 
 ## <img src="/images/user-documentation/doc-icons/right-arrow.png" alt="arrow" height="12"/> Gérer les chaînes d'ingestion
 

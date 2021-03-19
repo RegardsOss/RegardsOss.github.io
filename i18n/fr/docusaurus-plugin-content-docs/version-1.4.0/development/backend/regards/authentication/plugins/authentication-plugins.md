@@ -2,7 +2,7 @@
 id: backend-authentication-plugins
 title: Authentication plugins
 sidebar_label: Authentication plugins 
-slug: /development/backend/authentication/plugins
+slug: /development/backend/authentication/plugins/
 ---
 
 
@@ -22,7 +22,7 @@ REGARDS provides many implementation of this extension point :
 
 ## Implementation
 
-To learn more about how to create your own plugin see [Plugins](../framework/modules/plugins/)
+To learn more about how to create your own plugin see [Plugins](../../framework/modules/plugins/)
 
 Here under is an exemple of how to implements this extension point to create your own business logic.
 

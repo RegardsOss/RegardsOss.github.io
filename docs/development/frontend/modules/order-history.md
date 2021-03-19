@@ -2,7 +2,7 @@
 id: frontend-packages-lazy-modules-order-history
 title: Frontend - Dynamic module Order History
 sidebar_label: Order history
-slug: /development/frontend/packages/lazy-modules/order-history
+slug: /development/frontend/packages/lazy-modules/order-history/
 ---
 
 

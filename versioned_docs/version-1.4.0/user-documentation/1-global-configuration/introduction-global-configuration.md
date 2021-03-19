@@ -1,7 +1,7 @@
 ---
 id: global-configuration-introduction
 title: Introduction
-slug: /user-guide/global-configuration/introduction
+slug: /user-guide/global-configuration/introduction/
 ---
 
 *REGARDS offre la possibilité de créer plusieurs projets avec leurs propres thématiques.
@@ -17,9 +17,9 @@ L'interface d'administration est accessible depuis l'adresse `http://<regards ho
 
 Depuis celle-ci, vous pourrez :
 
-- [Créer et gérer des projets](projects)
-- [Identifier les utilisateurs et contrôler leurs droits d'accès](users)
-- [Personnaliser l'interface](portal)
+- [Créer et gérer des projets](../projects/)
+- [Identifier les utilisateurs et contrôler leurs droits d'accès](../users/)
+- [Personnaliser l'interface](../portal/)
 
 <div align="center">
   <img src="/images/user-documentation/1-global-configuration/admin-instance-hmi.png" alt="interface admin" width="800"/> 

@@ -1,7 +1,7 @@
 ---
 id: depracated-cli
 title: REGARDS Command line interface
-slug: /setup/deprecated/cli
+slug: /setup/deprecated/cli/
 ---
 
 ## Start the system

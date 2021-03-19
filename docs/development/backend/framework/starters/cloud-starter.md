@@ -1,7 +1,7 @@
 ---
 id: backend-framework-starters-cloud
 title: Cloud starter
-slug: /development/backend/framework/starters/cloud
+slug: /development/backend/framework/starters/cloud/
 ---
 
 ## Purpose

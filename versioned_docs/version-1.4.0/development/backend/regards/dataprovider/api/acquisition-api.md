@@ -2,7 +2,7 @@
 id: backend-dataprovider-api
 title: REGARDS dataprovider API
 sidebar_label: Dataprovider
-slug: /development/backend/dataprovider/api
+slug: /development/backend/dataprovider/api/
 ---
 
 
@@ -14,7 +14,7 @@ You can request without auhentication by adding the REGARDS project in the reque
 ```bash
 curl http://localhost:<rs-dataprovider port>/<endpoint>?scope=<project>
 ```
-Or you can authenticate to access admin endpoints. To do so, use the [authentication API](../authentication/api) to get a token and then add the token to the request headers.
+Or you can authenticate to access admin endpoints. To do so, use the [authentication API](../../authentication/api/) to get a token and then add the token to the request headers.
 
 ```bash
 curl http://localhost:<rs-dataprovider port>/<endpoint> -H 'Authorization: bearer <token>'

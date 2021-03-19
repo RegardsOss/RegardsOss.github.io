@@ -2,7 +2,7 @@
 id: frontend-packages-lazy-modules-authentication
 title: Frontend - Dynamic module Authentication
 sidebar_label: Authentication
-slug: /development/frontend/packages/lazy-modules/authentication
+slug: /development/frontend/packages/lazy-modules/authentication/
 ---
 
 

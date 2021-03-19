@@ -1,7 +1,7 @@
 ---
 id: backend-framework-starters-encryption
 title: Encryption starter
-slug: /development/backend/framework/starters/encryption
+slug: /development/backend/framework/starters/encryption/
 ---
 
 

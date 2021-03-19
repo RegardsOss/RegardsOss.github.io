@@ -2,7 +2,7 @@
 id: frontend-packages-lazy-modules-order-cart
 title: Frontend - Dynamic module Order Cart
 sidebar_label: Order cart
-slug: /development/frontend/packages/lazy-modules/order-cart
+slug: /development/frontend/packages/lazy-modules/order-cart/
 ---
 
 

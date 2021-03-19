@@ -1,7 +1,7 @@
 ---
 id: swarm-setup
 title: Advanced setup
-slug: /setup/swarm/advanced-setup
+slug: /setup/swarm/advanced-setup/
 ---
 
 ## Deployment

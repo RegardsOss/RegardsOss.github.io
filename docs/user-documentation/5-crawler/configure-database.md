@@ -1,7 +1,7 @@
 ---
 id: crawler-configure-connection
 title: Configure a connection to an external database
-slug: /user-guide/crawler/configure-connection
+slug: /user-guide/crawler/configure-connection/
 ---
 
 _Pour configurer une connexion à une base de données externe, veuillez suivre les étapes suivantes._
@@ -27,4 +27,4 @@ _Pour configurer une connexion à une base de données externe, veuillez suivre 
 
 - Appuyez sur ***Previous*** pour revenir à la carte ***Crawling***
 
-Vous pouvez désormais [ajouter des éléments au catalogue depuis cette nouvelle source de données](configure-datasources/external-databases)
+Vous pouvez désormais [ajouter des éléments au catalogue depuis cette nouvelle source de données](../configure-datasources/external-databases/)

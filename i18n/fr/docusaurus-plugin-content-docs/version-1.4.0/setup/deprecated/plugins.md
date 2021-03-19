@@ -1,7 +1,7 @@
 ---
 id: depracated-plugins
 title: Plugins installation
-slug: /setup/deprecated/plugins
+slug: /setup/deprecated/plugins/
 ---
 
 ## Find plugins

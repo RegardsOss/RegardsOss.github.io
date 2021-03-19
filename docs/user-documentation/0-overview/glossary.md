@@ -1,7 +1,7 @@
 ---
 id: glossary
 title: Glossary
-slug: /user-guide/glossary
+slug: /user-guide/glossary/
 ---
 
 <h3>Familiarisez-vous avec le vocabulaire utilisé dans REGARDS</h3>

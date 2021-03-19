@@ -2,7 +2,7 @@
 id: appendices-srf
 title: Software Reuse File
 sidebar_label: Software Reuse File
-slug: /development/appendices/srf
+slug: /development/appendices/srf/
 ---
 
 ## Document Status Sheet
@@ -200,7 +200,7 @@ Using **weak** copyleft licenses products without any change enables to guarante
 | :------------------: | :----------------: | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: |
 |         Name         | Java Main features |                                                                                                    Java is a general-purpose computer programming language.                                                                                                     |
 | Developer/Ownership  |       Oracle       |
-| Licencing conditions |      GNU GPL       | Industrial Property Constraints Redistribution and use in source and binary forms, with or without modification, are permitted provided [those conditions](#http://www.oracle.com/technetwork/java/javase/downloads/thirdpartylicensereadme-java8-2168078.txt). |
+| Licencing conditions |      GNU GPL       | Industrial Property Constraints Redistribution and use in source and binary forms, with or without modification, are permitted provided [those conditions](http://www.oracle.com/technetwork/java/javase/downloads/thirdpartylicensereadme-java8-2168078.txt). |
 |       Version        |         8          |
 |      Languages       |       C++,C        |
 
@@ -210,7 +210,7 @@ Using **weak** copyleft licenses products without any change enables to guarante
 | :------------------: | :-----------------------: | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: |
 |         Name         |   Spring Main features    |                    The Spring Framework provides a comprehensive programming and configuration model for modern Java-based enterprise applications - on any kind of deployment platform.                     |
 | Developer/Ownership  |          Pivotal          |
-| Licencing conditions | Apache license, version 2 | Industrial Property Constraints Redistribution and use in source and binary forms, with or without modification, are permitted provided [those conditions](#http://www.apache.org/licenses/LICENSE-2.0.txt). |
+| Licencing conditions | Apache license, version 2 | Industrial Property Constraints Redistribution and use in source and binary forms, with or without modification, are permitted provided [those conditions](http://www.apache.org/licenses/LICENSE-2.0.txt). |
 |       Version        |          4.3.11           |
 |      Languages       |           Java            |
 
@@ -220,7 +220,7 @@ Using **weak** copyleft licenses products without any change enables to guarante
 | :------------------: | :-----------------------: | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: |
 |         Name         |      Spring Security      |                                                      Spring Security is a powerful and highly customizable authentication and access-control framework.                                                      |
 | Developer/Ownership  |          Pivotal          |
-| Licencing conditions | Apache license, version 2 | Industrial Property Constraints Redistribution and use in source and binary forms, with or without modification, are permitted provided [those conditions](#http://www.apache.org/licenses/LICENSE-2.0.txt). |
+| Licencing conditions | Apache license, version 2 | Industrial Property Constraints Redistribution and use in source and binary forms, with or without modification, are permitted provided [those conditions](http://www.apache.org/licenses/LICENSE-2.0.txt). |
 |       Version        |           4.3.2           |
 |      Languages       |           Java            |
 
@@ -230,7 +230,7 @@ Using **weak** copyleft licenses products without any change enables to guarante
 | :------------------: | :-----------------------: | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: |
 |         Name         |      Spring Data JPA      | The primary goal of the Spring Data project is to make it easier to build Spring-powered applications that use data access technologies. This module deals with enhanced support for JPA based data access layers. |
 | Developer/Ownership  |          Pivotal          |
-| Licencing conditions | Apache license, version 2 |    Industrial Property Constraints Redistribution and use in source and binary forms, with or without modification, are permitted provided [those conditions](#http://www.apache.org/licenses/LICENSE-2.0.txt).    |
+| Licencing conditions | Apache license, version 2 |    Industrial Property Constraints Redistribution and use in source and binary forms, with or without modification, are permitted provided [those conditions](http://www.apache.org/licenses/LICENSE-2.0.txt).    |
 |       Version        |       2.1.4.RELEASE       |
 |      Languages       |           Java            |
 
@@ -270,7 +270,7 @@ Using **weak** copyleft licenses products without any change enables to guarante
 | :------------------: | :-----------------------: | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: |
 |         Name         |        Open Feign         |                                                           Library to support implementing representations for hyper-text driven REST web services.                                                           |
 | Developer/Ownership  |   Open source software    |
-| Licencing conditions | Apache license, version 2 | Industrial Property Constraints Redistribution and use in source and binary forms, with or without modification, are permitted provided [those conditions](#http://www.apache.org/licenses/LICENSE-2.0.txt). |
+| Licencing conditions | Apache license, version 2 | Industrial Property Constraints Redistribution and use in source and binary forms, with or without modification, are permitted provided [those conditions](http://www.apache.org/licenses/LICENSE-2.0.txt). |
 |       Version        |           9.5.0           |
 |      Languages       |           Java            |
 
@@ -280,7 +280,7 @@ Using **weak** copyleft licenses products without any change enables to guarante
 | :------------------: | :--------------------------: | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: |
 |         Name         | Spring HATEOAS Main features |                                                           Library to support implementing representations for hyper-text driven REST web services.                                                           |
 | Developer/Ownership  |           Pivotal            |
-| Licencing conditions |  Apache license, version 2   | Industrial Property Constraints Redistribution and use in source and binary forms, with or without modification, are permitted provided [those conditions](#http://www.apache.org/licenses/LICENSE-2.0.txt). |
+| Licencing conditions |  Apache license, version 2   | Industrial Property Constraints Redistribution and use in source and binary forms, with or without modification, are permitted provided [those conditions](http://www.apache.org/licenses/LICENSE-2.0.txt). |
 |       Version        |   0.25.0.RELEASE Language    |                                                                                                     Java                                                                                                     |
 
 ##### 10. IzPack
@@ -289,7 +289,7 @@ Using **weak** copyleft licenses products without any change enables to guarante
 | :------------------: | :-----------------------: | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: |
 |         Name         |   IzPack Main features    |                                                            IzPack is a one-stop solution for packaging, distributing and deploying applications.                                                             |
 | Developer/Ownership  |   Open source software    |
-| Licencing conditions | Apache license, version 2 | Industrial Property Constraints Redistribution and use in source and binary forms, with or without modification, are permitted provided [those conditions](#http://www.apache.org/licenses/LICENSE-2.0.txt). |
+| Licencing conditions | Apache license, version 2 | Industrial Property Constraints Redistribution and use in source and binary forms, with or without modification, are permitted provided [those conditions](http://www.apache.org/licenses/LICENSE-2.0.txt). |
 |       Version        |           5.1.0           |
 |      Languages       |           Java            |
 
@@ -309,7 +309,7 @@ Using **weak** copyleft licenses products without any change enables to guarante
 | :------------------: | :-------------------------: | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: |
 |         Name         | Elasticsearch Main features |                                                                   Open source, distributed, RESTful search engine built on top of Lucene.                                                                    |
 | Developer/Ownership  |           Elastic           |
-| Licencing conditions |  Apache license, version 2  | Industrial Property Constraints Redistribution and use in source and binary forms, with or without modification, are permitted provided [those conditions](#http://www.apache.org/licenses/LICENSE-2.0.txt). |
+| Licencing conditions |  Apache license, version 2  | Industrial Property Constraints Redistribution and use in source and binary forms, with or without modification, are permitted provided [those conditions](http://www.apache.org/licenses/LICENSE-2.0.txt). |
 |       Version        |            6.5.0            |
 |       Language       |            Java             |
 
@@ -329,7 +329,7 @@ Using **weak** copyleft licenses products without any change enables to guarante
 | :------------------: | :-----------------------: | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: |
 |         Name         |           Jetty           |                                                                                 embeddable web server and servlet container                                                                                  |
 | Developer/Ownership  |          Eclipse          |
-| Licencing conditions | Apache license, version 2 | Industrial Property Constraints Redistribution and use in source and binary forms, with or without modification, are permitted provided [those conditions](#http://www.apache.org/licenses/LICENSE-2.0.txt). |
+| Licencing conditions | Apache license, version 2 | Industrial Property Constraints Redistribution and use in source and binary forms, with or without modification, are permitted provided [those conditions](http://www.apache.org/licenses/LICENSE-2.0.txt). |
 |       Version        |     9.4.14.v20181114      |
 |      Languages       |           Java            |
 
@@ -341,7 +341,7 @@ Using **weak** copyleft licenses products without any change enables to guarante
 | :------------------: | :------------------------: | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: |
 |         Name         | Apache Maven Main features |                                                                        Maven is a software project management and comprehension tool.                                                                        |
 | Developer/Ownership  | Apache Software Foundation |
-| Licencing conditions | Apache license, version 2  | Industrial Property Constraints Redistribution and use in source and binary forms, with or without modification, are permitted provided [those conditions](#http://www.apache.org/licenses/LICENSE-2.0.txt). |
+| Licencing conditions | Apache license, version 2  | Industrial Property Constraints Redistribution and use in source and binary forms, with or without modification, are permitted provided [those conditions](http://www.apache.org/licenses/LICENSE-2.0.txt). |
 |       Version        |           3.3.3            |
 |      Languages       |            Java            |
 
@@ -375,6 +375,6 @@ Security Considerations: Those tools are not deployed with REGARDS. As so they d
 | :------------------: | :------------------------: | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: |
 |         Name         |  SeleniumHQ Main features  |                                                                 Selenium is a suite of tools to automate web browsers across many platforms.                                                                 |
 | Developer/Ownership  | Apache Software Foundation |
-| Licencing conditions | Apache license, version 2  | Industrial Property Constraints Redistribution and use in source and binary forms, with or without modification, are permitted provided [those conditions](#http://www.apache.org/licenses/LICENSE-2.0.txt). |
+| Licencing conditions | Apache license, version 2  | Industrial Property Constraints Redistribution and use in source and binary forms, with or without modification, are permitted provided [those conditions](http://www.apache.org/licenses/LICENSE-2.0.txt). |
 |       Version        |           2.53.1           |
 |      Languages       |      JavaScript, Java      |

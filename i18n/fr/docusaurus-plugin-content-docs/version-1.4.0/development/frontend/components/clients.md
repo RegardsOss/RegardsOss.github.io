@@ -2,13 +2,13 @@
 id: frontend-data-clients
 title: Backend interactions
 sidebar_label: Backend interactions
-slug: /development/frontend/data/clients
+slug: /development/frontend/data/clients/
 ---
 
 
 ## Description
 
-As explain in the general frontend archicteture ([REGARDS UI data](ui-data)) page, REGARDS is based on Redux and Redux API middleware librairies to fetch network data and store it. This page instantiate a client using client definitions from `@regardsoss/client`, that defines most of existing REGARDS endpoints
+As explain in the general frontend archicteture ([REGARDS UI data](../ui-data/) page), REGARDS is based on Redux and Redux API middleware librairies to fetch network data and store it. This page instantiate a client using client definitions from `@regardsoss/client`, that defines most of existing REGARDS endpoints
 
 ## How to
 

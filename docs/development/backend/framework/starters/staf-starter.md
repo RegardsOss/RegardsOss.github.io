@@ -1,7 +1,7 @@
 ---
 id: backend-framework-starters-staf
 title: STAF starter
-slug: /development/backend/framework/starters/staf
+slug: /development/backend/framework/starters/staf/
 ---
 
 

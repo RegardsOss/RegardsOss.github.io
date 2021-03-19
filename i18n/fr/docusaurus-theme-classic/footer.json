@@ -13,19 +13,19 @@
   },
   "link.item.label.Manual": {
     "message": "Manuel",
-    "description": "The label of footer link with label=Manual linking to /docs/user-guide"
+    "description": "The label of footer link with label=Manual linking to /docs/user-guide/"
   },
   "link.item.label.Install": {
     "message": "Installation",
-    "description": "The label of footer link with label=Install linking to /docs/setup"
+    "description": "The label of footer link with label=Install linking to /docs/setup/"
   },
   "link.item.label.Backend": {
     "message": "Backend",
-    "description": "The label of footer link with label=Backend linking to /docs/development/backend/architecture/concepts"
+    "description": "The label of footer link with label=Backend linking to /docs/development/backend/architecture/concepts/"
   },
   "link.item.label.Frontend": {
     "message": "Frontend",
-    "description": "The label of footer link with label=Frontend linking to /docs/development/frontend/introduction/setup"
+    "description": "The label of footer link with label=Frontend linking to /docs/development/frontend/introduction/setup/"
   },
   "link.item.label.GitHub": {
     "message": "GitHub",

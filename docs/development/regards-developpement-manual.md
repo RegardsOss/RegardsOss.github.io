@@ -1,7 +1,7 @@
 ---
 id: development-manual
 title: Development manual
-slug: /development
+slug: /development/
 ---
 
 ## Development contexts
@@ -10,8 +10,8 @@ slug: /development
 
 REGARDS allows developers to extends the REGARDS backend functionnalities by creating their own :
 
-- **[Microservice](development/backend/framework/dev-microservice)** : In order to add new functionalities to REGARDS system throught new REST endpoints
-- **[Microservice plugin](development/backend/framework/modules/plugins)** : In order to extend microservices functionalities throught defined extension points for each REGARDS Microservice
+- **[Microservice](backend/framework/dev-microservice/)** : In order to add new functionalities to REGARDS system throught new REST endpoints
+- **[Microservice plugin](backend/framework/modules/plugins/)** : In order to extend microservices functionalities throught defined extension points for each REGARDS Microservice
 
 **Requirements :** You need a development environment with :
 
@@ -23,9 +23,9 @@ REGARDS allows developers to extends the REGARDS backend functionnalities by cre
 
 REGARDS allows developers to extends REGARDS Frontend functionnalities by creating their own :
 
-- **[UI service plugin](development/frontend/plugins/service)** : In order to add new functionalities availables from the consultables data id the project user HMI.
-- **[UI search criterion widget](development/frontend/plugins/criteria)** : In order to add new criterion types in REGARDS search forms.
-- **[UI Module plugin](development/frontend/plugins/)** : In order to add a totaly new bundle of functionalities
+- **[UI service plugin](frontend/plugins/service/)** : In order to add new functionalities availables from the consultables data id the project user HMI.
+- **[UI search criterion widget](frontend/plugins/criteria/)** : In order to add new criterion types in REGARDS search forms.
+- **[UI Module plugin](frontend/plugins/)** : In order to add a totaly new bundle of functionalities
 
 **Requirements :** You need a development environment with :
 
@@ -34,14 +34,14 @@ REGARDS allows developers to extends REGARDS Frontend functionnalities by creati
 
 ## Create a new microservice
 
-Refer to [develop a new microservice](development/backend/framework/dev-microservice) page to create your own microservice.
+Refer to [develop a new microservice](backend/framework/dev-microservice/) page to create your own microservice.
 
 ## Create a new Microservice plugin
 
 Refer to the following pages to develop your own plugins.
 
-- [Backend plugins](development/backend/framework/modules/plugins)
-- [Frontend plugins](development/frontend/plugins)
+- [Backend plugins](backend/framework/modules/plugins/)
+- [Frontend plugins](frontend/plugins/)
 
 ## Contribute to REGARDS
 

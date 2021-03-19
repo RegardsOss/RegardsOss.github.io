@@ -2,7 +2,7 @@
 id: swarm-cli
 title: REGARDS Command line interface
 sidebar_label: Administration
-slug: /setup/swarm/cli
+slug: /setup/swarm/cli/
 ---
 
 

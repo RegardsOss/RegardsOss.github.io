@@ -1,7 +1,7 @@
 ---
 id: order-monitor-orders
 title: Monitor orders
-slug: /user-guide/order/monitor-orders
+slug: /user-guide/order/monitor-orders/
 ---
 
 *Suivez les commandes effectuées dans votre projet*

@@ -2,7 +2,7 @@
 id: backend-framework-starters
 title: REGARDS framework starters 
 sidebar_label: Introduction
-slug: /development/backend/framework/starters
+slug: /development/backend/framework/starters/
 ---
 
 Most of the time, starter depends on a business package. Sometimes, regarding the layer you implement, you may want to use directly the starter or just the business package.
@@ -15,7 +15,7 @@ See latest [Spring documentation](https://docs.spring.io/spring-boot/docs/curren
 
 ### Multitenancy
 
-* [Multitenant starter](starters/multitenant)
+* [Multitenant starter](../starters/multitenant/)
 
 :::danger
 Most REGARDS starters are designed to handle multitenancy and depends on this base starter.
@@ -23,20 +23,20 @@ Most REGARDS starters are designed to handle multitenancy and depends on this ba
 
 ### Authentication and authorization
 
-* [Authentication starter](starters/authentication)
-* [Security starter](starters/security)
+* [Authentication starter](../starters/authentication/)
+* [Security starter](../starters/security/)
 
 ### Microservice communications
 
-* [AMQP starter](starters/amqp)
-* [Cloud starter](starters/cloud)
-* [Feign starter](starters/feign)
+* [AMQP starter](../starters/amqp/)
+* [Cloud starter](../starters/cloud/)
+* [Feign starter](../starters/feign/)
 
 ### Microservice
 
-* [Microservice starter](starters/microservice)
-* [Microservice core starter](starters/microservice-core)
-* [Module starter](starters/module)
+* [Microservice starter](../starters/microservice/)
+* [Microservice core starter](../starters/microservice-core/)
+* [Module starter](../starters/module/)
 
 :::note
 Microservice logger artifact just centralizes logback default configuration.
@@ -49,17 +49,17 @@ artifactId>microservice-logger</artifactId>
 
 ### Business starters
 
-* [GeoJSON starter](starters/geojson)
-* [OAIS starter](starters/oais)
+* [GeoJSON starter](../starters/geojson/)
+* [OAIS starter](../starters/oais/)
 
 ### JPA starters
 
-* [JPA instance starter](starters/jpa-instance)
-* [JPA multitenant starter](starters/jpa-multitenant)
+* [JPA instance starter](../starters/jpa-instance/)
+* [JPA multitenant starter](../starters/jpa-multitenant/)
 
 ### Tools
 
-* [GSON starter](starters/gson)
-* [HATEOAS starter](starters/hateoas)
-* [Swagger starter](starters/swagger)
-* [Encryption](starters/encryption)
+* [GSON starter](../starters/gson/)
+* [HATEOAS starter](../starters/hateoas/)
+* [Swagger starter](../starters/swagger/)
+* [Encryption](../starters/encryption/)

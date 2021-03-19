@@ -2,7 +2,7 @@
 id: backend-notifier-api
 title: Notifier API
 sidebar_label: Notifier
-slug: /development/backend/notifier/api
+slug: /development/backend/notifier/api/
 ---
 
 

@@ -1,7 +1,7 @@
 ---
 id: backend-framework-starters-jpa-instance
 title: JPA instance starter
-slug: /development/backend/framework/starters/jpa-instance
+slug: /development/backend/framework/starters/jpa-instance/
 ---
 
 

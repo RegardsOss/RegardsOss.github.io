@@ -1,7 +1,7 @@
 ---
 id: overview
 title: Overview
-slug: /user-guide
+slug: /user-guide/
 ---
 
 REGARDS (**_RE_**nouvellement des outils **_G_**énériques d'**_A_**ccès et d'a**_R_**chivage pour les **_D_**onnées **_S_**patiales)
@@ -147,54 +147,54 @@ REGARDS (**_RE_**nouvellement des outils **_G_**énériques d'**_A_**ccès et d'
 
 <ol>
   <li>
-    <a href="user-guide/global-configuration/introduction">
+    <a href="global-configuration/introduction/">
       Configurer l'instance de REGARDS
     </a>
   </li>
   <li>
-    <a href="user-guide/project-configuration/introduction">
+    <a href="project-configuration/introduction/">
       Configurer un projet REGARDS
     </a>
   </li>
   <li>
-    <a href="user-guide/data-organization/models">
+    <a href="data-organization/models/">
       Définir les modèles de données
     </a>
   </li>
   <li>
-    <a href="user-guide/import-data/introduction/">
+    <a href="import-data/introduction/">
       Importer les données
     </a>
     <ul>
       <li>
-        <a href="user-guide/import-data/oais-files/introduction">
+        <a href="import-data/oais-files/introduction/">
           Depuis des fichiers au format OAIS
         </a>
       </li>
       <li>
-        <a href="user-guide/import-data/scanned-files/introduction">
+        <a href="import-data/scanned-files/introduction/">
           Depuis des fichiers scannés
         </a>
       </li>
       <li>
-        <a href="user-guide/import-data/fem/introduction">
+        <a href="import-data/fem/introduction/">
           Depuis le feature manager (FEM)
         </a>
       </li>
     </ul>
   </li>
   <li>
-    <a href="user-guide/data-organization/collections-datasets">
+    <a href="data-organization/collections-datasets/">
       Regrouper les données en jeux ou collections
     </a>
   </li>
   <li>
-    <a href="user-guide/data-organization/data-access-rights">
+    <a href="data-organization/data-access-rights/">
       Gérer les droits d’accès aux données
     </a>
   </li>
   <li>
-    <a href="user-guide/crawler/introduction">
+    <a href="crawler/introduction/">
       Peupler le catalogue
     </a>
     <ul>
@@ -202,10 +202,10 @@ REGARDS (**_RE_**nouvellement des outils **_G_**énériques d'**_A_**ccès et d'
          Depuis des sources de données internes
         <ul>
           <li>
-            <a href="user-guide/crawler/configure-datasources/aips">Depuis des AIPs</a>
+            <a href="crawler/configure-datasources/aips/">Depuis des AIPs</a>
           </li>
           <li>
-            <a href="user-guide/crawler/configure-datasources/fem">Depuis FEM</a>
+            <a href="crawler/configure-datasources/fem/">Depuis FEM</a>
           </li>
         </ul>
       </li>
@@ -213,12 +213,12 @@ REGARDS (**_RE_**nouvellement des outils **_G_**énériques d'**_A_**ccès et d'
          Depuis des sources de données externes
         <ul>
           <li>
-            <a href="user-guide/crawler/configure-datasources/external-databases">
+            <a href="crawler/configure-datasources/external-databases/">
               Depuis des bases de données externes
             </a>
           </li>
           <li>
-            <a href="user-guide/crawler/configure-datasources/opensearch/">
+            <a href="crawler/configure-datasources/opensearch/">
               Depuis des sources de données web Opensearch
             </a>
           </li>
@@ -227,24 +227,24 @@ REGARDS (**_RE_**nouvellement des outils **_G_**énériques d'**_A_**ccès et d'
     </ul>
   </li>
   <li>
-    <a href="user-guide/catalog/introduction/">
+    <a href="catalog/introduction/">
       Consulter le catalogue
     </a>
   </li>
   <li>
-    <a href="user-guide/data-services/introduction">
+    <a href="data-services/introduction/">
       Ajouter des services aux données
     </a>
   </li>
   <li>
-    <a href="user-guide/order/introduction">
+    <a href="order/introduction/">
       Commander des données depuis le catalogue
     </a>
   </li>
 </ol>
 
 :::info
-Pour en savoir plus sur le développement de plugins [Backend](development/backend/framework/modules/plugins) ou [Frontend](development/frontend/plugins).
+Pour en savoir plus sur le développement de plugins [Backend](../development/backend/framework/modules/plugins/) ou [Frontend](../development/frontend/plugins/).
 :::
 
 **_Mot-clés_** : catalogue de données, métadonnées, données, modèles de données, différentes sources de données, protocole de recherche standardisé, gestion des accès.

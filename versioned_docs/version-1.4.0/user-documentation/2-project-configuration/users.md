@@ -1,7 +1,7 @@
 ---
 id: project-configuration-users
 title: Manage project users
-slug: /user-guide/project-configuration/users
+slug: /user-guide/project-configuration/users/
 ---
 
 _Gérez les utilisateurs du projet depuis le menu ***Users*** de l'administration du projet._
@@ -32,7 +32,7 @@ Réglez les paramètres suivants :
 Appuyez ensuite sur le bouton **_Confirm_** pour valider la configuration.
 
 :::info
-Ce système de validation est également mis en place au niveau des [comptes utilisateurs d'instance](../global-configuration/users). Il peut donc y avoir deux validations nécessaires, une niveau instance et une niveau projet.
+Ce système de validation est également mis en place au niveau des [comptes utilisateurs d'instance](../../global-configuration/users/). Il peut donc y avoir deux validations nécessaires, une niveau instance et une niveau projet.
 :::
 
 ### <img src="/images/user-documentation/doc-icons/right-arrow.png" alt="arrow" height="12"/> Création de comptes
@@ -69,7 +69,7 @@ Remplissez les champs suivants :
 - **_Organization_** _[Obligatoire]_ la structure de rattachement
 - **_Registration reason_** _[Obligatoire]_ la raison d'inscription
 
-Dans la partie Groups, associez l'utilisateur à des groupes d'accès aux données en appuyant sur le bouton **_Add_**. Pour en savoir plus, reportez-vous à la page [Configure data access rights](../data-organization/data-access-rights/)
+Dans la partie Groups, associez l'utilisateur à des groupes d'accès aux données en appuyant sur le bouton **_Add_**. Pour en savoir plus, reportez-vous à la page [Configure data access rights](../../data-organization/data-access-rights/)
 
 ### <img src="/images/user-documentation/doc-icons/right-arrow.png" alt="arrow" height="12"/> Gestion des utilisateurs
 
@@ -109,7 +109,7 @@ Pour chaque microservice, vous pourrez gérer individuellement l'accès à chaqu
 #### Groupes d'accès aux données
 
 Chaque utilisateur peut faire partie d'un groupe lui permettant d'accéder à une partie des données contenues dans votre projet REGARDS.
-Pour savoir comment gérer les accès aux jeux de données, référez-vous à la page [Configure data access rights](../data-organization/data-access-rights/).
+Pour savoir comment gérer les accès aux jeux de données, référez-vous à la page [Configure data access rights](../../data-organization/data-access-rights/).
 
 #### Modification & Suppression
 
@@ -131,7 +131,7 @@ Dans la liste **_Users_** accessible depuis la carte **_Users_**, vous pourrez e
 </div>
 
 :::info
-La suppression d'un utilisateur n'entraîne que son retrait de la liste des utilisateurs du projet courant. Son [compte](../global-configuration/users) au niveau de l'instance REGARDS est lui conservé.
+La suppression d'un utilisateur n'entraîne que son retrait de la liste des utilisateurs du projet courant. Son [compte](../../global-configuration/users/) au niveau de l'instance REGARDS est lui conservé.
 :::
 
 ### <img src="/images/user-documentation/doc-icons/right-arrow.png" alt="arrow" height="12"/> Utilisation de comptes utilisateur externes

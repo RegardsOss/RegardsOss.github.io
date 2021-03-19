@@ -2,7 +2,7 @@
 id: frontend-view-theme
 title: Material and module themes
 sidebar_label: Theme
-slug: /development/frontend/view/theme
+slug: /development/frontend/view/theme/
 ---
 
 

@@ -1,7 +1,7 @@
 ---
 id: backend-framework-starters-amqp
 title: AMQP starter
-slug: /development/backend/framework/starters/amqp
+slug: /development/backend/framework/starters/amqp/
 ---
 
 
@@ -32,7 +32,7 @@ Business dependency
 
 Dependency :
 
-* [Multitenant starter](multitenant)
+* [Multitenant starter](../multitenant/)
 
 Prerequisites :
 
