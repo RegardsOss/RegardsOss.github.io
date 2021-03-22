@@ -69,22 +69,6 @@ Le endpoint est https://\<hote\>/api/v1/rs-ingest/sips en POST avec le body :
 }
 ```
 
-Ce endpoint demande un token d'authentification passé soit dans le header de la requête HTTP :  
-```sh
-curl -X POST https://\<hote\>/api/v1/rs-ingest/sips?token=\<token\> --data-binary @request.json -H "Authorization : Bearer \<token\>"
-```
-
-Ou bien en query paramètre de la requête  
-```sh
-curl -X POST https://\<hote\>/api/v1/rs-ingest/sips?token=\<token\> --data-binary @request.json
-```
-
-Ce token d'authentification s'obtient auprès du service d'authentification de REGARDS comme suit :  
-```sh
-curl -X POST "https://\<hote\>/api/v1/rs-authentication/oauth/token?grant_type=password&username=user&password=password&scope=project" \
-	-H 'Authorization: Basic Y2xpZW50OnNlY3JldA==' -H 'Accept: application/json, text/plain'
-```
-
 Le traitement de la soumission des SIPs au travers de ce endpoint est asynchrone, de ce fait la réponse renvoi l'état d'acceptation ou de refus des divers SIP. Pour les SIP acceptés, l'identifiant de la requête d'ingestion en cours de traitement est fournie. Pour les SIP refusés la raison du refus est fournie.
 
 Les retours de cette interface sont :

@@ -211,6 +211,7 @@ module.exports = {
           type: "category",
           label: "Services",
           items: [
+            "development/backend/regards/backend-services-overview",
             {
               type: "category",
               label: "Authentication",

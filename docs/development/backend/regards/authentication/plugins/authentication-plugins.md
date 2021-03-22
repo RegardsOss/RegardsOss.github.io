@@ -6,40 +6,32 @@ slug: /development/backend/authentication/plugins/
 ---
 
 
-## Overview
-
 :::note
 This extension point allows to define an authentication protocol.
+
+By default, if no authentication system is defined, REGARDS handles its own authentication system based on JWT tokens. However, it is possible to externalize user management with IDP and/or SP.
 :::
 
+## IDP (Identity provider)
+
+Authentication system managed by REGARDS which user base is deported on an external base. This operation allow to connect to an LDAP base for example.
+
+### Interface
+
+ - [IAuthenticationPlugin](https://github.com/RegardsOss/regards-cloud/blob/master/rs-authentication/authentication/authentication-domain/src/main/java/fr/cnes/regards/modules/authentication/domain/plugin/IAuthenticationPlugin.java)
+
 REGARDS provides many implementation of this extension point :
- - [RegardsInternalAuthenticationPlugin](https://github.com/RegardsOss/regards-cloud/blob/master/rs-authentication/authentication/authentication-plugins/src/main/java/fr/cnes/regards/modules/authentication/plugins/regards/RegardsInternalAuthenticationPlugin.java) : Authenticate users with internal managed accounts.
- - [LdapAuthenticationPlugin](https://github.com/RegardsOss/regards-cloud/blob/master/rs-authentication/authentication/authentication-plugins/src/main/java/fr/cnes/regards/modules/authentication/plugins/impl/ldap/LdapAuthenticationPlugin.java) : Authenticate users through a configured LDAP server
+ - [RegardsInternalAuthenticationPlugin](https://github.com/RegardsOss/regards-cloud/blob/master/rs-authentication/authentication/authentication-plugins/src/main/java/fr/cnes/regards/modules/authentication/plugins/identityprovider/regards/RegardsInternalAuthenticationPlugin.java) : Authenticate users with internal managed accounts.
+ - [LdapAuthenticationPlugin](https://github.com/RegardsOss/regards-cloud/blob/master/rs-authentication/authentication/authentication-plugins/src/main/java/fr/cnes/regards/modules/authentication/plugins/identityprovider/ldap/LdapAuthenticationPlugin.java) : Authenticate users through a configured LDAP server
 
-## Interface
+## SP (Service Provider)
 
-   [IAuthenticationPlugin](https://github.com/RegardsOss/regards-cloud/blob/master/rs-authentication/authentication/authentication-plugins/src/main/java/fr/cnes/regards/modules/authentication/plugins/IAuthenticationPlugin.java)
+Authentication system fully externalized. This operation allow to connect through external SSO like github for example.
 
-## Implementation
+### Interface
 
-To learn more about how to create your own plugin see [Plugins](../../framework/modules/plugins/)
+ - [IServiceProviderPlugin](https://github.com/RegardsOss/regards-cloud/blob/master/rs-authentication/authentication/authentication-domain/src/main/java/fr/cnes/regards/modules/authentication/domain/plugin/IServiceProviderPlugin.java)
 
-Here under is an exemple of how to implements this extension point to create your own business logic.
+REGARDS provides one implementation of this extension point :
+ - [OpenIdConnectPlugin](https://github.com/RegardsOss/regards-cloud/blob/master/rs-authentication/authentication/authentication-plugins/src/main/java/fr/cnes/regards/modules/authentication/plugins/serviceprovider/openid/OpenIdConnectPlugin.java) : Authenticate users through a configured OpenID Connect server
 
-<b>NOTE : </b> The only mandatory meta data on every authenticated users is an email adress. So each authentication protocol must be able to return email of authenticated users.
-
-```java
-@Plugin(id = "exemple", version = "1.0.0", description = "exemple plugin",
-        author = "REGARDS Team", contact = "regards@c-s.fr", licence = "LGPLv3.0", owner = "CSSI",
-        url = "https://github.com/RegardsOss")
-public class Plugin implements IDataObjectAccessFilterPlugin {
-   
-   @Override
-   public AuthenticationPluginResponse authenticate(String userName, String userPassword, String scope) {
-           // Do authentication and return an AuthenticationPluginResponse
-           Boolean accessGranted = true;
-           String email = userName;
-           return new AuthenticationPluginResponse(accessGranted,email);
-   }
-}
-```
