@@ -2,7 +2,7 @@
 id: backend-catalog-search-engine-plugins
 title: Search engine plugins
 sidebar_label: Search engine
-slug: /development/backend/catalog/search-engine-plugins/
+slug: /development/backend/services/catalog/search-engine-plugins/
 ---
 
 ## Overview
@@ -21,7 +21,7 @@ REGARDS provides many implementation of this extension point :
 
 ## Implementation
 
-To learn more about how to create your own plugin see [Plugins](../../framework/modules/plugins/)
+To learn more about how to create your own plugin see [Plugins](../../../framework/modules/plugins/)
 
 To lean more about the implemented search engines see [Search API](../search-api/)
 

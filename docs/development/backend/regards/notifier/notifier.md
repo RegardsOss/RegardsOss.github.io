@@ -2,7 +2,7 @@
 id: backend-notifier-overview
 title: Notifier microservice
 sidebar_label: Overview
-slug: /development/backend/notifier/overview/
+slug: /development/backend/services/notifier/overview/
 ---
 
 ## Overview
@@ -20,6 +20,6 @@ slug: /development/backend/notifier/overview/
 
 ## Available Plugins
 
-* [Rule matchers](../plugins#rule-matcher-plugins/)
-* [Recipient senders](../plugins#recipient-sender-plugins/)
+* [Rule matchers](../plugins#rule-matcher-plugins)
+* [Recipient senders](../plugins#recipient-sender-plugins)
 

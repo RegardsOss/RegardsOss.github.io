@@ -20,6 +20,6 @@ slug: /development/backend/notifier/overview/
 
 ## Available Plugins
 
-* [Rule matchers](../plugins#rule-matcher-plugins/)
-* [Recipient senders](../plugins#recipient-sender-plugins/)
+* [Rule matchers](../plugins#rule-matcher-plugins)
+* [Recipient senders](../plugins#recipient-sender-plugins)
 

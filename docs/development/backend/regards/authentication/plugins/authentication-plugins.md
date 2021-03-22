@@ -2,7 +2,7 @@
 id: backend-authentication-plugins
 title: Authentication plugins
 sidebar_label: Authentication plugins 
-slug: /development/backend/authentication/plugins/
+slug: /development/backend/services/authentication/plugins/
 ---
 
 

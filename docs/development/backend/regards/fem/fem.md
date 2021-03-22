@@ -2,7 +2,7 @@
 id: backend-fem-overview
 title: REGARDS feature management microservice
 sidebar_label: Overview
-slug: /development/backend/fem/overview/
+slug: /development/backend/services/fem/overview/
 ---
 
 

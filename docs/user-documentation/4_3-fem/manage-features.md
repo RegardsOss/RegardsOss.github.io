@@ -21,7 +21,7 @@ Pour créer des features, il existe deux types de services proposés par le feat
 
 ### Par le service feature
 
-Pour envoyer des features dans REGARDS, suivez le tutoriel [Feature Manager AMQP API](../../../../development/backend/fem/api/amqp/).
+Pour envoyer des features dans REGARDS, suivez le tutoriel [Feature Manager AMQP API](../../../../development/backend/services/fem/api/amqp/).
 Il vous expliquera comment :
 
 - Créer des fichiers afin de stocker des features dans REGARDS. Ceux-ci sont composés de trois parties principales :
@@ -41,10 +41,10 @@ Il vous expliquera comment :
 
 ### Par le service feature provider
 
-Pour développer des plugins de création de features par extraction de données, suivez le tutoriel [Feature Factory Plugins](../../../../development/backend/fem/plugins/feature-factory/)
+Pour développer des plugins de création de features par extraction de données, suivez le tutoriel [Feature Factory Plugins](../../../../development/backend/services/fem/plugins/feature-factory/)
 
 ## <img src="/images/user-documentation/doc-icons/right-arrow.png" alt="arrow" height="12"/> Gérez les features
 
-Le tutoriel [Feature Manager AMQP API](../../../../development/backend/fem/api/amqp/) vous expliquera également comment modifier et supprimer des features par messages AMQP.
+Le tutoriel [Feature Manager AMQP API](../../../../development/backend/services/fem/api/amqp/) vous expliquera également comment modifier et supprimer des features par messages AMQP.
 
 Par ailleurs, vous pouvez aussi gérer les features depuis le catalogue à l'aide de [plugins d'interface supplémentaires](../../../data-services/ui-services/). Notez que vous devrez obligatoirement avoir configuré une [aspiration de données depuis le feature manager](../../../crawler/configure-datasources/fem/).

@@ -2,7 +2,7 @@
 id: backend-dataprovider-api
 title: REGARDS dataprovider API
 sidebar_label: Dataprovider
-slug: /development/backend/dataprovider/api/
+slug: /development/backend/services/dataprovider/api/
 ---
 
 

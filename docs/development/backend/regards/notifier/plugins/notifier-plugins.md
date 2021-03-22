@@ -2,7 +2,7 @@
 id: backend-notifier-plugins
 title: Notifier plugins
 sidebar_label: Notifier 
-slug: /development/backend/notifier/plugins/
+slug: /development/backend/services/notifier/plugins/
 ---
 
 ## Rule matcher plugins

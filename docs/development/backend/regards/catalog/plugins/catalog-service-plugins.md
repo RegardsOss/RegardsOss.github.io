@@ -2,7 +2,7 @@
 id: backend-catalog-service-plugins
 title: Catalog service plugins
 sidebar_label: Catalog service
-slug: /development/backend/catalog/service-plugins/
+slug: /development/backend/services/catalog/service-plugins/
 ---
 
 ## Overview
@@ -90,7 +90,7 @@ For a search query application you can also execlude some entites from the searc
 
 ## Implementation
 
-To learn more about how to create your own plugin see [Plugins](../../framework/modules/plugins/).
+To learn more about how to create your own plugin see [Plugins](../../../framework/modules/plugins/).
 
 You can implements two type of catalog services following the here under exemples :  
 

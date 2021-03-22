@@ -2,7 +2,7 @@
 id: backend-dataprovider-validation-plugin
 title: Acquisition chain - Scan plugins
 sidebar_label: Validation
-slug: /development/backend/dataprovider/plugins/validation/
+slug: /development/backend/services/dataprovider/plugins/validation/
 ---
 
 
@@ -21,7 +21,7 @@ REGARDS provides many implementation of this extension point :
 
 ## Implementation
 
-To learn more about how to create your own plugin see [Plugins](../../../framework/modules/plugins/)
+To learn more about how to create your own plugin see [Plugins](../../../../framework/modules/plugins/)
 
 Here under is an exemple of how to implements this extension point to create your own business logic.
 

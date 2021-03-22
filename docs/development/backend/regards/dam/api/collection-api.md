@@ -2,7 +2,7 @@
 id: backend-dam-collection-api
 title: REGARDS Collection API
 sidebar_label: Collection
-slug: /development/backend/dam/api/collection/
+slug: /development/backend/services/dam/api/collection/
 ---
 
 

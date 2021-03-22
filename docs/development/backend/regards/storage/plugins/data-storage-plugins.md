@@ -2,7 +2,7 @@
 id: backend-storage-data-storage-plugins
 title: Data storage plugins
 sidebar_label: Data storage
-slug: /development/backend/storage/plugins/data-storage/
+slug: /development/backend/services/storage/plugins/data-storage/
 ---
 
 
@@ -28,5 +28,5 @@ REGARDS provides many implementation of this extension point :
 
 ## Implementation
 
-To learn more about how to create your own plugin see [Plugins](../../../framework/modules/plugins/)
+To learn more about how to create your own plugin see [Plugins](../../../../framework/modules/plugins/)
 

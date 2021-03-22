@@ -2,7 +2,7 @@
 id: backend-dam-document-api
 title: REGARDS Document API
 sidebar_label: Document
-slug: /development/backend/dam/api/document/
+slug: /development/backend/services/dam/api/document/
 ---
 
 

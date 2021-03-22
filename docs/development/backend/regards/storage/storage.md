@@ -2,7 +2,7 @@
 id: backend-storage-overview
 title: REGARDS storage microservice
 sidebar_label: Overview
-slug: /development/backend/storage/overview/
+slug: /development/backend/services/storage/overview/
 ---
 
 

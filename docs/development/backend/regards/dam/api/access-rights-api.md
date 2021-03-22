@@ -2,7 +2,7 @@
 id: backend-dam-access-rights-api
 title: REGARDS Access rights API
 sidebar_label: Access rights
-slug: /development/backend/dam/api/access-rights/
+slug: /development/backend/services/dam/api/access-rights/
 ---
 
 

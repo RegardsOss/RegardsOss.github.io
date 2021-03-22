@@ -2,7 +2,7 @@
 id: backend-dam-model-api
 title: REGARDS Model API
 sidebar_label: Model
-slug: /development/backend/dam/api/model/
+slug: /development/backend/services/dam/api/model/
 ---
 
 

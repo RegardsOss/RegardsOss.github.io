@@ -2,7 +2,7 @@
 id: backend-dam-datasource-api
 title: REGARDS Datasource API
 sidebar_label: Datasource
-slug: /development/backend/dam/api/datasource/
+slug: /development/backend/services/dam/api/datasource/
 ---
 
 

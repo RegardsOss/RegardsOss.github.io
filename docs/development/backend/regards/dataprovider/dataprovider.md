@@ -2,7 +2,7 @@
 id: backend-dataprovider-overview
 title: REGARDS dataprovider microservice
 sidebar_label: Overview
-slug: /development/backend/dataprovider/overview/
+slug: /development/backend/services/dataprovider/overview/
 ---
 
 

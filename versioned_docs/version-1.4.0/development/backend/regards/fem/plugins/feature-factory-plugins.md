@@ -65,4 +65,4 @@ For more information on how to implement plugins, refer to [Plugin documentation
 
 ### How your parameters will be received
 
-When [requesting an extraction](../../api/amqp#feature-creation-request-by-file-reference/), the field `parameters` of the request contains the parameters given to this plugin when the method `IFeatureFactoryPlugin#generateFeature` is called
+When [requesting an extraction](../../api/amqp#feature-creation-request-by-file-reference), the field `parameters` of the request contains the parameters given to this plugin when the method `IFeatureFactoryPlugin#generateFeature` is called

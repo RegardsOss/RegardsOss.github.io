@@ -2,13 +2,13 @@
 id: backend-storage-events
 title: Bus message events
 sidebar_label: Bus message events
-slug: /development/backend/storage/events/
+slug: /development/backend/services/storage/events/
 ---
 
 
 
 :::info
-To know more about bus message mechanism look at [AMQP starter](../../framework/starters/amqp/)
+To know more about bus message mechanism look at [AMQP starter](../../../framework/starters/amqp/)
 :::
 
  | Event    | Target   | Mode    | Description     |

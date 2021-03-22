@@ -2,7 +2,7 @@
 id: backend-order-overview
 title: REGARDS order microservice
 sidebar_label: Overview
-slug: /development/backend/order/overview/
+slug: /development/backend/services/order/overview/
 ---
 
 

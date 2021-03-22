@@ -2,7 +2,7 @@
 id: backend-storage-api
 title: REGARDS Storage API
 sidebar_label: Storage
-slug: /development/backend/storage/api/
+slug: /development/backend/services/storage/api/
 ---
 
 

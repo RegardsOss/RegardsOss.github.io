@@ -2,7 +2,7 @@
 id: backend-order-basket-api
 title: REGARDS Basket API
 sidebar_label: Basket
-slug: /development/backend/order/api/basket/
+slug: /development/backend/services/order/api/basket/
 ---
 
 

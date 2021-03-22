@@ -2,7 +2,7 @@
 id: backend-dam-dataset-api
 title: REGARDS Dataset API
 sidebar_label: Dataset
-slug: /development/backend/dam/api/dataset/
+slug: /development/backend/services/dam/api/dataset/
 ---
 
 

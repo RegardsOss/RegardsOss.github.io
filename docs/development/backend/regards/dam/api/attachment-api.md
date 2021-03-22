@@ -2,7 +2,7 @@
 id: backend-dam-attachment-api
 title: REGARDS Attachment API
 sidebar_label: Attachment
-slug: /development/backend/dam/api/attachment/
+slug: /development/backend/services/dam/api/attachment/
 ---
 
 

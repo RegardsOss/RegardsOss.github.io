@@ -2,7 +2,7 @@
 id: backend-catalog-search-api
 title: REGARDS search API
 sidebar_label: Search
-slug: /development/backend/catalog/search-api/
+slug: /development/backend/services/catalog/search-api/
 ---
 
 At the moment, REGARDS can expose two search API :
@@ -57,7 +57,7 @@ curl -G 'http://<host>/api/v1//rs-catalog/engines/legacy/dataobjects/search' \
 
 ### Using Lucene standard query parser
 
-See [Create a Lucene standard query parser](../../../../development/appendices/lucene-query/).
+See [Create a Lucene standard query parser](../../../../appendices/lucene-query/).
 
 ## Open Search API
 

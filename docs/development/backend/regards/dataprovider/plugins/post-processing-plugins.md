@@ -2,7 +2,7 @@
 id: backend-dataprovider-post-processing-plugin
 title: Acquisition chain - Post processing plugins
 sidebar_label: Post processing
-slug: /development/backend/dataprovider/plugins/post-processing/
+slug: /development/backend/services/dataprovider/plugins/post-processing/
 ---
 
 ## Overview
@@ -20,7 +20,7 @@ REGARDS provides many implementation of this extension point :
 
 ## Implementation
 
-To learn more about how to create your own plugin see [Plugins](../../../framework/modules/plugins/)
+To learn more about how to create your own plugin see [Plugins](../../../../framework/modules/plugins/)
 
 Here under is an exemple of how to implements this extension point to create your own business logic.
 

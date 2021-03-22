@@ -2,7 +2,7 @@
 id: backend-ingest-api
 title: REGARDS Ingest API
 sidebar_label: Ingest
-slug: /development/backend/ingest/api/
+slug: /development/backend/services/ingest/api/
 ---
 
 

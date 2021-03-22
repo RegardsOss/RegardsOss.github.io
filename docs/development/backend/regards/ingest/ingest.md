@@ -2,7 +2,7 @@
 id: backend-ingest-overview
 title: REGARDS ingest microservice
 sidebar_label: Overview
-slug: /development/backend/ingest/overview/
+slug: /development/backend/services/ingest/overview/
 ---
 
 

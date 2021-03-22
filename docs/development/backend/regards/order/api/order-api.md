@@ -2,7 +2,7 @@
 id: backend-order-api
 title: REGARDS Order API
 sidebar_label: Order
-slug: /development/backend/order/api/
+slug: /development/backend/services/order/api/
 ---
 
 

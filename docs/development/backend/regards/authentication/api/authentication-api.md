@@ -2,7 +2,7 @@
 id: backend-authentication-api
 title: REGARDS authentication API
 sidebar_label: Authentication API
-slug: /development/backend/authentication/api/
+slug: /development/backend/services/authentication/api/
 ---
 
 

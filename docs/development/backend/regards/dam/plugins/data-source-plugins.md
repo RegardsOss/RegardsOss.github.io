@@ -2,7 +2,7 @@
 id: backend-dam-datasource-plugins
 title: Datasource plugin
 sidebar_label: Datasource
-slug: /development/backend/dam/plugins/datasource/
+slug: /development/backend/services/dam/plugins/datasource/
 ---
 
 
@@ -22,7 +22,7 @@ REGARDS provides many implementation of this extension point :
 
 ## Implementation
 
-To learn more about how to create your own plugin see [Plugins](../../../framework/modules/plugins/)
+To learn more about how to create your own plugin see [Plugins](../../../../framework/modules/plugins/)
 
 Here under is an exemple of how to implements this extension point to create your own business logic.
 

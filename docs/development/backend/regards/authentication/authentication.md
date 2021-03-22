@@ -2,7 +2,7 @@
 id: backend-authentication-overview
 title: REGARDS authentication microservice
 sidebar_label: Overview
-slug: /development/backend/authentication/overview/
+slug: /development/backend/services/authentication/overview/
 ---
 
 ## Available APIs

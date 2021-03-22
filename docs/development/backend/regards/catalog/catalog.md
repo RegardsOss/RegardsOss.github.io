@@ -2,7 +2,7 @@
 id: backend-catalog-overview
 title: REGARDS catalog microservice
 sidebar_label: Overview
-slug: /development/backend/catalog/overview/
+slug: /development/backend/services/catalog/overview/
 ---
 
 ## Overview

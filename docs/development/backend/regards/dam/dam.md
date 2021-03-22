@@ -2,7 +2,7 @@
 id: backend-dam-overview
 title: REGARDS data management microservice
 sidebar_label: Overview
-slug: /development/backend/dam/overview/
+slug: /development/backend/services/dam/overview/
 ---
 
 
