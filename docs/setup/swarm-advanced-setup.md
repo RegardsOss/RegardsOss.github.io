@@ -14,24 +14,24 @@ This page covers some of the possibilities offered by our inventory, specially t
 
 Let's see how users created by the demo inventory are used:
 
-| User                  | Group                                                        | Description                                             | Tips                                                  |
-| :-------------------- | :----------------------------------------------------------- | :------------------------------------------------------ | :---------------------------------------------------- |
-| `dockermapuid`        | `dockermapgid`                                               | Used by the docker daemon                               | This group is internal to the server                  |
-|                       | `gregards_admin`                                             | Regroup all users that are allowed to monitor the stack | Facultative, `johndoe` can also replace this one      |
-| `docker-regards-data` | `gregards_data`                                              | IPA User/Group owning all files created by REGARDS      | Your user should be inside that group                 |
-| `johndoe`             | `johndoe`, `dockermapgid`, `gregards_admin`, `gregards_data` | Your personnal user                                     | Your user has access to Docker, to the stack and data |
-| `mariecurie`          | `mariecurie`, `gregards_data`                                | Some user                                               | She has access to data, not the stack itself          |
+| User                  | Group                                                        | Description                                                                                                         | Tips                                                  |
+| :-------------------- | :----------------------------------------------------------- | :------------------------------------------------------------------------------------------------------------------ | :---------------------------------------------------- |
+| `dockermapuid`        | `dockermapgid`                                               | Used by the docker daemon                                                                                           | This group is internal to the server                  |
+|                       | `gregards_admin`                                             | Regroup all users that are allowed to monitor the stack                                                             | Facultative, `johndoe` can also replace this one      |
+| `docker-regards-data` | `gregards_data`                                              | IPA User/Group owning all files created by REGARDS, **must be able to access network disk `group_workdir_network`** | Your user should be inside that group                 |
+| `johndoe`             | `johndoe`, `dockermapgid`, `gregards_admin`, `gregards_data` | Your personnal user                                                                                                 | Your user has access to Docker, to the stack and data |
+| `mariecurie`          | `mariecurie`, `gregards_data`                                | Some user                                                                                                           | She has access to data, not the stack itself          |
 
 To setup these users and groups, you must follow these requirements:
 
-| User or group         | Value requirement                                                   |
-| :-------------------- | :------------------------------------------------------------------ |
-| `dockermapuid`        | `name_space_uid`                                                    |
-| `dockermapgid`        | `name_space_gid`                                                    |
-| `johndoe`             |  Any value inferior to `name_space_uid`                             |
-| `gregards_admin`      |  Any value inferior to `name_space_gid`. That user can be no login. |
-| `docker-regards-data` | `group_container_run_uid + name_space_uid`                          |
-| `gregards_data`       | `group_container_run_gid + name_space_gid`                          |
+| User or group          | Value requirement                                                   |
+| :--------------------- | :------------------------------------------------------------------ |
+| `dockermapuid`         | `name_space_uid`                                                    |
+| `dockermapgid`         | `name_space_gid`                                                    |
+| `johndoe`,`mariecurie` |  Any value inferior to `name_space_uid`                             |
+| `gregards_admin`       |  Any value inferior to `name_space_gid`. That user can be no login. |
+| `docker-regards-data`  | `group_container_run_uid + name_space_uid`                          |
+| `gregards_data`        | `group_container_run_gid + name_space_gid`                          |
 
 ### Inventories configuration properties
 
@@ -39,7 +39,7 @@ Global properties :
 
 | Path                               | Type     | Description                                                             | Constraints                                                               |
 | :--------------------------------- | :------- | :---------------------------------------------------------------------- | :------------------------------------------------------------------------ |
-| `dockermapuid`                     | `String` | Network disk shared accross every nodes                                 | Required                                                                  |
+| `group_workdir_network`            | `String` | Network disk shared accross every nodes                                 | Required                                                                  |
 | `group_workdir_network_allow_root` | `Bool`   | Do we allow root inside the network volume?                             | Required                                                                  |
 | `group_workdir_local`              | `String` | Local folder where regards is installed on every node                   | Required                                                                  |
 | `group_stack_name`                 | `String` | Unique stack name (for swarm)                                           | Required. `[a-z-]+`                                                       |
