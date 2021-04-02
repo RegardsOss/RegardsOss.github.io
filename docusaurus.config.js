@@ -27,7 +27,7 @@ module.exports = {
       apiKey: 'b1cf65426b28724deca84be1c3bbe40f',
       indexName: 'regardsoss',
       // Do not mix cross-version search results
-      // contextualSearch: true,
+      contextualSearch: true,
     },
     navbar: {
       style: "dark",
