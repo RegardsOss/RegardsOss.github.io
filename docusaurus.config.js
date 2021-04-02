@@ -38,20 +38,20 @@ module.exports = {
       },
       items: [
         {
-          to: "docs/setup/",
-          activeBasePath: "docs/setup/",
-          label: "Install",
-          position: "left",
+          type: 'doc',
+          docId: 'setup/swarm-quick-setup',
+          label: 'Install',
+          position: 'left',
         },
         {
-          to: "docs/user-guide/",
-          activeBasePath: "docs/user-guide/",
+          type: 'doc',
+          docId: 'user-documentation/0-overview/overview',
           label: "Manual",
           position: "left",
         },
         {
-          to: "docs/development/",
-          activeBasePath: "docs/development/",
+          type: 'doc',
+          docId: 'development/development-manual',
           label: "Developers",
           position: "left",
         },
