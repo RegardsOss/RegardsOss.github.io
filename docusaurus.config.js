@@ -85,7 +85,7 @@ module.exports = {
           position: "right",
         },
         {
-          href: 'https://github.com/RegardsOss/RegardsOss.github.io',
+          href: 'https://github.com/RegardsOss/',
           position: 'right',
           className: 'header-github-link',
           'aria-label': 'GitHub repository',
@@ -126,7 +126,7 @@ module.exports = {
           items: [
             {
               label: "GitHub",
-              href: "https://github.com/RegardsOss/RegardsOss.github.io",
+              href: "https://github.com/RegardsOss/",
             },
           ],
         },
