@@ -28,3 +28,7 @@ slug: /development/backend/services/catalog/overview/
 ## Bus message events
 
  * [Events](../events/)
+
+## Plugins
+
+* [STAC plugin](../stac-plugin/)
