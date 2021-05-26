@@ -141,6 +141,7 @@ As the payload, regardless of the API used, metadata is often associated with a 
 
 |Path|Type|Description|Optional|
 |:--:|:--:|:---------:|:------:|
+|metadata.override| `Boolean` | Indicate wether the previous version should be deleted| true|
 |metadata.session| `String` |Arbitrary session name to classify data for human operators||
 |metadata.sessionOwner| `String` |Arbitrary session owner to classify data for human operators||
 |metadata.storages| `Array` |Target storages if there are files to store (may be empty!)| true|
@@ -149,3 +150,6 @@ As the payload, regardless of the API used, metadata is often associated with a 
 |metadata.storages[].storePath| `String` |Directory in which to store the file| true|
 |metadata.priority| `String` |HIGH, NORMAL, LOW||
 
+:::danger
+override should only be specified with Extraction or Creation requests.
+:::
