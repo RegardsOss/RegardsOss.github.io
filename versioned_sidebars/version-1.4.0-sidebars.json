@@ -32,11 +32,11 @@
       "items": [
         {
           "type": "doc",
-          "id": "version-1.4.0/user-documentation/0-overview/overview"
+          "id": "version-1.4.0/user-documentation/overview/overview"
         },
         {
           "type": "doc",
-          "id": "version-1.4.0/user-documentation/0-overview/glossary"
+          "id": "version-1.4.0/user-documentation/overview/glossary"
         }
       ]
     },
@@ -47,19 +47,19 @@
       "items": [
         {
           "type": "doc",
-          "id": "version-1.4.0/user-documentation/1-global-configuration/global-configuration-introduction"
+          "id": "version-1.4.0/user-documentation/global-configuration/global-configuration-introduction"
         },
         {
           "type": "doc",
-          "id": "version-1.4.0/user-documentation/1-global-configuration/global-configuration-portal"
+          "id": "version-1.4.0/user-documentation/global-configuration/global-configuration-portal"
         },
         {
           "type": "doc",
-          "id": "version-1.4.0/user-documentation/1-global-configuration/global-configuration-projects"
+          "id": "version-1.4.0/user-documentation/global-configuration/global-configuration-projects"
         },
         {
           "type": "doc",
-          "id": "version-1.4.0/user-documentation/1-global-configuration/global-configuration-users"
+          "id": "version-1.4.0/user-documentation/global-configuration/global-configuration-users"
         }
       ]
     },
@@ -70,23 +70,23 @@
       "items": [
         {
           "type": "doc",
-          "id": "version-1.4.0/user-documentation/2-project-configuration/project-configuration-introduction"
+          "id": "version-1.4.0/user-documentation/project-configuration/project-configuration-introduction"
         },
         {
           "type": "doc",
-          "id": "version-1.4.0/user-documentation/2-project-configuration/project-configuration-users"
+          "id": "version-1.4.0/user-documentation/project-configuration/project-configuration-users"
         },
         {
           "type": "doc",
-          "id": "version-1.4.0/user-documentation/2-project-configuration/project-configuration-user-interface"
+          "id": "version-1.4.0/user-documentation/project-configuration/project-configuration-user-interface"
         },
         {
           "type": "doc",
-          "id": "version-1.4.0/user-documentation/2-project-configuration/project-configuration-microservices"
+          "id": "version-1.4.0/user-documentation/project-configuration/project-configuration-microservices"
         },
         {
           "type": "doc",
-          "id": "version-1.4.0/user-documentation/2-project-configuration/project-configuration-storages"
+          "id": "version-1.4.0/user-documentation/project-configuration/project-configuration-storages"
         }
       ]
     },
@@ -97,19 +97,19 @@
       "items": [
         {
           "type": "doc",
-          "id": "version-1.4.0/user-documentation/3-data-organization/data-organization-introduction"
+          "id": "version-1.4.0/user-documentation/data-organization/data-organization-introduction"
         },
         {
           "type": "doc",
-          "id": "version-1.4.0/user-documentation/3-data-organization/data-organization-model-configuration"
+          "id": "version-1.4.0/user-documentation/data-organization/data-organization-model-configuration"
         },
         {
           "type": "doc",
-          "id": "version-1.4.0/user-documentation/3-data-organization/data-organization-collections-datasets"
+          "id": "version-1.4.0/user-documentation/data-organization/data-organization-collections-datasets"
         },
         {
           "type": "doc",
-          "id": "version-1.4.0/user-documentation/3-data-organization/data-organization-data-access-rights"
+          "id": "version-1.4.0/user-documentation/data-organization/data-organization-data-access-rights"
         }
       ]
     },
@@ -120,7 +120,7 @@
       "items": [
         {
           "type": "doc",
-          "id": "version-1.4.0/user-documentation/4-import-data/import-data-introduction"
+          "id": "version-1.4.0/user-documentation/import-data/import-data-introduction"
         },
         {
           "collapsed": true,
@@ -188,11 +188,11 @@
       "items": [
         {
           "type": "doc",
-          "id": "version-1.4.0/user-documentation/5-crawler/crawler-introduction"
+          "id": "version-1.4.0/user-documentation/crawler/crawler-introduction"
         },
         {
           "type": "doc",
-          "id": "version-1.4.0/user-documentation/5-crawler/crawler-configure-connection"
+          "id": "version-1.4.0/user-documentation/crawler/crawler-configure-connection"
         },
         {
           "collapsed": true,
@@ -201,33 +201,33 @@
           "items": [
             {
               "type": "doc",
-              "id": "version-1.4.0/user-documentation/5-crawler/crawler-configure-datasources"
+              "id": "version-1.4.0/user-documentation/crawler/crawler-configure-datasources"
             },
             {
               "type": "doc",
-              "id": "version-1.4.0/user-documentation/5-crawler/crawler-external-databases"
+              "id": "version-1.4.0/user-documentation/crawler/crawler-external-databases"
             },
             {
               "type": "doc",
-              "id": "version-1.4.0/user-documentation/5-crawler/crawler-opensearch"
+              "id": "version-1.4.0/user-documentation/crawler/crawler-opensearch"
             },
             {
               "type": "doc",
-              "id": "version-1.4.0/user-documentation/5-crawler/crawler-aips"
+              "id": "version-1.4.0/user-documentation/crawler/crawler-aips"
             },
             {
               "type": "doc",
-              "id": "version-1.4.0/user-documentation/5-crawler/crawler-fem"
+              "id": "version-1.4.0/user-documentation/crawler/crawler-fem"
             }
           ]
         },
         {
           "type": "doc",
-          "id": "version-1.4.0/user-documentation/5-crawler/crawler-monitor-crawling"
+          "id": "version-1.4.0/user-documentation/crawler/crawler-monitor-crawling"
         },
         {
           "type": "doc",
-          "id": "version-1.4.0/user-documentation/5-crawler/crawler-reset-catalog"
+          "id": "version-1.4.0/user-documentation/crawler/crawler-reset-catalog"
         }
       ]
     },
@@ -238,19 +238,19 @@
       "items": [
         {
           "type": "doc",
-          "id": "version-1.4.0/user-documentation/6-catalog-consultation/catalog-introduction"
+          "id": "version-1.4.0/user-documentation/catalog-consultation/catalog-introduction"
         },
         {
           "type": "doc",
-          "id": "version-1.4.0/user-documentation/6-catalog-consultation/catalog-configuration"
+          "id": "version-1.4.0/user-documentation/catalog-consultation/catalog-configuration"
         },
         {
           "type": "doc",
-          "id": "version-1.4.0/user-documentation/6-catalog-consultation/catalog-use"
+          "id": "version-1.4.0/user-documentation/catalog-consultation/catalog-use"
         },
         {
           "type": "doc",
-          "id": "version-1.4.0/user-documentation/6-catalog-consultation/catalog-protocols"
+          "id": "version-1.4.0/user-documentation/catalog-consultation/catalog-protocols"
         }
       ]
     },
@@ -261,15 +261,15 @@
       "items": [
         {
           "type": "doc",
-          "id": "version-1.4.0/user-documentation/7-data-services/data-services-introduction"
+          "id": "version-1.4.0/user-documentation/data-services/data-services-introduction"
         },
         {
           "type": "doc",
-          "id": "version-1.4.0/user-documentation/7-data-services/data-services-ui-services"
+          "id": "version-1.4.0/user-documentation/data-services/data-services-ui-services"
         },
         {
           "type": "doc",
-          "id": "version-1.4.0/user-documentation/7-data-services/data-services-processing-services"
+          "id": "version-1.4.0/user-documentation/data-services/data-services-processing-services"
         }
       ]
     },
@@ -280,19 +280,19 @@
       "items": [
         {
           "type": "doc",
-          "id": "version-1.4.0/user-documentation/8-order-data/order-introduction"
+          "id": "version-1.4.0/user-documentation/order-data/order-introduction"
         },
         {
           "type": "doc",
-          "id": "version-1.4.0/user-documentation/8-order-data/order-manage-orders"
+          "id": "version-1.4.0/user-documentation/order-data/order-manage-orders"
         },
         {
           "type": "doc",
-          "id": "version-1.4.0/user-documentation/8-order-data/order-processing"
+          "id": "version-1.4.0/user-documentation/order-data/order-processing"
         },
         {
           "type": "doc",
-          "id": "version-1.4.0/user-documentation/8-order-data/order-monitor-orders"
+          "id": "version-1.4.0/user-documentation/order-data/order-monitor-orders"
         }
       ]
     }

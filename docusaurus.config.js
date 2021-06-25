@@ -45,7 +45,7 @@ module.exports = {
         },
         {
           type: 'doc',
-          docId: 'user-documentation/0-overview/overview',
+          docId: 'user-documentation/overview/overview',
           label: "Manual",
           position: "left",
         },
