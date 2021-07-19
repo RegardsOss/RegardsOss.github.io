@@ -1,4 +1,4 @@
-const currentVersion = "1.5.0";
+const currentVersion = "1.6.0";
 
 module.exports = {
   title: "REGARDS",
@@ -45,7 +45,7 @@ module.exports = {
         },
         {
           type: 'doc',
-          docId: 'user-documentation/0-overview/overview',
+          docId: 'user-documentation/overview/overview',
           label: "Manual",
           position: "left",
         },
