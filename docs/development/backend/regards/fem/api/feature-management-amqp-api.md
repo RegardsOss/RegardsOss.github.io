@@ -130,14 +130,18 @@ Messages are published to two different exchanges because under the hood `Featur
 
 * The `requestId` (corresponds to `regards.request.id` header),
 * The `requestOwner` (corresponds to `regards.request.owner` header),
-* The related feature `id`,
-* The related feature `urn`,
+* The related feature `id` (not specified for `EXTRACTION` requests because feature is not yet created),
+* The related feature `urn` (not specified for `EXTRACTION` requests because feature is not yet created),
 * The request type (`EXTRACTION`,`CREATION`,`PATCH`,`DELETION`,`NOTIFICATION`,`FILE_COPY`,`SAVE_METADATA`)
 * The state of the request (`GRANTED`,`DENIED`,`ERROR` or `SUCCESS`),
 * A list of `errors` if any.
 
 :::info
 To receive these messages, your have to subscribe to this exchange.
+:::
+
+:::info
+`EXTRACTION` process does not create features. So if you want to know the created feature id or urn, you have to listen to responses from the `CREATION` process which has the same `requestId` than the corresponding `EXTRACTION` request.
 :::
 
 :::caution
