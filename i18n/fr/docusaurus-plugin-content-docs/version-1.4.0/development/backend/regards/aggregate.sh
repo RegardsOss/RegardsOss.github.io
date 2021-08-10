@@ -1,6 +1,6 @@
 #!/bin/bash
 result="`pwd`/aggregate-api.md"
-cd generated-snippets/
+cd _generated-snippets/
 dirs=`find . -maxdepth 1 -type d`
 cat <<EOF > ${result}
 ---
@@ -45,7 +45,7 @@ for d in $dirs; do
           echo "" >> ${result}
 	  cd $dd
           for f in `find . -type f -name "*.md"`; do
-		  echo "{@import generated-snippets/${d:2}/${dd:2}/${f:2}}" >> ${result}
+		  echo "{@import _generated-snippets/${d:2}/${dd:2}/${f:2}}" >> ${result}
           done
 	  cd ..
        fi

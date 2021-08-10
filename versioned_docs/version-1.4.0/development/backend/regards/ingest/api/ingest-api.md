@@ -36,38 +36,38 @@ curl http://<gateway host>:<gateway port>/rs-ingest/api/v1/<endpoint>
 
 Submit a SIP collection as a bulk POST request.
 
-{@import generated-snippets/SIPControllerIT/ingestSips/http-request.md}
+{@import _generated-snippets/SIPControllerIT/ingestSips/http-request.md}
 
 
 
-{@import generated-snippets/SIPControllerIT/ingestSips/request-body.md}
+{@import _generated-snippets/SIPControllerIT/ingestSips/request-body.md}
 
-{@import generated-snippets/SIPControllerIT/ingestSips/request-fields.md}
+{@import _generated-snippets/SIPControllerIT/ingestSips/request-fields.md}
 
-{@import generated-snippets/SIPControllerIT/ingestSips/http-response.md}
+{@import _generated-snippets/SIPControllerIT/ingestSips/http-response.md}
 
 ## Import a SIP collection
 
 Submit SIP collection to REGARDS by upload a file containing the SIP
 collection in GeoJson format to REGARDS.
 
-{@import generated-snippets/SIPControllerIT/importValidSips/http-request.md}
+{@import _generated-snippets/SIPControllerIT/importValidSips/http-request.md}
 
-{@import generated-snippets/SIPControllerIT/importValidSips/request-parameters.md}
+{@import _generated-snippets/SIPControllerIT/importValidSips/request-parameters.md}
 
-{@import generated-snippets/SIPControllerIT/importValidSips/http-response.md}
+{@import _generated-snippets/SIPControllerIT/importValidSips/http-response.md}
 
-{@import generated-snippets/SIPControllerIT/importPartialInvalidSips/http-response.md}
+{@import _generated-snippets/SIPControllerIT/importPartialInvalidSips/http-response.md}
 
-{@import generated-snippets/SIPControllerIT/importAllInvalidSips/http-response.md}
+{@import _generated-snippets/SIPControllerIT/importAllInvalidSips/http-response.md}
 
 ## Search SIP
 
-{@import generated-snippets/SIPControllerIT/getSips/http-request.md}
+{@import _generated-snippets/SIPControllerIT/getSips/http-request.md}
 
-{@import generated-snippets/SIPControllerIT/getSips/request-parameters.md}
+{@import _generated-snippets/SIPControllerIT/getSips/request-parameters.md}
 
-{@import generated-snippets/SIPControllerIT/getSips/http-response.md}
+{@import _generated-snippets/SIPControllerIT/getSips/http-response.md}
 
 ## Get one SIP
 
@@ -139,21 +139,21 @@ See [SIP collection](#sip-collection-response).
 
 ## Get an ingestion’s session
 
-{@import generated-snippets/SIPControllerIT/getOneSession/http-request.md}
+{@import _generated-snippets/SIPControllerIT/getOneSession/http-request.md}
 
-{@import generated-snippets/SIPControllerIT/getOneSession/path-parameters.md}
+{@import _generated-snippets/SIPControllerIT/getOneSession/path-parameters.md}
 
-{@import generated-snippets/SIPControllerIT/getOneSession/request-body.md}
+{@import _generated-snippets/SIPControllerIT/getOneSession/request-body.md}
 
-{@import generated-snippets/SIPControllerIT/getOneSession/http-response.md}
+{@import _generated-snippets/SIPControllerIT/getOneSession/http-response.md}
 
 ## Search ingestion’s sessions
 
-{@import generated-snippets/SIPControllerIT/getSession/http-request.md}
+{@import _generated-snippets/SIPControllerIT/getSession/http-request.md}
 
-{@import generated-snippets/SIPControllerIT/getSession/request-parameters.md}
+{@import _generated-snippets/SIPControllerIT/getSession/request-parameters.md}
 
-{@import generated-snippets/SIPControllerIT/getSession/http-response.md}
+{@import _generated-snippets/SIPControllerIT/getSession/http-response.md}
 
 ## Delete all SIP for a session id
 
@@ -170,137 +170,137 @@ request.
 
 ## Create an Ingestion processing chain
 
-{@import generated-snippets/IngestProcessingChainControllerIT/createIngestProcessingChain/http-request.md}
+{@import _generated-snippets/IngestProcessingChainControllerIT/createIngestProcessingChain/http-request.md}
 
-{@import generated-snippets/IngestProcessingChainControllerIT/createIngestProcessingChain/request-body.md}
+{@import _generated-snippets/IngestProcessingChainControllerIT/createIngestProcessingChain/request-body.md}
 
-{@import generated-snippets/IngestProcessingChainControllerIT/createIngestProcessingChain/http-response.md}
+{@import _generated-snippets/IngestProcessingChainControllerIT/createIngestProcessingChain/http-response.md}
 
 ## Update an Ingestion processing chain
 
-{@import generated-snippets/IngestProcessingChainControllerIT/updateIngestProcessingChain/http-request.md}
+{@import _generated-snippets/IngestProcessingChainControllerIT/updateIngestProcessingChain/http-request.md}
 
-{@import generated-snippets/IngestProcessingChainControllerIT/updateIngestProcessingChain/path-parameters.md}
+{@import _generated-snippets/IngestProcessingChainControllerIT/updateIngestProcessingChain/path-parameters.md}
 
-{@import generated-snippets/IngestProcessingChainControllerIT/updateIngestProcessingChain/request-body.md}
+{@import _generated-snippets/IngestProcessingChainControllerIT/updateIngestProcessingChain/request-body.md}
 
-{@import generated-snippets/IngestProcessingChainControllerIT/updateIngestProcessingChain/http-response.md}
+{@import _generated-snippets/IngestProcessingChainControllerIT/updateIngestProcessingChain/http-response.md}
 
 ## Get an Ingestion processing chain
 
-{@import generated-snippets/IngestProcessingChainControllerIT/getOneIngestProcessingChain/http-request.md}
+{@import _generated-snippets/IngestProcessingChainControllerIT/getOneIngestProcessingChain/http-request.md}
 
-{@import generated-snippets/IngestProcessingChainControllerIT/getOneIngestProcessingChain/path-parameters.md}
+{@import _generated-snippets/IngestProcessingChainControllerIT/getOneIngestProcessingChain/path-parameters.md}
 
-{@import generated-snippets/IngestProcessingChainControllerIT/getOneIngestProcessingChain/http-response.md}
+{@import _generated-snippets/IngestProcessingChainControllerIT/getOneIngestProcessingChain/http-response.md}
 
 ## Delete an Ingestion processing chain
 
-{@import generated-snippets/IngestProcessingChainControllerIT/deleteIngestProcessingChain/http-request.md}
+{@import _generated-snippets/IngestProcessingChainControllerIT/deleteIngestProcessingChain/http-request.md}
 
-{@import generated-snippets/IngestProcessingChainControllerIT/deleteIngestProcessingChain/path-parameters.md}
+{@import _generated-snippets/IngestProcessingChainControllerIT/deleteIngestProcessingChain/path-parameters.md}
 
-{@import generated-snippets/IngestProcessingChainControllerIT/deleteIngestProcessingChain/http-response.md}
+{@import _generated-snippets/IngestProcessingChainControllerIT/deleteIngestProcessingChain/http-response.md}
 
 ## Import an Ingestion processing chain
 
-{@import generated-snippets/IngestProcessingChainControllerIT/importProcessingChain/http-request.md}
+{@import _generated-snippets/IngestProcessingChainControllerIT/importProcessingChain/http-request.md}
 
-{@import generated-snippets/IngestProcessingChainControllerIT/importProcessingChain/request-parameters.md}
+{@import _generated-snippets/IngestProcessingChainControllerIT/importProcessingChain/request-parameters.md}
 
-{@import generated-snippets/IngestProcessingChainControllerIT/importProcessingChain/http-response.md}
+{@import _generated-snippets/IngestProcessingChainControllerIT/importProcessingChain/http-response.md}
 
 ## Export an Ingestion processing chain
 
-{@import generated-snippets/IngestProcessingChainControllerIT/exportProcessingChain/http-request.md}
+{@import _generated-snippets/IngestProcessingChainControllerIT/exportProcessingChain/http-request.md}
 
-{@import generated-snippets/IngestProcessingChainControllerIT/exportProcessingChain/path-parameters.md}
+{@import _generated-snippets/IngestProcessingChainControllerIT/exportProcessingChain/path-parameters.md}
 
-{@import generated-snippets/IngestProcessingChainControllerIT/exportProcessingChain/http-response.md}
+{@import _generated-snippets/IngestProcessingChainControllerIT/exportProcessingChain/http-response.md}
 
 # AIP API
 
 
 ## Search AIPs
 
-{@import generated-snippets/AIPControllerIT/searchAIPs/http-request.md}
+{@import _generated-snippets/AIPControllerIT/searchAIPs/http-request.md}
 
-{@import generated-snippets/AIPControllerIT/searchAIPs/request-fields.md}
+{@import _generated-snippets/AIPControllerIT/searchAIPs/request-fields.md}
 
-{@import generated-snippets/AIPControllerIT/searchAIPs/request-body.md}
+{@import _generated-snippets/AIPControllerIT/searchAIPs/request-body.md}
 
-{@import generated-snippets/AIPControllerIT/searchAIPs/http-response.md}
+{@import _generated-snippets/AIPControllerIT/searchAIPs/http-response.md}
 
-{@import generated-snippets/AIPControllerIT/searchAIPs/response-fields.md}
+{@import _generated-snippets/AIPControllerIT/searchAIPs/response-fields.md}
 
 ## Search AIP categories
 
-{@import generated-snippets/AIPControllerIT/searchAIPCategories/http-request.md}
+{@import _generated-snippets/AIPControllerIT/searchAIPCategories/http-request.md}
 
-{@import generated-snippets/AIPControllerIT/searchAIPCategories/request-fields.md}
+{@import _generated-snippets/AIPControllerIT/searchAIPCategories/request-fields.md}
 
-{@import generated-snippets/AIPControllerIT/searchAIPCategories/request-body.md}
+{@import _generated-snippets/AIPControllerIT/searchAIPCategories/request-body.md}
 
-{@import generated-snippets/AIPControllerIT/searchAIPCategories/http-response.md}
+{@import _generated-snippets/AIPControllerIT/searchAIPCategories/http-response.md}
 
-{@import generated-snippets/AIPControllerIT/searchAIPCategories/response-fields.md}
+{@import _generated-snippets/AIPControllerIT/searchAIPCategories/response-fields.md}
 
 ## Search AIP storages
 
-{@import generated-snippets/AIPControllerIT/searchAIPStorages/http-request.md}
+{@import _generated-snippets/AIPControllerIT/searchAIPStorages/http-request.md}
 
-{@import generated-snippets/AIPControllerIT/searchAIPStorages/request-fields.md}
+{@import _generated-snippets/AIPControllerIT/searchAIPStorages/request-fields.md}
 
-{@import generated-snippets/AIPControllerIT/searchAIPStorages/request-body.md}
+{@import _generated-snippets/AIPControllerIT/searchAIPStorages/request-body.md}
 
-{@import generated-snippets/AIPControllerIT/searchAIPStorages/http-response.md}
+{@import _generated-snippets/AIPControllerIT/searchAIPStorages/http-response.md}
 
-{@import generated-snippets/AIPControllerIT/searchAIPStorages/response-fields.md}
+{@import _generated-snippets/AIPControllerIT/searchAIPStorages/response-fields.md}
 
 ## Search AIP tags
 
-{@import generated-snippets/AIPControllerIT/searchAIPStorages/http-request.md}
+{@import _generated-snippets/AIPControllerIT/searchAIPStorages/http-request.md}
 
-{@import generated-snippets/AIPControllerIT/searchAIPStorages/request-fields.md}
+{@import _generated-snippets/AIPControllerIT/searchAIPStorages/request-fields.md}
 
-{@import generated-snippets/AIPControllerIT/searchAIPStorages/request-body.md}
+{@import _generated-snippets/AIPControllerIT/searchAIPStorages/request-body.md}
 
-{@import generated-snippets/AIPControllerIT/searchAIPStorages/http-response.md}
+{@import _generated-snippets/AIPControllerIT/searchAIPStorages/http-response.md}
 
-{@import generated-snippets/AIPControllerIT/searchAIPStorages/response-fields.md}
+{@import _generated-snippets/AIPControllerIT/searchAIPStorages/response-fields.md}
 
 ## Delete AIPs
 
-{@import generated-snippets/AIPControllerIT/testDeleteAips/http-request.md}
+{@import _generated-snippets/AIPControllerIT/testDeleteAips/http-request.md}
 
-{@import generated-snippets/AIPControllerIT/testDeleteAips/request-fields.md}
+{@import _generated-snippets/AIPControllerIT/testDeleteAips/request-fields.md}
 
-{@import generated-snippets/AIPControllerIT/testDeleteAips/request-body.md}
+{@import _generated-snippets/AIPControllerIT/testDeleteAips/request-body.md}
 
-{@import generated-snippets/AIPControllerIT/testDeleteAips/http-response.md}
+{@import _generated-snippets/AIPControllerIT/testDeleteAips/http-response.md}
 
 
 ## Retrieve AIP version history
 
-{@import generated-snippets/AIPControllerIT/testRetrieveAIPVersionHistory/http-request.md}
+{@import _generated-snippets/AIPControllerIT/testRetrieveAIPVersionHistory/http-request.md}
 
-{@import generated-snippets/AIPControllerIT/testRetrieveAIPVersionHistory/request-fields.md}
+{@import _generated-snippets/AIPControllerIT/testRetrieveAIPVersionHistory/request-fields.md}
 
-{@import generated-snippets/AIPControllerIT/testRetrieveAIPVersionHistory/request-body.md}
+{@import _generated-snippets/AIPControllerIT/testRetrieveAIPVersionHistory/request-body.md}
 
-{@import generated-snippets/AIPControllerIT/testRetrieveAIPVersionHistory/http-response.md}
+{@import _generated-snippets/AIPControllerIT/testRetrieveAIPVersionHistory/http-response.md}
 
-{@import generated-snippets/AIPControllerIT/testRetrieveAIPVersionHistory/response-fields.md}
+{@import _generated-snippets/AIPControllerIT/testRetrieveAIPVersionHistory/response-fields.md}
 
 ## Update AIP
 
-{@import generated-snippets/AIPControllerIT/testUpdateAips/http-request.md}
+{@import _generated-snippets/AIPControllerIT/testUpdateAips/http-request.md}
 
-{@import generated-snippets/AIPControllerIT/testUpdateAips/request-fields.md}
+{@import _generated-snippets/AIPControllerIT/testUpdateAips/request-fields.md}
 
-{@import generated-snippets/AIPControllerIT/testUpdateAips/request-body.md}
+{@import _generated-snippets/AIPControllerIT/testUpdateAips/request-body.md}
 
-{@import generated-snippets/AIPControllerIT/testUpdateAips/http-response.md}
+{@import _generated-snippets/AIPControllerIT/testUpdateAips/http-response.md}
 
 
 # Request API
@@ -308,30 +308,30 @@ request.
 
 ## Search requests
 
-{@import generated-snippets/RequestControllerIT/searchRequests/http-request.md}
+{@import _generated-snippets/RequestControllerIT/searchRequests/http-request.md}
 
-{@import generated-snippets/RequestControllerIT/searchRequests/request-fields.md}
+{@import _generated-snippets/RequestControllerIT/searchRequests/request-fields.md}
 
-{@import generated-snippets/RequestControllerIT/searchRequests/request-body.md}
+{@import _generated-snippets/RequestControllerIT/searchRequests/request-body.md}
 
-{@import generated-snippets/RequestControllerIT/searchRequests/http-response.md}
+{@import _generated-snippets/RequestControllerIT/searchRequests/http-response.md}
 
 ## Delete requests 
 
-{@import generated-snippets/RequestControllerIT/deleteRequests/http-request.md}
+{@import _generated-snippets/RequestControllerIT/deleteRequests/http-request.md}
 
-{@import generated-snippets/RequestControllerIT/deleteRequests/request-fields.md}
+{@import _generated-snippets/RequestControllerIT/deleteRequests/request-fields.md}
 
-{@import generated-snippets/RequestControllerIT/deleteRequests/request-body.md}
+{@import _generated-snippets/RequestControllerIT/deleteRequests/request-body.md}
 
-{@import generated-snippets/RequestControllerIT/deleteRequests/http-response.md}
+{@import _generated-snippets/RequestControllerIT/deleteRequests/http-response.md}
 
 ## Retry requests 
 
-{@import generated-snippets/RequestControllerIT/retryRequests/http-request.md}
+{@import _generated-snippets/RequestControllerIT/retryRequests/http-request.md}
 
-{@import generated-snippets/RequestControllerIT/retryRequests/request-fields.md}
+{@import _generated-snippets/RequestControllerIT/retryRequests/request-fields.md}
 
-{@import generated-snippets/RequestControllerIT/retryRequests/request-body.md}
+{@import _generated-snippets/RequestControllerIT/retryRequests/request-body.md}
 
-{@import generated-snippets/RequestControllerIT/retryRequests/http-response.md}
+{@import _generated-snippets/RequestControllerIT/retryRequests/http-response.md}

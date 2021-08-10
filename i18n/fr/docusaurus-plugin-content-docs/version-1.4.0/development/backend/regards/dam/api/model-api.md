@@ -36,47 +36,47 @@ curl http://<gateway host>:<gateway port>/rs-dam/api/v1/<endpoint>
 
     Allow to retrieve all fragments
 
-{@import generated-snippets/FragmentControllerIT/getAllFragment/http-request.md}
+{@import _generated-snippets/FragmentControllerIT/getAllFragment/http-request.md}
 
-{@import generated-snippets/FragmentControllerIT/getAllFragment/request-body.md}
+{@import _generated-snippets/FragmentControllerIT/getAllFragment/request-body.md}
 
-{@import generated-snippets/FragmentControllerIT/getAllFragment/http-response.md}
+{@import _generated-snippets/FragmentControllerIT/getAllFragment/http-response.md}
 
 ## Create fragment
 
     Allow to create fragments
 
-{@import generated-snippets/FragmentControllerIT/addGeoFragment/http-request.md}
+{@import _generated-snippets/FragmentControllerIT/addGeoFragment/http-request.md}
 
-{@import generated-snippets/FragmentControllerIT/addGeoFragment/request-body.md}
+{@import _generated-snippets/FragmentControllerIT/addGeoFragment/request-body.md}
 
-{@import generated-snippets/FragmentControllerIT/addGeoFragment/request-fields.md}
+{@import _generated-snippets/FragmentControllerIT/addGeoFragment/request-fields.md}
 
-{@import generated-snippets/FragmentControllerIT/addGeoFragment/http-response.md}
+{@import _generated-snippets/FragmentControllerIT/addGeoFragment/http-response.md}
 
-{@import generated-snippets/FragmentControllerIT/addGeoFragment/response-fields.md}
+{@import _generated-snippets/FragmentControllerIT/addGeoFragment/response-fields.md}
 
 ## export fragment
 
     Allow to export fragment, see appendices for xsd
 
-{@import generated-snippets/FragmentControllerIT/exportFragment/http-request.md}
+{@import _generated-snippets/FragmentControllerIT/exportFragment/http-request.md}
 
-{@import generated-snippets/FragmentControllerIT/exportFragment/path-parameters.md}
+{@import _generated-snippets/FragmentControllerIT/exportFragment/path-parameters.md}
 
-{@import generated-snippets/FragmentControllerIT/exportFragment/request-body.md}
+{@import _generated-snippets/FragmentControllerIT/exportFragment/request-body.md}
 
-{@import generated-snippets/FragmentControllerIT/exportFragment/http-response.md}
+{@import _generated-snippets/FragmentControllerIT/exportFragment/http-response.md}
 
 ## import fragment
 
     Allow to import fragment, see appendices for xsd
 
-{@import generated-snippets/FragmentControllerIT/importFragment/http-request.md}
+{@import _generated-snippets/FragmentControllerIT/importFragment/http-request.md}
 
-{@import generated-snippets/FragmentControllerIT/importFragment/request-body.md}
+{@import _generated-snippets/FragmentControllerIT/importFragment/request-body.md}
 
-{@import generated-snippets/FragmentControllerIT/importFragment/http-response.md}
+{@import _generated-snippets/FragmentControllerIT/importFragment/http-response.md}
 
 # AttributeModelController
 
@@ -88,233 +88,233 @@ curl http://<gateway host>:<gateway port>/rs-dam/api/v1/<endpoint>
 
     Allow to retrieve all attribute models
 
-{@import generated-snippets/AttributeModelControllerIT/testGetAttributes/http-request.md}
+{@import _generated-snippets/AttributeModelControllerIT/testGetAttributes/http-request.md}
 
-{@import generated-snippets/AttributeModelControllerIT/testGetAttributes/request-body.md}
+{@import _generated-snippets/AttributeModelControllerIT/testGetAttributes/request-body.md}
 
-{@import generated-snippets/AttributeModelControllerIT/testGetAttributes/http-response.md}
+{@import _generated-snippets/AttributeModelControllerIT/testGetAttributes/http-response.md}
 
 ## Create Boolean attribute model
 
     Allow to create a attribute model of type boolean
 
-{@import generated-snippets/AttributeModelControllerIT/createBooleanAttribute/http-request.md}
+{@import _generated-snippets/AttributeModelControllerIT/createBooleanAttribute/http-request.md}
 
-{@import generated-snippets/AttributeModelControllerIT/createBooleanAttribute/request-body.md}
+{@import _generated-snippets/AttributeModelControllerIT/createBooleanAttribute/request-body.md}
 
-{@import generated-snippets/AttributeModelControllerIT/createBooleanAttribute/request-fields.md}
+{@import _generated-snippets/AttributeModelControllerIT/createBooleanAttribute/request-fields.md}
 
-{@import generated-snippets/AttributeModelControllerIT/createBooleanAttribute/http-response.md}
+{@import _generated-snippets/AttributeModelControllerIT/createBooleanAttribute/http-response.md}
 
-{@import generated-snippets/AttributeModelControllerIT/createBooleanAttribute/response-fields.md}
+{@import _generated-snippets/AttributeModelControllerIT/createBooleanAttribute/response-fields.md}
 
 ## Create Date array attribute model
 
     Allow to create a attribute model of type array of dates
 
-{@import generated-snippets/AttributeModelControllerIT/createDateArrayAttribute/http-request.md}
+{@import _generated-snippets/AttributeModelControllerIT/createDateArrayAttribute/http-request.md}
 
-{@import generated-snippets/AttributeModelControllerIT/createDateArrayAttribute/request-body.md}
+{@import _generated-snippets/AttributeModelControllerIT/createDateArrayAttribute/request-body.md}
 
-{@import generated-snippets/AttributeModelControllerIT/createDateArrayAttribute/request-fields.md}
+{@import _generated-snippets/AttributeModelControllerIT/createDateArrayAttribute/request-fields.md}
 
-{@import generated-snippets/AttributeModelControllerIT/createDateArrayAttribute/http-response.md}
+{@import _generated-snippets/AttributeModelControllerIT/createDateArrayAttribute/http-response.md}
 
-{@import generated-snippets/AttributeModelControllerIT/createDateArrayAttribute/response-fields.md}
+{@import _generated-snippets/AttributeModelControllerIT/createDateArrayAttribute/response-fields.md}
 
 ## Create Date Interval attribute model
 
     Allow to create a attribute model of type interval of dates
 
-{@import generated-snippets/AttributeModelControllerIT/createDateIntervalAttribute/http-request.md}
+{@import _generated-snippets/AttributeModelControllerIT/createDateIntervalAttribute/http-request.md}
 
-{@import generated-snippets/AttributeModelControllerIT/createDateIntervalAttribute/request-body.md}
+{@import _generated-snippets/AttributeModelControllerIT/createDateIntervalAttribute/request-body.md}
 
-{@import generated-snippets/AttributeModelControllerIT/createDateIntervalAttribute/request-fields.md}
+{@import _generated-snippets/AttributeModelControllerIT/createDateIntervalAttribute/request-fields.md}
 
-{@import generated-snippets/AttributeModelControllerIT/createDateIntervalAttribute/http-response.md}
+{@import _generated-snippets/AttributeModelControllerIT/createDateIntervalAttribute/http-response.md}
 
-{@import generated-snippets/AttributeModelControllerIT/createDateIntervalAttribute/response-fields.md}
+{@import _generated-snippets/AttributeModelControllerIT/createDateIntervalAttribute/response-fields.md}
 
 ## Create Date ISO attribute model
 
     Allow to create a attribute model of type Date ISO
 
-{@import generated-snippets/AttributeModelControllerIT/createDateISOAttribute/http-request.md}
+{@import _generated-snippets/AttributeModelControllerIT/createDateISOAttribute/http-request.md}
 
-{@import generated-snippets/AttributeModelControllerIT/createDateISOAttribute/request-body.md}
+{@import _generated-snippets/AttributeModelControllerIT/createDateISOAttribute/request-body.md}
 
-{@import generated-snippets/AttributeModelControllerIT/createDateISOAttribute/request-fields.md}
+{@import _generated-snippets/AttributeModelControllerIT/createDateISOAttribute/request-fields.md}
 
-{@import generated-snippets/AttributeModelControllerIT/createDateISOAttribute/http-response.md}
+{@import _generated-snippets/AttributeModelControllerIT/createDateISOAttribute/http-response.md}
 
-{@import generated-snippets/AttributeModelControllerIT/createDateISOAttribute/response-fields.md}
+{@import _generated-snippets/AttributeModelControllerIT/createDateISOAttribute/response-fields.md}
 
 ## Create Float array attribute model
 
     Allow to create a attribute model of type array of floats
 
-{@import generated-snippets/AttributeModelControllerIT/createFloatArrayAttribute/http-request.md}
+{@import _generated-snippets/AttributeModelControllerIT/createFloatArrayAttribute/http-request.md}
 
-{@import generated-snippets/AttributeModelControllerIT/createFloatArrayAttribute/request-body.md}
+{@import _generated-snippets/AttributeModelControllerIT/createFloatArrayAttribute/request-body.md}
 
-{@import generated-snippets/AttributeModelControllerIT/createFloatArrayAttribute/request-fields.md}
+{@import _generated-snippets/AttributeModelControllerIT/createFloatArrayAttribute/request-fields.md}
 
-{@import generated-snippets/AttributeModelControllerIT/createFloatArrayAttribute/http-response.md}
+{@import _generated-snippets/AttributeModelControllerIT/createFloatArrayAttribute/http-response.md}
 
-{@import generated-snippets/AttributeModelControllerIT/createFloatArrayAttribute/response-fields.md}
+{@import _generated-snippets/AttributeModelControllerIT/createFloatArrayAttribute/response-fields.md}
 
 ## Create Float attribute model
 
     Allow to create a attribute model of type float
 
-{@import generated-snippets/AttributeModelControllerIT/createFloatAttribute/http-request.md}
+{@import _generated-snippets/AttributeModelControllerIT/createFloatAttribute/http-request.md}
 
-{@import generated-snippets/AttributeModelControllerIT/createFloatAttribute/request-body.md}
+{@import _generated-snippets/AttributeModelControllerIT/createFloatAttribute/request-body.md}
 
-{@import generated-snippets/AttributeModelControllerIT/createFloatAttribute/request-fields.md}
+{@import _generated-snippets/AttributeModelControllerIT/createFloatAttribute/request-fields.md}
 
-{@import generated-snippets/AttributeModelControllerIT/createFloatAttribute/http-response.md}
+{@import _generated-snippets/AttributeModelControllerIT/createFloatAttribute/http-response.md}
 
-{@import generated-snippets/AttributeModelControllerIT/createFloatAttribute/response-fields.md}
+{@import _generated-snippets/AttributeModelControllerIT/createFloatAttribute/response-fields.md}
 
 ## Create Float interal attribute model
 
     Allow to create a attribute model of type interval of floats
 
-{@import generated-snippets/AttributeModelControllerIT/createFloatIntervalAttribute/http-request.md}
+{@import _generated-snippets/AttributeModelControllerIT/createFloatIntervalAttribute/http-request.md}
 
-{@import generated-snippets/AttributeModelControllerIT/createFloatIntervalAttribute/request-body.md}
+{@import _generated-snippets/AttributeModelControllerIT/createFloatIntervalAttribute/request-body.md}
 
-{@import generated-snippets/AttributeModelControllerIT/createFloatIntervalAttribute/request-fields.md}
+{@import _generated-snippets/AttributeModelControllerIT/createFloatIntervalAttribute/request-fields.md}
 
-{@import generated-snippets/AttributeModelControllerIT/createFloatIntervalAttribute/http-response.md}
+{@import _generated-snippets/AttributeModelControllerIT/createFloatIntervalAttribute/http-response.md}
 
-{@import generated-snippets/AttributeModelControllerIT/createFloatIntervalAttribute/response-fields.md}
+{@import _generated-snippets/AttributeModelControllerIT/createFloatIntervalAttribute/response-fields.md}
 
 ## Create Integer array attribute model
 
     Allow to create a attribute model of type array of intergers
 
-{@import generated-snippets/AttributeModelControllerIT/createIntegerArrayAttribute/http-request.md}
+{@import _generated-snippets/AttributeModelControllerIT/createIntegerArrayAttribute/http-request.md}
 
-{@import generated-snippets/AttributeModelControllerIT/createIntegerArrayAttribute/request-body.md}
+{@import _generated-snippets/AttributeModelControllerIT/createIntegerArrayAttribute/request-body.md}
 
-{@import generated-snippets/AttributeModelControllerIT/createIntegerArrayAttribute/request-fields.md}
+{@import _generated-snippets/AttributeModelControllerIT/createIntegerArrayAttribute/request-fields.md}
 
-{@import generated-snippets/AttributeModelControllerIT/createIntegerArrayAttribute/http-response.md}
+{@import _generated-snippets/AttributeModelControllerIT/createIntegerArrayAttribute/http-response.md}
 
-{@import generated-snippets/AttributeModelControllerIT/createIntegerArrayAttribute/response-fields.md}
+{@import _generated-snippets/AttributeModelControllerIT/createIntegerArrayAttribute/response-fields.md}
 
 ## Create Integer attribute model
 
     Allow to create a attribute model of type integer
 
-{@import generated-snippets/AttributeModelControllerIT/createIntegerAttribute/http-request.md}
+{@import _generated-snippets/AttributeModelControllerIT/createIntegerAttribute/http-request.md}
 
-{@import generated-snippets/AttributeModelControllerIT/createIntegerAttribute/request-body.md}
+{@import _generated-snippets/AttributeModelControllerIT/createIntegerAttribute/request-body.md}
 
-{@import generated-snippets/AttributeModelControllerIT/createIntegerAttribute/request-fields.md}
+{@import _generated-snippets/AttributeModelControllerIT/createIntegerAttribute/request-fields.md}
 
-{@import generated-snippets/AttributeModelControllerIT/createIntegerAttribute/http-response.md}
+{@import _generated-snippets/AttributeModelControllerIT/createIntegerAttribute/http-response.md}
 
-{@import generated-snippets/AttributeModelControllerIT/createIntegerAttribute/response-fields.md}
+{@import _generated-snippets/AttributeModelControllerIT/createIntegerAttribute/response-fields.md}
 
 ## Create Integer interval attribute model
 
     Allow to create a attribute model of type interval of intergers
 
-{@import generated-snippets/AttributeModelControllerIT/createIntegerIntervalAttribute/http-request.md}
+{@import _generated-snippets/AttributeModelControllerIT/createIntegerIntervalAttribute/http-request.md}
 
-{@import generated-snippets/AttributeModelControllerIT/createIntegerIntervalAttribute/request-body.md}
+{@import _generated-snippets/AttributeModelControllerIT/createIntegerIntervalAttribute/request-body.md}
 
-{@import generated-snippets/AttributeModelControllerIT/createIntegerIntervalAttribute/request-fields.md}
+{@import _generated-snippets/AttributeModelControllerIT/createIntegerIntervalAttribute/request-fields.md}
 
-{@import generated-snippets/AttributeModelControllerIT/createIntegerIntervalAttribute/http-response.md}
+{@import _generated-snippets/AttributeModelControllerIT/createIntegerIntervalAttribute/http-response.md}
 
-{@import generated-snippets/AttributeModelControllerIT/createIntegerIntervalAttribute/response-fields.md}
+{@import _generated-snippets/AttributeModelControllerIT/createIntegerIntervalAttribute/response-fields.md}
 
 ## Create String array attribute model
 
     Allow to create a attribute model of type array of strings
 
-{@import generated-snippets/AttributeModelControllerIT/createStringArrayAttribute/http-request.md}
+{@import _generated-snippets/AttributeModelControllerIT/createStringArrayAttribute/http-request.md}
 
-{@import generated-snippets/AttributeModelControllerIT/createStringArrayAttribute/request-body.md}
+{@import _generated-snippets/AttributeModelControllerIT/createStringArrayAttribute/request-body.md}
 
-{@import generated-snippets/AttributeModelControllerIT/createStringArrayAttribute/request-fields.md}
+{@import _generated-snippets/AttributeModelControllerIT/createStringArrayAttribute/request-fields.md}
 
-{@import generated-snippets/AttributeModelControllerIT/createStringArrayAttribute/http-response.md}
+{@import _generated-snippets/AttributeModelControllerIT/createStringArrayAttribute/http-response.md}
 
-{@import generated-snippets/AttributeModelControllerIT/createStringArrayAttribute/response-fields.md}
+{@import _generated-snippets/AttributeModelControllerIT/createStringArrayAttribute/response-fields.md}
 
 ## Create String attribute model
 
     Allow to create a attribute model of type string
 
-{@import generated-snippets/AttributeModelControllerIT/createStringAttribute/http-request.md}
+{@import _generated-snippets/AttributeModelControllerIT/createStringAttribute/http-request.md}
 
-{@import generated-snippets/AttributeModelControllerIT/createStringAttribute/request-body.md}
+{@import _generated-snippets/AttributeModelControllerIT/createStringAttribute/request-body.md}
 
-{@import generated-snippets/AttributeModelControllerIT/createStringAttribute/request-fields.md}
+{@import _generated-snippets/AttributeModelControllerIT/createStringAttribute/request-fields.md}
 
-{@import generated-snippets/AttributeModelControllerIT/createStringAttribute/http-response.md}
+{@import _generated-snippets/AttributeModelControllerIT/createStringAttribute/http-response.md}
 
-{@import generated-snippets/AttributeModelControllerIT/createStringAttribute/response-fields.md}
+{@import _generated-snippets/AttributeModelControllerIT/createStringAttribute/response-fields.md}
 
 ## Create URL attribute model
 
     Allow to create a attribute model of type URL
 
-{@import generated-snippets/AttributeModelControllerIT/createUrlAttribute/http-request.md}
+{@import _generated-snippets/AttributeModelControllerIT/createUrlAttribute/http-request.md}
 
-{@import generated-snippets/AttributeModelControllerIT/createUrlAttribute/request-body.md}
+{@import _generated-snippets/AttributeModelControllerIT/createUrlAttribute/request-body.md}
 
-{@import generated-snippets/AttributeModelControllerIT/createUrlAttribute/request-fields.md}
+{@import _generated-snippets/AttributeModelControllerIT/createUrlAttribute/request-fields.md}
 
-{@import generated-snippets/AttributeModelControllerIT/createUrlAttribute/http-response.md}
+{@import _generated-snippets/AttributeModelControllerIT/createUrlAttribute/http-response.md}
 
-{@import generated-snippets/AttributeModelControllerIT/createUrlAttribute/response-fields.md}
+{@import _generated-snippets/AttributeModelControllerIT/createUrlAttribute/response-fields.md}
 
 ## Retrieve a single attribute model
 
     Allow to retrieve a single attribute model
 
-{@import generated-snippets/AttributeModelControllerIT/addSimpleAttribute/http-request.md}
+{@import _generated-snippets/AttributeModelControllerIT/addSimpleAttribute/http-request.md}
 
-{@import generated-snippets/AttributeModelControllerIT/addSimpleAttribute/request-body.md}
+{@import _generated-snippets/AttributeModelControllerIT/addSimpleAttribute/request-body.md}
 
-{@import generated-snippets/AttributeModelControllerIT/addSimpleAttribute/request-fields.md}
+{@import _generated-snippets/AttributeModelControllerIT/addSimpleAttribute/request-fields.md}
 
-{@import generated-snippets/AttributeModelControllerIT/addSimpleAttribute/http-response.md}
+{@import _generated-snippets/AttributeModelControllerIT/addSimpleAttribute/http-response.md}
 
-{@import generated-snippets/AttributeModelControllerIT/addSimpleAttribute/response-fields.md}
+{@import _generated-snippets/AttributeModelControllerIT/addSimpleAttribute/response-fields.md}
 
 ## Update attribute model
 
     Allow to update attribute model
 
-{@import generated-snippets/AttributeModelControllerIT/createAndUpdateAttributeWithRestriction/http-request.md}
+{@import _generated-snippets/AttributeModelControllerIT/createAndUpdateAttributeWithRestriction/http-request.md}
 
-{@import generated-snippets/AttributeModelControllerIT/createAndUpdateAttributeWithRestriction/path-parameters.md}
+{@import _generated-snippets/AttributeModelControllerIT/createAndUpdateAttributeWithRestriction/path-parameters.md}
 
-{@import generated-snippets/AttributeModelControllerIT/createAndUpdateAttributeWithRestriction/request-body.md}
+{@import _generated-snippets/AttributeModelControllerIT/createAndUpdateAttributeWithRestriction/request-body.md}
 
-{@import generated-snippets/AttributeModelControllerIT/createAndUpdateAttributeWithRestriction/http-response.md}
+{@import _generated-snippets/AttributeModelControllerIT/createAndUpdateAttributeWithRestriction/http-response.md}
 
-{@import generated-snippets/AttributeModelControllerIT/createAndUpdateAttributeWithRestriction/response-fields.md}
+{@import _generated-snippets/AttributeModelControllerIT/createAndUpdateAttributeWithRestriction/response-fields.md}
 
 ## Retrieve all attribute models associated to a model type
 
     Allow to retrieve all attribute models associated to a model type, for example COLLECTION
 
-{@import generated-snippets/AttributeModelControllerIT/testGetAttributesAssocToModelType/http-request.md}
+{@import _generated-snippets/AttributeModelControllerIT/testGetAttributesAssocToModelType/http-request.md}
 
-{@import generated-snippets/AttributeModelControllerIT/testGetAttributesAssocToModelType/path-parameters.md}
+{@import _generated-snippets/AttributeModelControllerIT/testGetAttributesAssocToModelType/path-parameters.md}
 
-{@import generated-snippets/AttributeModelControllerIT/testGetAttributesAssocToModelType/request-body.md}
+{@import _generated-snippets/AttributeModelControllerIT/testGetAttributesAssocToModelType/request-body.md}
 
-{@import generated-snippets/AttributeModelControllerIT/testGetAttributesAssocToModelType/http-response.md}
+{@import _generated-snippets/AttributeModelControllerIT/testGetAttributesAssocToModelType/http-response.md}
 
 # ModelController
 
@@ -326,91 +326,91 @@ curl http://<gateway host>:<gateway port>/rs-dam/api/v1/<endpoint>
 
     Allow to create a model of type COLLECTION
 
-{@import generated-snippets/ModelControllerIT/createCollectionModelTest/http-request.md}
+{@import _generated-snippets/ModelControllerIT/createCollectionModelTest/http-request.md}
 
-{@import generated-snippets/ModelControllerIT/createCollectionModelTest/request-body.md}
+{@import _generated-snippets/ModelControllerIT/createCollectionModelTest/request-body.md}
 
-{@import generated-snippets/ModelControllerIT/createCollectionModelTest/request-fields.md}
+{@import _generated-snippets/ModelControllerIT/createCollectionModelTest/request-fields.md}
 
-{@import generated-snippets/ModelControllerIT/createCollectionModelTest/http-response.md}
+{@import _generated-snippets/ModelControllerIT/createCollectionModelTest/http-response.md}
 
-{@import generated-snippets/ModelControllerIT/createCollectionModelTest/response-fields.md}
+{@import _generated-snippets/ModelControllerIT/createCollectionModelTest/response-fields.md}
 
 ## Create Data model
 
     Allow to create a model of type DATA
 
-{@import generated-snippets/ModelControllerIT/createDataModelTest/http-request.md}
+{@import _generated-snippets/ModelControllerIT/createDataModelTest/http-request.md}
 
-{@import generated-snippets/ModelControllerIT/createDataModelTest/request-body.md}
+{@import _generated-snippets/ModelControllerIT/createDataModelTest/request-body.md}
 
-{@import generated-snippets/ModelControllerIT/createDataModelTest/request-fields.md}
+{@import _generated-snippets/ModelControllerIT/createDataModelTest/request-fields.md}
 
-{@import generated-snippets/ModelControllerIT/createDataModelTest/http-response.md}
+{@import _generated-snippets/ModelControllerIT/createDataModelTest/http-response.md}
 
-{@import generated-snippets/ModelControllerIT/createDataModelTest/response-fields.md}
+{@import _generated-snippets/ModelControllerIT/createDataModelTest/response-fields.md}
 
 ## Create Dataset model
 
     Allow to create a model of type DATASET
 
-{@import generated-snippets/ModelControllerIT/createDatasetModelTest/http-request.md}
+{@import _generated-snippets/ModelControllerIT/createDatasetModelTest/http-request.md}
 
-{@import generated-snippets/ModelControllerIT/createDatasetModelTest/request-body.md}
+{@import _generated-snippets/ModelControllerIT/createDatasetModelTest/request-body.md}
 
-{@import generated-snippets/ModelControllerIT/createDatasetModelTest/request-fields.md}
+{@import _generated-snippets/ModelControllerIT/createDatasetModelTest/request-fields.md}
 
-{@import generated-snippets/ModelControllerIT/createDatasetModelTest/http-response.md}
+{@import _generated-snippets/ModelControllerIT/createDatasetModelTest/http-response.md}
 
-{@import generated-snippets/ModelControllerIT/createDatasetModelTest/response-fields.md}
+{@import _generated-snippets/ModelControllerIT/createDatasetModelTest/response-fields.md}
 
 ## Create Document model
 
     Allow to create a model of type DOCUMENT
 
-{@import generated-snippets/ModelControllerIT/createDocumentModelTest/http-request.md}
+{@import _generated-snippets/ModelControllerIT/createDocumentModelTest/http-request.md}
 
-{@import generated-snippets/ModelControllerIT/createDocumentModelTest/request-body.md}
+{@import _generated-snippets/ModelControllerIT/createDocumentModelTest/request-body.md}
 
-{@import generated-snippets/ModelControllerIT/createDocumentModelTest/request-fields.md}
+{@import _generated-snippets/ModelControllerIT/createDocumentModelTest/request-fields.md}
 
-{@import generated-snippets/ModelControllerIT/createDocumentModelTest/http-response.md}
+{@import _generated-snippets/ModelControllerIT/createDocumentModelTest/http-response.md}
 
-{@import generated-snippets/ModelControllerIT/createDocumentModelTest/response-fields.md}
+{@import _generated-snippets/ModelControllerIT/createDocumentModelTest/response-fields.md}
 
 ## Delete a model
 
     Allow to delete a model
 
-{@import generated-snippets/ModelControllerIT/deleteModelTest_shouldDeleteModel/http-request.md}
+{@import _generated-snippets/ModelControllerIT/deleteModelTest_shouldDeleteModel/http-request.md}
 
-{@import generated-snippets/ModelControllerIT/deleteModelTest_shouldDeleteModel/path-parameters.md}
+{@import _generated-snippets/ModelControllerIT/deleteModelTest_shouldDeleteModel/path-parameters.md}
 
-{@import generated-snippets/ModelControllerIT/deleteModelTest_shouldDeleteModel/request-body.md}
+{@import _generated-snippets/ModelControllerIT/deleteModelTest_shouldDeleteModel/request-body.md}
 
-{@import generated-snippets/ModelControllerIT/deleteModelTest_shouldDeleteModel/http-response.md}
+{@import _generated-snippets/ModelControllerIT/deleteModelTest_shouldDeleteModel/http-response.md}
 
 ## Export a model
 
     Allow to export a model, see appendices for xsd
 
-{@import generated-snippets/ModelControllerIT/exportModel/http-request.md}
+{@import _generated-snippets/ModelControllerIT/exportModel/http-request.md}
 
-{@import generated-snippets/ModelControllerIT/exportModel/path-parameters.md}
+{@import _generated-snippets/ModelControllerIT/exportModel/path-parameters.md}
 
-{@import generated-snippets/ModelControllerIT/exportModel/request-body.md}
+{@import _generated-snippets/ModelControllerIT/exportModel/request-body.md}
 
-{@import generated-snippets/ModelControllerIT/exportModel/http-response.md}
+{@import _generated-snippets/ModelControllerIT/exportModel/http-response.md}
 
 ## Import a model
 
     Allow to import a model, see appendices for xsd
 
-{@import generated-snippets/ImportModelTest/importSingleModel/http-request.md}
+{@import _generated-snippets/ImportModelTest/importSingleModel/http-request.md}
 
-{@import generated-snippets/ImportModelTest/importSingleModel/request-body.md}
+{@import _generated-snippets/ImportModelTest/importSingleModel/request-body.md}
 
-{@import generated-snippets/ImportModelTest/importSingleModel/http-response.md}
+{@import _generated-snippets/ImportModelTest/importSingleModel/http-response.md}
 
 # ModelAttrAssocController
 
@@ -422,109 +422,109 @@ curl http://<gateway host>:<gateway port>/rs-dam/api/v1/<endpoint>
 
     Allow to associate an attribute model to a model
 
-{@import generated-snippets/ModelAttributeControllerIT/bindFirstAttribute/http-request.md}
+{@import _generated-snippets/ModelAttributeControllerIT/bindFirstAttribute/http-request.md}
 
-{@import generated-snippets/ModelAttributeControllerIT/bindFirstAttribute/path-parameters.md}
+{@import _generated-snippets/ModelAttributeControllerIT/bindFirstAttribute/path-parameters.md}
 
-{@import generated-snippets/ModelAttributeControllerIT/bindFirstAttribute/request-body.md}
+{@import _generated-snippets/ModelAttributeControllerIT/bindFirstAttribute/request-body.md}
 
-{@import generated-snippets/ModelAttributeControllerIT/bindFirstAttribute/request-fields.md}
+{@import _generated-snippets/ModelAttributeControllerIT/bindFirstAttribute/request-fields.md}
 
-{@import generated-snippets/ModelAttributeControllerIT/bindFirstAttribute/http-response.md}
+{@import _generated-snippets/ModelAttributeControllerIT/bindFirstAttribute/http-response.md}
 
-{@import generated-snippets/ModelAttributeControllerIT/bindFirstAttribute/response-fields.md}
+{@import _generated-snippets/ModelAttributeControllerIT/bindFirstAttribute/response-fields.md}
 
 ## Bind a fragment to a model
 
     Allow to associate a whole fragment to a model
 
-{@import generated-snippets/ModelAttributeControllerIT/bindFragment/http-request.md}
+{@import _generated-snippets/ModelAttributeControllerIT/bindFragment/http-request.md}
 
-{@import generated-snippets/ModelAttributeControllerIT/bindFragment/path-parameters.md}
+{@import _generated-snippets/ModelAttributeControllerIT/bindFragment/path-parameters.md}
 
-{@import generated-snippets/ModelAttributeControllerIT/bindFragment/request-body.md}
+{@import _generated-snippets/ModelAttributeControllerIT/bindFragment/request-body.md}
 
-{@import generated-snippets/ModelAttributeControllerIT/bindFragment/request-fields.md}
+{@import _generated-snippets/ModelAttributeControllerIT/bindFragment/request-fields.md}
 
-{@import generated-snippets/ModelAttributeControllerIT/bindFragment/http-response.md}
+{@import _generated-snippets/ModelAttributeControllerIT/bindFragment/http-response.md}
 
 ## Retrieve all associations
 
     Allow to retrieve all associations
 
-{@import generated-snippets/ModelAttributeControllerIT/listAllAttributes/http-request.md}
+{@import _generated-snippets/ModelAttributeControllerIT/listAllAttributes/http-request.md}
 
-{@import generated-snippets/ModelAttributeControllerIT/listAllAttributes/path-parameters.md}
+{@import _generated-snippets/ModelAttributeControllerIT/listAllAttributes/path-parameters.md}
 
-{@import generated-snippets/ModelAttributeControllerIT/listAllAttributes/request-body.md}
+{@import _generated-snippets/ModelAttributeControllerIT/listAllAttributes/request-body.md}
 
-{@import generated-snippets/ModelAttributeControllerIT/listAllAttributes/http-response.md}
+{@import _generated-snippets/ModelAttributeControllerIT/listAllAttributes/http-response.md}
 
 ## Retrieve a single association
 
     Allow to retrieve a single association
 
-{@import generated-snippets/ModelAttributeControllerIT/getModelAttribute/http-request.md}
+{@import _generated-snippets/ModelAttributeControllerIT/getModelAttribute/http-request.md}
 
-{@import generated-snippets/ModelAttributeControllerIT/getModelAttribute/path-parameters.md}
+{@import _generated-snippets/ModelAttributeControllerIT/getModelAttribute/path-parameters.md}
 
-{@import generated-snippets/ModelAttributeControllerIT/getModelAttribute/request-body.md}
+{@import _generated-snippets/ModelAttributeControllerIT/getModelAttribute/request-body.md}
 
-{@import generated-snippets/ModelAttributeControllerIT/getModelAttribute/http-response.md}
+{@import _generated-snippets/ModelAttributeControllerIT/getModelAttribute/http-response.md}
 
-{@import generated-snippets/ModelAttributeControllerIT/getModelAttribute/response-fields.md}
+{@import _generated-snippets/ModelAttributeControllerIT/getModelAttribute/response-fields.md}
 
 ## Retrieve all associations for a single model type
 
     Allow to retrieve all attribute model associated to a single model type.
 
-{@import generated-snippets/ModelAttributeControllerIT/getModelAttributeForCollections/http-request.md}
+{@import _generated-snippets/ModelAttributeControllerIT/getModelAttributeForCollections/http-request.md}
 
-{@import generated-snippets/ModelAttributeControllerIT/getModelAttributeForCollections/request-parameters.md}
+{@import _generated-snippets/ModelAttributeControllerIT/getModelAttributeForCollections/request-parameters.md}
 
-{@import generated-snippets/ModelAttributeControllerIT/getModelAttributeForCollections/request-body.md}
+{@import _generated-snippets/ModelAttributeControllerIT/getModelAttributeForCollections/request-body.md}
 
-{@import generated-snippets/ModelAttributeControllerIT/getModelAttributeForCollections/http-response.md}
+{@import _generated-snippets/ModelAttributeControllerIT/getModelAttributeForCollections/http-response.md}
 
 ## Unbind an attribute model from a model
 
     Allow to dissociate an attribute model from a model
 
-{@import generated-snippets/ModelAttributeControllerIT/removeModelAttribute/http-request.md}
+{@import _generated-snippets/ModelAttributeControllerIT/removeModelAttribute/http-request.md}
 
-{@import generated-snippets/ModelAttributeControllerIT/removeModelAttribute/path-parameters.md}
+{@import _generated-snippets/ModelAttributeControllerIT/removeModelAttribute/path-parameters.md}
 
-{@import generated-snippets/ModelAttributeControllerIT/removeModelAttribute/request-body.md}
+{@import _generated-snippets/ModelAttributeControllerIT/removeModelAttribute/request-body.md}
 
-{@import generated-snippets/ModelAttributeControllerIT/removeModelAttribute/http-response.md}
+{@import _generated-snippets/ModelAttributeControllerIT/removeModelAttribute/http-response.md}
 
 ## Unbind a whole fragment from a model
 
     Allow to dissociate a whole fragment from a model
 
-{@import generated-snippets/ModelAttributeControllerIT/unbindFragment/http-request.md}
+{@import _generated-snippets/ModelAttributeControllerIT/unbindFragment/http-request.md}
 
-{@import generated-snippets/ModelAttributeControllerIT/unbindFragment/path-parameters.md}
+{@import _generated-snippets/ModelAttributeControllerIT/unbindFragment/path-parameters.md}
 
-{@import generated-snippets/ModelAttributeControllerIT/unbindFragment/request-body.md}
+{@import _generated-snippets/ModelAttributeControllerIT/unbindFragment/request-body.md}
 
-{@import generated-snippets/ModelAttributeControllerIT/unbindFragment/http-response.md}
+{@import _generated-snippets/ModelAttributeControllerIT/unbindFragment/http-response.md}
 
 ## Update an association
 
     Allow to update an association
 
-{@import generated-snippets/ModelAttributeControllerIT/updateModelAttribute/http-request.md}
+{@import _generated-snippets/ModelAttributeControllerIT/updateModelAttribute/http-request.md}
 
-{@import generated-snippets/ModelAttributeControllerIT/updateModelAttribute/path-parameters.md}
+{@import _generated-snippets/ModelAttributeControllerIT/updateModelAttribute/path-parameters.md}
 
-{@import generated-snippets/ModelAttributeControllerIT/updateModelAttribute/request-body.md}
+{@import _generated-snippets/ModelAttributeControllerIT/updateModelAttribute/request-body.md}
 
-{@import generated-snippets/ModelAttributeControllerIT/updateModelAttribute/request-fields.md}
+{@import _generated-snippets/ModelAttributeControllerIT/updateModelAttribute/request-fields.md}
 
-{@import generated-snippets/ModelAttributeControllerIT/updateModelAttribute/http-response.md}
+{@import _generated-snippets/ModelAttributeControllerIT/updateModelAttribute/http-response.md}
 
-{@import generated-snippets/ModelAttributeControllerIT/updateModelAttribute/request-fields.md}
+{@import _generated-snippets/ModelAttributeControllerIT/updateModelAttribute/request-fields.md}
 
 # Appendices
 

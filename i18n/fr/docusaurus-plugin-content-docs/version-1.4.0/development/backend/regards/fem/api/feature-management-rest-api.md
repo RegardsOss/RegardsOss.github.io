@@ -61,11 +61,11 @@ Session & session owner are not supported in update metadata!
 
 ### Feature Creation request example
 
-{@import generated-snippets/FeatureControllerIT/testCreateValidFeatureCreationRequest/http-request.md}
+{@import _generated-snippets/FeatureControllerIT/testCreateValidFeatureCreationRequest/http-request.md}
 
-{@import generated-snippets/FeatureControllerIT/testCreateValidFeatureCreationRequest/request-body.md}
+{@import _generated-snippets/FeatureControllerIT/testCreateValidFeatureCreationRequest/request-body.md}
 
-{@import generated-snippets/FeatureControllerIT/testCreateValidFeatureCreationRequest/http-response.md}
+{@import _generated-snippets/FeatureControllerIT/testCreateValidFeatureCreationRequest/http-response.md}
 
 API return maps of granted and denied requests :
 
@@ -74,11 +74,11 @@ API return maps of granted and denied requests :
 
 ### Feature Patch request example
 
-{@import generated-snippets/FeatureControllerIT/testCreateValidFeatureUpdateRequest/http-request.md}
+{@import _generated-snippets/FeatureControllerIT/testCreateValidFeatureUpdateRequest/http-request.md}
 
-{@import generated-snippets/FeatureControllerIT/testCreateValidFeatureUpdateRequest/request-body.md}
+{@import _generated-snippets/FeatureControllerIT/testCreateValidFeatureUpdateRequest/request-body.md}
 
-{@import generated-snippets/FeatureControllerIT/testCreateValidFeatureUpdateRequest/http-response.md}
+{@import _generated-snippets/FeatureControllerIT/testCreateValidFeatureUpdateRequest/http-response.md}
 
 
 API return maps of granted and denied requests :
