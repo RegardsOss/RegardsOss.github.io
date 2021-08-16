@@ -98,6 +98,10 @@ First, you need to initialise the `group_vars` folder using one of these command
 # Install REGARDS on one server - using demo inventory
 cp -R ../../demo/group_vars ./
 
+# Install REGARDS on one server when you don't want any security activated. 
+# In that case, you need to setup SWARM by yourself, as this is trivial and documented out there
+cp -R ../../demo-insecure/group_vars ./
+
 # Install REGARDS on several servers - using multihosts inventory
 cp -R ../../multihosts/group_vars ./
 ```
@@ -115,6 +119,20 @@ Edit the file `regards-cnes/group_vars/all/main.yml` with :
 | `global_stack.docker.workdir`           | Docker working directory                                                                                                               |
 | `global_stack.docker.network_interface` | Name of the network interface used to access to your server. For local installation you can use the `ifconfig` unix command to find it |
 | `global_regards.version`                | Version of REGARDS to install                                                                                                          |
+
+#### Customise a demo's based inventory
+
+Edit the file `regards-cnes/group_vars/all/main.yml` with :
+
+| Variable                                | Description                                                                                                                            |
+| :-------------------------------------- | :------------------------------------------------------------------------------------------------------------------------------------- |
+| `global_stack.master_node_host_name`    | Server hostname where the regards stack is installed. For local installation you can use the `hostname` unix command to find it        |
+| `global_stack.workdir`                  | REGARDS swarm stack install directory                                                                                                  |
+| `global_stack.docker.workdir`           | Docker working directory                                                                                                               |
+| `global_stack.docker.network_interface` | Name of the network interface used to access to your server. For local installation you can use the `ifconfig` unix command to find it |
+| `global_regards.your_user` | The name of your user. All REGARDS process and created files will be owned by your linux user |
+| `global_regards.your_user_id` | The id related to your user. Runs the command `id` to get that value |
+| `global_regards.version`                | Version of REGARDS to install                                                   
 
 #### Customise a multihosts's based inventory
 
@@ -139,6 +157,7 @@ We're currently storing our Docker image on Github. To be able to fetch them, yo
 Visit [this link](https://docs.github.com/en/packages/working-with-a-github-packages-registry/working-with-the-container-registry) and [this link](https://docs.github.com/en/github/authenticating-to-github/creating-a-personal-access-token) to get an overview on how to let your Docker engine be able to fetch REGARDS images.
 
 ```
+# Connect threw SSH to your master node and login to Github or adapt it to your environment
 export CR_PAT=YOUR_TOKEN
 echo $CR_PAT | docker login docker.pkg.github.com -u USERNAME --password-stdin
 ```
@@ -149,14 +168,15 @@ If you do not fetch image directly on Github, adapt this step to your environmen
 
 ## Install the stack
 
-When configuration has been saved, you need to run the following command :
+When inventory configuration has been saved, you can now install Docker SWARM and REGARDS.  
+If you want an insecure REGARDS install on your desktop and you know what you're doing, you can search for a tutorial out there to install Docker SWARM on your computer then executes the playbook `regards.yml`.
+If you're OK with a secure installation of SWARM, execute the playbook `setup-vm.yml` which setup swarm and secures it, then pursue with the `regards.yml` playbook.
+
+Let's see how to do a secure installation:
 
 ```bash
 # cd regards-playbook/
 ansible-playbook -i inventories/<inventory name> setup-vm.yml <additional parameters>
-
-# Connect threw SSH to your master node and login to Github or adapt it to your environment
-# cat ~/TOKEN.txt | docker login https://docker.pkg.github.com -u <MY USERNAME> --password-stdin
 
 # If you are installing locally REGARDS (ansible_connection=local inside inventories/<inventory name>/hosts),
 # the setup-vm.yml has added you into a group but it won't be effective until you've restarted your session.
