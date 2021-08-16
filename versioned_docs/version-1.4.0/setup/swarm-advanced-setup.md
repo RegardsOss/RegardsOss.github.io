@@ -13,7 +13,7 @@ All REGARDS docker images are available on our [github repository](https://githu
 
 ### Pre-requisites
 
-1. Install Ansible version `2.6.2` at least [docs.ansible.com](https://docs.ansible.com/ansible/latest/installation_guide/intro_installation.html)
+1. Install Ansible version `2.9.2.23` at least [docs.ansible.com](https://docs.ansible.com/ansible/latest/installation_guide/intro_installation.html)
 2. Download ansible [regards-playbook]
 3. Extract downloaded ansible regards-playbook zip archive
 
