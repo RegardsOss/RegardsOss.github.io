@@ -139,6 +139,7 @@ We're currently storing our Docker image on Github. To be able to fetch them, yo
 Visit [this link](https://docs.github.com/en/packages/working-with-a-github-packages-registry/working-with-the-container-registry) and [this link](https://docs.github.com/en/github/authenticating-to-github/creating-a-personal-access-token) to get an overview on how to let your Docker engine be able to fetch REGARDS images.
 
 ```
+export CR_PAT=YOUR_TOKEN
 echo $CR_PAT | docker login docker.pkg.github.com -u USERNAME --password-stdin
 ```
 
