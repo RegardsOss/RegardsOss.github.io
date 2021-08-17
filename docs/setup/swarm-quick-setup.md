@@ -26,7 +26,7 @@ Docker swarm installation of REGARDS is available for CentOS, Ubuntu, Debian and
 
 ### Create your hosts file
 
-Once you download and extract the `regards-playbook`, you need to create an inventory that saves the configuration of your setup. Create a folder inside the `regards-playbook/inventories/`, using by exemple a subset of the server hostname you want to install REGARDS on.
+Once you download and extract the `regards-playbook`, you need to create an inventory that saves the configuration of your setup. Create a folder inside the `regards-playbook/inventories/`, using by example a subset of the server hostname you want to install REGARDS on.
 
 Let's suppose we want to create an inventory on a computer named `regards-cnes.host.com` :
 
@@ -83,7 +83,7 @@ FIN_CAT
 | `ansible_user`     | user login to log on by ssh to configure & install    |
 | `ansible_password` | user password to log on by ssh to configure & install |
 
-Remove all lines begining with `[1-7]` and make appropriate changes following your needs. You have two exemples provided inside regards-playbook: `inventories/demo/hosts` and `inventories/multihosts/hosts`.
+Remove all lines begining with `[1-7]` and make appropriate changes following your needs. You have two examples provided inside regards-playbook: `inventories/demo/hosts` and `inventories/multihosts/hosts`.
 
 ### Create your group_vars folder
 
@@ -200,7 +200,7 @@ ansible-playbook -i inventories/<inventory name> setup-vm.yml <additional parame
 
 ```
 
-With an exemple :
+With an example :
 
 ```bash
 # cd regards-playbook/
@@ -222,7 +222,9 @@ Ensures the command id return you the group `dockermapgid` or the next playbook 
 
 We're currently storing our Docker image on Github. To be able to fetch them, you require an access token.
 
-Visit [this link](https://docs.github.com/en/github/authenticating-to-github/creating-a-personal-access-token) to get an overview of the Github interface and how to create a personal token. That's good enough to give only the `read:packages` scope.
+Follow the [first 7 steps in this guide](https://docs.github.com/en/github/authenticating-to-github/creating-a-personal-access-token) to get an overview of the Github interface and how to create a personal token.  
+
+**Create a token with a `read:packages` scope.**
 
 To sum up the [official guide](https://docs.github.com/en/packages/working-with-a-github-packages-registry/working-with-the-container-registry), execute the following two commands:
 
