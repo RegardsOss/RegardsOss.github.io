@@ -13,10 +13,10 @@ To do that, you need these two values from your inventories :
 
 ```yaml
 group_workdir_local: /opt/regards/
-group_stack_name: 'regards-cnes'
+group_stack_name: 'regards'
 ```
 
-It means your stack is installed inside `/opt/regards/regards-cnes`.
+It means your stack is installed inside `/opt/regards/regards`.
 
 Open this folder and go to the cli folder:
 

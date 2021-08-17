@@ -119,6 +119,7 @@ Edit the file `regards-cnes/group_vars/all/main.yml` with :
 | `global_stack.docker.workdir`           | Docker working directory                                                                                                               |
 | `global_stack.docker.network_interface` | Name of the network interface used to access to your server. For local installation you can use the `ifconfig` unix command to find it |
 | `global_regards.version`                | Version of REGARDS to install                                                                                                          |
+| `global_regards.project_name`                | Name of the first project created on REGARDS automagically                                                                                                          |
 
 #### Customise a demo's based inventory
 
@@ -133,6 +134,7 @@ Edit the file `regards-cnes/group_vars/all/main.yml` with :
 | `global_regards.your_user` | The name of your user. All REGARDS process and created files will be owned by your linux user |
 | `global_regards.your_user_id` | The id related to your user. Runs the command `id` to get that value |
 | `global_regards.version`                | Version of REGARDS to install                                                   
+| `global_regards.project_name`                | Name of the first project created on REGARDS automagically                                                                                                          |
 
 #### Customise a multihosts's based inventory
 
@@ -145,51 +147,34 @@ Edit the file `regards-cnes/group_vars/all/main.yml` with :
 | `global_stack.docker.workdir`           | Docker working directory                                                                                                               |
 | `global_stack.docker.network_interface` | Name of the network interface used to access to your server. For local installation you can use the `ifconfig` unix command to find it |
 | `global_regards.version`                | Version of REGARDS to install                                                                                                          |
+| `global_regards.project_name`                | Name of the first project created on REGARDS automagically                                                                                                          |
 
 :::caution
 In multi nodes deployment mode, the `global_stack.workdir` value have to be the same accessible directory on each nodes (e.g. NFS mount).
 :::
 
-## Login to Docker registry
-
-We're currently storing our Docker image on Github. To be able to fetch them, you require an access token.
-
-Visit [this link](https://docs.github.com/en/packages/working-with-a-github-packages-registry/working-with-the-container-registry) and [this link](https://docs.github.com/en/github/authenticating-to-github/creating-a-personal-access-token) to get an overview on how to let your Docker engine be able to fetch REGARDS images.
-
-```
-# Connect threw SSH to your master node and login to Github or adapt it to your environment
-export CR_PAT=YOUR_TOKEN
-echo $CR_PAT | docker login docker.pkg.github.com -u USERNAME --password-stdin
-```
-
-:::info
-If you do not fetch image directly on Github, adapt this step to your environment, as you may need to login on your private Docker registry.
-:::
-
 ## Install the stack
+
+### Preamble
 
 When inventory configuration has been saved, you can now install Docker SWARM and REGARDS.  
 If you want an insecure REGARDS install on your desktop and you know what you're doing, you can search for a tutorial out there to install Docker SWARM on your computer then executes the playbook `regards.yml`.
 If you're OK with a secure installation of SWARM, execute the playbook `setup-vm.yml` which setup swarm and secures it, then pursue with the `regards.yml` playbook.
 
-Let's see how to do a secure installation:
+### Ansible CLI overview
+
+Let's see how you can use Ansible playbook CLI.
 
 ```bash
 # cd regards-playbook/
-ansible-playbook -i inventories/<inventory name> setup-vm.yml <additional parameters>
-
-# If you are installing locally REGARDS (ansible_connection=local inside inventories/<inventory name>/hosts),
-# the setup-vm.yml has added you into a group but it won't be effective until you've restarted your session.
-# Ensures the command id return you the group `dockermapgid` or the next playbook will timeout
-
-ansible-playbook -i inventories/<inventory name> regards.yml <additional parameters>
+ansible-playbook -i inventories/<inventory name> <playbook file>.yml <additional parameters>
 ```
 
 With :
 
 - `<inventory name>` is the name of the inventory you've created
 - `<additional parameters>` can be replaced by `--ask-become-pass` if you need to give the password when you switch to root, empty otherwise
-- `[setup-vm|regards].yml` are playbook you're executing, here we want to install SWARM then REGARDS.
+- `<playbook file>.yml` are playbook you're executing, here we want to install SWARM then REGARDS.
 
 These commands will succeed with one of these lovely message :
 
@@ -198,6 +183,21 @@ These commands will succeed with one of these lovely message :
 PLAY RECAP *******************************************************************************************************
 regards-master                 : ok=23   changed=8    unreachable=0    failed=0    skipped=1    rescued=0    ignored=0
 regards-slave                 : ok=23   changed=8    unreachable=0    failed=0    skipped=1    rescued=0    ignored=0
+```
+
+:::info
+Seeing red lines is normal, as some tasks produce error that can safely ignored if they do not block the playbook execution. What really matters is `failed=0` in the recap.
+:::
+
+### Secure SWARM install
+
+Let's see how to do a secure installation:
+
+```bash
+# cd regards-playbook/
+ansible-playbook -i inventories/<inventory name> setup-vm.yml <additional parameters>
+
+
 ```
 
 With an exemple :
@@ -209,11 +209,43 @@ With an exemple :
 PLAY RECAP *******************************************************************************************************
 regards-master   : ok=158 changed=8 unreachable=0 failed=0 skipped=22 rescued=0 ignored=0
 regards-slave-1  : ok=86 changed=8 unreachable=0 failed=0 skipped=4 rescued=0 ignored=0
+```
 
-# I don't need to connect to the remote VM using SSH as:
-# - on my specific setup, Docker images are stored on a private repository
-# - the playbook is runned from my desktop and not directly on regards-master
+:::info
+If you are installing locally REGARDS (ansible_connection=local inside inventories/<inventory name>/hosts),
+the `setup-vm.yml` has added you into a group but it won't be effective until you've restarted your session.
+Ensures the command id return you the group `dockermapgid` or the next playbook will timeout.
+:::
 
+
+## Login to Docker registry
+
+We're currently storing our Docker image on Github. To be able to fetch them, you require an access token.
+
+Visit [this link](https://docs.github.com/en/github/authenticating-to-github/creating-a-personal-access-token) to get an overview of the Github interface and how to create a personal token. That's good enough to give only the `read:packages` scope.
+
+To sum up the [official guide](https://docs.github.com/en/packages/working-with-a-github-packages-registry/working-with-the-container-registry), execute the following two commands:
+
+```
+# Connect threw SSH to your master node and use the token to login in to Github 
+export CR_PAT=<your token access>
+echo $CR_PAT | docker login docker.pkg.github.com -u <your username> --password-stdin
+```
+
+:::info
+If you do not fetch image directly on Github, adapt this step to your environment, as you may need to login on your private Docker registry.
+:::
+
+### REGARDS install
+
+```bash
+# cd regards-playbook/
+ansible-playbook -i inventories/<inventory name> regards.yml <additional parameters>
+```
+
+With an example :
+
+```bash
 > ansible-playbook -i inventories/regards-cnes regards.yml --ask-become-pass
 [..]
 PLAY RECAP *******************************************************************************************************
@@ -221,15 +253,14 @@ regards-master   : ok=23 changed=8 unreachable=0 failed=0 skipped=1 rescued=0 ig
 regards-slave-1  : ok=23 changed=8 unreachable=0 failed=0 skipped=1 rescued=0 ignored=0
 ```
 
-:::info
-Seeing red lines is normal, as some tasks produce error that can safely ignored if they do not block the playbook execution. What really matters is `failed=0` in the recap.
-:::
+### Conclusion
+
 
 Congratulations, your REGARDS installation is over. System is starting and will be up soon. You can access web interfaces at :
 
-- Instance administration : http://<master_node_host_name>
-- Administration : http://<master_node_host_name>/admin/demo
-- Portal : http://<master_node_host_name>
-- User interface : http://<master_node_host_name>/user/demo
+- Instance administration : http://`value of global_stack.master_node_host_name`
+- Administration : http://`value of global_stack.master_node_host_name`/admin/`value of global_regards.project_name`
+- Portal : http://`value of global_stack.master_node_host_name`
+- User interface : http://`value of global_stack.master_node_host_name`/user/`value of global_regards.project_name`
 
 You can now monitor and administrate the deployed stack thanks to cli commands as explained [here](swarm/cli/)
