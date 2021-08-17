@@ -16,7 +16,7 @@ As we install REGARDS docker swarm in a securized way, the docker configuration 
 ## Prerequisites
 
 :::info
-Docker swarm installation of REGARDS is available for CentOS, Ubuntu and fedora linux distributions.
+Docker swarm installation of REGARDS is available for CentOS, Ubuntu, Debian and Fedora linux distributions.
 :::
 
 1. Install Ansible version `2.9.2.23` at least [docs.ansible.com](https://docs.ansible.com/ansible/latest/installation_guide/intro_installation.html)
@@ -212,7 +212,7 @@ regards-slave-1  : ok=86 changed=8 unreachable=0 failed=0 skipped=4 rescued=0 ig
 ```
 
 :::info
-If you are installing locally REGARDS (ansible_connection=local inside inventories/<inventory name>/hosts),
+If you are installing locally REGARDS (ansible_connection=local inside inventories/`<inventory name>`/hosts),
 the `setup-vm.yml` has added you into a group but it won't be effective until you've restarted your session.
 Ensures the command id return you the group `dockermapgid` or the next playbook will timeout.
 :::
