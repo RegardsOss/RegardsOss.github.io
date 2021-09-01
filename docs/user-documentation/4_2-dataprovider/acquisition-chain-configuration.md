@@ -109,7 +109,7 @@ Pour finir la création de votre chaîne d'acquisition, appuyez sur le bouton **
 
 Pour lancer la génération de nouveaux produits, appuyez sur le bouton <img src="/images/user-documentation/regards-icons/admin/play.png" alt="play" height="26"/> ***Run acquisition chain*** associé à votre chaîne.
 
-Vous pourrez ensuite suivre ce processus en temps réel en cliquant sur le bouton <img src="/images/user-documentation/regards-icons/admin/session.png" alt="session" height="23"/> ***See session's details***. Référez-vous à la page ***[Monitor session](../monitor-sessions/)*** pour comprendre comment suivre l'acquisition.
+Vous pourrez ensuite suivre ce processus en cliquant sur le bouton <img src="/images/user-documentation/regards-icons/admin/session.png" alt="session" height="23"/> ***See session's details***. Référez-vous à la page ***[Monitor session](../../dashboard/monitor-sessions/)*** pour comprendre comment suivre l'acquisition.
 
 ---
 
