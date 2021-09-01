@@ -7,7 +7,7 @@ slug: /user-guide/project-configuration/users/authentication/
 _Gérez les différentes authentications permises depuis le menu ***Users*** de l'administration du projet et la carte ***Authentification systems***._
 
 <div align="center">
-  <img src="/images/user-documentation/2-project-configuration/users/users.png" alt="user menu" width="800"/> 
+  <img src="/images/user-documentation/v1.4/2-project-configuration/users/users.png" alt="user menu" width="800"/> 
 </div>
 
 ---
@@ -17,7 +17,7 @@ _Gérez les différentes authentications permises depuis le menu ***Users*** de 
 REGARDS permet la connexion d'utilisateurs depuis un système extérieur. Il ne gérera ainsi pas les comptes en interne.
 
 <div align="center">
-  <img src="/images/user-documentation/2-project-configuration/users/authentication-list.png" alt="authentication systems" width="800"/>
+  <img src="/images/user-documentation/v1.4/2-project-configuration/users/authentication-list.png" alt="authentication systems" width="800"/>
 </div>
 
 La connexion peut se faire par le biais d'un système d'authentification déporté (Identity provider) ou externalisé (Service provider).

@@ -17,13 +17,13 @@ Depuis le menu ***Add data*** et la carte ***Crawling***, cliquez sur ***Map dat
 - Depuis l'écran ***Map data sources to internal models***, cliquez sur ***Add***
 
 <div align="center">
-  <img src="/images/user-documentation/5-crawler/crawler-add-datasource.png" alt="add datasource" width="800"/> 
+  <img src="/images/user-documentation/v1.4/5-crawler/crawler-add-datasource.png" alt="add datasource" width="800"/> 
 </div>
 
 - Sélectionnez l'option ***Crawls data from an OpenSearch Web Source***
 
 <div align="center">
-  <img src="/images/user-documentation/5-crawler/crawler-add-datasource-opensearch.png" alt="opensearch" width="800"/> 
+  <img src="/images/user-documentation/v1.4/5-crawler/crawler-add-datasource-opensearch.png" alt="opensearch" width="800"/> 
 </div>
 
 1. ***Crawler configuration***
@@ -36,7 +36,7 @@ Depuis le menu ***Add data*** et la carte ***Crawling***, cliquez sur ***Map dat
    - ***Page size*** *[Obligatoire]*, limite le nombre maximal de données récupérées, entre 1 et 1000
    - ***New filter*** *[Optionnel]*, ajoutez de nouveaux filtres pour restreindre les données récupérées en cliquant sur le bouton ***New filter***, sélectionnez dans la liste déroulante les attributs du modèle le critère de restriction, appuyez sur le bouton de création du filtre et remplissez sa valeur. N'hésitez pas à appuyer sur le bouton ***Test Query*** pour valider votre requête. Dans l'exemple suivant, toutes les données dont le label commence par la lettre A seront récupérées :
    <div align="center">
-   <img src="/images/user-documentation/5-crawler/crawler-opensearch-step-2-example.png" alt="example" width="800"/> 
+   <img src="/images/user-documentation/v1.4/5-crawler/crawler-opensearch-step-2-example.png" alt="example" width="800"/> 
    </div>
    - Appuyez sur ***Next***
 3. ***Results configuration***
@@ -45,7 +45,7 @@ Depuis le menu ***Add data*** et la carte ***Crawling***, cliquez sur ***Map dat
    - ***Regards Model***, le modèle utilisé pour faire correspondre les résultats de la requête opensearch au catalogue. Renseignez les noms des champs à récupérer en complétant les attributs standards, communs à toutes les données, les fichiers associés et les attributs dynamiques propres au modèle, par exemple :
 
 <div align="center">
- <img src="/images/user-documentation/5-crawler/crawler-opensearch-step-3-example.png" alt="example" width="800"/> 
+ <img src="/images/user-documentation/v1.4/5-crawler/crawler-opensearch-step-3-example.png" alt="example" width="800"/> 
 </div>
 
 Appuyez sur le bouton ***Finish***, Vous serez redirigé vers la liste des aspirations de données dans laquelle vous pourrez retrouver votre configuration. Vous pouvez suivre son traitement dans [Monitoring](../../monitor-crawling/).

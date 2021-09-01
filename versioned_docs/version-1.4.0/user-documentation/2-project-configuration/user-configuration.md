@@ -7,7 +7,7 @@ slug: /user-guide/project-configuration/user-interface/
 _L'onglet ***User Interface*** vous permettra de configurer une grande variété de paramètres. Depuis le menu ***User Interface***, vous pouvez régler l'aspect de l'interface user ainsi que les fonctionnalités que celle-ci peut proposer._
 
 <div align="center">
-  <img src="/images/user-documentation/2-project-configuration/user-interface/ui-menu.png" alt="ui menu" width="800"/> 
+  <img src="/images/user-documentation/v1.4/2-project-configuration/user-interface/ui-menu.png" alt="ui menu" width="800"/> 
 </div>
 
 ---
@@ -15,7 +15,7 @@ _L'onglet ***User Interface*** vous permettra de configurer une grande variété
 ### <img src="/images/user-documentation/doc-icons/right-arrow.png" alt="arrow" height="12"/> UI settings
 
 <div align="center">
-  <img src="/images/user-documentation/2-project-configuration/user-interface/ui-settings/configure-ui-settings.png" alt="ui settings" width="800"/> 
+  <img src="/images/user-documentation/v1.4/2-project-configuration/user-interface/ui-settings/configure-ui-settings.png" alt="ui settings" width="800"/> 
 </div>
 
 L'écran **_User interface settings_** est principalement découpé en trois parties :
@@ -37,13 +37,13 @@ Que ce soit dans la partie d'administration ou utilisateur, changer le thème en
 S'ils ne vous conviennent pas, vous pouvez modifier ceux de base ou en ajouter depuis la carte **_Themes configuration_** accessible depuis le menu **_User Interface_**.
 
 <div align="center">
-  <img src="/images/user-documentation/2-project-configuration/user-interface/themes/themes-list.png" alt="theme list" width="800"/> 
+  <img src="/images/user-documentation/v1.4/2-project-configuration/user-interface/themes/themes-list.png" alt="theme list" width="800"/> 
 </div>
 
 Pour ajouter un nouveau thème, cliquez sur le bouton **_Add a new theme_**, donnez lui un nom et sélectionnez dans la liste **_Based on Material UI theme_**, une palette de couleur de base claire ou foncée. Changez ensuite la couleur des éléments en les sélectionnant depuis les rubriques principales **_Palette_**, **_Material UI components_**, **_Regards components_** et **_Modules themes_**. La partie de droite vous offrira un aperçu des éléments en question.
 
 <div align="center">
-  <img src="/images/user-documentation/2-project-configuration/user-interface/themes/add-theme.png" alt="add theme" width="800"/> 
+  <img src="/images/user-documentation/v1.4/2-project-configuration/user-interface/themes/add-theme.png" alt="add theme" width="800"/> 
 </div>
 
 ### <img src="/images/user-documentation/doc-icons/right-arrow.png" alt="arrow" height="12"/> UI modules
@@ -71,7 +71,7 @@ Tous les modules ont une partie d'identification commune, où vous devrez préci
   - **_page-footer_**
 
 <div align="center">
-  <img src="/images/user-documentation/2-project-configuration/user-interface/ui-modules/create-module.png" alt="create module" width="800"/> 
+  <img src="/images/user-documentation/v1.4/2-project-configuration/user-interface/ui-modules/create-module.png" alt="create module" width="800"/> 
 </div>
 
 #### Module menu
@@ -81,7 +81,7 @@ Il ne peut exister qu'un module de type **_menu_**, il est configuré par défau
 Il correspond à la barre de menu de l'interface utilisateur :
 
 <div align="center">
-  <img src="/images/user-documentation/2-project-configuration/user-interface/ui-modules/menu-bar.png" alt="create module" width="800"/> 
+  <img src="/images/user-documentation/v1.4/2-project-configuration/user-interface/ui-modules/menu-bar.png" alt="create module" width="800"/> 
 </div>
 
 Sélectionnez les cases pour afficher ou non les icônes de la partie droite du menu :
@@ -96,7 +96,7 @@ Sélectionnez les cases pour afficher ou non les icônes de la partie droite du 
 Dans la partie **_browsing_**, vous avez la possibilité de créer des liens et de modifier la disposition des icônes de l'interface utilisateur.
 
 <div align="center">
-  <img src="/images/user-documentation/2-project-configuration/user-interface/ui-modules/menu-browsing.png" alt="browsing" width="800"/> 
+  <img src="/images/user-documentation/v1.4/2-project-configuration/user-interface/ui-modules/menu-browsing.png" alt="browsing" width="800"/> 
 </div>
 
 - _Ajout de liens_
@@ -104,7 +104,7 @@ Dans la partie **_browsing_**, vous avez la possibilité de créer des liens et 
 Vous pouvez ajouter un lien en cliquant sur le bouton **_New link_**.
 
 <div align="center">
-  <img src="/images/user-documentation/2-project-configuration/user-interface/ui-modules/menu-link.png" alt="link" width="400"/> 
+  <img src="/images/user-documentation/v1.4/2-project-configuration/user-interface/ui-modules/menu-link.png" alt="link" width="400"/> 
 </div>
 
 - Paramétrez :
@@ -122,7 +122,7 @@ Un dossier est un élément dans lequel vous pouvez regrouper des modules ou des
 Editez ensuite tous les modules que vous souhaitez déplacer vers cette section.
 
 <div align="center">
-  <img src="/images/user-documentation/2-project-configuration/user-interface/ui-modules/menu-move.png" alt="move" width="400"/> 
+  <img src="/images/user-documentation/v1.4/2-project-configuration/user-interface/ui-modules/menu-move.png" alt="move" width="400"/> 
 </div>
 
 - _Visibilité des modules_
@@ -144,11 +144,11 @@ Le module **_embedded-html_** permet d'intégrer un site web dans l'interface ut
 Vous pouvez par exemple afficher la documentation REGARDS dans l'interface utilisateur :
 
 <div align="center">
-  <img src="/images/user-documentation/2-project-configuration/user-interface/ui-modules/embedded-configuration.png" alt="configuration" width="800"/> 
+  <img src="/images/user-documentation/v1.4/2-project-configuration/user-interface/ui-modules/embedded-configuration.png" alt="configuration" width="800"/> 
 </div>
 
 <div align="center">
-  <img src="/images/user-documentation/2-project-configuration/user-interface/ui-modules/embedded-user.png" alt="ui" width="800"/> 
+  <img src="/images/user-documentation/v1.4/2-project-configuration/user-interface/ui-modules/embedded-user.png" alt="ui" width="800"/> 
 </div>
 
 :::caution

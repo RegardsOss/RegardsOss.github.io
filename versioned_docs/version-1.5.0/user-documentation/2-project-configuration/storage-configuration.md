@@ -7,7 +7,7 @@ slug: /user-guide/project-configuration/storages/
 _Définissez des espaces de stockage pour conserver les données créées dans REGARDS depuis le menu ***Add data*** et la carte ***Storage***._
 
 <div align="center">
-  <img src="/images/user-documentation/2-project-configuration/storage/storage-menu.png" alt="storage menu" width="800"/> 
+  <img src="/images/user-documentation/v1.4/2-project-configuration/storage/storage-menu.png" alt="storage menu" width="800"/> 
 </div>
 
 ---
@@ -30,7 +30,7 @@ Pour configurer des espaces de stockages accédez à l'écran ***Configure data 
 Appuyez sur le bouton ***Create a new storage*** depuis l'écran ***Configure data storage locations***.
 
 <div align="center">
-  <img src="/images/user-documentation/2-project-configuration/storage/storage-create.png" alt="create storage" width="800"/> 
+  <img src="/images/user-documentation/v1.4/2-project-configuration/storage/storage-create.png" alt="create storage" width="800"/> 
 </div>
 
 Précisez :
@@ -50,7 +50,7 @@ Une fois ces étapes terminées, appuyez sur le bouton ***Create***. Votre nouve
 Vous pouvez surveiller un certain nombre de paramètres depuis l'écran ***Configure data storage locations***.
 
 <div align="center">
-  <img src="/images/user-documentation/2-project-configuration/storage/storage-configure.png" alt="configure storages" width="800"/> 
+  <img src="/images/user-documentation/v1.4/2-project-configuration/storage/storage-configure.png" alt="configure storages" width="800"/> 
 </div>
 
 - ***Recalculate occupations*** recalcule la place occupée par vos fichiers de données ainsi que leur nombre. Cette opération s'effectue automatiquement de façon périodique, néanmoins vous pouvez décider à tout moment de l'actualiser.

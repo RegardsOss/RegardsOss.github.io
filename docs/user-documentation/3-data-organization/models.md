@@ -13,7 +13,7 @@ La gestion des modèles de données s'effectue depuis l'onglet ***Data models***
 - **_Attribute calculation plugins_** _sont utiles pour calculer automatiquement certains attributs du modèle._
 
 <div align="center">
-  <img src="/images/user-documentation/3-data-organization/models/model-menu.png" alt="model menu" width="800"/> 
+  <img src="/images/user-documentation/v1.4/3-data-organization/models/model-menu.png" alt="model menu" width="800"/> 
 </div>
 
 Dans la partie suivante, vous apprendrez à créer et gérer un modèle de données étape par étape.
@@ -25,7 +25,7 @@ Dans la partie suivante, vous apprendrez à créer et gérer un modèle de donn�
 Depuis **_Data models_** et la carte **_Models_** cliquez sur le bouton <img src="/images/user-documentation/regards-icons/admin/add.png" alt="add" height="25"/> **_Add_** .
 
 <div align="center">
-  <img src="/images/user-documentation/3-data-organization/models/model-create-model.png" alt="create model" width="800"/> 
+  <img src="/images/user-documentation/v1.4/3-data-organization/models/model-create-model.png" alt="create model" width="800"/> 
 </div>
 
 Vous avez deux manières de créer un modèle de données :
@@ -52,7 +52,7 @@ Vous pouvez :
 - soit importer un fichier XML qui importera directement un fragment et ses attributs. Lire [Create a model](../../../development/appendices/create-model/) pour écrire ce fichier.
 
 <div align="center">
-  <img src="/images/user-documentation/3-data-organization/models/model-create-fragment.png" alt="create fragment" width="800"/> 
+  <img src="/images/user-documentation/v1.4/3-data-organization/models/model-create-fragment.png" alt="create fragment" width="800"/> 
 </div>
 
 Si vous avez choisi de créer manuellement un fragment, ou si vous voulez ajouter des attributs sans que ceci soient regroupés dans un fragment, suivez les étapes ci-dessous.
@@ -72,7 +72,7 @@ Remplissez les champs :
 - case **_Optional_** _[Optionnel]_ indique si l'attribut doit obligatoirement être renseigné dans le modèle.
 
 <div align="center">
-  <img src="/images/user-documentation/3-data-organization/models/model-create-attribute.png" alt="create attribute" width="800"/> 
+  <img src="/images/user-documentation/v1.4/3-data-organization/models/model-create-attribute.png" alt="create attribute" width="800"/> 
 </div>
 
 Une fois les attributs et, ou les fragments créés, vous pouvez les lier au modèle établi précédemment.
@@ -100,7 +100,7 @@ Vous trouverez ici la liste de tous les modèles que vous avez créés. Appuyez 
 Vous y trouverez l'interface suivante :
 
 <div align="center">
-  <img src="/images/user-documentation/3-data-organization/models/model-link-attribute.png" alt="map attribute" width="800"/> 
+  <img src="/images/user-documentation/v1.4/3-data-organization/models/model-link-attribute.png" alt="map attribute" width="800"/> 
 </div>
 
 Sur la gauche, les attributs appartenant au modèle et sur la droite, l'ensemble des attributs et éventuellement des fragments disponibles dans le projet. Les fragments sont représentés par des blocs contenant des titres. Pour ajouter un attribut ou un fragment, effectuez simple un drag and drop de la gauche vers la droite.
@@ -108,7 +108,7 @@ Sur la gauche, les attributs appartenant au modèle et sur la droite, l'ensemble
 Si votre modèle est de type **_Dataset_**, vous pourrez ajouter un plugin de calcul sur un attribut en appuyant sur le bouton **_Use a plugin_**. Le type de retour du plugin doit être compatible avec le type d'attribut. Si la case est grisée, cela signifie qu'aucun plugin de calcul ne correspond à l'attribut en question.
 
 <div align="center">
-  <img src="/images/user-documentation/3-data-organization/models/model-link-attribute-dataset.png" alt="dataset" width="800"/> 
+  <img src="/images/user-documentation/v1.4/3-data-organization/models/model-link-attribute-dataset.png" alt="dataset" width="800"/> 
 </div>
 
 Une fois l'ensemble des éléments ajoutés à votre modèle, il sera prêt à être utilisé.
@@ -118,7 +118,7 @@ Une fois l'ensemble des éléments ajoutés à votre modèle, il sera prêt à �
 Pour gérer les modèles de données, appuyez sur le bouton <img src="/images/user-documentation/regards-icons/admin/list.png" alt="list" height="25"/> de la carte **_Models_**.
 
 <div align="center">
-  <img src="/images/user-documentation/3-data-organization/models/model-list-model.png" alt="list" width="800"/> 
+  <img src="/images/user-documentation/v1.4/3-data-organization/models/model-list-model.png" alt="list" width="800"/> 
 </div>
 
 Les boutons d'action vous permette d'effectuer différentes tâches :

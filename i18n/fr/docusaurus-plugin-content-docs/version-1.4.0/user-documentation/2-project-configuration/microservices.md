@@ -7,7 +7,7 @@ slug: /user-guide/project-configuration/microservices/
 _Le panneau ***Microservices*** vous permet d'avoir une vision globale des différents microservices du système, de leur état de fonctionnement, et de leur configuration. Sur cette page vous pouvez retrouver la liste de tous les microservices utilisés dans REGARDS._
 
 <div align="center">
-  <img src="/images/user-documentation/2-project-configuration/microservices/microservices-configure.png" alt="configuration microservices" width="800"/> 
+  <img src="/images/user-documentation/v1.4/2-project-configuration/microservices/microservices-configure.png" alt="configuration microservices" width="800"/> 
 </div>
 
 ---
@@ -19,7 +19,7 @@ Depuis cet écran, vous pourrez :
 - <img src="/images/user-documentation/regards-icons/admin/import-export.png" alt="import export" height="25"/> <b><i>Importer ou exporter la configuration du microservice</i></b> La plupart des microservices peuvent se configurer par fichier JSON. En exportant une configuration, vous pourrez voir tout ce qui a été paramétré. Vous pourrez également réinitialiser la configuration en important un nouveau fichier.
 
 <div align="center">
-  <img src="/images/user-documentation/2-project-configuration/microservices/microservices-import-export.png" alt="configuration microservices" width="800"/> 
+  <img src="/images/user-documentation/v1.4/2-project-configuration/microservices/microservices-import-export.png" alt="configuration microservices" width="800"/> 
 </div>
 
 A partir de cette page vous pouvez télécharger la configuration du microservice en appuyant sur le bouton ***Export*** à droite de l'écran.

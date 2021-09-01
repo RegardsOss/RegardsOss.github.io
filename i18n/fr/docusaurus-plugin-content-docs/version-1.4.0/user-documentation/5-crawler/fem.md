@@ -18,13 +18,13 @@ Depuis le menu ***Add data*** et la carte ***Crawling***, cliquez sur ***Map dat
 
 - Depuis l'écran ***Map data sources to internal models***, cliquez sur ***Add***
 <div align="center">
-    <img src="/images/user-documentation/5-crawler/crawler-add-datasource.png" alt="add datasource" width="800"/> 
+    <img src="/images/user-documentation/v1.4/5-crawler/crawler-add-datasource.png" alt="add datasource" width="800"/> 
 </div>
 
 - Sélectionnez l'option ***crawling features from feature manager***
 
 <div align="center">
-    <img src="/images/user-documentation/5-crawler/crawler-add-datasource-fem.png" alt="features" width="800"/> 
+    <img src="/images/user-documentation/v1.4/5-crawler/crawler-add-datasource-fem.png" alt="features" width="800"/> 
 </div>
 
 - Vous serez redirigé vers l'écran ***Create a new features datasource*** sur lequel, vous devez compléter deux champs :

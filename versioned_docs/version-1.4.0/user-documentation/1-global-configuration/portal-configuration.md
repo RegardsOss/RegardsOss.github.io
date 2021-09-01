@@ -7,7 +7,7 @@ slug: /user-guide/global-configuration/portal/
 *Le portail d'accès est une interface permettant de configurer des modules pour afficher un menu principal et lister les projets de l'instance REGARDS. Il présente tous les projets publiques et visibles. *
 
 <div align="center">
-  <img src="/images/user-documentation/1-global-configuration/portal.png" alt="portal" width="800"/> 
+  <img src="/images/user-documentation/v1.4/1-global-configuration/portal.png" alt="portal" width="800"/> 
 </div>
 
 ---
@@ -22,7 +22,7 @@ Cette section permet de définir les modules à afficher dans l'interface web du
 - ***List of projects***, le module permettant d'afficher la liste des projets de l'instance REGARDS.
 
 <div align="center">
-  <img src="/images/user-documentation/1-global-configuration/portal-modules.png" alt="portal modules" width="800"/> 
+  <img src="/images/user-documentation/v1.4/1-global-configuration/portal-modules.png" alt="portal modules" width="800"/> 
 </div>
 
 ### Themes

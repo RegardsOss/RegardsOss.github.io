@@ -17,11 +17,11 @@ L'ensemble du catalogue est configurable. Pour savoir en savoir plus, référez-
 Le catalogue se présente de cette manière :
 
 <div align="center">
-  <img src="/images/user-documentation/6-catalog-consultation/catalog/user/catalog-datasets.png" alt="datasets" width="800"/> 
+  <img src="/images/user-documentation/v1.4/6-catalog-consultation/catalog/user/catalog-datasets.png" alt="datasets" width="800"/> 
 </div>
 
 <div align="center">
-  <img src="/images/user-documentation/6-catalog-consultation/catalog/user/catalog-data.png" alt="data" width="800"/> 
+  <img src="/images/user-documentation/v1.4/6-catalog-consultation/catalog/user/catalog-data.png" alt="data" width="800"/> 
 </div>
 
 Il y a deux onglets principaux :
@@ -55,11 +55,11 @@ Il se peut que les onglets suivants apparaissent selon la configuration de vos m
 Si vous avez configuré un module de type ***search-results*** disposant de cartes, vous verrez apparaître cette vue <img src="/images/user-documentation/regards-icons/user/map.png" alt="map" height="25"/> ***Display results over map***.
 
 <div align="center">
-  <img src="/images/user-documentation/6-catalog-consultation/catalog/user/catalog-map-2D.png" alt="datasets" width="800"/> 
+  <img src="/images/user-documentation/v1.4/6-catalog-consultation/catalog/user/catalog-map-2D.png" alt="datasets" width="800"/> 
 </div>
 
 <div align="center">
-  <img src="/images/user-documentation/6-catalog-consultation/catalog/user/catalog-map-3D.png" alt="datasets" width="800"/> 
+  <img src="/images/user-documentation/v1.4/6-catalog-consultation/catalog/user/catalog-map-3D.png" alt="datasets" width="800"/> 
 </div>
 
 Vous observez :

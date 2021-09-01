@@ -9,7 +9,7 @@ slug: /user-guide/crawler/introduction/
 Dans le menu latéral, cliquez sur **Add data** et observez la carte **Crawling**.
 
 <img src="/images/user-documentation/regards-icons/admin/menu-add-data.png" height="200"/>
-<img src="/images/user-documentation/5-crawler/crawling-card.png" height="200"/>
+<img src="/images/user-documentation/v1.4/5-crawler/crawling-card.png" height="200"/>
 
 ---
 

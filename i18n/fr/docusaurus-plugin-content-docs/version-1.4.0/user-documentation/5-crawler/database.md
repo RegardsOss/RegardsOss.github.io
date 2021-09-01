@@ -15,13 +15,13 @@ Avant de pouvoir configurer une source de données depuis une base externe, vous
 Dans la carte ***Crawling***, cliquez sur ***Map datasources to internal models*** puis sur ***Add***.
 
 <div align="center">
-  <img src="/images/user-documentation/5-crawler/crawler-add-datasource.png" alt="add datasource" width="800"/> 
+  <img src="/images/user-documentation/v1.4/5-crawler/crawler-add-datasource.png" alt="add datasource" width="800"/> 
 </div>
 
 - Sélectionnez ensuite le mode ***crawl data from an external data source***.
 
 <div align="center">
-  <img src="/images/user-documentation/5-crawler/crawler-add-datasource-database.png" alt="database" width="800"/> 
+  <img src="/images/user-documentation/v1.4/5-crawler/crawler-add-datasource-database.png" alt="database" width="800"/> 
 </div>
 
 Vous entrez ensuite l'éditeur de création d'une source de données composé de trois étapes successives.
@@ -40,7 +40,7 @@ Vous entrez ensuite l'éditeur de création d'une source de données composé de
 
    - C'est sur cet écran que le mapping entre les données de la base externe et le modèle de REGARDS s’effectue.
    <div align="center">
-     <img src="/images/user-documentation/5-crawler/crawler-add-datasource-database-step-3.png" alt="database" width="800"/> 
+     <img src="/images/user-documentation/v1.4/5-crawler/crawler-add-datasource-database-step-3.png" alt="database" width="800"/> 
    </div>
 
    - Dans le bloc ***Connection browser*** vous pouvez visualiser les tables externes.

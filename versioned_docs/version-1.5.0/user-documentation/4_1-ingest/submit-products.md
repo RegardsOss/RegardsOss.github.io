@@ -27,7 +27,7 @@ Cliquez sur le bouton <img src="/images/user-documentation/regards-icons/admin/a
 - Depuis l'écran ***Data submission***, appuyez sur le bouton ***Select file containing data to submit*** et choisissez le fichier JSON que vous venez de créer.
 
 <div align="center">
-  <img src="/images/user-documentation/4_1-ingest/ingest-submit-products.png" alt="submit products" width="800"/> 
+  <img src="/images/user-documentation/v1.4/4_1-ingest/ingest-submit-products.png" alt="submit products" width="800"/> 
 </div>
 
       
@@ -39,5 +39,5 @@ Cliquez sur le bouton <img src="/images/user-documentation/regards-icons/admin/a
   - un bouton vous permettant de déposer à nouveau un fichier contenant des sips.
   
 <div align="center">
-  <img src="/images/user-documentation/4_1-ingest/ingest-data-summary.png" alt="product data summary chain" width="800"/> 
+  <img src="/images/user-documentation/v1.4/4_1-ingest/ingest-data-summary.png" alt="product data summary chain" width="800"/> 
 </div>

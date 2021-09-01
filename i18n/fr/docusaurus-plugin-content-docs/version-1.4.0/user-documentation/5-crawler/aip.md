@@ -18,13 +18,13 @@ Vous devez déjà avoir :
 Depuis le menu ***Add data*** et la carte ***Crawling***, cliquez sur ***Map data sources to internal models***
 
 <div align="center">
-    <img src="/images/user-documentation/5-crawler/crawler-add-datasource.png" alt="add datasource" width="800"/> 
+    <img src="/images/user-documentation/v1.4/5-crawler/crawler-add-datasource.png" alt="add datasource" width="800"/> 
 </div>
 
 - Cliquez sur ***Add*** et sélectionnez l'option ***crawling GeoJSON SIPs***
 
 <div align="center">
-    <img src="/images/user-documentation/5-crawler/crawler-add-datasource-aips.png" alt="aips" width="800"/> 
+    <img src="/images/user-documentation/v1.4/5-crawler/crawler-add-datasource-aips.png" alt="aips" width="800"/> 
 </div>
 
 - Sur la page ***AIPs datasource creation***, complétez les champs suivants :
@@ -37,7 +37,7 @@ Depuis le menu ***Add data*** et la carte ***Crawling***, cliquez sur ***Map dat
   - Précisez ensuite la concordance entre les attributs de REGARDS et ceux du modèle d'aspiration. Il y a deux types d'attributs les statiques, communs à toutes les données de REGARDS et les attributs spécifiques à votre modèle. Pour chacun des attributs, vous devez indiquer le chemin dans le fichier JSON de l'AIP pour récupérer sa valeur. Par exemple :
 
 <div align="center">
-   <img src="/images/user-documentation/5-crawler/crawler-add-datasource-aips-example.png" alt="mapping example" width="1000"/> 
+   <img src="/images/user-documentation/v1.4/5-crawler/crawler-add-datasource-aips-example.png" alt="mapping example" width="1000"/> 
 </div>
 
 extrait du fichier AIP

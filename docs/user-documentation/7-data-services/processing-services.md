@@ -6,8 +6,8 @@ slug: /user-guide/data-services/processing-services/
 
 *Les services permettent d'appliquer des traitements légers sur les données de votre catalogue.*
 
-<img src="/images/user-documentation/6-catalog-consultation/protocols/catalog-access-menu.png" alt="user menu" height="200"/> 
-<img src="/images/user-documentation/7-data-services/processing-services/processing-services-card.png" alt="user menu" height="200"/>
+<img src="/images/user-documentation/v1.4/6-catalog-consultation/protocols/catalog-access-menu.png" alt="user menu" height="200"/> 
+<img src="/images/user-documentation/v1.4/7-data-services/processing-services/processing-services-card.png" alt="user menu" height="200"/>
 
 ---
 
@@ -25,7 +25,7 @@ Configurez-le selon votre utilisation :
 - Choisissez si vous voulez l'activer pour tous les jeux de données au travers du paramètre ***Activate this service for datas of every datasets*** (par défaut la valeur n'est pas activée). Si vous souhaitez l'ajouter seulement pour un ou plusieurs jeux de données, suivez l'étape 5 de la [création d'un jeu de données](../../data-organization/collections-datasets/)
 
 <div align="center">
-  <img src="/images/user-documentation/7-data-services/processing-services/service-create.png" alt="create service" width="800"/> 
+  <img src="/images/user-documentation/v1.4/7-data-services/processing-services/service-create.png" alt="create service" width="800"/> 
 </div>
 
 Une fois la configuration terminée, appuyez sur le bouton ***Add*** et retrouvez-le dans la liste des services applicables dans le catalogue. Vérifiez qu'il soit dans l'état actif.
@@ -37,5 +37,5 @@ Les services de traitements sont applicables sur les données du catalogue acces
 Sur chaque donnée, vous pouvez appuyer sur le bouton <img src="/images/user-documentation/regards-icons/admin/gear-wheel.png" alt="gear wheel" height="25"/> ***Services*** pour voir les services associés. Cliquez ensuite sur le service de traitement que vous souhaitez exécuter. Vous pouvez également les appliquer sur un groupe en cochant plusieurs cases et en appuyant sur le bouton qui s'affichera dans la barre au-dessus des données. Cela est uniquement possible lorsque le service le permet.
 
 <div align="center">
-  <img src="/images/user-documentation/7-data-services/processing-services/catalog-processing-services.png" alt="services" width="800"/> 
+  <img src="/images/user-documentation/v1.4/7-data-services/processing-services/catalog-processing-services.png" alt="services" width="800"/> 
 </div>

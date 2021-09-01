@@ -12,7 +12,7 @@ Il vous suffira de paramétrer des chaînes d'acquisition pour configurer le mod
 Dans le menu latéral, cliquez sur **Add data** et observez la carte **Product Manager (OAIS)**.
 
 <img src="/images/user-documentation/regards-icons/admin/menu-add-data.png" alt="menu" height="200"/>
-<img src="/images/user-documentation/4_2-dataprovider/acquisition-card.png" alt="acquisition card" height="200"/>
+<img src="/images/user-documentation/v1.4/4_2-dataprovider/acquisition-card.png" alt="acquisition card" height="200"/>
 
 ---
 

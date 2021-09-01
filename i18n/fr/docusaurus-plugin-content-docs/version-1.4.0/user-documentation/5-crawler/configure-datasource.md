@@ -25,7 +25,7 @@ Vous pouvez ajouter deux types de sources de données selon vos besoins.
 ## <img src="/images/user-documentation/doc-icons/right-arrow.png" alt="arrow" height="12"/> Gérer les sources d'aspiration
 
 <div align="center">
-  <img src="/images/user-documentation/5-crawler/crawler-datasources.png" alt="datasources" width="800"/> 
+  <img src="/images/user-documentation/v1.4/5-crawler/crawler-datasources.png" alt="datasources" width="800"/> 
 </div>
 
 - Vous pouvez activer ou désactiver les aspirations avec les <img src="/images/user-documentation/regards-icons/admin/toggle-button.png" alt="toggle" height="25"/> toggles buttons. Si vous choisissez d'en désactiver une, l'indexation du catalogue ne s'effectuera plus à partir de cette source de données.
