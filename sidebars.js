@@ -68,6 +68,7 @@ module.exports = {
             "user-documentation/4_1-ingest/oais-files-configure-ingestion-chains",
             "user-documentation/4_1-ingest/oais-files-submit-products",
             "user-documentation/4_1-ingest/oais-files-manage-products",
+            "user-documentation/4_1-ingest/oais-files-settings",
           ],
         },
         {
@@ -84,6 +85,7 @@ module.exports = {
           items: [
             "user-documentation/4_3-fem/fem-introduction",
             "user-documentation/4_3-fem/fem-manage-features",
+            "user-documentation/4_3-fem/fem-settings",
           ],
         },
         {
@@ -144,6 +146,7 @@ module.exports = {
         "user-documentation/order-data/order-manage-orders",
         "user-documentation/order-data/order-processing",
         "user-documentation/order-data/order-monitor-orders",
+        "user-documentation/order-data/order-settings",
       ],
     },
   ],

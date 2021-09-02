@@ -8,3 +8,5 @@ REGARDS vous permet également d'importer des fichiers de données par messages 
 Contrairement aux fichiers de données respectant le format OAIS et pouvant être directement importés depuis le ***Product Manager***, ces types de fichiers n'ont pas de métadonnées permettant de les pérenniser (historique décrivant la donnée par exemple). Ainsi, ces fichiers ne sont pas transformés en AIP.
 
 Apprenez à [créer et gérer des features](../manage-features/)
+
+Apprenez à [gérer les paramètres de FEM](../manage-features-settings/)
