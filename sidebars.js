@@ -75,8 +75,7 @@ module.exports = {
           label: "Import data - Scanned files",
           items: [
             "user-documentation/4_2-dataprovider/scanned-files-introduction",
-            "user-documentation/4_2-dataprovider/scanned-files-manage-acquisition-chains",
-            "user-documentation/4_2-dataprovider/scanned-files-monitor-sessions",
+            "user-documentation/4_2-dataprovider/scanned-files-manage-acquisition-chains"
           ],
         },
         {
@@ -87,6 +86,13 @@ module.exports = {
             "user-documentation/4_3-fem/fem-manage-features",
           ],
         },
+        {
+          type: "category",
+          label: "Dashboard",
+          items: [
+            "user-documentation/4_4_dashboard/dashboard-monitor-sessions"
+          ],
+        }
       ],
     },
     {

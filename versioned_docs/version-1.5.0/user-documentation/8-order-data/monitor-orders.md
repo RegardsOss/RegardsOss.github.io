@@ -6,8 +6,8 @@ slug: /user-guide/order/monitor-orders/
 
 *Suivez les commandes effectuées dans votre projet*
 
-<img src="/images/user-documentation/8-order-data/command-menu.png" alt="user menu" height="200"/> 
-<img src="/images/user-documentation/8-order-data/orders-card.png" alt="user menu" height="200"/>
+<img src="/images/user-documentation/v1.4/8-order-data/command-menu.png" alt="user menu" height="200"/> 
+<img src="/images/user-documentation/v1.4/8-order-data/orders-card.png" alt="user menu" height="200"/>
 
 ---
 
@@ -15,7 +15,7 @@ Depuis l'interface d'administration, le menu ***Commands*** et la carte ***Order
 Sur l'écran ***Orders***, vous pouvez visualiser toutes les commandes effectuées dans votre projet.
 
 <div align="center">
-  <img src="/images/user-documentation/8-order-data/order/order-list.png" alt="order list" width="800"/> 
+  <img src="/images/user-documentation/v1.4/8-order-data/order/order-list.png" alt="order list" width="800"/> 
 </div>
 
 Les informations suivantes sont indiquées :

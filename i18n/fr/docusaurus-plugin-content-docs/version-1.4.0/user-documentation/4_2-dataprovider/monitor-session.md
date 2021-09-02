@@ -17,7 +17,7 @@ _Si vous ne connaissez pas un de ces concepts, vous pouvez lire les rubriques su
 - _[Crawl datasources chain](../../../crawler/introduction/)_
 
  <div align="center">
-    <img src="/images/user-documentation/4_2-dataprovider/acquisition-sessions.png" alt="sessions" width="800"/> 
+    <img src="/images/user-documentation/v1.4/4_2-dataprovider/acquisition-sessions.png" alt="sessions" width="800"/> 
  </div>
 
 Vous trouverez les renseignements suivants sur cet écran.

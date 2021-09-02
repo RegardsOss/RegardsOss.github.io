@@ -43,8 +43,58 @@ Il vous expliquera comment :
 
 Pour développer des plugins de création de features par extraction de données, suivez le tutoriel [Feature Factory Plugins](../../../../development/backend/services/fem/plugins/feature-factory/)
 
-## <img src="/images/user-documentation/doc-icons/right-arrow.png" alt="arrow" height="12"/> Gérez les features
+## <img src="/images/user-documentation/doc-icons/right-arrow.png" alt="arrow" height="12"/> Gérer des features
 
-Le tutoriel [Feature Manager AMQP API](../../../../development/backend/services/fem/api/amqp/) vous expliquera également comment modifier et supprimer des features par messages AMQP.
+Les ***features*** aussi appelés ***produits GeoJson*** importés sont visibles dans l'IHM admin depuis le menu **Add data** et la carte **Products Manager (GeoJson)**.
 
-Par ailleurs, vous pouvez aussi gérer les features depuis le catalogue à l'aide de [plugins d'interface supplémentaires](../../../data-services/ui-services/). Notez que vous devrez obligatoirement avoir configuré une [aspiration de données depuis le feature manager](../../../crawler/configure-datasources/fem/).
+<img src="/images/user-documentation/regards-icons/admin/menu-add-data.png" alt="menu" height="200"/>
+<img src="/images/user-documentation/v1.6/4_3-fem/fem-card.png" alt="fem card" height="200"/>
+
+---
+
+Cet écran vous permettra de **consulter les features** importées, de les **renotifier** ou de les **supprimer**. Il vous permettra également d'avoir une **vision d'ensemble sur les différents types de requêtes** effectuées et de les relancer en cas d'erreur. A noter que seules les requêtes terminées en succès se supprimeront.
+
+<div align="center">
+    <img src="/images/user-documentation/v1.6/4_3-fem/fem-screen.png" alt="feature screen" width="800"/> 
+</div>
+
+
+L'écran est principalement découpé en deux parties :
+- **en haut**, une barre permettant de filtrer les features ou les requêtes , 
+- **sur la partie principale**, des onglets et leurs écrans associés. ***Products*** présente les features importées, les autres onglets correspondent aux différents types de requêtes associés aux services d'**extraction**, de **création**, de **mise à jour**, de **suppression** ou de **notification**.
+
+:::caution
+Pensez à appuyer régulièrement sur le bouton de rafraîchissement pour obtenir des informations à jour.
+:::
+
+### Les filtres
+
+Vous pouvez filtrer les features ou les requêtes selon les critères suivants : 
+
+***Sur les features***
+
+- ***Source*** désigne le fournisseur de données
+- ***Session*** identifie le groupe d'appartenance de la donnée
+- ***Provider Id*** correspond à l'identifiant de la feature
+
+
+***Sur les requêtes*** 
+
+- ***From/To*** permet de filtrer sur la date de création de la requête
+- ***State*** informe du status de la requête parmi ***Any status***, ***Granted***, ***Denied***, ***Error***. Pour rappel, les requêtes en succès sont supprimées.
+
+### Les actions
+
+***Sur les features***
+
+Vous pouvez ***notifier*** ou ***supprimer*** une sélection de features. A noter que la notification est une étape déjà intégrée au workflow de traitement d'une requête de feature, cette action vous permettra donc d'en lancer une nouvelle si nécessaire. 
+
+:::info 
+La modification d'une feature uniquement se fait uniquement par requête, pour cela référez-vous au tutoriel [Feature Manager AMQP API](../../../../development/backend/services/fem/api/amqp/#feature-patch-request)
+::: 
+
+Vous pouvez également consulter, supprimer ou notifier une feature individuellement.
+
+***Sur les requêtes***
+
+Lorsque une ou plusieurs requêtes sont en erreur, vous avez la possibilité de les relancer ou de les supprimer.

@@ -11,5 +11,5 @@ A partir de l'écran ***Add data*** et la carte ***Crawling***, vous pouvez déc
 L'action ***Reset catalog*** aura pour effet de supprimer toutes les aspirations issues de vos sources de données. Les indexations vont ensuite être recréées en fonction des aspirations configurées dans *[Configure datasources](../configure-datasources/)*.
 
 <div align="center">
-  <img src="/images/user-documentation/5-crawler/crawler-reset-catalog.png" alt="reset catalog" width="800"/> 
+  <img src="/images/user-documentation/v1.4/5-crawler/crawler-reset-catalog.png" alt="reset catalog" width="800"/> 
 </div>

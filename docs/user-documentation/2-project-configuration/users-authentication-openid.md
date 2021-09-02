@@ -7,7 +7,7 @@ slug: /user-guide/project-configuration/users/openid/
 _Configurez les paramètres de connexion à un Service provider pour authentification via OpenID Connect_.
 
 <div align="center">
-  <img src="/images/user-documentation/2-project-configuration/users/service-provider-openid-connect.png" alt="OpenID Connect" width="800"/> 
+  <img src="/images/user-documentation/v1.4/2-project-configuration/users/service-provider-openid-connect.png" alt="OpenID Connect" width="800"/> 
 </div>
 
 L'écran **_Ajouter un nouveau fournisseur de service_** est découpé en deux parties :

@@ -11,7 +11,7 @@ _Pour configurer les chaînes d'ingestion, allez dans le menu ***Add data***, da
 ## <img src="/images/user-documentation/doc-icons/right-arrow.png" alt="arrow" height="12"/> Créer une chaîne d'ingestion
 
 <div align="center">
-    <img src="/images/user-documentation/4_1-ingest/ingest-add-chain.png" alt="add chain" width="800"/> 
+    <img src="/images/user-documentation/v1.4/4_1-ingest/ingest-add-chain.png" alt="add chain" width="800"/> 
 </div>
 
 L'ingestion d'un produit consiste en cinq étapes principales. Chacune de ces étapes dépend de plugins effectuant des actions différentes :
@@ -25,7 +25,7 @@ L'ingestion d'un produit consiste en cinq étapes principales. Chacune de ces é
 A partir de l'écran ***Create a new processing chain***, vous avez deux façons de créer des chaînes d'ingestion.
 
 <div align="center">
-    <img src="/images/user-documentation/4_1-ingest/ingest-create-chain.png" alt="create chain" width="800"/> 
+    <img src="/images/user-documentation/v1.4/4_1-ingest/ingest-create-chain.png" alt="create chain" width="800"/> 
 </div>
 
 ### Créer une chaîne à partir d'un fichier JSON (1)
@@ -58,5 +58,5 @@ Plusieurs actions vous permettent de gérer les chaînes d'ingestion :
 - Les chaînes peuvent être supprimées à l'exception de la ***DefaultProcessingChain*** qui est celle par défaut.
 
 <div align="center">
-    <img src="/images/user-documentation/4_1-ingest/ingest-update-chains.png" alt="update chains" width="800"/> 
+    <img src="/images/user-documentation/v1.4/4_1-ingest/ingest-update-chains.png" alt="update chains" width="800"/> 
 </div>

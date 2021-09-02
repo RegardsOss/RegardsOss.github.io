@@ -7,7 +7,7 @@ slug: /user-guide/data-organization/data-access-rights/
 _Contrôlez l'accès aux [Jeux de données](../collections-datasets/) REGARDS au travers de groupes d'utilisateurs. Les groupes utilisateur se gèrent depuis la carte ***Access group*** du menu ***Users***._
 
 <div align="center">
-  <img src="/images/user-documentation/2-project-configuration/users/users.png" alt="user menu" width="800"/> 
+  <img src="/images/user-documentation/v1.4/2-project-configuration/users/users.png" alt="user menu" width="800"/> 
 </div>
 
 ---
@@ -21,7 +21,7 @@ Pour ajouter un groupe, cliquez sur le bouton **_Add_** de la carte **_Access gr
 Pour voir l'ensemble des groupes utilisateur du projet, cliquez sur le bouton **_List_** de la carte **_Access group_**. Pour chacun d'eux, vous pouvez éditer les droits d'accès à l'ensemble des jeux de données du projet en appuyant sur le bouton <img src="/images/user-documentation/regards-icons/admin/link.png" alt="link" height="25"/> **_Edit access rights_**.
 
 <div align="center">
-  <img src="/images/user-documentation/3-data-organization/data-access-rights/groups-edit.png" alt="group list" width="800"/>
+  <img src="/images/user-documentation/v1.4/3-data-organization/data-access-rights/groups-edit.png" alt="group list" width="800"/>
 </div>
 
 :::info

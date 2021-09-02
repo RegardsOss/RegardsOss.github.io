@@ -7,7 +7,7 @@ slug: /user-guide/project-configuration/users/
 _Gérez les utilisateurs du projet depuis le menu ***Users*** de l'administration du projet._
 
 <div align="center">
-  <img src="/images/user-documentation/2-project-configuration/users/users.png" alt="user menu" width="800"/> 
+  <img src="/images/user-documentation/v1.4/2-project-configuration/users/users.png" alt="user menu" width="800"/> 
 </div>
 
 ---
@@ -17,7 +17,7 @@ _Gérez les utilisateurs du projet depuis le menu ***Users*** de l'administratio
 Si vous êtes administrateur du projet, vous pouvez paramétrer le type de validation utilisé lors de la création de compte par des utilisateurs en cliquant sur le bouton <img src="/images/user-documentation/regards-icons/admin/gear-wheel.png" alt="settings" height="25"/> **_Settings_** accessible depuis la carte **_Users_** du menu **_Users_**.
 
 <div align="center">
-  <img src="/images/user-documentation/2-project-configuration/users/user-settings.png" alt="user settings" width="800"/>
+  <img src="/images/user-documentation/v1.4/2-project-configuration/users/user-settings.png" alt="user settings" width="800"/>
 </div>
 Réglez les paramètres suivants :
 
@@ -44,7 +44,7 @@ Ce système de validation est également mis en place au niveau des [comptes uti
 Si vous êtes un nouvel utilisateur, vous pouvez vous enregistrer sur l'interface utilisateur de votre projet. Accédez à l'url `http://<regards host>/user/<project>` puis cliquez sur **_Login_** puis le bouton **_New user ?_**.
 
 <div align="center">
-  <img src="/images/user-documentation/2-project-configuration/users/new-user.png" alt="new user" width="800"/> 
+  <img src="/images/user-documentation/v1.4/2-project-configuration/users/new-user.png" alt="new user" width="800"/> 
 </div>
 
 Suivant la configuration de votre projet, deux actions sont possibles suite à votre demande :
@@ -93,19 +93,19 @@ En cliquant sur le bouton <img src="/images/user-documentation/regards-icons/adm
 Vous pouvez décider d'ajouter des rôles supplémentaires, en reprenant les concepts de ces cinq rôles, afin de les personnaliser. Appuyez sur le bouton **_Add_** de la carte **_Roles_**. Donnez un nom au nouveau rôle et choisissez le niveau d'accès, puis appuyez sur le bouton **_Save_**.
 
 <div align="center">
-  <img src="/images/user-documentation/2-project-configuration/users/add-role.png" alt="add role" width="800"/>
+  <img src="/images/user-documentation/v1.4/2-project-configuration/users/add-role.png" alt="add role" width="800"/>
 </div>
 
 Retournez ensuite dans la page listant les rôles et appuyez sur le bouton <img src="/images/user-documentation/regards-icons/admin/link.png" alt="link" height="25"/> **_Configure resources access_** du rôle en question.
 
 <div align="center">
-  <img src="/images/user-documentation/2-project-configuration/users/role-list.png" alt="role list" width="800"/>
+  <img src="/images/user-documentation/v1.4/2-project-configuration/users/role-list.png" alt="role list" width="800"/>
 </div>
 
 Pour chaque microservice, vous pourrez gérer individuellement l'accès à chaque endpoint REST. Notez que vous pouvez seulement activer ou désactiver l'accès aux endpoints nécessitant un role supérieur à celui configuré dans le modèle de base.
 
 <div align="center">
-  <img src="/images/user-documentation/2-project-configuration/users/authorize-role-actions.png" alt="add role" width="800"/>
+  <img src="/images/user-documentation/v1.4/2-project-configuration/users/authorize-role-actions.png" alt="add role" width="800"/>
 </div>
 
 #### Groupes d'accès aux données
@@ -129,7 +129,7 @@ Dans la liste **_Users_** accessible depuis la carte **_Users_**, vous pourrez e
 - <img src="/images/user-documentation/regards-icons/admin/delete.png" alt="delete" height="25"/> <b><i>Remove</i></b> pour supprimer un utilisateur
 
 <div align="center">
-  <img src="/images/user-documentation/2-project-configuration/users/user-list.png" alt="user settings" width="800"/>
+  <img src="/images/user-documentation/v1.4/2-project-configuration/users/user-list.png" alt="user settings" width="800"/>
 </div>
 
 :::info
@@ -141,7 +141,7 @@ La suppression d'un utilisateur n'entraîne que son retrait de la liste des util
 REGARDS permet la connexion d'utilisateurs depuis un système extérieur. Il ne gérera ainsi pas les comptes en interne.
 
 <div align="center">
-  <img src="/images/user-documentation/2-project-configuration/users/authentication-list.png" alt="authentication systems" width="800"/>
+  <img src="/images/user-documentation/v1.4/2-project-configuration/users/authentication-list.png" alt="authentication systems" width="800"/>
 </div>
 
 La connexion peut se faire par le biais d'un système d'authentification déporté (Identity provider) ou externalisé (Service provider).

@@ -6,8 +6,8 @@ slug: /user-guide/catalog/configuration/
 
 *Configurez le catalogue de données pour visualiser les données aspirées.*
 
-<img src="/images/user-documentation/6-catalog-consultation/catalog/user-interface-menu.png" alt="user menu" height="200"/> 
-<img src="/images/user-documentation/6-catalog-consultation/catalog/ui-modules-card.png" alt="ui modules card" height="200"/>
+<img src="/images/user-documentation/v1.4/6-catalog-consultation/catalog/user-interface-menu.png" alt="user menu" height="200"/> 
+<img src="/images/user-documentation/v1.4/6-catalog-consultation/catalog/ui-modules-card.png" alt="ui modules card" height="200"/>
 
 ---
 
@@ -17,10 +17,10 @@ Il existe un catalogue par défaut permettant de faire des recherches sur vos do
 
 - Connectez-vous à l'interface ***user***, observez la page ***Catalog***. Elle est composée de deux onglets ***Datasets*** et ***Data***.
 <div align="center">
-  <img src="/images/user-documentation/6-catalog-consultation/catalog/user/catalog-datasets.png" alt="datasets" width="800"/> 
+  <img src="/images/user-documentation/v1.4/6-catalog-consultation/catalog/user/catalog-datasets.png" alt="datasets" width="800"/> 
 </div>
 <div align="center">
-  <img src="/images/user-documentation/6-catalog-consultation/catalog/user/catalog-data.png" alt="create data" width="800"/> 
+  <img src="/images/user-documentation/v1.4/6-catalog-consultation/catalog/user/catalog-data.png" alt="create data" width="800"/> 
 </div>
  
 - Dans un autre onglet de votre navigateur, connectez-vous à l'interface ***admin***. Puis rendez-vous dans la page ***UI modules*** accessible depuis le menu ***User Interface***, la carte ***UI modules*** et le bouton ***List***. Cliquez sur le bouton <img src="/images/user-documentation/regards-icons/admin/edit.png" alt="edit" height="25"/> ***Edit*** de la ligne ***Catalog*** pour configurer le catalogue de données.
@@ -42,10 +42,10 @@ La première partie permet à l'identification du module, elle est commune à to
 
 ### Page Settings
 
-Vous réglez ici l'affichage de l'onglet ***Catalag*** dans l'interface <img src="/images/user-documentation/6-catalog-consultation/catalog/user/catalog-tab.png" alt="catalog tab" height="25"/> ***user***.
+Vous réglez ici l'affichage de l'onglet ***Catalag*** dans l'interface <img src="/images/user-documentation/v1.4/6-catalog-consultation/catalog/user/catalog-tab.png" alt="catalog tab" height="25"/> ***user***.
 
 <div align="center">
-  <img src="/images/user-documentation/6-catalog-consultation/catalog/admin/page-settings.png" alt="page settings" width="800"/> 
+  <img src="/images/user-documentation/v1.4/6-catalog-consultation/catalog/admin/page-settings.png" alt="page settings" width="800"/> 
 </div>
 
 <ul> 
@@ -60,13 +60,13 @@ Vous réglez ici l'affichage de l'onglet ***Catalag*** dans l'interface <img src
 Dans cette partie, vous réglerez le contenu de la page ***Catalog***.
 
 <div align="center">
-  <img src="/images/user-documentation/6-catalog-consultation/catalog/admin/settings.png" alt="module settings" width="800"/> 
+  <img src="/images/user-documentation/v1.4/6-catalog-consultation/catalog/admin/settings.png" alt="module settings" width="800"/> 
 </div>
 
 ##### Main
 
 <div align="center">
-  <img src="/images/user-documentation/6-catalog-consultation/catalog/user/catalog-arrow.png" alt="arrow" width="800"/> 
+  <img src="/images/user-documentation/v1.4/6-catalog-consultation/catalog/user/catalog-arrow.png" alt="arrow" width="800"/> 
 </div>
 
 - ***Presentation pane state*** paramètre l'affichage de la page
@@ -83,7 +83,7 @@ Dans cette partie, vous réglerez le contenu de la page ***Catalog***.
 L'onglet ***Filters*** vous permet de créer vos propres filtres de données.
 
 <div align="center">
-  <img src="/images/user-documentation/6-catalog-consultation/catalog/admin/filters.png" alt="module settings" width="800"/> 
+  <img src="/images/user-documentation/v1.4/6-catalog-consultation/catalog/admin/filters.png" alt="module settings" width="800"/> 
 </div>
 
 - Cochez les cases suivantes selon vos besoins :
@@ -97,7 +97,7 @@ L'onglet ***Filters*** vous permet de créer vos propres filtres de données.
 Vos filtres s'afficheront ensuite sous la barre contenenant ***Datasets*** et ***Data***. Activez ou désactivez les filtres en appuyant sur le bouton ***Filters***.
 
 <div align="center">
-  <img src="/images/user-documentation/6-catalog-consultation/catalog/user/catalog-filters.png" alt="filters" width="800"/> 
+  <img src="/images/user-documentation/v1.4/6-catalog-consultation/catalog/user/catalog-filters.png" alt="filters" width="800"/> 
 </div>
 
 ##### Result restriction
@@ -113,7 +113,7 @@ En revanche, vous pouvez créer un autre catalogue selon les missions sur lesque
   - sélectionnez les modèles que vous souhaitez conserver. Tous les jeux de données associés aux modèles choisi seront présents.
 
 <div align="center">
-  <img src="/images/user-documentation/6-catalog-consultation/catalog/admin/restriction.png" alt="module settings" width="800"/> 
+  <img src="/images/user-documentation/v1.4/6-catalog-consultation/catalog/admin/restriction.png" alt="module settings" width="800"/> 
 </div>
 
 ##### Search tab
@@ -140,13 +140,13 @@ En revanche, vous pouvez créer un autre catalogue selon les missions sur lesque
 A tout moment vous pouvez modifier la position des groupes ou des critères en utilisant les flèches. Cela modifiera simplement l'ordre d'affichage dans l'interface ***user***. Vous pouvez également rééditer ou supprimer des groupes et, ou des critères à volonté.
 
 <div align="center">
-  <img src="/images/user-documentation/6-catalog-consultation/catalog/admin/search.png" alt="search settings" width="800"/> 
+  <img src="/images/user-documentation/v1.4/6-catalog-consultation/catalog/admin/search.png" alt="search settings" width="800"/> 
 </div>
 
 Le panneau ainsi configuré s'affichera à droite en cliquant sur le bouton ***Search*** de la barre d'outil du catalogue.
 
 <div align="center">
-  <img src="/images/user-documentation/6-catalog-consultation/catalog/user/catalog-search.png" alt="search" width="800"/> 
+  <img src="/images/user-documentation/v1.4/6-catalog-consultation/catalog/user/catalog-search.png" alt="search" width="800"/> 
 </div>
 
 ##### Data
@@ -211,13 +211,13 @@ Voici un exemple qui vous permettra d'afficher un planisphère et un globe terre
   - ajoutez ensuite des ***Layers*** supplémentaires qui s'afficheront au-dessus des ***Layers*** de base. Pensez à ne pas cocher la case ***Background*** pour ce type de ***Layer***.
 
 <div align="center">
-  <img src="/images/user-documentation/6-catalog-consultation/catalog/admin/map-layers.png" alt="map layers" width="800"/> 
+  <img src="/images/user-documentation/v1.4/6-catalog-consultation/catalog/admin/map-layers.png" alt="map layers" width="800"/> 
 </div>
   
 En bas du tableau, ajoutez les attributs que vous souhaitez afficher sous chaque quicklook.
 
 <div align="center">
-  <img src="/images/user-documentation/6-catalog-consultation/catalog/admin/map-attributes.png" alt="map attributes" width="800"/> 
+  <img src="/images/user-documentation/v1.4/6-catalog-consultation/catalog/admin/map-attributes.png" alt="map attributes" width="800"/> 
 </div>
   
 
@@ -229,11 +229,11 @@ Rendez-vous dans l'interface utilisateur et le module ***Data map*** nouvellemen
 Cliquez alternativement sur l'icône ***3D mode*** et ***2D mode*** pour voir les modes 2D ou 3D. L'icône en forme de goutte ***Change layer opacity*** sert à modifier l'opacité des ***Layers*** s'affichant en superposition sur les modes 2D ou 3D. Apprenez à manipuler cette vue dans la page [Use the catalog](../use/).
 
 <div align="center">
-  <img src="/images/user-documentation/6-catalog-consultation/catalog/user/catalog-map-3D.png" alt="2D" width="800"/> 
+  <img src="/images/user-documentation/v1.4/6-catalog-consultation/catalog/user/catalog-map-3D.png" alt="2D" width="800"/> 
 </div>
 
 <div align="center">
-  <img src="/images/user-documentation/6-catalog-consultation/catalog/user/catalog-map-2D.png" alt="3D" width="800"/> 
+  <img src="/images/user-documentation/v1.4/6-catalog-consultation/catalog/user/catalog-map-2D.png" alt="3D" width="800"/> 
 </div>
 
 ---
@@ -262,15 +262,15 @@ Par exemple :
 Sélection des attributs à afficher et configuration du groupe GROUP EXAMPLE 1.
 
 <div align="center">
-  <img src="/images/user-documentation/6-catalog-consultation/catalog/admin/description-add-new-item.png" alt="description example" width="900"/> 
+  <img src="/images/user-documentation/v1.4/6-catalog-consultation/catalog/admin/description-add-new-item.png" alt="description example" width="900"/> 
 </div>
 
 <div align="center">
-  <img src="/images/user-documentation/6-catalog-consultation/catalog/admin/description-config.png" alt="description example" width="900"/> 
+  <img src="/images/user-documentation/v1.4/6-catalog-consultation/catalog/admin/description-config.png" alt="description example" width="900"/> 
 </div>
 
 Le groupe EXAMPLE 1 est visible dans l'interface utilisateur.
 
 <div align="center">
-  <img src="/images/user-documentation/6-catalog-consultation/catalog/user/description-example.png" alt="description example" width="1200"/> 
+  <img src="/images/user-documentation/v1.4/6-catalog-consultation/catalog/user/description-example.png" alt="description example" width="1200"/> 
 </div>

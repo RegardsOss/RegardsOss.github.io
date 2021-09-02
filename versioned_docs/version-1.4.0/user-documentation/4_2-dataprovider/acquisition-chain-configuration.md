@@ -9,7 +9,7 @@ _Pour configurer les chaînes d'acquisition, allez dans le menu ***Add data***, 
 ## <img src="/images/user-documentation/doc-icons/right-arrow.png" alt="arrow" height="12"/> Créer une chaîne d'acquisition
 
 <div align="center">
-    <img src="/images/user-documentation/4_2-dataprovider/acquisition-add-chain.png" alt="add chain" width="800"/> 
+    <img src="/images/user-documentation/v1.4/4_2-dataprovider/acquisition-add-chain.png" alt="add chain" width="800"/> 
 </div>
 
 Une chaîne d'acquisition permet de générer un ou plusieurs SIPs à partir de vos fichiers de données. Les SIPs seront ensuite confiés à une chaîne d'ingestion dans le but de transformer le SIP en AIP.
@@ -25,7 +25,7 @@ Vous devrez remplir des champs servant à l'identification de la chaîne et sél
 ### Onglet General
 
 <div align="center">
-  <img src="/images/user-documentation/4_2-dataprovider/acquisition-chain-general.png" alt="add chain" width="800"/> 
+  <img src="/images/user-documentation/v1.4/4_2-dataprovider/acquisition-chain-general.png" alt="add chain" width="800"/> 
 </div>
 
 Vous devez compléter les champs suivants :
@@ -41,7 +41,7 @@ Vous devez compléter les champs suivants :
 ### Onglet Files
 
 <div align="center">
-  <img src="/images/user-documentation/4_2-dataprovider/acquisition-chain-file-1.png" alt="file (1)" width="800"/> 
+  <img src="/images/user-documentation/v1.4/4_2-dataprovider/acquisition-chain-file-1.png" alt="file (1)" width="800"/> 
 </div>
 
 Vous pouvez créer sur cette page un ensemble de ***Files*** visibles dans la partie de gauche. Un SIP peut être associé à un ou plusieurs types de fichiers. Les ***Files*** sont des configurations qui permettront de retrouver tous ces fichiers par type. Ils vont scanner tous les répertoires indiqués et détecter les fichiers qui serviront à la génération de SIPs.
@@ -54,11 +54,11 @@ Dans l'exemple suivant, il y a deux ***Files*** :
 Le plugin de génération des produits par défaut créera ensuite un SIP pour chaque couple de fichiers de type _.dat_ et _.jpg_ de même nom.
 
 <div align="center">
-  <img src="/images/user-documentation/4_2-dataprovider/acquisition-file-example-1.png" alt="file example 1" width="800"/> 
+  <img src="/images/user-documentation/v1.4/4_2-dataprovider/acquisition-file-example-1.png" alt="file example 1" width="800"/> 
 </div>
 
 <div align="center">
-  <img src="/images/user-documentation/4_2-dataprovider/acquisition-file-example-2.png" alt="file example 2" width="800"/> 
+  <img src="/images/user-documentation/v1.4/4_2-dataprovider/acquisition-file-example-2.png" alt="file example 2" width="800"/> 
 </div>
 
 Vous devez créer un ***File*** à minima, remplissez les champs suivants :
@@ -70,7 +70,7 @@ Vous devez créer un ***File*** à minima, remplissez les champs suivants :
   - la ***Last scanning date*** *[Optionnel]*, vous pouvez laisser ce champ vide. Si vous précisez une valeur, seuls les fichiers dont la date de modification est supérieure à la date de dernier scan seront pris en compte.
 
 <div align="center">
-  <img src="/images/user-documentation/4_2-dataprovider/acquisition-chain-file-2.png" alt="file (2)" width="800"/> 
+  <img src="/images/user-documentation/v1.4/4_2-dataprovider/acquisition-chain-file-2.png" alt="file (2)" width="800"/> 
 </div>
    
 Sélectionnez ensuite le <b><i>Plugin to detect new data</i></b> pour indiquer au système la manière dont il devra détecter les fichiers. Il existe plusieurs plugins, dont certains avec des paramètres. 
@@ -93,7 +93,7 @@ REGARDS fournit des plugins de validation et de génération de SIPs par défaut
 :::
 
 <div align="center">
-   <img src="/images/user-documentation/4_2-dataprovider/acquisition-chain-plugins.png" alt="plugins" width="800"/> 
+   <img src="/images/user-documentation/v1.4/4_2-dataprovider/acquisition-chain-plugins.png" alt="plugins" width="800"/> 
 </div>
 
 La génération d'un SIP s'effectue en quatre étapes principales Chacune de ces étapes dépend de plugins effectuant des actions différentes :
@@ -132,7 +132,7 @@ Par ligne :
 Vous pouvez également utiliser les outils de filtrage pour rechercher plus simplement des chaînes. Pour cela, sélectionnez le filtre désiré et appuyez sur le bouton ***Apply filters*** pour l'appliquer. Vous pourrez par la suite vider les filtres en appuyant sur ***Clear***.
 
 <div align="center">
-    <img src="/images/user-documentation/4_1-ingest/ingest-update-chains.png" alt="update chains" width="800"/> 
+    <img src="/images/user-documentation/v1.4/4_1-ingest/ingest-update-chains.png" alt="update chains" width="800"/> 
 </div>
 
 :::info

@@ -13,7 +13,7 @@ slug: /user-guide/data-organization/collections-datasets/
 *Il permet également de restreindre l'accès à toutes les données qu'il contient, en se basant sur l'utilisation de rôles. Pour en savoir plus, suivez la [Configure data access rights](../data-access-rights/). Ce n'est pas le cas des collections.*
 
 <div align="center">
-  <img src="/images/user-documentation/3-data-organization/dataset-collection/dataset-menu.png" alt="dataset menu" width="800"/> 
+  <img src="/images/user-documentation/v1.4/3-data-organization/dataset-collection/dataset-menu.png" alt="dataset menu" width="800"/> 
 </div>
 
 ---
@@ -29,7 +29,7 @@ Il y a trois étapes principales.
 **Etape 1. Configurer les paramètres de la collection**
 
 <div align="center">
-  <img src="/images/user-documentation/3-data-organization/dataset-collection/collection-create-1.png" alt="step 1" width="800"/> 
+  <img src="/images/user-documentation/v1.4/3-data-organization/dataset-collection/collection-create-1.png" alt="step 1" width="800"/> 
 </div>
 
 Renseignez les champs suivants :
@@ -42,7 +42,7 @@ Renseignez les champs suivants :
 Lorsque vous aurez choisi le modèle de données, il vous sera demandé de compléter les attributs si nécessaire comme dans l'exemple ci-dessous.
 
 <div align="center">
-  <img src="/images/user-documentation/3-data-organization/dataset-collection/collection-example.png" alt="step 1" width="800"/> 
+  <img src="/images/user-documentation/v1.4/3-data-organization/dataset-collection/collection-example.png" alt="step 1" width="800"/> 
 </div>
 
 **Etape 2. Associer des fichiers**
@@ -53,7 +53,7 @@ Vous pouvez si vous le souhaitez, ajouter des informations liées à la collecti
 - ***Description*** décrit la collection. Vous pouvez ajouter des fichiers au format pdf, html, markdown.
 
 <div align="center">
-  <img src="/images/user-documentation/3-data-organization/dataset-collection/collection-create-2.png" alt="step 2" width="800"/> 
+  <img src="/images/user-documentation/v1.4/3-data-organization/dataset-collection/collection-create-2.png" alt="step 2" width="800"/> 
 </div>
 
 **Etape 3. Associer des collections**
@@ -61,7 +61,7 @@ Vous pouvez si vous le souhaitez, ajouter des informations liées à la collecti
 Vous pourrez lier cette collection entre elles. Pour ce faire, recherchez dans la liste de gauche celles que vous voulez associer et ajoutez-les. Vous pouvez également ajouter des tags pour les identifier rapidement dans le catalogue.
 
 <div align="center">
-  <img src="/images/user-documentation/3-data-organization/dataset-collection/collection-create-3.png" alt="step 3" width="800"/> 
+  <img src="/images/user-documentation/v1.4/3-data-organization/dataset-collection/collection-create-3.png" alt="step 3" width="800"/> 
 </div>
 
 Une fois que vous avez terminé, appuyez sur le bouton ***Save*** vous serez automatiquement redirigé vers l'écran ***Collection*** où vous retrouverez la collection que vous venez de créer.
@@ -80,7 +80,7 @@ Une fois ces étapes effectuées, créez votre premier jeu de données en cliqua
 Commencez par lier la source de données à votre jeu dans la liste déroulante. Appuyez ensuite sur le bouton ***Next***.
 
 <div align="center">
-  <img src="/images/user-documentation/3-data-organization/dataset-collection/dataset-create-0.png" alt="step 0" width="800"/> 
+  <img src="/images/user-documentation/v1.4/3-data-organization/dataset-collection/dataset-create-0.png" alt="step 0" width="800"/> 
 </div>
 
 Les images suivantes contiennent des champs déjà remplis. Il s'agit d'une aide à titre indicatif, vous n'êtes absolument pas tenus de suivre ces renseignements.
@@ -88,7 +88,7 @@ Les images suivantes contiennent des champs déjà remplis. Il s'agit d'une aide
 **Etape 1. Configurer les paramètres du jeu de données**
 
 <div align="center">
-  <img src="/images/user-documentation/3-data-organization/dataset-collection/dataset-create-1.png" alt="step 1" width="800"/> 
+  <img src="/images/user-documentation/v1.4/3-data-organization/dataset-collection/dataset-create-1.png" alt="step 1" width="800"/> 
 </div>
 
 - ***Supplier identifier*** *[Obligatoire]* l'identifiant unique du jeu de données
@@ -103,7 +103,7 @@ Complétez les valeurs des attributs si celles-ci sont requises.
 Cette étape est cruciale pour construire votre jeu de données. Écrivez dans le champ ***Filter request in OpenSearch***, le critère devant différencier votre sous-ensemble de données du reste des données. Dans l'exemple suivant, les produits aspirés possède le tag "DATA-01". Ainsi, seuls produits répondant à ce critère représenteront le jeu de données. Si vous ne précisez aucun filtre, tous les éléments de la source de données seront inclus. Les attributs de recherche sont listés dans la colonne de gauche.
 
 <div align="center">
-  <img src="/images/user-documentation/3-data-organization/dataset-collection/dataset-create-2.png" alt="step 2" width="800"/> 
+  <img src="/images/user-documentation/v1.4/3-data-organization/dataset-collection/dataset-create-2.png" alt="step 2" width="800"/> 
 </div>
 
 **Etape 3. Associer des fichiers**
@@ -114,7 +114,7 @@ Vous pouvez si vous le souhaitez ajouter des informations liées à votre jeu de
 - ***Description*** décrit la collection. Vous pouvez ajouter des fichiers au format pdf, html, markdown.
 
 <div align="center">
-  <img src="/images/user-documentation/3-data-organization/dataset-collection/dataset-create-3.png" alt="step 3" width="800"/> 
+  <img src="/images/user-documentation/v1.4/3-data-organization/dataset-collection/dataset-create-3.png" alt="step 3" width="800"/> 
 </div>
 
 **Etape 4. Associez des collections**
@@ -122,7 +122,7 @@ Vous pouvez si vous le souhaitez ajouter des informations liées à votre jeu de
 Vous pourrez lier ce jeu de données à une ou plusieurs collections. Pour ce faire, recherchez dans la liste celles correspondantes et ajoutez-les. Vous pouvez également ajouter des tags pour identifier le jeu de données plus rapidement dans le catalogue.
 
 <div align="center">
-  <img src="/images/user-documentation/3-data-organization/dataset-collection/dataset-create-4.png" alt="step 4" width="800"/> 
+  <img src="/images/user-documentation/v1.4/3-data-organization/dataset-collection/dataset-create-4.png" alt="step 4" width="800"/> 
 </div>
 
 **Etape 5. Ajouter éventuellement des plugins, des services ihm ou des traitements associés à votre jeu**

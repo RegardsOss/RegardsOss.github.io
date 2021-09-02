@@ -8,7 +8,7 @@ _Tout utilisateur d'un projet est associé à une instance de REGARDS, ainsi, un
 Depuis le menu ***Account*** de l'interface d'administration, vous pourrez voir et gérer la liste des utilisateurs de l'instance, paramétrer et valider les demandes de création de compte._
 
 <div align="center">
-  <img src="/images/user-documentation/1-global-configuration/accounts-menu.png" alt="interface admin" width="800"/> 
+  <img src="/images/user-documentation/v1.4/1-global-configuration/accounts-menu.png" alt="interface admin" width="800"/> 
 </div>
 
 ---
@@ -23,7 +23,7 @@ Lorsqu'un utilisateur demande la création d'un nouveau compte, il est possible 
 La validation du compte au niveau instance est configurable depuis la section ***Accounts*** de l'interface administration.
 
 <div align="center">
-  <img src="/images/user-documentation/1-global-configuration/accounts-settings.png" alt="account settings" width="800"/> 
+  <img src="/images/user-documentation/v1.4/1-global-configuration/accounts-settings.png" alt="account settings" width="800"/> 
 </div>
 
 Deux configurations sont alors possibles :
@@ -34,7 +34,7 @@ Deux configurations sont alors possibles :
 Dans le cas d'une validation manuelle, l'administrateur d'instance doit valider la demande comme présenté dans l'écran ci-dessous.
 
 <div align="center">
-  <img src="/images/user-documentation/1-global-configuration/account-validation.png" alt="account validation" width="800"/> 
+  <img src="/images/user-documentation/v1.4/1-global-configuration/account-validation.png" alt="account validation" width="800"/> 
 </div>
 
 - Dans le menu ***Accounts***, un compteur indique le nombre d'utilisateurs en attente de validation.
@@ -44,7 +44,7 @@ Dans le cas d'une validation manuelle, l'administrateur d'instance doit valider 
 Une fois les comptes acceptés, ils sont présents dans l'onglet ***All Users***.
 
 <div align="center">
-  <img src="/images/user-documentation/1-global-configuration/accounts.png" alt="accounts" width="800"/> 
+  <img src="/images/user-documentation/v1.4/1-global-configuration/accounts.png" alt="accounts" width="800"/> 
 </div>
 
 La validation des comptes au niveau de l'instance est terminée, mais leur validation au niveau projet peut être encore nécessaire.
@@ -54,5 +54,5 @@ La validation des comptes au niveau de l'instance est terminée, mais leur valid
 Vous pouvez supprimer un compte que si celui-ci n'est associé à aucun utilisateur projet. Dans ce cas, l'icône de suppression est accessible apparaît sur pour le compte concerné.
 
 <div align="center">
-  <img src="/images/user-documentation/1-global-configuration/account-deletion.png" alt="account deletion" width="800"/> 
+  <img src="/images/user-documentation/v1.4/1-global-configuration/account-deletion.png" alt="account deletion" width="800"/> 
 </div>

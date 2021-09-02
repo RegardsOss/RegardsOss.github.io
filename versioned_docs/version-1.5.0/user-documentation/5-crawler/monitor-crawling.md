@@ -11,7 +11,7 @@ Pour suivre les aspirations de données, cliquez sur ***Ajout de données*** dan
 L'écran présente la liste des aspirations de données en cours ou terminées. 
 
 <div align="center">
-    <img src="/images/user-documentation/5-crawler/crawler-monitor.png" alt="add datasource" width="800"/> 
+    <img src="/images/user-documentation/v1.4/5-crawler/crawler-monitor.png" alt="add datasource" width="800"/> 
 </div>
 
 

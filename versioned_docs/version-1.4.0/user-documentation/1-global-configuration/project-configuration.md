@@ -7,7 +7,7 @@ slug: /user-guide/global-configuration/projects/
 _Créez et gérez vos projets depuis le menu ***Projects*** de l'administration de l'instance REGARDS._
 
 <div align="center">
-  <img src="/images/user-documentation/1-global-configuration/projects-menu.png" alt="interface admin" width="800"/> 
+  <img src="/images/user-documentation/v1.4/1-global-configuration/projects-menu.png" alt="interface admin" width="800"/> 
 </div>
 
 ---
@@ -50,7 +50,7 @@ Une fois cette étape terminée, vous obtiendrez la liste des connexions aux sch
 Dans le cas contraire, vous pouvez retourner sur la page listant les projets pour reconfigurer les accès à la base de données via le bouton <img src="/images/user-documentation/regards-icons/admin/link.png" alt="link" height="25"/> ***Configure database connections***.
 
 <div align="center">
-  <img src="/images/user-documentation/1-global-configuration/project-connexions.png" alt="project connexions" width="800"/> 
+  <img src="/images/user-documentation/v1.4/1-global-configuration/project-connexions.png" alt="project connexions" width="800"/> 
 </div>
 
 :::info
@@ -64,7 +64,7 @@ Depuis l'interface d'administration de REGARDS, vous avez la possibilité de dé
 Le projet ne sera plus accessible depuis les diverses interfaces et le système ne traitera plus aucune action liée à celui-ci ; néanmoins les données associées seront toujours conservées en base.
 
 <div align="center">
-  <img src="/images/user-documentation/1-global-configuration/project-delete.png" alt="project deletion" width="800"/> 
+  <img src="/images/user-documentation/v1.4/1-global-configuration/project-delete.png" alt="project deletion" width="800"/> 
 </div>
 
 :::danger
@@ -78,5 +78,5 @@ La license de votre projet est un document configuré lors de la création du pr
 Pour modifier la licence du projet, appuyez sur le bouton <img src="/images/user-documentation/regards-icons/admin/licence.png" alt="licence" height="25"/> ***Licence changed*** associé à votre projet depuis la page ***Projects***.
 
 <div align="center">
-  <img src="/images/user-documentation/1-global-configuration/project-update-licence.png" alt="project update licence" width="800"/> 
+  <img src="/images/user-documentation/v1.4/1-global-configuration/project-update-licence.png" alt="project update licence" width="800"/> 
 </div>

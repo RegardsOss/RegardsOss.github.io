@@ -66,7 +66,7 @@ Les toponymes générés précédemment seront conservés définitivement en bas
 Avoir configuré une carte (voir [ajouter des cartes à un module search-results](../configuration#ajouter-des-cartes-à-un-module-search-results) pour plus d'information), connectez-vous à l'interface utilisateur et accédez à la vue carte depuis votre catalogue de données comme ci-dessous. 
 
 <div align="center">
-  <img src="/images/user-documentation/6-catalog-consultation/catalog/user/catalog-toponyms.png" alt="toponyms" width="800"/> 
+  <img src="/images/user-documentation/v1.4/6-catalog-consultation/catalog/user/catalog-toponyms.png" alt="toponyms" width="800"/> 
 </div>
 
 Glissez et déposez des fichiers sur la carte aux formats suivants shapefile ZIP, KML, KMZ et GeoJSON. L'emprise définie dans le toponyme sera automatiquement zoomée et son nom s'affichera au dessus de la carte. Depuis celui-ci, vous aurez la possibilité de fermer l'affichage du toponyme afin de réactiver la vue par défaut. 

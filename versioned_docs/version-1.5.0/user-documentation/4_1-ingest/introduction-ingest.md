@@ -9,7 +9,7 @@ _Vous avez la possibilité de soumettre des SIPs (Submission Information Package
 Dans le menu latéral, cliquez sur **Add data** et observez la carte **Product Manager (OAIS)**.
 
 <img src="/images/user-documentation/regards-icons/admin/menu-add-data.png" height="200"/>
-<img src="/images/user-documentation/4_1-ingest/ingest-card.png" height="200"/>
+<img src="/images/user-documentation/v1.4/4_1-ingest/ingest-card.png" height="200"/>
 
 ---
 

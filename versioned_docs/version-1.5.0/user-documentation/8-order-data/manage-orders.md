@@ -6,8 +6,8 @@ slug: /user-guide/order/manage-orders/
 
 *Gérez les modules de commande et commandez des données*
 
-<img src="/images/user-documentation/6-catalog-consultation/catalog/user-interface-menu.png" alt="user menu" height="200"/> 
-<img src="/images/user-documentation/6-catalog-consultation/catalog/ui-modules-card.png" alt="ui modules card" height="200"/>
+<img src="/images/user-documentation/v1.4/6-catalog-consultation/catalog/user-interface-menu.png" alt="user menu" height="200"/> 
+<img src="/images/user-documentation/v1.4/6-catalog-consultation/catalog/ui-modules-card.png" alt="ui modules card" height="200"/>
 
 ---
 
@@ -61,7 +61,7 @@ Accédez à l'interface user depuis l'adresse `http://<regards host>/user/<proje
 Pour commander des données, ajoutez les une par une à l'aide de l'icône ***Add item to my cart*** affiché sur chaque ligne ou sélectionnez un groupe de données et ajoutez-les en appuyant sur le bouton ***Add to Basket*** sur la barre principale du ***Catalog***.
 
 <div align="center">
-  <img src="/images/user-documentation/8-order-data/order/order-data.png" alt="order data" width="800"/> 
+  <img src="/images/user-documentation/v1.4/8-order-data/order/order-data.png" alt="order data" width="800"/> 
 </div>
 
 
@@ -77,7 +77,7 @@ Une fois que vous aurez ajouté un élément, une icône s'affichera sur l'écra
 Cliquez ensuite sur l'icône <img src="/images/user-documentation/regards-icons/user/cart.png" alt="cart" width="25"/> ***My cart*** , et préparez les données que vous souhaitez commander.
 
 <div align="center">
-  <img src="/images/user-documentation/8-order-data/order/order-cart.png" alt="order cart" width="800"/> 
+  <img src="/images/user-documentation/v1.4/8-order-data/order/order-cart.png" alt="order cart" width="800"/> 
 </div>
 
 La sélection est triée par jeux de données (si vous avez coché la case ***Display datasets*** du module ***order-cart***), dans lesquels vous trouverez les données choisies, le nombre d'objets et la taille associée lorsque celle-ci est disponible. Appuyez sur le bouton en forme de loupe ***Shows added object list*** pour avoir le détail des données. Appliquez des [traitements](../processing/) si nécessaire en appuyant sur le bouton ***Process***. Vous pouvez retirer des éléments en appuyant sur le bouton ***Clear*** qui videra tout le panier, ou en appuyant sur les boutons de suppression des jeux de données ou des données.
@@ -85,13 +85,13 @@ La sélection est triée par jeux de données (si vous avez coché la case ***Di
 Une fois que vous aurez terminé, appuyez sur le bouton ***Order***. Donnez éventuellement un nom de commande, que vous retrouverez dans l'historique des commandes ***My orders***.
 
 <div align="center">
-  <img src="/images/user-documentation/8-order-data/order/order-action.png" alt="order action" width="800"/> 
+  <img src="/images/user-documentation/v1.4/8-order-data/order/order-action.png" alt="order action" width="800"/> 
 </div>
 
 Cliquez ensuite dans l'onglet ***My orders*** et observez la progression du téléchargement de vos données au travers des colonnes ***Progress*** et ***Status***. Vous pourrez le mettre en pause ou l'annuler en appuyant respectivement sur les boutons ***Pause order*** et ***Cancel order***. A la fin du téléchargement, cliquez sur le bouton ***Download available files order as zip*** pour sauvegarder vos données.
 
 <div align="center">
-  <img src="/images/user-documentation/8-order-data/order/order-module.png" alt="order" width="800"/> 
+  <img src="/images/user-documentation/v1.4/8-order-data/order/order-module.png" alt="order" width="800"/> 
 </div>
 
 

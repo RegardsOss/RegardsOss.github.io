@@ -13,7 +13,7 @@ _La gestion des produits est accessible depuis le menu ***Add data***, puis la c
 Le système d'archivage peut potentiellement stocker des millions de produits, les outils de tri et de filtrage dynamiques vous aideront dans l'exploration des données.
 
 <div align="center">
-    <img src="/images/user-documentation/4_1-ingest/ingest-search-tools.png" alt="search tools" width="800"/> 
+    <img src="/images/user-documentation/v1.4/4_1-ingest/ingest-search-tools.png" alt="search tools" width="800"/> 
 </div>
   
 Il y a deux types de filtres, ceux communs aux produits et traitements, et ceux spécifiques à chacune de ces catégories. 
@@ -48,13 +48,13 @@ Vous pouvez effectuer des actions sur les produits ou les traitements.
 En utilisant le sélecteur de lignes sur la gauche des produits, vous avez la possibilité d'effectuer des actions sur l'ensemble de votre sélection, leur modification ou leur suppression.
 
 <div align="center">
-  <img src="/images/user-documentation/4_1-ingest/ingest-group-action.png" alt="group action" width="800"/> 
+  <img src="/images/user-documentation/v1.4/4_1-ingest/ingest-group-action.png" alt="group action" width="800"/> 
 </div>
 
 Lorsque vous cliquez sur ***Modify selection***, trois modifications sont possibles :
 
 <div align="center">
-    <img src="/images/user-documentation/4_1-ingest/ingest-modify-products.png" alt="modify products" width="800"/> 
+    <img src="/images/user-documentation/v1.4/4_1-ingest/ingest-modify-products.png" alt="modify products" width="800"/> 
 </div>
 
 - ***Storages*** si un produit est stocké sur plusieurs espaces, vous avez la possibilité de le retirer d'un d'entre eux en cliquant sur le bouton de suppression de l'espace de stockage en question. Attention, vous ne pouvez pas le supprimer de tous les espaces de stockages, utilisez le bouton ***Delete selection*** dédié sur la ligne du produit.
@@ -66,7 +66,7 @@ Une fois les modifications terminées, appuyez sur le bouton ***Modify*** afin q
 Lorsque vous cliquez sur ***Delete selection***, la pop-up window suivante s'affiche :
 
 <div align="center">
-  <img src="/images/user-documentation/4_1-ingest/ingest-delete-products.png" alt="delete products" width="800"/> 
+  <img src="/images/user-documentation/v1.4/4_1-ingest/ingest-delete-products.png" alt="delete products" width="800"/> 
 </div>
 
 Vous pouvez supprimer soit de manière irrévocable, soit en marquant le produit comme supprimé. A la différence du marquage de suppression, la suppression irrévocable ne permet pas de récupérer les informations liées au produit, elles seront effacées définitivement de l'espace de stockage.

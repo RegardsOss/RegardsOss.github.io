@@ -22,5 +22,5 @@ Depuis celle-ci, vous pourrez :
 - [Personnaliser l'interface](../portal/)
 
 <div align="center">
-  <img src="/images/user-documentation/1-global-configuration/admin-instance-hmi.png" alt="interface admin" width="800"/> 
+  <img src="/images/user-documentation/v1.4/1-global-configuration/admin-instance-hmi.png" alt="interface admin" width="800"/> 
 </div>
