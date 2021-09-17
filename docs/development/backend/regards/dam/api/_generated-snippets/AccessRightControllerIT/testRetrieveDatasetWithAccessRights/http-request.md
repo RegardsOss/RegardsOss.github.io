@@ -1,19 +1,19 @@
-    #### Request
+### Request
 
-        ***URL**
+**URL**
 
-        `/datasets/access-rights/group/AG1`
+`/datasets/access-rights/group/AG1`
 
-        ***URL template**
+**URL template**
 
-        `/datasets/access-rights/group/{accessGroupName}`
+`/datasets/access-rights/group/{accessGroupName}`
 
-        ***Method**
+**Method**
 
-        `GET`
+`GET`
 
-        ***Headers**
+**Headers**
 
-        `Authorization:Bearer{token}`
-        `Accept:application/json`
-        `Content-Type:application/json;charset=UTF-8`
+`Authorization:Bearer{token}`  
+`Content-Type:application/json;charset=UTF-8`  
+`Accept:application/json`  

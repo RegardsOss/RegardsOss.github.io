@@ -1,12 +1,12 @@
-    ***Data params***
+**Data params**
 
 ```json
-    {
+{
   "criteria" : {
     "lastUpdate" : { },
     "providerIds" : [ ],
     "sessionOwner" : "ESA",
-    "session" : "2020-05-13T14:29:01.598+02:00",
+    "session" : "2021-09-16T19:30:45.426Z",
     "storages" : [ ],
     "categories" : [ ],
     "tags" : [ ],

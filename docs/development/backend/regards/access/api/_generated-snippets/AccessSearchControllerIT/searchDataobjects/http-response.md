@@ -1,22 +1,22 @@
-#### Request
+### Response
 
 * **Code:** 200 OK
 
-        **Headers:**
+**Headers:**
 
-        `Pragma:no-cache`
-        `X-XSS-Protection:1; mode=block`
-        `Expires:0`
-        `X-Frame-Options:DENY`
-        `X-Content-Type-Options:nosniff`
-        `Access-Control-Allow-Headers:authorization, content-type, scope`
-        `Access-Control-Max-Age:3600`
-        `Content-Type:application/json;charset=UTF-8`
-        `Access-Control-Allow-Origin:*`
-        `Cache-Control:no-cache, no-store, max-age=0, must-revalidate`
-        `Access-Control-Allow-Methods:POST, PUT, GET, OPTIONS, DELETE`
+`X-Content-Type-Options:nosniff`  
+`X-XSS-Protection:1; mode=block`  
+`Cache-Control:no-cache, no-store, max-age=0, must-revalidate`  
+`Pragma:no-cache`  
+`Expires:0`  
+`X-Frame-Options:DENY`  
+`Access-Control-Allow-Origin:*`  
+`Access-Control-Allow-Methods:POST, PUT, GET, OPTIONS, DELETE`  
+`Access-Control-Allow-Headers:authorization, content-type, scope`  
+`Access-Control-Max-Age:3600`  
+`Content-Type:application/json;charset=UTF-8`  
 
-        **Content:**
+**Content:**
 
 ```json
     
@@ -36,17 +36,18 @@
       },
       "internal" : true,
       "ipId" : {
-        "oaisIdentifier" : "AIP",
+        "identifier" : "AIP",
         "entityType" : "DATA",
         "tenant" : "PROJECT",
-        "entityId" : "00000000-0000-0000-0000-001333276354",
-        "version" : 1
+        "entityId" : "00000000-0000-0000-0000-000889305118",
+        "version" : 1,
+        "last" : false
       },
       "model" : {
         "name" : "dataobjectModel",
         "type" : "DATA"
       },
-      "tags" : [ "URN:AIP:DATASET:PROJECT:0504e33a-1452-4c69-a6eb-1498dac32c13:V1", "string_tag" ],
+      "tags" : [ "URN:AIP:DATASET:PROJECT:4a6ac395-3ef9-455b-8967-7f8aa86be1a6:V1", "string_tag" ],
       "groups" : [ ],
       "wgs84" : {
         "type" : "UNLOCATED"
@@ -57,13 +58,16 @@
         "label" : "dataobject",
         "model" : "dataobjectModel",
         "files" : { },
-        "tags" : [ "URN:AIP:DATASET:PROJECT:0504e33a-1452-4c69-a6eb-1498dac32c13:V1", "string_tag" ],
+        "tags" : [ "URN:AIP:DATASET:PROJECT:4a6ac395-3ef9-455b-8967-7f8aa86be1a6:V1", "string_tag" ],
+        "last" : false,
+        "version" : 1,
         "id" : {
-          "oaisIdentifier" : "AIP",
+          "identifier" : "AIP",
           "entityType" : "DATA",
           "tenant" : "PROJECT",
-          "entityId" : "00000000-0000-0000-0000-001333276354",
-          "version" : 1
+          "entityId" : "00000000-0000-0000-0000-000889305118",
+          "version" : 1,
+          "last" : false
         },
         "geometry" : {
           "type" : "UNLOCATED"
@@ -76,7 +80,7 @@
       },
       "services" : [ {
         "content" : {
-          "configId" : "c1adaf22-3448-4038-a3df-3bd8ec0c39dc",
+          "configId" : "f7638f8d-0412-4aed-8de9-597373aa984b",
           "label" : "conf0",
           "applicationModes" : [ "MANY", "ONE" ],
           "entityTypes" : [ "DATA" ],

@@ -2,21 +2,28 @@
 
 ```json
 {
+  "requestOwner" : "test",
   "metadata" : {
     "storages" : [ ],
     "priority" : "NORMAL"
   },
   "features" : [ {
-    "urn" : "URN:FEATURE:DATA:tenant:87fdda0e-27d1-494f-a1c0-c57f2f0810f7:V1",
+    "urn" : "URN:FEATURE:DATA:tenant:ca4015e5-9c59-49ff-b35e-f30c6929f402:V1",
     "entityType" : "DATA",
     "model" : "FEATURE01",
+    "history" : {
+      "createdBy" : "owner",
+      "updatedBy" : null,
+      "deletedBy" : null
+    },
     "files" : [ ],
+    "last" : false,
     "id" : "MyId",
     "geometry" : null,
     "normalizedGeometry" : null,
     "properties" : {
       "file_characterization" : {
-        "invalidation_date" : "2019-12-03T12:31:42.466Z",
+        "invalidation_date" : "2021-09-16T20:06:25.906Z",
         "valid" : false
       }
     },

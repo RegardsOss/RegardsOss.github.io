@@ -1,19 +1,19 @@
-    #### Request
+### Request
 
-        ***URL**
+**URL**
 
-        `/storages/target/files`
+`/storages/target/files`
 
-        ***URL template**
+**URL template**
 
-        `/storages/{id}/files`
+`/storages/{id}/files`
 
-        ***Method**
+**Method**
 
-        `DELETE`
+`DELETE`
 
-        ***Headers**
+**Headers**
 
-        `Authorization:Bearer{token}`
-        `Accept:application/json`
-        `Content-Type:application/json;charset=UTF-8`
+`Authorization:Bearer{token}`  
+`Content-Type:application/json;charset=UTF-8`  
+`Accept:application/json`  

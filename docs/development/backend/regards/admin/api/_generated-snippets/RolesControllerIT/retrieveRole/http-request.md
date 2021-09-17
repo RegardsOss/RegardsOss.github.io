@@ -1,19 +1,19 @@
-    #### Request
+### Request
 
-        ***URL**
+**URL**
 
-        `/roles/WRONG_ROLE`
+`/roles/WRONG_ROLE`
 
-        ***URL template**
+**URL template**
 
-        `/roles/{role_name}`
+`/roles/{role_name}`
 
-        ***Method**
+**Method**
 
-        `GET`
+`GET`
 
-        ***Headers**
+**Headers**
 
-        `Authorization:Bearer{token}`
-        `Accept:application/json`
-        `Content-Type:application/json;charset=UTF-8`
+`Authorization:Bearer{token}`  
+`Content-Type:application/json;charset=UTF-8`  
+`Accept:application/json`  

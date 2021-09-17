@@ -1,19 +1,19 @@
-    #### Request
+### Request
 
-        ***URL**
+**URL**
 
-        `/models/modelPostFrag/attributes/fragments`
+`/models/modelPostFrag/attributes/fragments`
 
-        ***URL template**
+**URL template**
 
-        `/models/{modelName}/attributes/fragments`
+`/models/{modelName}/attributes/fragments`
 
-        ***Method**
+**Method**
 
-        `POST`
+`POST`
 
-        ***Headers**
+**Headers**
 
-        `Authorization:Bearer{token}`
-        `Accept:application/json`
-        `Content-Type:application/json;charset=UTF-8`
+`Authorization:Bearer{token}`  
+`Content-Type:application/json;charset=UTF-8`  
+`Accept:application/json`  

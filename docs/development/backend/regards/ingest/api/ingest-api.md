@@ -117,24 +117,6 @@ See [SIP collection](#sip-collection-response).
 
 # Ingestion session management
 
-## Get an ingestion’s session
-
-{@import _generated-snippets/SIPControllerIT/getOneSession/http-request.md}
-
-{@import _generated-snippets/SIPControllerIT/getOneSession/path-parameters.md}
-
-{@import _generated-snippets/SIPControllerIT/getOneSession/request-body.md}
-
-{@import _generated-snippets/SIPControllerIT/getOneSession/http-response.md}
-
-## Search ingestion’s sessions
-
-{@import _generated-snippets/SIPControllerIT/getSession/http-request.md}
-
-{@import _generated-snippets/SIPControllerIT/getSession/request-parameters.md}
-
-{@import _generated-snippets/SIPControllerIT/getSession/http-response.md}
-
 ## Delete all SIP for a session id
 
 All the SIP of a session can be deleted via a `DELETE /sessions/{id}`

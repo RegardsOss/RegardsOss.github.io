@@ -1,19 +1,19 @@
-    #### Request
+### Request
 
-        ***URL**
+**URL**
 
-        `/themes/5`
+`/themes/52`
 
-        ***URL template**
+**URL template**
 
-        `/themes/{themeId}`
+`/themes/{themeId}`
 
-        ***Method**
+**Method**
 
-        `GET`
+`GET`
 
-        ***Headers**
+**Headers**
 
-        `Authorization:Bearer{token}`
-        `Accept:application/json`
-        `Content-Type:application/json;charset=UTF-8`
+`Authorization:Bearer{token}`  
+`Content-Type:application/json;charset=UTF-8`  
+`Accept:application/json`  

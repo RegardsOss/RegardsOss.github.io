@@ -1,28 +1,28 @@
-#### Request
+### Response
 
 * **Code:** 200 OK
 
-        **Headers:**
+**Headers:**
 
-        `Pragma:no-cache`
-        `X-XSS-Protection:1; mode=block`
-        `Expires:0`
-        `X-Frame-Options:DENY`
-        `X-Content-Type-Options:nosniff`
-        `Access-Control-Allow-Headers:authorization, content-type, scope`
-        `Access-Control-Max-Age:3600`
-        `Content-Type:application/json;charset=UTF-8`
-        `Access-Control-Allow-Origin:*`
-        `Cache-Control:no-cache, no-store, max-age=0, must-revalidate`
-        `Access-Control-Allow-Methods:POST, PUT, GET, OPTIONS, DELETE`
+`X-Content-Type-Options:nosniff`  
+`X-XSS-Protection:1; mode=block`  
+`Cache-Control:no-cache, no-store, max-age=0, must-revalidate`  
+`Pragma:no-cache`  
+`Expires:0`  
+`X-Frame-Options:DENY`  
+`Access-Control-Allow-Origin:*`  
+`Access-Control-Allow-Methods:POST, PUT, GET, OPTIONS, DELETE`  
+`Access-Control-Allow-Headers:authorization, content-type, scope`  
+`Access-Control-Max-Age:3600`  
+`Content-Type:application/json;charset=UTF-8`  
 
-        **Content:**
+**Content:**
 
 ```json
     
 [ {
   "content" : {
-    "id" : 252,
+    "id" : 102,
     "microservice" : "microservice",
     "controllerSimpleName" : "controller",
     "resource" : "/to/user",
@@ -35,9 +35,9 @@
   } ]
 }, {
   "content" : {
-    "id" : 25,
+    "id" : 23,
     "description" : "Request for a new projectUser (Public feature).",
-    "microservice" : "Test application",
+    "microservice" : "rs-test",
     "controllerSimpleName" : "RegistrationController",
     "resource" : "/accesses",
     "verb" : "POST",
@@ -49,9 +49,9 @@
   } ]
 }, {
   "content" : {
-    "id" : 32,
+    "id" : 30,
     "description" : "Rejects the access request",
-    "microservice" : "Test application",
+    "microservice" : "rs-test",
     "controllerSimpleName" : "RegistrationController",
     "resource" : "/accesses/{access_id}",
     "verb" : "DELETE",
@@ -63,9 +63,9 @@
   } ]
 }, {
   "content" : {
-    "id" : 26,
+    "id" : 24,
     "description" : "Accepts the access request",
-    "microservice" : "Test application",
+    "microservice" : "rs-test",
     "controllerSimpleName" : "RegistrationController",
     "resource" : "/accesses/{access_id}/accept",
     "verb" : "PUT",
@@ -77,9 +77,9 @@
   } ]
 }, {
   "content" : {
-    "id" : 28,
+    "id" : 26,
     "description" : "Activates an inactive user",
-    "microservice" : "Test application",
+    "microservice" : "rs-test",
     "controllerSimpleName" : "RegistrationController",
     "resource" : "/accesses/{access_id}/active",
     "verb" : "PUT",
@@ -91,9 +91,9 @@
   } ]
 }, {
   "content" : {
-    "id" : 27,
+    "id" : 25,
     "description" : "Denies the access request",
-    "microservice" : "Test application",
+    "microservice" : "rs-test",
     "controllerSimpleName" : "RegistrationController",
     "resource" : "/accesses/{access_id}/deny",
     "verb" : "PUT",
@@ -105,9 +105,9 @@
   } ]
 }, {
   "content" : {
-    "id" : 29,
+    "id" : 27,
     "description" : "Desactivates an active user",
-    "microservice" : "Test application",
+    "microservice" : "rs-test",
     "controllerSimpleName" : "RegistrationController",
     "resource" : "/accesses/{access_id}/inactive",
     "verb" : "PUT",
@@ -119,9 +119,9 @@
   } ]
 }, {
   "content" : {
-    "id" : 30,
+    "id" : 29,
     "description" : "Request for a new projectUser (Public feature).",
-    "microservice" : "Test application",
+    "microservice" : "rs-test",
     "controllerSimpleName" : "RegistrationController",
     "resource" : "/accesses/external",
     "verb" : "POST",
@@ -133,9 +133,9 @@
   } ]
 }, {
   "content" : {
-    "id" : 31,
+    "id" : 28,
     "description" : "Confirm the registration by email",
-    "microservice" : "Test application",
+    "microservice" : "rs-test",
     "controllerSimpleName" : "RegistrationController",
     "resource" : "/accesses/verifyEmail/{token}",
     "verb" : "GET",
@@ -147,9 +147,9 @@
   } ]
 }, {
   "content" : {
-    "id" : 4,
+    "id" : 2,
     "description" : "Retrieve if the current user has accepted the license of the project",
-    "microservice" : "Test application",
+    "microservice" : "rs-test",
     "controllerSimpleName" : "LicenseController",
     "resource" : "/license",
     "verb" : "GET",
@@ -161,9 +161,9 @@
   } ]
 }, {
   "content" : {
-    "id" : 5,
+    "id" : 3,
     "description" : "Allow current user to accept the license of the project",
-    "microservice" : "Test application",
+    "microservice" : "rs-test",
     "controllerSimpleName" : "LicenseController",
     "resource" : "/license",
     "verb" : "PUT",
@@ -175,9 +175,9 @@
   } ]
 }, {
   "content" : {
-    "id" : 3,
+    "id" : 1,
     "description" : "Allow admins to invalidate the license of the project for all the users of the project",
-    "microservice" : "Test application",
+    "microservice" : "rs-test",
     "controllerSimpleName" : "LicenseController",
     "resource" : "/license/reset",
     "verb" : "PUT",
@@ -189,9 +189,9 @@
   } ]
 }, {
   "content" : {
-    "id" : 51,
+    "id" : 50,
     "description" : "Get the tenant datasource status (for pooled one)",
-    "microservice" : "Test application",
+    "microservice" : "rs-test",
     "controllerSimpleName" : "JpaMultitenantController",
     "resource" : "/regards/{tenant}/datasource/status",
     "verb" : "GET",
@@ -203,9 +203,9 @@
   } ]
 }, {
   "content" : {
-    "id" : 50,
+    "id" : 49,
     "description" : "Test the tenant connection",
-    "microservice" : "Test application",
+    "microservice" : "rs-test",
     "controllerSimpleName" : "JpaMultitenantController",
     "resource" : "/regards/{tenant}/datasource/test",
     "verb" : "GET",
@@ -217,9 +217,9 @@
   } ]
 }, {
   "content" : {
-    "id" : 34,
+    "id" : 32,
     "description" : "Retrieve accessible resource accesses of the user among the system",
-    "microservice" : "Test application",
+    "microservice" : "rs-test",
     "controllerSimpleName" : "ResourceController",
     "resource" : "/resources",
     "verb" : "GET",
@@ -231,9 +231,9 @@
   } ]
 }, {
   "content" : {
-    "id" : 9,
+    "id" : 5,
     "description" : "Retrieve accessible resource accesses of the user among the given microservice",
-    "microservice" : "Test application",
+    "microservice" : "rs-test",
     "controllerSimpleName" : "MicroserviceResourceController",
     "resource" : "/resources/microservices/{microservicename}",
     "verb" : "GET",
@@ -245,9 +245,9 @@
   } ]
 }, {
   "content" : {
-    "id" : 33,
+    "id" : 31,
     "description" : "Retrieve all resource accesses of the REGARDS system",
-    "microservice" : "Test application",
+    "microservice" : "rs-test",
     "controllerSimpleName" : "ResourceController",
     "resource" : "/resources/{resource_id}",
     "verb" : "GET",
@@ -259,9 +259,9 @@
   } ]
 }, {
   "content" : {
-    "id" : 40,
+    "id" : 38,
     "description" : "Retrieve the list of roles",
-    "microservice" : "Test application",
+    "microservice" : "rs-test",
     "controllerSimpleName" : "RoleController",
     "resource" : "/roles",
     "verb" : "GET",
@@ -273,9 +273,9 @@
   } ]
 }, {
   "content" : {
-    "id" : 41,
+    "id" : 39,
     "description" : "Retrieve the list of borrowable roles for the current user",
-    "microservice" : "Test application",
+    "microservice" : "rs-test",
     "controllerSimpleName" : "RoleController",
     "resource" : "/roles/borrowables",
     "verb" : "GET",
@@ -288,8 +288,22 @@
 }, {
   "content" : {
     "id" : 42,
+    "description" : "Return true if the role provided is included by the current role",
+    "microservice" : "rs-test",
+    "controllerSimpleName" : "RoleController",
+    "resource" : "/roles/include/{role_name}",
+    "verb" : "GET",
+    "defaultRole" : "PUBLIC"
+  },
+  "links" : [ {
+    "rel" : "self",
+    "href" : "http://localhost:8080/users/default_user@regards.fr/resources"
+  } ]
+}, {
+  "content" : {
+    "id" : 40,
     "description" : "Retrieve the list of roles associated to the given resource",
-    "microservice" : "Test application",
+    "microservice" : "rs-test",
     "controllerSimpleName" : "RoleController",
     "resource" : "/roles/resources/{resourceId}",
     "verb" : "GET",
@@ -301,9 +315,9 @@
   } ]
 }, {
   "content" : {
-    "id" : 37,
+    "id" : 34,
     "description" : "Retrieve a role by name",
-    "microservice" : "Test application",
+    "microservice" : "rs-test",
     "controllerSimpleName" : "RoleController",
     "resource" : "/roles/{role_name}",
     "verb" : "GET",
@@ -315,9 +329,9 @@
   } ]
 }, {
   "content" : {
-    "id" : 43,
+    "id" : 41,
     "description" : "Retrieve a role descendants",
-    "microservice" : "Test application",
+    "microservice" : "rs-test",
     "controllerSimpleName" : "RoleController",
     "resource" : "/roles/{role_name}/descendants",
     "verb" : "GET",
@@ -329,23 +343,9 @@
   } ]
 }, {
   "content" : {
-    "id" : 17,
-    "description" : "retrieve the list of users of the project",
-    "microservice" : "Test application",
-    "controllerSimpleName" : "ProjectUsersController",
-    "resource" : "/users",
-    "verb" : "GET",
-    "defaultRole" : "EXPLOIT"
-  },
-  "links" : [ {
-    "rel" : "self",
-    "href" : "http://localhost:8080/users/default_user@regards.fr/resources"
-  } ]
-}, {
-  "content" : {
-    "id" : 13,
+    "id" : 11,
     "description" : "Create a projectUser by bypassing registration process (Administrator feature)",
-    "microservice" : "Test application",
+    "microservice" : "rs-test",
     "controllerSimpleName" : "ProjectUsersController",
     "resource" : "/users",
     "verb" : "POST",
@@ -357,9 +357,23 @@
   } ]
 }, {
   "content" : {
-    "id" : 19,
+    "id" : 16,
+    "description" : "retrieve the list of users of the project",
+    "microservice" : "rs-test",
+    "controllerSimpleName" : "ProjectUsersController",
+    "resource" : "/users",
+    "verb" : "GET",
+    "defaultRole" : "EXPLOIT"
+  },
+  "links" : [ {
+    "rel" : "self",
+    "href" : "http://localhost:8080/users/default_user@regards.fr/resources"
+  } ]
+}, {
+  "content" : {
+    "id" : 18,
     "description" : "retrieve the project user and only display  metadata",
-    "microservice" : "Test application",
+    "microservice" : "rs-test",
     "controllerSimpleName" : "ProjectUsersController",
     "resource" : "/users/email/{user_email}",
     "verb" : "GET",
@@ -371,9 +385,9 @@
   } ]
 }, {
   "content" : {
-    "id" : 22,
+    "id" : 21,
     "description" : "tell if user has role admin",
-    "microservice" : "Test application",
+    "microservice" : "rs-test",
     "controllerSimpleName" : "ProjectUsersController",
     "resource" : "/users/email/{user_email}/admin",
     "verb" : "GET",
@@ -385,23 +399,9 @@
   } ]
 }, {
   "content" : {
-    "id" : 24,
-    "description" : "Update the current authenticated project user",
-    "microservice" : "Test application",
-    "controllerSimpleName" : "ProjectUsersController",
-    "resource" : "/users/myuser",
-    "verb" : "PUT",
-    "defaultRole" : "REGISTERED_USER"
-  },
-  "links" : [ {
-    "rel" : "self",
-    "href" : "http://localhost:8080/users/default_user@regards.fr/resources"
-  } ]
-}, {
-  "content" : {
-    "id" : 23,
+    "id" : 13,
     "description" : "retrieve the current authenticated project user and only display  metadata",
-    "microservice" : "Test application",
+    "microservice" : "rs-test",
     "controllerSimpleName" : "ProjectUsersController",
     "resource" : "/users/myuser",
     "verb" : "GET",
@@ -413,9 +413,23 @@
   } ]
 }, {
   "content" : {
+    "id" : 14,
+    "description" : "Update the current authenticated project user",
+    "microservice" : "rs-test",
+    "controllerSimpleName" : "ProjectUsersController",
+    "resource" : "/users/myuser",
+    "verb" : "PUT",
+    "defaultRole" : "REGISTERED_USER"
+  },
+  "links" : [ {
+    "rel" : "self",
+    "href" : "http://localhost:8080/users/default_user@regards.fr/resources"
+  } ]
+}, {
+  "content" : {
     "id" : 15,
     "description" : "Retrieve the list of project users (crawls through parents' hierarchy) of the role with role_name",
-    "microservice" : "Test application",
+    "microservice" : "rs-test",
     "controllerSimpleName" : "ProjectUsersController",
     "resource" : "/users/roles",
     "verb" : "GET",
@@ -427,9 +441,9 @@
   } ]
 }, {
   "content" : {
-    "id" : 16,
+    "id" : 22,
     "description" : "Retrieve the list of project users (crawls through parents' hierarchy) of the role with role_id",
-    "microservice" : "Test application",
+    "microservice" : "rs-test",
     "controllerSimpleName" : "ProjectUsersController",
     "resource" : "/users/roles/{role_id}",
     "verb" : "GET",
@@ -441,23 +455,9 @@
   } ]
 }, {
   "content" : {
-    "id" : 20,
-    "description" : "retrieve the project user and only display  metadata",
-    "microservice" : "Test application",
-    "controllerSimpleName" : "ProjectUsersController",
-    "resource" : "/users/{user_id}",
-    "verb" : "GET",
-    "defaultRole" : "EXPLOIT"
-  },
-  "links" : [ {
-    "rel" : "self",
-    "href" : "http://localhost:8080/users/default_user@regards.fr/resources"
-  } ]
-}, {
-  "content" : {
-    "id" : 14,
+    "id" : 12,
     "description" : "update the project user",
-    "microservice" : "Test application",
+    "microservice" : "rs-test",
     "controllerSimpleName" : "ProjectUsersController",
     "resource" : "/users/{user_id}",
     "verb" : "PUT",
@@ -469,9 +469,23 @@
   } ]
 }, {
   "content" : {
-    "id" : 21,
+    "id" : 19,
+    "description" : "retrieve the project user and only display  metadata",
+    "microservice" : "rs-test",
+    "controllerSimpleName" : "ProjectUsersController",
+    "resource" : "/users/{user_id}",
+    "verb" : "GET",
+    "defaultRole" : "EXPLOIT"
+  },
+  "links" : [ {
+    "rel" : "self",
+    "href" : "http://localhost:8080/users/default_user@regards.fr/resources"
+  } ]
+}, {
+  "content" : {
+    "id" : 20,
     "description" : "remove the project user",
-    "microservice" : "Test application",
+    "microservice" : "rs-test",
     "controllerSimpleName" : "ProjectUsersController",
     "resource" : "/users/{user_id}",
     "verb" : "DELETE",
@@ -483,9 +497,9 @@
   } ]
 }, {
   "content" : {
-    "id" : 12,
+    "id" : 10,
     "description" : "retrieve the list of all metadata of the user",
-    "microservice" : "Test application",
+    "microservice" : "rs-test",
     "controllerSimpleName" : "ProjectUserMetadataController",
     "resource" : "/users/{user_id}/metadatas",
     "verb" : "GET",

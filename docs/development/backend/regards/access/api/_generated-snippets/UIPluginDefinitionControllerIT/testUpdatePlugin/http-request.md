@@ -1,19 +1,19 @@
-    #### Request
+### Request
 
-        ***URL**
+**URL**
 
-        `/uiplugins/definition/58`
+`/uiplugins/definition/108`
 
-        ***URL template**
+**URL template**
 
-        `/uiplugins/definition/{pluginId}`
+`/uiplugins/definition/{pluginId}`
 
-        ***Method**
+**Method**
 
-        `PUT`
+`PUT`
 
-        ***Headers**
+**Headers**
 
-        `Authorization:Bearer{token}`
-        `Accept:application/json`
-        `Content-Type:application/json;charset=UTF-8`
+`Authorization:Bearer{token}`  
+`Content-Type:application/json;charset=UTF-8`  
+`Accept:application/json`  

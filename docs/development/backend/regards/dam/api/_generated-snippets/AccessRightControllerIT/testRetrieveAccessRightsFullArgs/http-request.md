@@ -1,19 +1,19 @@
-    #### Request
+### Request
 
-        ***URL**
+**URL**
 
-        `/accessrights?dataset=URN:AIP:DATASET:PROJECT:4ed8e419-0fa0-479b-b50e-23163212eed9:V1&accessgroup=AG1`
+`/accessrights?dataset=URN:AIP:DATASET:PROJECT:42bf1a27-9c42-48ff-8e75-1e37dea31d12:V1&accessgroup=AG1`
 
-        ***URL template**
+**URL template**
 
-        `/accessrights?dataset=URN:AIP:DATASET:PROJECT:4ed8e419-0fa0-479b-b50e-23163212eed9:V1&accessgroup=AG1`
+`/accessrights?dataset=URN:AIP:DATASET:PROJECT:42bf1a27-9c42-48ff-8e75-1e37dea31d12:V1&accessgroup=AG1`
 
-        ***Method**
+**Method**
 
-        `GET`
+`GET`
 
-        ***Headers**
+**Headers**
 
-        `Authorization:Bearer{token}`
-        `Accept:application/json`
-        `Content-Type:application/json;charset=UTF-8`
+`Authorization:Bearer{token}`  
+`Content-Type:application/json;charset=UTF-8`  
+`Accept:application/json`  

@@ -1,19 +1,19 @@
-    #### Request
+### Request
 
-        ***URL**
+**URL**
 
-        `/roles/NEW_ROLE/resources/15`
+`/roles/NEW_ROLE/resources/1`
 
-        ***URL template**
+**URL template**
 
-        `/roles/{role_name}/resources/{resources_access_id}`
+`/roles/{role_name}/resources/{resources_access_id}`
 
-        ***Method**
+**Method**
 
-        `DELETE`
+`DELETE`
 
-        ***Headers**
+**Headers**
 
-        `Authorization:Bearer{token}`
-        `Accept:application/json`
-        `Content-Type:application/json;charset=UTF-8`
+`Authorization:Bearer{token}`  
+`Content-Type:application/json;charset=UTF-8`  
+`Accept:application/json`  

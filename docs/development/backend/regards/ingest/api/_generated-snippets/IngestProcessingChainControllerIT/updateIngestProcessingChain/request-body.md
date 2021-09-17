@@ -1,23 +1,23 @@
-    ***Data params***
+**Data params**
 
 ```json
-    {
+{
   "name" : "ingestProcessingChain_test",
   "description" : "the updated description",
   "validationPlugin" : {
-    "id" : 52,
+    "id" : 3,
     "pluginId" : "FakeValidationTestPlugin",
     "label" : "FakeValidationTestPlugin",
-    "businessId" : "fdcdea4a-6291-48e9-a482-162fa0a65311",
+    "businessId" : "c0ed1c04-2dec-480d-a5c2-eb061931273c",
     "priorityOrder" : 0,
     "active" : true,
     "parameters" : [ ]
   },
   "generationPlugin" : {
-    "id" : 53,
+    "id" : 4,
     "pluginId" : "FakeAIPGenerationTestPlugin",
     "label" : "FakeAIPGenerationTestPlugin",
-    "businessId" : "94a12f2b-fa02-46c1-8b64-f82f6a78bc29",
+    "businessId" : "d3b82b6a-58d5-424d-b750-5d3763cd23ca",
     "priorityOrder" : 0,
     "active" : true,
     "parameters" : [ ]

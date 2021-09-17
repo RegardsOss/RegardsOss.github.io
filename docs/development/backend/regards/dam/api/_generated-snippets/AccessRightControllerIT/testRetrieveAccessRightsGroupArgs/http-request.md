@@ -1,19 +1,19 @@
-    #### Request
+### Request
 
-        ***URL**
+**URL**
 
-        `/accessrights?accessgroup=AG1`
+`/accessrights?accessgroup=AG1`
 
-        ***URL template**
+**URL template**
 
-        `/accessrights?accessgroup=AG1`
+`/accessrights?accessgroup=AG1`
 
-        ***Method**
+**Method**
 
-        `GET`
+`GET`
 
-        ***Headers**
+**Headers**
 
-        `Authorization:Bearer{token}`
-        `Accept:application/json`
-        `Content-Type:application/json;charset=UTF-8`
+`Authorization:Bearer{token}`  
+`Content-Type:application/json;charset=UTF-8`  
+`Accept:application/json`  

@@ -1,19 +1,19 @@
-    #### Request
+### Request
 
-        ***URL**
+**URL**
 
-        `/order/basket/dataset/3/2020-05-13T12:05:08.327Z`
+`/order/basket/dataset/4/2021-09-16T20:37:17.42Z`
 
-        ***URL template**
+**URL template**
 
-        `/order/basket/dataset/{datasetSelectionId}/{itemsSelectionDate}`
+`/order/basket/dataset/{datasetSelectionId}/{itemsSelectionDate}`
 
-        ***Method**
+**Method**
 
-        `DELETE`
+`DELETE`
 
-        ***Headers**
+**Headers**
 
-        `Authorization:Bearer{token}`
-        `Accept:application/json`
-        `Content-Type:application/json;charset=UTF-8`
+`Authorization:Bearer{token}`  
+`Content-Type:application/json;charset=UTF-8`  
+`Accept:application/json`  

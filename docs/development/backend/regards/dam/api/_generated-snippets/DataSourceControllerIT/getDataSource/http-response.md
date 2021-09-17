@@ -1,32 +1,32 @@
-#### Request
+### Response
 
 * **Code:** 200 OK
 
-        **Headers:**
+**Headers:**
 
-        `Pragma:no-cache`
-        `X-XSS-Protection:1; mode=block`
-        `Expires:0`
-        `X-Frame-Options:DENY`
-        `X-Content-Type-Options:nosniff`
-        `Access-Control-Allow-Headers:authorization, content-type, scope`
-        `Access-Control-Max-Age:3600`
-        `Content-Type:application/json;charset=UTF-8`
-        `Access-Control-Allow-Origin:*`
-        `Cache-Control:no-cache, no-store, max-age=0, must-revalidate`
-        `Access-Control-Allow-Methods:POST, PUT, GET, OPTIONS, DELETE`
+`X-Content-Type-Options:nosniff`  
+`X-XSS-Protection:1; mode=block`  
+`Cache-Control:no-cache, no-store, max-age=0, must-revalidate`  
+`Pragma:no-cache`  
+`Expires:0`  
+`X-Frame-Options:DENY`  
+`Access-Control-Allow-Origin:*`  
+`Access-Control-Allow-Methods:POST, PUT, GET, OPTIONS, DELETE`  
+`Access-Control-Allow-Headers:authorization, content-type, scope`  
+`Access-Control-Max-Age:3600`  
+`Content-Type:application/json;charset=UTF-8`  
 
-        **Content:**
+**Content:**
 
 ```json
     
 {
   "content" : {
     "associatedDatasets" : 0,
-    "id" : 58,
+    "id" : 7,
     "pluginId" : "MockDatasourcePlugin",
-    "label" : "086986e7-b61d-4d6b-aa03-93d400523422",
-    "businessId" : "9eb08cb2-d88c-4a25-9cf5-0c41fdb82b81",
+    "label" : "dsFromClause",
+    "businessId" : "218eb16c-50da-41c6-afb7-f809b1f931a5",
     "version" : "alpha",
     "priorityOrder" : 0,
     "active" : true,
@@ -106,19 +106,13 @@
     }, {
       "name" : "connection",
       "type" : "PLUGIN",
-      "value" : "078c01a4-ac7e-40b4-a2e1-6b66c9f5533f",
+      "value" : "0bd9564e-b11a-460a-8457-ccdb53333d60",
       "dynamic" : false
     } ]
   },
   "links" : [ {
     "rel" : "self",
-    "href" : "http://localhost:8080/datasources/9eb08cb2-d88c-4a25-9cf5-0c41fdb82b81"
-  }, {
-    "rel" : "delete",
-    "href" : "http://localhost:8080/datasources/9eb08cb2-d88c-4a25-9cf5-0c41fdb82b81"
-  }, {
-    "rel" : "list",
-    "href" : "http://localhost:8080/datasources"
+    "href" : "http://localhost:8080/datasources/218eb16c-50da-41c6-afb7-f809b1f931a5"
   } ]
 }
 ```

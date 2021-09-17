@@ -1,22 +1,22 @@
-#### Request
+### Response
 
 * **Code:** 200 OK
 
-        **Headers:**
+**Headers:**
 
-        `Pragma:no-cache`
-        `X-XSS-Protection:1; mode=block`
-        `Expires:0`
-        `X-Frame-Options:DENY`
-        `X-Content-Type-Options:nosniff`
-        `Access-Control-Allow-Headers:authorization, content-type, scope`
-        `Access-Control-Max-Age:3600`
-        `Content-Type:application/json;charset=UTF-8`
-        `Access-Control-Allow-Origin:*`
-        `Cache-Control:no-cache, no-store, max-age=0, must-revalidate`
-        `Access-Control-Allow-Methods:POST, PUT, GET, OPTIONS, DELETE`
+`X-Content-Type-Options:nosniff`  
+`X-XSS-Protection:1; mode=block`  
+`Cache-Control:no-cache, no-store, max-age=0, must-revalidate`  
+`Pragma:no-cache`  
+`Expires:0`  
+`X-Frame-Options:DENY`  
+`Access-Control-Allow-Origin:*`  
+`Access-Control-Allow-Methods:POST, PUT, GET, OPTIONS, DELETE`  
+`Access-Control-Allow-Headers:authorization, content-type, scope`  
+`Access-Control-Max-Age:3600`  
+`Content-Type:application/json;charset=UTF-8`  
 
-        **Content:**
+**Content:**
 
 ```json
     
@@ -29,10 +29,8 @@
   },
   "content" : [ {
     "content" : {
-      "date" : "2020-05-11T14:54:45.267Z",
-      "id" : 5,
-      "rolerecipients" : "[PROJECT_ADMIN]",
-      "projectuserreciptients" : "[]",
+      "date" : "2021-09-16T18:54:19.157Z",
+      "id" : 2,
       "sender" : "microservice",
       "status" : "UNREAD",
       "level" : "INFO",
@@ -41,20 +39,18 @@
     },
     "links" : [ {
       "rel" : "self",
-      "href" : "http://localhost:8080/notifications/5"
+      "href" : "http://localhost:8080/notifications/2"
     }, {
       "rel" : "delete",
-      "href" : "http://localhost:8080/notifications/5"
+      "href" : "http://localhost:8080/notifications/2"
     }, {
       "rel" : "read",
-      "href" : "http://localhost:8080/notifications/5/read"
+      "href" : "http://localhost:8080/notifications/2/read"
     } ]
   }, {
     "content" : {
-      "date" : "2020-05-11T14:54:45.058Z",
-      "id" : 4,
-      "rolerecipients" : "[PROJECT_ADMIN]",
-      "projectuserreciptients" : "[]",
+      "date" : "2021-09-16T18:54:19.169Z",
+      "id" : 3,
       "sender" : "microservice",
       "status" : "UNREAD",
       "level" : "INFO",
@@ -63,13 +59,13 @@
     },
     "links" : [ {
       "rel" : "self",
-      "href" : "http://localhost:8080/notifications/4"
+      "href" : "http://localhost:8080/notifications/3"
     }, {
       "rel" : "delete",
-      "href" : "http://localhost:8080/notifications/4"
+      "href" : "http://localhost:8080/notifications/3"
     }, {
       "rel" : "read",
-      "href" : "http://localhost:8080/notifications/4/read"
+      "href" : "http://localhost:8080/notifications/3/read"
     } ]
   } ],
   "links" : [ {

@@ -1,18 +1,18 @@
-    #### Request
+### Request
 
-        ***URL***
+**URL**
 
-        `/processingchains/ingestProcessingChain_test`
+`/processingchains/ingestProcessingChain_test`
 
-        ***URL template***
+**URL template**
 
-        `/processingchains/{name}`
+`/processingchains/{name}`
 
-        ***Method***
+**Method**
 
-        `DELETE`
+`DELETE`
 
-        ***Headers***
+**Headers**
 
-        `Authorization:Bearer{token}`
-        `Content-Type:application/geo+json;charset=UTF-8`
+`Authorization:Bearer{token}`  
+`Content-Type:application/geo+json;charset=UTF-8`  

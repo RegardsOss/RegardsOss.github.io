@@ -2,11 +2,11 @@
 
 **URL**
 
-`/orders/aips/URN:AIP:DATA:ORDER:0ee8a860-0262-4d2e-a2e9-81b7130ca03f:V1/files/113?orderToken=eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJkZWZhdWx0X3VzZXJAcmVnYXJkcy5mciIsInJvbGUiOiJSRUdJU1RFUkVEX1VTRVIiLCJPUkRFUl9JRCI6IjIxIiwidGVuYW50Ijoib3JkZXIxIiwiZW1haWwiOiJkZWZhdWx0X3VzZXJAcmVnYXJkcy5mciIsImV4cCI6MTU5OTc0OTE4OX0.MWXIdPBlJAa7lO0dz0bPi4It47e9zEx7ZHSHHw_LATQ`
+`/orders/public/files/226?orderToken=eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJkZWZhdWx0X3VzZXJAcmVnYXJkcy5mciIsInJvbGUiOiJST0xFX0RFRkFVTFQiLCJPUkRFUl9JRCI6IjI5IiwidGVuYW50Ijoib3JkZXIxIiwiZW1haWwiOiJkZWZhdWx0X3VzZXJAcmVnYXJkcy5mciIsImV4cCI6MTYzMjA4Mzk1M30.SomzppSUuADDlkE5gkssexy3oMxSqKvs4s4DCF4CcJc`
 
 **URL template**
 
-`/orders/aips/{aipId}/files/{dataFileId}`
+`/orders/public/files/{dataFileId}`
 
 **Method**
 

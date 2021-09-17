@@ -1,7 +1,7 @@
-    ***Data params***
+**Data params**
 
 ```json
-    {
+{
   "metadata" : {
     "sessionOwner" : "sessionOwner",
     "session" : "session",
@@ -10,7 +10,8 @@
       "pluginBusinessId" : "disk",
       "targetTypes" : [ ]
     } ],
-    "categories" : [ "CAT" ]
+    "categories" : [ "CAT" ],
+    "versioningMode" : "INC_VERSION"
   },
   "features" : [ {
     "ipType" : "DATA",
@@ -29,7 +30,7 @@
         "dataObject" : {
           "regardsDataType" : "RAWDATA",
           "locations" : [ {
-            "url" : "file:/home/kevin/git/rs-ingest/ingest/ingest-rest/data1.fits"
+            "url" : "file:/app_to_build/rs-ingest/ingest/ingest-rest/data1.fits"
           } ],
           "filename" : "data1.fits",
           "algorithm" : "FAKE_ALGO",
@@ -64,7 +65,7 @@
         "dataObject" : {
           "regardsDataType" : "RAWDATA",
           "locations" : [ {
-            "url" : "file:/home/kevin/git/rs-ingest/ingest/ingest-rest/data2.fits"
+            "url" : "file:/app_to_build/rs-ingest/ingest/ingest-rest/data2.fits"
           } ],
           "filename" : "data2.fits",
           "algorithm" : "MD5",

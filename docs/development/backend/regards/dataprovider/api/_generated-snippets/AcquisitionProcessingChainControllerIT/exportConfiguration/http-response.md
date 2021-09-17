@@ -1,38 +1,39 @@
-#### Request
+### Response
 
 * **Code:** 200 OK
 
-        **Headers:**
+**Headers:**
 
-        `Pragma:no-cache`
-        `X-XSS-Protection:1; mode=block`
-        `X-Frame-Options:DENY`
-        `Expires:0`
-        `X-Content-Type-Options:nosniff`
-        `Access-Control-Allow-Headers:authorization, content-type, scope`
-        `Content-Disposition:attachment; filename="config-Test application.json"`
-        `Access-Control-Max-Age:3600`
-        `Content-Type:application/json`
-        `Access-Control-Allow-Origin:*`
-        `Cache-Control:no-cache, no-store, max-age=0, must-revalidate`
-        `Access-Control-Allow-Methods:POST, PUT, GET, OPTIONS, DELETE`
+`X-Content-Type-Options:nosniff`  
+`X-XSS-Protection:1; mode=block`  
+`Cache-Control:no-cache, no-store, max-age=0, must-revalidate`  
+`Pragma:no-cache`  
+`Expires:0`  
+`X-Frame-Options:DENY`  
+`Access-Control-Allow-Origin:*`  
+`Access-Control-Allow-Methods:POST, PUT, GET, OPTIONS, DELETE`  
+`Access-Control-Allow-Headers:authorization, content-type, scope`  
+`Access-Control-Max-Age:3600`  
+`Content-Type:application/json`  
+`Content-Disposition:attachment; filename="config-rs-test.json"`  
 
-        **Content:**
+**Content:**
 
 ```json
     
 {
-  "microservice" : "Test application",
+  "microservice" : "rs-test",
   "modules" : [ {
     "module" : {
       "id" : "acquisition",
       "name" : "Acquisition module",
       "description" : "Data driven SIP creation",
-      "version" : "0.4.1",
-      "author" : "CSSI",
+      "version" : "1.6.0",
+      "author" : "REGARDS",
       "legalOwner" : "CNES",
       "documentation" : "https://github.com/RegardsOss"
     },
+    "resetBeforeImport" : false,
     "configuration" : [ {
       "key" : "fr.cnes.regards.modules.acquisition.domain.chain.AcquisitionProcessingChain",
       "value" : {
@@ -51,30 +52,29 @@
           "targetTypes" : [ ]
         } ],
         "categories" : [ ],
+        "versioningMode" : "INC_VERSION",
         "fileInfos" : [ {
           "mandatory" : true,
           "scanPlugin" : {
             "pluginId" : "GlobDiskScanning",
             "label" : "post : Scan plugin",
-            "businessId" : "7724da69-35d5-43cb-9128-18e7e94710dc",
+            "businessId" : "86d3690f-17da-46b3-9ea1-328a2d4ae6ee",
             "version" : "1.0.0-SNAPSHOT",
             "priorityOrder" : 0,
             "active" : true,
-            "parameters" : [ {
-              "name" : "directories",
-              "type" : "COLLECTION",
-              "value" : [ ],
-              "dynamic" : false
-            } ]
+            "parameters" : [ ]
           },
           "mimeType" : "application/octet-stream",
           "dataType" : "RAWDATA",
-          "comment" : "A comment"
+          "comment" : "A comment",
+          "scanDirInfo" : [ {
+            "scannedDirectory" : "/app_to_build/rs-dataprovider/acquisition/acquisition-rest/src/resources/doesnotexist"
+          } ]
         } ],
         "validationPluginConf" : {
           "pluginId" : "DefaultFileValidation",
           "label" : "post : Validation plugin",
-          "businessId" : "ea742dad-8d29-413e-94d9-2fac54494d83",
+          "businessId" : "643815db-642e-4863-936c-36a0192081d6",
           "version" : "1.0.0-SNAPSHOT",
           "priorityOrder" : 0,
           "active" : true,
@@ -83,7 +83,7 @@
         "productPluginConf" : {
           "pluginId" : "DefaultProductPlugin",
           "label" : "post : Product plugin",
-          "businessId" : "346cafbb-bd08-4ad5-93f0-8bc56bb45e47",
+          "businessId" : "dab433e6-cd44-46d2-af72-879599a32fd7",
           "version" : "1.0.0-SNAPSHOT",
           "priorityOrder" : 0,
           "active" : true,
@@ -92,12 +92,13 @@
         "generateSipPluginConf" : {
           "pluginId" : "DefaultSIPGeneration",
           "label" : "post : SIP generation plugin",
-          "businessId" : "d76a56b9-c37d-4b2b-aba1-01109a710518",
+          "businessId" : "e4d2fcde-7145-4b6c-91e7-0ebe74f24e0c",
           "version" : "1.0.0-SNAPSHOT",
           "priorityOrder" : 0,
           "active" : true,
           "parameters" : [ ]
-        }
+        },
+        "productsStored" : true
       }
     } ]
   } ]

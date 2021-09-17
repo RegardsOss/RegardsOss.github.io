@@ -1,19 +1,19 @@
-    #### Request
+### Request
 
-        ***URL**
+**URL**
 
-        `/emails/2`
+`/emails/2`
 
-        ***URL template**
+**URL template**
 
-        `/emails/{mail_id}`
+`/emails/{mail_id}`
 
-        ***Method**
+**Method**
 
-        `DELETE`
+`DELETE`
 
-        ***Headers**
+**Headers**
 
-        `Authorization:Bearer{token}`
-        `Accept:application/json`
-        `Content-Type:application/json;charset=UTF-8`
+`Authorization:Bearer{token}`  
+`Content-Type:application/json;charset=UTF-8`  
+`Accept:application/json`  

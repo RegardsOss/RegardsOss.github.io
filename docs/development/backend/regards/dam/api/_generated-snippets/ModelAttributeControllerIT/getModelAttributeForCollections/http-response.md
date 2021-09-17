@@ -1,22 +1,22 @@
-#### Request
+### Response
 
 * **Code:** 200 OK
 
-        **Headers:**
+**Headers:**
 
-        `Pragma:no-cache`
-        `X-XSS-Protection:1; mode=block`
-        `Expires:0`
-        `X-Frame-Options:DENY`
-        `X-Content-Type-Options:nosniff`
-        `Access-Control-Allow-Headers:authorization, content-type, scope`
-        `Access-Control-Max-Age:3600`
-        `Content-Type:application/json;charset=UTF-8`
-        `Access-Control-Allow-Origin:*`
-        `Cache-Control:no-cache, no-store, max-age=0, must-revalidate`
-        `Access-Control-Allow-Methods:POST, PUT, GET, OPTIONS, DELETE`
+`X-Content-Type-Options:nosniff`  
+`X-XSS-Protection:1; mode=block`  
+`Cache-Control:no-cache, no-store, max-age=0, must-revalidate`  
+`Pragma:no-cache`  
+`Expires:0`  
+`X-Frame-Options:DENY`  
+`Access-Control-Allow-Origin:*`  
+`Access-Control-Allow-Methods:POST, PUT, GET, OPTIONS, DELETE`  
+`Access-Control-Allow-Headers:authorization, content-type, scope`  
+`Access-Control-Max-Age:3600`  
+`Content-Type:application/json;charset=UTF-8`  
 
-        **Content:**
+**Content:**
 
 ```json
     
@@ -29,7 +29,8 @@
     "fragment" : {
       "id" : 4,
       "name" : "default",
-      "description" : "Default fragment"
+      "description" : "Default fragment",
+      "virtual" : false
     },
     "alterable" : false,
     "optional" : false,
@@ -37,7 +38,8 @@
     "properties" : [ ],
     "dynamic" : true,
     "internal" : false,
-    "jsonPath" : "properties.attmodelGMA0"
+    "jsonPath" : "properties.attmodelGMA0",
+    "virtual" : false
   },
   "model" : {
     "id" : 4,
@@ -54,7 +56,8 @@
     "fragment" : {
       "id" : 4,
       "name" : "default",
-      "description" : "Default fragment"
+      "description" : "Default fragment",
+      "virtual" : false
     },
     "alterable" : false,
     "optional" : false,
@@ -62,7 +65,8 @@
     "properties" : [ ],
     "dynamic" : true,
     "internal" : false,
-    "jsonPath" : "properties.attmodelGMA1"
+    "jsonPath" : "properties.attmodelGMA1",
+    "virtual" : false
   },
   "model" : {
     "id" : 5,
@@ -79,7 +83,8 @@
     "fragment" : {
       "id" : 4,
       "name" : "default",
-      "description" : "Default fragment"
+      "description" : "Default fragment",
+      "virtual" : false
     },
     "alterable" : false,
     "optional" : false,
@@ -87,7 +92,8 @@
     "properties" : [ ],
     "dynamic" : true,
     "internal" : false,
-    "jsonPath" : "properties.attmodelGMA2"
+    "jsonPath" : "properties.attmodelGMA2",
+    "virtual" : false
   },
   "model" : {
     "id" : 6,
@@ -104,7 +110,8 @@
     "fragment" : {
       "id" : 4,
       "name" : "default",
-      "description" : "Default fragment"
+      "description" : "Default fragment",
+      "virtual" : false
     },
     "alterable" : false,
     "optional" : false,
@@ -112,7 +119,8 @@
     "properties" : [ ],
     "dynamic" : true,
     "internal" : false,
-    "jsonPath" : "properties.attmodelGMA3"
+    "jsonPath" : "properties.attmodelGMA3",
+    "virtual" : false
   },
   "model" : {
     "id" : 7,
@@ -129,7 +137,8 @@
     "fragment" : {
       "id" : 4,
       "name" : "default",
-      "description" : "Default fragment"
+      "description" : "Default fragment",
+      "virtual" : false
     },
     "alterable" : false,
     "optional" : false,
@@ -137,7 +146,8 @@
     "properties" : [ ],
     "dynamic" : true,
     "internal" : false,
-    "jsonPath" : "properties.attmodelGMA4"
+    "jsonPath" : "properties.attmodelGMA4",
+    "virtual" : false
   },
   "model" : {
     "id" : 8,
@@ -154,7 +164,8 @@
     "fragment" : {
       "id" : 4,
       "name" : "default",
-      "description" : "Default fragment"
+      "description" : "Default fragment",
+      "virtual" : false
     },
     "alterable" : false,
     "optional" : false,
@@ -162,7 +173,8 @@
     "properties" : [ ],
     "dynamic" : true,
     "internal" : false,
-    "jsonPath" : "properties.attmodelGMA5"
+    "jsonPath" : "properties.attmodelGMA5",
+    "virtual" : false
   },
   "model" : {
     "id" : 9,
@@ -179,7 +191,8 @@
     "fragment" : {
       "id" : 4,
       "name" : "default",
-      "description" : "Default fragment"
+      "description" : "Default fragment",
+      "virtual" : false
     },
     "alterable" : false,
     "optional" : false,
@@ -187,7 +200,8 @@
     "properties" : [ ],
     "dynamic" : true,
     "internal" : false,
-    "jsonPath" : "properties.attmodelGMA6"
+    "jsonPath" : "properties.attmodelGMA6",
+    "virtual" : false
   },
   "model" : {
     "id" : 10,
@@ -204,7 +218,8 @@
     "fragment" : {
       "id" : 4,
       "name" : "default",
-      "description" : "Default fragment"
+      "description" : "Default fragment",
+      "virtual" : false
     },
     "alterable" : false,
     "optional" : false,
@@ -212,7 +227,8 @@
     "properties" : [ ],
     "dynamic" : true,
     "internal" : false,
-    "jsonPath" : "properties.attmodelGMA7"
+    "jsonPath" : "properties.attmodelGMA7",
+    "virtual" : false
   },
   "model" : {
     "id" : 11,
@@ -229,7 +245,8 @@
     "fragment" : {
       "id" : 4,
       "name" : "default",
-      "description" : "Default fragment"
+      "description" : "Default fragment",
+      "virtual" : false
     },
     "alterable" : false,
     "optional" : false,
@@ -237,7 +254,8 @@
     "properties" : [ ],
     "dynamic" : true,
     "internal" : false,
-    "jsonPath" : "properties.attmodelGMA8"
+    "jsonPath" : "properties.attmodelGMA8",
+    "virtual" : false
   },
   "model" : {
     "id" : 12,
@@ -254,7 +272,8 @@
     "fragment" : {
       "id" : 4,
       "name" : "default",
-      "description" : "Default fragment"
+      "description" : "Default fragment",
+      "virtual" : false
     },
     "alterable" : false,
     "optional" : false,
@@ -262,7 +281,8 @@
     "properties" : [ ],
     "dynamic" : true,
     "internal" : false,
-    "jsonPath" : "properties.attmodelGMA9"
+    "jsonPath" : "properties.attmodelGMA9",
+    "virtual" : false
   },
   "model" : {
     "id" : 13,
@@ -279,7 +299,8 @@
     "fragment" : {
       "id" : 4,
       "name" : "default",
-      "description" : "Default fragment"
+      "description" : "Default fragment",
+      "virtual" : false
     },
     "alterable" : false,
     "optional" : false,
@@ -287,7 +308,8 @@
     "properties" : [ ],
     "dynamic" : true,
     "internal" : false,
-    "jsonPath" : "properties.attmodelGMA10"
+    "jsonPath" : "properties.attmodelGMA10",
+    "virtual" : false
   },
   "model" : {
     "id" : 14,
@@ -304,7 +326,8 @@
     "fragment" : {
       "id" : 4,
       "name" : "default",
-      "description" : "Default fragment"
+      "description" : "Default fragment",
+      "virtual" : false
     },
     "alterable" : false,
     "optional" : false,
@@ -312,7 +335,8 @@
     "properties" : [ ],
     "dynamic" : true,
     "internal" : false,
-    "jsonPath" : "properties.attmodelGMA11"
+    "jsonPath" : "properties.attmodelGMA11",
+    "virtual" : false
   },
   "model" : {
     "id" : 15,
@@ -329,7 +353,8 @@
     "fragment" : {
       "id" : 4,
       "name" : "default",
-      "description" : "Default fragment"
+      "description" : "Default fragment",
+      "virtual" : false
     },
     "alterable" : false,
     "optional" : false,
@@ -337,7 +362,8 @@
     "properties" : [ ],
     "dynamic" : true,
     "internal" : false,
-    "jsonPath" : "properties.attmodelGMA12"
+    "jsonPath" : "properties.attmodelGMA12",
+    "virtual" : false
   },
   "model" : {
     "id" : 16,
@@ -354,7 +380,8 @@
     "fragment" : {
       "id" : 4,
       "name" : "default",
-      "description" : "Default fragment"
+      "description" : "Default fragment",
+      "virtual" : false
     },
     "alterable" : false,
     "optional" : false,
@@ -362,7 +389,8 @@
     "properties" : [ ],
     "dynamic" : true,
     "internal" : false,
-    "jsonPath" : "properties.attmodelGMA13"
+    "jsonPath" : "properties.attmodelGMA13",
+    "virtual" : false
   },
   "model" : {
     "id" : 17,
@@ -379,7 +407,8 @@
     "fragment" : {
       "id" : 4,
       "name" : "default",
-      "description" : "Default fragment"
+      "description" : "Default fragment",
+      "virtual" : false
     },
     "alterable" : false,
     "optional" : false,
@@ -387,7 +416,8 @@
     "properties" : [ ],
     "dynamic" : true,
     "internal" : false,
-    "jsonPath" : "properties.attmodelGMA14"
+    "jsonPath" : "properties.attmodelGMA14",
+    "virtual" : false
   },
   "model" : {
     "id" : 18,
@@ -404,7 +434,8 @@
     "fragment" : {
       "id" : 4,
       "name" : "default",
-      "description" : "Default fragment"
+      "description" : "Default fragment",
+      "virtual" : false
     },
     "alterable" : false,
     "optional" : false,
@@ -412,7 +443,8 @@
     "properties" : [ ],
     "dynamic" : true,
     "internal" : false,
-    "jsonPath" : "properties.attmodelGMA15"
+    "jsonPath" : "properties.attmodelGMA15",
+    "virtual" : false
   },
   "model" : {
     "id" : 19,
@@ -429,7 +461,8 @@
     "fragment" : {
       "id" : 4,
       "name" : "default",
-      "description" : "Default fragment"
+      "description" : "Default fragment",
+      "virtual" : false
     },
     "alterable" : false,
     "optional" : false,
@@ -437,7 +470,8 @@
     "properties" : [ ],
     "dynamic" : true,
     "internal" : false,
-    "jsonPath" : "properties.attmodelGMA16"
+    "jsonPath" : "properties.attmodelGMA16",
+    "virtual" : false
   },
   "model" : {
     "id" : 20,
@@ -454,7 +488,8 @@
     "fragment" : {
       "id" : 4,
       "name" : "default",
-      "description" : "Default fragment"
+      "description" : "Default fragment",
+      "virtual" : false
     },
     "alterable" : false,
     "optional" : false,
@@ -462,7 +497,8 @@
     "properties" : [ ],
     "dynamic" : true,
     "internal" : false,
-    "jsonPath" : "properties.attmodelGMA17"
+    "jsonPath" : "properties.attmodelGMA17",
+    "virtual" : false
   },
   "model" : {
     "id" : 21,
@@ -479,7 +515,8 @@
     "fragment" : {
       "id" : 4,
       "name" : "default",
-      "description" : "Default fragment"
+      "description" : "Default fragment",
+      "virtual" : false
     },
     "alterable" : false,
     "optional" : false,
@@ -487,7 +524,8 @@
     "properties" : [ ],
     "dynamic" : true,
     "internal" : false,
-    "jsonPath" : "properties.attmodelGMA18"
+    "jsonPath" : "properties.attmodelGMA18",
+    "virtual" : false
   },
   "model" : {
     "id" : 22,
@@ -504,7 +542,8 @@
     "fragment" : {
       "id" : 4,
       "name" : "default",
-      "description" : "Default fragment"
+      "description" : "Default fragment",
+      "virtual" : false
     },
     "alterable" : false,
     "optional" : false,
@@ -512,7 +551,8 @@
     "properties" : [ ],
     "dynamic" : true,
     "internal" : false,
-    "jsonPath" : "properties.attmodelGMA19"
+    "jsonPath" : "properties.attmodelGMA19",
+    "virtual" : false
   },
   "model" : {
     "id" : 23,

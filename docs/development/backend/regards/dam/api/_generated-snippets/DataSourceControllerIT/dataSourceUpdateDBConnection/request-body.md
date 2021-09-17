@@ -1,11 +1,11 @@
-    ***Data params**
+**Data params**
 
 ```json
-    {
-  "id" : 60,
+{
+  "id" : 9,
   "pluginId" : "MockDatasourcePlugin",
-  "label" : "76cffa14-8dd7-4b5e-9644-3eccfb56bf89",
-  "businessId" : "6f2fe43b-e7da-4a39-a20c-fa60b3925523",
+  "label" : "dsFromClause",
+  "businessId" : "c0114d21-cbce-4583-89b5-351684a6da25",
   "version" : "alpha",
   "priorityOrder" : 0,
   "active" : true,
@@ -85,7 +85,7 @@
   }, {
     "name" : "connection",
     "type" : "PLUGIN",
-    "value" : "51e1b6e9-07a9-4965-9eca-8b35db561f8d",
+    "value" : "5aaeec8e-9fd2-4679-9b76-d9ff3f89fa26",
     "dynamic" : false
   } ]
 }

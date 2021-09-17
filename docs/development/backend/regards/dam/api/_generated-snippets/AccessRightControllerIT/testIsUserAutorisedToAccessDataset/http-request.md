@@ -1,19 +1,19 @@
-    #### Request
+### Request
 
-        ***URL**
+**URL**
 
-        `/accessrights/isAccessible?dataset=URN%3AAIP%3ADATASET%3APROJECT%3Af94d5890-b895-4e9b-892f-b2576c5b11ec%3AV1&user=not.existingtest%40email.com`
+`/accessrights/isAccessible?dataset=URN%3AAIP%3ADATASET%3APROJECT%3A3d223793-3834-45e3-be0c-a7b270024315%3AV1&user=not.existingtest%40email.com`
 
-        ***URL template**
+**URL template**
 
-        `/accessrights/isAccessible`
+`/accessrights/isAccessible`
 
-        ***Method**
+**Method**
 
-        `GET`
+`GET`
 
-        ***Headers**
+**Headers**
 
-        `Authorization:Bearer{token}`
-        `Accept:application/json`
-        `Content-Type:application/json;charset=UTF-8`
+`Authorization:Bearer{token}`  
+`Content-Type:application/json;charset=UTF-8`  
+`Accept:application/json`  

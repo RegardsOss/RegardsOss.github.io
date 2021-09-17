@@ -1,9 +1,9 @@
-    ***URL params**
+* **URL params**
 
-        `/models/attributes/modeltype/{modelType}`
+    `/models/attributes/modeltype/{modelType}`
 
-        Parameter|Type|Description|Constraints
-        :-------:|:--:|:---------:|:---------:
-        `modelType` |String|model type|Available values: COLLECTION, DATA, DATASET
-    
+    Parameter|Type|Description|Constraints
+    :-------:|:--:|:---------:|:---------:
+    `modelType` |String|model type|Available values: COLLECTION, DATA, DATASET
+{:.table.table-striped}
 

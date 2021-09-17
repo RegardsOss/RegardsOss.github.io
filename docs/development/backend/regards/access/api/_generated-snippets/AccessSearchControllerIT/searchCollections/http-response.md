@@ -1,22 +1,22 @@
-#### Request
+### Response
 
 * **Code:** 200 OK
 
-        **Headers:**
+**Headers:**
 
-        `Pragma:no-cache`
-        `X-XSS-Protection:1; mode=block`
-        `Expires:0`
-        `X-Frame-Options:DENY`
-        `X-Content-Type-Options:nosniff`
-        `Access-Control-Allow-Headers:authorization, content-type, scope`
-        `Access-Control-Max-Age:3600`
-        `Content-Type:application/json;charset=UTF-8`
-        `Access-Control-Allow-Origin:*`
-        `Cache-Control:no-cache, no-store, max-age=0, must-revalidate`
-        `Access-Control-Allow-Methods:POST, PUT, GET, OPTIONS, DELETE`
+`X-Content-Type-Options:nosniff`  
+`X-XSS-Protection:1; mode=block`  
+`Cache-Control:no-cache, no-store, max-age=0, must-revalidate`  
+`Pragma:no-cache`  
+`Expires:0`  
+`X-Frame-Options:DENY`  
+`Access-Control-Allow-Origin:*`  
+`Access-Control-Allow-Methods:POST, PUT, GET, OPTIONS, DELETE`  
+`Access-Control-Allow-Headers:authorization, content-type, scope`  
+`Access-Control-Max-Age:3600`  
+`Content-Type:application/json;charset=UTF-8`  
 
-        **Content:**
+**Content:**
 
 ```json
     
@@ -30,17 +30,18 @@
   "content" : [ {
     "content" : {
       "ipId" : {
-        "oaisIdentifier" : "AIP",
+        "identifier" : "AIP",
         "entityType" : "COLLECTION",
         "tenant" : "PROJECT",
-        "entityId" : "12bfb848-8e6f-40d2-b530-e7ff98f319a1",
-        "version" : 1
+        "entityId" : "82476ec7-9dc0-429d-84e3-2bf8b45dc2ca",
+        "version" : 1,
+        "last" : false
       },
       "model" : {
         "name" : "colelctiontModel",
         "type" : "COLLECTION"
       },
-      "tags" : [ "URN:AIP:DATASET:PROJECT:bfab4738-3254-458b-a654-5bbfb13defff:V1" ],
+      "tags" : [ "URN:AIP:DATASET:PROJECT:d3e0a894-13c8-4009-bee6-1a911b84dda5:V1" ],
       "groups" : [ ],
       "wgs84" : {
         "type" : "UNLOCATED"
@@ -51,13 +52,16 @@
         "label" : "collection",
         "model" : "colelctiontModel",
         "files" : { },
-        "tags" : [ "URN:AIP:DATASET:PROJECT:bfab4738-3254-458b-a654-5bbfb13defff:V1" ],
+        "tags" : [ "URN:AIP:DATASET:PROJECT:d3e0a894-13c8-4009-bee6-1a911b84dda5:V1" ],
+        "last" : false,
+        "version" : 1,
         "id" : {
-          "oaisIdentifier" : "AIP",
+          "identifier" : "AIP",
           "entityType" : "COLLECTION",
           "tenant" : "PROJECT",
-          "entityId" : "12bfb848-8e6f-40d2-b530-e7ff98f319a1",
-          "version" : 1
+          "entityId" : "82476ec7-9dc0-429d-84e3-2bf8b45dc2ca",
+          "version" : 1,
+          "last" : false
         },
         "geometry" : {
           "type" : "UNLOCATED"
@@ -70,7 +74,7 @@
       },
       "services" : [ {
         "content" : {
-          "configId" : "685a72b7-d103-4793-9462-5f8051ff8a2f",
+          "configId" : "e763edd7-50b8-4e71-9997-cea6a33d89fe",
           "label" : "conf1",
           "applicationModes" : [ "MANY", "ONE" ],
           "entityTypes" : [ "DATA" ],

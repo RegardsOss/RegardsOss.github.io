@@ -1,21 +1,21 @@
-    ***Data params**
+**Data params**
 
 ```json
-    {
+{
   "type" : "DATASET",
   "metadata" : {
     "dataObjectsGroups" : { }
   },
   "id" : 25,
-  "ipId" : "URN:AIP:DATASET:PROJECT:c8f11167-d6bd-4715-b53b-22f9ff6db3c4:V1",
-  "creationDate" : "2020-05-11T11:37:58.152Z",
+  "ipId" : "URN:AIP:DATASET:PROJECT:7f1832b3-1a1b-4543-947c-706a5d6e0623:V1",
+  "creationDate" : "2021-09-16T19:08:34.53Z",
   "model" : {
     "id" : 20,
     "name" : "modelName1",
     "description" : "model desc",
     "type" : "DATASET"
   },
-  "tags" : [ "URN:AIP:DATASET:PROJECT:0d18c548-7927-4df9-b907-04885611e111:V1" ],
+  "tags" : [ "URN:AIP:DATASET:PROJECT:0a6609b3-2c7f-41aa-81a3-6804dbe99ac1:V1" ],
   "groups" : [ ],
   "feature" : {
     "licence" : "licence",
@@ -24,8 +24,10 @@
     "label" : "label",
     "model" : "modelName1",
     "files" : { },
-    "tags" : [ "URN:AIP:DATASET:PROJECT:0d18c548-7927-4df9-b907-04885611e111:V1" ],
-    "id" : "URN:AIP:DATASET:PROJECT:c8f11167-d6bd-4715-b53b-22f9ff6db3c4:V1",
+    "tags" : [ "URN:AIP:DATASET:PROJECT:0a6609b3-2c7f-41aa-81a3-6804dbe99ac1:V1" ],
+    "last" : false,
+    "version" : 1,
+    "id" : "URN:AIP:DATASET:PROJECT:7f1832b3-1a1b-4543-947c-706a5d6e0623:V1",
     "properties" : { },
     "type" : "Feature"
   }

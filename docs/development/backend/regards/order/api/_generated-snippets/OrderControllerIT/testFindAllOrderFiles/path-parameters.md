@@ -6,5 +6,5 @@
     :-------:|:--:|:---------:|:---------:
     `datasetId` |Long|dataset task id (from order)|
     `orderId` |Long|order id|
-
+{:.table.table-striped}
 

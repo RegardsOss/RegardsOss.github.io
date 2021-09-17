@@ -1,9 +1,9 @@
-    ***URL params**
+* **URL params**
 
-        `/models/attributes/{attributeId}`
+    `/models/attributes/{attributeId}`
 
-        Parameter|Type|Description|Constraints
-        :-------:|:--:|:---------:|:---------:
-        `attributeId` |Number|attribute id|
-    
+    Parameter|Type|Description|Constraints
+    :-------:|:--:|:---------:|:---------:
+    `attributeId` |Number|attribute id|
+{:.table.table-striped}
 

@@ -1,7 +1,7 @@
-    ***Data params**
+**Data params**
 
 ```json
-    {
+{
   "label" : "Processing chain 1",
   "active" : true,
   "mode" : "AUTO",
@@ -18,29 +18,28 @@
     "targetTypes" : [ ]
   } ],
   "categories" : [ ],
+  "versioningMode" : "INC_VERSION",
   "fileInfos" : [ {
     "mandatory" : true,
     "scanPlugin" : {
       "pluginId" : "GlobDiskScanning",
       "label" : "Auto10s : Scan plugin",
-      "businessId" : "1ede8062-0e2a-44cd-a349-edf9d6942148",
+      "businessId" : "9d5a8867-961b-4f00-a1b6-25ade2c94673",
       "priorityOrder" : 0,
       "active" : true,
-      "parameters" : [ {
-        "name" : "directories",
-        "type" : "COLLECTION",
-        "value" : [ ],
-        "dynamic" : false
-      } ]
+      "parameters" : [ ]
     },
     "mimeType" : "application/octet-stream",
     "dataType" : "RAWDATA",
-    "comment" : "A comment"
+    "comment" : "A comment",
+    "scanDirInfo" : [ {
+      "scannedDirectory" : "src/resources/doesnotexist"
+    } ]
   } ],
   "validationPluginConf" : {
     "pluginId" : "DefaultFileValidation",
     "label" : "Auto10s : Validation plugin",
-    "businessId" : "6a3d8db5-8568-42ca-a741-163e99f0cf1a",
+    "businessId" : "555bf364-94bd-4947-9dfc-d00cec6cd88e",
     "priorityOrder" : 0,
     "active" : true,
     "parameters" : [ ]
@@ -48,7 +47,7 @@
   "productPluginConf" : {
     "pluginId" : "DefaultProductPlugin",
     "label" : "Auto10s : Product plugin",
-    "businessId" : "5792220f-6ac9-41ce-b7e9-39e653456f07",
+    "businessId" : "368001e3-b37e-4aac-819b-dae4804755bc",
     "priorityOrder" : 0,
     "active" : true,
     "parameters" : [ ]
@@ -56,10 +55,11 @@
   "generateSipPluginConf" : {
     "pluginId" : "DefaultSIPGeneration",
     "label" : "Auto10s : SIP generation plugin",
-    "businessId" : "2c025cf5-f497-4039-a570-2bdd06af9943",
+    "businessId" : "716b3451-39b1-4487-af9b-5b16b531ec7a",
     "priorityOrder" : 0,
     "active" : true,
     "parameters" : [ ]
-  }
+  },
+  "productsStored" : true
 }
 ```

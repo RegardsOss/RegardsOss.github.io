@@ -1,19 +1,19 @@
-    #### Request
+### Request
 
-        ***URL**
+**URL**
 
-        `/models/modelPostAM/attributes`
+`/models/modelPostAM/attributes`
 
-        ***URL template**
+**URL template**
 
-        `/models/{modelName}/attributes`
+`/models/{modelName}/attributes`
 
-        ***Method**
+**Method**
 
-        `POST`
+`POST`
 
-        ***Headers**
+**Headers**
 
-        `Authorization:Bearer{token}`
-        `Accept:application/json`
-        `Content-Type:application/json;charset=UTF-8`
+`Authorization:Bearer{token}`  
+`Content-Type:application/json;charset=UTF-8`  
+`Accept:application/json`  

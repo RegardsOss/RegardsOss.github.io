@@ -1,19 +1,19 @@
-    #### Request
+### Request
 
-        ***URL**
+**URL**
 
-        `/notifications/1/unread`
+`/notifications/1/unread`
 
-        ***URL template**
+**URL template**
 
-        `/notifications/{notification_id}/unread`
+`/notifications/{notification_id}/unread`
 
-        ***Method**
+**Method**
 
-        `PUT`
+`PUT`
 
-        ***Headers**
+**Headers**
 
-        `Authorization:Bearer{token}`
-        `Accept:application/json`
-        `Content-Type:application/json;charset=UTF-8`
+`Authorization:Bearer{token}`  
+`Content-Type:application/json;charset=UTF-8`  
+`Accept:application/json`  

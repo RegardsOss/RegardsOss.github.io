@@ -1,22 +1,22 @@
-#### Request
+### Response
 
 * **Code:** 200 OK
 
-        **Headers:**
+**Headers:**
 
-        `Pragma:no-cache`
-        `X-XSS-Protection:1; mode=block`
-        `Expires:0`
-        `X-Frame-Options:DENY`
-        `X-Content-Type-Options:nosniff`
-        `Access-Control-Allow-Headers:authorization, content-type, scope`
-        `Access-Control-Max-Age:3600`
-        `Content-Type:application/json;charset=UTF-8`
-        `Access-Control-Allow-Origin:*`
-        `Cache-Control:no-cache, no-store, max-age=0, must-revalidate`
-        `Access-Control-Allow-Methods:POST, PUT, GET, OPTIONS, DELETE`
+`X-Content-Type-Options:nosniff`  
+`X-XSS-Protection:1; mode=block`  
+`Cache-Control:no-cache, no-store, max-age=0, must-revalidate`  
+`Pragma:no-cache`  
+`Expires:0`  
+`X-Frame-Options:DENY`  
+`Access-Control-Allow-Origin:*`  
+`Access-Control-Allow-Methods:POST, PUT, GET, OPTIONS, DELETE`  
+`Access-Control-Allow-Headers:authorization, content-type, scope`  
+`Access-Control-Max-Age:3600`  
+`Content-Type:application/json;charset=UTF-8`  
 
-        **Content:**
+**Content:**
 
 ```json
     
@@ -30,7 +30,7 @@
   "content" : [ {
     "content" : {
       "id" : 1,
-      "creationDate" : "2020-05-13T12:25:40.647Z",
+      "creationDate" : "2021-09-16T19:33:41.128Z",
       "dtype" : "AIP_UPDATES_CREATOR",
       "state" : "TO_SCHEDULE"
     },
@@ -38,7 +38,7 @@
   }, {
     "content" : {
       "id" : 2,
-      "creationDate" : "2020-05-13T12:25:40.793Z",
+      "creationDate" : "2021-09-16T19:33:41.142Z",
       "dtype" : "AIP_UPDATES_CREATOR",
       "state" : "TO_SCHEDULE"
     },
@@ -46,7 +46,7 @@
   }, {
     "content" : {
       "id" : 3,
-      "creationDate" : "2020-05-13T12:25:40.862Z",
+      "creationDate" : "2021-09-16T19:33:41.144Z",
       "dtype" : "AIP_UPDATES_CREATOR",
       "state" : "TO_SCHEDULE"
     },
@@ -54,7 +54,7 @@
   }, {
     "content" : {
       "id" : 4,
-      "creationDate" : "2020-05-13T12:25:40.932Z",
+      "creationDate" : "2021-09-16T19:33:41.146Z",
       "dtype" : "AIP_UPDATES_CREATOR",
       "state" : "TO_SCHEDULE"
     },
@@ -62,7 +62,7 @@
   }, {
     "content" : {
       "id" : 5,
-      "creationDate" : "2020-05-13T12:25:41.002Z",
+      "creationDate" : "2021-09-16T19:33:41.148Z",
       "dtype" : "AIP_UPDATES_CREATOR",
       "state" : "TO_SCHEDULE"
     },
@@ -70,7 +70,7 @@
   }, {
     "content" : {
       "id" : 6,
-      "creationDate" : "2020-05-13T12:25:41.072Z",
+      "creationDate" : "2021-09-16T19:33:41.149Z",
       "dtype" : "AIP_UPDATES_CREATOR",
       "state" : "TO_SCHEDULE"
     },
@@ -78,7 +78,7 @@
   }, {
     "content" : {
       "id" : 7,
-      "creationDate" : "2020-05-13T12:25:41.142Z",
+      "creationDate" : "2021-09-16T19:33:41.151Z",
       "dtype" : "AIP_UPDATES_CREATOR",
       "state" : "TO_SCHEDULE"
     },
@@ -86,7 +86,7 @@
   }, {
     "content" : {
       "id" : 8,
-      "creationDate" : "2020-05-13T12:25:41.21Z",
+      "creationDate" : "2021-09-16T19:33:41.152Z",
       "dtype" : "AIP_UPDATES_CREATOR",
       "state" : "TO_SCHEDULE"
     },
@@ -94,7 +94,7 @@
   }, {
     "content" : {
       "id" : 9,
-      "creationDate" : "2020-05-13T12:25:41.279Z",
+      "creationDate" : "2021-09-16T19:33:41.153Z",
       "dtype" : "AIP_UPDATES_CREATOR",
       "state" : "TO_SCHEDULE"
     },
@@ -102,7 +102,7 @@
   }, {
     "content" : {
       "id" : 10,
-      "creationDate" : "2020-05-13T12:25:41.35Z",
+      "creationDate" : "2021-09-16T19:33:41.155Z",
       "dtype" : "AIP_UPDATES_CREATOR",
       "state" : "TO_SCHEDULE"
     },

@@ -1,19 +1,19 @@
-    #### Request
+### Request
 
-        ***URL**
+**URL**
 
-        `/models/modelDeleteFrag/attributes/fragments/5`
+`/models/modelDeleteFrag/attributes/fragments/5`
 
-        ***URL template**
+**URL template**
 
-        `/models/{modelName}/attributes/fragments/{fragmentId}`
+`/models/{modelName}/attributes/fragments/{fragmentId}`
 
-        ***Method**
+**Method**
 
-        `DELETE`
+`DELETE`
 
-        ***Headers**
+**Headers**
 
-        `Authorization:Bearer{token}`
-        `Accept:application/json`
-        `Content-Type:application/json;charset=UTF-8`
+`Authorization:Bearer{token}`  
+`Content-Type:application/json;charset=UTF-8`  
+`Accept:application/json`  

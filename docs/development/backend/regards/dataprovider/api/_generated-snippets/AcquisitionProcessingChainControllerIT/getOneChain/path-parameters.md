@@ -1,9 +1,9 @@
-    ***URL params**
+* **URL params**
 
-        `/chains/{chainId}`
+    `/chains/{chainId}`
 
-        Parameter|Type|Description|Constraints
-        :-------:|:--:|:---------:|:---------:
-        `chainId` |String|Acquisition chain identifier|
-    
+    Parameter|Type|Description|Constraints
+    :-------:|:--:|:---------:|:---------:
+    `chainId` |String|Acquisition chain identifier|
+{:.table.table-striped}
 

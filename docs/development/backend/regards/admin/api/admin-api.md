@@ -110,8 +110,6 @@ slug: /development/backend/services/admin/api/
 
 {@import _generated-snippets/AccessSettingsControllerIT/getAccessSettings/http-request.md}
 
-{@import _generated-snippets/AccessSettingsControllerIT/getAccessSettings/request-body.md}
-
 {@import _generated-snippets/AccessSettingsControllerIT/getAccessSettings/http-response.md}
 
 ## Update settings
@@ -120,15 +118,11 @@ slug: /development/backend/services/admin/api/
 
 {@import _generated-snippets/AccessSettingsControllerIT/updateAccessSettings/http-request.md}
 
-{@import _generated-snippets/AccessSettingsControllerIT/updateAccessSettings/request-body.md}
-
 {@import _generated-snippets/AccessSettingsControllerIT/updateAccessSettings/http-response.md}
 
   In case the id does not correspond to anything:
 
 {@import _generated-snippets/AccessSettingsControllerIT/updateAccessSettingsEntityNotFound/http-request.md}
-
-{@import _generated-snippets/AccessSettingsControllerIT/updateAccessSettingsEntityNotFound/request-body.md}
 
 {@import _generated-snippets/AccessSettingsControllerIT/updateAccessSettingsEntityNotFound/http-response.md}
 

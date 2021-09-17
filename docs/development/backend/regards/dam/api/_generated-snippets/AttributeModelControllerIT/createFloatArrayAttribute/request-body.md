@@ -1,7 +1,7 @@
-    ***Data params**
+**Data params**
 
 ```json
-    {
+{
   "name" : "FLOAT_ARRAY_ATT",
   "description" : "float array description",
   "type" : "DOUBLE_ARRAY",
@@ -10,6 +10,7 @@
   "label" : "ForTests",
   "dynamic" : true,
   "internal" : false,
-  "jsonPath" : "properties.FLOAT_ARRAY_ATT"
+  "jsonPath" : "properties.FLOAT_ARRAY_ATT",
+  "virtual" : false
 }
 ```

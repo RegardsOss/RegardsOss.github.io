@@ -1,22 +1,22 @@
-#### Request
+### Response
 
 * **Code:** 200 OK
 
-        **Headers:**
+**Headers:**
 
-        `Pragma:no-cache`
-        `X-XSS-Protection:1; mode=block`
-        `Expires:0`
-        `X-Frame-Options:DENY`
-        `X-Content-Type-Options:nosniff`
-        `Access-Control-Allow-Headers:authorization, content-type, scope`
-        `Access-Control-Max-Age:3600`
-        `Content-Type:application/json;charset=UTF-8`
-        `Access-Control-Allow-Origin:*`
-        `Cache-Control:no-cache, no-store, max-age=0, must-revalidate`
-        `Access-Control-Allow-Methods:POST, PUT, GET, OPTIONS, DELETE`
+`X-Content-Type-Options:nosniff`  
+`X-XSS-Protection:1; mode=block`  
+`Cache-Control:no-cache, no-store, max-age=0, must-revalidate`  
+`Pragma:no-cache`  
+`Expires:0`  
+`X-Frame-Options:DENY`  
+`Access-Control-Allow-Origin:*`  
+`Access-Control-Allow-Methods:POST, PUT, GET, OPTIONS, DELETE`  
+`Access-Control-Allow-Headers:authorization, content-type, scope`  
+`Access-Control-Max-Age:3600`  
+`Content-Type:application/json;charset=UTF-8`  
 
-        **Content:**
+**Content:**
 
 ```json
     
@@ -36,8 +36,8 @@
         "dataObjectsGroups" : { }
       },
       "id" : 7,
-      "ipId" : "URN:AIP:DATASET:PROJECT:1f224c19-51ee-4c5e-93e3-a10bf9eeb34a:V1",
-      "creationDate" : "2020-05-11T11:42:16.527Z",
+      "ipId" : "URN:AIP:DATASET:PROJECT:eacf0aff-00c1-4063-a21e-199e2a6180cb:V1",
+      "creationDate" : "2021-09-16T19:08:00.569Z",
       "model" : {
         "id" : 4,
         "name" : "model1",
@@ -54,13 +54,15 @@
         "model" : "model1",
         "files" : { },
         "tags" : [ ],
-        "id" : "URN:AIP:DATASET:PROJECT:1f224c19-51ee-4c5e-93e3-a10bf9eeb34a:V1",
+        "last" : false,
+        "version" : 1,
+        "id" : "URN:AIP:DATASET:PROJECT:eacf0aff-00c1-4063-a21e-199e2a6180cb:V1",
         "properties" : { },
         "type" : "Feature"
       }
     },
     "accessGroup" : {
-      "id" : 8,
+      "id" : 59,
       "name" : "AG1",
       "users" : [ {
         "email" : "test@email.com"

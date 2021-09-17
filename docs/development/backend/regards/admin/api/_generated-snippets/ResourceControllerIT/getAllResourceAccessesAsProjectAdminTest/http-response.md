@@ -1,41 +1,41 @@
-#### Request
+### Response
 
 * **Code:** 200 OK
 
-        **Headers:**
+**Headers:**
 
-        `Pragma:no-cache`
-        `X-XSS-Protection:1; mode=block`
-        `Expires:0`
-        `X-Frame-Options:DENY`
-        `X-Content-Type-Options:nosniff`
-        `Access-Control-Allow-Headers:authorization, content-type, scope`
-        `Access-Control-Max-Age:3600`
-        `Content-Type:application/json;charset=UTF-8`
-        `Access-Control-Allow-Origin:*`
-        `Cache-Control:no-cache, no-store, max-age=0, must-revalidate`
-        `Access-Control-Allow-Methods:POST, PUT, GET, OPTIONS, DELETE`
+`X-Content-Type-Options:nosniff`  
+`X-XSS-Protection:1; mode=block`  
+`Cache-Control:no-cache, no-store, max-age=0, must-revalidate`  
+`Pragma:no-cache`  
+`Expires:0`  
+`X-Frame-Options:DENY`  
+`Access-Control-Allow-Origin:*`  
+`Access-Control-Allow-Methods:POST, PUT, GET, OPTIONS, DELETE`  
+`Access-Control-Allow-Headers:authorization, content-type, scope`  
+`Access-Control-Max-Age:3600`  
+`Content-Type:application/json;charset=UTF-8`  
 
-        **Content:**
+**Content:**
 
 ```json
     
 {
   "metadata" : {
     "size" : 10,
-    "totalElements" : 61,
-    "totalPages" : 7,
+    "totalElements" : 59,
+    "totalPages" : 6,
     "number" : 0
   },
   "content" : [ {
     "content" : {
       "id" : 1,
-      "description" : "Updates the setting managing the access requests",
-      "microservice" : "Test application",
-      "controllerSimpleName" : "AccessSettingsController",
-      "resource" : "/accesses/settings",
+      "description" : "Allow admins to invalidate the license of the project for all the users of the project",
+      "microservice" : "rs-test",
+      "controllerSimpleName" : "LicenseController",
+      "resource" : "/license/reset",
       "verb" : "PUT",
-      "defaultRole" : "PROJECT_ADMIN"
+      "defaultRole" : "ADMIN"
     },
     "links" : [ {
       "rel" : "list",
@@ -50,12 +50,12 @@
   }, {
     "content" : {
       "id" : 2,
-      "description" : "Retrieves the settings managing the access requests",
-      "microservice" : "Test application",
-      "controllerSimpleName" : "AccessSettingsController",
-      "resource" : "/accesses/settings",
+      "description" : "Retrieve if the current user has accepted the license of the project",
+      "microservice" : "rs-test",
+      "controllerSimpleName" : "LicenseController",
+      "resource" : "/license",
       "verb" : "GET",
-      "defaultRole" : "PROJECT_ADMIN"
+      "defaultRole" : "PUBLIC"
     },
     "links" : [ {
       "rel" : "list",
@@ -70,31 +70,11 @@
   }, {
     "content" : {
       "id" : 3,
-      "description" : "Allow admins to invalidate the license of the project for all the users of the project",
-      "microservice" : "Test application",
-      "controllerSimpleName" : "LicenseController",
-      "resource" : "/license/reset",
-      "verb" : "PUT",
-      "defaultRole" : "ADMIN"
-    },
-    "links" : [ {
-      "rel" : "list",
-      "href" : "http://localhost:8080/resources"
-    }, {
-      "rel" : "self",
-      "href" : "http://localhost:8080/resources/3"
-    }, {
-      "rel" : "update",
-      "href" : "http://localhost:8080/resources/3"
-    } ]
-  }, {
-    "content" : {
-      "id" : 4,
-      "description" : "Retrieve if the current user has accepted the license of the project",
-      "microservice" : "Test application",
+      "description" : "Allow current user to accept the license of the project",
+      "microservice" : "rs-test",
       "controllerSimpleName" : "LicenseController",
       "resource" : "/license",
-      "verb" : "GET",
+      "verb" : "PUT",
       "defaultRole" : "PUBLIC"
     },
     "links" : [ {
@@ -102,19 +82,19 @@
       "href" : "http://localhost:8080/resources"
     }, {
       "rel" : "self",
-      "href" : "http://localhost:8080/resources/4"
+      "href" : "http://localhost:8080/resources/3"
     }, {
       "rel" : "update",
-      "href" : "http://localhost:8080/resources/4"
+      "href" : "http://localhost:8080/resources/3"
     } ]
   }, {
     "content" : {
       "id" : 5,
-      "description" : "Allow current user to accept the license of the project",
-      "microservice" : "Test application",
-      "controllerSimpleName" : "LicenseController",
-      "resource" : "/license",
-      "verb" : "PUT",
+      "description" : "Retrieve accessible resource accesses of the user among the given microservice",
+      "microservice" : "rs-test",
+      "controllerSimpleName" : "MicroserviceResourceController",
+      "resource" : "/resources/microservices/{microservicename}",
+      "verb" : "GET",
       "defaultRole" : "PUBLIC"
     },
     "links" : [ {
@@ -131,7 +111,7 @@
     "content" : {
       "id" : 6,
       "description" : "Retrieve all resources for the given microservice and the given controller",
-      "microservice" : "Test application",
+      "microservice" : "rs-test",
       "controllerSimpleName" : "MicroserviceResourceController",
       "resource" : "/resources/microservices/{microservicename}/controllers",
       "verb" : "GET",
@@ -151,7 +131,7 @@
     "content" : {
       "id" : 7,
       "description" : "Retrieve all resources for the given microservice and the given controller",
-      "microservice" : "Test application",
+      "microservice" : "rs-test",
       "controllerSimpleName" : "MicroserviceResourceController",
       "resource" : "/resources/microservices/{microservicename}/controllers/{controllername}",
       "verb" : "GET",
@@ -169,13 +149,33 @@
     } ]
   }, {
     "content" : {
+      "id" : 8,
+      "description" : "update the list of all metadata of the user",
+      "microservice" : "rs-test",
+      "controllerSimpleName" : "ProjectUserMetadataController",
+      "resource" : "/users/{user_id}/metadatas",
+      "verb" : "PUT",
+      "defaultRole" : "PROJECT_ADMIN"
+    },
+    "links" : [ {
+      "rel" : "list",
+      "href" : "http://localhost:8080/resources"
+    }, {
+      "rel" : "self",
+      "href" : "http://localhost:8080/resources/8"
+    }, {
+      "rel" : "update",
+      "href" : "http://localhost:8080/resources/8"
+    } ]
+  }, {
+    "content" : {
       "id" : 9,
-      "description" : "Retrieve accessible resource accesses of the user among the given microservice",
-      "microservice" : "Test application",
-      "controllerSimpleName" : "MicroserviceResourceController",
-      "resource" : "/resources/microservices/{microservicename}",
-      "verb" : "GET",
-      "defaultRole" : "PUBLIC"
+      "description" : "remove all the metadata of the user",
+      "microservice" : "rs-test",
+      "controllerSimpleName" : "ProjectUserMetadataController",
+      "resource" : "/users/{user_id}/metadatas",
+      "verb" : "DELETE",
+      "defaultRole" : "PROJECT_ADMIN"
     },
     "links" : [ {
       "rel" : "list",
@@ -190,12 +190,12 @@
   }, {
     "content" : {
       "id" : 10,
-      "description" : "update the list of all metadata of the user",
-      "microservice" : "Test application",
+      "description" : "retrieve the list of all metadata of the user",
+      "microservice" : "rs-test",
       "controllerSimpleName" : "ProjectUserMetadataController",
       "resource" : "/users/{user_id}/metadatas",
-      "verb" : "PUT",
-      "defaultRole" : "PROJECT_ADMIN"
+      "verb" : "GET",
+      "defaultRole" : "EXPLOIT"
     },
     "links" : [ {
       "rel" : "list",
@@ -210,12 +210,12 @@
   }, {
     "content" : {
       "id" : 11,
-      "description" : "remove all the metadata of the user",
-      "microservice" : "Test application",
-      "controllerSimpleName" : "ProjectUserMetadataController",
-      "resource" : "/users/{user_id}/metadatas",
-      "verb" : "DELETE",
-      "defaultRole" : "PROJECT_ADMIN"
+      "description" : "Create a projectUser by bypassing registration process (Administrator feature)",
+      "microservice" : "rs-test",
+      "controllerSimpleName" : "ProjectUsersController",
+      "resource" : "/users",
+      "verb" : "POST",
+      "defaultRole" : "EXPLOIT"
     },
     "links" : [ {
       "rel" : "list",
@@ -239,7 +239,7 @@
     "href" : "http://localhost:8080/resources?page=1&size=10&sort=id,asc"
   }, {
     "rel" : "last",
-    "href" : "http://localhost:8080/resources?page=6&size=10&sort=id,asc"
+    "href" : "http://localhost:8080/resources?page=5&size=10&sort=id,asc"
   } ]
 }
 ```

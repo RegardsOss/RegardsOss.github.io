@@ -1,22 +1,22 @@
-#### Request
+### Response
 
 * **Code:** 200 OK
 
-        **Headers:**
+**Headers:**
 
-        `Pragma:no-cache`
-        `X-XSS-Protection:1; mode=block`
-        `Expires:0`
-        `X-Frame-Options:DENY`
-        `X-Content-Type-Options:nosniff`
-        `Access-Control-Allow-Headers:authorization, content-type, scope`
-        `Access-Control-Max-Age:3600`
-        `Content-Type:application/json;charset=UTF-8`
-        `Access-Control-Allow-Origin:*`
-        `Cache-Control:no-cache, no-store, max-age=0, must-revalidate`
-        `Access-Control-Allow-Methods:POST, PUT, GET, OPTIONS, DELETE`
+`X-Content-Type-Options:nosniff`  
+`X-XSS-Protection:1; mode=block`  
+`Cache-Control:no-cache, no-store, max-age=0, must-revalidate`  
+`Pragma:no-cache`  
+`Expires:0`  
+`X-Frame-Options:DENY`  
+`Access-Control-Allow-Origin:*`  
+`Access-Control-Allow-Methods:POST, PUT, GET, OPTIONS, DELETE`  
+`Access-Control-Allow-Headers:authorization, content-type, scope`  
+`Access-Control-Max-Age:3600`  
+`Content-Type:application/json;charset=UTF-8`  
 
-        **Content:**
+**Content:**
 
 ```json
     
@@ -43,8 +43,8 @@
           "dataObjectsGroups" : { }
         },
         "id" : 1,
-        "ipId" : "URN:AIP:DATASET:PROJECT:44b50a89-39e5-4011-a805-6f2b46d36d8c:V1",
-        "creationDate" : "2020-05-11T11:42:09.032Z",
+        "ipId" : "URN:AIP:DATASET:PROJECT:b5dc14f6-b7ac-4476-81cb-cedde6d724db:V1",
+        "creationDate" : "2021-09-16T19:07:59.265Z",
         "model" : {
           "id" : 1,
           "name" : "model1",
@@ -61,13 +61,15 @@
           "model" : "model1",
           "files" : { },
           "tags" : [ ],
-          "id" : "URN:AIP:DATASET:PROJECT:44b50a89-39e5-4011-a805-6f2b46d36d8c:V1",
+          "last" : false,
+          "version" : 1,
+          "id" : "URN:AIP:DATASET:PROJECT:b5dc14f6-b7ac-4476-81cb-cedde6d724db:V1",
           "properties" : { },
           "type" : "Feature"
         }
       },
       "accessGroup" : {
-        "id" : 2,
+        "id" : 53,
         "name" : "AG1",
         "users" : [ {
           "email" : "test@email.com"

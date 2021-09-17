@@ -1,7 +1,7 @@
-    ***Data params**
+**Data params**
 
 ```json
-    {
+{
   "name" : "ALPHABET",
   "type" : "STRING",
   "alterable" : false,
@@ -13,6 +13,7 @@
   },
   "dynamic" : true,
   "internal" : false,
-  "jsonPath" : "properties.ALPHABET"
+  "jsonPath" : "properties.ALPHABET",
+  "virtual" : false
 }
 ```

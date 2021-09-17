@@ -1,19 +1,19 @@
-    #### Request
+### Request
 
-        ***URL**
+**URL**
 
-        `/users/email@test.com/resources`
+`/users/email@test.com/resources`
 
-        ***URL template**
+**URL template**
 
-        `/users/{user_email}/resources`
+`/users/{user_email}/resources`
 
-        ***Method**
+**Method**
 
-        `PUT`
+`PUT`
 
-        ***Headers**
+**Headers**
 
-        `Authorization:Bearer{token}`
-        `Accept:application/json`
-        `Content-Type:application/json;charset=UTF-8`
+`Authorization:Bearer{token}`  
+`Content-Type:application/json;charset=UTF-8`  
+`Accept:application/json`  

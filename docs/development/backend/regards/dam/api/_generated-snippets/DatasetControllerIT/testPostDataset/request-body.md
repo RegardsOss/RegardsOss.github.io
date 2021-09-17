@@ -1,13 +1,13 @@
-    ***Data params**
+**Data params**
 
 ```json
-    {
+{
   "type" : "DATASET",
   "metadata" : {
     "dataObjectsGroups" : { }
   },
-  "ipId" : "URN:AIP:DATASET:PROJECT:5e80e118-4262-4995-baaf-a4972ae1a941:V1",
-  "creationDate" : "2020-05-11T11:37:51.766Z",
+  "ipId" : "URN:AIP:DATASET:PROJECT:6883d5fa-6915-4ba7-bc61-2958e56d2abe:V1",
+  "creationDate" : "2021-09-16T19:08:34.133Z",
   "model" : {
     "id" : 16,
     "name" : "modelName1",
@@ -24,7 +24,9 @@
     "model" : "modelName1",
     "files" : { },
     "tags" : [ ],
-    "id" : "URN:AIP:DATASET:PROJECT:5e80e118-4262-4995-baaf-a4972ae1a941:V1",
+    "last" : false,
+    "version" : 1,
+    "id" : "URN:AIP:DATASET:PROJECT:6883d5fa-6915-4ba7-bc61-2958e56d2abe:V1",
     "properties" : { },
     "type" : "Feature"
   }

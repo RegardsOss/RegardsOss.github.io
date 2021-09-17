@@ -1,7 +1,7 @@
-    ***Data params**
+**Data params**
 
 ```json
-    {
+{
   "message" : "Lets test",
   "projectUserRecipients" : [ ],
   "roleRecipients" : [ "PROJECT_ADMIN" ],

@@ -1,19 +1,19 @@
-    #### Request
+### Request
 
-        ***URL**
+**URL**
 
-        `/users/email@test.com/resources?borrowedRoleName=INSTANCE_ADMIN`
+`/users/email@test.com/resources?borrowedRoleName=INSTANCE_ADMIN`
 
-        ***URL template**
+**URL template**
 
-        `/users/{user_email}/resources?borrowedRoleName=INSTANCE_ADMIN`
+`/users/{user_email}/resources?borrowedRoleName=INSTANCE_ADMIN`
 
-        ***Method**
+**Method**
 
-        `GET`
+`GET`
 
-        ***Headers**
+**Headers**
 
-        `Authorization:Bearer{token}`
-        `Accept:application/json`
-        `Content-Type:application/json;charset=UTF-8`
+`Authorization:Bearer{token}`  
+`Content-Type:application/json;charset=UTF-8`  
+`Accept:application/json`  

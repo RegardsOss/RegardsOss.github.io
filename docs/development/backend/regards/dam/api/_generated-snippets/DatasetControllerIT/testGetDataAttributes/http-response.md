@@ -1,22 +1,22 @@
-#### Request
+### Response
 
 * **Code:** 200 OK
 
-        **Headers:**
+**Headers:**
 
-        `Pragma:no-cache`
-        `X-XSS-Protection:1; mode=block`
-        `Expires:0`
-        `X-Frame-Options:DENY`
-        `X-Content-Type-Options:nosniff`
-        `Access-Control-Allow-Headers:authorization, content-type, scope`
-        `Access-Control-Max-Age:3600`
-        `Content-Type:application/json;charset=UTF-8`
-        `Access-Control-Allow-Origin:*`
-        `Cache-Control:no-cache, no-store, max-age=0, must-revalidate`
-        `Access-Control-Allow-Methods:POST, PUT, GET, OPTIONS, DELETE`
+`X-Content-Type-Options:nosniff`  
+`X-XSS-Protection:1; mode=block`  
+`Cache-Control:no-cache, no-store, max-age=0, must-revalidate`  
+`Pragma:no-cache`  
+`Expires:0`  
+`X-Frame-Options:DENY`  
+`Access-Control-Allow-Origin:*`  
+`Access-Control-Allow-Methods:POST, PUT, GET, OPTIONS, DELETE`  
+`Access-Control-Allow-Headers:authorization, content-type, scope`  
+`Access-Control-Max-Age:3600`  
+`Content-Type:application/json;charset=UTF-8`  
 
-        **Content:**
+**Content:**
 
 ```json
     
@@ -29,15 +29,15 @@
   },
   "content" : [ {
     "content" : {
-      "id" : 84,
-      "name" : "DATA_SET_ID",
-      "description" : "id of the dataset",
+      "id" : 101,
+      "name" : "VMIN",
       "type" : "INTEGER",
       "unit" : "unitless",
       "fragment" : {
-        "id" : 1,
-        "name" : "default",
-        "description" : "Default fragment"
+        "id" : 5,
+        "name" : "ALTITUDE",
+        "description" : "Altitude fragment",
+        "virtual" : false
       },
       "alterable" : true,
       "optional" : false,
@@ -45,19 +45,21 @@
       "properties" : [ ],
       "dynamic" : true,
       "internal" : false,
-      "jsonPath" : "properties.DATA_SET_ID"
+      "jsonPath" : "properties.ALTITUDE.VMIN",
+      "virtual" : false
     },
     "links" : [ ]
   }, {
     "content" : {
-      "id" : 92,
-      "name" : "ANSE6_STRING",
-      "type" : "STRING",
+      "id" : 98,
+      "name" : "VMAX",
+      "type" : "INTEGER",
       "unit" : "unitless",
       "fragment" : {
-        "id" : 1,
-        "name" : "default",
-        "description" : "Default fragment"
+        "id" : 3,
+        "name" : "LONGITUDE",
+        "description" : "Longitude fragment",
+        "virtual" : false
       },
       "alterable" : true,
       "optional" : false,
@@ -65,20 +67,21 @@
       "properties" : [ ],
       "dynamic" : true,
       "internal" : false,
-      "jsonPath" : "properties.ANSE6_STRING"
+      "jsonPath" : "properties.LONGITUDE.VMAX",
+      "virtual" : false
     },
     "links" : [ ]
   }, {
     "content" : {
-      "id" : 86,
-      "name" : "DATA_AUTHOR",
-      "description" : "name of the author",
-      "type" : "STRING",
+      "id" : 102,
+      "name" : "VMAX",
+      "type" : "INTEGER",
       "unit" : "unitless",
       "fragment" : {
-        "id" : 1,
-        "name" : "default",
-        "description" : "Default fragment"
+        "id" : 5,
+        "name" : "ALTITUDE",
+        "description" : "Altitude fragment",
+        "virtual" : false
       },
       "alterable" : true,
       "optional" : false,
@@ -86,20 +89,21 @@
       "properties" : [ ],
       "dynamic" : true,
       "internal" : false,
-      "jsonPath" : "properties.DATA_AUTHOR"
+      "jsonPath" : "properties.ALTITUDE.VMAX",
+      "virtual" : false
     },
     "links" : [ ]
   }, {
     "content" : {
-      "id" : 87,
-      "name" : "DATA_AUTHOR_COMPANY",
-      "description" : "author's company name",
-      "type" : "STRING",
+      "id" : 100,
+      "name" : "VMAX",
+      "type" : "INTEGER",
       "unit" : "unitless",
       "fragment" : {
-        "id" : 1,
-        "name" : "default",
-        "description" : "Default fragment"
+        "id" : 4,
+        "name" : "LATITUDE",
+        "description" : "Latitude fragment",
+        "virtual" : false
       },
       "alterable" : true,
       "optional" : false,
@@ -107,20 +111,21 @@
       "properties" : [ ],
       "dynamic" : true,
       "internal" : false,
-      "jsonPath" : "properties.DATA_AUTHOR_COMPANY"
+      "jsonPath" : "properties.LATITUDE.VMAX",
+      "virtual" : false
     },
     "links" : [ ]
   }, {
     "content" : {
-      "id" : 88,
-      "name" : "DATA_CREATION_DATE",
-      "description" : "date at which the data was created into the datasource",
-      "type" : "DATE_ISO8601",
+      "id" : 99,
+      "name" : "VMIN",
+      "type" : "INTEGER",
       "unit" : "unitless",
       "fragment" : {
-        "id" : 1,
-        "name" : "default",
-        "description" : "Default fragment"
+        "id" : 4,
+        "name" : "LATITUDE",
+        "description" : "Latitude fragment",
+        "virtual" : false
       },
       "alterable" : true,
       "optional" : false,
@@ -128,7 +133,8 @@
       "properties" : [ ],
       "dynamic" : true,
       "internal" : false,
-      "jsonPath" : "properties.DATA_CREATION_DATE"
+      "jsonPath" : "properties.LATITUDE.VMIN",
+      "virtual" : false
     },
     "links" : [ ]
   } ],

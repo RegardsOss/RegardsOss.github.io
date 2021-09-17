@@ -219,8 +219,6 @@ slug: /development/backend/services/access/api/
 
 {@import _generated-snippets/ModuleControllerIT/testRetrieveMapConfig/http-request.md}
 
-{@import _generated-snippets/ModuleControllerIT/testRetrieveMapConfig/request-body.md}
-
 {@import _generated-snippets/ModuleControllerIT/testRetrieveMapConfig/http-response.md}
 
 ## Delete one module
@@ -279,8 +277,6 @@ slug: /development/backend/services/access/api/
 
 {@import _generated-snippets/AccessSearchControllerIT/searchDocuments/http-request.md}
 
-{@import _generated-snippets/AccessSearchControllerIT/searchDocuments/request-body.md}
-
 {@import _generated-snippets/AccessSearchControllerIT/searchDocuments/http-response.md}
 
 ## Search for datasets with dataobjects criterion
@@ -297,10 +293,6 @@ slug: /development/backend/services/access/api/
 
 {@import _generated-snippets/LayoutControllerIT/updateLayout/http-request.md}
 
-{@import _generated-snippets/LayoutControllerIT/updateLayout/request-body.md}
-
-{@import _generated-snippets/LayoutControllerIT/updateLayout/http-response.md}
-
 ### Invalid layout response
 
 {@import _generated-snippets/LayoutControllerIT/updateLayoutWithInvalidJsonFormat/http-response.md}
@@ -308,7 +300,3 @@ slug: /development/backend/services/access/api/
 ## Retrieve user application layout
 
 {@import _generated-snippets/LayoutControllerIT/getUserApplicationLayout/http-request.md}
-
-{@import _generated-snippets/LayoutControllerIT/getUserApplicationLayout/request-body.md}
-
-{@import _generated-snippets/LayoutControllerIT/getUserApplicationLayout/http-response.md}

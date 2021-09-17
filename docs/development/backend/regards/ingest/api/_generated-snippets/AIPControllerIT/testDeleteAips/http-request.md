@@ -1,19 +1,19 @@
-    #### Request
+### Request
 
-        ***URL***
+**URL**
 
-        `/aips/delete`
+`/aips/delete`
 
-        ***URL template***
+**URL template**
 
-        `/aips/delete`
+`/aips/delete`
 
-        ***Method***
+**Method**
 
-        `POST`
+`POST`
 
-        ***Headers***
+**Headers**
 
-        `Authorization:Bearer{token}`
-        `Accept:application/json`
-        `Content-Type:application/json;charset=UTF-8`
+`Authorization:Bearer{token}`  
+`Content-Type:application/json;charset=UTF-8`  
+`Accept:application/json`  

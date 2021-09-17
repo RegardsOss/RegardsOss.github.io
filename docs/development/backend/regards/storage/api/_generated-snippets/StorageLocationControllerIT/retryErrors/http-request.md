@@ -1,19 +1,19 @@
-    #### Request
+### Request
 
-        ***URL**
+**URL**
 
-        `/storages/target/files/retry/STORAGE`
+`/storages/target/files/retry/STORAGE`
 
-        ***URL template**
+**URL template**
 
-        `/storages/{id}/files/retry/{type}`
+`/storages/{id}/files/retry/{type}`
 
-        ***Method**
+**Method**
 
-        `GET`
+`GET`
 
-        ***Headers**
+**Headers**
 
-        `Authorization:Bearer{token}`
-        `Accept:application/json`
-        `Content-Type:application/json;charset=UTF-8`
+`Authorization:Bearer{token}`  
+`Content-Type:application/json;charset=UTF-8`  
+`Accept:application/json`  

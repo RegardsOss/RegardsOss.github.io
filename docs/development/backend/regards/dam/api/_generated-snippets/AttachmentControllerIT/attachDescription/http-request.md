@@ -1,19 +1,19 @@
-    #### Request
+### Request
 
-        ***URL**
+**URL**
 
-        `/entities/URN:AIP:COLLECTION:PROJECT:2b1a3d3b-e92f-495e-9ab6-200a010b2894:V1/files/DESCRIPTION`
+`/entities/URN:AIP:COLLECTION:PROJECT:11490dee-46b9-472b-be22-9a4b4943fe30:V1/files/DESCRIPTION`
 
-        ***URL template**
+**URL template**
 
-        `/entities/{urn}/files/{dataType}`
+`/entities/{urn}/files/{dataType}`
 
-        ***Method**
+**Method**
 
-        `POST`
+`POST`
 
-        ***Headers**
+**Headers**
 
-        `Authorization:Bearer{token}`
-        `Accept:application/json`
-        `Content-Type:multipart/form-data;charset=UTF-8; boundary=6o2knFse3p53ty9dmcQvWAIx1zInP11uCfbm`
+`Authorization:Bearer{token}`  
+`Content-Type:multipart/form-data;charset=UTF-8; boundary=6o2knFse3p53ty9dmcQvWAIx1zInP11uCfbm`  
+`Accept:application/json`  

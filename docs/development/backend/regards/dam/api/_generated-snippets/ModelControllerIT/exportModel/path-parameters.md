@@ -1,9 +1,9 @@
-    ***URL params**
+* **URL params**
 
-        `/models/{modelName}/export`
+    `/models/{modelName}/export`
 
-        Parameter|Type|Description|Constraints
-        :-------:|:--:|:---------:|:---------:
-        `modelName` |String|model name|
-    
+    Parameter|Type|Description|Constraints
+    :-------:|:--:|:---------:|:---------:
+    `modelName` |String|model name|
+{:.table.table-striped}
 

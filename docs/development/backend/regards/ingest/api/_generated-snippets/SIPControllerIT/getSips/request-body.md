@@ -1,7 +1,7 @@
-    ***Data params***
+**Data params**
 
 ```json
-    {
+{
   "states" : [ ],
   "providerIds" : [ ],
   "categories" : [ ],

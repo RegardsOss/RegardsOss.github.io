@@ -1,22 +1,22 @@
-#### Request
+### Response
 
 * **Code:** 200 OK
 
-        **Headers:**
+**Headers:**
 
-        `Pragma:no-cache`
-        `X-XSS-Protection:1; mode=block`
-        `Expires:0`
-        `X-Frame-Options:DENY`
-        `X-Content-Type-Options:nosniff`
-        `Access-Control-Allow-Headers:authorization, content-type, scope`
-        `Access-Control-Max-Age:3600`
-        `Content-Type:application/json;charset=UTF-8`
-        `Access-Control-Allow-Origin:*`
-        `Cache-Control:no-cache, no-store, max-age=0, must-revalidate`
-        `Access-Control-Allow-Methods:POST, PUT, GET, OPTIONS, DELETE`
+`X-Content-Type-Options:nosniff`  
+`X-XSS-Protection:1; mode=block`  
+`Cache-Control:no-cache, no-store, max-age=0, must-revalidate`  
+`Pragma:no-cache`  
+`Expires:0`  
+`X-Frame-Options:DENY`  
+`Access-Control-Allow-Origin:*`  
+`Access-Control-Allow-Methods:POST, PUT, GET, OPTIONS, DELETE`  
+`Access-Control-Allow-Headers:authorization, content-type, scope`  
+`Access-Control-Max-Age:3600`  
+`Content-Type:application/json;charset=UTF-8`  
 
-        **Content:**
+**Content:**
 
 ```json
     
@@ -43,8 +43,8 @@
           "dataObjectsGroups" : { }
         },
         "id" : 11,
-        "ipId" : "URN:AIP:DATASET:PROJECT:4ed8e419-0fa0-479b-b50e-23163212eed9:V1",
-        "creationDate" : "2020-05-11T11:42:21.499Z",
+        "ipId" : "URN:AIP:DATASET:PROJECT:42bf1a27-9c42-48ff-8e75-1e37dea31d12:V1",
+        "creationDate" : "2021-09-16T19:08:01.383Z",
         "model" : {
           "id" : 6,
           "name" : "model1",
@@ -61,13 +61,15 @@
           "model" : "model1",
           "files" : { },
           "tags" : [ ],
-          "id" : "URN:AIP:DATASET:PROJECT:4ed8e419-0fa0-479b-b50e-23163212eed9:V1",
+          "last" : false,
+          "version" : 1,
+          "id" : "URN:AIP:DATASET:PROJECT:42bf1a27-9c42-48ff-8e75-1e37dea31d12:V1",
           "properties" : { },
           "type" : "Feature"
         }
       },
       "accessGroup" : {
-        "id" : 12,
+        "id" : 63,
         "name" : "AG1",
         "users" : [ {
           "email" : "test@email.com"
@@ -76,10 +78,7 @@
         "isInternal" : false
       }
     },
-    "links" : [ {
-      "rel" : "self",
-      "href" : "http://localhost:8080/accessrights/11"
-    } ]
+    "links" : [ ]
   } ],
   "links" : [ {
     "rel" : "self",

@@ -1,19 +1,19 @@
-    #### Request
+### Request
 
-        ***URL**
+**URL**
 
-        `/accessgroups/AG1/user1@user1.user1`
+`/accessgroups/AG1/user1@user1.user1`
 
-        ***URL template**
+**URL template**
 
-        `/accessgroups/{name}/{email}`
+`/accessgroups/{name}/{email}`
 
-        ***Method**
+**Method**
 
-        `PUT`
+`PUT`
 
-        ***Headers**
+**Headers**
 
-        `Authorization:Bearer{token}`
-        `Accept:application/json`
-        `Content-Type:application/json;charset=UTF-8`
+`Authorization:Bearer{token}`  
+`Content-Type:application/json;charset=UTF-8`  
+`Accept:application/json`  

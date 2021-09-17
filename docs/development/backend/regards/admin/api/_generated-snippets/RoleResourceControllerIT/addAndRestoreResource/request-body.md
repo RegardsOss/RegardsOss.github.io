@@ -1,13 +1,13 @@
-    ***Data params**
+**Data params**
 
 ```json
-    {
-  "id" : 15,
-  "description" : "Retrieve the list of project users (crawls through parents' hierarchy) of the role with role_name",
-  "microservice" : "Test application",
-  "controllerSimpleName" : "ProjectUsersController",
-  "resource" : "/users/roles",
-  "verb" : "GET",
+{
+  "id" : 1,
+  "description" : "Allow admins to invalidate the license of the project for all the users of the project",
+  "microservice" : "rs-test",
+  "controllerSimpleName" : "LicenseController",
+  "resource" : "/license/reset",
+  "verb" : "PUT",
   "defaultRole" : "ADMIN"
 }
 ```

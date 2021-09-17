@@ -1,22 +1,22 @@
-#### Request
+### Response
 
 * **Code:** 200 OK
 
-        **Headers:**
+**Headers:**
 
-        `Pragma:no-cache`
-        `X-XSS-Protection:1; mode=block`
-        `Expires:0`
-        `X-Frame-Options:DENY`
-        `X-Content-Type-Options:nosniff`
-        `Access-Control-Allow-Headers:authorization, content-type, scope`
-        `Access-Control-Max-Age:3600`
-        `Content-Type:application/json;charset=UTF-8`
-        `Access-Control-Allow-Origin:*`
-        `Cache-Control:no-cache, no-store, max-age=0, must-revalidate`
-        `Access-Control-Allow-Methods:POST, PUT, GET, OPTIONS, DELETE`
+`X-Content-Type-Options:nosniff`  
+`X-XSS-Protection:1; mode=block`  
+`Cache-Control:no-cache, no-store, max-age=0, must-revalidate`  
+`Pragma:no-cache`  
+`Expires:0`  
+`X-Frame-Options:DENY`  
+`Access-Control-Allow-Origin:*`  
+`Access-Control-Allow-Methods:POST, PUT, GET, OPTIONS, DELETE`  
+`Access-Control-Allow-Headers:authorization, content-type, scope`  
+`Access-Control-Max-Age:3600`  
+`Content-Type:application/json;charset=UTF-8`  
 
-        **Content:**
+**Content:**
 
 ```json
     
@@ -29,7 +29,8 @@
       "id" : 43,
       "name" : "test",
       "description" : "Test",
-      "version" : "1.0"
+      "version" : "1.0",
+      "virtual" : false
     },
     "alterable" : true,
     "optional" : false,
@@ -37,16 +38,11 @@
     "properties" : [ ],
     "dynamic" : true,
     "internal" : false,
-    "jsonPath" : "properties.test.Attribute3"
+    "jsonPath" : "properties.test.Attribute3",
+    "virtual" : false
   },
   "links" : [ {
     "rel" : "self",
-    "href" : "http://localhost:8080/models/attributes/93"
-  }, {
-    "rel" : "update",
-    "href" : "http://localhost:8080/models/attributes/93"
-  }, {
-    "rel" : "delete",
     "href" : "http://localhost:8080/models/attributes/93"
   }, {
     "rel" : "list",
@@ -61,7 +57,8 @@
       "id" : 43,
       "name" : "test",
       "description" : "Test",
-      "version" : "1.0"
+      "version" : "1.0",
+      "virtual" : false
     },
     "alterable" : true,
     "optional" : false,
@@ -69,16 +66,11 @@
     "properties" : [ ],
     "dynamic" : true,
     "internal" : false,
-    "jsonPath" : "properties.test.Attribute1"
+    "jsonPath" : "properties.test.Attribute1",
+    "virtual" : false
   },
   "links" : [ {
     "rel" : "self",
-    "href" : "http://localhost:8080/models/attributes/91"
-  }, {
-    "rel" : "update",
-    "href" : "http://localhost:8080/models/attributes/91"
-  }, {
-    "rel" : "delete",
     "href" : "http://localhost:8080/models/attributes/91"
   }, {
     "rel" : "list",
@@ -93,7 +85,8 @@
       "id" : 43,
       "name" : "test",
       "description" : "Test",
-      "version" : "1.0"
+      "version" : "1.0",
+      "virtual" : false
     },
     "alterable" : true,
     "optional" : false,
@@ -101,16 +94,11 @@
     "properties" : [ ],
     "dynamic" : true,
     "internal" : false,
-    "jsonPath" : "properties.test.Attribute2"
+    "jsonPath" : "properties.test.Attribute2",
+    "virtual" : false
   },
   "links" : [ {
     "rel" : "self",
-    "href" : "http://localhost:8080/models/attributes/92"
-  }, {
-    "rel" : "update",
-    "href" : "http://localhost:8080/models/attributes/92"
-  }, {
-    "rel" : "delete",
     "href" : "http://localhost:8080/models/attributes/92"
   }, {
     "rel" : "list",

@@ -1,10 +1,10 @@
-    ***Data params**
+**Data params**
 
 ```json
-    {
+{
   "pluginId" : "MockDatasourcePlugin",
-  "label" : "ac6fcd4c-2780-4a85-862a-44bb66f28b97",
-  "businessId" : "02fa086a-b98d-4af7-8b53-333d68eca9d0",
+  "label" : "dsSingleTable",
+  "businessId" : "9923d6ef-7e9f-4679-b3ae-b0c5a43f80c4",
   "priorityOrder" : 0,
   "active" : true,
   "parameters" : [ {
@@ -78,7 +78,7 @@
   }, {
     "name" : "connection",
     "type" : "PLUGIN",
-    "value" : "638f9b06-d09d-491d-bbac-044c1a82a7b1",
+    "value" : "2e8346d1-9bc1-46ec-90b5-82a33b8d6c42",
     "dynamic" : false
   }, {
     "name" : "table",

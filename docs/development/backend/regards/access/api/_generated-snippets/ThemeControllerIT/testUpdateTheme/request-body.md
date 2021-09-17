@@ -1,8 +1,8 @@
-    ***Data params**
+**Data params**
 
 ```json
-    {
-  "id" : 8,
+{
+  "id" : 55,
   "name" : "Theme",
   "active" : true,
   "configuration" : "{}"

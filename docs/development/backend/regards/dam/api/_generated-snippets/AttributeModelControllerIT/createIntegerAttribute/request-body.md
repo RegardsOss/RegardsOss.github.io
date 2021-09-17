@@ -1,7 +1,7 @@
-    ***Data params**
+**Data params**
 
 ```json
-    {
+{
   "name" : "INTEGER_ATT",
   "description" : "Integer description",
   "type" : "INTEGER",
@@ -10,6 +10,7 @@
   "label" : "ForTests",
   "dynamic" : true,
   "internal" : false,
-  "jsonPath" : "properties.INTEGER_ATT"
+  "jsonPath" : "properties.INTEGER_ATT",
+  "virtual" : false
 }
 ```

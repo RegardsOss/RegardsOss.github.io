@@ -1,8 +1,9 @@
-    ***Data params**
+**Data params**
 
 ```json
-    {
+{
   "name" : "GEO",
-  "description" : "Geo description"
+  "description" : "Geo description",
+  "virtual" : false
 }
 ```

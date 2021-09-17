@@ -1,21 +1,22 @@
-    ***Data params**
+**Data params**
 
 ```json
-    {
+{
   "qualityFilter" : {
     "maxScore" : 10,
     "minScore" : 0,
     "qualityLevel" : "ACCEPTED"
   },
   "accessLevel" : "FULL_ACCESS",
+  "dataAccessLevel" : "NO_ACCESS",
   "dataset" : {
     "type" : "DATASET",
     "metadata" : {
       "dataObjectsGroups" : { }
     },
     "id" : 15,
-    "ipId" : "URN:AIP:DATASET:PROJECT:cdebd3ea-b456-4743-85ce-9b5f4e207388:V1",
-    "creationDate" : "2020-05-11T11:42:26.314Z",
+    "ipId" : "URN:AIP:DATASET:PROJECT:c597cd04-8535-42a6-9d14-d3eee6255356:V1",
+    "creationDate" : "2021-09-16T19:08:02.322Z",
     "model" : {
       "id" : 8,
       "name" : "model1",
@@ -32,13 +33,15 @@
       "model" : "model1",
       "files" : { },
       "tags" : [ ],
-      "id" : "URN:AIP:DATASET:PROJECT:cdebd3ea-b456-4743-85ce-9b5f4e207388:V1",
+      "last" : false,
+      "version" : 1,
+      "id" : "URN:AIP:DATASET:PROJECT:c597cd04-8535-42a6-9d14-d3eee6255356:V1",
       "properties" : { },
       "type" : "Feature"
     }
   },
   "accessGroup" : {
-    "id" : 17,
+    "id" : 68,
     "name" : "AG2",
     "users" : [ ],
     "isPublic" : false,

@@ -1,7 +1,7 @@
-    ***Data params**
+**Data params**
 
 ```json
-    {
+{
   "email" : "RegistrationControllerIT@test.com",
   "firstName" : "Firstname",
   "lastName" : "Lastname",

@@ -1,22 +1,22 @@
-#### Request
+### Response
 
 * **Code:** 200 OK
 
-        **Headers:**
+**Headers:**
 
-        `Pragma:no-cache`
-        `X-XSS-Protection:1; mode=block`
-        `Expires:0`
-        `X-Frame-Options:DENY`
-        `X-Content-Type-Options:nosniff`
-        `Access-Control-Allow-Headers:authorization, content-type, scope`
-        `Access-Control-Max-Age:3600`
-        `Content-Type:application/json;charset=UTF-8`
-        `Access-Control-Allow-Origin:*`
-        `Cache-Control:no-cache, no-store, max-age=0, must-revalidate`
-        `Access-Control-Allow-Methods:POST, PUT, GET, OPTIONS, DELETE`
+`X-Content-Type-Options:nosniff`  
+`X-XSS-Protection:1; mode=block`  
+`Cache-Control:no-cache, no-store, max-age=0, must-revalidate`  
+`Pragma:no-cache`  
+`Expires:0`  
+`X-Frame-Options:DENY`  
+`Access-Control-Allow-Origin:*`  
+`Access-Control-Allow-Methods:POST, PUT, GET, OPTIONS, DELETE`  
+`Access-Control-Allow-Headers:authorization, content-type, scope`  
+`Access-Control-Max-Age:3600`  
+`Content-Type:application/json;charset=UTF-8`  
 
-        **Content:**
+**Content:**
 
 ```json
     
@@ -34,15 +34,15 @@
         "dataObjectsGroups" : { }
       },
       "id" : 14,
-      "ipId" : "URN:AIP:DATASET:PROJECT:94d44806-c9fe-4e9f-a965-454b68a20cd1:V1",
-      "creationDate" : "2020-05-11T11:37:36.194Z",
+      "ipId" : "URN:AIP:DATASET:PROJECT:ac071948-5ba3-42b3-bf90-6a0951020e77:V1",
+      "creationDate" : "2021-09-16T19:08:33.105Z",
       "model" : {
         "id" : 12,
         "name" : "modelName1",
         "description" : "model desc",
         "type" : "DATASET"
       },
-      "tags" : [ "URN:AIP:DATASET:PROJECT:8554dd8d-e0fb-4825-89ff-a4f0a647a0a6:V1" ],
+      "tags" : [ "URN:AIP:DATASET:PROJECT:9ab958c7-2a3b-4602-a03d-f7a7f9e99513:V1" ],
       "groups" : [ ],
       "feature" : {
         "licence" : "licence",
@@ -51,8 +51,10 @@
         "label" : "label",
         "model" : "modelName1",
         "files" : { },
-        "tags" : [ "URN:AIP:DATASET:PROJECT:8554dd8d-e0fb-4825-89ff-a4f0a647a0a6:V1" ],
-        "id" : "URN:AIP:DATASET:PROJECT:94d44806-c9fe-4e9f-a965-454b68a20cd1:V1",
+        "tags" : [ "URN:AIP:DATASET:PROJECT:9ab958c7-2a3b-4602-a03d-f7a7f9e99513:V1" ],
+        "last" : false,
+        "version" : 1,
+        "id" : "URN:AIP:DATASET:PROJECT:ac071948-5ba3-42b3-bf90-6a0951020e77:V1",
         "properties" : { },
         "type" : "Feature"
       }
@@ -60,12 +62,6 @@
     "links" : [ {
       "rel" : "list",
       "href" : "http://localhost:8080/datasets"
-    }, {
-      "rel" : "delete",
-      "href" : "http://localhost:8080/datasets/14"
-    }, {
-      "rel" : "update",
-      "href" : "http://localhost:8080/datasets/14"
     } ]
   }, {
     "content" : {
@@ -74,8 +70,8 @@
         "dataObjectsGroups" : { }
       },
       "id" : 15,
-      "ipId" : "URN:AIP:DATASET:PROJECT:4eef0b59-a497-4ab5-a4a6-73cb60613ec0:V1",
-      "creationDate" : "2020-05-11T11:37:36.194Z",
+      "ipId" : "URN:AIP:DATASET:PROJECT:4c7cf040-1961-4f7b-9486-a29a4bd1cd91:V1",
+      "creationDate" : "2021-09-16T19:08:33.105Z",
       "model" : {
         "id" : 12,
         "name" : "modelName1",
@@ -92,7 +88,9 @@
         "model" : "modelName1",
         "files" : { },
         "tags" : [ ],
-        "id" : "URN:AIP:DATASET:PROJECT:4eef0b59-a497-4ab5-a4a6-73cb60613ec0:V1",
+        "last" : false,
+        "version" : 1,
+        "id" : "URN:AIP:DATASET:PROJECT:4c7cf040-1961-4f7b-9486-a29a4bd1cd91:V1",
         "properties" : { },
         "type" : "Feature"
       }
@@ -100,12 +98,6 @@
     "links" : [ {
       "rel" : "list",
       "href" : "http://localhost:8080/datasets"
-    }, {
-      "rel" : "delete",
-      "href" : "http://localhost:8080/datasets/15"
-    }, {
-      "rel" : "update",
-      "href" : "http://localhost:8080/datasets/15"
     } ]
   }, {
     "content" : {
@@ -114,15 +106,15 @@
         "dataObjectsGroups" : { }
       },
       "id" : 16,
-      "ipId" : "URN:AIP:DATASET:PROJECT:8554dd8d-e0fb-4825-89ff-a4f0a647a0a6:V1",
-      "creationDate" : "2020-05-11T11:37:36.194Z",
+      "ipId" : "URN:AIP:DATASET:PROJECT:9ab958c7-2a3b-4602-a03d-f7a7f9e99513:V1",
+      "creationDate" : "2021-09-16T19:08:33.105Z",
       "model" : {
         "id" : 12,
         "name" : "modelName1",
         "description" : "model desc",
         "type" : "DATASET"
       },
-      "tags" : [ "URN:AIP:DATASET:PROJECT:94d44806-c9fe-4e9f-a965-454b68a20cd1:V1" ],
+      "tags" : [ "URN:AIP:DATASET:PROJECT:ac071948-5ba3-42b3-bf90-6a0951020e77:V1" ],
       "groups" : [ ],
       "feature" : {
         "licence" : "licence",
@@ -131,8 +123,10 @@
         "label" : "label",
         "model" : "modelName1",
         "files" : { },
-        "tags" : [ "URN:AIP:DATASET:PROJECT:94d44806-c9fe-4e9f-a965-454b68a20cd1:V1" ],
-        "id" : "URN:AIP:DATASET:PROJECT:8554dd8d-e0fb-4825-89ff-a4f0a647a0a6:V1",
+        "tags" : [ "URN:AIP:DATASET:PROJECT:ac071948-5ba3-42b3-bf90-6a0951020e77:V1" ],
+        "last" : false,
+        "version" : 1,
+        "id" : "URN:AIP:DATASET:PROJECT:9ab958c7-2a3b-4602-a03d-f7a7f9e99513:V1",
         "properties" : { },
         "type" : "Feature"
       }
@@ -140,12 +134,6 @@
     "links" : [ {
       "rel" : "list",
       "href" : "http://localhost:8080/datasets"
-    }, {
-      "rel" : "delete",
-      "href" : "http://localhost:8080/datasets/16"
-    }, {
-      "rel" : "update",
-      "href" : "http://localhost:8080/datasets/16"
     } ]
   } ],
   "links" : [ {

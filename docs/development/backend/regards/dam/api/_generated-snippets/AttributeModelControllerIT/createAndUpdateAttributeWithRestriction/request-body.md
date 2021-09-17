@@ -1,10 +1,16 @@
-    ***Data params**
+**Data params**
 
 ```json
-    {
+{
   "id" : 45,
   "name" : "NB_OBJECTS",
   "type" : "INTEGER",
+  "fragment" : {
+    "id" : 21,
+    "name" : "default",
+    "description" : "Default fragment",
+    "virtual" : false
+  },
   "alterable" : false,
   "optional" : false,
   "label" : "ForTests",
@@ -15,8 +21,10 @@
     "maxExcluded" : false,
     "type" : "INTEGER_RANGE"
   },
+  "properties" : [ ],
   "dynamic" : true,
   "internal" : false,
-  "jsonPath" : "properties.NB_OBJECTS"
+  "jsonPath" : "properties.NB_OBJECTS",
+  "virtual" : false
 }
 ```

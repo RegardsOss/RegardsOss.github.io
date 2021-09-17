@@ -1,12 +1,12 @@
-    ***Data params***
+**Data params**
 
 ```json
-    {
+{
   "deletionMode" : "IRREVOCABLY",
   "lastUpdate" : { },
   "providerIds" : [ ],
   "sessionOwner" : "ESA",
-  "session" : "2020-05-13T14:29:51.221+02:00",
+  "session" : "2021-09-16T19:31:46.204Z",
   "storages" : [ ],
   "categories" : [ "CAT 1" ],
   "tags" : [ ],

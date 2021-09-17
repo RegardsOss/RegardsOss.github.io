@@ -1,38 +1,39 @@
-#### Request
+### Response
 
 * **Code:** 200 OK
 
-        **Headers:**
+**Headers:**
 
-        `Pragma:no-cache`
-        `X-XSS-Protection:1; mode=block`
-        `X-Frame-Options:DENY`
-        `Expires:0`
-        `X-Content-Type-Options:nosniff`
-        `Access-Control-Allow-Headers:authorization, content-type, scope`
-        `Content-Disposition:attachment; filename="config-Test application.json"`
-        `Access-Control-Max-Age:3600`
-        `Content-Type:application/json`
-        `Access-Control-Allow-Origin:*`
-        `Cache-Control:no-cache, no-store, max-age=0, must-revalidate`
-        `Access-Control-Allow-Methods:POST, PUT, GET, OPTIONS, DELETE`
+`X-Content-Type-Options:nosniff`  
+`X-XSS-Protection:1; mode=block`  
+`Cache-Control:no-cache, no-store, max-age=0, must-revalidate`  
+`Pragma:no-cache`  
+`Expires:0`  
+`X-Frame-Options:DENY`  
+`Access-Control-Allow-Origin:*`  
+`Access-Control-Allow-Methods:POST, PUT, GET, OPTIONS, DELETE`  
+`Access-Control-Allow-Headers:authorization, content-type, scope`  
+`Access-Control-Max-Age:3600`  
+`Content-Type:application/json`  
+`Content-Disposition:attachment; filename="config-rs-test.json"`  
 
-        **Content:**
+**Content:**
 
 ```json
     
 {
-  "microservice" : "Test application",
+  "microservice" : "rs-test",
   "modules" : [ {
     "module" : {
       "id" : "ingest",
       "name" : "SIP management module",
       "description" : "SIP submission and management",
-      "version" : "0.5.0",
-      "author" : "CSSI",
+      "version" : "1.6.0",
+      "author" : "REGARDS",
       "legalOwner" : "CNES",
       "documentation" : "https://github.com/RegardsOss"
     },
+    "resetBeforeImport" : false,
     "configuration" : [ {
       "key" : "fr.cnes.regards.modules.ingest.domain.chain.IngestProcessingChain",
       "value" : {
@@ -40,7 +41,7 @@
         "validationPlugin" : {
           "pluginId" : "DefaultSipValidation",
           "label" : "DefaultSIPValidation",
-          "businessId" : "867315dc-62c8-4e90-95c1-369aa5220590",
+          "businessId" : "bfd5b693-137b-441a-b0bf-8b92ef4c2bed",
           "version" : "1.0.0",
           "priorityOrder" : 0,
           "active" : true,
@@ -49,12 +50,39 @@
         "generationPlugin" : {
           "pluginId" : "DefaultSingleAIPGeneration",
           "label" : "DefaultAIPGeneration",
-          "businessId" : "39ed9c5d-6c43-45ef-9199-9e18b5a6f7c9",
+          "businessId" : "b8fd1455-08ae-453e-9152-9c67d2fdb4d4",
           "version" : "1.0.0",
           "priorityOrder" : 0,
           "active" : true,
           "parameters" : [ ]
         }
+      }
+    }, {
+      "key" : "fr.cnes.regards.framework.modules.tenant.settings.domain.DynamicTenantSetting",
+      "value" : {
+        "name" : "active_notifications",
+        "description" : "Activate notifications on AIP request",
+        "value" : "false",
+        "defaultValue" : "false",
+        "className" : "java.lang.Boolean"
+      }
+    }, {
+      "key" : "fr.cnes.regards.framework.modules.tenant.settings.domain.DynamicTenantSetting",
+      "value" : {
+        "name" : "last_dump_req_date",
+        "description" : "Date of last dump request",
+        "value" : "\"1970-01-01T00:00:00Z\"",
+        "defaultValue" : "\"1970-01-01T00:00:00Z\"",
+        "className" : "java.time.OffsetDateTime"
+      }
+    }, {
+      "key" : "fr.cnes.regards.framework.modules.tenant.settings.domain.DynamicTenantSetting",
+      "value" : {
+        "name" : "dump_parameters",
+        "description" : "Dump parameters",
+        "value" : "{\"isActiveModule\":true,\"cronTrigger\":\"0 0 0 1-7 * SUN\",\"dumpLocation\":\"\"}",
+        "defaultValue" : "{\"isActiveModule\":true,\"cronTrigger\":\"0 0 0 1-7 * SUN\",\"dumpLocation\":\"\"}",
+        "className" : "fr.cnes.regards.framework.modules.dump.domain.DumpParameters"
       }
     } ]
   } ]

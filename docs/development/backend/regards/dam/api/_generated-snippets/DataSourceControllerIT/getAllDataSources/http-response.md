@@ -1,32 +1,32 @@
-#### Request
+### Response
 
 * **Code:** 200 OK
 
-        **Headers:**
+**Headers:**
 
-        `Pragma:no-cache`
-        `X-XSS-Protection:1; mode=block`
-        `Expires:0`
-        `X-Frame-Options:DENY`
-        `X-Content-Type-Options:nosniff`
-        `Access-Control-Allow-Headers:authorization, content-type, scope`
-        `Access-Control-Max-Age:3600`
-        `Content-Type:application/json;charset=UTF-8`
-        `Access-Control-Allow-Origin:*`
-        `Cache-Control:no-cache, no-store, max-age=0, must-revalidate`
-        `Access-Control-Allow-Methods:POST, PUT, GET, OPTIONS, DELETE`
+`X-Content-Type-Options:nosniff`  
+`X-XSS-Protection:1; mode=block`  
+`Cache-Control:no-cache, no-store, max-age=0, must-revalidate`  
+`Pragma:no-cache`  
+`Expires:0`  
+`X-Frame-Options:DENY`  
+`Access-Control-Allow-Origin:*`  
+`Access-Control-Allow-Methods:POST, PUT, GET, OPTIONS, DELETE`  
+`Access-Control-Allow-Headers:authorization, content-type, scope`  
+`Access-Control-Max-Age:3600`  
+`Content-Type:application/json;charset=UTF-8`  
 
-        **Content:**
+**Content:**
 
 ```json
     
 [ {
   "content" : {
     "associatedDatasets" : 0,
-    "id" : 55,
+    "id" : 4,
     "pluginId" : "MockDatasourcePlugin",
-    "label" : "the label of the data source with table name",
-    "businessId" : "4337901c-e265-463e-bcb8-e14e81796ba1",
+    "label" : "dsFromClause",
+    "businessId" : "0f3e9cd9-ba5d-4c1a-9a7f-8b9147636700",
     "version" : "alpha",
     "priorityOrder" : 0,
     "active" : true,
@@ -106,24 +106,21 @@
     }, {
       "name" : "connection",
       "type" : "PLUGIN",
-      "value" : "96872e1e-6780-46d7-896e-313697e4c9a7",
+      "value" : "1a1edbd3-b92e-4a6b-b698-448e3bfbd049",
       "dynamic" : false
     } ]
   },
   "links" : [ {
-    "rel" : "delete",
-    "href" : "http://localhost:8080/datasources/4337901c-e265-463e-bcb8-e14e81796ba1"
-  }, {
     "rel" : "list",
     "href" : "http://localhost:8080/datasources"
   } ]
 }, {
   "content" : {
     "associatedDatasets" : 0,
-    "id" : 56,
+    "id" : 5,
     "pluginId" : "MockDatasourcePlugin",
-    "label" : "69124c40-7feb-482c-9429-84168f883244",
-    "businessId" : "d54795e3-f269-4ca1-bcab-4a4a54a9daf7",
+    "label" : "dsSingleTable",
+    "businessId" : "e65bf68a-7bdd-4e4b-ba0d-110936ae1207",
     "version" : "alpha",
     "priorityOrder" : 0,
     "active" : true,
@@ -198,7 +195,7 @@
     }, {
       "name" : "connection",
       "type" : "PLUGIN",
-      "value" : "96872e1e-6780-46d7-896e-313697e4c9a7",
+      "value" : "1a1edbd3-b92e-4a6b-b698-448e3bfbd049",
       "dynamic" : false
     }, {
       "name" : "table",
@@ -208,9 +205,6 @@
     } ]
   },
   "links" : [ {
-    "rel" : "delete",
-    "href" : "http://localhost:8080/datasources/d54795e3-f269-4ca1-bcab-4a4a54a9daf7"
-  }, {
     "rel" : "list",
     "href" : "http://localhost:8080/datasources"
   } ]

@@ -2,6 +2,7 @@
 
 ```json
 {
+  "requestOwner" : "test",
   "metadata" : {
     "sessionOwner" : "owner",
     "session" : "session",
@@ -14,6 +15,11 @@
     "urn" : null,
     "entityType" : "DATA",
     "model" : "FEATURE01",
+    "history" : {
+      "createdBy" : "owner",
+      "updatedBy" : null,
+      "deletedBy" : null
+    },
     "files" : [ {
       "locations" : [ {
         "storage" : null,
@@ -28,6 +34,7 @@
         "checksum" : "checksum"
       }
     } ],
+    "last" : false,
     "id" : "MyId",
     "geometry" : {
       "coordinates" : [ 10.0, 20.0 ],

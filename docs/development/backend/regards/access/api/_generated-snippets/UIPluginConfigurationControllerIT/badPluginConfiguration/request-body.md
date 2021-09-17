@@ -1,14 +1,15 @@
-    ***Data params**
+**Data params**
 
 ```json
-    {
+{
   "pluginDefinition" : {
-    "id" : 114,
+    "id" : 264,
     "name" : "PluginTest",
     "type" : "CRITERIA",
     "sourcePath" : "plugins/test/bundle.js",
     "applicationModes" : [ ],
-    "entityTypes" : [ ]
+    "entityTypes" : [ ],
+    "roleName" : "PUBLIC"
   },
   "active" : true,
   "label" : "label",

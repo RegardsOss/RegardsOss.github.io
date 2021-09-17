@@ -1,22 +1,22 @@
-#### Request
+### Response
 
 * **Code:** 200 OK
 
-        **Headers:**
+**Headers:**
 
-        `Pragma:no-cache`
-        `X-XSS-Protection:1; mode=block`
-        `Expires:0`
-        `X-Frame-Options:DENY`
-        `X-Content-Type-Options:nosniff`
-        `Access-Control-Allow-Headers:authorization, content-type, scope`
-        `Access-Control-Max-Age:3600`
-        `Content-Type:application/json;charset=UTF-8`
-        `Access-Control-Allow-Origin:*`
-        `Cache-Control:no-cache, no-store, max-age=0, must-revalidate`
-        `Access-Control-Allow-Methods:POST, PUT, GET, OPTIONS, DELETE`
+`X-Content-Type-Options:nosniff`  
+`X-XSS-Protection:1; mode=block`  
+`Cache-Control:no-cache, no-store, max-age=0, must-revalidate`  
+`Pragma:no-cache`  
+`Expires:0`  
+`X-Frame-Options:DENY`  
+`Access-Control-Allow-Origin:*`  
+`Access-Control-Allow-Methods:POST, PUT, GET, OPTIONS, DELETE`  
+`Access-Control-Allow-Headers:authorization, content-type, scope`  
+`Access-Control-Max-Age:3600`  
+`Content-Type:application/json;charset=UTF-8`  
 
-        **Content:**
+**Content:**
 
 ```json
     
@@ -24,9 +24,9 @@
   "content" : {
     "type" : "COLLECTION",
     "id" : 3,
-    "ipId" : "URN:AIP:COLLECTION:PROJECT:ecac0e1a-c718-4d02-8996-45d5be2c6708:V1",
-    "creationDate" : "2020-05-11T11:39:00.55Z",
-    "lastUpdate" : "2020-05-11T11:39:00.898Z",
+    "ipId" : "URN:AIP:COLLECTION:PROJECT:7ffb58d7-da9d-48a2-a307-07825da107e4:V1",
+    "creationDate" : "2021-09-16T19:08:54.803Z",
+    "lastUpdate" : "2021-09-16T19:08:54.822Z",
     "model" : {
       "id" : 3,
       "name" : "MODEL",
@@ -36,6 +36,7 @@
     "tags" : [ ],
     "groups" : [ ],
     "feature" : {
+      "virtualId" : "URN:AIP:COLLECTION:PROJECT:7ffb58d7-da9d-48a2-a307-07825da107e4:LAST",
       "providerId" : "COL1",
       "entityType" : "COLLECTION",
       "label" : "Collection label",
@@ -44,7 +45,7 @@
         "DESCRIPTION" : [ {
           "dataType" : "DESCRIPTION",
           "reference" : false,
-          "uri" : "http://localhost:8080/entities/URN:AIP:COLLECTION:PROJECT:ecac0e1a-c718-4d02-8996-45d5be2c6708:V1/files/dfbde11bc7762d4a38c38940c1c0a8c3",
+          "uri" : "http://localhost:8080/entities/URN:AIP:COLLECTION:PROJECT:7ffb58d7-da9d-48a2-a307-07825da107e4:V1/files/dfbde11bc7762d4a38c38940c1c0a8c3",
           "mimeType" : "application/pdf;charset=UTF-8",
           "online" : true,
           "checksum" : "dfbde11bc7762d4a38c38940c1c0a8c3",
@@ -65,7 +66,9 @@
         } ]
       },
       "tags" : [ ],
-      "id" : "URN:AIP:COLLECTION:PROJECT:ecac0e1a-c718-4d02-8996-45d5be2c6708:V1",
+      "last" : true,
+      "version" : 1,
+      "id" : "URN:AIP:COLLECTION:PROJECT:7ffb58d7-da9d-48a2-a307-07825da107e4:V1",
       "properties" : { },
       "type" : "Feature"
     }

@@ -1,8 +1,8 @@
-    ***Data params**
+**Data params**
 
 ```json
-    {
-  "id" : 106,
+{
+  "id" : 56,
   "label" : "Processing chain 1",
   "active" : true,
   "mode" : "MANUAL",
@@ -19,55 +19,59 @@
     "targetTypes" : [ ]
   } ],
   "categories" : [ ],
+  "versioningMode" : "INC_VERSION",
   "fileInfos" : [ {
-    "id" : 106,
+    "id" : 56,
     "mandatory" : true,
     "scanPlugin" : {
       "pluginId" : "GlobDiskScanning",
       "label" : "Scan plugin update",
-      "businessId" : "be2a4b25-1463-4539-bbd2-b218d4a4851c",
+      "businessId" : "0b74863d-f422-49af-a3b9-cb35463de5bf",
       "priorityOrder" : 0,
       "active" : true,
-      "parameters" : [ {
-        "name" : "directories",
-        "type" : "COLLECTION",
-        "value" : [ ],
-        "dynamic" : false
-      } ]
+      "parameters" : [ ]
     },
     "mimeType" : "application/octet-stream",
     "dataType" : "RAWDATA",
-    "comment" : "A comment"
+    "comment" : "A comment",
+    "scanDirInfo" : [ {
+      "scannedDirectory" : "src/resources/fake",
+      "lastModificationDate" : "2021-09-16T19:38:12.858Z"
+    }, {
+      "id" : 56,
+      "scannedDirectory" : "/app_to_build/rs-dataprovider/acquisition/acquisition-rest/src/resources/doesnotexist"
+    } ]
   } ],
   "validationPluginConf" : {
-    "id" : 120,
+    "id" : 70,
     "pluginId" : "DefaultFileValidation",
     "label" : "update : Validation plugin",
-    "businessId" : "eed45b1d-031e-4333-9026-da25029ff379",
+    "businessId" : "56aed7ab-1728-4d5a-8cba-6aaef8976d00",
     "version" : "1.0.0-SNAPSHOT",
     "priorityOrder" : 0,
     "active" : true,
     "parameters" : [ ]
   },
   "productPluginConf" : {
-    "id" : 121,
+    "id" : 71,
     "pluginId" : "DefaultProductPlugin",
     "label" : "update : Product plugin",
-    "businessId" : "8a9b575b-ca37-400c-a4a3-c45216f1d4a9",
+    "businessId" : "1594688f-4574-4f71-a3bf-4402e498990d",
     "version" : "1.0.0-SNAPSHOT",
     "priorityOrder" : 0,
     "active" : true,
     "parameters" : [ ]
   },
   "generateSipPluginConf" : {
-    "id" : 122,
+    "id" : 72,
     "pluginId" : "DefaultSIPGeneration",
     "label" : "update : SIP generation plugin",
-    "businessId" : "4b4c0b5e-4002-4a4a-a723-99eb387861b0",
+    "businessId" : "8a9e525e-b852-47ee-a8c0-adb0b24565a0",
     "version" : "1.0.0-SNAPSHOT",
     "priorityOrder" : 0,
     "active" : true,
     "parameters" : [ ]
-  }
+  },
+  "productsStored" : true
 }
 ```

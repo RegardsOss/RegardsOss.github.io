@@ -1,8 +1,8 @@
-    ***Data params**
+**Data params**
 
 ```json
-    {
-  "chainIds" : [ 102 ],
+{
+  "chainIds" : [ 52 ],
   "active" : true,
   "mode" : "MANUAL",
   "updateType" : "ALL"

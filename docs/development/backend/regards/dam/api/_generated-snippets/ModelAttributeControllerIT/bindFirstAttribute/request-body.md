@@ -1,7 +1,7 @@
-    ***Data params**
+**Data params**
 
 ```json
-    {
+{
   "attribute" : {
     "id" : 27,
     "name" : "attPostAM",
@@ -9,14 +9,16 @@
     "fragment" : {
       "id" : 6,
       "name" : "default",
-      "description" : "Default fragment"
+      "description" : "Default fragment",
+      "virtual" : false
     },
     "alterable" : false,
     "optional" : false,
     "label" : "ForTests",
     "dynamic" : true,
     "internal" : false,
-    "jsonPath" : "properties.attPostAM"
+    "jsonPath" : "properties.attPostAM",
+    "virtual" : false
   },
   "model" : {
     "id" : 25,

@@ -1,7 +1,7 @@
-    ***Data params**
+**Data params**
 
 ```json
-    {
+{
   "name" : "NEW_ROLE",
   "parentRole" : {
     "id" : 1,

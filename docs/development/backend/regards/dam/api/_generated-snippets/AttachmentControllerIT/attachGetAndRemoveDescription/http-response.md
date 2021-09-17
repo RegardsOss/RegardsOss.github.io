@@ -1,22 +1,22 @@
-#### Request
+### Response
 
 * **Code:** 200 OK
 
-        **Headers:**
+**Headers:**
 
-        `Pragma:no-cache`
-        `X-XSS-Protection:1; mode=block`
-        `Expires:0`
-        `X-Frame-Options:DENY`
-        `X-Content-Type-Options:nosniff`
-        `Access-Control-Allow-Headers:authorization, content-type, scope`
-        `Access-Control-Max-Age:3600`
-        `Content-Type:application/json;charset=UTF-8`
-        `Access-Control-Allow-Origin:*`
-        `Cache-Control:no-cache, no-store, max-age=0, must-revalidate`
-        `Access-Control-Allow-Methods:POST, PUT, GET, OPTIONS, DELETE`
+`X-Content-Type-Options:nosniff`  
+`X-XSS-Protection:1; mode=block`  
+`Cache-Control:no-cache, no-store, max-age=0, must-revalidate`  
+`Pragma:no-cache`  
+`Expires:0`  
+`X-Frame-Options:DENY`  
+`Access-Control-Allow-Origin:*`  
+`Access-Control-Allow-Methods:POST, PUT, GET, OPTIONS, DELETE`  
+`Access-Control-Allow-Headers:authorization, content-type, scope`  
+`Access-Control-Max-Age:3600`  
+`Content-Type:application/json;charset=UTF-8`  
 
-        **Content:**
+**Content:**
 
 ```json
     
@@ -24,9 +24,9 @@
   "content" : {
     "type" : "COLLECTION",
     "id" : 5,
-    "ipId" : "URN:AIP:COLLECTION:PROJECT:9b6b6db5-8cb2-4c49-82ea-0f1fc8c7d4c3:V1",
-    "creationDate" : "2020-05-11T11:39:01.379Z",
-    "lastUpdate" : "2020-05-11T11:39:02.143Z",
+    "ipId" : "URN:AIP:COLLECTION:PROJECT:7a789a25-f99f-452e-8e6a-5f79f6a46684:V1",
+    "creationDate" : "2021-09-16T19:08:55.506Z",
+    "lastUpdate" : "2021-09-16T19:08:55.555Z",
     "model" : {
       "id" : 5,
       "name" : "MODEL",
@@ -36,13 +36,16 @@
     "tags" : [ ],
     "groups" : [ ],
     "feature" : {
+      "virtualId" : "URN:AIP:COLLECTION:PROJECT:7a789a25-f99f-452e-8e6a-5f79f6a46684:LAST",
       "providerId" : "COL1",
       "entityType" : "COLLECTION",
       "label" : "Collection label",
       "model" : "MODEL",
       "files" : { },
       "tags" : [ ],
-      "id" : "URN:AIP:COLLECTION:PROJECT:9b6b6db5-8cb2-4c49-82ea-0f1fc8c7d4c3:V1",
+      "last" : true,
+      "version" : 1,
+      "id" : "URN:AIP:COLLECTION:PROJECT:7a789a25-f99f-452e-8e6a-5f79f6a46684:V1",
       "properties" : { },
       "type" : "Feature"
     }

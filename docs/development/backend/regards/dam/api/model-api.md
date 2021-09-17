@@ -350,8 +350,6 @@ slug: /development/backend/services/dam/api/model/
 
 {@import _generated-snippets/ModelControllerIT/createDocumentModelTest/http-request.md}
 
-{@import _generated-snippets/ModelControllerIT/createDocumentModelTest/request-body.md}
-
 {@import _generated-snippets/ModelControllerIT/createDocumentModelTest/request-fields.md}
 
 {@import _generated-snippets/ModelControllerIT/createDocumentModelTest/http-response.md}

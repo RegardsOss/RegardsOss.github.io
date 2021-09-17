@@ -1,22 +1,22 @@
-#### Request
+### Response
 
 * **Code:** 201 Created
 
-        **Headers:**
+**Headers:**
 
-        `Pragma:no-cache`
-        `X-XSS-Protection:1; mode=block`
-        `Expires:0`
-        `X-Frame-Options:DENY`
-        `X-Content-Type-Options:nosniff`
-        `Access-Control-Allow-Headers:authorization, content-type, scope`
-        `Access-Control-Max-Age:3600`
-        `Content-Type:application/json;charset=UTF-8`
-        `Access-Control-Allow-Origin:*`
-        `Cache-Control:no-cache, no-store, max-age=0, must-revalidate`
-        `Access-Control-Allow-Methods:POST, PUT, GET, OPTIONS, DELETE`
+`X-Content-Type-Options:nosniff`  
+`X-XSS-Protection:1; mode=block`  
+`Cache-Control:no-cache, no-store, max-age=0, must-revalidate`  
+`Pragma:no-cache`  
+`Expires:0`  
+`X-Frame-Options:DENY`  
+`Access-Control-Allow-Origin:*`  
+`Access-Control-Allow-Methods:POST, PUT, GET, OPTIONS, DELETE`  
+`Access-Control-Allow-Headers:authorization, content-type, scope`  
+`Access-Control-Max-Age:3600`  
+`Content-Type:application/json;charset=UTF-8`  
 
-        **Content:**
+**Content:**
 
 ```json
     
@@ -29,6 +29,7 @@
       "qualityLevel" : "ACCEPTED"
     },
     "accessLevel" : "FULL_ACCESS",
+    "dataAccessLevel" : "NO_ACCESS",
     "dataset" : {
       "type" : "DATASET",
       "subsettingClause" : {
@@ -38,9 +39,9 @@
         "dataObjectsGroups" : { }
       },
       "id" : 15,
-      "ipId" : "URN:AIP:DATASET:PROJECT:cdebd3ea-b456-4743-85ce-9b5f4e207388:V1",
-      "creationDate" : "2020-05-11T11:42:26.314Z",
-      "lastUpdate" : "2020-05-11T11:42:27.046Z",
+      "ipId" : "URN:AIP:DATASET:PROJECT:c597cd04-8535-42a6-9d14-d3eee6255356:V1",
+      "creationDate" : "2021-09-16T19:08:02.322Z",
+      "lastUpdate" : "2021-09-16T19:08:02.366Z",
       "model" : {
         "id" : 8,
         "name" : "model1",
@@ -57,13 +58,15 @@
         "model" : "model1",
         "files" : { },
         "tags" : [ ],
-        "id" : "URN:AIP:DATASET:PROJECT:cdebd3ea-b456-4743-85ce-9b5f4e207388:V1",
+        "last" : false,
+        "version" : 1,
+        "id" : "URN:AIP:DATASET:PROJECT:c597cd04-8535-42a6-9d14-d3eee6255356:V1",
         "properties" : { },
         "type" : "Feature"
       }
     },
     "accessGroup" : {
-      "id" : 17,
+      "id" : 68,
       "name" : "AG2",
       "users" : [ ],
       "isPublic" : false,
@@ -73,9 +76,6 @@
   "links" : [ {
     "rel" : "create",
     "href" : "http://localhost:8080/accessrights"
-  }, {
-    "rel" : "self",
-    "href" : "http://localhost:8080/accessrights/17"
   } ]
 }
 ```

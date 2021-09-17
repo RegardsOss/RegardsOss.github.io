@@ -1,19 +1,19 @@
-    #### Request
+### Request
 
-        ***URL***
+**URL**
 
-        `/aips/update`
+`/aips/update`
 
-        ***URL template***
+**URL template**
 
-        `/aips/update`
+`/aips/update`
 
-        ***Method***
+**Method**
 
-        `POST`
+`POST`
 
-        ***Headers***
+**Headers**
 
-        `Authorization:Bearer{token}`
-        `Accept:application/json`
-        `Content-Type:application/json;charset=UTF-8`
+`Authorization:Bearer{token}`  
+`Content-Type:application/json;charset=UTF-8`  
+`Accept:application/json`  

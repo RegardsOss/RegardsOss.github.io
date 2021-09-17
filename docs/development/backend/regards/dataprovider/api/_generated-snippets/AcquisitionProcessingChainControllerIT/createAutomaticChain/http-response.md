@@ -1,28 +1,28 @@
-#### Request
+### Response
 
 * **Code:** 201 Created
 
-        **Headers:**
+**Headers:**
 
-        `Pragma:no-cache`
-        `X-XSS-Protection:1; mode=block`
-        `Expires:0`
-        `X-Frame-Options:DENY`
-        `X-Content-Type-Options:nosniff`
-        `Access-Control-Allow-Headers:authorization, content-type, scope`
-        `Access-Control-Max-Age:3600`
-        `Content-Type:application/json;charset=UTF-8`
-        `Access-Control-Allow-Origin:*`
-        `Cache-Control:no-cache, no-store, max-age=0, must-revalidate`
-        `Access-Control-Allow-Methods:POST, PUT, GET, OPTIONS, DELETE`
+`X-Content-Type-Options:nosniff`  
+`X-XSS-Protection:1; mode=block`  
+`Cache-Control:no-cache, no-store, max-age=0, must-revalidate`  
+`Pragma:no-cache`  
+`Expires:0`  
+`X-Frame-Options:DENY`  
+`Access-Control-Allow-Origin:*`  
+`Access-Control-Allow-Methods:POST, PUT, GET, OPTIONS, DELETE`  
+`Access-Control-Allow-Headers:authorization, content-type, scope`  
+`Access-Control-Max-Age:3600`  
+`Content-Type:application/json;charset=UTF-8`  
 
-        **Content:**
+**Content:**
 
 ```json
     
 {
   "content" : {
-    "id" : 109,
+    "id" : 59,
     "label" : "Processing chain 1",
     "active" : true,
     "mode" : "AUTO",
@@ -39,71 +39,60 @@
       "targetTypes" : [ ]
     } ],
     "categories" : [ ],
+    "versioningMode" : "INC_VERSION",
     "fileInfos" : [ {
-      "id" : 109,
+      "id" : 59,
       "mandatory" : true,
       "scanPlugin" : {
-        "id" : 132,
+        "id" : 82,
         "pluginId" : "GlobDiskScanning",
         "label" : "Auto10s : Scan plugin",
-        "businessId" : "1ede8062-0e2a-44cd-a349-edf9d6942148",
+        "businessId" : "9d5a8867-961b-4f00-a1b6-25ade2c94673",
         "version" : "1.0.0-SNAPSHOT",
         "priorityOrder" : 0,
         "active" : true,
-        "parameters" : [ {
-          "name" : "directories",
-          "type" : "COLLECTION",
-          "value" : [ ],
-          "dynamic" : false
-        } ]
+        "parameters" : [ ]
       },
       "mimeType" : "application/octet-stream",
       "dataType" : "RAWDATA",
-      "comment" : "A comment"
+      "comment" : "A comment",
+      "scanDirInfo" : [ {
+        "id" : 60,
+        "scannedDirectory" : "src/resources/doesnotexist"
+      } ]
     } ],
     "validationPluginConf" : {
-      "id" : 133,
+      "id" : 83,
       "pluginId" : "DefaultFileValidation",
       "label" : "Auto10s : Validation plugin",
-      "businessId" : "6a3d8db5-8568-42ca-a741-163e99f0cf1a",
+      "businessId" : "555bf364-94bd-4947-9dfc-d00cec6cd88e",
       "version" : "1.0.0-SNAPSHOT",
       "priorityOrder" : 0,
       "active" : true,
       "parameters" : [ ]
     },
     "productPluginConf" : {
-      "id" : 134,
+      "id" : 84,
       "pluginId" : "DefaultProductPlugin",
       "label" : "Auto10s : Product plugin",
-      "businessId" : "5792220f-6ac9-41ce-b7e9-39e653456f07",
+      "businessId" : "368001e3-b37e-4aac-819b-dae4804755bc",
       "version" : "1.0.0-SNAPSHOT",
       "priorityOrder" : 0,
       "active" : true,
       "parameters" : [ ]
     },
     "generateSipPluginConf" : {
-      "id" : 135,
+      "id" : 85,
       "pluginId" : "DefaultSIPGeneration",
       "label" : "Auto10s : SIP generation plugin",
-      "businessId" : "2c025cf5-f497-4039-a570-2bdd06af9943",
+      "businessId" : "716b3451-39b1-4487-af9b-5b16b531ec7a",
       "version" : "1.0.0-SNAPSHOT",
       "priorityOrder" : 0,
       "active" : true,
       "parameters" : [ ]
-    }
+    },
+    "productsStored" : true
   },
-  "links" : [ {
-    "rel" : "list",
-    "href" : "http://localhost:8080/chains"
-  }, {
-    "rel" : "self",
-    "href" : "http://localhost:8080/chains/109"
-  }, {
-    "rel" : "update",
-    "href" : "http://localhost:8080/chains/109"
-  }, {
-    "rel" : "patch",
-    "href" : "http://localhost:8080/chains/109"
-  } ]
+  "links" : [ ]
 }
 ```

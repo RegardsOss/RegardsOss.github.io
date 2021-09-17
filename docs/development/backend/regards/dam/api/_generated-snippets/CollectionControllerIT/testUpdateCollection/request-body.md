@@ -1,18 +1,18 @@
-    ***Data params**
+**Data params**
 
 ```json
-    {
+{
   "type" : "COLLECTION",
   "id" : 10,
-  "ipId" : "URN:AIP:COLLECTION:PROJECT:3c114c21-149d-4f1e-96d2-0f1f939a2bdf:V1",
-  "creationDate" : "2020-05-11T11:36:31.844Z",
+  "ipId" : "URN:AIP:COLLECTION:PROJECT:a644b4f0-5d97-494f-a884-5dd7e72d2e35:V1",
+  "creationDate" : "2021-09-16T19:08:24.078Z",
   "model" : {
     "id" : 5,
     "name" : "modelName1",
     "description" : "model desc",
     "type" : "COLLECTION"
   },
-  "tags" : [ "URN:AIP:COLLECTION:PROJECT:5590d3a2-1251-46fa-ae19-daf31f45bb37:V1" ],
+  "tags" : [ "URN:AIP:COLLECTION:PROJECT:a4ff0d81-f763-48e4-8e93-e57356d741c2:V1" ],
   "groups" : [ ],
   "feature" : {
     "providerId" : "ProviderId1new",
@@ -20,8 +20,10 @@
     "label" : "collection1clone",
     "model" : "modelName1",
     "files" : { },
-    "tags" : [ "URN:AIP:COLLECTION:PROJECT:5590d3a2-1251-46fa-ae19-daf31f45bb37:V1" ],
-    "id" : "URN:AIP:COLLECTION:PROJECT:3c114c21-149d-4f1e-96d2-0f1f939a2bdf:V1",
+    "tags" : [ "URN:AIP:COLLECTION:PROJECT:a4ff0d81-f763-48e4-8e93-e57356d741c2:V1" ],
+    "last" : false,
+    "version" : 1,
+    "id" : "URN:AIP:COLLECTION:PROJECT:a644b4f0-5d97-494f-a884-5dd7e72d2e35:V1",
     "properties" : { },
     "type" : "Feature"
   }

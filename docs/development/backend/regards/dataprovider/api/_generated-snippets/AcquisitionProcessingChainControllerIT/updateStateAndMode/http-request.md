@@ -1,19 +1,19 @@
-    #### Request
+### Request
 
-        ***URL**
+**URL**
 
-        `/chains`
+`/chains`
 
-        ***URL template**
+**URL template**
 
-        `/chains`
+`/chains`
 
-        ***Method**
+**Method**
 
-        `PATCH`
+`PATCH`
 
-        ***Headers**
+**Headers**
 
-        `Authorization:Bearer{token}`
-        `Accept:application/json`
-        `Content-Type:application/json;charset=UTF-8`
+`Authorization:Bearer{token}`  
+`Content-Type:application/json;charset=UTF-8`  
+`Accept:application/json`  

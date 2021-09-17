@@ -1,22 +1,22 @@
-#### Request
+### Response
 
 * **Code:** 200 OK
 
-        **Headers:**
+**Headers:**
 
-        `Pragma:no-cache`
-        `X-XSS-Protection:1; mode=block`
-        `Expires:0`
-        `X-Frame-Options:DENY`
-        `X-Content-Type-Options:nosniff`
-        `Access-Control-Allow-Headers:authorization, content-type, scope`
-        `Access-Control-Max-Age:3600`
-        `Content-Type:application/json;charset=UTF-8`
-        `Access-Control-Allow-Origin:*`
-        `Cache-Control:no-cache, no-store, max-age=0, must-revalidate`
-        `Access-Control-Allow-Methods:POST, PUT, GET, OPTIONS, DELETE`
+`X-Content-Type-Options:nosniff`  
+`X-XSS-Protection:1; mode=block`  
+`Cache-Control:no-cache, no-store, max-age=0, must-revalidate`  
+`Pragma:no-cache`  
+`Expires:0`  
+`X-Frame-Options:DENY`  
+`Access-Control-Allow-Origin:*`  
+`Access-Control-Allow-Methods:POST, PUT, GET, OPTIONS, DELETE`  
+`Access-Control-Allow-Headers:authorization, content-type, scope`  
+`Access-Control-Max-Age:3600`  
+`Content-Type:application/json;charset=UTF-8`  
 
-        **Content:**
+**Content:**
 
 ```json
     
@@ -44,7 +44,7 @@
           "contentInformations" : [ {
             "representationInformation" : {
               "syntax" : {
-                "mimeType" : "application/json;charset=UTF-8"
+                "mimeType" : "application/json"
               }
             },
             "dataObject" : {
@@ -67,15 +67,15 @@
             "provenanceInformation" : {
               "history" : [ {
                 "comment" : "SIP my object #1 generated",
-                "date" : "2020-05-13T12:29:17.473Z"
+                "date" : "2021-09-16T19:31:05.648Z"
               }, {
                 "type" : "SUBMISSION",
-                "comment" : "AIP created for SIP my object #1.",
-                "date" : "2020-05-13T12:29:20.254Z"
+                "comment" : "AIP created from SIP my object #1(version 1).",
+                "date" : "2021-09-16T19:31:06.79Z"
               }, {
                 "type" : "STORAGE",
                 "comment" : "Data file cdpp_collection.json stored on NAS #1 at http://somedomain.com/api/v1/storage/file/2.",
-                "date" : "2020-05-13T12:29:20.256Z"
+                "date" : "2021-09-16T19:31:06.8Z"
               } ]
             },
             "fixityInformation" : { },
@@ -84,16 +84,16 @@
         },
         "type" : "Feature"
       },
-      "checksum" : "a503bb9d6c7841b8aaeeecaac6137464",
       "storages" : [ "NAS #1" ],
+      "last" : true,
       "sessionOwner" : "ESA",
-      "session" : "2020-05-13T14:29:17.472+02:00",
+      "session" : "2021-09-16T19:31:05.648Z",
       "categories" : [ "CAT 2", "CAT 1" ],
       "providerId" : "my object #1",
       "version" : 1,
       "tags" : [ ],
-      "creationDate" : "2020-05-13T12:29:20.256Z",
-      "lastUpdate" : "2020-05-13T12:29:25.713Z",
+      "creationDate" : "2021-09-16T19:31:06.799Z",
+      "lastUpdate" : "2021-09-16T19:31:07.84Z",
       "ipType" : "DATA"
     },
     "links" : [ ]

@@ -1,32 +1,32 @@
-#### Request
+### Response
 
 * **Code:** 200 OK
 
-        **Headers:**
+**Headers:**
 
-        `Pragma:no-cache`
-        `X-XSS-Protection:1; mode=block`
-        `Expires:0`
-        `X-Frame-Options:DENY`
-        `X-Content-Type-Options:nosniff`
-        `Access-Control-Allow-Headers:authorization, content-type, scope`
-        `Content-Type:application/hal+json;charset=UTF-8`
-        `Access-Control-Max-Age:3600`
-        `Access-Control-Allow-Origin:*`
-        `Cache-Control:no-cache, no-store, max-age=0, must-revalidate`
-        `Access-Control-Allow-Methods:POST, PUT, GET, OPTIONS, DELETE`
+`X-Content-Type-Options:nosniff`  
+`X-XSS-Protection:1; mode=block`  
+`Cache-Control:no-cache, no-store, max-age=0, must-revalidate`  
+`Pragma:no-cache`  
+`Expires:0`  
+`X-Frame-Options:DENY`  
+`Access-Control-Allow-Origin:*`  
+`Access-Control-Allow-Methods:POST, PUT, GET, OPTIONS, DELETE`  
+`Access-Control-Allow-Headers:authorization, content-type, scope`  
+`Access-Control-Max-Age:3600`  
+`Content-Type:application/hal+json`  
 
-        **Content:**
+**Content:**
 
 ```json
     
 {
-  "id" : 53,
+  "id" : 3,
   "name" : "ingestProcessingChain_test",
   "description" : "the updated description",
   "preProcessingPlugin" : null,
   "validationPlugin" : {
-    "id" : 52,
+    "id" : 3,
     "metaData" : {
       "pluginClassName" : "fr.cnes.regards.modules.ingest.service.plugin.FakeValidationTestPlugin",
       "interfaceNames" : [ "fr.cnes.regards.modules.ingest.domain.plugin.ISipValidation" ],
@@ -43,18 +43,18 @@
     },
     "pluginId" : "FakeValidationTestPlugin",
     "label" : "FakeValidationTestPlugin",
-    "businessId" : "fdcdea4a-6291-48e9-a482-162fa0a65311",
+    "businessId" : "c0ed1c04-2dec-480d-a5c2-eb061931273c",
     "version" : "1.0.0",
     "priorityOrder" : 0,
     "active" : true,
     "parameters" : [ ],
     "iconUrl" : null,
-    "pluginClassName" : "fr.cnes.regards.modules.ingest.service.plugin.FakeValidationTestPlugin",
     "interfaceNames" : [ "fr.cnes.regards.modules.ingest.domain.plugin.ISipValidation" ],
+    "pluginClassName" : "fr.cnes.regards.modules.ingest.service.plugin.FakeValidationTestPlugin",
     "identifiable" : true
   },
   "generationPlugin" : {
-    "id" : 53,
+    "id" : 4,
     "metaData" : {
       "pluginClassName" : "fr.cnes.regards.modules.ingest.service.plugin.FakeAIPGenerationTestPlugin",
       "interfaceNames" : [ "fr.cnes.regards.modules.ingest.domain.plugin.IAipGeneration" ],
@@ -71,20 +71,20 @@
     },
     "pluginId" : "FakeAIPGenerationTestPlugin",
     "label" : "FakeAIPGenerationTestPlugin",
-    "businessId" : "94a12f2b-fa02-46c1-8b64-f82f6a78bc29",
+    "businessId" : "d3b82b6a-58d5-424d-b750-5d3763cd23ca",
     "version" : "1.0.0",
     "priorityOrder" : 0,
     "active" : true,
     "parameters" : [ ],
     "iconUrl" : null,
-    "pluginClassName" : "fr.cnes.regards.modules.ingest.service.plugin.FakeAIPGenerationTestPlugin",
     "interfaceNames" : [ "fr.cnes.regards.modules.ingest.domain.plugin.IAipGeneration" ],
+    "pluginClassName" : "fr.cnes.regards.modules.ingest.service.plugin.FakeAIPGenerationTestPlugin",
     "identifiable" : true
   },
   "tagPlugin" : null,
   "postProcessingPlugin" : null,
   "chainPlugins" : [ {
-    "id" : 52,
+    "id" : 3,
     "metaData" : {
       "pluginClassName" : "fr.cnes.regards.modules.ingest.service.plugin.FakeValidationTestPlugin",
       "interfaceNames" : [ "fr.cnes.regards.modules.ingest.domain.plugin.ISipValidation" ],
@@ -101,17 +101,17 @@
     },
     "pluginId" : "FakeValidationTestPlugin",
     "label" : "FakeValidationTestPlugin",
-    "businessId" : "fdcdea4a-6291-48e9-a482-162fa0a65311",
+    "businessId" : "c0ed1c04-2dec-480d-a5c2-eb061931273c",
     "version" : "1.0.0",
     "priorityOrder" : 0,
     "active" : true,
     "parameters" : [ ],
     "iconUrl" : null,
-    "pluginClassName" : "fr.cnes.regards.modules.ingest.service.plugin.FakeValidationTestPlugin",
     "interfaceNames" : [ "fr.cnes.regards.modules.ingest.domain.plugin.ISipValidation" ],
+    "pluginClassName" : "fr.cnes.regards.modules.ingest.service.plugin.FakeValidationTestPlugin",
     "identifiable" : true
   }, {
-    "id" : 53,
+    "id" : 4,
     "metaData" : {
       "pluginClassName" : "fr.cnes.regards.modules.ingest.service.plugin.FakeAIPGenerationTestPlugin",
       "interfaceNames" : [ "fr.cnes.regards.modules.ingest.domain.plugin.IAipGeneration" ],
@@ -128,14 +128,14 @@
     },
     "pluginId" : "FakeAIPGenerationTestPlugin",
     "label" : "FakeAIPGenerationTestPlugin",
-    "businessId" : "94a12f2b-fa02-46c1-8b64-f82f6a78bc29",
+    "businessId" : "d3b82b6a-58d5-424d-b750-5d3763cd23ca",
     "version" : "1.0.0",
     "priorityOrder" : 0,
     "active" : true,
     "parameters" : [ ],
     "iconUrl" : null,
-    "pluginClassName" : "fr.cnes.regards.modules.ingest.service.plugin.FakeAIPGenerationTestPlugin",
     "interfaceNames" : [ "fr.cnes.regards.modules.ingest.domain.plugin.IAipGeneration" ],
+    "pluginClassName" : "fr.cnes.regards.modules.ingest.service.plugin.FakeAIPGenerationTestPlugin",
     "identifiable" : true
   } ],
   "_links" : {

@@ -1,22 +1,22 @@
-#### Request
+### Response
 
 * **Code:** 200 OK
 
-        **Headers:**
+**Headers:**
 
-        `Pragma:no-cache`
-        `X-XSS-Protection:1; mode=block`
-        `Expires:0`
-        `X-Frame-Options:DENY`
-        `X-Content-Type-Options:nosniff`
-        `Access-Control-Allow-Headers:authorization, content-type, scope`
-        `Access-Control-Max-Age:3600`
-        `Content-Type:application/json;charset=UTF-8`
-        `Access-Control-Allow-Origin:*`
-        `Cache-Control:no-cache, no-store, max-age=0, must-revalidate`
-        `Access-Control-Allow-Methods:POST, PUT, GET, OPTIONS, DELETE`
+`X-Content-Type-Options:nosniff`  
+`X-XSS-Protection:1; mode=block`  
+`Cache-Control:no-cache, no-store, max-age=0, must-revalidate`  
+`Pragma:no-cache`  
+`Expires:0`  
+`X-Frame-Options:DENY`  
+`Access-Control-Allow-Origin:*`  
+`Access-Control-Allow-Methods:POST, PUT, GET, OPTIONS, DELETE`  
+`Access-Control-Allow-Headers:authorization, content-type, scope`  
+`Access-Control-Max-Age:3600`  
+`Content-Type:application/json;charset=UTF-8`  
 
-        **Content:**
+**Content:**
 
 ```json
     
@@ -24,23 +24,14 @@
   "content" : {
     "attrType" : "STRING",
     "pluginConfigurations" : [ ],
-    "pluginMetaDatas" : [ {
-      "content" : {
-        "pluginClassName" : "fr.cnes.regards.modules.dam.rest.models.TestComputedAttribute",
-        "interfaceNames" : [ "fr.cnes.regards.modules.dam.domain.models.IComputedAttribute" ],
-        "author" : "REGARDS Team",
-        "pluginId" : "TestComputedAttribute",
-        "version" : "1.0.0",
-        "description" : "plugin there just for tests in model-rest",
-        "markdown" : "",
-        "url" : "https://github.com/RegardsOss",
-        "contact" : "regards@c-s.fr",
-        "owner" : "CSSI",
-        "license" : "GPLv3",
-        "parameters" : [ ]
-      },
-      "links" : [ ]
-    } ]
+    "pluginMetaDatas" : [ ]
+  },
+  "links" : [ ]
+}, {
+  "content" : {
+    "attrType" : "JSON",
+    "pluginConfigurations" : [ ],
+    "pluginMetaDatas" : [ ]
   },
   "links" : [ ]
 }, {
@@ -50,8 +41,8 @@
       "content" : {
         "id" : 1,
         "pluginId" : "IntSumComputePlugin",
-        "label" : "f097a0ea-43db-4dce-97a4-abd137a55f89",
-        "businessId" : "26d193c3-c6a7-4270-9854-3d6c6423b2e2",
+        "label" : "intcount",
+        "businessId" : "6b43a59e-38d0-4dd1-8b58-db4b25742b6a",
         "version" : "1.0.0",
         "priorityOrder" : 0,
         "active" : true,
@@ -72,7 +63,7 @@
     "pluginMetaDatas" : [ {
       "content" : {
         "pluginClassName" : "fr.cnes.regards.modules.dam.plugin.entities.IntSumComputePlugin",
-        "interfaceNames" : [ "fr.cnes.regards.modules.dam.domain.models.IComputedAttribute" ],
+        "interfaceNames" : [ "fr.cnes.regards.modules.model.domain.IComputedAttribute" ],
         "author" : "REGARDS Team",
         "pluginId" : "IntSumComputePlugin",
         "version" : "1.0.0",
@@ -133,12 +124,12 @@
     "pluginConfigurations" : [ ],
     "pluginMetaDatas" : [ {
       "content" : {
-        "pluginClassName" : "fr.cnes.regards.modules.dam.plugin.entities.MaxDateComputePlugin",
-        "interfaceNames" : [ "fr.cnes.regards.modules.dam.domain.models.IComputedAttribute" ],
+        "pluginClassName" : "fr.cnes.regards.modules.dam.plugin.entities.MinDateComputePlugin",
+        "interfaceNames" : [ "fr.cnes.regards.modules.model.domain.IComputedAttribute" ],
         "author" : "REGARDS Team",
-        "pluginId" : "MaxDateComputePlugin",
+        "pluginId" : "MinDateComputePlugin",
         "version" : "1.0.0",
-        "description" : "allows to compute the maximum of a DateAttribute according to a collection of data",
+        "description" : "allows to compute the minimum of a DateAttribute according to a collection of data",
         "markdown" : "",
         "url" : "https://github.com/RegardsOss",
         "contact" : "regards@c-s.fr",
@@ -155,7 +146,7 @@
         }, {
           "name" : "parameterAttributeFragmentName",
           "label" : "Parameter fragment name",
-          "description" : "Name of parameter attribute fragment. If parameter attribute belongs to default fragment, leave this field empty.",
+          "description" : "Name of the parameter attribute fragment. If the parameter attribute belongs to the default fragment, leave this field empty.",
           "type" : "STRING",
           "optional" : true,
           "sensitive" : false,
@@ -181,12 +172,12 @@
       "links" : [ ]
     }, {
       "content" : {
-        "pluginClassName" : "fr.cnes.regards.modules.dam.plugin.entities.MinDateComputePlugin",
-        "interfaceNames" : [ "fr.cnes.regards.modules.dam.domain.models.IComputedAttribute" ],
+        "pluginClassName" : "fr.cnes.regards.modules.dam.plugin.entities.MaxDateComputePlugin",
+        "interfaceNames" : [ "fr.cnes.regards.modules.model.domain.IComputedAttribute" ],
         "author" : "REGARDS Team",
-        "pluginId" : "MinDateComputePlugin",
+        "pluginId" : "MaxDateComputePlugin",
         "version" : "1.0.0",
-        "description" : "allows to compute the minimum of a DateAttribute according to a collection of data",
+        "description" : "allows to compute the maximum of a DateAttribute according to a collection of data",
         "markdown" : "",
         "url" : "https://github.com/RegardsOss",
         "contact" : "regards@c-s.fr",
@@ -203,7 +194,7 @@
         }, {
           "name" : "parameterAttributeFragmentName",
           "label" : "Parameter fragment name",
-          "description" : "Name of the parameter attribute fragment. If the parameter attribute belongs to the default fragment, leave this field empty.",
+          "description" : "Name of parameter attribute fragment. If parameter attribute belongs to default fragment, leave this field empty.",
           "type" : "STRING",
           "optional" : true,
           "sensitive" : false,
@@ -300,7 +291,7 @@
     "pluginMetaDatas" : [ {
       "content" : {
         "pluginClassName" : "fr.cnes.regards.modules.dam.plugin.entities.LongSumComputePlugin",
-        "interfaceNames" : [ "fr.cnes.regards.modules.dam.domain.models.IComputedAttribute" ],
+        "interfaceNames" : [ "fr.cnes.regards.modules.model.domain.IComputedAttribute" ],
         "author" : "REGARDS Team",
         "pluginId" : "LongSumComputePlugin",
         "version" : "1.0.0",
@@ -348,7 +339,7 @@
     }, {
       "content" : {
         "pluginClassName" : "fr.cnes.regards.modules.dam.plugin.entities.CountPlugin",
-        "interfaceNames" : [ "fr.cnes.regards.modules.dam.domain.models.IComputedAttribute" ],
+        "interfaceNames" : [ "fr.cnes.regards.modules.model.domain.IComputedAttribute" ],
         "author" : "REGARDS Team",
         "pluginId" : "CountPlugin",
         "version" : "1.0.0",
@@ -390,6 +381,13 @@
 }, {
   "content" : {
     "attrType" : "LONG_ARRAY",
+    "pluginConfigurations" : [ ],
+    "pluginMetaDatas" : [ ]
+  },
+  "links" : [ ]
+}, {
+  "content" : {
+    "attrType" : "OBJECT",
     "pluginConfigurations" : [ ],
     "pluginMetaDatas" : [ ]
   },

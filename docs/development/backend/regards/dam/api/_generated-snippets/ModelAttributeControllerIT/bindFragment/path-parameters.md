@@ -1,9 +1,9 @@
-    ***URL params**
+* **URL params**
 
-        `/models/{modelName}/attributes/fragments`
+    `/models/{modelName}/attributes/fragments`
 
-        Parameter|Type|Description|Constraints
-        :-------:|:--:|:---------:|:---------:
-        `modelName` |String|Model name|
-    
+    Parameter|Type|Description|Constraints
+    :-------:|:--:|:---------:|:---------:
+    `modelName` |String|Model name|
+{:.table.table-striped}
 

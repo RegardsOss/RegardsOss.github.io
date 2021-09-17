@@ -1,7 +1,7 @@
-    ***Data params**
+**Data params**
 
 ```json
-    {
+{
   "name" : "URL_ATT",
   "description" : "url description",
   "type" : "URL",
@@ -10,6 +10,7 @@
   "label" : "ForTests",
   "dynamic" : true,
   "internal" : false,
-  "jsonPath" : "properties.URL_ATT"
+  "jsonPath" : "properties.URL_ATT",
+  "virtual" : false
 }
 ```

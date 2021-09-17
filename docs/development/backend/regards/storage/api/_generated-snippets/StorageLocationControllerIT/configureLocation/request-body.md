@@ -1,17 +1,18 @@
-    ***Data params**
+**Data params**
 
 ```json
-    {
+{
   "name" : "plop2",
   "storageRunning" : false,
   "deletionRunning" : false,
   "copyRunning" : false,
+  "allowsPhysicalDeletion" : false,
   "configuration" : {
     "name" : "plop2",
     "pluginConfiguration" : {
       "pluginId" : "SimpleOnlineTest",
       "label" : "plop2",
-      "businessId" : "1e6de4d4-c74c-4f6c-b62b-8f8b7adb500e",
+      "businessId" : "7ce089c8-3268-4496-ab7c-8390e3d3ef26",
       "priorityOrder" : 0,
       "active" : true,
       "parameters" : [ {

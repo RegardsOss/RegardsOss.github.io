@@ -1,19 +1,19 @@
-    #### Request
+### Request
 
-        ***URL**
+**URL**
 
-        `/users/email@test.com/resources?borrowedRoleName=REGISTERED_USER`
+`/users/email@test.com/resources?borrowedRoleName=REGISTERED_USER`
 
-        ***URL template**
+**URL template**
 
-        `/users/{user_email}/resources?borrowedRoleName=REGISTERED_USER`
+`/users/{user_email}/resources?borrowedRoleName=REGISTERED_USER`
 
-        ***Method**
+**Method**
 
-        `GET`
+`GET`
 
-        ***Headers**
+**Headers**
 
-        `Authorization:Bearer{token}`
-        `Accept:application/json`
-        `Content-Type:application/json;charset=UTF-8`
+`Authorization:Bearer{token}`  
+`Content-Type:application/json;charset=UTF-8`  
+`Accept:application/json`  

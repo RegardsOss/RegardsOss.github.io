@@ -1,19 +1,19 @@
-    #### Request
+### Request
 
-        ***URL**
+**URL**
 
-        `/storages/files/copy`
+`/storages/files/copy`
 
-        ***URL template**
+**URL template**
 
-        `/storages/files/copy`
+`/storages/files/copy`
 
-        ***Method**
+**Method**
 
-        `POST`
+`POST`
 
-        ***Headers**
+**Headers**
 
-        `Authorization:Bearer{token}`
-        `Accept:application/json`
-        `Content-Type:application/json;charset=UTF-8`
+`Authorization:Bearer{token}`  
+`Content-Type:application/json;charset=UTF-8`  
+`Accept:application/json`  

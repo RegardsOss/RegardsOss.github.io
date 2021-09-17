@@ -1,19 +1,19 @@
-    #### Request
+### Request
 
-        ***URL***
+**URL**
 
-        `/aips?page=0&size=20&sort=version,ASC`
+`/aips?page=0&size=20&sort=version,ASC`
 
-        ***URL template***
+**URL template**
 
-        `/aips?page=0&size=20&sort=version,ASC`
+`/aips?page=0&size=20&sort=version,ASC`
 
-        ***Method***
+**Method**
 
-        `POST`
+`POST`
 
-        ***Headers***
+**Headers**
 
-        `Authorization:Bearer{token}`
-        `Accept:application/json`
-        `Content-Type:application/json;charset=UTF-8`
+`Authorization:Bearer{token}`  
+`Content-Type:application/json;charset=UTF-8`  
+`Accept:application/json`  

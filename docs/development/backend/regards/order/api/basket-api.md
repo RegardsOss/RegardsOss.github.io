@@ -15,14 +15,6 @@ URL specified here must be prefixed with this base URL.
 
 Allows to create a basket or adding a data selection to existing one.
 
-## API endpoint description
-
-{@import _generated-snippets/BasketControllerIT/testAddBadSelection/http-request.md}
-
-{@import _generated-snippets/BasketControllerIT/testAddBadSelection/request-fields.md}
-
-{@import _generated-snippets/BasketControllerIT/testAddBadSelection/request-body.md}
-
 {@import _generated-snippets/BasketControllerIT/testAddEmptyOpensearchSelection/request-body.md}
 
 {@import _generated-snippets/BasketControllerIT/testAddFullOpensearchSelection/request-body.md}
@@ -30,8 +22,6 @@ Allows to create a basket or adding a data selection to existing one.
 ### Response
 
 {@import _generated-snippets/BasketControllerIT/testAddFullOpensearchSelection/response-fields.md}
-
-{@import _generated-snippets/BasketControllerIT/testAddBadSelection/http-response.md}
 
 {@import _generated-snippets/BasketControllerIT/testAddEmptyOpensearchSelection/http-response.md}
 
@@ -82,5 +72,7 @@ Allows to empty current basket.
 ## API endpoint description
 
 {@import _generated-snippets/BasketControllerIT/testEmptyBasket/http-request.md}
+
+{@import _generated-snippets/BasketControllerIT/testEmptyBasket/request-body.md}
 
 {@import _generated-snippets/BasketControllerIT/testEmptyBasket/http-response.md}

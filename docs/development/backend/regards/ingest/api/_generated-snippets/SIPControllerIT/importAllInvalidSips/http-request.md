@@ -1,19 +1,19 @@
-    #### Request
+### Request
 
-        ***URL***
+**URL**
 
-        `/sips/import`
+`/sips/import`
 
-        ***URL template***
+**URL template**
 
-        `/sips/import`
+`/sips/import`
 
-        ***Method***
+**Method**
 
-        `POST`
+`POST`
 
-        ***Headers***
+**Headers**
 
-        `Authorization:Bearer{token}`
-        `Accept:application/json`
-        `Content-Type:multipart/form-data;charset=UTF-8; boundary=6o2knFse3p53ty9dmcQvWAIx1zInP11uCfbm`
+`Authorization:Bearer{token}`  
+`Content-Type:multipart/form-data;charset=UTF-8; boundary=6o2knFse3p53ty9dmcQvWAIx1zInP11uCfbm`  
+`Accept:application/json`  

@@ -1,19 +1,19 @@
-    #### Request
+### Request
 
-        ***URL**
+**URL**
 
-        `/datasources/9eb08cb2-d88c-4a25-9cf5-0c41fdb82b81`
+`/datasources/218eb16c-50da-41c6-afb7-f809b1f931a5`
 
-        ***URL template**
+**URL template**
 
-        `/datasources/{businessId}`
+`/datasources/{businessId}`
 
-        ***Method**
+**Method**
 
-        `GET`
+`GET`
 
-        ***Headers**
+**Headers**
 
-        `Authorization:Bearer{token}`
-        `Accept:application/json`
-        `Content-Type:application/json;charset=UTF-8`
+`Authorization:Bearer{token}`  
+`Content-Type:application/json;charset=UTF-8`  
+`Accept:application/json`  

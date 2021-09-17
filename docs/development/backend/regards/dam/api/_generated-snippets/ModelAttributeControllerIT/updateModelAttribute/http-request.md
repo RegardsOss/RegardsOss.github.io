@@ -1,19 +1,19 @@
-    #### Request
+### Request
 
-        ***URL**
+**URL**
 
-        `/models/modelUpMA/attributes/30`
+`/models/modelUpMA/attributes/30`
 
-        ***URL template**
+**URL template**
 
-        `/models/{modelName}/attributes/{attributeId}`
+`/models/{modelName}/attributes/{attributeId}`
 
-        ***Method**
+**Method**
 
-        `PUT`
+`PUT`
 
-        ***Headers**
+**Headers**
 
-        `Authorization:Bearer{token}`
-        `Accept:application/json`
-        `Content-Type:application/json;charset=UTF-8`
+`Authorization:Bearer{token}`  
+`Content-Type:application/json;charset=UTF-8`  
+`Accept:application/json`  

@@ -1,11 +1,15 @@
-    ***Data params**
+**Data params**
 
 ```json
-    {
+{
   "email" : "RegistrationControllerIT@test.com",
   "firstName" : "Firstname",
   "lastName" : "Lastname",
-  "metadata" : [ ],
+  "metadata" : [ {
+    "key" : "plop",
+    "value" : "test",
+    "visibility" : "READABLE"
+  } ],
   "password" : "password",
   "originUrl" : "originUrl",
   "requestLink" : "requestLink"
