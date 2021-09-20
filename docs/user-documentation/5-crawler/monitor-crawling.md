@@ -1,6 +1,6 @@
 ---
 id: crawler-monitor-crawling
-title: Monitor datasource crawling
+title: Monitor crawling
 slug: /user-guide/crawler/monitor-crawling/
 ---
 

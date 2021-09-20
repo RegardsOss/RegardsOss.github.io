@@ -35,6 +35,30 @@ Rules are used to define if a notification should be sent to associated Recipien
 }      
 ```
 
+`LuceneRuleMatcher :`  
+This rule matcher allows to check the given lucene expression match the notification json object content. If so, the notification is sent to associated senders.
+Configuration parameters are :
+ - luceneRule : Lucene expression to seek [example](../../../../appendices/lucene-query)
+
+ To configure this plugin use the here  under configuration block in import module [configuration](../api/configuration/)
+
+```json
+ {
+  "key": "fr.cnes.regards.framework.modules.plugins.domain.PluginConfiguration",
+  "value": {
+    "pluginId":"LuceneRuleMatcher",
+    "label":"{label}",
+    "businessId":"{uniqueIdentifier}",
+    "version":"1.0.0",
+    "priorityOrder":0,
+    "active":true,
+    "parameters":[
+      {"name":"luceneRule", "type":"STRING", "value":"{lucene rule}"},
+    ]
+  }
+}      
+```
+
 
 ## Recipient sender plugins
 

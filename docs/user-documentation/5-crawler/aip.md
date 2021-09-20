@@ -1,10 +1,10 @@
 ---
 id: crawler-aips
-title: Crawl data from AIPs
+title: Crawl data from OAIS internal datasource
 slug: /user-guide/crawler/configure-datasources/aips/
 ---
 
-*Référencez des aips dans le catalogue de données.*
+*Peupler le catalogue avec des données interne à REGARDS depuis le référentiel de produits OAIS.*
 
 :::caution
 Vous devez déjà avoir :

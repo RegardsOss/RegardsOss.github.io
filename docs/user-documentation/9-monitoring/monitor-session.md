@@ -1,7 +1,7 @@
 ---
-id: dashboard-monitor-sessions
-title: Monitor sessions
-slug: /user-guide/import-data/dashboard/monitor-sessions/
+id: dashboard
+title: Product monitoring dashboard
+slug: /user-guide/monitoring/dashboard
 ---
 
 _Le tableau de bord est commun au suivi de l'exécution des chaînes d'acquisition, d'ingestion et d'aspiration de données. Il vous permet d'obtenir de précieuses informations quant à l'archivage de vos produits._
@@ -17,7 +17,7 @@ Depuis **Add data** et la carte **Dashboard**, cliquez le bouton <img src="/imag
 
 
 <img src="/images/user-documentation/regards-icons/admin/menu-add-data.png" alt="menu" height="200"/>
-<img src="/images/user-documentation/v1.6/4_4-dashboard/dashboard-card.png" alt="dashboard card" height="200"/>
+<img src="/images/user-documentation/v1.6/9-monitoring/dashboard-card.png" alt="dashboard card" height="200"/>
 
 ---
 
@@ -25,7 +25,7 @@ Depuis **Add data** et la carte **Dashboard**, cliquez le bouton <img src="/imag
 Le tableau de bord est composé de deux parties :
 
 <div align="center">
-    <img src="/images/user-documentation/v1.6/4_4-dashboard/dashboard-sessions.png" alt="sessions" width="800"/> 
+    <img src="/images/user-documentation/v1.6/9-monitoring/dashboard-sessions.png" alt="sessions" width="800"/> 
 </div>
 
 - **à gauche**, la liste des **sources**, précisant les fournisseurs de données. Dans le cas d'ajout de données par scan de fichiers, il s'agira du nom de la chaîne d'acquisition. Pour les dépôts directs de fichiers (au format OAIS ou GeoJson), le champ _sessionOwner_ sera utilisé.
@@ -42,9 +42,9 @@ Il est nécessaire d'appuyer sur le bouton de rafraîchissement pour obtenir des
 Que ce soit pour les sources et les sessions, vous avez la possibilité de les **filtrer par nom ou par état parmi** :
 - **ALL**, tous les états
 - **Ok**, les traitements terminés sans erreur
-- **Error**, les traitements en erreur. Dans ce cas, vous verrez une icône <img src="/images/user-documentation/v1.6/4_4-dashboard/dashboard-error-icon.png" alt="error icon" width="25"/> indiquant le nombre d'erreurs associées
-- **Running**, si au moins une demande est en cours de traitement <img src="/images/user-documentation/v1.6/4_4-dashboard/dashboard-running-icon.png" alt="running icon" width="25"/>
-- **Waiting** le nombre de traitements en attente d'une action administrateur <img src="/images/user-documentation/v1.6/4_4-dashboard/dashboard-waiting-icon.png" alt="running icon" width="25"/>
+- **Error**, les traitements en erreur. Dans ce cas, vous verrez une icône <img src="/images/user-documentation/v1.6/9-monitoring/dashboard-error-icon.png" alt="error icon" width="25"/> indiquant le nombre d'erreurs associées
+- **Running**, si au moins une demande est en cours de traitement <img src="/images/user-documentation/v1.6/9-monitoring/dashboard-running-icon.png" alt="running icon" width="25"/>
+- **Waiting** le nombre de traitements en attente d'une action administrateur <img src="/images/user-documentation/v1.6/9-monitoring/dashboard-waiting-icon.png" alt="running icon" width="25"/>
 
 
 Vous pouvez également cliquer sur une source pour **filtrer les sessions liées à cette source**.
@@ -56,7 +56,7 @@ Toutes les étapes ne s'afficheront pas nécessairement, cela dépendra des donn
 :::
 
  <div align="center">
-    <img src="/images/user-documentation/v1.6/4_4-dashboard/dashboard-sessions-details.png" alt="sessions" width="800"/> 
+    <img src="/images/user-documentation/v1.6/9-monitoring/dashboard-sessions-details.png" alt="sessions" width="800"/> 
  </div>
 
 Chaque étape contient une liste de propriétées découpées en plusieurs catégories :
