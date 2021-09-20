@@ -89,3 +89,17 @@ Configuration parameters are :
    }
 },
 ```
+## Recipients / Rules association
+
+In order to have a functional notification system, the last configuration to make is to associate your recipients to your rules. You can associate one rule too many recipients.
+To do so, please use the here under configuration block in import module [configuration]()
+
+```json
+{
+  "key": "fr.cnes.regards.modules.notifier.dto.conf.RuleRecipientsAssociation",
+  "value": {
+     "ruleId": "{businessId of rule configuration}",
+     "recipientIds" : ["{businessId of recipient configuration}"]
+  }
+}
+```
