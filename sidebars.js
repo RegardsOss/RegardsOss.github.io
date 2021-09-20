@@ -124,7 +124,15 @@ module.exports = {
         "user-documentation/catalog-consultation/catalog-configuration",
         "user-documentation/catalog-consultation/catalog-use",
         "user-documentation/catalog-consultation/catalog-toponyms",
-        "user-documentation/catalog-consultation/catalog-protocols",
+        {
+          type: "category",
+          label: "Interoperability protocols",
+          items: [
+            "user-documentation/catalog-consultation/catalog-protocols-intro",
+            "user-documentation/catalog-consultation/catalog-protocols-opensearch",
+            "user-documentation/catalog-consultation/catalog-protocols-stac",
+          ],
+        },
       ],
     },
     {
