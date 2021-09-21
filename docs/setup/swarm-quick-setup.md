@@ -231,7 +231,7 @@ To sum up the [official guide](https://docs.github.com/en/packages/working-with-
 ```
 # Connect threw SSH to your master node and use the token to login in to Github 
 export CR_PAT=<your token access>
-echo $CR_PAT | docker login ghcr.io -u <your username> --password-stdin
+echo $CR_PAT | docker login ghcr.io --password-stdin -u <your username>
 ```
 
 :::info
