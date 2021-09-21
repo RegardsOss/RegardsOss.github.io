@@ -37,7 +37,7 @@ To configure this plugin, use the here-under configuration block in [import serv
 ```
 
 ### LuceneRuleMatcher :
-This rule matcher allows to check the given lucene expression match the notification json object content. If so, the notification is sent to associated senders.
+This rule matcher allows to check if the given lucene expression match the notification json object content. If so, the notification is sent to associated senders.
 Configuration parameters are :
  - luceneRule : Lucene expression to seek [example](../../../../appendices/lucene-query)
 
