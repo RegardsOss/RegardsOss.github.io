@@ -1,6 +1,6 @@
 ---
 id: crawler-fem
-title: Craw data from GeoJson Feature internal datasource
+title: Crawl data from GeoJson Feature internal datasource
 slug: /user-guide/crawler/configure-datasources/fem/
 ---
 
