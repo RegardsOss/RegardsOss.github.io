@@ -163,22 +163,17 @@ REGARDS (**_RE_**nouvellement des outils **_G_**énériques d'**_A_**ccès et d'
   </li>
   <li>
     <a href="import-data/introduction/">
-      Importer les données
+      Construire son archive scientifique
     </a>
     <ul>
       <li>
         <a href="import-data/oais-files/introduction/">
-          Depuis des fichiers au format OAIS
-        </a>
-      </li>
-      <li>
-        <a href="import-data/scanned-files/introduction/">
-          Depuis des fichiers scannés
+          Archivage OAIS 
         </a>
       </li>
       <li>
         <a href="import-data/fem/introduction/">
-          Depuis le feature manager (FEM)
+          Archivage de produits GeoJSON
         </a>
       </li>
     </ul>
@@ -202,10 +197,10 @@ REGARDS (**_RE_**nouvellement des outils **_G_**énériques d'**_A_**ccès et d'
          Depuis des sources de données internes
         <ul>
           <li>
-            <a href="crawler/configure-datasources/aips/">Depuis des AIPs</a>
+            <a href="crawler/configure-datasources/aips/">Depuis la base interne OAIS</a>
           </li>
           <li>
-            <a href="crawler/configure-datasources/fem/">Depuis FEM</a>
+            <a href="crawler/configure-datasources/fem/">Depuis la base interne de produits GeoJSON</a>
           </li>
         </ul>
       </li>
@@ -228,7 +223,7 @@ REGARDS (**_RE_**nouvellement des outils **_G_**énériques d'**_A_**ccès et d'
   </li>
   <li>
     <a href="catalog/introduction/">
-      Consulter le catalogue
+      Configurer le catalogue
     </a>
   </li>
   <li>
@@ -239,6 +234,11 @@ REGARDS (**_RE_**nouvellement des outils **_G_**énériques d'**_A_**ccès et d'
   <li>
     <a href="order/introduction/">
       Commander des données depuis le catalogue
+    </a>
+  </li>
+  <li>
+    <a href="monitoring/dashboard">
+      Monitorer l'archive scientifique interne et le catalogue
     </a>
   </li>
 </ol>
