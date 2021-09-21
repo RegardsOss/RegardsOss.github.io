@@ -26,13 +26,13 @@ Docker swarm installation of REGARDS is available for CentOS, Ubuntu, Debian and
 
 ### Create your hosts file
 
-Once you download and extract the `regards-playbook`, you need to create an inventory that saves the configuration of your setup. Create a folder inside the `regards-playbook/inventories/`, using by example a subset of the server hostname you want to install REGARDS on.
+Once you download and extract the `regards-docker-master`, you need to create an inventory that saves the configuration of your setup. Create a folder inside the `regards-docker-master/inventories/`, using by example a subset of the server hostname you want to install REGARDS on.
 
 Let's suppose we want to create an inventory on a computer named `regards-cnes.host.com` :
 
 ```bash
-mkdir regards-playbook/inventories/regards-cnes
-cd regards-playbook/inventories/regards-cnes
+mkdir regards-docker-master/inventories/regards-cnes
+cd regards-docker-master/inventories/regards-cnes
 ```
 
 Let's create an `hosts` file that defines nodes that will be used during this deployment.
@@ -83,7 +83,7 @@ FIN_CAT
 | `ansible_user`     | user login to log on by ssh to configure & install    |
 | `ansible_password` | user password to log on by ssh to configure & install |
 
-Remove all lines begining with `[1-7]` and make appropriate changes following your needs. You have two examples provided inside regards-playbook: `inventories/demo/hosts` and `inventories/multihosts/hosts`.
+Remove all lines begining with `[1-7]` and make appropriate changes following your needs. You have two examples provided inside regards-docker-master: `inventories/demo/hosts` and `inventories/multihosts/hosts`.
 
 ### Create your group_vars folder
 
@@ -94,7 +94,7 @@ Now you've configured where you want to install REGARDS, you need to configure w
 First, you need to initialise the `group_vars` folder using one of these commands, depending of the number of servers you have :
 
 ```bash
-# cd regards-playbook/inventories/regards-cnes
+# cd regards-docker-master/inventories/regards-cnes
 # Install REGARDS on one server - using demo inventory
 cp -R ../../demo/group_vars ./
 
@@ -166,7 +166,7 @@ If you're OK with a secure installation of SWARM, execute the playbook `setup-vm
 Let's see how you can use Ansible playbook CLI.
 
 ```bash
-# cd regards-playbook/
+# cd regards-docker-master/
 ansible-playbook -i inventories/<inventory name> <playbook file>.yml <additional parameters>
 ```
 
@@ -194,7 +194,7 @@ Seeing red lines is normal, as some tasks produce error that can safely ignored 
 Let's see how to do a secure installation:
 
 ```bash
-# cd regards-playbook/
+# cd regards-docker-master/
 ansible-playbook -i inventories/<inventory name> setup-vm.yml <additional parameters>
 
 
@@ -203,7 +203,7 @@ ansible-playbook -i inventories/<inventory name> setup-vm.yml <additional parame
 With an example :
 
 ```bash
-# cd regards-playbook/
+# cd regards-docker-master/
 > ansible-playbook -i inventories/regards-cnes setup-vm.yml --ask-become-pass
 [..]
 PLAY RECAP *******************************************************************************************************
@@ -241,7 +241,7 @@ If you do not fetch image directly on Github, adapt this step to your environmen
 ### REGARDS install
 
 ```bash
-# cd regards-playbook/
+# cd regards-docker-master/
 ansible-playbook -i inventories/<inventory name> regards.yml <additional parameters>
 ```
 
