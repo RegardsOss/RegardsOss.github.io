@@ -5,7 +5,7 @@ slug: /user-guide/project-configuration/users/authentication/
 ---
 
 
-Le système REGARDS vous permet de gérer de multiples méthode d'authentification pour vos utilisateurs.
+Le système REGARDS vous permet de gérer de multiples méthodes d'authentification pour vos utilisateurs.
  - Un système de compte interne à REGARDS
  - Un système de délégation des comptes
  - Un système de délégation complète de l'authentification
@@ -20,7 +20,7 @@ Vous pouvez accéder à la configuration de ces systèmes d'authentication depui
 
 ## <img src="/images/user-documentation/doc-icons/right-arrow.png" alt="arrow" height="12"/> Utilisation de comptes utilisateur internes 
 
-Pour ce système d'authentification vous n'avez aucune configuration spécifique à réaliser. Dans ce cas les utilisateurs seront créés dans la base de données interne à REGARDS et leurs informations d'authentification seront conservées criptées en base de données.
+Pour ce système d'authentification, vous n'avez aucune configuration spécifique à réaliser. Dans ce cas les utilisateurs seront créés dans la base de données interne à REGARDS et leurs informations d'authentification seront conservées criptées en base de données.
 
 ## <img src="/images/user-documentation/doc-icons/right-arrow.png" alt="arrow" height="12"/> Utilisation de comptes utilisateur externes
 
