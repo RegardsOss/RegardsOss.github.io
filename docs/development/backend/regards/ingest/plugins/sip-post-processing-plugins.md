@@ -17,7 +17,7 @@ REGARDS do not provides any implementation of this extension point yet.
 
 ## Interface
 
-   [ISipPostprocessing](https://github.com/RegardsOss/regards-ingest/blob/master/ingest/ingest-domain/src/main/java/fr/cnes/regards/modules/ingest/domain/plugin/ISipPostprocessing.java)
+   [ISipPostprocessing](https://github.com/RegardsOss/regards-backend/blob/master/rs-ingest/ingest/ingest-domain/src/main/java/fr/cnes/regards/modules/ingest/domain/plugin/ISipPostprocessing.java)
 
 ## Implementation
 

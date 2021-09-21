@@ -20,7 +20,7 @@ Docker swarm installation of REGARDS is available for CentOS, Ubuntu, Debian and
 :::
 
 1. Install Ansible version `2.9.2.23` at least [docs.ansible.com](https://docs.ansible.com/ansible/latest/installation_guide/intro_installation.html)
-1. Download [regards-playbook](https://github.com/RegardsOss/RegardsOss.github.io/releases/download/V1.2.1/regards-playbook.zip).
+1. Download [regards-docker playbooks](https://codeload.github.com/RegardsOss/regards-docker/zip/refs/heads/master).
 
 ## Create your inventory
 
@@ -231,7 +231,7 @@ To sum up the [official guide](https://docs.github.com/en/packages/working-with-
 ```
 # Connect threw SSH to your master node and use the token to login in to Github 
 export CR_PAT=<your token access>
-echo $CR_PAT | docker login docker.pkg.github.com -u <your username> --password-stdin
+echo $CR_PAT | docker login ghcr.io -u <your username> --password-stdin
 ```
 
 :::info

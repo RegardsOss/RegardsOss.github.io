@@ -13,11 +13,11 @@ This extension point allows to define how to validate a file to acquire. Each in
 :::
 
 REGARDS provides many implementation of this extension point :
- - [DefaultFileValidation](https://github.com/RegardsOss/regards-dataprovider/blob/master/acquisition/acquisition-service/src/main/java/fr/cnes/regards/modules/acquisition/service/plugins/DefaultFileValidation.java) : Check that the file is readable
+ - [DefaultFileValidation](https://github.com/RegardsOss/regards-backend/blob/master/rs-dataprovider/acquisition/acquisition-service/src/main/java/fr/cnes/regards/modules/acquisition/service/plugins/DefaultFileValidation.java) : Check that the file is readable
 
 ## Interface
 
-   [IValidationPlugin](https://github.com/RegardsOss/regards-dataprovider/blob/master/acquisition/acquisition-domain/src/main/java/fr/cnes/regards/modules/acquisition/plugins/IValidationPlugin.java)
+   [IValidationPlugin](https://github.com/RegardsOss/regards-backend/blob/master/rs-dataprovider/acquisition/acquisition-domain/src/main/java/fr/cnes/regards/modules/acquisition/plugins/IValidationPlugin.java)
 
 ## Implementation
 

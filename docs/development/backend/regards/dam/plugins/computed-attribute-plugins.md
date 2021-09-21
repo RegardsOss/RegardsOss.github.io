@@ -13,15 +13,15 @@ This extension point allows to define a calculation method for a feature attribu
 :::
 
 REGARDS provides many implementation of this extension point :
- - [CountPlugin](https://github.com/RegardsOss/regards-dam/blob/master/dam/dam-plugins/src/main/java/fr/cnes/regards/modules/dam/plugin/entities/CountPlugin.java) : Allow to compute the number of dataobjects of a dataset.
- - [IntSumComputePlugin](https://github.com/RegardsOss/regards-dam/blob/master/dam/dam-plugins/src/main/java/fr/cnes/regards/modules/dam/plugin/entities/IntSumComputePlugin.java) : Allow to compute an integer sum of an attribute of each dataobjects in a dataset.
- - [LongSumComputePlugin](https://github.com/RegardsOss/regards-dam/blob/master/dam/dam-plugins/src/main/java/fr/cnes/regards/modules/dam/plugin/entities/LongSumComputePlugin.java) : Allow to compute the sum of an attribute of each dataobjects in a dataset.
- - [MaxDateComputePlugin](https://github.com/RegardsOss/regards-dam/blob/master/dam/dam-plugins/src/main/java/fr/cnes/regards/modules/dam/plugin/entities/MaxDateComputePlugin.java) : Allow to compute the minimum date of all dataobjects in a dataset.
- - [MinDateComputePlugin](https://github.com/RegardsOss/regards-dam/blob/master/dam/dam-plugins/src/main/java/fr/cnes/regards/modules/dam/plugin/entities/MinDateComputePlugin.java) : Allow to compute the maximum date of all dataobjects in a dataset.
+ - [CountPlugin](https://github.com/RegardsOss/regards-backend/blob/master/rs-dam/dam/dam-plugins/src/main/java/fr/cnes/regards/modules/dam/plugin/entities/CountPlugin.java) : Allow to compute the number of dataobjects of a dataset.
+ - [IntSumComputePlugin](https://github.com/RegardsOss/regards-backend/blob/master/rs-dam/dam/dam-plugins/src/main/java/fr/cnes/regards/modules/dam/plugin/entities/IntSumComputePlugin.java) : Allow to compute an integer sum of an attribute of each dataobjects in a dataset.
+ - [LongSumComputePlugin](https://github.com/RegardsOss/regards-backend/blob/master/rs-dam/dam/dam-plugins/src/main/java/fr/cnes/regards/modules/dam/plugin/entities/LongSumComputePlugin.java) : Allow to compute the sum of an attribute of each dataobjects in a dataset.
+ - [MaxDateComputePlugin](https://github.com/RegardsOss/regards-backend/blob/master/rs-dam/dam/dam-plugins/src/main/java/fr/cnes/regards/modules/dam/plugin/entities/MaxDateComputePlugin.java) : Allow to compute the minimum date of all dataobjects in a dataset.
+ - [MinDateComputePlugin](https://github.com/RegardsOss/regards-backend/blob/master/rs-dam/dam/dam-plugins/src/main/java/fr/cnes/regards/modules/dam/plugin/entities/MinDateComputePlugin.java) : Allow to compute the maximum date of all dataobjects in a dataset.
 
 ## Interface
 
-   [IComputedAttribute](https://github.com/RegardsOss/regards-dam/blob/master/dam/dam-domain/src/main/java/fr/cnes/regards/modules/dam/domain/models/IComputedAttribute.java)
+   [IComputedAttribute](https://github.com/RegardsOss/regards-backend/blob/master/rs-dam/model/model-domain/src/main/java/fr/cnes/regards/modules/model/domain/IComputedAttribute.java)
 
 ## Implementation
 

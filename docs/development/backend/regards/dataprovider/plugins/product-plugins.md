@@ -14,11 +14,11 @@ This extension point allows to define how to construct a `Product` from a list o
 :::
 
 REGARDS provides many implementation of this extension point :
- - [DefaultProductPlugin](https://github.com/RegardsOss/regards-dataprovider/blob/master/acquisition/acquisition-service/src/main/java/fr/cnes/regards/modules/acquisition/service/plugins/DefaultProductPlugin.java) : Construct one product for each scanned file.
+ - [DefaultProductPlugin](https://github.com/RegardsOss/regards-backend/blob/master/rs-dataprovider/acquisition/acquisition-service/src/main/java/fr/cnes/regards/modules/acquisition/service/plugins/DefaultProductPlugin.java) : Construct one product for each scanned file.
 
 ## Interface
 
-   [IProductPlugin](https://github.com/RegardsOss/regards-dataprovider/blob/master/acquisition/acquisition-domain/src/main/java/fr/cnes/regards/modules/acquisition/plugins/IProductPlugin.java)
+   [IProductPlugin](https://github.com/RegardsOss/regards-backend/blob/master/rs-dataprovider/acquisition/acquisition-domain/src/main/java/fr/cnes/regards/modules/acquisition/plugins/IProductPlugin.java)
 
 ## Implementation
 

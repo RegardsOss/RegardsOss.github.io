@@ -26,24 +26,20 @@ Each microservice offers the features :
 
 To create a new microservice you have to create a new maven project with the microservice-archetype. To do so :
 
-- Clone the git rs-microservice repository  
+- Clone the git regards-backend repository  
 
 ```bash
-git clone https://github.com/RegardsOss/regards-bom.git
-git clone https://github.com/RegardsOss/regards-microservice.git
+git clone https://github.com/RegardsOss/regards-backend.git
 ```
 
 - Compile and install the maven project  
 
 ```bash
-cd regards-bom
-mvn clean install -DskipTests
-
-cd regards-microservice
+cd regards-backend
 mvn clean install -DskipTests
 ```
 
-- Generate the new microservice in another folder than rs-microservice thanks to the maven project archetype:
+- Generate the new microservice in another folder than regards-backend thanks to the maven project archetype:
 
 ```bash
 mkdir ../myMicroservice

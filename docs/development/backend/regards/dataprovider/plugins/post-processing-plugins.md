@@ -12,11 +12,11 @@ This extension point allows to add a post processing action after a product is f
 :::
 
 REGARDS provides many implementation of this extension point :
- - [CleanAndAcknowledgePlugin] : (https://github.com/RegardsOss/regards-dataprovider/blob/master/acquisition/acquisition-service/src/main/java/fr/cnes/regards/modules/acquisition/service/plugins/CleanAndAcknowledgePlugin.java) : create acknowledgement for each product file and clean all original product files
+ - [CleanAndAcknowledgePlugin] : (https://github.com/RegardsOss/regards-backend/blob/master/rs-dataprovider/acquisition/acquisition-service/src/main/java/fr/cnes/regards/modules/acquisition/service/plugins/CleanAndAcknowledgePlugin.java) : create acknowledgement for each product file and clean all original product files
 
 ## Interface
 
-   [ISipPostProcessingPlugin](https://github.com/RegardsOss/regards-dataprovider/blob/master/acquisition/acquisition-domain/src/main/java/fr/cnes/regards/modules/acquisition/plugins/ISipPostProcessingPlugin.java)
+   [ISipPostProcessingPlugin](https://github.com/RegardsOss/regards-backend/blob/master/rs-dataprovider/acquisition/acquisition-domain/src/main/java/fr/cnes/regards/modules/acquisition/plugins/ISipPostProcessingPlugin.java)
 
 ## Implementation
 

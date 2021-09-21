@@ -82,11 +82,11 @@ For a search query application you can also execlude some entites from the searc
 
 ## Interfaces
 
-   - [IService](https://github.com/RegardsOss/regards-catalog/blob/master/catalog-services/catalog-services-domain/src/main/java/fr/cnes/regards/modules/catalog/services/domain/plugins/IService.java) : Base interface extended by the specific interfaces defined here under.
+   - [IService](https://github.com/RegardsOss/regards-backend/blob/master/rs-catalog/catalog-services/catalog-services-domain/src/main/java/fr/cnes/regards/modules/catalog/services/domain/plugins/IService.java) : Base interface extended by the specific interfaces defined here under.
 
    To help developpers to make different service application you can also use the specific interfaces :
-   - [IEntitiesServicePlugin](https://github.com/RegardsOss/regards-catalog/blob/master/catalog-services/catalog-services-domain/src/main/java/fr/cnes/regards/modules/catalog/services/domain/plugins/IEntitiesServicePlugin.java) : To create a service applicable to multiple entities selection.
-   - [ISingleEntityServicePlugin](https://github.com/RegardsOss/regards-catalog/blob/master/catalog-services/catalog-services-domain/src/main/java/fr/cnes/regards/modules/catalog/services/domain/plugins/ISingleEntityServicePlugin.java) : To create a service application only to a single entity selection
+   - [IEntitiesServicePlugin](https://github.com/RegardsOss/regards-backend/blob/master/rs-catalog/catalog-services/catalog-services-domain/src/main/java/fr/cnes/regards/modules/catalog/services/domain/plugins/IEntitiesServicePlugin.java) : To create a service applicable to multiple entities selection.
+   - [ISingleEntityServicePlugin](https://github.com/RegardsOss/regards-backend/blob/master/rs-catalog/catalog-services/catalog-services-domain/src/main/java/fr/cnes/regards/modules/catalog/services/domain/plugins/ISingleEntityServicePlugin.java) : To create a service application only to a single entity selection
 
 ## Implementation
 

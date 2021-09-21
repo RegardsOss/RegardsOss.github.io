@@ -16,19 +16,13 @@ REGARDS plugins are designed to customize functionalities for business specifics
 ## Set-up
 
 Clone mandatory common github repositories :  
-* git clone https://github.com/RegardsOss/regards-bom.git
-* git clone https://github.com/RegardsOss/regards-microservice.git
-* git clone https://github.com/RegardsOss/regards-admin.git
+* git clone https://github.com/RegardsOss/regards-backend.git
 * git clone https://github.com/RegardsOss/regards-plugins.git
 
-Clone specific github repositories for the plugin you want to generate. For exemple if you want to generate a plugin of the "Catalog" microservice, you need to clone the Catalog microservice repository.
- * git clone https://github.com/RegardsOss/regards-catalog.git
 
 Now compile each repository with maven `mvn clean install -DskipTests` with the here under order :
- 1. regards-bom
- 2. regards-microservice
- 3. regards-admin
- 4. regards-catalog (or other microservice repository)
+ 1. regards-backend
+ 2. regards-plugins
 
 ## Create your plugin maven module
 

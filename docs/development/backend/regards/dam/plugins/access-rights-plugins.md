@@ -19,9 +19,9 @@ Dynamic plugins are made to re-calculate access rights every day. Non dynamic pl
 
 The periodicity of re-calculation of dynamic plugins is by default set to once a day but it is configurable in the microservice properties with the properties `regards.access.rights.update.cron`. The value is a standard cron format.
 
-Dynamic updates of accessRights are made thanks to a cron function at [AccessRightsService](https://github.com/RegardsOss/regards-dam/blob/master/dam/dam-service/src/main/java/fr/cnes/regards/modules/dam/service/dataaccess/AccessRightUpdateScheduler.java).
+Dynamic updates of accessRights are made thanks to a cron function at [AccessRightsService](https://github.com/RegardsOss/regards-backend/blob/master/rs-dam/dam/dam-service/src/main/java/fr/cnes/regards/modules/dam/service/dataaccess/AccessRightUpdateScheduler.java).
 
-See class [EntityIndexerService](https://github.com/RegardsOss/regards-dam/blob/d8eedbd4d03928219b4030b96abc01aeb8fb2976/crawler/crawler-service/src/main/java/fr/cnes/regards/modules/crawler/service/EntityIndexerService.java) method `manageDatasetUpdate` to see how accessRights are calculated on every datasets.
+See class [EntityIndexerService](https://github.com/RegardsOss/regards-backend/blob/master/rs-dam/crawler/crawler-service/src/main/java/fr/cnes/regards/modules/crawler/service/EntityIndexerService.java) method `manageDatasetUpdate` to see how accessRights are calculated on every datasets.
 
 REGARDS provides many implementation of this extension point :
  - [CustomDataObjectsAccessPlugin] : `Not release yet` allows access to data objects matching a configured opensearch request.

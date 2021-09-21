@@ -13,11 +13,11 @@ This extension point allows to add `Tags` to a list of generated `AIP`. A `Tag` 
 :::
 
 REGARDS provides many implementation of this extension point :
- - [DefaultAIPTagging](https://github.com/RegardsOss/regards-ingest/blob/master/ingest/ingest-service/src/main/java/fr/cnes/regards/modules/ingest/service/plugin/DefaultAIPTagging.java) : Add configured tags to each genereted AIP
+ - [DefaultAIPTagging](https://github.com/RegardsOss/regards-backend/blob/master/rs-ingest/ingest/ingest-service/src/main/java/fr/cnes/regards/modules/ingest/service/chain/plugin/DefaultAIPTagging.java) : Add configured tags to each genereted AIP
 
 ## Interface
 
-   [IAipTagging](https://github.com/RegardsOss/regards-ingest/blob/master/ingest/ingest-domain/src/main/java/fr/cnes/regards/modules/ingest/domain/plugin/IAipTagging.java)
+   [IAipTagging](https://github.com/RegardsOss/regards-backend/blob/master/rs-ingest/ingest/ingest-domain/src/main/java/fr/cnes/regards/modules/ingest/domain/plugin/IAipTagging.java)
 
 ## Implementation
 

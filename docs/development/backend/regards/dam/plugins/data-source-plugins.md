@@ -18,7 +18,7 @@ REGARDS provides many implementation of this extension point :
 - WebServicePlugin : `Not released yet` To crawl data from a standard opensearch web service with geojson response format.
 
 ## Interface
-  [IDataSourcePlugin](https://github.com/RegardsOss/regards-dam/blob/master/dam/dam-domain/src/main/java/fr/cnes/regards/modules/dam/domain/datasources/plugins/IDataSourcePlugin.java)
+  [IDataSourcePlugin](https://github.com/RegardsOss/regards-backend/blob/master/rs-dam/dam/dam-domain/src/main/java/fr/cnes/regards/modules/dam/domain/datasources/plugins/IDataSourcePlugin.java)
 
 ## Implementation
 
