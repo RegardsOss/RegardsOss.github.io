@@ -16,9 +16,9 @@ function Cards() {
                 <div>
                   <p> REGARDS is primary designed <b>to store data and their metadata</b> from spatial agency on <b>safe storage systems</b>.</p>
                   <p> To do this, the system design leans on the OAIS (Open Archival Information System) recommendation of the
-                  <a href="https://public.ccsds.org" target="blank_"> CCSDS </a></p>
+                    <a href="https://public.ccsds.org" target="blank_"> CCSDS </a></p>
                   <p> Consequently, the system allows <b>high-performance ingestion</b> of data and metadata available from providers, either in <b>standard or non-standard formats</b>.
-                </p>
+                  </p>
                 </div>
               }
             />
@@ -38,7 +38,8 @@ function Cards() {
               text={
                 <div>
                   <p>REGARDS provides a simple, fast and efficient interface for discovering and accessing data.<br /></p>
-                  <p>Its metacatalog API provides a <a href="http://www.opensearch.org/Home" target="blank_"> standard OpenSearch API </a> (with parameter, geo and time extensions) and responses in <a href="http://geojson.org/" target="blank_">GeoJson standard format</a>.</p>
+                  <p>Its metacatalog API provides a <a href="http://www.opensearch.org/Home" target="blank_">standard OpenSearch API </a> (with parameter, geo and time extensions) and responses in <a href="http://geojson.org/" target="blank_">GeoJson standard format</a>.</p>
+                  <p>We now supports the <a href="https://stacspec.org/" target="blank_">SpatioTemporal Asset Catalog (STAC) specification</a>.</p>
                 </div>
               }
             />
