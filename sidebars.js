@@ -57,47 +57,34 @@ module.exports = {
     },
     {
       type: "category",
-      label: "Import data",
+      label: "Build your scientific archive",
       items: [
         "user-documentation/import-data/import-data-introduction",
         {
           type: "category",
-          label: "Import data - OAIS files",
+          label: "Build OAIS archive",
           items: [
             "user-documentation/4_1-ingest/oais-files-introduction",
             "user-documentation/4_1-ingest/oais-files-configure-ingestion-chains",
             "user-documentation/4_1-ingest/oais-files-submit-products",
+            "user-documentation/4_2-dataprovider/scanned-files-manage-acquisition-chains",
             "user-documentation/4_1-ingest/oais-files-manage-products",
           ],
         },
         {
           type: "category",
-          label: "Import data - Scanned files",
-          items: [
-            "user-documentation/4_2-dataprovider/scanned-files-introduction",
-            "user-documentation/4_2-dataprovider/scanned-files-manage-acquisition-chains"
-          ],
-        },
-        {
-          type: "category",
-          label: "Import data - FEM",
+          label: "Build GeoJson Feature archive",
           items: [
             "user-documentation/4_3-fem/fem-introduction",
             "user-documentation/4_3-fem/fem-manage-features",
-          ],
-        },
-        {
-          type: "category",
-          label: "Dashboard",
-          items: [
-            "user-documentation/4_4_dashboard/dashboard-monitor-sessions"
+            "user-documentation/4_3-fem/fem-features-dissemination",
           ],
         }
       ],
     },
     {
       type: "category",
-      label: "Populate the catalog",
+      label: "Build your catalog",
       items: [
         "user-documentation/crawler/crawler-introduction",
         "user-documentation/crawler/crawler-configure-connection",
@@ -118,7 +105,7 @@ module.exports = {
     },
     {
       type: "category",
-      label: "Catalog consultation",
+      label: "Browse catalog",
       items: [
         "user-documentation/catalog-consultation/catalog-introduction",
         "user-documentation/catalog-consultation/catalog-configuration",
@@ -146,6 +133,13 @@ module.exports = {
         "user-documentation/order-data/order-monitor-orders",
       ],
     },
+    {
+      type: "category",
+      label: "Monitoring",
+      items: [
+        "user-documentation/monitoring/dashboard"
+      ],
+    }
   ],
   dev: [
     "development/development-manual",

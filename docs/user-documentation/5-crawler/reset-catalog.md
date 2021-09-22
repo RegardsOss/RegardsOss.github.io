@@ -1,6 +1,6 @@
 ---
 id: crawler-reset-catalog
-title: Reset the catalog
+title: Reset catalog
 slug: /user-guide/crawler/reset-catalog/
 ---
 

@@ -6,15 +6,8 @@ slug: /user-guide/import-data/introduction/
 
 ---
 
-Le catalogue peut être peuplé principalement par deux sources de données, internes ou externes :
+Le catalogue peut être peuplé principalement par deux sources de données, internes ou externes. Cette section vous présente les différentes façons de construire une source de données **interne** à REGARDS.  
 
-- Depuis des sources de données internes
-  - [Depuis des AIPs](../../crawler/configure-datasources/aips/)
-  - [Depuis FEM](../../crawler/configure-datasources/fem/)
-- Depuis des sources de données externes
-  - [Depuis des bases de données externes](../../crawler/configure-datasources/external-databases/)
-  - [Depuis des sources de données web Opensearch](../../crawler/configure-datasources/opensearch/)
+Toutes les sources de données définies dans REGARDS, qu'elles soient internes ou externes, seront ensuite réunies dans un seul et unique catalogue pour permettre aux utilisateurs de consulter et de rechercher les produits de toutes originies.  
 
-:::info  
-A la différence des données importées en interne, les données externes ne seront pas gérées par REGARDS.
-:::
+La construction du catalogue unifié est décrite dans la section [Populate the catalog](../crawler/introduction). 

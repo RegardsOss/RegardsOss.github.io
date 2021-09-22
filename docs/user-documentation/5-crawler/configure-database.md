@@ -1,6 +1,6 @@
 ---
 id: crawler-configure-connection
-title: Configure a connection to an external database
+title: Configure external database connection
 slug: /user-guide/crawler/configure-connection/
 ---
 

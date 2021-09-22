@@ -1,6 +1,6 @@
 ---
 id: crawler-external-databases
-title: Crawl data from external databases
+title: Crawl data from external database
 slug: /user-guide/crawler/configure-datasources/external-databases/
 ---
 

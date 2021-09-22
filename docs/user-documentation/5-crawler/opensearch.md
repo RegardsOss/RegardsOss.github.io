@@ -1,6 +1,6 @@
 ---
 id: crawler-opensearch
-title: Crawl data opensearch web source
+title: Crawl data from opensearch web source
 slug: /user-guide/crawler/configure-datasources/opensearch/
 ---
 
