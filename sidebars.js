@@ -36,8 +36,15 @@ module.exports = {
       items: [
         "user-documentation/project-configuration/project-configuration-introduction",
         "user-documentation/project-configuration/project-configuration-users",
-        "user-documentation/project-configuration/project-configuration-users-authentication",
-        "user-documentation/project-configuration/project-configuration-users-authentication-openid",
+        {
+          type: "category",
+          label: "Manage authentications",
+          items: [
+            "user-documentation/project-configuration/project-configuration-users-authentication",
+            "user-documentation/project-configuration/project-configuration-users-authentication-openid",
+            "user-documentation/project-configuration/project-configuration-users-authentication-ldap",
+          ],
+        },
         "user-documentation/project-configuration/project-configuration-user-interface",
         "user-documentation/project-configuration/project-configuration-microservices",
         "user-documentation/project-configuration/project-configuration-storages",
