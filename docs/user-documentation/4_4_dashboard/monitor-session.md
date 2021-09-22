@@ -4,7 +4,7 @@ title: Monitor sessions
 slug: /user-guide/import-data/dashboard/monitor-sessions/
 ---
 
-_Le tableau de bord est commun au suivi de l'exécution des chaînes d'acquisition, d'ingestion et d'aspiration de données. Il vous permet d'obtenir de précieuses informations quant à l'archivage de vos produits._
+_Le tableau de bord est un outil transverse qui permet de suivre l'exécution des chaînes d'acquisition, d'ingestion et d'aspiration de données. Il vous permet d'obtenir de précieuses informations quant à l'archivage de vos produits, le moissonnage dans le catalogue ainsi que la diffusion aux catalogues externes._
 
 _Si vous ne connaissez pas un de ces concepts, vous pouvez lire les rubriques suivantes pour en savoir plus :_
 
@@ -28,15 +28,12 @@ Le tableau de bord est composé de deux parties :
     <img src="/images/user-documentation/v1.6/4_4-dashboard/dashboard-sessions.png" alt="sessions" width="800"/> 
 </div>
 
-- **à gauche**, la liste des **sources**, précisant les fournisseurs de données. Dans le cas d'ajout de données par scan de fichiers, il s'agira du nom de la chaîne d'acquisition. Pour les dépôts directs de fichiers (au format OAIS ou GeoJson), le champ _sessionOwner_ sera utilisé.
+- **à gauche**, la liste des **sources**, qui identifie le fournisseur de la données. Dans le cas d'ajout de données par scan de fichiers, il s'agira du nom de la chaîne d'acquisition. Pour les dépôts directs de fichiers (au format OAIS ou GeoJson), le champ _sessionOwner_ provenant de la requête en entrée sera utilisé.
 - **à droite**, la liste des **sessions** identifiant toutes les données traitées lors d'une même acquisition ou ingestion. La session est utilisé afin de suivre plus facilement les données importées dans REGARDS.
 
 :::caution
-Le suivi du dashboard ne se fait pas en temps réel, il y a un décalage de quelques secondes. 
-:::
-
-:::caution
-Il est nécessaire d'appuyer sur le bouton de rafraîchissement pour obtenir des informations de suivi des sessions.
+Le tableau de bord n'est pas un suivi en temps réel, il y a un décalage de quelques secondes avant que l'information soit effective.  
+Si vous souhaitez mettre à jour les informations affichés, il est nécessaire d'appuyer sur le bouton de rafraîchissement en haut à droite.
 :::
  
 Que ce soit pour les sources et les sessions, vous avez la possibilité de les **filtrer par nom ou par état parmi** :
@@ -49,10 +46,10 @@ Que ce soit pour les sources et les sessions, vous avez la possibilité de les *
 
 Vous pouvez également cliquer sur une source pour **filtrer les sessions liées à cette source**.
 
-Pour voir les **détails liés à une session**, cliquez sur le nom souhaité. Vous pourrez ainsi accéder aux différents traitements appliqués aux données parmi, l'**acquisition**, l'**ingestion**, le **stockage** et la **diffusion**.
+Pour voir les **détails liés à une session**, cliquez sur le nom de la session que vous souhaitez suivre. Vous pourrez ainsi accéder aux différents traitements appliqués aux données parmi, l'**acquisition**, l'**ingestion**, le **stockage** et la **diffusion**.
 
-:::note 
-Toutes les étapes ne s'afficheront pas nécessairement, cela dépendra des données et de la manière dont elles ont été importées
+:::note
+Seules les colonnes et étapes auquelle une donnée est effectivement passée s'affichent, vous ne verrez donc pas toujours tous les champs
 :::
 
  <div align="center">
@@ -76,10 +73,10 @@ Des boutons d'actions peuvent également s'afficher dans ces étapes :
   - **See errors**, pour voir les traitement en erreur
   - **Relaunch errors**, pour relancer les traitements en erreur
 - _Storage_
-  - **See storages**, pour voir l'ensemble des espaces de stockage et la place occupée par les fichiers, pour en savoir plus référez-vous à la [page dédiée](../../../project-configuration/storages/).
+  - **See storages**, pour voir l'ensemble des espaces de stockage et la place occupée par les fichiers, pour en savoir plus référez-vous à la [page dédiée](../project-configuration/storages/).
   - **Relaunch errors**, pour essayer de stocker de nouveau les fichiers en erreur
 - _Diffusion_
-  - **See detail**, pour accéder à l'écran de suivi des aspirations de données vers le catalogue dans le cas où une [chaîne aurait été configurée](../../../crawler/introduction/). 
+  - **See detail**, pour accéder à l'écran de suivi des aspirations de données vers le catalogue dans le cas où une [chaîne aurait été configurée](../crawler/introduction/). 
 
 
 
