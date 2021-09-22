@@ -7,7 +7,7 @@ slug: /user-guide/project-configuration/storages/
 _Définissez des espaces de stockage pour conserver les données créées dans REGARDS depuis le menu ***Add data*** et la carte ***Storage***._
 
 <div align="center">
-  <img src="/images/user-documentation/v1.4/2-project-configuration/storage/storage-menu.png" alt="storage menu" width="800"/> 
+  <img src="/images/user-documentation/v1.6/2-project-configuration/storage/storage-menu.png" alt="storage menu" width="300"/> 
 </div>
 
 ---
@@ -74,3 +74,21 @@ Il y a également des boutons d'actions :
 - <img src="/images/user-documentation/regards-icons/admin/arrow-up.png" alt="arrow up" height="25"/> <img src="/images/user-documentation/regards-icons/admin/arrow-down.png" alt="arrow down" height="25"/> permet de régler la priorité d'action sur un espace de stockage. Cela s'applique dans le cas où une même donnée serait stockée sur plusieurs espaces
 - <img src="/images/user-documentation/regards-icons/admin/empty-files.png" alt="empty" height="25"/> <b><i>Delete storage's files</i></b> pour vider l'espace de stockage
 - <img src="/images/user-documentation/regards-icons/admin/delete.png" alt="delete" height="25"/> <b><i>Delete this item</i></b> pour supprimer l'espace de stockage
+
+### <img src="/images/user-documentation/doc-icons/right-arrow.png" alt="arrow" height="12"/> Configurer les paramètres des espaces de stockage
+
+En cliquant sur l'icone <img src="/images/user-documentation/regards-icons/admin/gear-wheels.png" alt="edit" height="25"/> vous pouvez configurer les paramètres de vos espaces de stockage. Les paramètres disponibles sont les suivants :
+
+- **Save files** : Cocher cette case si les fichiers doivent être sauvegardés sur l'espace de stockage
+- **Location** : Chemin où les fichiers seront sauvegardés
+- **Sub directory** : Dossier présent dans le chemin ou les fichiers seront sauvegardés
+- **Cache max size** : Taille maximale du cache
+- **Cache path** : Chemin vers le cache
+
+<div align="center">
+  <img src="/images/user-documentation/v1.6/2-project-configuration/storage/storage-settings.png" alt="configure storages" width="800"/> 
+</div>
+
+:::info
+L'icone <img src="/images/user-documentation/regards-icons/admin/default-value.png" alt="edit" height="25"/> permet de remettre la valeur par défaut à un champ donné. La barre bleue présente à côté d'un paramètre signifie que sa valeur actuelle diffère de la valeur par défaut.
+:::

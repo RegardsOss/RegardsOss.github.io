@@ -4,7 +4,8 @@ title: Introduction
 slug: /user-guide/order/introduction/
 ---
 
-REGARDS vous permet de [commander vos données](../manage-orders/). Il s'agit d'un outil vous permettant de télécharger en local un ensemble de données directement depuis le catalogue.
+REGARDS vous permet de [commander vos données](../manage-orders/). Il s'agit d'un outil vous permettant de télécharger en local un ensemble de données directement depuis le catalogue. REGARDS permet également de [gérer les paramètres](../settings-orders) de vos commandes.
+
 Vous pouvez effectuer cette opération de deux manières :
 
 - depuis l'interface IHM

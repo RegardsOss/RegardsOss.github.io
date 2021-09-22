@@ -11,3 +11,5 @@ L'archive de produits Geojson se différentie de l'archive OAIS par :
  - Absence de métadonnées fixe de pérénisation 
 
 Apprenez à [créer et gérer des features](../manage-features/)
+
+Apprenez à [gérer les paramètres de FEM](../manage-features-settings/)
