@@ -10,4 +10,4 @@ Le catalogue peut être peuplé principalement par deux sources de données, int
 
 Toutes les sources de données définies dans REGARDS, qu'elles soient internes ou externes, seront ensuite réunies dans un seul et unique catalogue pour permettre aux utilisateurs de consulter et de rechercher les produits de toutes originies.  
 
-La construction du catalogue unifié est décrite dans la section [Populate the catalog](../crawler/introduction). 
+La construction du catalogue unifié est décrite dans la section [Build your catalog](../../crawler/introduction). 

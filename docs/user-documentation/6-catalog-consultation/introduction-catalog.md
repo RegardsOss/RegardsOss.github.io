@@ -18,4 +18,4 @@ Dans cette section vous apprendrez à :
 
 - [configurer le catalogue de données](../configuration/)
 - [manipuler le catalogue](../use/)
-- [paramétrer des protocoles de recherche](../protocols/) basés sur OpenSearch pour rendre les données disponibles depuis l'extérieur
+- [paramétrer des protocoles de recherche](../protocols/introduction) basés sur OpenSearch pour rendre les données disponibles depuis l'extérieur

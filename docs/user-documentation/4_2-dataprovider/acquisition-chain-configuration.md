@@ -122,7 +122,7 @@ Pour finir la création de votre chaîne d'acquisition, appuyez sur le bouton **
 
 Pour lancer la génération de nouveaux produits, appuyez sur le bouton <img src="/images/user-documentation/regards-icons/admin/play.png" alt="play" height="26"/> ***Run acquisition chain*** associé à votre chaîne.
 
-Vous pourrez ensuite suivre ce processus en cliquant sur le bouton <img src="/images/user-documentation/regards-icons/admin/session.png" alt="session" height="23"/> ***See session's details***. Référez-vous à la page ***[Monitor session](../../dashboard/monitor-sessions/)*** pour comprendre comment suivre l'acquisition.
+Vous pourrez ensuite suivre ce processus en cliquant sur le bouton <img src="/images/user-documentation/regards-icons/admin/session.png" alt="session" height="23"/> ***See session's details***. Référez-vous à la page ***[Monitor session](../../../monitoring/dashboard)*** pour comprendre comment suivre l'acquisition.
 
 ---
 
@@ -136,7 +136,7 @@ Par groupe :
 
 Par ligne :
 
-- <img src="/images/user-documentation/regards-icons/admin/session.png" alt="session" height="22"/> Vous pouvez retrouver la ou les sessions d'acquisition liées à votre chaîne. Voir <a href="../monitor-sessions/">Monitor session</a>.
+- <img src="/images/user-documentation/regards-icons/admin/session.png" alt="session" height="22"/> Vous pouvez retrouver la ou les sessions d'acquisition liées à votre chaîne. Voir <a href="../../../monitoring/dashboard">Product monitoring dashboard</a>.
 - <img src="/images/user-documentation/regards-icons/admin/stop.png" alt="stop" height="25"/> Arrêter la génération de produits en cours en appuyant sur le bouton stop
 - <img src="/images/user-documentation/regards-icons/admin/play.png" alt="play" height="25"/> Modifier les informations liées à une chaîne en cliquant sur le bouton en forme de crayon
 - <img src="/images/user-documentation/regards-icons/admin/duplicate.png" alt="duplicate" height="25"/> Dupliquer une chaîne d'acquisition si votre nouvelle chaîne contient des informations semblables

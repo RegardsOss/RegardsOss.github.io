@@ -8,10 +8,9 @@ _Le tableau de bord est un outil transverse qui permet de suivre l'exécution de
 
 _Si vous ne connaissez pas un de ces concepts, vous pouvez lire les rubriques suivantes pour en savoir plus :_
 
-- _[Acquisition chain](../../scanned-files/introduction/)_
-- _[Ingestion chain](../../oais-files/introduction/)_
-- _[Feature Manager](../../fem/introduction/)_
-- _[Crawl datasources chain](../../../crawler/introduction/)_
+- _[OAIS Archive](../import-data/oais-files/introduction/)_
+- _[GeoJSON Feature Archive](../import-data/fem/introduction/)_
+- _[Build your catalog](../crawler/introduction/)_
 
 Depuis **Add data** et la carte **Dashboard**, cliquez le bouton <img src="/images/user-documentation/regards-icons/admin/monitor.png" alt="monitor" height="25"/> **Display dashboard**.
 

@@ -35,7 +35,7 @@ Cliquez sur le bouton <img src="/images/user-documentation/regards-icons/admin/a
 - Vous accèderez ensuite à un rapport résumant la demande de dépôt des sips, vous y trouverez :
   - une ligne indiquant si les sips, aussi appelées ***features***, ont été soumis. Si tel est le cas, le système vous communiquera le nombre de sips envoyées au système de stockage.
  Dans le cas contraire, une erreur s'affichera pour vous informer que le fichier n'a pas un format valide. Vous pourrez donc le modifier et le réimporter.
-  - un bouton vous permettant de suivre l'ingestion des données. Voir la page *[Acquisition session](../../dashboard/monitor-sessions/)* pour comprendre comment suivre vos données et savoir si elles ont correctement été stockées par le système. Suivez ensuite la page *[Manage products](../manage-products/)* pour gérer vos produits.
+  - un bouton vous permettant de suivre l'ingestion des données. Voir la page *[Acquisition session](../../../monitoring/dashboard)* pour comprendre comment suivre vos données et savoir si elles ont correctement été stockées par le système. Suivez ensuite la page *[Manage products](../manage-products/)* pour gérer vos produits.
   - un bouton vous permettant de déposer à nouveau un fichier contenant des sips.
   
 <div align="center">
