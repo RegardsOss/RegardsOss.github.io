@@ -10,6 +10,10 @@ _Créez et gérez vos projets depuis le menu ***Projects*** de l'administration 
   <img src="/images/user-documentation/v1.4/1-global-configuration/projects-menu.png" alt="interface admin" width="800"/> 
 </div>
 
+:::info Quel est l'interêt de créer des projets ?
+Un projet REGARDS peut avoir autant de modèles de données et le catalogue peut être peuplé depuis autant de source de données que nécessaire. La création de plusieurs projets permet de séparer les données dans des catalogues distincts, comme si les vous déployez autant d'instance de REGARDS.
+:::
+
 ---
 
 ## <img src="/images/user-documentation/doc-icons/right-arrow.png" alt="arrow" height="12"/> Créer un nouveau projet
@@ -42,7 +46,7 @@ Chaque projet du système REGARDS utilise une base de données de type postgres 
 - ***Database ip address*** *[Obligatoire]*, hôte de la base de données posgres
 - ***Database port*** *[Obligatoire]*, port de connexion à la base de données
 - ***Database name*** *[Obligatoire]*, nom de la base de données
-- ***User*** *[Obligatoire]*, identifiant de connexion à la base de données
+- ***User*** *[Obligatoire]*, identifiant de connexion à la base de données. Cet utilisateur doit avoir les **droits de création et suppression des schémas** de la base de données spécifiée ci-dessus
 - ***Password*** *[Obligatoire]*, mot de passe de connexion à la base de données
 
 Une fois cette étape terminée, vous obtiendrez la liste des connexions aux schémas de la base de données. L'état de chacune d'entre elles est indiquée par le ***Configuration status***. Après un temps d'initialisation, nécessaire à la création des schémas, toutes les connexions doivent apparaître actives.
