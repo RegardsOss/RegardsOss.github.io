@@ -22,6 +22,13 @@ module.exports = {
     },
     {
       type: "category",
+      label: "Start with REGARDS concepts",
+      items: [
+        "user-documentation/global-configuration/system-configuration",
+      ],
+    },
+    {
+      type: "category",
       label: "Administrator configuration",
       items: [
         "user-documentation/global-configuration/global-configuration-introduction",
