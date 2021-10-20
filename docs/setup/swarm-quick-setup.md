@@ -7,10 +7,10 @@ slug: /setup/
 ## Introduction
 
 This section introduce how to deploy a REGARDS stack thanks to ansible on a docker swarm environment.  
-All REGARDS docker images are available on our [github repository](https://github.com/orgs/RegardsOss/packages?repo_name=regards-deployment).
+All REGARDS docker images are available on our [github repository](https://github.com/orgs/RegardsOss/packages).
 
 :::caution
-As we install REGARDS docker swarm in a securized way, the docker configuration is rewritten by our ansible playbook on every nodes configured.
+As we install REGARDS docker swarm in a securized way, the docker configuration is rewritten by our ansible playbook on every nodes configured, or you need to setup your own docker swarm.
 :::
 
 ## Prerequisites
@@ -157,7 +157,7 @@ In multi nodes deployment mode, the `global_stack.workdir` value have to be the 
 
 ### Preamble
 
-When inventory configuration has been saved, you can now install Docker SWARM and REGARDS.  
+Once inventory configuration has been saved, you can install Docker SWARM and REGARDS.  
 If you want an insecure REGARDS install on your desktop and you know what you're doing, you can search for a tutorial out there to install Docker SWARM on your computer then executes the playbook `regards.yml`.
 If you're OK with a secure installation of SWARM, execute the playbook `setup-vm.yml` which setup swarm and secures it, then pursue with the `regards.yml` playbook.
 
@@ -218,7 +218,7 @@ Ensures the command id return you the group `dockermapgid` or the next playbook 
 :::
 
 
-## Login to Docker registry
+### Login to Docker registry
 
 We're currently storing our Docker image on Github. To be able to fetch them, you require an access token.
 
