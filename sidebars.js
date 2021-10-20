@@ -24,7 +24,7 @@ module.exports = {
       type: "category",
       label: "Start with REGARDS concepts",
       items: [
-        "user-documentation/global-configuration/system-configuration",
+        "user-documentation/global-configuration/system-tenant-overview",
       ],
     },
     {
