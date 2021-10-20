@@ -11,7 +11,7 @@ _Créez et gérez vos projets depuis le menu ***Projects*** de l'administration 
 </div>
 
 :::info Quel est l'interêt de créer des projets ?
-Un projet REGARDS peut avoir autant de modèles de données et le catalogue peut être peuplé depuis autant de source de données que nécessaire. La création de plusieurs projets permet de séparer les données dans des catalogues distincts, comme si les vous déployez autant d'instance de REGARDS.
+Un projet REGARDS peut avoir autant de modèles de données et le catalogue peut être peuplé depuis autant de source de données que nécessaire. La création de plusieurs projets permet de séparer les données dans des catalogues distincts, comme si vous déployez autant d'instance de REGARDS.
 :::
 
 ---
