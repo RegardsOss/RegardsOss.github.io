@@ -24,7 +24,9 @@ module.exports = {
       type: "category",
       label: "Start with REGARDS concepts",
       items: [
-        "user-documentation/global-configuration/system-tenant-overview",
+        "user-documentation/z2_concept/tenant-overview",
+        "user-documentation/z2_concept/database-overview",
+        "user-documentation/z2_concept/configuration-overview",
       ],
     },
     {
