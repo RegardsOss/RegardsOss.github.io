@@ -17,10 +17,10 @@ Il existe un catalogue par défaut permettant de faire des recherches sur vos do
 
 - Connectez-vous à l'interface ***user***, observez la page ***Catalog***. Elle est composée de deux onglets ***Datasets*** et ***Data***.
 <div align="center">
-  <img src="/images/user-documentation/v1.4/6-catalog-consultation/catalog/user/catalog-datasets.png" alt="datasets" width="800"/> 
+  <img src="/images/user-documentation/v1.7/6-catalog-consultation/catalog/user/catalog-datasets.png" alt="datasets" width="800"/> 
 </div>
 <div align="center">
-  <img src="/images/user-documentation/v1.4/6-catalog-consultation/catalog/user/catalog-data.png" alt="create data" width="800"/> 
+  <img src="/images/user-documentation/v1.7/6-catalog-consultation/catalog/user/catalog-data.png" alt="create data" width="800"/> 
 </div>
  
 - Dans un autre onglet de votre navigateur, connectez-vous à l'interface ***admin***. Puis rendez-vous dans la page ***UI modules*** accessible depuis le menu ***User Interface***, la carte ***UI modules*** et le bouton ***List***. Cliquez sur le bouton <img src="/images/user-documentation/regards-icons/admin/edit.png" alt="edit" height="25"/> ***Edit*** de la ligne ***Catalog*** pour configurer le catalogue de données.

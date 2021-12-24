@@ -1,0 +1,67 @@
+### Response
+
+* **Code:** 200 OK
+
+**Headers:**
+
+`X-Content-Type-Options:nosniff`  
+`X-XSS-Protection:1; mode=block`  
+`Cache-Control:no-cache, no-store, max-age=0, must-revalidate`  
+`Pragma:no-cache`  
+`Expires:0`  
+`X-Frame-Options:DENY`  
+`Access-Control-Allow-Origin:*`  
+`Access-Control-Allow-Methods:POST, PUT, GET, OPTIONS, DELETE`  
+`Access-Control-Allow-Headers:authorization, content-type, scope`  
+`Access-Control-Max-Age:3600`  
+`Content-Type:application/json;charset=UTF-8`  
+
+**Content:**
+
+```json
+    
+{
+  "metadata" : {
+    "size" : 10,
+    "totalElements" : 1,
+    "totalPages" : 1,
+    "number" : 0
+  },
+  "content" : [ {
+    "content" : {
+      "id" : 3673,
+      "email" : "foo@bar.com",
+      "status" : "WAITING_ACCOUNT_ACTIVE",
+      "metadata" : [ ],
+      "role" : {
+        "id" : 6701,
+        "name" : "role",
+        "isDefault" : false,
+        "isNative" : false
+      },
+      "licenseAccepted" : false,
+      "maxQuota" : 2779,
+      "rateLimit" : 23,
+      "currentQuota" : 7319,
+      "currentRate" : 8670
+    },
+    "links" : [ {
+      "rel" : "self",
+      "href" : "http://localhost:8080/users/3673"
+    }, {
+      "rel" : "update",
+      "href" : "http://localhost:8080/users/3673"
+    }, {
+      "rel" : "delete",
+      "href" : "http://localhost:8080/users/3673"
+    }, {
+      "rel" : "list",
+      "href" : "http://localhost:8080/users"
+    } ]
+  } ],
+  "links" : [ {
+    "rel" : "self",
+    "href" : "http://localhost:8080/users/roles/6701?page=0&size=10&sort=id,asc"
+  } ]
+}
+```

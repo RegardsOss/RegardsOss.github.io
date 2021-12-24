@@ -7,7 +7,7 @@ slug: /user-guide/project-configuration/users/
 _Gérez les utilisateurs du projet depuis le menu ***Users*** de l'administration du projet._
 
 <div align="center">
-  <img src="/images/user-documentation/v1.4/2-project-configuration/users/users.png" alt="user menu" width="800"/> 
+  <img src="/images/user-documentation/v1.7/2-project-configuration/users/users.png" alt="user menu" width="300"/> 
 </div>
 
 ---
@@ -17,7 +17,7 @@ _Gérez les utilisateurs du projet depuis le menu ***Users*** de l'administratio
 Si vous êtes administrateur du projet, vous pouvez paramétrer le type de validation utilisé lors de la création de compte par des utilisateurs en cliquant sur le bouton <img src="/images/user-documentation/regards-icons/admin/gear-wheel.png" alt="settings" height="25"/> **_Settings_** accessible depuis la carte **_Users_** du menu **_Users_**.
 
 <div align="center">
-  <img src="/images/user-documentation/v1.4/2-project-configuration/users/user-settings.png" alt="user settings" width="800"/>
+  <img src="/images/user-documentation/v1.7/2-project-configuration/users/user-settings.png" alt="user settings" width="800"/>
 </div>
 Réglez les paramètres suivants :
 
@@ -30,6 +30,7 @@ Réglez les paramètres suivants :
   - les valeurs possibles sont -1, pour un nombre illimité, 0, pour aucun téléchargement simultané ou n'importe quel nombre entier positif.
 - **_Rôle par défaut_** déterminez par défaut le rôle appliqué à un nouveau compte utilisateur.
 - **_Groupes_** déterminez par défaut les groupes d'accès appliqués à un nouveau compte utilisateur.
+- **_Liste des emails à contacter_** Définir la liste des adresses email à contacter lorsqu'un nouvel utilisateur s'enregistre sur votre projet.
 
 Appuyez ensuite sur le bouton **_Confirm_** pour valider la configuration.
 
@@ -113,10 +114,16 @@ Pour chaque microservice, vous pourrez gérer individuellement l'accès à chaqu
 Chaque utilisateur peut faire partie d'un groupe lui permettant d'accéder à une partie des données contenues dans votre projet REGARDS.
 Pour savoir comment gérer les accès aux jeux de données, référez-vous à la page [Configure data access rights](../../data-organization/data-access-rights/).
 
-#### Modification & Suppression
+#### Consultation, modification & Suppression
 
-Dans la liste **_Users_** accessible depuis la carte **_Users_**, vous pourrez effectuer de nombreuses actions sur chacun des utilisateurs.
+Dans la liste **_Users_** accessible depuis la carte **_Users_**, 
 
+Vous pouvez consulter la liste des utilisateurs au travers de trois modes de visualisation :
+ - **_Utilisateur_** : Permet de consulter le status des utilisateurs
+ - **_Quota_** : Permet de consulter les quotas autorisés et disponibles des utilisateurs
+ - **_Droits d'accès_** : Permet de consulter les groupes et rôles associés aux utilisateurs
+
+Au travers de ces modes de visualisation vous pourrez effectuer de nombreuses actions sur chacun des utilisateurs.
 - <img src="/images/user-documentation/regards-icons/admin/quota.png" alt="quota" height="30"/> <b><i>Set max quota</i></b> vous permet de définir les quotas de téléchargement associés à l'utilisateur
 - <img src="/images/user-documentation/regards-icons/admin/enable-user.png" alt="enable user" height="25"/> <b><i>Enable access</i></b> pour autoriser l'utilisateur à accéder au projet
 - <img src="/images/user-documentation/regards-icons/admin/disable-user.png" alt="disable user" height="25"/> <b><i>Disable access</i></b> pour interdire l'accès au projet à l'utilisateur
@@ -127,9 +134,43 @@ Dans la liste **_Users_** accessible depuis la carte **_Users_**, vous pourrez e
   - Modifier les groupes d'accès associés à l'utilisateur
 
 - <img src="/images/user-documentation/regards-icons/admin/delete.png" alt="delete" height="25"/> <b><i>Remove</i></b> pour supprimer un utilisateur
+- <img src="/images/user-documentation/regards-icons/admin/email.png" alt="enable user" height="25"/> <b><i>Email confirmation</i></b> pour envoyer la demande de confirmation par email
+
+De plus via l'icone <img src="/images/user-documentation/regards-icons/admin/csv-export.png" alt="edit" height="25"/> vous pouvez exporter la liste des utilisateurs au format csv.
 
 <div align="center">
-  <img src="/images/user-documentation/v1.4/2-project-configuration/users/user-list.png" alt="user settings" width="800"/>
+  <img src="/images/user-documentation/v1.7/2-project-configuration/users/user-list.png" alt="user settings" width="800"/>
+</div>
+
+
+- Mode Quota :
+
+- <img src="/images/user-documentation/regards-icons/admin/quota.png" alt="quota" height="30"/> <b><i>Set max quota</i></b> vous permet de définir les quotas de téléchargement associés à l'utilisateur
+- <img src="/images/user-documentation/regards-icons/admin/edit.png" alt="edit" height="25"/> <b><i>Edit</i></b> pour :
+
+  - Modifier les informations personnelles d'un utilisateur
+  - Modifier le rôle d'un utilisateur
+  - Modifier les groupes d'accès associés à l'utilisateur
+
+- <img src="/images/user-documentation/regards-icons/admin/delete.png" alt="delete" height="25"/> <b><i>Remove</i></b> pour supprimer un utilisateur
+
+<div align="center">
+  <img src="/images/user-documentation/v1.7/2-project-configuration/users/user-list-quota.png" alt="user settings" width="800"/>
+</div>
+
+
+- Mode Droits d'accès :
+
+- <img src="/images/user-documentation/regards-icons/admin/edit.png" alt="edit" height="25"/> <b><i>Edit</i></b> pour :
+
+  - Modifier les informations personnelles d'un utilisateur
+  - Modifier le rôle d'un utilisateur
+  - Modifier les groupes d'accès associés à l'utilisateur
+
+- <img src="/images/user-documentation/regards-icons/admin/delete.png" alt="delete" height="25"/> <b><i>Remove</i></b> pour supprimer un utilisateur
+
+<div align="center">
+  <img src="/images/user-documentation/v1.7/2-project-configuration/users/user-list-access.png" alt="user settings" width="800"/>
 </div>
 
 :::info
