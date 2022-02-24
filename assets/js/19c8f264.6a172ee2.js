@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkRegardsOss_github_io=self.webpackChunkRegardsOss_github_io||[]).push([[78750],{81829:function(s){s.exports=[]}}]);
