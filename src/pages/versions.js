@@ -8,8 +8,10 @@
 import React from "react";
 import useDocusaurusContext from "@docusaurus/useDocusaurusContext";
 import Layout from "@theme/Layout";
-
-import { useVersions, useLatestVersion } from "@theme/hooks/useDocs";
+import {
+  useLatestVersion,
+  useVersions,
+} from '@docusaurus/plugin-content-docs/client';
 
 function Version() {
   const { siteConfig } = useDocusaurusContext();
