@@ -1,6 +1,6 @@
 module.exports = {
   roadmap: [
     "roadmap-overview",
-    "notes/roadmap-v1.8.0",
+    "notes/roadmap-v1.9.0",
   ]
 };
