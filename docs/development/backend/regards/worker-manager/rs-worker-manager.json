@@ -1,76 +1,545 @@
 {
-  "openapi": "3.0.1",
+  "components": {
+    "schemas": {
+      "DatesRangeRestriction": {
+        "properties": {
+          "after": {
+            "format": "date-time",
+            "type": "string"
+          },
+          "before": {
+            "format": "date-time",
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "DynamicTenantSettingDto": {
+        "properties": {
+          "defaultValue": {
+            "type": "object"
+          },
+          "description": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "value": {
+            "type": "object"
+          }
+        },
+        "type": "object"
+      },
+      "EntityModelDynamicTenantSettingDto": {
+        "properties": {
+          "defaultValue": {
+            "type": "object"
+          },
+          "description": {
+            "type": "string"
+          },
+          "links": {
+            "items": {
+              "$ref": "#/components/schemas/Link"
+            },
+            "type": "array"
+          },
+          "name": {
+            "type": "string"
+          },
+          "value": {
+            "type": "object"
+          }
+        },
+        "type": "object"
+      },
+      "EntityModelLightRequest": {
+        "properties": {
+          "contentType": {
+            "type": "string"
+          },
+          "creationDate": {
+            "format": "date-time",
+            "type": "string"
+          },
+          "dispatchedWorkerType": {
+            "type": "string"
+          },
+          "error": {
+            "type": "string"
+          },
+          "links": {
+            "items": {
+              "$ref": "#/components/schemas/Link"
+            },
+            "type": "array"
+          },
+          "requestId": {
+            "type": "string"
+          },
+          "session": {
+            "type": "string"
+          },
+          "source": {
+            "type": "string"
+          },
+          "status": {
+            "enum": [
+              "DISPATCHED",
+              "NO_WORKER_AVAILABLE",
+              "RUNNING",
+              "INVALID_CONTENT",
+              "SUCCESS",
+              "ERROR",
+              "TO_DISPATCH",
+              "TO_DELETE"
+            ],
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "EntityModelMapStringMaintenanceInfo": {
+        "properties": {
+          "links": {
+            "items": {
+              "$ref": "#/components/schemas/Link"
+            },
+            "type": "array"
+          }
+        },
+        "type": "object"
+      },
+      "GenericResponseBody": {
+        "properties": {
+          "message": {
+            "type": "string"
+          },
+          "properties": {
+            "additionalProperties": {
+              "type": "object"
+            },
+            "type": "object"
+          }
+        },
+        "type": "object"
+      },
+      "Link": {
+        "properties": {
+          "deprecation": {
+            "type": "string"
+          },
+          "href": {
+            "type": "string"
+          },
+          "hreflang": {
+            "type": "string"
+          },
+          "media": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "profile": {
+            "type": "string"
+          },
+          "rel": {
+            "type": "string"
+          },
+          "title": {
+            "type": "string"
+          },
+          "type": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "ModuleImportReport": {
+        "properties": {
+          "importErrors": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "uniqueItems": true
+          },
+          "moduleInformation": {
+            "$ref": "#/components/schemas/ModuleInformation"
+          },
+          "onlyErrors": {
+            "type": "boolean"
+          }
+        },
+        "type": "object"
+      },
+      "ModuleInformation": {
+        "properties": {
+          "author": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "documentation": {
+            "type": "string"
+          },
+          "id": {
+            "type": "string"
+          },
+          "legalOwner": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "version": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "author",
+          "id",
+          "name",
+          "version"
+        ],
+        "type": "object"
+      },
+      "ModuleReadinessReportObject": {
+        "properties": {
+          "ready": {
+            "type": "boolean"
+          },
+          "reasons": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "specifications": {
+            "type": "object"
+          }
+        },
+        "type": "object"
+      },
+      "ModuleRestartReport": {
+        "properties": {
+          "messages": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "moduleInformation": {
+            "$ref": "#/components/schemas/ModuleInformation"
+          }
+        },
+        "type": "object"
+      },
+      "PageMetadata": {
+        "properties": {
+          "number": {
+            "format": "int64",
+            "type": "integer"
+          },
+          "size": {
+            "format": "int64",
+            "type": "integer"
+          },
+          "totalElements": {
+            "format": "int64",
+            "type": "integer"
+          },
+          "totalPages": {
+            "format": "int64",
+            "type": "integer"
+          }
+        },
+        "type": "object"
+      },
+      "Pageable": {
+        "properties": {
+          "offset": {
+            "format": "int64",
+            "type": "integer"
+          },
+          "pageNumber": {
+            "format": "int32",
+            "type": "integer"
+          },
+          "pageSize": {
+            "format": "int32",
+            "type": "integer"
+          },
+          "paged": {
+            "type": "boolean"
+          },
+          "sort": {
+            "$ref": "#/components/schemas/Sort"
+          },
+          "unpaged": {
+            "type": "boolean"
+          }
+        },
+        "type": "object"
+      },
+      "PagedModelEntityModelLightRequest": {
+        "properties": {
+          "content": {
+            "items": {
+              "$ref": "#/components/schemas/EntityModelLightRequest"
+            },
+            "type": "array"
+          },
+          "links": {
+            "items": {
+              "$ref": "#/components/schemas/Link"
+            },
+            "type": "array"
+          },
+          "page": {
+            "$ref": "#/components/schemas/PageMetadata"
+          }
+        },
+        "type": "object"
+      },
+      "PagedResourcesAssemblerLightRequest": {
+        "properties": {
+          "forceFirstAndLastRels": {
+            "type": "boolean",
+            "writeOnly": true
+          }
+        },
+        "type": "object"
+      },
+      "ResourceAccess": {
+        "type": "object"
+      },
+      "ResourceMapping": {
+        "properties": {
+          "autorizedRoles": {
+            "items": {
+              "$ref": "#/components/schemas/RoleAuthority"
+            },
+            "type": "array"
+          },
+          "controllerSimpleName": {
+            "type": "string"
+          },
+          "fullPath": {
+            "type": "string"
+          },
+          "method": {
+            "enum": [
+              "GET",
+              "HEAD",
+              "POST",
+              "PUT",
+              "PATCH",
+              "DELETE",
+              "OPTIONS",
+              "TRACE"
+            ],
+            "type": "string"
+          },
+          "resourceAccess": {
+            "$ref": "#/components/schemas/ResourceAccess"
+          },
+          "resourceMappingId": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "RoleAuthority": {
+        "properties": {
+          "authority": {
+            "type": "string"
+          },
+          "authorizedIpAdresses": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "roleName": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "SearchRequestParameters": {
+        "properties": {
+          "contentTypes": {
+            "$ref": "#/components/schemas/ValuesRestrictionString"
+          },
+          "creationDate": {
+            "$ref": "#/components/schemas/DatesRangeRestriction"
+          },
+          "dispatchedWorkerType": {
+            "type": "string"
+          },
+          "ids": {
+            "$ref": "#/components/schemas/ValuesRestrictionLong"
+          },
+          "requestId": {
+            "type": "string"
+          },
+          "session": {
+            "type": "string"
+          },
+          "source": {
+            "type": "string"
+          },
+          "statuses": {
+            "$ref": "#/components/schemas/ValuesRestrictionRequestStatus"
+          }
+        },
+        "type": "object"
+      },
+      "Sort": {
+        "properties": {
+          "empty": {
+            "type": "boolean"
+          },
+          "sorted": {
+            "type": "boolean"
+          },
+          "unsorted": {
+            "type": "boolean"
+          }
+        },
+        "type": "object"
+      },
+      "ValuesRestrictionLong": {
+        "properties": {
+          "mode": {
+            "enum": [
+              "INCLUDE",
+              "EXCLUDE"
+            ],
+            "type": "string"
+          },
+          "values": {
+            "items": {
+              "format": "int64",
+              "type": "integer"
+            },
+            "type": "array"
+          }
+        },
+        "type": "object"
+      },
+      "ValuesRestrictionRequestStatus": {
+        "properties": {
+          "mode": {
+            "enum": [
+              "INCLUDE",
+              "EXCLUDE"
+            ],
+            "type": "string"
+          },
+          "values": {
+            "items": {
+              "enum": [
+                "DISPATCHED",
+                "NO_WORKER_AVAILABLE",
+                "RUNNING",
+                "INVALID_CONTENT",
+                "SUCCESS",
+                "ERROR",
+                "TO_DISPATCH",
+                "TO_DELETE"
+              ],
+              "type": "string"
+            },
+            "type": "array"
+          }
+        },
+        "type": "object"
+      },
+      "ValuesRestrictionString": {
+        "properties": {
+          "mode": {
+            "enum": [
+              "INCLUDE",
+              "EXCLUDE"
+            ],
+            "type": "string"
+          },
+          "values": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          }
+        },
+        "type": "object"
+      },
+      "WorkerTypeAlive": {
+        "properties": {
+          "nbInstance": {
+            "format": "int64",
+            "type": "integer"
+          },
+          "workerType": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      }
+    },
+    "securitySchemes": {
+      "REGARDS_OAUTH2": {
+        "flows": {
+          "password": {
+            "scopes": {},
+            "tokenUrl": "http://vm-perf.cloud-espace.si.c-s.fr:80/api/v1/rs-authentication/oauth/token"
+          }
+        },
+        "type": "oauth2"
+      }
+    }
+  },
   "info": {
-    "title": "MICROSERVICE WORKER MANAGER",
     "description": "Worker Manager API",
     "license": {
       "name": "GPL-3.0"
     },
+    "title": "MICROSERVICE WORKER MANAGER",
     "version": "1.8.0"
   },
-  "servers": [
-    {
-      "url": "https://regardsoss.github.io/api/v1/rs-worker-manager",
-      "description": "Generated server url"
-    }
-  ],
-  "security": [
-    {
-      "REGARDS_OAUTH2": []
-    }
-  ],
+  "openapi": "3.0.1",
   "paths": {
-    "/requests": {
-      "post": {
-        "tags": [
-          "request-controller"
-        ],
-        "operationId": "retrieveLightRequestList",
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "type": "object",
-                "properties": {
-                  "filters": {
-                    "$ref": "#/components/schemas/SearchRequestParameters"
-                  },
-                  "pageable": {
-                    "$ref": "#/components/schemas/Pageable"
-                  },
-                  "assembler": {
-                    "$ref": "#/components/schemas/PagedResourcesAssemblerLightRequest"
-                  }
-                }
-              }
-            }
-          },
-          "required": true
-        },
+    "/maintenance": {
+      "get": {
+        "operationId": "retrieveTenantsInMaintenance",
         "responses": {
           "200": {
-            "description": "default response",
             "content": {
               "*/*": {
                 "schema": {
-                  "$ref": "#/components/schemas/PagedModelEntityModelLightRequest"
+                  "$ref": "#/components/schemas/EntityModelMapStringMaintenanceInfo"
                 }
               }
-            }
+            },
+            "description": "default response"
           }
-        }
+        },
+        "tags": [
+          "maintenance-controller"
+        ]
       }
     },
-    "/requests/{requestId}": {
-      "get": {
-        "tags": [
-          "request-controller"
-        ],
-        "operationId": "retrieveLightRequest",
+    "/maintenance/{tenant}/disable": {
+      "put": {
+        "operationId": "unSetMaintenance",
         "parameters": [
           {
-            "name": "requestId",
             "in": "path",
+            "name": "tenant",
             "required": true,
             "schema": {
               "type": "string"
@@ -79,29 +548,249 @@
         ],
         "responses": {
           "200": {
-            "description": "default response",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/EntityModelLightRequest"
-                }
-              }
-            }
+            "description": "default response"
           }
-        }
+        },
+        "tags": [
+          "maintenance-controller"
+        ]
       }
     },
-    "/requests/retry": {
-      "post": {
-        "tags": [
-          "request-controller"
+    "/maintenance/{tenant}/enable": {
+      "put": {
+        "operationId": "setMaintenance",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "tenant",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
         ],
-        "operationId": "retryRequests",
+        "responses": {
+          "200": {
+            "description": "default response"
+          }
+        },
+        "tags": [
+          "maintenance-controller"
+        ]
+      }
+    },
+    "/microservice/configuration": {
+      "get": {
+        "operationId": "exportConfiguration",
+        "responses": {
+          "200": {
+            "description": "default response"
+          }
+        },
+        "tags": [
+          "module-manager-controller"
+        ]
+      },
+      "post": {
+        "operationId": "importConfiguration",
         "requestBody": {
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/SearchRequestParameters"
+                "properties": {
+                  "file": {
+                    "format": "binary",
+                    "type": "string"
+                  }
+                },
+                "type": "object"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "*/*": {
+                "schema": {
+                  "items": {
+                    "$ref": "#/components/schemas/ModuleImportReport"
+                  },
+                  "type": "array",
+                  "uniqueItems": true
+                }
+              }
+            },
+            "description": "default response"
+          }
+        },
+        "tags": [
+          "module-manager-controller"
+        ]
+      }
+    },
+    "/microservice/configuration/enabled": {
+      "get": {
+        "operationId": "isConfigurationEnabled",
+        "responses": {
+          "200": {
+            "description": "default response"
+          }
+        },
+        "tags": [
+          "module-manager-controller"
+        ]
+      }
+    },
+    "/microservice/ready": {
+      "get": {
+        "operationId": "isReady",
+        "responses": {
+          "200": {
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/ModuleReadinessReportObject"
+                }
+              }
+            },
+            "description": "default response"
+          }
+        },
+        "tags": [
+          "module-manager-controller"
+        ]
+      }
+    },
+    "/microservice/ready/enabled": {
+      "get": {
+        "operationId": "isReadyEnabled",
+        "responses": {
+          "200": {
+            "description": "default response"
+          }
+        },
+        "tags": [
+          "module-manager-controller"
+        ]
+      }
+    },
+    "/microservice/restart": {
+      "get": {
+        "operationId": "restart",
+        "responses": {
+          "200": {
+            "content": {
+              "*/*": {
+                "schema": {
+                  "items": {
+                    "$ref": "#/components/schemas/ModuleRestartReport"
+                  },
+                  "type": "array",
+                  "uniqueItems": true
+                }
+              }
+            },
+            "description": "default response"
+          }
+        },
+        "tags": [
+          "module-manager-controller"
+        ]
+      }
+    },
+    "/microservice/restart/enabled": {
+      "get": {
+        "operationId": "isRestartEnabled",
+        "responses": {
+          "200": {
+            "description": "default response"
+          }
+        },
+        "tags": [
+          "module-manager-controller"
+        ]
+      }
+    },
+    "/regards/{tenant}/datasource/status": {
+      "get": {
+        "operationId": "getDataSourceStatus",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "tenant",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json;charset=UTF-8": {
+                "schema": {
+                  "$ref": "#/components/schemas/GenericResponseBody"
+                }
+              }
+            },
+            "description": "default response"
+          }
+        },
+        "tags": [
+          "jpa-multitenant-controller"
+        ]
+      }
+    },
+    "/regards/{tenant}/datasource/test": {
+      "get": {
+        "operationId": "testTenantConnection",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "tenant",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json;charset=UTF-8": {
+                "schema": {
+                  "$ref": "#/components/schemas/GenericResponseBody"
+                }
+              }
+            },
+            "description": "default response"
+          }
+        },
+        "tags": [
+          "jpa-multitenant-controller"
+        ]
+      }
+    },
+    "/requests": {
+      "post": {
+        "operationId": "retrieveLightRequestList",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "properties": {
+                  "assembler": {
+                    "$ref": "#/components/schemas/PagedResourcesAssemblerLightRequest"
+                  },
+                  "filters": {
+                    "$ref": "#/components/schemas/SearchRequestParameters"
+                  },
+                  "pageable": {
+                    "$ref": "#/components/schemas/Pageable"
+                  }
+                },
+                "type": "object"
               }
             }
           },
@@ -109,16 +798,23 @@
         },
         "responses": {
           "200": {
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/PagedModelEntityModelLightRequest"
+                }
+              }
+            },
             "description": "default response"
           }
-        }
+        },
+        "tags": [
+          "request-controller"
+        ]
       }
     },
     "/requests/delete": {
       "delete": {
-        "tags": [
-          "request-controller"
-        ],
         "operationId": "deleteRequests",
         "requestBody": {
           "content": {
@@ -134,364 +830,160 @@
           "200": {
             "description": "default response"
           }
-        }
-      }
-    },
-    "/workers": {
-      "get": {
+        },
         "tags": [
-          "worker-controller"
-        ],
-        "operationId": "retrieveWorkerList",
-        "parameters": [
-          {
-            "name": "contentTypes",
-            "in": "query",
-            "required": false,
-            "schema": {
-              "type": "array",
-              "items": {
-                "type": "string"
-              }
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "default response",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/WorkerTypeAlive"
-                  }
-                }
-              }
-            }
-          }
-        }
+          "request-controller"
+        ]
       }
     },
-    "/regards/{tenant}/datasource/status": {
-      "get": {
-        "tags": [
-          "jpa-multitenant-controller"
-        ],
-        "operationId": "getDataSourceStatus",
-        "parameters": [
-          {
-            "name": "tenant",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "default response",
-            "content": {
-              "application/json;charset=UTF-8": {
-                "schema": {
-                  "$ref": "#/components/schemas/GenericResponseBody"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/regards/{tenant}/datasource/test": {
-      "get": {
-        "tags": [
-          "jpa-multitenant-controller"
-        ],
-        "operationId": "testTenantConnection",
-        "parameters": [
-          {
-            "name": "tenant",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "default response",
-            "content": {
-              "application/json;charset=UTF-8": {
-                "schema": {
-                  "$ref": "#/components/schemas/GenericResponseBody"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/maintenance": {
-      "get": {
-        "tags": [
-          "maintenance-controller"
-        ],
-        "operationId": "retrieveTenantsInMaintenance",
-        "responses": {
-          "200": {
-            "description": "default response",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/EntityModelMapStringMaintenanceInfo"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/maintenance/{tenant}/enable": {
-      "put": {
-        "tags": [
-          "maintenance-controller"
-        ],
-        "operationId": "setMaintenance",
-        "parameters": [
-          {
-            "name": "tenant",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "default response"
-          }
-        }
-      }
-    },
-    "/maintenance/{tenant}/disable": {
-      "put": {
-        "tags": [
-          "maintenance-controller"
-        ],
-        "operationId": "unSetMaintenance",
-        "parameters": [
-          {
-            "name": "tenant",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "default response"
-          }
-        }
-      }
-    },
-    "/shutdown/immediate": {
+    "/requests/retry": {
       "post": {
-        "tags": [
-          "manager-controller"
-        ],
-        "operationId": "immediateShutdown",
-        "responses": {
-          "200": {
-            "description": "default response"
-          }
-        }
-      }
-    },
-    "/microservice/configuration": {
-      "get": {
-        "tags": [
-          "module-manager-controller"
-        ],
-        "operationId": "exportConfiguration",
-        "responses": {
-          "200": {
-            "description": "default response"
-          }
-        }
-      },
-      "post": {
-        "tags": [
-          "module-manager-controller"
-        ],
-        "operationId": "importConfiguration",
+        "operationId": "retryRequests",
         "requestBody": {
           "content": {
             "application/json": {
               "schema": {
-                "type": "object",
-                "properties": {
-                  "file": {
-                    "type": "string",
-                    "format": "binary"
-                  }
-                }
+                "$ref": "#/components/schemas/SearchRequestParameters"
               }
             }
-          }
+          },
+          "required": true
         },
         "responses": {
           "200": {
-            "description": "default response",
+            "description": "default response"
+          }
+        },
+        "tags": [
+          "request-controller"
+        ]
+      }
+    },
+    "/requests/{requestId}": {
+      "get": {
+        "operationId": "retrieveLightRequest",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "requestId",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
             "content": {
               "*/*": {
                 "schema": {
-                  "uniqueItems": true,
-                  "type": "array",
+                  "$ref": "#/components/schemas/EntityModelLightRequest"
+                }
+              }
+            },
+            "description": "default response"
+          }
+        },
+        "tags": [
+          "request-controller"
+        ]
+      }
+    },
+    "/security/resources": {
+      "get": {
+        "operationId": "getAllResources",
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
                   "items": {
-                    "$ref": "#/components/schemas/ModuleImportReport"
-                  }
+                    "$ref": "#/components/schemas/ResourceMapping"
+                  },
+                  "type": "array"
                 }
               }
-            }
-          }
-        }
-      }
-    },
-    "/microservice/ready": {
-      "get": {
-        "tags": [
-          "module-manager-controller"
-        ],
-        "operationId": "isReady",
-        "responses": {
-          "200": {
-            "description": "default response",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/ModuleReadinessReportObject"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/microservice/restart/enabled": {
-      "get": {
-        "tags": [
-          "module-manager-controller"
-        ],
-        "operationId": "isRestartEnabled",
-        "responses": {
-          "200": {
+            },
             "description": "default response"
           }
-        }
-      }
-    },
-    "/microservice/ready/enabled": {
-      "get": {
+        },
         "tags": [
-          "module-manager-controller"
-        ],
-        "operationId": "isReadyEnabled",
-        "responses": {
-          "200": {
-            "description": "default response"
-          }
-        }
-      }
-    },
-    "/microservice/configuration/enabled": {
-      "get": {
-        "tags": [
-          "module-manager-controller"
-        ],
-        "operationId": "isConfigurationEnabled",
-        "responses": {
-          "200": {
-            "description": "default response"
-          }
-        }
-      }
-    },
-    "/microservice/restart": {
-      "get": {
-        "tags": [
-          "module-manager-controller"
-        ],
-        "operationId": "restart",
-        "responses": {
-          "200": {
-            "description": "default response",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "uniqueItems": true,
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/ModuleRestartReport"
-                  }
-                }
-              }
-            }
-          }
-        }
+          "security-resources-controller"
+        ]
       }
     },
     "/settings": {
       "get": {
-        "tags": [
-          "dynamic-tenant-setting-controller"
-        ],
         "operationId": "retrieveAll",
         "parameters": [
           {
-            "name": "names",
             "in": "query",
+            "name": "names",
             "required": false,
             "schema": {
-              "uniqueItems": true,
-              "type": "array",
               "items": {
                 "type": "string"
-              }
+              },
+              "type": "array",
+              "uniqueItems": true
             }
           }
         ],
         "responses": {
           "200": {
-            "description": "default response",
             "content": {
               "*/*": {
                 "schema": {
-                  "type": "array",
                   "items": {
                     "$ref": "#/components/schemas/EntityModelDynamicTenantSettingDto"
-                  }
+                  },
+                  "type": "array"
                 }
               }
-            }
+            },
+            "description": "default response"
           }
-        }
+        },
+        "tags": [
+          "dynamic-tenant-setting-controller"
+        ]
       }
     },
     "/settings/{name}": {
-      "put": {
+      "delete": {
+        "operationId": "reset",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "name",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/EntityModelDynamicTenantSettingDto"
+                }
+              }
+            },
+            "description": "default response"
+          }
+        },
         "tags": [
           "dynamic-tenant-setting-controller"
-        ],
+        ]
+      },
+      "put": {
         "operationId": "update",
         "parameters": [
           {
-            "name": "name",
             "in": "path",
+            "name": "name",
             "required": true,
             "schema": {
               "type": "string"
@@ -510,572 +1002,80 @@
         },
         "responses": {
           "200": {
-            "description": "default response",
             "content": {
               "*/*": {
                 "schema": {
                   "$ref": "#/components/schemas/EntityModelDynamicTenantSettingDto"
                 }
               }
-            }
+            },
+            "description": "default response"
           }
-        }
-      },
-      "delete": {
+        },
         "tags": [
           "dynamic-tenant-setting-controller"
-        ],
-        "operationId": "reset",
+        ]
+      }
+    },
+    "/shutdown/immediate": {
+      "post": {
+        "operationId": "immediateShutdown",
+        "responses": {
+          "200": {
+            "description": "default response"
+          }
+        },
+        "tags": [
+          "manager-controller"
+        ]
+      }
+    },
+    "/workers": {
+      "get": {
+        "operationId": "retrieveWorkerList",
         "parameters": [
           {
-            "name": "name",
-            "in": "path",
-            "required": true,
+            "in": "query",
+            "name": "contentTypes",
+            "required": false,
             "schema": {
-              "type": "string"
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
             }
           }
         ],
         "responses": {
           "200": {
-            "description": "default response",
             "content": {
               "*/*": {
                 "schema": {
-                  "$ref": "#/components/schemas/EntityModelDynamicTenantSettingDto"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/security/resources": {
-      "get": {
-        "tags": [
-          "security-resources-controller"
-        ],
-        "operationId": "getAllResources",
-        "responses": {
-          "200": {
-            "description": "default response",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/ResourceMapping"
-                  }
+                    "$ref": "#/components/schemas/WorkerTypeAlive"
+                  },
+                  "type": "array"
                 }
               }
-            }
+            },
+            "description": "default response"
           }
-        }
+        },
+        "tags": [
+          "worker-controller"
+        ]
       }
     }
   },
-  "components": {
-    "schemas": {
-      "DatesRangeRestriction": {
-        "type": "object",
-        "properties": {
-          "after": {
-            "type": "string",
-            "format": "date-time"
-          },
-          "before": {
-            "type": "string",
-            "format": "date-time"
-          }
-        }
-      },
-      "SearchRequestParameters": {
-        "type": "object",
-        "properties": {
-          "source": {
-            "type": "string"
-          },
-          "session": {
-            "type": "string"
-          },
-          "requestId": {
-            "type": "string"
-          },
-          "dispatchedWorkerType": {
-            "type": "string"
-          },
-          "contentTypes": {
-            "$ref": "#/components/schemas/ValuesRestrictionString"
-          },
-          "statuses": {
-            "$ref": "#/components/schemas/ValuesRestrictionRequestStatus"
-          },
-          "ids": {
-            "$ref": "#/components/schemas/ValuesRestrictionLong"
-          },
-          "creationDate": {
-            "$ref": "#/components/schemas/DatesRangeRestriction"
-          }
-        }
-      },
-      "ValuesRestrictionLong": {
-        "type": "object",
-        "properties": {
-          "values": {
-            "type": "array",
-            "items": {
-              "type": "integer",
-              "format": "int64"
-            }
-          },
-          "mode": {
-            "type": "string",
-            "enum": [
-              "INCLUDE",
-              "EXCLUDE"
-            ]
-          }
-        }
-      },
-      "ValuesRestrictionRequestStatus": {
-        "type": "object",
-        "properties": {
-          "values": {
-            "type": "array",
-            "items": {
-              "type": "string",
-              "enum": [
-                "DISPATCHED",
-                "NO_WORKER_AVAILABLE",
-                "RUNNING",
-                "INVALID_CONTENT",
-                "SUCCESS",
-                "ERROR",
-                "TO_DISPATCH",
-                "TO_DELETE"
-              ]
-            }
-          },
-          "mode": {
-            "type": "string",
-            "enum": [
-              "INCLUDE",
-              "EXCLUDE"
-            ]
-          }
-        }
-      },
-      "ValuesRestrictionString": {
-        "type": "object",
-        "properties": {
-          "values": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
-          },
-          "mode": {
-            "type": "string",
-            "enum": [
-              "INCLUDE",
-              "EXCLUDE"
-            ]
-          }
-        }
-      },
-      "Pageable": {
-        "type": "object",
-        "properties": {
-          "paged": {
-            "type": "boolean"
-          },
-          "sort": {
-            "$ref": "#/components/schemas/Sort"
-          },
-          "pageNumber": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "pageSize": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "unpaged": {
-            "type": "boolean"
-          },
-          "offset": {
-            "type": "integer",
-            "format": "int64"
-          }
-        }
-      },
-      "Sort": {
-        "type": "object",
-        "properties": {
-          "sorted": {
-            "type": "boolean"
-          },
-          "unsorted": {
-            "type": "boolean"
-          },
-          "empty": {
-            "type": "boolean"
-          }
-        }
-      },
-      "PagedResourcesAssemblerLightRequest": {
-        "type": "object",
-        "properties": {
-          "forceFirstAndLastRels": {
-            "type": "boolean",
-            "writeOnly": true
-          }
-        }
-      },
-      "EntityModelLightRequest": {
-        "type": "object",
-        "properties": {
-          "requestId": {
-            "type": "string"
-          },
-          "creationDate": {
-            "type": "string",
-            "format": "date-time"
-          },
-          "contentType": {
-            "type": "string"
-          },
-          "source": {
-            "type": "string"
-          },
-          "session": {
-            "type": "string"
-          },
-          "status": {
-            "type": "string",
-            "enum": [
-              "DISPATCHED",
-              "NO_WORKER_AVAILABLE",
-              "RUNNING",
-              "INVALID_CONTENT",
-              "SUCCESS",
-              "ERROR",
-              "TO_DISPATCH",
-              "TO_DELETE"
-            ]
-          },
-          "dispatchedWorkerType": {
-            "type": "string"
-          },
-          "error": {
-            "type": "string"
-          },
-          "links": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/Link"
-            }
-          }
-        }
-      },
-      "Link": {
-        "type": "object",
-        "properties": {
-          "rel": {
-            "type": "string"
-          },
-          "href": {
-            "type": "string"
-          },
-          "hreflang": {
-            "type": "string"
-          },
-          "media": {
-            "type": "string"
-          },
-          "title": {
-            "type": "string"
-          },
-          "type": {
-            "type": "string"
-          },
-          "deprecation": {
-            "type": "string"
-          },
-          "profile": {
-            "type": "string"
-          },
-          "name": {
-            "type": "string"
-          }
-        }
-      },
-      "PageMetadata": {
-        "type": "object",
-        "properties": {
-          "size": {
-            "type": "integer",
-            "format": "int64"
-          },
-          "totalElements": {
-            "type": "integer",
-            "format": "int64"
-          },
-          "totalPages": {
-            "type": "integer",
-            "format": "int64"
-          },
-          "number": {
-            "type": "integer",
-            "format": "int64"
-          }
-        }
-      },
-      "PagedModelEntityModelLightRequest": {
-        "type": "object",
-        "properties": {
-          "links": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/Link"
-            }
-          },
-          "content": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/EntityModelLightRequest"
-            }
-          },
-          "page": {
-            "$ref": "#/components/schemas/PageMetadata"
-          }
-        }
-      },
-      "WorkerTypeAlive": {
-        "type": "object",
-        "properties": {
-          "workerType": {
-            "type": "string"
-          },
-          "nbInstance": {
-            "type": "integer",
-            "format": "int64"
-          }
-        }
-      },
-      "GenericResponseBody": {
-        "type": "object",
-        "properties": {
-          "message": {
-            "type": "string"
-          },
-          "properties": {
-            "type": "object",
-            "additionalProperties": {
-              "type": "object"
-            }
-          }
-        }
-      },
-      "EntityModelMapStringMaintenanceInfo": {
-        "type": "object",
-        "properties": {
-          "links": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/Link"
-            }
-          }
-        }
-      },
-      "ModuleImportReport": {
-        "type": "object",
-        "properties": {
-          "moduleInformation": {
-            "$ref": "#/components/schemas/ModuleInformation"
-          },
-          "importErrors": {
-            "uniqueItems": true,
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
-          },
-          "onlyErrors": {
-            "type": "boolean"
-          }
-        }
-      },
-      "ModuleInformation": {
-        "required": [
-          "author",
-          "id",
-          "name",
-          "version"
-        ],
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "string"
-          },
-          "name": {
-            "type": "string"
-          },
-          "description": {
-            "type": "string"
-          },
-          "version": {
-            "type": "string"
-          },
-          "author": {
-            "type": "string"
-          },
-          "legalOwner": {
-            "type": "string"
-          },
-          "documentation": {
-            "type": "string"
-          }
-        }
-      },
-      "ModuleReadinessReportObject": {
-        "type": "object",
-        "properties": {
-          "ready": {
-            "type": "boolean"
-          },
-          "reasons": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
-          },
-          "specifications": {
-            "type": "object"
-          }
-        }
-      },
-      "ModuleRestartReport": {
-        "type": "object",
-        "properties": {
-          "moduleInformation": {
-            "$ref": "#/components/schemas/ModuleInformation"
-          },
-          "messages": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
-          }
-        }
-      },
-      "DynamicTenantSettingDto": {
-        "type": "object",
-        "properties": {
-          "name": {
-            "type": "string"
-          },
-          "description": {
-            "type": "string"
-          },
-          "value": {
-            "type": "object"
-          },
-          "defaultValue": {
-            "type": "object"
-          }
-        }
-      },
-      "EntityModelDynamicTenantSettingDto": {
-        "type": "object",
-        "properties": {
-          "name": {
-            "type": "string"
-          },
-          "description": {
-            "type": "string"
-          },
-          "value": {
-            "type": "object"
-          },
-          "defaultValue": {
-            "type": "object"
-          },
-          "links": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/Link"
-            }
-          }
-        }
-      },
-      "ResourceAccess": {
-        "type": "object"
-      },
-      "ResourceMapping": {
-        "type": "object",
-        "properties": {
-          "resourceAccess": {
-            "$ref": "#/components/schemas/ResourceAccess"
-          },
-          "fullPath": {
-            "type": "string"
-          },
-          "controllerSimpleName": {
-            "type": "string"
-          },
-          "method": {
-            "type": "string",
-            "enum": [
-              "GET",
-              "HEAD",
-              "POST",
-              "PUT",
-              "PATCH",
-              "DELETE",
-              "OPTIONS",
-              "TRACE"
-            ]
-          },
-          "autorizedRoles": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/RoleAuthority"
-            }
-          },
-          "resourceMappingId": {
-            "type": "string"
-          }
-        }
-      },
-      "RoleAuthority": {
-        "type": "object",
-        "properties": {
-          "authorizedIpAdresses": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
-          },
-          "roleName": {
-            "type": "string"
-          },
-          "authority": {
-            "type": "string"
-          }
-        }
-      }
-    },
-    "securitySchemes": {
-      "REGARDS_OAUTH2": {
-        "type": "oauth2",
-        "flows": {
-          "password": {
-            "tokenUrl": "http://vm-perf.cloud-espace.si.c-s.fr:80/api/v1/rs-authentication/oauth/token",
-            "scopes": {}
-          }
-        }
-      }
+  "security": [
+    {
+      "REGARDS_OAUTH2": []
     }
-  }
+  ],
+  "servers": [
+    {
+      "description": "Generated server url",
+      "url": "https://regardsoss.github.io/api/v1/rs-worker-manager"
+    }
+  ]
 }

@@ -1,1049 +1,199 @@
 {
-  "openapi": "3.0.1",
-  "info": {
-    "title": "MICROSERVICE NOTIFIER",
-    "description": "Notification management API",
-    "license": {
-      "name": "GPL-3.0"
-    },
-    "version": "1.8.0"
-  },
-  "servers": [
-    {
-      "url": "https://regardsoss.github.io/api/v1/rs-notifier",
-      "description": "Generated server url"
-    }
-  ],
-  "security": [
-    {
-      "REGARDS_OAUTH2": []
-    }
-  ],
-  "paths": {
-    "/recipient": {
-      "get": {
-        "tags": [
-          "recipient-controller"
-        ],
-        "summary": "List all recipient",
-        "description": "List all recipient",
-        "operationId": "getRecipients",
-        "parameters": [
-          {
-            "name": "page",
-            "in": "query",
-            "description": "Request page",
-            "required": true,
-            "schema": {
-              "$ref": "#/components/schemas/Pageable"
-            }
-          },
-          {
-            "name": "assembler",
-            "in": "query",
-            "required": true,
-            "schema": {
-              "$ref": "#/components/schemas/PagedResourcesAssemblerPluginConfiguration"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Recipients",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/EntityModelPluginConfiguration"
-                  }
-                }
-              }
-            }
-          }
-        }
-      },
-      "put": {
-        "tags": [
-          "recipient-controller"
-        ],
-        "summary": "Update a recipient",
-        "description": "Update a recipient",
-        "operationId": "updateRecipient",
-        "requestBody": {
-          "description": "Recipient to update",
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/PluginConfiguration"
-              }
-            }
-          },
-          "required": true
-        },
-        "responses": {
-          "200": {
-            "description": "Updated Recipient",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/EntityModelPluginConfiguration"
-                }
-              }
-            }
-          }
-        }
-      },
-      "post": {
-        "tags": [
-          "recipient-controller"
-        ],
-        "summary": "Create a recipient",
-        "description": "Create a recipient",
-        "operationId": "createRecipient",
-        "requestBody": {
-          "description": "Recipient to create",
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/PluginConfiguration"
-              }
-            }
-          },
-          "required": true
-        },
-        "responses": {
-          "200": {
-            "description": "Created Recipient",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/EntityModelPluginConfiguration"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/recipient/{id}": {
-      "delete": {
-        "tags": [
-          "recipient-controller"
-        ],
-        "summary": "Delete a recipient",
-        "description": "Delete a recipient",
-        "operationId": "deleteRecipient",
-        "parameters": [
-          {
-            "name": "businessId",
-            "in": "path",
-            "description": "Recipient to delete id",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "default response"
-          }
-        }
-      }
-    },
-    "/rule": {
-      "get": {
-        "tags": [
-          "rule-controller"
-        ],
-        "summary": "List all rules",
-        "description": "List all Rules",
-        "operationId": "getRules",
-        "parameters": [
-          {
-            "name": "page",
-            "in": "query",
-            "description": "Wanted page",
-            "required": true,
-            "schema": {
-              "$ref": "#/components/schemas/Pageable"
-            }
-          },
-          {
-            "name": "assembler",
-            "in": "query",
-            "required": true,
-            "schema": {
-              "$ref": "#/components/schemas/PagedResourcesAssemblerRuleDTO"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "All Rules",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/PagedModelEntityModelRuleDTO"
-                }
-              }
-            }
-          }
-        }
-      },
-      "put": {
-        "tags": [
-          "rule-controller"
-        ],
-        "summary": "Update a rule",
-        "description": "Update a Rule",
-        "operationId": "updateRule",
-        "requestBody": {
-          "description": "Rule to update",
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/RuleDTO"
-              }
-            }
-          },
-          "required": true
-        },
-        "responses": {
-          "200": {
-            "description": "Updated Rule",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/EntityModelRuleDTO"
-                }
-              }
-            }
-          }
-        }
-      },
-      "post": {
-        "tags": [
-          "rule-controller"
-        ],
-        "summary": "Create a rule",
-        "description": "Create a Rule",
-        "operationId": "createRule",
-        "requestBody": {
-          "description": "Rule to create",
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/RuleDTO"
-              }
-            }
-          },
-          "required": true
-        },
-        "responses": {
-          "200": {
-            "description": "Created Rule",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/EntityModelRuleDTO"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/rule/{id}": {
-      "delete": {
-        "tags": [
-          "rule-controller"
-        ],
-        "summary": "Delete a rule",
-        "description": "Delete a rule",
-        "operationId": "deleteRule",
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "default response"
-          }
-        }
-      }
-    },
-    "/regards/{tenant}/datasource/test": {
-      "get": {
-        "tags": [
-          "jpa-multitenant-controller"
-        ],
-        "operationId": "testTenantConnection",
-        "parameters": [
-          {
-            "name": "tenant",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "default response",
-            "content": {
-              "application/json;charset=UTF-8": {
-                "schema": {
-                  "$ref": "#/components/schemas/GenericResponseBody"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/regards/{tenant}/datasource/status": {
-      "get": {
-        "tags": [
-          "jpa-multitenant-controller"
-        ],
-        "operationId": "getDataSourceStatus",
-        "parameters": [
-          {
-            "name": "tenant",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "default response",
-            "content": {
-              "application/json;charset=UTF-8": {
-                "schema": {
-                  "$ref": "#/components/schemas/GenericResponseBody"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/maintenance": {
-      "get": {
-        "tags": [
-          "maintenance-controller"
-        ],
-        "operationId": "retrieveTenantsInMaintenance",
-        "responses": {
-          "200": {
-            "description": "default response",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/EntityModelMapStringMaintenanceInfo"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/maintenance/{tenant}/enable": {
-      "put": {
-        "tags": [
-          "maintenance-controller"
-        ],
-        "operationId": "setMaintenance",
-        "parameters": [
-          {
-            "name": "tenant",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "default response"
-          }
-        }
-      }
-    },
-    "/maintenance/{tenant}/disable": {
-      "put": {
-        "tags": [
-          "maintenance-controller"
-        ],
-        "operationId": "unSetMaintenance",
-        "parameters": [
-          {
-            "name": "tenant",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "default response"
-          }
-        }
-      }
-    },
-    "/shutdown/immediate": {
-      "post": {
-        "tags": [
-          "manager-controller"
-        ],
-        "operationId": "immediateShutdown",
-        "responses": {
-          "200": {
-            "description": "default response"
-          }
-        }
-      }
-    },
-    "/microservice/configuration/enabled": {
-      "get": {
-        "tags": [
-          "module-manager-controller"
-        ],
-        "operationId": "isConfigurationEnabled",
-        "responses": {
-          "200": {
-            "description": "default response"
-          }
-        }
-      }
-    },
-    "/microservice/restart/enabled": {
-      "get": {
-        "tags": [
-          "module-manager-controller"
-        ],
-        "operationId": "isRestartEnabled",
-        "responses": {
-          "200": {
-            "description": "default response"
-          }
-        }
-      }
-    },
-    "/microservice/ready/enabled": {
-      "get": {
-        "tags": [
-          "module-manager-controller"
-        ],
-        "operationId": "isReadyEnabled",
-        "responses": {
-          "200": {
-            "description": "default response"
-          }
-        }
-      }
-    },
-    "/microservice/configuration": {
-      "get": {
-        "tags": [
-          "module-manager-controller"
-        ],
-        "operationId": "exportConfiguration",
-        "responses": {
-          "200": {
-            "description": "default response"
-          }
-        }
-      },
-      "post": {
-        "tags": [
-          "module-manager-controller"
-        ],
-        "operationId": "importConfiguration",
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "type": "object",
-                "properties": {
-                  "file": {
-                    "type": "string",
-                    "format": "binary"
-                  }
-                }
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "default response",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "uniqueItems": true,
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/ModuleImportReport"
-                  }
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/microservice/ready": {
-      "get": {
-        "tags": [
-          "module-manager-controller"
-        ],
-        "operationId": "isReady",
-        "responses": {
-          "200": {
-            "description": "default response",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/ModuleReadinessReportObject"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/microservice/restart": {
-      "get": {
-        "tags": [
-          "module-manager-controller"
-        ],
-        "operationId": "restart",
-        "responses": {
-          "200": {
-            "description": "default response",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "uniqueItems": true,
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/ModuleRestartReport"
-                  }
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/plugins/{pluginId}/config/{configBusinessId}": {
-      "get": {
-        "tags": [
-          "plugin-controller"
-        ],
-        "operationId": "getPluginConfiguration",
-        "parameters": [
-          {
-            "name": "pluginId",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "configBusinessId",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "default response",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/EntityModelPluginConfiguration"
-                }
-              }
-            }
-          }
-        }
-      },
-      "put": {
-        "tags": [
-          "plugin-controller"
-        ],
-        "operationId": "updatePluginConfiguration",
-        "parameters": [
-          {
-            "name": "pluginId",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "configBusinessId",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/PluginConfiguration"
-              }
-            }
-          },
-          "required": true
-        },
-        "responses": {
-          "200": {
-            "description": "default response",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/EntityModelPluginConfiguration"
-                }
-              }
-            }
-          }
-        }
-      },
-      "delete": {
-        "tags": [
-          "plugin-controller"
-        ],
-        "operationId": "deletePluginConfiguration",
-        "parameters": [
-          {
-            "name": "pluginId",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "configBusinessId",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "default response"
-          }
-        }
-      }
-    },
-    "/plugins/{pluginId}/config": {
-      "get": {
-        "tags": [
-          "plugin-controller"
-        ],
-        "operationId": "getPluginConfigurations",
-        "parameters": [
-          {
-            "name": "pluginId",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "default response",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/EntityModelPluginConfiguration"
-                  }
-                }
-              }
-            }
-          }
-        }
-      },
-      "post": {
-        "tags": [
-          "plugin-controller"
-        ],
-        "operationId": "savePluginConfiguration",
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/PluginConfiguration"
-              }
-            }
-          },
-          "required": true
-        },
-        "responses": {
-          "200": {
-            "description": "default response",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/EntityModelPluginConfiguration"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/plugins/configs/{configBusinessId}": {
-      "get": {
-        "tags": [
-          "plugin-controller"
-        ],
-        "operationId": "getPluginConfigurationDirectAccess",
-        "parameters": [
-          {
-            "name": "configBusinessId",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "default response",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/EntityModelPluginConfiguration"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/plugins/configs": {
-      "get": {
-        "tags": [
-          "plugin-controller"
-        ],
-        "operationId": "getPluginConfigurationsByType",
-        "parameters": [
-          {
-            "name": "pluginType",
-            "in": "query",
-            "required": false,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "default response",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/EntityModelPluginConfiguration"
-                  }
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/plugins/{pluginId}": {
-      "get": {
-        "tags": [
-          "plugin-controller"
-        ],
-        "operationId": "getPluginMetaDataById",
-        "parameters": [
-          {
-            "name": "pluginId",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "default response",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/EntityModelPluginMetaData"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/plugins": {
-      "get": {
-        "tags": [
-          "plugin-controller"
-        ],
-        "operationId": "getPlugins",
-        "parameters": [
-          {
-            "name": "pluginType",
-            "in": "query",
-            "required": false,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "default response",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/EntityModelPluginMetaData"
-                  }
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/plugintypes": {
-      "get": {
-        "tags": [
-          "plugin-controller"
-        ],
-        "operationId": "getPluginTypes",
-        "parameters": [
-          {
-            "name": "available",
-            "in": "query",
-            "required": false,
-            "schema": {
-              "type": "boolean"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "default response",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/EntityModelString"
-                  }
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/plugins/cache": {
-      "delete": {
-        "tags": [
-          "plugin-controller"
-        ],
-        "operationId": "emptyCache",
-        "responses": {
-          "200": {
-            "description": "default response"
-          }
-        }
-      }
-    },
-    "/security/resources": {
-      "get": {
-        "tags": [
-          "security-resources-controller"
-        ],
-        "operationId": "getAllResources",
-        "responses": {
-          "200": {
-            "description": "default response",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/ResourceMapping"
-                  }
-                }
-              }
-            }
-          }
-        }
-      }
-    }
-  },
   "components": {
     "schemas": {
-      "Pageable": {
-        "type": "object",
+      "EntityModelMapStringMaintenanceInfo": {
         "properties": {
-          "sort": {
-            "$ref": "#/components/schemas/Sort"
-          },
-          "pageNumber": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "pageSize": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "unpaged": {
-            "type": "boolean"
-          },
-          "paged": {
-            "type": "boolean"
-          },
-          "offset": {
-            "type": "integer",
-            "format": "int64"
+          "links": {
+            "items": {
+              "$ref": "#/components/schemas/Link"
+            },
+            "type": "array"
           }
-        }
-      },
-      "Sort": {
-        "type": "object",
-        "properties": {
-          "sorted": {
-            "type": "boolean"
-          },
-          "unsorted": {
-            "type": "boolean"
-          },
-          "empty": {
-            "type": "boolean"
-          }
-        }
-      },
-      "PagedResourcesAssemblerPluginConfiguration": {
-        "type": "object",
-        "properties": {
-          "forceFirstAndLastRels": {
-            "type": "boolean",
-            "writeOnly": true
-          }
-        }
+        },
+        "type": "object"
       },
       "EntityModelPluginConfiguration": {
-        "type": "object",
         "properties": {
-          "id": {
-            "type": "integer",
-            "format": "int64"
-          },
-          "metaData": {
-            "$ref": "#/components/schemas/PluginMetaData"
-          },
-          "pluginId": {
-            "type": "string"
-          },
-          "label": {
-            "type": "string"
+          "active": {
+            "type": "boolean"
           },
           "businessId": {
             "pattern": "[0-9a-zA-Z_-]*",
             "type": "string"
           },
-          "version": {
+          "iconUrl": {
+            "format": "url",
             "type": "string"
           },
-          "priorityOrder": {
-            "type": "integer",
-            "format": "int32"
+          "id": {
+            "format": "int64",
+            "type": "integer"
           },
-          "active": {
+          "identifiable": {
             "type": "boolean"
           },
-          "parameters": {
-            "uniqueItems": true,
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/IPluginParam"
-            }
-          },
-          "iconUrl": {
-            "type": "string",
-            "format": "url"
-          },
-          "metaDataAndPluginId": {
-            "$ref": "#/components/schemas/PluginMetaData"
-          },
-          "pluginClassName": {
-            "type": "string"
-          },
           "interfaceNames": {
-            "uniqueItems": true,
-            "type": "array",
             "items": {
               "type": "string"
-            }
+            },
+            "type": "array",
+            "uniqueItems": true
           },
           "isActive": {
             "type": "boolean",
             "writeOnly": true
           },
-          "identifiable": {
-            "type": "boolean"
+          "label": {
+            "type": "string"
           },
           "links": {
-            "type": "array",
             "items": {
               "$ref": "#/components/schemas/Link"
-            }
+            },
+            "type": "array"
+          },
+          "metaData": {
+            "$ref": "#/components/schemas/PluginMetaData"
+          },
+          "metaDataAndPluginId": {
+            "$ref": "#/components/schemas/PluginMetaData"
+          },
+          "parameters": {
+            "items": {
+              "$ref": "#/components/schemas/IPluginParam"
+            },
+            "type": "array",
+            "uniqueItems": true
+          },
+          "pluginClassName": {
+            "type": "string"
+          },
+          "pluginId": {
+            "type": "string"
+          },
+          "priorityOrder": {
+            "format": "int32",
+            "type": "integer"
+          },
+          "version": {
+            "type": "string"
           }
-        }
+        },
+        "type": "object"
+      },
+      "EntityModelPluginMetaData": {
+        "properties": {
+          "author": {
+            "type": "string"
+          },
+          "contact": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "interfaceNames": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "uniqueItems": true
+          },
+          "licence": {
+            "type": "string",
+            "writeOnly": true
+          },
+          "license": {
+            "type": "string"
+          },
+          "links": {
+            "items": {
+              "$ref": "#/components/schemas/Link"
+            },
+            "type": "array"
+          },
+          "markdown": {
+            "type": "string"
+          },
+          "owner": {
+            "type": "string"
+          },
+          "parameters": {
+            "items": {
+              "$ref": "#/components/schemas/PluginParamDescriptor"
+            },
+            "type": "array"
+          },
+          "pluginClassName": {
+            "type": "string"
+          },
+          "pluginId": {
+            "type": "string"
+          },
+          "url": {
+            "type": "string"
+          },
+          "userMarkdown": {
+            "type": "string"
+          },
+          "version": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "EntityModelRuleDTO": {
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "links": {
+            "items": {
+              "$ref": "#/components/schemas/Link"
+            },
+            "type": "array"
+          },
+          "recipientsBusinessIds": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "rulePluginConfiguration": {
+            "$ref": "#/components/schemas/PluginConfiguration"
+          }
+        },
+        "type": "object"
+      },
+      "EntityModelString": {
+        "properties": {
+          "content": {
+            "type": "string"
+          },
+          "links": {
+            "items": {
+              "$ref": "#/components/schemas/Link"
+            },
+            "type": "array"
+          }
+        },
+        "type": "object"
+      },
+      "GenericResponseBody": {
+        "properties": {
+          "message": {
+            "type": "string"
+          },
+          "properties": {
+            "additionalProperties": {
+              "type": "object"
+            },
+            "type": "object"
+          }
+        },
+        "type": "object"
       },
       "IPluginParam": {
-        "type": "object",
         "properties": {
           "dynamic": {
             "type": "boolean"
@@ -1051,11 +201,7 @@
           "name": {
             "type": "string"
           },
-          "value": {
-            "type": "object"
-          },
           "type": {
-            "type": "string",
             "enum": [
               "STRING",
               "BYTE",
@@ -1069,14 +215,18 @@
               "COLLECTION",
               "POJO",
               "PLUGIN"
-            ]
+            ],
+            "type": "string"
+          },
+          "value": {
+            "type": "object"
           }
-        }
+        },
+        "type": "object"
       },
       "Link": {
-        "type": "object",
         "properties": {
-          "rel": {
+          "deprecation": {
             "type": "string"
           },
           "href": {
@@ -1088,149 +238,318 @@
           "media": {
             "type": "string"
           },
-          "title": {
-            "type": "string"
-          },
-          "type": {
-            "type": "string"
-          },
-          "deprecation": {
+          "name": {
             "type": "string"
           },
           "profile": {
             "type": "string"
           },
-          "name": {
+          "rel": {
+            "type": "string"
+          },
+          "title": {
+            "type": "string"
+          },
+          "type": {
             "type": "string"
           }
-        }
+        },
+        "type": "object"
       },
-      "PluginConfiguration": {
-        "required": [
-          "label",
-          "priorityOrder"
-        ],
-        "type": "object",
+      "ModuleImportReport": {
         "properties": {
-          "id": {
-            "type": "integer",
-            "format": "int64"
-          },
-          "metaData": {
-            "$ref": "#/components/schemas/PluginMetaData"
-          },
-          "pluginId": {
-            "type": "string"
-          },
-          "label": {
-            "type": "string"
-          },
-          "businessId": {
-            "pattern": "[0-9a-zA-Z_-]*",
-            "type": "string"
-          },
-          "version": {
-            "type": "string"
-          },
-          "priorityOrder": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "active": {
-            "type": "boolean"
-          },
-          "parameters": {
-            "uniqueItems": true,
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/IPluginParam"
-            }
-          },
-          "iconUrl": {
-            "type": "string",
-            "format": "url"
-          },
-          "metaDataAndPluginId": {
-            "$ref": "#/components/schemas/PluginMetaData"
-          },
-          "pluginClassName": {
-            "type": "string"
-          },
-          "interfaceNames": {
-            "uniqueItems": true,
-            "type": "array",
+          "importErrors": {
             "items": {
               "type": "string"
-            }
+            },
+            "type": "array",
+            "uniqueItems": true
           },
-          "isActive": {
-            "type": "boolean",
-            "writeOnly": true
+          "moduleInformation": {
+            "$ref": "#/components/schemas/ModuleInformation"
           },
-          "identifiable": {
+          "onlyErrors": {
             "type": "boolean"
           }
-        }
+        },
+        "type": "object"
       },
-      "PluginMetaData": {
-        "type": "object",
+      "ModuleInformation": {
         "properties": {
-          "pluginClassName": {
-            "type": "string"
-          },
-          "interfaceNames": {
-            "uniqueItems": true,
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
-          },
           "author": {
-            "type": "string"
-          },
-          "pluginId": {
-            "type": "string"
-          },
-          "version": {
             "type": "string"
           },
           "description": {
             "type": "string"
           },
-          "markdown": {
+          "documentation": {
             "type": "string"
           },
-          "userMarkdown": {
+          "id": {
             "type": "string"
           },
-          "url": {
+          "legalOwner": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "version": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "author",
+          "id",
+          "name",
+          "version"
+        ],
+        "type": "object"
+      },
+      "ModuleReadinessReportObject": {
+        "properties": {
+          "ready": {
+            "type": "boolean"
+          },
+          "reasons": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "specifications": {
+            "type": "object"
+          }
+        },
+        "type": "object"
+      },
+      "ModuleRestartReport": {
+        "properties": {
+          "messages": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "moduleInformation": {
+            "$ref": "#/components/schemas/ModuleInformation"
+          }
+        },
+        "type": "object"
+      },
+      "PageMetadata": {
+        "properties": {
+          "number": {
+            "format": "int64",
+            "type": "integer"
+          },
+          "size": {
+            "format": "int64",
+            "type": "integer"
+          },
+          "totalElements": {
+            "format": "int64",
+            "type": "integer"
+          },
+          "totalPages": {
+            "format": "int64",
+            "type": "integer"
+          }
+        },
+        "type": "object"
+      },
+      "Pageable": {
+        "properties": {
+          "offset": {
+            "format": "int64",
+            "type": "integer"
+          },
+          "pageNumber": {
+            "format": "int32",
+            "type": "integer"
+          },
+          "pageSize": {
+            "format": "int32",
+            "type": "integer"
+          },
+          "paged": {
+            "type": "boolean"
+          },
+          "sort": {
+            "$ref": "#/components/schemas/Sort"
+          },
+          "unpaged": {
+            "type": "boolean"
+          }
+        },
+        "type": "object"
+      },
+      "PagedModelEntityModelRuleDTO": {
+        "properties": {
+          "content": {
+            "items": {
+              "$ref": "#/components/schemas/EntityModelRuleDTO"
+            },
+            "type": "array"
+          },
+          "links": {
+            "items": {
+              "$ref": "#/components/schemas/Link"
+            },
+            "type": "array"
+          },
+          "page": {
+            "$ref": "#/components/schemas/PageMetadata"
+          }
+        },
+        "type": "object"
+      },
+      "PagedResourcesAssemblerPluginConfiguration": {
+        "properties": {
+          "forceFirstAndLastRels": {
+            "type": "boolean",
+            "writeOnly": true
+          }
+        },
+        "type": "object"
+      },
+      "PagedResourcesAssemblerRuleDTO": {
+        "properties": {
+          "forceFirstAndLastRels": {
+            "type": "boolean",
+            "writeOnly": true
+          }
+        },
+        "type": "object"
+      },
+      "PluginConfiguration": {
+        "properties": {
+          "active": {
+            "type": "boolean"
+          },
+          "businessId": {
+            "pattern": "[0-9a-zA-Z_-]*",
+            "type": "string"
+          },
+          "iconUrl": {
+            "format": "url",
+            "type": "string"
+          },
+          "id": {
+            "format": "int64",
+            "type": "integer"
+          },
+          "identifiable": {
+            "type": "boolean"
+          },
+          "interfaceNames": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "uniqueItems": true
+          },
+          "isActive": {
+            "type": "boolean",
+            "writeOnly": true
+          },
+          "label": {
+            "type": "string"
+          },
+          "metaData": {
+            "$ref": "#/components/schemas/PluginMetaData"
+          },
+          "metaDataAndPluginId": {
+            "$ref": "#/components/schemas/PluginMetaData"
+          },
+          "parameters": {
+            "items": {
+              "$ref": "#/components/schemas/IPluginParam"
+            },
+            "type": "array",
+            "uniqueItems": true
+          },
+          "pluginClassName": {
+            "type": "string"
+          },
+          "pluginId": {
+            "type": "string"
+          },
+          "priorityOrder": {
+            "format": "int32",
+            "type": "integer"
+          },
+          "version": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "label",
+          "priorityOrder"
+        ],
+        "type": "object"
+      },
+      "PluginMetaData": {
+        "properties": {
+          "author": {
             "type": "string"
           },
           "contact": {
             "type": "string"
           },
-          "owner": {
+          "description": {
             "type": "string"
           },
-          "license": {
-            "type": "string"
-          },
-          "parameters": {
-            "type": "array",
+          "interfaceNames": {
             "items": {
-              "$ref": "#/components/schemas/PluginParamDescriptor"
-            }
+              "type": "string"
+            },
+            "type": "array",
+            "uniqueItems": true
           },
           "licence": {
             "type": "string",
             "writeOnly": true
+          },
+          "license": {
+            "type": "string"
+          },
+          "markdown": {
+            "type": "string"
+          },
+          "owner": {
+            "type": "string"
+          },
+          "parameters": {
+            "items": {
+              "$ref": "#/components/schemas/PluginParamDescriptor"
+            },
+            "type": "array"
+          },
+          "pluginClassName": {
+            "type": "string"
+          },
+          "pluginId": {
+            "type": "string"
+          },
+          "url": {
+            "type": "string"
+          },
+          "userMarkdown": {
+            "type": "string"
+          },
+          "version": {
+            "type": "string"
           }
-        }
+        },
+        "type": "object"
       },
       "PluginParamDescriptor": {
-        "type": "object",
         "properties": {
-          "name": {
+          "defaultValue": {
+            "type": "string"
+          },
+          "description": {
             "type": "string"
           },
           "keyLabel": {
@@ -1239,19 +558,17 @@
           "label": {
             "type": "string"
           },
-          "description": {
-            "type": "string"
-          },
           "markdown": {
             "type": "string"
           },
-          "userMarkdown": {
+          "name": {
             "type": "string"
           },
+          "optional": {
+            "type": "boolean"
+          },
           "parameterizedSubTypes": {
-            "type": "array",
             "items": {
-              "type": "string",
               "enum": [
                 "STRING",
                 "BYTE",
@@ -1265,11 +582,22 @@
                 "COLLECTION",
                 "POJO",
                 "PLUGIN"
-              ]
-            }
+              ],
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "pluginType": {
+            "type": "string"
+          },
+          "sensible": {
+            "type": "boolean"
+          },
+          "sensitive": {
+            "type": "boolean",
+            "writeOnly": true
           },
           "type": {
-            "type": "string",
             "enum": [
               "STRING",
               "BYTE",
@@ -1283,317 +611,36 @@
               "COLLECTION",
               "POJO",
               "PLUGIN"
-            ]
-          },
-          "pluginType": {
+            ],
             "type": "string"
-          },
-          "defaultValue": {
-            "type": "string"
-          },
-          "optional": {
-            "type": "boolean"
-          },
-          "sensitive": {
-            "type": "boolean",
-            "writeOnly": true
           },
           "unconfigurable": {
             "type": "boolean"
           },
-          "sensible": {
-            "type": "boolean"
-          }
-        }
-      },
-      "PagedResourcesAssemblerRuleDTO": {
-        "type": "object",
-        "properties": {
-          "forceFirstAndLastRels": {
-            "type": "boolean",
-            "writeOnly": true
-          }
-        }
-      },
-      "EntityModelRuleDTO": {
-        "type": "object",
-        "properties": {
-          "recipientsBusinessIds": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
-          },
-          "rulePluginConfiguration": {
-            "$ref": "#/components/schemas/PluginConfiguration"
-          },
-          "id": {
-            "type": "string"
-          },
-          "links": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/Link"
-            }
-          }
-        }
-      },
-      "PageMetadata": {
-        "type": "object",
-        "properties": {
-          "size": {
-            "type": "integer",
-            "format": "int64"
-          },
-          "totalElements": {
-            "type": "integer",
-            "format": "int64"
-          },
-          "totalPages": {
-            "type": "integer",
-            "format": "int64"
-          },
-          "number": {
-            "type": "integer",
-            "format": "int64"
-          }
-        }
-      },
-      "PagedModelEntityModelRuleDTO": {
-        "type": "object",
-        "properties": {
-          "links": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/Link"
-            }
-          },
-          "content": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/EntityModelRuleDTO"
-            }
-          },
-          "page": {
-            "$ref": "#/components/schemas/PageMetadata"
-          }
-        }
-      },
-      "RuleDTO": {
-        "type": "object",
-        "properties": {
-          "recipientsBusinessIds": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
-          },
-          "rulePluginConfiguration": {
-            "$ref": "#/components/schemas/PluginConfiguration"
-          },
-          "id": {
-            "type": "string"
-          }
-        }
-      },
-      "GenericResponseBody": {
-        "type": "object",
-        "properties": {
-          "message": {
-            "type": "string"
-          },
-          "properties": {
-            "type": "object",
-            "additionalProperties": {
-              "type": "object"
-            }
-          }
-        }
-      },
-      "EntityModelMapStringMaintenanceInfo": {
-        "type": "object",
-        "properties": {
-          "links": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/Link"
-            }
-          }
-        }
-      },
-      "ModuleImportReport": {
-        "type": "object",
-        "properties": {
-          "moduleInformation": {
-            "$ref": "#/components/schemas/ModuleInformation"
-          },
-          "importErrors": {
-            "uniqueItems": true,
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
-          },
-          "onlyErrors": {
-            "type": "boolean"
-          }
-        }
-      },
-      "ModuleInformation": {
-        "required": [
-          "author",
-          "id",
-          "name",
-          "version"
-        ],
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "string"
-          },
-          "name": {
-            "type": "string"
-          },
-          "description": {
-            "type": "string"
-          },
-          "version": {
-            "type": "string"
-          },
-          "author": {
-            "type": "string"
-          },
-          "legalOwner": {
-            "type": "string"
-          },
-          "documentation": {
-            "type": "string"
-          }
-        }
-      },
-      "ModuleReadinessReportObject": {
-        "type": "object",
-        "properties": {
-          "ready": {
-            "type": "boolean"
-          },
-          "reasons": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
-          },
-          "specifications": {
-            "type": "object"
-          }
-        }
-      },
-      "ModuleRestartReport": {
-        "type": "object",
-        "properties": {
-          "moduleInformation": {
-            "$ref": "#/components/schemas/ModuleInformation"
-          },
-          "messages": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
-          }
-        }
-      },
-      "EntityModelPluginMetaData": {
-        "type": "object",
-        "properties": {
-          "pluginClassName": {
-            "type": "string"
-          },
-          "interfaceNames": {
-            "uniqueItems": true,
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
-          },
-          "author": {
-            "type": "string"
-          },
-          "pluginId": {
-            "type": "string"
-          },
-          "version": {
-            "type": "string"
-          },
-          "description": {
-            "type": "string"
-          },
-          "markdown": {
-            "type": "string"
-          },
           "userMarkdown": {
             "type": "string"
-          },
-          "url": {
-            "type": "string"
-          },
-          "contact": {
-            "type": "string"
-          },
-          "owner": {
-            "type": "string"
-          },
-          "license": {
-            "type": "string"
-          },
-          "parameters": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/PluginParamDescriptor"
-            }
-          },
-          "licence": {
-            "type": "string",
-            "writeOnly": true
-          },
-          "links": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/Link"
-            }
           }
-        }
-      },
-      "EntityModelString": {
-        "type": "object",
-        "properties": {
-          "content": {
-            "type": "string"
-          },
-          "links": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/Link"
-            }
-          }
-        }
+        },
+        "type": "object"
       },
       "ResourceAccess": {
         "type": "object"
       },
       "ResourceMapping": {
-        "type": "object",
         "properties": {
-          "resourceAccess": {
-            "$ref": "#/components/schemas/ResourceAccess"
-          },
-          "fullPath": {
-            "type": "string"
+          "autorizedRoles": {
+            "items": {
+              "$ref": "#/components/schemas/RoleAuthority"
+            },
+            "type": "array"
           },
           "controllerSimpleName": {
             "type": "string"
           },
+          "fullPath": {
+            "type": "string"
+          },
           "method": {
-            "type": "string",
             "enum": [
               "GET",
               "HEAD",
@@ -1603,47 +650,1000 @@
               "DELETE",
               "OPTIONS",
               "TRACE"
-            ]
+            ],
+            "type": "string"
           },
-          "autorizedRoles": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/RoleAuthority"
-            }
+          "resourceAccess": {
+            "$ref": "#/components/schemas/ResourceAccess"
           },
           "resourceMappingId": {
             "type": "string"
           }
-        }
+        },
+        "type": "object"
       },
       "RoleAuthority": {
-        "type": "object",
         "properties": {
+          "authority": {
+            "type": "string"
+          },
           "authorizedIpAdresses": {
-            "type": "array",
             "items": {
               "type": "string"
-            }
+            },
+            "type": "array"
           },
           "roleName": {
             "type": "string"
-          },
-          "authority": {
-            "type": "string"
           }
-        }
+        },
+        "type": "object"
+      },
+      "RuleDTO": {
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "recipientsBusinessIds": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "rulePluginConfiguration": {
+            "$ref": "#/components/schemas/PluginConfiguration"
+          }
+        },
+        "type": "object"
+      },
+      "Sort": {
+        "properties": {
+          "empty": {
+            "type": "boolean"
+          },
+          "sorted": {
+            "type": "boolean"
+          },
+          "unsorted": {
+            "type": "boolean"
+          }
+        },
+        "type": "object"
       }
     },
     "securitySchemes": {
       "REGARDS_OAUTH2": {
-        "type": "oauth2",
         "flows": {
           "password": {
-            "tokenUrl": "http://vm-perf.cloud-espace.si.c-s.fr:80/api/v1/rs-authentication/oauth/token",
-            "scopes": {}
+            "scopes": {},
+            "tokenUrl": "http://vm-perf.cloud-espace.si.c-s.fr:80/api/v1/rs-authentication/oauth/token"
           }
-        }
+        },
+        "type": "oauth2"
       }
     }
-  }
+  },
+  "info": {
+    "description": "Notification management API",
+    "license": {
+      "name": "GPL-3.0"
+    },
+    "title": "MICROSERVICE NOTIFIER",
+    "version": "1.8.0"
+  },
+  "openapi": "3.0.1",
+  "paths": {
+    "/maintenance": {
+      "get": {
+        "operationId": "retrieveTenantsInMaintenance",
+        "responses": {
+          "200": {
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/EntityModelMapStringMaintenanceInfo"
+                }
+              }
+            },
+            "description": "default response"
+          }
+        },
+        "tags": [
+          "maintenance-controller"
+        ]
+      }
+    },
+    "/maintenance/{tenant}/disable": {
+      "put": {
+        "operationId": "unSetMaintenance",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "tenant",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "default response"
+          }
+        },
+        "tags": [
+          "maintenance-controller"
+        ]
+      }
+    },
+    "/maintenance/{tenant}/enable": {
+      "put": {
+        "operationId": "setMaintenance",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "tenant",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "default response"
+          }
+        },
+        "tags": [
+          "maintenance-controller"
+        ]
+      }
+    },
+    "/microservice/configuration": {
+      "get": {
+        "operationId": "exportConfiguration",
+        "responses": {
+          "200": {
+            "description": "default response"
+          }
+        },
+        "tags": [
+          "module-manager-controller"
+        ]
+      },
+      "post": {
+        "operationId": "importConfiguration",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "properties": {
+                  "file": {
+                    "format": "binary",
+                    "type": "string"
+                  }
+                },
+                "type": "object"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "*/*": {
+                "schema": {
+                  "items": {
+                    "$ref": "#/components/schemas/ModuleImportReport"
+                  },
+                  "type": "array",
+                  "uniqueItems": true
+                }
+              }
+            },
+            "description": "default response"
+          }
+        },
+        "tags": [
+          "module-manager-controller"
+        ]
+      }
+    },
+    "/microservice/configuration/enabled": {
+      "get": {
+        "operationId": "isConfigurationEnabled",
+        "responses": {
+          "200": {
+            "description": "default response"
+          }
+        },
+        "tags": [
+          "module-manager-controller"
+        ]
+      }
+    },
+    "/microservice/ready": {
+      "get": {
+        "operationId": "isReady",
+        "responses": {
+          "200": {
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/ModuleReadinessReportObject"
+                }
+              }
+            },
+            "description": "default response"
+          }
+        },
+        "tags": [
+          "module-manager-controller"
+        ]
+      }
+    },
+    "/microservice/ready/enabled": {
+      "get": {
+        "operationId": "isReadyEnabled",
+        "responses": {
+          "200": {
+            "description": "default response"
+          }
+        },
+        "tags": [
+          "module-manager-controller"
+        ]
+      }
+    },
+    "/microservice/restart": {
+      "get": {
+        "operationId": "restart",
+        "responses": {
+          "200": {
+            "content": {
+              "*/*": {
+                "schema": {
+                  "items": {
+                    "$ref": "#/components/schemas/ModuleRestartReport"
+                  },
+                  "type": "array",
+                  "uniqueItems": true
+                }
+              }
+            },
+            "description": "default response"
+          }
+        },
+        "tags": [
+          "module-manager-controller"
+        ]
+      }
+    },
+    "/microservice/restart/enabled": {
+      "get": {
+        "operationId": "isRestartEnabled",
+        "responses": {
+          "200": {
+            "description": "default response"
+          }
+        },
+        "tags": [
+          "module-manager-controller"
+        ]
+      }
+    },
+    "/plugins": {
+      "get": {
+        "operationId": "getPlugins",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "pluginType",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "items": {
+                    "$ref": "#/components/schemas/EntityModelPluginMetaData"
+                  },
+                  "type": "array"
+                }
+              }
+            },
+            "description": "default response"
+          }
+        },
+        "tags": [
+          "plugin-controller"
+        ]
+      }
+    },
+    "/plugins/cache": {
+      "delete": {
+        "operationId": "emptyCache",
+        "responses": {
+          "200": {
+            "description": "default response"
+          }
+        },
+        "tags": [
+          "plugin-controller"
+        ]
+      }
+    },
+    "/plugins/configs": {
+      "get": {
+        "operationId": "getPluginConfigurationsByType",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "pluginType",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "items": {
+                    "$ref": "#/components/schemas/EntityModelPluginConfiguration"
+                  },
+                  "type": "array"
+                }
+              }
+            },
+            "description": "default response"
+          }
+        },
+        "tags": [
+          "plugin-controller"
+        ]
+      }
+    },
+    "/plugins/configs/{configBusinessId}": {
+      "get": {
+        "operationId": "getPluginConfigurationDirectAccess",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "configBusinessId",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EntityModelPluginConfiguration"
+                }
+              }
+            },
+            "description": "default response"
+          }
+        },
+        "tags": [
+          "plugin-controller"
+        ]
+      }
+    },
+    "/plugins/{pluginId}": {
+      "get": {
+        "operationId": "getPluginMetaDataById",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "pluginId",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EntityModelPluginMetaData"
+                }
+              }
+            },
+            "description": "default response"
+          }
+        },
+        "tags": [
+          "plugin-controller"
+        ]
+      }
+    },
+    "/plugins/{pluginId}/config": {
+      "get": {
+        "operationId": "getPluginConfigurations",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "pluginId",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "items": {
+                    "$ref": "#/components/schemas/EntityModelPluginConfiguration"
+                  },
+                  "type": "array"
+                }
+              }
+            },
+            "description": "default response"
+          }
+        },
+        "tags": [
+          "plugin-controller"
+        ]
+      },
+      "post": {
+        "operationId": "savePluginConfiguration",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PluginConfiguration"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EntityModelPluginConfiguration"
+                }
+              }
+            },
+            "description": "default response"
+          }
+        },
+        "tags": [
+          "plugin-controller"
+        ]
+      }
+    },
+    "/plugins/{pluginId}/config/{configBusinessId}": {
+      "delete": {
+        "operationId": "deletePluginConfiguration",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "pluginId",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "configBusinessId",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "default response"
+          }
+        },
+        "tags": [
+          "plugin-controller"
+        ]
+      },
+      "get": {
+        "operationId": "getPluginConfiguration",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "pluginId",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "configBusinessId",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EntityModelPluginConfiguration"
+                }
+              }
+            },
+            "description": "default response"
+          }
+        },
+        "tags": [
+          "plugin-controller"
+        ]
+      },
+      "put": {
+        "operationId": "updatePluginConfiguration",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "pluginId",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "configBusinessId",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PluginConfiguration"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EntityModelPluginConfiguration"
+                }
+              }
+            },
+            "description": "default response"
+          }
+        },
+        "tags": [
+          "plugin-controller"
+        ]
+      }
+    },
+    "/plugintypes": {
+      "get": {
+        "operationId": "getPluginTypes",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "available",
+            "required": false,
+            "schema": {
+              "type": "boolean"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "items": {
+                    "$ref": "#/components/schemas/EntityModelString"
+                  },
+                  "type": "array"
+                }
+              }
+            },
+            "description": "default response"
+          }
+        },
+        "tags": [
+          "plugin-controller"
+        ]
+      }
+    },
+    "/recipient": {
+      "get": {
+        "description": "List all recipient",
+        "operationId": "getRecipients",
+        "parameters": [
+          {
+            "description": "Request page",
+            "in": "query",
+            "name": "page",
+            "required": true,
+            "schema": {
+              "$ref": "#/components/schemas/Pageable"
+            }
+          },
+          {
+            "in": "query",
+            "name": "assembler",
+            "required": true,
+            "schema": {
+              "$ref": "#/components/schemas/PagedResourcesAssemblerPluginConfiguration"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "*/*": {
+                "schema": {
+                  "items": {
+                    "$ref": "#/components/schemas/EntityModelPluginConfiguration"
+                  },
+                  "type": "array"
+                }
+              }
+            },
+            "description": "Recipients"
+          }
+        },
+        "summary": "List all recipient",
+        "tags": [
+          "recipient-controller"
+        ]
+      },
+      "post": {
+        "description": "Create a recipient",
+        "operationId": "createRecipient",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PluginConfiguration"
+              }
+            }
+          },
+          "description": "Recipient to create",
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/EntityModelPluginConfiguration"
+                }
+              }
+            },
+            "description": "Created Recipient"
+          }
+        },
+        "summary": "Create a recipient",
+        "tags": [
+          "recipient-controller"
+        ]
+      },
+      "put": {
+        "description": "Update a recipient",
+        "operationId": "updateRecipient",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PluginConfiguration"
+              }
+            }
+          },
+          "description": "Recipient to update",
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/EntityModelPluginConfiguration"
+                }
+              }
+            },
+            "description": "Updated Recipient"
+          }
+        },
+        "summary": "Update a recipient",
+        "tags": [
+          "recipient-controller"
+        ]
+      }
+    },
+    "/recipient/{id}": {
+      "delete": {
+        "description": "Delete a recipient",
+        "operationId": "deleteRecipient",
+        "parameters": [
+          {
+            "description": "Recipient to delete id",
+            "in": "path",
+            "name": "businessId",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "default response"
+          }
+        },
+        "summary": "Delete a recipient",
+        "tags": [
+          "recipient-controller"
+        ]
+      }
+    },
+    "/regards/{tenant}/datasource/status": {
+      "get": {
+        "operationId": "getDataSourceStatus",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "tenant",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json;charset=UTF-8": {
+                "schema": {
+                  "$ref": "#/components/schemas/GenericResponseBody"
+                }
+              }
+            },
+            "description": "default response"
+          }
+        },
+        "tags": [
+          "jpa-multitenant-controller"
+        ]
+      }
+    },
+    "/regards/{tenant}/datasource/test": {
+      "get": {
+        "operationId": "testTenantConnection",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "tenant",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json;charset=UTF-8": {
+                "schema": {
+                  "$ref": "#/components/schemas/GenericResponseBody"
+                }
+              }
+            },
+            "description": "default response"
+          }
+        },
+        "tags": [
+          "jpa-multitenant-controller"
+        ]
+      }
+    },
+    "/rule": {
+      "get": {
+        "description": "List all Rules",
+        "operationId": "getRules",
+        "parameters": [
+          {
+            "description": "Wanted page",
+            "in": "query",
+            "name": "page",
+            "required": true,
+            "schema": {
+              "$ref": "#/components/schemas/Pageable"
+            }
+          },
+          {
+            "in": "query",
+            "name": "assembler",
+            "required": true,
+            "schema": {
+              "$ref": "#/components/schemas/PagedResourcesAssemblerRuleDTO"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/PagedModelEntityModelRuleDTO"
+                }
+              }
+            },
+            "description": "All Rules"
+          }
+        },
+        "summary": "List all rules",
+        "tags": [
+          "rule-controller"
+        ]
+      },
+      "post": {
+        "description": "Create a Rule",
+        "operationId": "createRule",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/RuleDTO"
+              }
+            }
+          },
+          "description": "Rule to create",
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/EntityModelRuleDTO"
+                }
+              }
+            },
+            "description": "Created Rule"
+          }
+        },
+        "summary": "Create a rule",
+        "tags": [
+          "rule-controller"
+        ]
+      },
+      "put": {
+        "description": "Update a Rule",
+        "operationId": "updateRule",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/RuleDTO"
+              }
+            }
+          },
+          "description": "Rule to update",
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/EntityModelRuleDTO"
+                }
+              }
+            },
+            "description": "Updated Rule"
+          }
+        },
+        "summary": "Update a rule",
+        "tags": [
+          "rule-controller"
+        ]
+      }
+    },
+    "/rule/{id}": {
+      "delete": {
+        "description": "Delete a rule",
+        "operationId": "deleteRule",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "default response"
+          }
+        },
+        "summary": "Delete a rule",
+        "tags": [
+          "rule-controller"
+        ]
+      }
+    },
+    "/security/resources": {
+      "get": {
+        "operationId": "getAllResources",
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "items": {
+                    "$ref": "#/components/schemas/ResourceMapping"
+                  },
+                  "type": "array"
+                }
+              }
+            },
+            "description": "default response"
+          }
+        },
+        "tags": [
+          "security-resources-controller"
+        ]
+      }
+    },
+    "/shutdown/immediate": {
+      "post": {
+        "operationId": "immediateShutdown",
+        "responses": {
+          "200": {
+            "description": "default response"
+          }
+        },
+        "tags": [
+          "manager-controller"
+        ]
+      }
+    }
+  },
+  "security": [
+    {
+      "REGARDS_OAUTH2": []
+    }
+  ],
+  "servers": [
+    {
+      "description": "Generated server url",
+      "url": "https://regardsoss.github.io/api/v1/rs-notifier"
+    }
+  ]
 }

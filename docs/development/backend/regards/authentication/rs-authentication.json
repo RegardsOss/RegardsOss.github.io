@@ -1,124 +1,72 @@
 {
   "components": {
     "schemas": {
-      "CacheDTO": {
+      "Authentication": {
         "properties": {
-          "occupedSizeInBytes": {
+          "accessToken": {
+            "type": "string"
+          },
+          "expiresIn": {
             "format": "int64",
             "type": "integer"
           },
-          "sizeLimitInBytes": {
-            "format": "int64",
-            "type": "integer"
+          "jti": {
+            "type": "string"
+          },
+          "project": {
+            "type": "string"
+          },
+          "role": {
+            "type": "string"
+          },
+          "scope": {
+            "type": "string"
+          },
+          "serviceProviderName": {
+            "type": "string"
+          },
+          "sub": {
+            "type": "string"
+          },
+          "tokenType": {
+            "type": "string"
           }
         },
         "type": "object"
       },
-      "CopyFilesParametersDTO": {
+      "DefaultOAuth2AccessToken": {
         "properties": {
-          "from": {
-            "$ref": "#/components/schemas/FileLocationDTO"
+          "additionalInformation": {
+            "additionalProperties": {
+              "type": "object"
+            },
+            "type": "object"
           },
-          "to": {
-            "$ref": "#/components/schemas/FileLocationDTO"
+          "expiration": {
+            "format": "date-time",
+            "type": "string"
           },
-          "types": {
+          "expired": {
+            "type": "boolean"
+          },
+          "expiresIn": {
+            "format": "int32",
+            "type": "integer"
+          },
+          "refreshToken": {
+            "type": "string"
+          },
+          "scope": {
             "items": {
               "type": "string"
             },
             "type": "array",
             "uniqueItems": true
-          }
-        },
-        "type": "object"
-      },
-      "DownloadQuotaLimitsDto": {
-        "properties": {
-          "email": {
-            "type": "string"
           },
-          "maxQuota": {
-            "format": "int64",
-            "type": "integer"
-          },
-          "rateLimit": {
-            "format": "int64",
-            "type": "integer"
-          }
-        },
-        "type": "object"
-      },
-      "DynamicTenantSettingDto": {
-        "properties": {
-          "defaultValue": {
-            "type": "object"
-          },
-          "description": {
-            "type": "string"
-          },
-          "name": {
+          "tokenType": {
             "type": "string"
           },
           "value": {
-            "type": "object"
-          }
-        },
-        "type": "object"
-      },
-      "EntityModelDynamicTenantSettingDto": {
-        "properties": {
-          "defaultValue": {
-            "type": "object"
-          },
-          "description": {
-            "type": "string"
-          },
-          "links": {
-            "items": {
-              "$ref": "#/components/schemas/Link"
-            },
-            "type": "array"
-          },
-          "name": {
-            "type": "string"
-          },
-          "value": {
-            "type": "object"
-          }
-        },
-        "type": "object"
-      },
-      "EntityModelFileRequestInfoDTO": {
-        "properties": {
-          "errorCause": {
-            "type": "string"
-          },
-          "fileName": {
-            "type": "string"
-          },
-          "links": {
-            "items": {
-              "$ref": "#/components/schemas/Link"
-            },
-            "type": "array"
-          },
-          "status": {
-            "enum": [
-              "TO_DO",
-              "PENDING",
-              "DELAYED",
-              "ERROR"
-            ],
-            "type": "string"
-          },
-          "type": {
-            "enum": [
-              "AVAILABILITY",
-              "COPY",
-              "DELETION",
-              "REFERENCE",
-              "STORAGE"
-            ],
             "type": "string"
           }
         },
@@ -265,19 +213,10 @@
         },
         "type": "object"
       },
-      "EntityModelStorageLocationDTO": {
+      "EntityModelServiceProviderDto": {
         "properties": {
-          "allowsPhysicalDeletion": {
-            "type": "boolean"
-          },
-          "configuration": {
-            "$ref": "#/components/schemas/StorageLocationConfiguration"
-          },
-          "copyRunning": {
-            "type": "boolean"
-          },
-          "deletionRunning": {
-            "type": "boolean"
+          "authUrl": {
+            "type": "string"
           },
           "links": {
             "items": {
@@ -288,24 +227,28 @@
           "name": {
             "type": "string"
           },
-          "nbDeletionError": {
-            "format": "int64",
-            "type": "integer"
+          "pluginConfiguration": {
+            "$ref": "#/components/schemas/PluginConfiguration"
+          }
+        },
+        "type": "object"
+      },
+      "EntityModelServiceProviderPublicDto": {
+        "properties": {
+          "authUrl": {
+            "type": "string"
           },
-          "nbFilesStored": {
-            "format": "int64",
-            "type": "integer"
+          "links": {
+            "items": {
+              "$ref": "#/components/schemas/Link"
+            },
+            "type": "array"
           },
-          "nbStorageError": {
-            "format": "int64",
-            "type": "integer"
+          "name": {
+            "type": "string"
           },
-          "storageRunning": {
-            "type": "boolean"
-          },
-          "totalStoredFilesSizeKo": {
-            "format": "int64",
-            "type": "integer"
+          "pluginId": {
+            "type": "string"
           }
         },
         "type": "object"
@@ -322,120 +265,6 @@
             "type": "array"
           }
         },
-        "type": "object"
-      },
-      "FileLocationDTO": {
-        "properties": {
-          "storage": {
-            "type": "string"
-          },
-          "url": {
-            "type": "string"
-          }
-        },
-        "type": "object"
-      },
-      "FileReferenceDTO": {
-        "properties": {
-          "location": {
-            "$ref": "#/components/schemas/FileLocationDTO"
-          },
-          "metaInfo": {
-            "$ref": "#/components/schemas/FileReferenceMetaInfoDTO"
-          },
-          "owners": {
-            "items": {
-              "type": "string"
-            },
-            "type": "array"
-          },
-          "storageDate": {
-            "format": "date-time",
-            "type": "string"
-          }
-        },
-        "type": "object"
-      },
-      "FileReferenceMetaInfoDTO": {
-        "properties": {
-          "algorithm": {
-            "type": "string"
-          },
-          "checksum": {
-            "type": "string"
-          },
-          "fileName": {
-            "type": "string"
-          },
-          "fileSize": {
-            "format": "int64",
-            "type": "integer"
-          },
-          "height": {
-            "format": "int32",
-            "type": "integer"
-          },
-          "mimeType": {
-            "$ref": "#/components/schemas/MimeType"
-          },
-          "type": {
-            "type": "string"
-          },
-          "width": {
-            "format": "int32",
-            "type": "integer"
-          }
-        },
-        "type": "object"
-      },
-      "FileStorageRequestDTO": {
-        "properties": {
-          "algorithm": {
-            "type": "string"
-          },
-          "checksum": {
-            "type": "string"
-          },
-          "fileName": {
-            "type": "string"
-          },
-          "mimeType": {
-            "type": "string"
-          },
-          "optionalSubDirectory": {
-            "type": "string"
-          },
-          "originUrl": {
-            "type": "string"
-          },
-          "owner": {
-            "type": "string"
-          },
-          "session": {
-            "type": "string"
-          },
-          "sessionOwner": {
-            "type": "string"
-          },
-          "storage": {
-            "type": "string"
-          },
-          "subDirectory": {
-            "type": "string"
-          },
-          "type": {
-            "type": "string"
-          }
-        },
-        "required": [
-          "algorithm",
-          "checksum",
-          "fileName",
-          "mimeType",
-          "originUrl",
-          "owner",
-          "storage"
-        ],
         "type": "object"
       },
       "GenericResponseBody": {
@@ -511,40 +340,6 @@
           },
           "type": {
             "type": "string"
-          }
-        },
-        "type": "object"
-      },
-      "MimeType": {
-        "properties": {
-          "charset": {
-            "properties": {
-              "registered": {
-                "type": "boolean"
-              }
-            },
-            "type": "object"
-          },
-          "concrete": {
-            "type": "boolean"
-          },
-          "parameters": {
-            "additionalProperties": {
-              "type": "string"
-            },
-            "type": "object"
-          },
-          "subtype": {
-            "type": "string"
-          },
-          "type": {
-            "type": "string"
-          },
-          "wildcardSubtype": {
-            "type": "boolean"
-          },
-          "wildcardType": {
-            "type": "boolean"
           }
         },
         "type": "object"
@@ -677,11 +472,11 @@
         },
         "type": "object"
       },
-      "PagedModelEntityModelFileRequestInfoDTO": {
+      "PagedModelEntityModelServiceProviderDto": {
         "properties": {
           "content": {
             "items": {
-              "$ref": "#/components/schemas/EntityModelFileRequestInfoDTO"
+              "$ref": "#/components/schemas/EntityModelServiceProviderDto"
             },
             "type": "array"
           },
@@ -697,7 +492,36 @@
         },
         "type": "object"
       },
-      "PagedResourcesAssemblerFileRequestInfoDTO": {
+      "PagedModelEntityModelServiceProviderPublicDto": {
+        "properties": {
+          "content": {
+            "items": {
+              "$ref": "#/components/schemas/EntityModelServiceProviderPublicDto"
+            },
+            "type": "array"
+          },
+          "links": {
+            "items": {
+              "$ref": "#/components/schemas/Link"
+            },
+            "type": "array"
+          },
+          "page": {
+            "$ref": "#/components/schemas/PageMetadata"
+          }
+        },
+        "type": "object"
+      },
+      "PagedResourcesAssemblerServiceProviderDto": {
+        "properties": {
+          "forceFirstAndLastRels": {
+            "type": "boolean",
+            "writeOnly": true
+          }
+        },
+        "type": "object"
+      },
+      "PagedResourcesAssemblerServiceProviderPublicDto": {
         "properties": {
           "forceFirstAndLastRels": {
             "type": "boolean",
@@ -907,38 +731,6 @@
         },
         "type": "object"
       },
-      "Resource": {
-        "properties": {
-          "description": {
-            "type": "string"
-          },
-          "file": {
-            "format": "binary",
-            "type": "string"
-          },
-          "filename": {
-            "type": "string"
-          },
-          "inputStream": {
-            "type": "object"
-          },
-          "open": {
-            "type": "boolean"
-          },
-          "readable": {
-            "type": "boolean"
-          },
-          "uri": {
-            "format": "uri",
-            "type": "string"
-          },
-          "url": {
-            "format": "url",
-            "type": "string"
-          }
-        },
-        "type": "object"
-      },
       "ResourceAccess": {
         "type": "object"
       },
@@ -995,6 +787,23 @@
         },
         "type": "object"
       },
+      "ServiceProviderAuthenticationParams": {
+        "type": "object"
+      },
+      "ServiceProviderDto": {
+        "properties": {
+          "authUrl": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "pluginConfiguration": {
+            "$ref": "#/components/schemas/PluginConfiguration"
+          }
+        },
+        "type": "object"
+      },
       "Sort": {
         "properties": {
           "empty": {
@@ -1005,123 +814,6 @@
           },
           "unsorted": {
             "type": "boolean"
-          }
-        },
-        "type": "object"
-      },
-      "StorageFlowItem": {
-        "properties": {
-          "files": {
-            "items": {
-              "$ref": "#/components/schemas/FileStorageRequestDTO"
-            },
-            "type": "array",
-            "uniqueItems": true
-          },
-          "groupId": {
-            "type": "string"
-          }
-        },
-        "type": "object"
-      },
-      "StorageLocationConfiguration": {
-        "properties": {
-          "allocatedSizeInKo": {
-            "format": "int64",
-            "type": "integer"
-          },
-          "id": {
-            "format": "int64",
-            "type": "integer"
-          },
-          "name": {
-            "type": "string"
-          },
-          "pluginConfiguration": {
-            "$ref": "#/components/schemas/PluginConfiguration"
-          },
-          "priority": {
-            "format": "int64",
-            "minimum": 0,
-            "type": "integer"
-          },
-          "storageType": {
-            "enum": [
-              "NEARLINE",
-              "ONLINE",
-              "OFFLINE",
-              "CACHE"
-            ],
-            "type": "string"
-          }
-        },
-        "required": [
-          "name"
-        ],
-        "type": "object"
-      },
-      "StorageLocationDTO": {
-        "properties": {
-          "allowsPhysicalDeletion": {
-            "type": "boolean"
-          },
-          "configuration": {
-            "$ref": "#/components/schemas/StorageLocationConfiguration"
-          },
-          "copyRunning": {
-            "type": "boolean"
-          },
-          "deletionRunning": {
-            "type": "boolean"
-          },
-          "name": {
-            "type": "string"
-          },
-          "nbDeletionError": {
-            "format": "int64",
-            "type": "integer"
-          },
-          "nbFilesStored": {
-            "format": "int64",
-            "type": "integer"
-          },
-          "nbStorageError": {
-            "format": "int64",
-            "type": "integer"
-          },
-          "storageRunning": {
-            "type": "boolean"
-          },
-          "totalStoredFilesSizeKo": {
-            "format": "int64",
-            "type": "integer"
-          }
-        },
-        "type": "object"
-      },
-      "StreamingResponseBody": {
-        "type": "object"
-      },
-      "UserCurrentQuotas": {
-        "properties": {
-          "currentQuota": {
-            "format": "int64",
-            "type": "integer"
-          },
-          "currentRate": {
-            "format": "int64",
-            "type": "integer"
-          },
-          "email": {
-            "type": "string"
-          },
-          "maxQuota": {
-            "format": "int64",
-            "type": "integer"
-          },
-          "rateLimit": {
-            "format": "int64",
-            "type": "integer"
           }
         },
         "type": "object"
@@ -1140,92 +832,25 @@
     }
   },
   "info": {
-    "description": "Files storage management",
+    "description": "System authentication management",
     "license": {
       "name": "GPL-3.0"
     },
-    "title": "MICROSERVICE STORAGE",
+    "title": "MICROSERVICE AUTHENTICATION",
     "version": "1.8.0"
   },
   "openapi": "3.0.1",
   "paths": {
-    "/cache": {
+    "/borrowRole/{target_name}": {
       "get": {
-        "operationId": "getOccupation",
-        "responses": {
-          "200": {
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/CacheDTO"
-                }
-              }
-            },
-            "description": "default response"
-          }
-        },
-        "tags": [
-          "cache-controller"
-        ]
-      }
-    },
-    "/files/csv": {
-      "get": {
-        "operationId": "export",
-        "responses": {
-          "200": {
-            "description": "default response"
-          }
-        },
-        "tags": [
-          "file-reference-controller"
-        ]
-      }
-    },
-    "/files/store": {
-      "post": {
-        "operationId": "store",
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "items": {
-                  "$ref": "#/components/schemas/StorageFlowItem"
-                },
-                "type": "array"
-              }
-            }
-          },
-          "required": true
-        },
-        "responses": {
-          "200": {
-            "description": "default response"
-          }
-        },
-        "tags": [
-          "file-reference-controller"
-        ]
-      }
-    },
-    "/files/{checksum}/download": {
-      "get": {
-        "operationId": "downloadFile",
+        "operationId": "switchRole",
         "parameters": [
           {
             "in": "path",
-            "name": "checksum",
+            "name": "target_name",
             "required": true,
             "schema": {
               "type": "string"
-            }
-          },
-          {
-            "in": "query",
-            "name": "isContentInline",
-            "required": false,
-            "schema": {
-              "type": "boolean"
             }
           }
         ],
@@ -1234,7 +859,7 @@
             "content": {
               "*/*": {
                 "schema": {
-                  "$ref": "#/components/schemas/StreamingResponseBody"
+                  "$ref": "#/components/schemas/DefaultOAuth2AccessToken"
                 }
               }
             },
@@ -1242,101 +867,7 @@
           }
         },
         "tags": [
-          "file-reference-controller"
-        ]
-      }
-    },
-    "/files/{checksum}/download/token": {
-      "get": {
-        "operationId": "downloadFileWithToken",
-        "parameters": [
-          {
-            "in": "path",
-            "name": "checksum",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "in": "query",
-            "name": "t",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "in": "query",
-            "name": "isContentInline",
-            "required": true,
-            "schema": {
-              "type": "boolean"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/StreamingResponseBody"
-                }
-              }
-            },
-            "description": "default response"
-          }
-        },
-        "tags": [
-          "file-reference-controller"
-        ]
-      }
-    },
-    "/files/{storage}/locations": {
-      "post": {
-        "operationId": "getFileReferencesWithoutOwners",
-        "parameters": [
-          {
-            "in": "path",
-            "name": "storage",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "items": {
-                  "type": "string"
-                },
-                "type": "array",
-                "uniqueItems": true
-              }
-            }
-          },
-          "required": true
-        },
-        "responses": {
-          "200": {
-            "content": {
-              "*/*": {
-                "schema": {
-                  "items": {
-                    "$ref": "#/components/schemas/FileReferenceDTO"
-                  },
-                  "type": "array",
-                  "uniqueItems": true
-                }
-              }
-            },
-            "description": "default response"
-          }
-        },
-        "tags": [
-          "file-reference-controller"
+          "borrow-role-controller"
         ]
       }
     },
@@ -1885,216 +1416,6 @@
         ]
       }
     },
-    "/quota": {
-      "get": {
-        "operationId": "getQuotaLimits",
-        "responses": {
-          "200": {
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/DownloadQuotaLimitsDto"
-                }
-              }
-            },
-            "description": "default response"
-          }
-        },
-        "tags": [
-          "download-quota-controller"
-        ]
-      }
-    },
-    "/quota/current": {
-      "get": {
-        "operationId": "getCurrentQuotas_1",
-        "responses": {
-          "200": {
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/UserCurrentQuotas"
-                }
-              }
-            },
-            "description": "default response"
-          }
-        },
-        "tags": [
-          "download-quota-controller"
-        ]
-      }
-    },
-    "/quota/current/{user_email}": {
-      "get": {
-        "operationId": "getCurrentQuotas",
-        "parameters": [
-          {
-            "in": "path",
-            "name": "user_email",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/UserCurrentQuotas"
-                }
-              }
-            },
-            "description": "default response"
-          }
-        },
-        "tags": [
-          "download-quota-controller"
-        ]
-      }
-    },
-    "/quota/currents": {
-      "post": {
-        "operationId": "getCurrentQuotasList",
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "items": {
-                  "type": "string"
-                },
-                "type": "array"
-              }
-            }
-          },
-          "required": true
-        },
-        "responses": {
-          "200": {
-            "content": {
-              "*/*": {
-                "schema": {
-                  "items": {
-                    "$ref": "#/components/schemas/UserCurrentQuotas"
-                  },
-                  "type": "array"
-                }
-              }
-            },
-            "description": "default response"
-          }
-        },
-        "tags": [
-          "download-quota-controller"
-        ]
-      }
-    },
-    "/quota/{user_email}": {
-      "get": {
-        "operationId": "getQuotaLimits_2",
-        "parameters": [
-          {
-            "in": "path",
-            "name": "user_email",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/DownloadQuotaLimitsDto"
-                }
-              }
-            },
-            "description": "default response"
-          }
-        },
-        "tags": [
-          "download-quota-controller"
-        ]
-      },
-      "put": {
-        "operationId": "upsertQuotaLimits",
-        "parameters": [
-          {
-            "in": "path",
-            "name": "user_email",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/DownloadQuotaLimitsDto"
-              }
-            }
-          },
-          "required": true
-        },
-        "responses": {
-          "200": {
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/DownloadQuotaLimitsDto"
-                }
-              }
-            },
-            "description": "default response"
-          }
-        },
-        "tags": [
-          "download-quota-controller"
-        ]
-      }
-    },
-    "/quotas": {
-      "get": {
-        "operationId": "getQuotaLimits_1",
-        "parameters": [
-          {
-            "in": "query",
-            "name": "user_email",
-            "required": true,
-            "schema": {
-              "items": {
-                "type": "string"
-              },
-              "type": "array"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "content": {
-              "*/*": {
-                "schema": {
-                  "items": {
-                    "$ref": "#/components/schemas/DownloadQuotaLimitsDto"
-                  },
-                  "type": "array"
-                }
-              }
-            },
-            "description": "default response"
-          }
-        },
-        "tags": [
-          "download-quota-controller"
-        ]
-      }
-    },
     "/regards/{tenant}/datasource/status": {
       "get": {
         "operationId": "getDataSourceStatus",
@@ -2155,237 +1476,6 @@
         ]
       }
     },
-    "/requests/stop": {
-      "get": {
-        "operationId": "stop",
-        "responses": {
-          "200": {
-            "description": "default response"
-          }
-        },
-        "tags": [
-          "file-requests-controller"
-        ]
-      }
-    },
-    "/requests/{storage}/{type}": {
-      "delete": {
-        "operationId": "delete_1",
-        "parameters": [
-          {
-            "in": "path",
-            "name": "storage",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "in": "path",
-            "name": "type",
-            "required": true,
-            "schema": {
-              "enum": [
-                "AVAILABILITY",
-                "COPY",
-                "DELETION",
-                "REFERENCE",
-                "STORAGE"
-              ],
-              "type": "string"
-            }
-          },
-          {
-            "in": "query",
-            "name": "status",
-            "required": false,
-            "schema": {
-              "enum": [
-                "TO_DO",
-                "PENDING",
-                "DELAYED",
-                "ERROR"
-              ],
-              "type": "string"
-            }
-          }
-        ],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/Pageable"
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "default response"
-          }
-        },
-        "tags": [
-          "file-requests-controller"
-        ]
-      },
-      "get": {
-        "operationId": "search",
-        "parameters": [
-          {
-            "in": "path",
-            "name": "storage",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "in": "path",
-            "name": "type",
-            "required": true,
-            "schema": {
-              "enum": [
-                "AVAILABILITY",
-                "COPY",
-                "DELETION",
-                "REFERENCE",
-                "STORAGE"
-              ],
-              "type": "string"
-            }
-          },
-          {
-            "in": "query",
-            "name": "status",
-            "required": false,
-            "schema": {
-              "enum": [
-                "TO_DO",
-                "PENDING",
-                "DELAYED",
-                "ERROR"
-              ],
-              "type": "string"
-            }
-          },
-          {
-            "in": "query",
-            "name": "page",
-            "required": true,
-            "schema": {
-              "$ref": "#/components/schemas/Pageable"
-            }
-          },
-          {
-            "in": "query",
-            "name": "assembler",
-            "required": true,
-            "schema": {
-              "$ref": "#/components/schemas/PagedResourcesAssemblerFileRequestInfoDTO"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/PagedModelEntityModelFileRequestInfoDTO"
-                }
-              }
-            },
-            "description": "default response"
-          }
-        },
-        "tags": [
-          "file-requests-controller"
-        ]
-      }
-    },
-    "/resources/{checksum}/download": {
-      "get": {
-        "operationId": "downloadFile_1",
-        "parameters": [
-          {
-            "in": "path",
-            "name": "checksum",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "in": "query",
-            "name": "isContentInline",
-            "required": false,
-            "schema": {
-              "type": "boolean"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/Resource"
-                }
-              }
-            },
-            "description": "default response"
-          }
-        },
-        "tags": [
-          "file-download-controller"
-        ]
-      }
-    },
-    "/resources/{checksum}/download/token": {
-      "get": {
-        "operationId": "downloadFileWithToken_1",
-        "parameters": [
-          {
-            "in": "path",
-            "name": "checksum",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "in": "query",
-            "name": "t",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "in": "query",
-            "name": "isContentInline",
-            "required": true,
-            "schema": {
-              "type": "boolean"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/Resource"
-                }
-              }
-            },
-            "description": "default response"
-          }
-        },
-        "tags": [
-          "file-download-controller"
-        ]
-      }
-    },
     "/security/resources": {
       "get": {
         "operationId": "getAllResources",
@@ -2409,20 +1499,24 @@
         ]
       }
     },
-    "/settings": {
+    "/serviceproviders": {
       "get": {
-        "operationId": "retrieveAll",
+        "operationId": "getServiceProviders",
         "parameters": [
           {
             "in": "query",
-            "name": "names",
-            "required": false,
+            "name": "pageable",
+            "required": true,
             "schema": {
-              "items": {
-                "type": "string"
-              },
-              "type": "array",
-              "uniqueItems": true
+              "$ref": "#/components/schemas/Pageable"
+            }
+          },
+          {
+            "in": "query",
+            "name": "assembler",
+            "required": true,
+            "schema": {
+              "$ref": "#/components/schemas/PagedResourcesAssemblerServiceProviderDto"
             }
           }
         ],
@@ -2431,10 +1525,7 @@
             "content": {
               "*/*": {
                 "schema": {
-                  "items": {
-                    "$ref": "#/components/schemas/EntityModelDynamicTenantSettingDto"
-                  },
-                  "type": "array"
+                  "$ref": "#/components/schemas/PagedModelEntityModelServiceProviderDto"
                 }
               }
             },
@@ -2442,13 +1533,79 @@
           }
         },
         "tags": [
-          "dynamic-tenant-setting-controller"
+          "service-provider-controller"
+        ]
+      },
+      "post": {
+        "operationId": "saveServiceProvider",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ServiceProviderDto"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/EntityModelServiceProviderDto"
+                }
+              }
+            },
+            "description": "default response"
+          }
+        },
+        "tags": [
+          "service-provider-controller"
         ]
       }
     },
-    "/settings/{name}": {
-      "delete": {
-        "operationId": "reset",
+    "/serviceproviders/public": {
+      "get": {
+        "operationId": "getServiceProvidersPublic",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "pageable",
+            "required": true,
+            "schema": {
+              "$ref": "#/components/schemas/Pageable"
+            }
+          },
+          {
+            "in": "query",
+            "name": "assembler",
+            "required": true,
+            "schema": {
+              "$ref": "#/components/schemas/PagedResourcesAssemblerServiceProviderPublicDto"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/PagedModelEntityModelServiceProviderPublicDto"
+                }
+              }
+            },
+            "description": "default response"
+          }
+        },
+        "tags": [
+          "service-provider-public-controller"
+        ]
+      }
+    },
+    "/serviceproviders/public/{name}": {
+      "get": {
+        "operationId": "getServiceProvider_1",
         "parameters": [
           {
             "in": "path",
@@ -2464,7 +1621,7 @@
             "content": {
               "*/*": {
                 "schema": {
-                  "$ref": "#/components/schemas/EntityModelDynamicTenantSettingDto"
+                  "$ref": "#/components/schemas/EntityModelServiceProviderPublicDto"
                 }
               }
             },
@@ -2472,11 +1629,92 @@
           }
         },
         "tags": [
-          "dynamic-tenant-setting-controller"
+          "service-provider-public-controller"
+        ]
+      }
+    },
+    "/serviceproviders/verify": {
+      "get": {
+        "operationId": "verifyAndAuthenticate",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "externalToken",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/Authentication"
+                }
+              }
+            },
+            "description": "default response"
+          }
+        },
+        "tags": [
+          "service-provider-controller"
+        ]
+      }
+    },
+    "/serviceproviders/{name}": {
+      "delete": {
+        "operationId": "deleteServiceProvider",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "name",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "default response"
+          }
+        },
+        "tags": [
+          "service-provider-controller"
+        ]
+      },
+      "get": {
+        "operationId": "getServiceProvider",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "name",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/EntityModelServiceProviderDto"
+                }
+              }
+            },
+            "description": "default response"
+          }
+        },
+        "tags": [
+          "service-provider-controller"
         ]
       },
       "put": {
-        "operationId": "update",
+        "operationId": "updateServiceProvider",
         "parameters": [
           {
             "in": "path",
@@ -2491,7 +1729,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/DynamicTenantSettingDto"
+                "$ref": "#/components/schemas/ServiceProviderDto"
               }
             }
           },
@@ -2502,7 +1740,7 @@
             "content": {
               "*/*": {
                 "schema": {
-                  "$ref": "#/components/schemas/EntityModelDynamicTenantSettingDto"
+                  "$ref": "#/components/schemas/EntityModelServiceProviderDto"
                 }
               }
             },
@@ -2510,7 +1748,70 @@
           }
         },
         "tags": [
-          "dynamic-tenant-setting-controller"
+          "service-provider-controller"
+        ]
+      }
+    },
+    "/serviceproviders/{name}/authenticate": {
+      "post": {
+        "operationId": "authenticate",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "name",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ServiceProviderAuthenticationParams"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/Authentication"
+                }
+              }
+            },
+            "description": "default response"
+          }
+        },
+        "tags": [
+          "service-provider-controller"
+        ]
+      }
+    },
+    "/serviceproviders/{name}/deauthenticate": {
+      "post": {
+        "operationId": "deauthenticate",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "name",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "default response"
+          }
+        },
+        "tags": [
+          "service-provider-controller"
         ]
       }
     },
@@ -2526,390 +1827,6 @@
           "manager-controller"
         ]
       }
-    },
-    "/storages": {
-      "get": {
-        "operationId": "retrieve",
-        "responses": {
-          "200": {
-            "content": {
-              "*/*": {
-                "schema": {
-                  "items": {
-                    "$ref": "#/components/schemas/EntityModelStorageLocationDTO"
-                  },
-                  "type": "array"
-                }
-              }
-            },
-            "description": "default response"
-          }
-        },
-        "tags": [
-          "storage-location-controller"
-        ]
-      },
-      "post": {
-        "operationId": "configureLocation",
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/StorageLocationDTO"
-              }
-            }
-          },
-          "required": true
-        },
-        "responses": {
-          "200": {
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/EntityModelStorageLocationDTO"
-                }
-              }
-            },
-            "description": "default response"
-          }
-        },
-        "tags": [
-          "storage-location-controller"
-        ]
-      }
-    },
-    "/storages/files/copy": {
-      "post": {
-        "operationId": "copyFiles",
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/CopyFilesParametersDTO"
-              }
-            }
-          },
-          "required": true
-        },
-        "responses": {
-          "200": {
-            "description": "default response"
-          }
-        },
-        "tags": [
-          "storage-location-controller"
-        ]
-      }
-    },
-    "/storages/monitoring/run": {
-      "get": {
-        "operationId": "runMonitoring",
-        "parameters": [
-          {
-            "in": "query",
-            "name": "reset",
-            "required": false,
-            "schema": {
-              "type": "boolean"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "default response"
-          }
-        },
-        "tags": [
-          "storage-location-controller"
-        ]
-      }
-    },
-    "/storages/retry/{source}/{session}": {
-      "get": {
-        "operationId": "retryErrorsBySourceAndSession",
-        "parameters": [
-          {
-            "in": "path",
-            "name": "source",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "in": "path",
-            "name": "session",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "default response"
-          }
-        },
-        "tags": [
-          "storage-location-controller"
-        ]
-      }
-    },
-    "/storages/{id}": {
-      "delete": {
-        "operationId": "delete",
-        "parameters": [
-          {
-            "in": "path",
-            "name": "id",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "default response"
-          }
-        },
-        "tags": [
-          "storage-location-controller"
-        ]
-      },
-      "get": {
-        "operationId": "retrieve_1",
-        "parameters": [
-          {
-            "in": "path",
-            "name": "id",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/EntityModelStorageLocationDTO"
-                }
-              }
-            },
-            "description": "default response"
-          }
-        },
-        "tags": [
-          "storage-location-controller"
-        ]
-      },
-      "put": {
-        "operationId": "updateLocationConfiguration",
-        "parameters": [
-          {
-            "in": "path",
-            "name": "id",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/StorageLocationDTO"
-              }
-            }
-          },
-          "required": true
-        },
-        "responses": {
-          "200": {
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/EntityModelStorageLocationDTO"
-                }
-              }
-            },
-            "description": "default response"
-          }
-        },
-        "tags": [
-          "storage-location-controller"
-        ]
-      }
-    },
-    "/storages/{id}/down": {
-      "put": {
-        "operationId": "decreaseStorageLocationPriority",
-        "parameters": [
-          {
-            "in": "path",
-            "name": "id",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "default response"
-          }
-        },
-        "tags": [
-          "storage-location-controller"
-        ]
-      }
-    },
-    "/storages/{id}/files": {
-      "delete": {
-        "operationId": "deleteFiles",
-        "parameters": [
-          {
-            "in": "path",
-            "name": "id",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "in": "query",
-            "name": "force",
-            "required": false,
-            "schema": {
-              "type": "boolean"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "default response"
-          }
-        },
-        "tags": [
-          "storage-location-controller"
-        ]
-      }
-    },
-    "/storages/{id}/files/retry/{type}": {
-      "get": {
-        "operationId": "retryErrors",
-        "parameters": [
-          {
-            "in": "path",
-            "name": "id",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "in": "path",
-            "name": "type",
-            "required": true,
-            "schema": {
-              "enum": [
-                "AVAILABILITY",
-                "COPY",
-                "DELETION",
-                "REFERENCE",
-                "STORAGE"
-              ],
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "default response"
-          }
-        },
-        "tags": [
-          "storage-location-controller"
-        ]
-      }
-    },
-    "/storages/{id}/requests/{type}": {
-      "delete": {
-        "operationId": "deleteRequests",
-        "parameters": [
-          {
-            "in": "path",
-            "name": "id",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "in": "path",
-            "name": "type",
-            "required": true,
-            "schema": {
-              "enum": [
-                "AVAILABILITY",
-                "COPY",
-                "DELETION",
-                "REFERENCE",
-                "STORAGE"
-              ],
-              "type": "string"
-            }
-          },
-          {
-            "in": "query",
-            "name": "status",
-            "required": false,
-            "schema": {
-              "enum": [
-                "TO_DO",
-                "PENDING",
-                "DELAYED",
-                "ERROR"
-              ],
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "default response"
-          }
-        },
-        "tags": [
-          "storage-location-controller"
-        ]
-      }
-    },
-    "/storages/{id}/up": {
-      "put": {
-        "operationId": "increaseStorageLocationPriority",
-        "parameters": [
-          {
-            "in": "path",
-            "name": "id",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "default response"
-          }
-        },
-        "tags": [
-          "storage-location-controller"
-        ]
-      }
     }
   },
   "security": [
@@ -2920,7 +1837,7 @@
   "servers": [
     {
       "description": "Generated server url",
-      "url": "https://regardsoss.github.io/api/v1/rs-storage"
+      "url": "https://regardsoss.github.io/api/v1/rs-authentication"
     }
   ]
 }

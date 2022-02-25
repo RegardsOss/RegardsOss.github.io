@@ -246,6 +246,7 @@ module.exports = {
                 "development/backend/regards/authentication/backend-authentication-overview",
                 "development/backend/regards/authentication/api/backend-authentication-api",
                 "development/backend/regards/authentication/plugins/backend-authentication-plugins",
+                "development/backend/regards/authentication/backend-authentication-api-swagger",
               ],
             },
             {

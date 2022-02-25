@@ -1,1769 +1,1582 @@
 {
-  "openapi": "3.0.1",
+  "components": {
+    "schemas": {
+      "AccessRequestDto": {
+        "properties": {
+          "accessGroups": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "uniqueItems": true
+          },
+          "email": {
+            "type": "string"
+          },
+          "firstName": {
+            "type": "string"
+          },
+          "lastName": {
+            "type": "string"
+          },
+          "maxQuota": {
+            "format": "int64",
+            "type": "integer"
+          },
+          "metadata": {
+            "items": {
+              "$ref": "#/components/schemas/MetaData"
+            },
+            "type": "array"
+          },
+          "origin": {
+            "type": "string"
+          },
+          "originUrl": {
+            "type": "string"
+          },
+          "password": {
+            "type": "string"
+          },
+          "requestLink": {
+            "type": "string"
+          },
+          "roleName": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "email"
+        ],
+        "type": "object"
+      },
+      "AggregationState": {
+        "properties": {
+          "errors": {
+            "format": "int64",
+            "type": "integer"
+          },
+          "running": {
+            "format": "int64",
+            "type": "integer"
+          },
+          "waiting": {
+            "format": "int64",
+            "type": "integer"
+          }
+        },
+        "type": "object"
+      },
+      "DynamicTenantSettingDto": {
+        "properties": {
+          "defaultValue": {
+            "type": "object"
+          },
+          "description": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "value": {
+            "type": "object"
+          }
+        },
+        "type": "object"
+      },
+      "Email": {
+        "properties": {
+          "attName": {
+            "type": "string"
+          },
+          "attachment": {
+            "items": {
+              "format": "byte",
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "bcc": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "cc": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "from": {
+            "type": "string"
+          },
+          "id": {
+            "format": "int64",
+            "type": "integer"
+          },
+          "identifiable": {
+            "type": "boolean"
+          },
+          "replyTo": {
+            "type": "string"
+          },
+          "sentDate": {
+            "format": "date-time",
+            "type": "string"
+          },
+          "subject": {
+            "type": "string"
+          },
+          "text": {
+            "type": "string"
+          },
+          "to": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          }
+        },
+        "required": [
+          "to"
+        ],
+        "type": "object"
+      },
+      "EntityModelDynamicTenantSettingDto": {
+        "properties": {
+          "defaultValue": {
+            "type": "object"
+          },
+          "description": {
+            "type": "string"
+          },
+          "links": {
+            "items": {
+              "$ref": "#/components/schemas/Link"
+            },
+            "type": "array"
+          },
+          "name": {
+            "type": "string"
+          },
+          "value": {
+            "type": "object"
+          }
+        },
+        "type": "object"
+      },
+      "EntityModelINotificationWithoutMessage": {
+        "properties": {
+          "date": {
+            "format": "date-time",
+            "type": "string"
+          },
+          "id": {
+            "format": "int64",
+            "type": "integer"
+          },
+          "level": {
+            "enum": [
+              "INFO",
+              "WARNING",
+              "ERROR",
+              "FATAL"
+            ],
+            "type": "string"
+          },
+          "links": {
+            "items": {
+              "$ref": "#/components/schemas/Link"
+            },
+            "type": "array"
+          },
+          "mimeType": {
+            "$ref": "#/components/schemas/MimeType"
+          },
+          "sender": {
+            "type": "string"
+          },
+          "status": {
+            "enum": [
+              "READ",
+              "UNREAD"
+            ],
+            "type": "string"
+          },
+          "title": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "EntityModelLicenseDTO": {
+        "properties": {
+          "accepted": {
+            "type": "boolean"
+          },
+          "licenceLink": {
+            "type": "string"
+          },
+          "links": {
+            "items": {
+              "$ref": "#/components/schemas/Link"
+            },
+            "type": "array"
+          }
+        },
+        "type": "object"
+      },
+      "EntityModelMapStringMaintenanceInfo": {
+        "properties": {
+          "links": {
+            "items": {
+              "$ref": "#/components/schemas/Link"
+            },
+            "type": "array"
+          }
+        },
+        "type": "object"
+      },
+      "EntityModelMetaData": {
+        "properties": {
+          "id": {
+            "format": "int64",
+            "type": "integer"
+          },
+          "identifiable": {
+            "type": "boolean"
+          },
+          "key": {
+            "type": "string"
+          },
+          "links": {
+            "items": {
+              "$ref": "#/components/schemas/Link"
+            },
+            "type": "array"
+          },
+          "value": {
+            "type": "string"
+          },
+          "visibility": {
+            "enum": [
+              "READABLE",
+              "WRITEABLE",
+              "HIDDEN"
+            ],
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "EntityModelProjectUser": {
+        "properties": {
+          "accessGroups": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "uniqueItems": true
+          },
+          "created": {
+            "format": "date-time",
+            "type": "string"
+          },
+          "currentQuota": {
+            "format": "int64",
+            "type": "integer"
+          },
+          "email": {
+            "type": "string"
+          },
+          "firstName": {
+            "type": "string"
+          },
+          "id": {
+            "format": "int64",
+            "type": "integer"
+          },
+          "identifiable": {
+            "type": "boolean"
+          },
+          "lastConnection": {
+            "format": "date-time",
+            "type": "string"
+          },
+          "lastName": {
+            "type": "string"
+          },
+          "lastUpdate": {
+            "format": "date-time",
+            "type": "string"
+          },
+          "licenseAccepted": {
+            "type": "boolean"
+          },
+          "links": {
+            "items": {
+              "$ref": "#/components/schemas/Link"
+            },
+            "type": "array"
+          },
+          "maxQuota": {
+            "format": "int64",
+            "type": "integer"
+          },
+          "metadata": {
+            "items": {
+              "$ref": "#/components/schemas/MetaData"
+            },
+            "type": "array",
+            "uniqueItems": true
+          },
+          "origin": {
+            "type": "string"
+          },
+          "permissions": {
+            "items": {
+              "$ref": "#/components/schemas/ResourcesAccess"
+            },
+            "type": "array"
+          },
+          "role": {
+            "$ref": "#/components/schemas/Role"
+          },
+          "status": {
+            "enum": [
+              "WAITING_ACCESS",
+              "ACCESS_DENIED",
+              "ACCESS_GRANTED",
+              "ACCESS_INACTIVE",
+              "WAITING_ACCOUNT_ACTIVE",
+              "WAITING_EMAIL_VERIFICATION"
+            ],
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "EntityModelResourcesAccess": {
+        "properties": {
+          "controllerSimpleName": {
+            "type": "string"
+          },
+          "defaultRole": {
+            "enum": [
+              "INSTANCE_ADMIN",
+              "PROJECT_ADMIN",
+              "EXPLOIT",
+              "ADMIN",
+              "REGISTERED_USER",
+              "PUBLIC"
+            ],
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "id": {
+            "format": "int64",
+            "type": "integer"
+          },
+          "identifiable": {
+            "type": "boolean"
+          },
+          "links": {
+            "items": {
+              "$ref": "#/components/schemas/Link"
+            },
+            "type": "array"
+          },
+          "microservice": {
+            "type": "string"
+          },
+          "resource": {
+            "type": "string"
+          },
+          "verb": {
+            "enum": [
+              "GET",
+              "HEAD",
+              "POST",
+              "PUT",
+              "PATCH",
+              "DELETE",
+              "OPTIONS",
+              "TRACE"
+            ],
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "EntityModelRole": {
+        "properties": {
+          "authorizedAddresses": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "default": {
+            "type": "boolean"
+          },
+          "id": {
+            "format": "int64",
+            "type": "integer"
+          },
+          "identifiable": {
+            "type": "boolean"
+          },
+          "links": {
+            "items": {
+              "$ref": "#/components/schemas/Link"
+            },
+            "type": "array"
+          },
+          "name": {
+            "type": "string"
+          },
+          "native": {
+            "type": "boolean"
+          },
+          "parentRole": {
+            "$ref": "#/components/schemas/Role"
+          },
+          "permissions": {
+            "items": {
+              "$ref": "#/components/schemas/ResourcesAccess"
+            },
+            "type": "array",
+            "uniqueItems": true
+          }
+        },
+        "type": "object"
+      },
+      "EntityModelSession": {
+        "properties": {
+          "creationDate": {
+            "format": "date-time",
+            "type": "string"
+          },
+          "id": {
+            "format": "int64",
+            "type": "integer"
+          },
+          "lastUpdateDate": {
+            "format": "date-time",
+            "type": "string"
+          },
+          "links": {
+            "items": {
+              "$ref": "#/components/schemas/Link"
+            },
+            "type": "array"
+          },
+          "managerState": {
+            "$ref": "#/components/schemas/ManagerState"
+          },
+          "name": {
+            "type": "string"
+          },
+          "source": {
+            "type": "string"
+          },
+          "steps": {
+            "items": {
+              "$ref": "#/components/schemas/SessionStep"
+            },
+            "type": "array",
+            "uniqueItems": true
+          }
+        },
+        "type": "object"
+      },
+      "EntityModelSource": {
+        "properties": {
+          "lastUpdateDate": {
+            "format": "date-time",
+            "type": "string"
+          },
+          "links": {
+            "items": {
+              "$ref": "#/components/schemas/Link"
+            },
+            "type": "array"
+          },
+          "managerState": {
+            "$ref": "#/components/schemas/ManagerState"
+          },
+          "name": {
+            "type": "string"
+          },
+          "nbSessions": {
+            "format": "int64",
+            "type": "integer"
+          },
+          "steps": {
+            "items": {
+              "$ref": "#/components/schemas/SourceStepAggregation"
+            },
+            "type": "array",
+            "uniqueItems": true
+          }
+        },
+        "type": "object"
+      },
+      "GenericResponseBody": {
+        "properties": {
+          "message": {
+            "type": "string"
+          },
+          "properties": {
+            "additionalProperties": {
+              "type": "object"
+            },
+            "type": "object"
+          }
+        },
+        "type": "object"
+      },
+      "Link": {
+        "properties": {
+          "deprecation": {
+            "type": "string"
+          },
+          "href": {
+            "type": "string"
+          },
+          "hreflang": {
+            "type": "string"
+          },
+          "media": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "profile": {
+            "type": "string"
+          },
+          "rel": {
+            "type": "string"
+          },
+          "title": {
+            "type": "string"
+          },
+          "type": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "ManagerState": {
+        "properties": {
+          "errors": {
+            "type": "boolean"
+          },
+          "running": {
+            "type": "boolean"
+          },
+          "waiting": {
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "errors",
+          "running",
+          "waiting"
+        ],
+        "type": "object"
+      },
+      "MetaData": {
+        "properties": {
+          "id": {
+            "format": "int64",
+            "type": "integer"
+          },
+          "identifiable": {
+            "type": "boolean"
+          },
+          "key": {
+            "type": "string"
+          },
+          "value": {
+            "type": "string"
+          },
+          "visibility": {
+            "enum": [
+              "READABLE",
+              "WRITEABLE",
+              "HIDDEN"
+            ],
+            "type": "string"
+          }
+        },
+        "required": [
+          "key"
+        ],
+        "type": "object"
+      },
+      "MimeType": {
+        "properties": {
+          "charset": {
+            "properties": {
+              "registered": {
+                "type": "boolean"
+              }
+            },
+            "type": "object"
+          },
+          "concrete": {
+            "type": "boolean"
+          },
+          "parameters": {
+            "additionalProperties": {
+              "type": "string"
+            },
+            "type": "object"
+          },
+          "subtype": {
+            "type": "string"
+          },
+          "type": {
+            "type": "string"
+          },
+          "wildcardSubtype": {
+            "type": "boolean"
+          },
+          "wildcardType": {
+            "type": "boolean"
+          }
+        },
+        "type": "object"
+      },
+      "ModuleImportReport": {
+        "properties": {
+          "importErrors": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "uniqueItems": true
+          },
+          "moduleInformation": {
+            "$ref": "#/components/schemas/ModuleInformation"
+          },
+          "onlyErrors": {
+            "type": "boolean"
+          }
+        },
+        "type": "object"
+      },
+      "ModuleInformation": {
+        "properties": {
+          "author": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "documentation": {
+            "type": "string"
+          },
+          "id": {
+            "type": "string"
+          },
+          "legalOwner": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "version": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "author",
+          "id",
+          "name",
+          "version"
+        ],
+        "type": "object"
+      },
+      "ModuleReadinessReportObject": {
+        "properties": {
+          "ready": {
+            "type": "boolean"
+          },
+          "reasons": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "specifications": {
+            "type": "object"
+          }
+        },
+        "type": "object"
+      },
+      "ModuleRestartReport": {
+        "properties": {
+          "messages": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "moduleInformation": {
+            "$ref": "#/components/schemas/ModuleInformation"
+          }
+        },
+        "type": "object"
+      },
+      "Notification": {
+        "properties": {
+          "date": {
+            "format": "date-time",
+            "type": "string"
+          },
+          "id": {
+            "format": "int64",
+            "type": "integer"
+          },
+          "identifiable": {
+            "type": "boolean"
+          },
+          "level": {
+            "enum": [
+              "INFO",
+              "WARNING",
+              "ERROR",
+              "FATAL"
+            ],
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          },
+          "mimeType": {
+            "$ref": "#/components/schemas/MimeType"
+          },
+          "projectUserRecipients": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "uniqueItems": true
+          },
+          "roleRecipients": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "uniqueItems": true
+          },
+          "sender": {
+            "type": "string"
+          },
+          "status": {
+            "enum": [
+              "READ",
+              "UNREAD"
+            ],
+            "type": "string"
+          },
+          "title": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "level",
+          "message",
+          "projectUserRecipients",
+          "roleRecipients",
+          "sender",
+          "status"
+        ],
+        "type": "object"
+      },
+      "NotificationDTO": {
+        "properties": {
+          "level": {
+            "enum": [
+              "INFO",
+              "WARNING",
+              "ERROR",
+              "FATAL"
+            ],
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          },
+          "mimeType": {
+            "$ref": "#/components/schemas/MimeType"
+          },
+          "projectUserRecipients": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "uniqueItems": true
+          },
+          "roleRecipients": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "uniqueItems": true
+          },
+          "sender": {
+            "type": "string"
+          },
+          "title": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "NotificationSettings": {
+        "properties": {
+          "days": {
+            "format": "int32",
+            "minimum": 1,
+            "type": "integer"
+          },
+          "frequency": {
+            "enum": [
+              "DAILY",
+              "WEEKLY",
+              "MONTHLY",
+              "CUSTOM"
+            ],
+            "type": "string"
+          },
+          "hours": {
+            "format": "int32",
+            "maximum": 24,
+            "minimum": 0,
+            "type": "integer"
+          },
+          "id": {
+            "format": "int64",
+            "type": "integer"
+          },
+          "identifiable": {
+            "type": "boolean"
+          },
+          "projectUserEmail": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "projectUserEmail"
+        ],
+        "type": "object"
+      },
+      "NotificationSettingsDTO": {
+        "properties": {
+          "days": {
+            "format": "int32",
+            "type": "integer"
+          },
+          "frequency": {
+            "enum": [
+              "DAILY",
+              "WEEKLY",
+              "MONTHLY",
+              "CUSTOM"
+            ],
+            "type": "string"
+          },
+          "hours": {
+            "format": "int32",
+            "type": "integer"
+          }
+        },
+        "type": "object"
+      },
+      "NotificationSummary": {
+        "properties": {
+          "reads": {
+            "format": "int64",
+            "type": "integer"
+          },
+          "unreads": {
+            "format": "int64",
+            "type": "integer"
+          }
+        },
+        "type": "object"
+      },
+      "PageMetadata": {
+        "properties": {
+          "number": {
+            "format": "int64",
+            "type": "integer"
+          },
+          "size": {
+            "format": "int64",
+            "type": "integer"
+          },
+          "totalElements": {
+            "format": "int64",
+            "type": "integer"
+          },
+          "totalPages": {
+            "format": "int64",
+            "type": "integer"
+          }
+        },
+        "type": "object"
+      },
+      "Pageable": {
+        "properties": {
+          "offset": {
+            "format": "int64",
+            "type": "integer"
+          },
+          "pageNumber": {
+            "format": "int32",
+            "type": "integer"
+          },
+          "pageSize": {
+            "format": "int32",
+            "type": "integer"
+          },
+          "paged": {
+            "type": "boolean"
+          },
+          "sort": {
+            "$ref": "#/components/schemas/Sort"
+          },
+          "unpaged": {
+            "type": "boolean"
+          }
+        },
+        "type": "object"
+      },
+      "PagedModelEntityModelINotificationWithoutMessage": {
+        "properties": {
+          "content": {
+            "items": {
+              "$ref": "#/components/schemas/EntityModelINotificationWithoutMessage"
+            },
+            "type": "array"
+          },
+          "links": {
+            "items": {
+              "$ref": "#/components/schemas/Link"
+            },
+            "type": "array"
+          },
+          "page": {
+            "$ref": "#/components/schemas/PageMetadata"
+          }
+        },
+        "type": "object"
+      },
+      "PagedModelEntityModelProjectUser": {
+        "properties": {
+          "content": {
+            "items": {
+              "$ref": "#/components/schemas/EntityModelProjectUser"
+            },
+            "type": "array"
+          },
+          "links": {
+            "items": {
+              "$ref": "#/components/schemas/Link"
+            },
+            "type": "array"
+          },
+          "page": {
+            "$ref": "#/components/schemas/PageMetadata"
+          }
+        },
+        "type": "object"
+      },
+      "PagedModelEntityModelResourcesAccess": {
+        "properties": {
+          "content": {
+            "items": {
+              "$ref": "#/components/schemas/EntityModelResourcesAccess"
+            },
+            "type": "array"
+          },
+          "links": {
+            "items": {
+              "$ref": "#/components/schemas/Link"
+            },
+            "type": "array"
+          },
+          "page": {
+            "$ref": "#/components/schemas/PageMetadata"
+          }
+        },
+        "type": "object"
+      },
+      "PagedModelEntityModelSession": {
+        "properties": {
+          "content": {
+            "items": {
+              "$ref": "#/components/schemas/EntityModelSession"
+            },
+            "type": "array"
+          },
+          "links": {
+            "items": {
+              "$ref": "#/components/schemas/Link"
+            },
+            "type": "array"
+          },
+          "page": {
+            "$ref": "#/components/schemas/PageMetadata"
+          }
+        },
+        "type": "object"
+      },
+      "PagedModelEntityModelSource": {
+        "properties": {
+          "content": {
+            "items": {
+              "$ref": "#/components/schemas/EntityModelSource"
+            },
+            "type": "array"
+          },
+          "links": {
+            "items": {
+              "$ref": "#/components/schemas/Link"
+            },
+            "type": "array"
+          },
+          "page": {
+            "$ref": "#/components/schemas/PageMetadata"
+          }
+        },
+        "type": "object"
+      },
+      "PagedResourcesAssemblerINotificationWithoutMessage": {
+        "properties": {
+          "forceFirstAndLastRels": {
+            "type": "boolean",
+            "writeOnly": true
+          }
+        },
+        "type": "object"
+      },
+      "PagedResourcesAssemblerProjectUser": {
+        "properties": {
+          "forceFirstAndLastRels": {
+            "type": "boolean",
+            "writeOnly": true
+          }
+        },
+        "type": "object"
+      },
+      "PagedResourcesAssemblerResourcesAccess": {
+        "properties": {
+          "forceFirstAndLastRels": {
+            "type": "boolean",
+            "writeOnly": true
+          }
+        },
+        "type": "object"
+      },
+      "PagedResourcesAssemblerSession": {
+        "properties": {
+          "forceFirstAndLastRels": {
+            "type": "boolean",
+            "writeOnly": true
+          }
+        },
+        "type": "object"
+      },
+      "PagedResourcesAssemblerSource": {
+        "properties": {
+          "forceFirstAndLastRels": {
+            "type": "boolean",
+            "writeOnly": true
+          }
+        },
+        "type": "object"
+      },
+      "ProjectUser": {
+        "properties": {
+          "accessGroups": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "uniqueItems": true
+          },
+          "created": {
+            "format": "date-time",
+            "type": "string"
+          },
+          "currentQuota": {
+            "format": "int64",
+            "type": "integer"
+          },
+          "email": {
+            "type": "string"
+          },
+          "firstName": {
+            "type": "string"
+          },
+          "id": {
+            "format": "int64",
+            "type": "integer"
+          },
+          "identifiable": {
+            "type": "boolean"
+          },
+          "lastConnection": {
+            "format": "date-time",
+            "type": "string"
+          },
+          "lastName": {
+            "type": "string"
+          },
+          "lastUpdate": {
+            "format": "date-time",
+            "type": "string"
+          },
+          "licenseAccepted": {
+            "type": "boolean"
+          },
+          "maxQuota": {
+            "format": "int64",
+            "type": "integer"
+          },
+          "metadata": {
+            "items": {
+              "$ref": "#/components/schemas/MetaData"
+            },
+            "type": "array",
+            "uniqueItems": true
+          },
+          "origin": {
+            "type": "string"
+          },
+          "permissions": {
+            "items": {
+              "$ref": "#/components/schemas/ResourcesAccess"
+            },
+            "type": "array"
+          },
+          "role": {
+            "$ref": "#/components/schemas/Role"
+          },
+          "status": {
+            "enum": [
+              "WAITING_ACCESS",
+              "ACCESS_DENIED",
+              "ACCESS_GRANTED",
+              "ACCESS_INACTIVE",
+              "WAITING_ACCOUNT_ACTIVE",
+              "WAITING_EMAIL_VERIFICATION"
+            ],
+            "type": "string"
+          }
+        },
+        "required": [
+          "origin",
+          "status"
+        ],
+        "type": "object"
+      },
+      "ProjectUserSearchParameters": {
+        "properties": {
+          "accessGroup": {
+            "type": "string"
+          },
+          "createdAfter": {
+            "format": "date-time",
+            "type": "string"
+          },
+          "createdBefore": {
+            "format": "date-time",
+            "type": "string"
+          },
+          "email": {
+            "type": "string"
+          },
+          "firstName": {
+            "type": "string"
+          },
+          "lastConnectionAfter": {
+            "format": "date-time",
+            "type": "string"
+          },
+          "lastConnectionBefore": {
+            "format": "date-time",
+            "type": "string"
+          },
+          "lastName": {
+            "type": "string"
+          },
+          "origin": {
+            "type": "string"
+          },
+          "quotaWarningCount": {
+            "format": "int64",
+            "type": "integer"
+          },
+          "role": {
+            "type": "string"
+          },
+          "status": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "ResourceAccess": {
+        "type": "object"
+      },
+      "ResourceMapping": {
+        "properties": {
+          "autorizedRoles": {
+            "items": {
+              "$ref": "#/components/schemas/RoleAuthority"
+            },
+            "type": "array"
+          },
+          "controllerSimpleName": {
+            "type": "string"
+          },
+          "fullPath": {
+            "type": "string"
+          },
+          "method": {
+            "enum": [
+              "GET",
+              "HEAD",
+              "POST",
+              "PUT",
+              "PATCH",
+              "DELETE",
+              "OPTIONS",
+              "TRACE"
+            ],
+            "type": "string"
+          },
+          "resourceAccess": {
+            "$ref": "#/components/schemas/ResourceAccess"
+          },
+          "resourceMappingId": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "ResourcesAccess": {
+        "properties": {
+          "controllerSimpleName": {
+            "type": "string"
+          },
+          "defaultRole": {
+            "enum": [
+              "INSTANCE_ADMIN",
+              "PROJECT_ADMIN",
+              "EXPLOIT",
+              "ADMIN",
+              "REGISTERED_USER",
+              "PUBLIC"
+            ],
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "id": {
+            "format": "int64",
+            "type": "integer"
+          },
+          "identifiable": {
+            "type": "boolean"
+          },
+          "microservice": {
+            "type": "string"
+          },
+          "resource": {
+            "type": "string"
+          },
+          "verb": {
+            "enum": [
+              "GET",
+              "HEAD",
+              "POST",
+              "PUT",
+              "PATCH",
+              "DELETE",
+              "OPTIONS",
+              "TRACE"
+            ],
+            "type": "string"
+          }
+        },
+        "required": [
+          "controllerSimpleName",
+          "defaultRole",
+          "microservice",
+          "resource",
+          "verb"
+        ],
+        "type": "object"
+      },
+      "Role": {
+        "properties": {
+          "authorizedAddresses": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "default": {
+            "type": "boolean"
+          },
+          "id": {
+            "format": "int64",
+            "type": "integer"
+          },
+          "identifiable": {
+            "type": "boolean"
+          },
+          "name": {
+            "type": "string"
+          },
+          "native": {
+            "type": "boolean"
+          },
+          "parentRole": {
+            "$ref": "#/components/schemas/Role"
+          },
+          "permissions": {
+            "items": {
+              "$ref": "#/components/schemas/ResourcesAccess"
+            },
+            "type": "array",
+            "uniqueItems": true
+          }
+        },
+        "required": [
+          "name"
+        ],
+        "type": "object"
+      },
+      "RoleAuthority": {
+        "properties": {
+          "authority": {
+            "type": "string"
+          },
+          "authorizedIpAdresses": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "roleName": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "SessionStep": {
+        "properties": {
+          "inputRelated": {
+            "format": "int64",
+            "type": "integer"
+          },
+          "lastUpdateDate": {
+            "format": "date-time",
+            "type": "string"
+          },
+          "outputRelated": {
+            "format": "int64",
+            "type": "integer"
+          },
+          "properties": {
+            "additionalProperties": {
+              "type": "string"
+            },
+            "properties": {
+              "empty": {
+                "type": "boolean"
+              }
+            },
+            "type": "object"
+          },
+          "registrationDate": {
+            "format": "date-time",
+            "type": "string"
+          },
+          "session": {
+            "type": "string"
+          },
+          "source": {
+            "type": "string"
+          },
+          "state": {
+            "$ref": "#/components/schemas/StepState"
+          },
+          "stepId": {
+            "type": "string"
+          },
+          "type": {
+            "enum": [
+              "ACQUISITION",
+              "REFERENCING",
+              "STORAGE",
+              "DISSEMINATION"
+            ],
+            "type": "string"
+          }
+        },
+        "required": [
+          "inputRelated",
+          "lastUpdateDate",
+          "outputRelated",
+          "properties",
+          "session",
+          "source",
+          "state",
+          "stepId",
+          "type"
+        ],
+        "type": "object"
+      },
+      "SimpleMailMessage": {
+        "properties": {
+          "bcc": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "cc": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "from": {
+            "type": "string"
+          },
+          "replyTo": {
+            "type": "string"
+          },
+          "sentDate": {
+            "format": "date-time",
+            "type": "string"
+          },
+          "subject": {
+            "type": "string"
+          },
+          "text": {
+            "type": "string"
+          },
+          "to": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          }
+        },
+        "type": "object"
+      },
+      "Sort": {
+        "properties": {
+          "empty": {
+            "type": "boolean"
+          },
+          "sorted": {
+            "type": "boolean"
+          },
+          "unsorted": {
+            "type": "boolean"
+          }
+        },
+        "type": "object"
+      },
+      "SourceStepAggregation": {
+        "properties": {
+          "state": {
+            "$ref": "#/components/schemas/AggregationState"
+          },
+          "totalIn": {
+            "format": "int64",
+            "type": "integer"
+          },
+          "totalOut": {
+            "format": "int64",
+            "type": "integer"
+          },
+          "type": {
+            "enum": [
+              "ACQUISITION",
+              "REFERENCING",
+              "STORAGE",
+              "DISSEMINATION"
+            ],
+            "type": "string"
+          }
+        },
+        "required": [
+          "state",
+          "totalIn",
+          "totalOut",
+          "type"
+        ],
+        "type": "object"
+      },
+      "StepState": {
+        "properties": {
+          "errors": {
+            "format": "int64",
+            "type": "integer"
+          },
+          "running": {
+            "format": "int64",
+            "type": "integer"
+          },
+          "waiting": {
+            "format": "int64",
+            "type": "integer"
+          }
+        },
+        "type": "object"
+      }
+    },
+    "securitySchemes": {
+      "REGARDS_OAUTH2": {
+        "flows": {
+          "password": {
+            "scopes": {},
+            "tokenUrl": "http://vm-perf.cloud-espace.si.c-s.fr:80/api/v1/rs-authentication/oauth/token"
+          }
+        },
+        "type": "oauth2"
+      }
+    }
+  },
   "info": {
-    "title": "MICROSERVICE ADMIN",
     "description": "System management and configuration",
     "license": {
       "name": "GPL-3.0"
     },
+    "title": "MICROSERVICE ADMIN",
     "version": "1.8.0"
   },
-  "servers": [
-    {
-      "url": "https://regardsoss.github.io/api/v1/rs-admin",
-      "description": "Generated server url"
-    }
-  ],
-  "security": [
-    {
-      "REGARDS_OAUTH2": []
-    }
-  ],
+  "openapi": "3.0.1",
   "paths": {
-    "/notifications": {
-      "get": {
-        "tags": [
-          "notification-controller"
-        ],
-        "operationId": "retrieveNotifications",
-        "parameters": [
-          {
-            "name": "state",
-            "in": "query",
-            "required": false,
-            "schema": {
-              "type": "string",
-              "enum": [
-                "READ",
-                "UNREAD"
-              ]
-            }
-          },
-          {
-            "name": "page",
-            "in": "query",
-            "required": true,
-            "schema": {
-              "$ref": "#/components/schemas/Pageable"
-            }
-          },
-          {
-            "name": "assembler",
-            "in": "query",
-            "required": true,
-            "schema": {
-              "$ref": "#/components/schemas/PagedResourcesAssemblerINotificationWithoutMessage"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "default response",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/PagedModelEntityModelINotificationWithoutMessage"
-                }
-              }
-            }
-          }
-        }
-      },
-      "post": {
-        "tags": [
-          "notification-controller"
-        ],
-        "operationId": "createNotification",
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/NotificationDTO"
-              }
-            }
-          },
-          "required": true
-        },
-        "responses": {
-          "200": {
-            "description": "default response",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/Notification"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/notifications/all/read": {
-      "put": {
-        "tags": [
-          "notification-controller"
-        ],
-        "operationId": "markAllNotificationAsRead",
-        "responses": {
-          "200": {
-            "description": "default response"
-          }
-        }
-      }
-    },
-    "/notifications/{notification_id}/unread": {
-      "put": {
-        "tags": [
-          "notification-controller"
-        ],
-        "operationId": "setNotificationUnRead",
-        "parameters": [
-          {
-            "name": "notification_id",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "integer",
-              "format": "int64"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "default response",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/Notification"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/notifications/all/unread": {
-      "put": {
-        "tags": [
-          "notification-controller"
-        ],
-        "operationId": "markAllNotificationAsUnread",
-        "responses": {
-          "200": {
-            "description": "default response"
-          }
-        }
-      }
-    },
-    "/notifications/{notification_id}": {
-      "get": {
-        "tags": [
-          "notification-controller"
-        ],
-        "operationId": "retrieveNotification",
-        "parameters": [
-          {
-            "name": "notification_id",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "integer",
-              "format": "int64"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "default response",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/Notification"
-                }
-              }
-            }
-          }
-        }
-      },
-      "delete": {
-        "tags": [
-          "notification-controller"
-        ],
-        "operationId": "deleteNotification",
-        "parameters": [
-          {
-            "name": "notification_id",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "integer",
-              "format": "int64"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "default response"
-          }
-        }
-      }
-    },
-    "/notifications/read/delete": {
-      "delete": {
-        "tags": [
-          "notification-controller"
-        ],
-        "operationId": "deleteNotification_1",
-        "responses": {
-          "200": {
-            "description": "default response"
-          }
-        }
-      }
-    },
-    "/notifications/settings": {
-      "get": {
-        "tags": [
-          "notification-controller"
-        ],
-        "operationId": "retrieveNotificationSettings",
-        "responses": {
-          "200": {
-            "description": "default response",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/NotificationSettings"
-                }
-              }
-            }
-          }
-        }
-      },
-      "put": {
-        "tags": [
-          "notification-controller"
-        ],
-        "operationId": "updateNotificationSettings",
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/NotificationSettingsDTO"
-              }
-            }
-          },
-          "required": true
-        },
-        "responses": {
-          "200": {
-            "description": "default response",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/NotificationSettings"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/notifications/summary": {
-      "get": {
-        "tags": [
-          "notification-controller"
-        ],
-        "operationId": "summary",
-        "responses": {
-          "200": {
-            "description": "default response",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/NotificationSummary"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/notifications/{notification_id}/read": {
-      "put": {
-        "tags": [
-          "notification-controller"
-        ],
-        "operationId": "setNotificationRead",
-        "parameters": [
-          {
-            "name": "notification_id",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "integer",
-              "format": "int64"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "default response",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/Notification"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/users/{user_id}/metadatas": {
-      "get": {
-        "tags": [
-          "project-user-metadata-controller"
-        ],
-        "operationId": "retrieveProjectUserMetaData",
-        "parameters": [
-          {
-            "name": "user_id",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "integer",
-              "format": "int64"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "default response",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/EntityModelMetaData"
-                  }
-                }
-              }
-            }
-          }
-        }
-      },
-      "put": {
-        "tags": [
-          "project-user-metadata-controller"
-        ],
-        "operationId": "updateProjectUserMetaData",
-        "parameters": [
-          {
-            "name": "user_id",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "integer",
-              "format": "int64"
-            }
-          }
-        ],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "type": "array",
-                "items": {
-                  "$ref": "#/components/schemas/MetaData"
-                }
-              }
-            }
-          },
-          "required": true
-        },
-        "responses": {
-          "200": {
-            "description": "default response",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/EntityModelMetaData"
-                  }
-                }
-              }
-            }
-          }
-        }
-      },
-      "delete": {
-        "tags": [
-          "project-user-metadata-controller"
-        ],
-        "operationId": "removeProjectUserMetaData",
-        "parameters": [
-          {
-            "name": "user_id",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "integer",
-              "format": "int64"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "default response"
-          }
-        }
-      }
-    },
-    "/roles/{role_name}": {
-      "get": {
-        "tags": [
-          "role-controller"
-        ],
-        "operationId": "retrieveRole",
-        "parameters": [
-          {
-            "name": "role_name",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "default response",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/EntityModelRole"
-                }
-              }
-            }
-          }
-        }
-      },
-      "put": {
-        "tags": [
-          "role-controller"
-        ],
-        "operationId": "updateRole",
-        "parameters": [
-          {
-            "name": "role_name",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/Role"
-              }
-            }
-          },
-          "required": true
-        },
-        "responses": {
-          "200": {
-            "description": "default response",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/EntityModelRole"
-                }
-              }
-            }
-          }
-        }
-      },
-      "delete": {
-        "tags": [
-          "role-controller"
-        ],
-        "operationId": "removeRole",
-        "parameters": [
-          {
-            "name": "role_name",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "default response"
-          }
-        }
-      }
-    },
-    "/roles/{role_name}/descendants": {
-      "get": {
-        "tags": [
-          "role-controller"
-        ],
-        "operationId": "retrieveRoleDescendants",
-        "parameters": [
-          {
-            "name": "role_name",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "default response",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "uniqueItems": true,
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/Role"
-                  }
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/roles/include/{role_name}": {
-      "get": {
-        "tags": [
-          "role-controller"
-        ],
-        "operationId": "shouldAccessToResourceRequiring",
-        "parameters": [
-          {
-            "name": "role_name",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "default response",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "type": "boolean"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/roles": {
-      "get": {
-        "tags": [
-          "role-controller"
-        ],
-        "operationId": "getAllRoles",
-        "responses": {
-          "200": {
-            "description": "default response",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/EntityModelRole"
-                  }
-                }
-              }
-            }
-          }
-        }
-      },
-      "post": {
-        "tags": [
-          "role-controller"
-        ],
-        "operationId": "createRole",
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/Role"
-              }
-            }
-          },
-          "required": true
-        },
-        "responses": {
-          "200": {
-            "description": "default response",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/EntityModelRole"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/roles/borrowables": {
-      "get": {
-        "tags": [
-          "role-controller"
-        ],
-        "operationId": "getBorrowableRoles",
-        "responses": {
-          "200": {
-            "description": "default response",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/EntityModelRole"
-                  }
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/roles/resources/{resourceId}": {
-      "get": {
-        "tags": [
-          "role-controller"
-        ],
-        "operationId": "getRolesAccesingResource",
-        "parameters": [
-          {
-            "name": "resourceId",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "integer",
-              "format": "int64"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "default response",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/EntityModelRole"
-                  }
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/users/{user_email}/resources": {
-      "get": {
-        "tags": [
-          "user-resource-controller"
-        ],
-        "operationId": "retrieveProjectUserResources",
-        "parameters": [
-          {
-            "name": "user_email",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "borrowedRoleName",
-            "in": "query",
-            "required": false,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "default response",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/EntityModelResourcesAccess"
-                  }
-                }
-              }
-            }
-          }
-        }
-      },
-      "put": {
-        "tags": [
-          "user-resource-controller"
-        ],
-        "operationId": "updateProjectUserResources",
-        "parameters": [
-          {
-            "name": "user_email",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "type": "array",
-                "items": {
-                  "$ref": "#/components/schemas/ResourcesAccess"
-                }
-              }
-            }
-          },
-          "required": true
-        },
-        "responses": {
-          "200": {
-            "description": "default response"
-          }
-        }
-      },
-      "delete": {
-        "tags": [
-          "user-resource-controller"
-        ],
-        "operationId": "removeProjectUserResources",
-        "parameters": [
-          {
-            "name": "user_email",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "default response"
-          }
-        }
-      }
-    },
-    "/resources/{resource_id}": {
-      "get": {
-        "tags": [
-          "resource-controller"
-        ],
-        "operationId": "getResourceAccess",
-        "parameters": [
-          {
-            "name": "resource_id",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "integer",
-              "format": "int64"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "default response",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/EntityModelResourcesAccess"
-                }
-              }
-            }
-          }
-        }
-      },
-      "put": {
-        "tags": [
-          "resource-controller"
-        ],
-        "operationId": "updateResourceAccess",
-        "parameters": [
-          {
-            "name": "resource_id",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "integer",
-              "format": "int64"
-            }
-          }
-        ],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/ResourcesAccess"
-              }
-            }
-          },
-          "required": true
-        },
-        "responses": {
-          "200": {
-            "description": "default response",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/EntityModelResourcesAccess"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/resources": {
-      "get": {
-        "tags": [
-          "resource-controller"
-        ],
-        "operationId": "getAllResourceAccesses",
-        "parameters": [
-          {
-            "name": "pageable",
-            "in": "query",
-            "required": true,
-            "schema": {
-              "$ref": "#/components/schemas/Pageable"
-            }
-          },
-          {
-            "name": "assembler",
-            "in": "query",
-            "required": true,
-            "schema": {
-              "$ref": "#/components/schemas/PagedResourcesAssemblerResourcesAccess"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "default response",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/PagedModelEntityModelResourcesAccess"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/resources/microservices/{microservicename}": {
-      "get": {
-        "tags": [
-          "microservice-resource-controller"
-        ],
-        "operationId": "getAllResourceAccessesByMicroservice",
-        "parameters": [
-          {
-            "name": "microservicename",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "pageable",
-            "in": "query",
-            "required": true,
-            "schema": {
-              "$ref": "#/components/schemas/Pageable"
-            }
-          },
-          {
-            "name": "assembler",
-            "in": "query",
-            "required": true,
-            "schema": {
-              "$ref": "#/components/schemas/PagedResourcesAssemblerResourcesAccess"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "default response",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/PagedModelEntityModelResourcesAccess"
-                }
-              }
-            }
-          }
-        }
-      },
-      "post": {
-        "tags": [
-          "microservice-resource-controller"
-        ],
-        "operationId": "registerMicroserviceEndpoints",
-        "parameters": [
-          {
-            "name": "microservicename",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "type": "array",
-                "items": {
-                  "$ref": "#/components/schemas/ResourceMapping"
-                }
-              }
-            }
-          },
-          "required": true
-        },
-        "responses": {
-          "200": {
-            "description": "default response"
-          }
-        }
-      }
-    },
-    "/resources/microservices/{microservicename}/controllers/{controllername}": {
-      "get": {
-        "tags": [
-          "microservice-resource-controller"
-        ],
-        "operationId": "retrieveMicroserviceControllerEndpoints",
-        "parameters": [
-          {
-            "name": "microservicename",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "controllername",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "default response",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/EntityModelResourcesAccess"
-                  }
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/resources/microservices/{microservicename}/controllers": {
-      "get": {
-        "tags": [
-          "microservice-resource-controller"
-        ],
-        "operationId": "retrieveMicroserviceControllers",
-        "parameters": [
-          {
-            "name": "microservicename",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "default response",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/roles/{role_name}/resources/{resources_access_id}": {
-      "delete": {
-        "tags": [
-          "role-resource-controller"
-        ],
-        "operationId": "deleteRoleResource",
-        "parameters": [
-          {
-            "name": "role_name",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "resources_access_id",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "integer",
-              "format": "int64"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "default response"
-          }
-        }
-      }
-    },
-    "/roles/{role_name}/resources": {
-      "get": {
-        "tags": [
-          "role-resource-controller"
-        ],
-        "operationId": "getRoleResources",
-        "parameters": [
-          {
-            "name": "role_name",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "default response",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/EntityModelResourcesAccess"
-                  }
-                }
-              }
-            }
-          }
-        }
-      },
-      "post": {
-        "tags": [
-          "role-resource-controller"
-        ],
-        "operationId": "addRoleResource",
-        "parameters": [
-          {
-            "name": "role_name",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/ResourcesAccess"
-              }
-            }
-          },
-          "required": true
-        },
-        "responses": {
-          "200": {
-            "description": "default response",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/EntityModelResourcesAccess"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/license": {
-      "get": {
-        "tags": [
-          "license-controller"
-        ],
-        "operationId": "retrieveLicense",
-        "responses": {
-          "200": {
-            "description": "default response",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/EntityModelLicenseDTO"
-                }
-              }
-            }
-          }
-        }
-      },
-      "put": {
-        "tags": [
-          "license-controller"
-        ],
-        "operationId": "acceptLicense",
-        "responses": {
-          "200": {
-            "description": "default response",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/EntityModelLicenseDTO"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/license/reset": {
-      "put": {
-        "tags": [
-          "license-controller"
-        ],
-        "operationId": "resetLicense",
-        "responses": {
-          "200": {
-            "description": "default response"
-          }
-        }
-      }
-    },
-    "/users/{user_id}": {
-      "get": {
-        "tags": [
-          "project-users-controller"
-        ],
-        "operationId": "retrieveProjectUser",
-        "parameters": [
-          {
-            "name": "user_id",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "integer",
-              "format": "int64"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "default response",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/EntityModelProjectUser"
-                }
-              }
-            }
-          }
-        }
-      },
-      "put": {
-        "tags": [
-          "project-users-controller"
-        ],
-        "operationId": "updateProjectUser",
-        "parameters": [
-          {
-            "name": "user_id",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "integer",
-              "format": "int64"
-            }
-          }
-        ],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/ProjectUser"
-              }
-            }
-          },
-          "required": true
-        },
-        "responses": {
-          "200": {
-            "description": "default response",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/EntityModelProjectUser"
-                }
-              }
-            }
-          }
-        }
-      },
-      "delete": {
-        "tags": [
-          "project-users-controller"
-        ],
-        "operationId": "removeProjectUser",
-        "parameters": [
-          {
-            "name": "user_id",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "integer",
-              "format": "int64"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "default response"
-          }
-        }
-      }
-    },
-    "/users/roles": {
-      "get": {
-        "tags": [
-          "project-users-controller"
-        ],
-        "operationId": "retrieveRoleProjectUsersList",
-        "parameters": [
-          {
-            "name": "role_name",
-            "in": "query",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "pageable",
-            "in": "query",
-            "required": true,
-            "schema": {
-              "$ref": "#/components/schemas/Pageable"
-            }
-          },
-          {
-            "name": "assembler",
-            "in": "query",
-            "required": true,
-            "schema": {
-              "$ref": "#/components/schemas/PagedResourcesAssemblerProjectUser"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "default response",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/PagedModelEntityModelProjectUser"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/users/myuser": {
-      "get": {
-        "tags": [
-          "project-users-controller"
-        ],
-        "operationId": "retrieveCurrentProjectUser",
-        "responses": {
-          "200": {
-            "description": "default response",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/EntityModelProjectUser"
-                }
-              }
-            }
-          }
-        }
-      },
-      "put": {
-        "tags": [
-          "project-users-controller"
-        ],
-        "operationId": "updateCurrentProjectUser",
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/ProjectUser"
-              }
-            }
-          },
-          "required": true
-        },
-        "responses": {
-          "200": {
-            "description": "default response",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/EntityModelProjectUser"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/users/email/{email}": {
-      "get": {
-        "tags": [
-          "project-users-controller"
-        ],
-        "operationId": "retrieveProjectUserByEmail",
-        "parameters": [
-          {
-            "name": "email",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "default response",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/EntityModelProjectUser"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/users/email/{email}/admin": {
-      "get": {
-        "tags": [
-          "project-users-controller"
-        ],
-        "operationId": "isAdmin",
-        "parameters": [
-          {
-            "name": "email",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "default response",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "type": "boolean"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/users/email/{email}/origin/{origin}": {
-      "put": {
-        "tags": [
-          "project-users-controller"
-        ],
-        "operationId": "updateOrigin",
-        "parameters": [
-          {
-            "name": "email",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "origin",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "default response"
-          }
-        }
-      }
-    },
-    "/users/email/{email}/groups": {
-      "post": {
-        "tags": [
-          "project-users-controller"
-        ],
-        "operationId": "linkAccessGroups",
-        "parameters": [
-          {
-            "name": "email",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "type": "array",
-                "items": {
-                  "type": "string"
-                }
-              }
-            }
-          },
-          "required": true
-        },
-        "responses": {
-          "200": {
-            "description": "default response"
-          }
-        }
-      }
-    },
-    "/users": {
-      "get": {
-        "tags": [
-          "project-users-controller"
-        ],
-        "operationId": "retrieveProjectUserList",
-        "parameters": [
-          {
-            "name": "pageable",
-            "in": "query",
-            "required": true,
-            "schema": {
-              "$ref": "#/components/schemas/Pageable"
-            }
-          },
-          {
-            "name": "pagedResourcesAssembler",
-            "in": "query",
-            "required": true,
-            "schema": {
-              "$ref": "#/components/schemas/PagedResourcesAssemblerProjectUser"
-            }
-          },
-          {
-            "name": "parameters",
-            "in": "query",
-            "required": true,
-            "schema": {
-              "$ref": "#/components/schemas/ProjectUserSearchParameters"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "default response",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/PagedModelEntityModelProjectUser"
-                }
-              }
-            }
-          }
-        }
-      },
-      "post": {
-        "tags": [
-          "project-users-controller"
-        ],
-        "operationId": "createUser",
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/AccessRequestDto"
-              }
-            }
-          },
-          "required": true
-        },
-        "responses": {
-          "200": {
-            "description": "default response",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/EntityModelProjectUser"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/users/email/{email}/verification/resend": {
-      "get": {
-        "tags": [
-          "project-users-controller"
-        ],
-        "operationId": "sendVerificationEmail",
-        "parameters": [
-          {
-            "name": "email",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "default response"
-          }
-        }
-      }
-    },
-    "/users/count": {
-      "get": {
-        "tags": [
-          "project-users-controller"
-        ],
-        "operationId": "getUserCountByAccessGroup",
-        "responses": {
-          "200": {
-            "description": "default response",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "type": "object",
-                  "additionalProperties": {
-                    "type": "integer",
-                    "format": "int64"
-                  }
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/users/roles/{role_id}": {
-      "get": {
-        "tags": [
-          "project-users-controller"
-        ],
-        "operationId": "retrieveRoleProjectUserList",
-        "parameters": [
-          {
-            "name": "role_id",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "integer",
-              "format": "int64"
-            }
-          },
-          {
-            "name": "pageable",
-            "in": "query",
-            "required": true,
-            "schema": {
-              "$ref": "#/components/schemas/Pageable"
-            }
-          },
-          {
-            "name": "assembler",
-            "in": "query",
-            "required": true,
-            "schema": {
-              "$ref": "#/components/schemas/PagedResourcesAssemblerProjectUser"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "default response",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/PagedModelEntityModelProjectUser"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/users/pendingaccesses": {
-      "get": {
-        "tags": [
-          "project-users-controller"
-        ],
-        "operationId": "retrieveAccessRequestList",
-        "parameters": [
-          {
-            "name": "pageable",
-            "in": "query",
-            "required": true,
-            "schema": {
-              "$ref": "#/components/schemas/Pageable"
-            }
-          },
-          {
-            "name": "assembler",
-            "in": "query",
-            "required": true,
-            "schema": {
-              "$ref": "#/components/schemas/PagedResourcesAssemblerProjectUser"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "default response",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/PagedModelEntityModelProjectUser"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/users/export": {
-      "get": {
-        "tags": [
-          "project-users-controller"
-        ],
-        "operationId": "exportAsCSV",
-        "parameters": [
-          {
-            "name": "parameters",
-            "in": "query",
-            "required": true,
-            "schema": {
-              "$ref": "#/components/schemas/ProjectUserSearchParameters"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "default response"
-          }
-        }
-      }
-    },
-    "/accesses/external": {
-      "post": {
-        "tags": [
-          "registration-controller"
-        ],
-        "operationId": "requestExternalAccess",
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/AccessRequestDto"
-              }
-            }
-          },
-          "required": true
-        },
-        "responses": {
-          "200": {
-            "description": "default response"
-          }
-        }
-      }
-    },
     "/accesses": {
       "post": {
-        "tags": [
-          "registration-controller"
-        ],
         "operationId": "requestAccess",
         "requestBody": {
           "content": {
@@ -1779,67 +1592,42 @@
           "200": {
             "description": "default response"
           }
-        }
-      }
-    },
-    "/accesses/{access_id}/accept": {
-      "put": {
+        },
         "tags": [
           "registration-controller"
-        ],
-        "operationId": "acceptAccessRequest",
-        "parameters": [
-          {
-            "name": "access_id",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "integer",
-              "format": "int64"
+        ]
+      }
+    },
+    "/accesses/external": {
+      "post": {
+        "operationId": "requestExternalAccess",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AccessRequestDto"
+              }
             }
-          }
-        ],
+          },
+          "required": true
+        },
         "responses": {
           "200": {
             "description": "default response"
           }
-        }
-      }
-    },
-    "/accesses/{access_id}/deny": {
-      "put": {
+        },
         "tags": [
           "registration-controller"
-        ],
-        "operationId": "denyAccessRequest",
-        "parameters": [
-          {
-            "name": "access_id",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "integer",
-              "format": "int64"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "default response"
-          }
-        }
+        ]
       }
     },
     "/accesses/verifyEmail/{token}": {
       "get": {
-        "tags": [
-          "registration-controller"
-        ],
         "operationId": "verifyEmail",
         "parameters": [
           {
-            "name": "token",
             "in": "path",
+            "name": "token",
             "required": true,
             "schema": {
               "type": "string"
@@ -1850,71 +1638,23 @@
           "200": {
             "description": "default response"
           }
-        }
-      }
-    },
-    "/accesses/{access_id}/inactive": {
-      "put": {
+        },
         "tags": [
           "registration-controller"
-        ],
-        "operationId": "inactiveAccess",
-        "parameters": [
-          {
-            "name": "access_id",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "integer",
-              "format": "int64"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "default response"
-          }
-        }
-      }
-    },
-    "/accesses/{access_id}/active": {
-      "put": {
-        "tags": [
-          "registration-controller"
-        ],
-        "operationId": "activeAccess",
-        "parameters": [
-          {
-            "name": "access_id",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "integer",
-              "format": "int64"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "default response"
-          }
-        }
+        ]
       }
     },
     "/accesses/{access_id}": {
       "delete": {
-        "tags": [
-          "registration-controller"
-        ],
         "operationId": "removeAccessRequest",
         "parameters": [
           {
-            "name": "access_id",
             "in": "path",
+            "name": "access_id",
             "required": true,
             "schema": {
-              "type": "integer",
-              "format": "int64"
+              "format": "int64",
+              "type": "integer"
             }
           }
         ],
@@ -1922,35 +1662,131 @@
           "200": {
             "description": "default response"
           }
-        }
+        },
+        "tags": [
+          "registration-controller"
+        ]
+      }
+    },
+    "/accesses/{access_id}/accept": {
+      "put": {
+        "operationId": "acceptAccessRequest",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "access_id",
+            "required": true,
+            "schema": {
+              "format": "int64",
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "default response"
+          }
+        },
+        "tags": [
+          "registration-controller"
+        ]
+      }
+    },
+    "/accesses/{access_id}/active": {
+      "put": {
+        "operationId": "activeAccess",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "access_id",
+            "required": true,
+            "schema": {
+              "format": "int64",
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "default response"
+          }
+        },
+        "tags": [
+          "registration-controller"
+        ]
+      }
+    },
+    "/accesses/{access_id}/deny": {
+      "put": {
+        "operationId": "denyAccessRequest",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "access_id",
+            "required": true,
+            "schema": {
+              "format": "int64",
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "default response"
+          }
+        },
+        "tags": [
+          "registration-controller"
+        ]
+      }
+    },
+    "/accesses/{access_id}/inactive": {
+      "put": {
+        "operationId": "inactiveAccess",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "access_id",
+            "required": true,
+            "schema": {
+              "format": "int64",
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "default response"
+          }
+        },
+        "tags": [
+          "registration-controller"
+        ]
       }
     },
     "/emails": {
       "get": {
-        "tags": [
-          "email-controller"
-        ],
         "operationId": "retrieveEmails",
         "responses": {
           "200": {
-            "description": "default response",
             "content": {
               "*/*": {
                 "schema": {
-                  "type": "array",
                   "items": {
                     "$ref": "#/components/schemas/Email"
-                  }
+                  },
+                  "type": "array"
                 }
               }
-            }
+            },
+            "description": "default response"
           }
-        }
-      },
-      "post": {
+        },
         "tags": [
           "email-controller"
-        ],
+        ]
+      },
+      "post": {
         "operationId": "sendEmail",
         "requestBody": {
           "content": {
@@ -1966,52 +1802,74 @@
           "200": {
             "description": "default response"
           }
-        }
+        },
+        "tags": [
+          "email-controller"
+        ]
       }
     },
     "/emails/{mail_id}": {
-      "get": {
-        "tags": [
-          "email-controller"
-        ],
-        "operationId": "retrieveEmail",
+      "delete": {
+        "operationId": "deleteEmail",
         "parameters": [
           {
-            "name": "mail_id",
             "in": "path",
+            "name": "mail_id",
             "required": true,
             "schema": {
-              "type": "integer",
-              "format": "int64"
+              "format": "int64",
+              "type": "integer"
             }
           }
         ],
         "responses": {
           "200": {
-            "description": "default response",
+            "description": "default response"
+          }
+        },
+        "tags": [
+          "email-controller"
+        ]
+      },
+      "get": {
+        "operationId": "retrieveEmail",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "mail_id",
+            "required": true,
+            "schema": {
+              "format": "int64",
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
             "content": {
               "*/*": {
                 "schema": {
                   "$ref": "#/components/schemas/Email"
                 }
               }
-            }
+            },
+            "description": "default response"
           }
-        }
-      },
-      "put": {
+        },
         "tags": [
           "email-controller"
-        ],
+        ]
+      },
+      "put": {
         "operationId": "resendEmail",
         "parameters": [
           {
-            "name": "mail_id",
             "in": "path",
+            "name": "mail_id",
             "required": true,
             "schema": {
-              "type": "integer",
-              "format": "int64"
+              "format": "int64",
+              "type": "integer"
             }
           }
         ],
@@ -2019,346 +1877,458 @@
           "200": {
             "description": "default response"
           }
-        }
-      },
-      "delete": {
+        },
         "tags": [
           "email-controller"
-        ],
-        "operationId": "deleteEmail",
-        "parameters": [
-          {
-            "name": "mail_id",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "integer",
-              "format": "int64"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "default response"
-          }
-        }
+        ]
       }
     },
-    "/regards/{tenant}/datasource/test": {
+    "/license": {
       "get": {
-        "tags": [
-          "jpa-multitenant-controller"
-        ],
-        "operationId": "testTenantConnection",
-        "parameters": [
-          {
-            "name": "tenant",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
+        "operationId": "retrieveLicense",
         "responses": {
           "200": {
-            "description": "default response",
             "content": {
-              "application/json;charset=UTF-8": {
+              "*/*": {
                 "schema": {
-                  "$ref": "#/components/schemas/GenericResponseBody"
+                  "$ref": "#/components/schemas/EntityModelLicenseDTO"
                 }
               }
-            }
+            },
+            "description": "default response"
           }
-        }
-      }
-    },
-    "/regards/{tenant}/datasource/status": {
-      "get": {
+        },
         "tags": [
-          "jpa-multitenant-controller"
-        ],
-        "operationId": "getDataSourceStatus",
-        "parameters": [
-          {
-            "name": "tenant",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
+          "license-controller"
+        ]
+      },
+      "put": {
+        "operationId": "acceptLicense",
         "responses": {
           "200": {
-            "description": "default response",
             "content": {
-              "application/json;charset=UTF-8": {
+              "*/*": {
                 "schema": {
-                  "$ref": "#/components/schemas/GenericResponseBody"
+                  "$ref": "#/components/schemas/EntityModelLicenseDTO"
                 }
               }
-            }
+            },
+            "description": "default response"
           }
-        }
+        },
+        "tags": [
+          "license-controller"
+        ]
       }
     },
-    "/maintenance/{tenant}/enable": {
+    "/license/reset": {
       "put": {
-        "tags": [
-          "maintenance-controller"
-        ],
-        "operationId": "setMaintenance",
-        "parameters": [
-          {
-            "name": "tenant",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
+        "operationId": "resetLicense",
         "responses": {
           "200": {
             "description": "default response"
           }
-        }
-      }
-    },
-    "/maintenance/{tenant}/disable": {
-      "put": {
+        },
         "tags": [
-          "maintenance-controller"
-        ],
-        "operationId": "unSetMaintenance",
-        "parameters": [
-          {
-            "name": "tenant",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "default response"
-          }
-        }
+          "license-controller"
+        ]
       }
     },
     "/maintenance": {
       "get": {
-        "tags": [
-          "maintenance-controller"
-        ],
         "operationId": "retrieveTenantsInMaintenance",
         "responses": {
           "200": {
-            "description": "default response",
             "content": {
               "*/*": {
                 "schema": {
                   "$ref": "#/components/schemas/EntityModelMapStringMaintenanceInfo"
                 }
               }
-            }
+            },
+            "description": "default response"
           }
-        }
+        },
+        "tags": [
+          "maintenance-controller"
+        ]
       }
     },
-    "/shutdown/immediate": {
-      "post": {
-        "tags": [
-          "manager-controller"
+    "/maintenance/{tenant}/disable": {
+      "put": {
+        "operationId": "unSetMaintenance",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "tenant",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
         ],
-        "operationId": "immediateShutdown",
         "responses": {
           "200": {
             "description": "default response"
           }
-        }
+        },
+        "tags": [
+          "maintenance-controller"
+        ]
+      }
+    },
+    "/maintenance/{tenant}/enable": {
+      "put": {
+        "operationId": "setMaintenance",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "tenant",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "default response"
+          }
+        },
+        "tags": [
+          "maintenance-controller"
+        ]
       }
     },
     "/microservice/configuration": {
       "get": {
-        "tags": [
-          "module-manager-controller"
-        ],
         "operationId": "exportConfiguration",
         "responses": {
           "200": {
             "description": "default response"
           }
-        }
-      },
-      "post": {
+        },
         "tags": [
           "module-manager-controller"
-        ],
+        ]
+      },
+      "post": {
         "operationId": "importConfiguration",
         "requestBody": {
           "content": {
             "application/json": {
               "schema": {
-                "type": "object",
                 "properties": {
                   "file": {
-                    "type": "string",
-                    "format": "binary"
+                    "format": "binary",
+                    "type": "string"
                   }
-                }
+                },
+                "type": "object"
               }
             }
           }
         },
         "responses": {
           "200": {
-            "description": "default response",
             "content": {
               "*/*": {
                 "schema": {
-                  "uniqueItems": true,
-                  "type": "array",
                   "items": {
                     "$ref": "#/components/schemas/ModuleImportReport"
-                  }
+                  },
+                  "type": "array",
+                  "uniqueItems": true
                 }
               }
-            }
+            },
+            "description": "default response"
           }
-        }
+        },
+        "tags": [
+          "module-manager-controller"
+        ]
       }
     },
     "/microservice/configuration/enabled": {
       "get": {
-        "tags": [
-          "module-manager-controller"
-        ],
         "operationId": "isConfigurationEnabled",
         "responses": {
           "200": {
             "description": "default response"
           }
-        }
-      }
-    },
-    "/microservice/ready/enabled": {
-      "get": {
+        },
         "tags": [
           "module-manager-controller"
-        ],
-        "operationId": "isReadyEnabled",
-        "responses": {
-          "200": {
-            "description": "default response"
-          }
-        }
-      }
-    },
-    "/microservice/restart/enabled": {
-      "get": {
-        "tags": [
-          "module-manager-controller"
-        ],
-        "operationId": "isRestartEnabled",
-        "responses": {
-          "200": {
-            "description": "default response"
-          }
-        }
+        ]
       }
     },
     "/microservice/ready": {
       "get": {
-        "tags": [
-          "module-manager-controller"
-        ],
         "operationId": "isReady",
         "responses": {
           "200": {
-            "description": "default response",
             "content": {
               "*/*": {
                 "schema": {
                   "$ref": "#/components/schemas/ModuleReadinessReportObject"
                 }
               }
-            }
+            },
+            "description": "default response"
           }
-        }
+        },
+        "tags": [
+          "module-manager-controller"
+        ]
+      }
+    },
+    "/microservice/ready/enabled": {
+      "get": {
+        "operationId": "isReadyEnabled",
+        "responses": {
+          "200": {
+            "description": "default response"
+          }
+        },
+        "tags": [
+          "module-manager-controller"
+        ]
       }
     },
     "/microservice/restart": {
       "get": {
-        "tags": [
-          "module-manager-controller"
-        ],
         "operationId": "restart",
         "responses": {
           "200": {
-            "description": "default response",
             "content": {
               "*/*": {
                 "schema": {
-                  "uniqueItems": true,
-                  "type": "array",
                   "items": {
                     "$ref": "#/components/schemas/ModuleRestartReport"
-                  }
+                  },
+                  "type": "array",
+                  "uniqueItems": true
                 }
               }
-            }
+            },
+            "description": "default response"
           }
-        }
+        },
+        "tags": [
+          "module-manager-controller"
+        ]
       }
     },
-    "/sessions/{id}": {
+    "/microservice/restart/enabled": {
       "get": {
+        "operationId": "isRestartEnabled",
+        "responses": {
+          "200": {
+            "description": "default response"
+          }
+        },
         "tags": [
-          "session-manager-controller"
-        ],
-        "operationId": "getSessionById",
+          "module-manager-controller"
+        ]
+      }
+    },
+    "/notifications": {
+      "get": {
+        "operationId": "retrieveNotifications",
         "parameters": [
           {
-            "name": "id",
-            "in": "path",
+            "in": "query",
+            "name": "state",
+            "required": false,
+            "schema": {
+              "enum": [
+                "READ",
+                "UNREAD"
+              ],
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "page",
             "required": true,
             "schema": {
-              "type": "integer",
-              "format": "int64"
+              "$ref": "#/components/schemas/Pageable"
+            }
+          },
+          {
+            "in": "query",
+            "name": "assembler",
+            "required": true,
+            "schema": {
+              "$ref": "#/components/schemas/PagedResourcesAssemblerINotificationWithoutMessage"
             }
           }
         ],
         "responses": {
           "200": {
-            "description": "default response",
             "content": {
               "*/*": {
                 "schema": {
-                  "$ref": "#/components/schemas/EntityModelSession"
+                  "$ref": "#/components/schemas/PagedModelEntityModelINotificationWithoutMessage"
                 }
               }
-            }
+            },
+            "description": "default response"
           }
-        }
-      },
-      "delete": {
+        },
         "tags": [
-          "session-manager-controller"
-        ],
-        "operationId": "deleteSession",
+          "notification-controller"
+        ]
+      },
+      "post": {
+        "operationId": "createNotification",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/NotificationDTO"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/Notification"
+                }
+              }
+            },
+            "description": "default response"
+          }
+        },
+        "tags": [
+          "notification-controller"
+        ]
+      }
+    },
+    "/notifications/all/read": {
+      "put": {
+        "operationId": "markAllNotificationAsRead",
+        "responses": {
+          "200": {
+            "description": "default response"
+          }
+        },
+        "tags": [
+          "notification-controller"
+        ]
+      }
+    },
+    "/notifications/all/unread": {
+      "put": {
+        "operationId": "markAllNotificationAsUnread",
+        "responses": {
+          "200": {
+            "description": "default response"
+          }
+        },
+        "tags": [
+          "notification-controller"
+        ]
+      }
+    },
+    "/notifications/read/delete": {
+      "delete": {
+        "operationId": "deleteNotification_1",
+        "responses": {
+          "200": {
+            "description": "default response"
+          }
+        },
+        "tags": [
+          "notification-controller"
+        ]
+      }
+    },
+    "/notifications/settings": {
+      "get": {
+        "operationId": "retrieveNotificationSettings",
+        "responses": {
+          "200": {
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/NotificationSettings"
+                }
+              }
+            },
+            "description": "default response"
+          }
+        },
+        "tags": [
+          "notification-controller"
+        ]
+      },
+      "put": {
+        "operationId": "updateNotificationSettings",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/NotificationSettingsDTO"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/NotificationSettings"
+                }
+              }
+            },
+            "description": "default response"
+          }
+        },
+        "tags": [
+          "notification-controller"
+        ]
+      }
+    },
+    "/notifications/summary": {
+      "get": {
+        "operationId": "summary",
+        "responses": {
+          "200": {
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/NotificationSummary"
+                }
+              }
+            },
+            "description": "default response"
+          }
+        },
+        "tags": [
+          "notification-controller"
+        ]
+      }
+    },
+    "/notifications/{notification_id}": {
+      "delete": {
+        "operationId": "deleteNotification",
         "parameters": [
           {
-            "name": "id",
             "in": "path",
+            "name": "notification_id",
             "required": true,
             "schema": {
-              "type": "integer",
-              "format": "int64"
+              "format": "int64",
+              "type": "integer"
             }
           }
         ],
@@ -2366,51 +2336,851 @@
           "200": {
             "description": "default response"
           }
-        }
-      }
-    },
-    "/sessions": {
-      "get": {
+        },
         "tags": [
-          "session-manager-controller"
-        ],
-        "operationId": "getSessions",
+          "notification-controller"
+        ]
+      },
+      "get": {
+        "operationId": "retrieveNotification",
         "parameters": [
           {
-            "name": "sessionName",
-            "in": "query",
-            "required": false,
+            "in": "path",
+            "name": "notification_id",
+            "required": true,
+            "schema": {
+              "format": "int64",
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/Notification"
+                }
+              }
+            },
+            "description": "default response"
+          }
+        },
+        "tags": [
+          "notification-controller"
+        ]
+      }
+    },
+    "/notifications/{notification_id}/read": {
+      "put": {
+        "operationId": "setNotificationRead",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "notification_id",
+            "required": true,
+            "schema": {
+              "format": "int64",
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/Notification"
+                }
+              }
+            },
+            "description": "default response"
+          }
+        },
+        "tags": [
+          "notification-controller"
+        ]
+      }
+    },
+    "/notifications/{notification_id}/unread": {
+      "put": {
+        "operationId": "setNotificationUnRead",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "notification_id",
+            "required": true,
+            "schema": {
+              "format": "int64",
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/Notification"
+                }
+              }
+            },
+            "description": "default response"
+          }
+        },
+        "tags": [
+          "notification-controller"
+        ]
+      }
+    },
+    "/regards/{tenant}/datasource/status": {
+      "get": {
+        "operationId": "getDataSourceStatus",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "tenant",
+            "required": true,
             "schema": {
               "type": "string"
             }
-          },
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json;charset=UTF-8": {
+                "schema": {
+                  "$ref": "#/components/schemas/GenericResponseBody"
+                }
+              }
+            },
+            "description": "default response"
+          }
+        },
+        "tags": [
+          "jpa-multitenant-controller"
+        ]
+      }
+    },
+    "/regards/{tenant}/datasource/test": {
+      "get": {
+        "operationId": "testTenantConnection",
+        "parameters": [
           {
-            "name": "sessionState",
-            "in": "query",
-            "required": false,
+            "in": "path",
+            "name": "tenant",
+            "required": true,
             "schema": {
               "type": "string"
             }
-          },
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json;charset=UTF-8": {
+                "schema": {
+                  "$ref": "#/components/schemas/GenericResponseBody"
+                }
+              }
+            },
+            "description": "default response"
+          }
+        },
+        "tags": [
+          "jpa-multitenant-controller"
+        ]
+      }
+    },
+    "/resources": {
+      "get": {
+        "operationId": "getAllResourceAccesses",
+        "parameters": [
           {
-            "name": "sourceName",
             "in": "query",
-            "required": false,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
             "name": "pageable",
-            "in": "query",
             "required": true,
             "schema": {
               "$ref": "#/components/schemas/Pageable"
             }
           },
           {
-            "name": "assembler",
             "in": "query",
+            "name": "assembler",
+            "required": true,
+            "schema": {
+              "$ref": "#/components/schemas/PagedResourcesAssemblerResourcesAccess"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/PagedModelEntityModelResourcesAccess"
+                }
+              }
+            },
+            "description": "default response"
+          }
+        },
+        "tags": [
+          "resource-controller"
+        ]
+      }
+    },
+    "/resources/microservices/{microservicename}": {
+      "get": {
+        "operationId": "getAllResourceAccessesByMicroservice",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "microservicename",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "pageable",
+            "required": true,
+            "schema": {
+              "$ref": "#/components/schemas/Pageable"
+            }
+          },
+          {
+            "in": "query",
+            "name": "assembler",
+            "required": true,
+            "schema": {
+              "$ref": "#/components/schemas/PagedResourcesAssemblerResourcesAccess"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/PagedModelEntityModelResourcesAccess"
+                }
+              }
+            },
+            "description": "default response"
+          }
+        },
+        "tags": [
+          "microservice-resource-controller"
+        ]
+      },
+      "post": {
+        "operationId": "registerMicroserviceEndpoints",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "microservicename",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "items": {
+                  "$ref": "#/components/schemas/ResourceMapping"
+                },
+                "type": "array"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "default response"
+          }
+        },
+        "tags": [
+          "microservice-resource-controller"
+        ]
+      }
+    },
+    "/resources/microservices/{microservicename}/controllers": {
+      "get": {
+        "operationId": "retrieveMicroserviceControllers",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "microservicename",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "*/*": {
+                "schema": {
+                  "items": {
+                    "type": "string"
+                  },
+                  "type": "array"
+                }
+              }
+            },
+            "description": "default response"
+          }
+        },
+        "tags": [
+          "microservice-resource-controller"
+        ]
+      }
+    },
+    "/resources/microservices/{microservicename}/controllers/{controllername}": {
+      "get": {
+        "operationId": "retrieveMicroserviceControllerEndpoints",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "microservicename",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "controllername",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "*/*": {
+                "schema": {
+                  "items": {
+                    "$ref": "#/components/schemas/EntityModelResourcesAccess"
+                  },
+                  "type": "array"
+                }
+              }
+            },
+            "description": "default response"
+          }
+        },
+        "tags": [
+          "microservice-resource-controller"
+        ]
+      }
+    },
+    "/resources/{resource_id}": {
+      "get": {
+        "operationId": "getResourceAccess",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "resource_id",
+            "required": true,
+            "schema": {
+              "format": "int64",
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/EntityModelResourcesAccess"
+                }
+              }
+            },
+            "description": "default response"
+          }
+        },
+        "tags": [
+          "resource-controller"
+        ]
+      },
+      "put": {
+        "operationId": "updateResourceAccess",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "resource_id",
+            "required": true,
+            "schema": {
+              "format": "int64",
+              "type": "integer"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ResourcesAccess"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/EntityModelResourcesAccess"
+                }
+              }
+            },
+            "description": "default response"
+          }
+        },
+        "tags": [
+          "resource-controller"
+        ]
+      }
+    },
+    "/roles": {
+      "get": {
+        "operationId": "getAllRoles",
+        "responses": {
+          "200": {
+            "content": {
+              "*/*": {
+                "schema": {
+                  "items": {
+                    "$ref": "#/components/schemas/EntityModelRole"
+                  },
+                  "type": "array"
+                }
+              }
+            },
+            "description": "default response"
+          }
+        },
+        "tags": [
+          "role-controller"
+        ]
+      },
+      "post": {
+        "operationId": "createRole",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Role"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/EntityModelRole"
+                }
+              }
+            },
+            "description": "default response"
+          }
+        },
+        "tags": [
+          "role-controller"
+        ]
+      }
+    },
+    "/roles/borrowables": {
+      "get": {
+        "operationId": "getBorrowableRoles",
+        "responses": {
+          "200": {
+            "content": {
+              "*/*": {
+                "schema": {
+                  "items": {
+                    "$ref": "#/components/schemas/EntityModelRole"
+                  },
+                  "type": "array"
+                }
+              }
+            },
+            "description": "default response"
+          }
+        },
+        "tags": [
+          "role-controller"
+        ]
+      }
+    },
+    "/roles/include/{role_name}": {
+      "get": {
+        "operationId": "shouldAccessToResourceRequiring",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "role_name",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "*/*": {
+                "schema": {
+                  "type": "boolean"
+                }
+              }
+            },
+            "description": "default response"
+          }
+        },
+        "tags": [
+          "role-controller"
+        ]
+      }
+    },
+    "/roles/resources/{resourceId}": {
+      "get": {
+        "operationId": "getRolesAccesingResource",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "resourceId",
+            "required": true,
+            "schema": {
+              "format": "int64",
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "*/*": {
+                "schema": {
+                  "items": {
+                    "$ref": "#/components/schemas/EntityModelRole"
+                  },
+                  "type": "array"
+                }
+              }
+            },
+            "description": "default response"
+          }
+        },
+        "tags": [
+          "role-controller"
+        ]
+      }
+    },
+    "/roles/{role_name}": {
+      "delete": {
+        "operationId": "removeRole",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "role_name",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "default response"
+          }
+        },
+        "tags": [
+          "role-controller"
+        ]
+      },
+      "get": {
+        "operationId": "retrieveRole",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "role_name",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/EntityModelRole"
+                }
+              }
+            },
+            "description": "default response"
+          }
+        },
+        "tags": [
+          "role-controller"
+        ]
+      },
+      "put": {
+        "operationId": "updateRole",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "role_name",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Role"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/EntityModelRole"
+                }
+              }
+            },
+            "description": "default response"
+          }
+        },
+        "tags": [
+          "role-controller"
+        ]
+      }
+    },
+    "/roles/{role_name}/descendants": {
+      "get": {
+        "operationId": "retrieveRoleDescendants",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "role_name",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "*/*": {
+                "schema": {
+                  "items": {
+                    "$ref": "#/components/schemas/Role"
+                  },
+                  "type": "array",
+                  "uniqueItems": true
+                }
+              }
+            },
+            "description": "default response"
+          }
+        },
+        "tags": [
+          "role-controller"
+        ]
+      }
+    },
+    "/roles/{role_name}/resources": {
+      "get": {
+        "operationId": "getRoleResources",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "role_name",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "*/*": {
+                "schema": {
+                  "items": {
+                    "$ref": "#/components/schemas/EntityModelResourcesAccess"
+                  },
+                  "type": "array"
+                }
+              }
+            },
+            "description": "default response"
+          }
+        },
+        "tags": [
+          "role-resource-controller"
+        ]
+      },
+      "post": {
+        "operationId": "addRoleResource",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "role_name",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ResourcesAccess"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/EntityModelResourcesAccess"
+                }
+              }
+            },
+            "description": "default response"
+          }
+        },
+        "tags": [
+          "role-resource-controller"
+        ]
+      }
+    },
+    "/roles/{role_name}/resources/{resources_access_id}": {
+      "delete": {
+        "operationId": "deleteRoleResource",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "role_name",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "resources_access_id",
+            "required": true,
+            "schema": {
+              "format": "int64",
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "default response"
+          }
+        },
+        "tags": [
+          "role-resource-controller"
+        ]
+      }
+    },
+    "/security/resources": {
+      "get": {
+        "operationId": "getAllResources",
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "items": {
+                    "$ref": "#/components/schemas/ResourceMapping"
+                  },
+                  "type": "array"
+                }
+              }
+            },
+            "description": "default response"
+          }
+        },
+        "tags": [
+          "security-resources-controller"
+        ]
+      }
+    },
+    "/sessions": {
+      "get": {
+        "operationId": "getSessions",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "sessionName",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "sessionState",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "sourceName",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "pageable",
+            "required": true,
+            "schema": {
+              "$ref": "#/components/schemas/Pageable"
+            }
+          },
+          {
+            "in": "query",
+            "name": "assembler",
             "required": true,
             "schema": {
               "$ref": "#/components/schemas/PagedResourcesAssemblerSession"
@@ -2419,28 +3189,28 @@
         ],
         "responses": {
           "200": {
-            "description": "default response",
             "content": {
               "*/*": {
                 "schema": {
                   "$ref": "#/components/schemas/PagedModelEntityModelSession"
                 }
               }
-            }
+            },
+            "description": "default response"
           }
-        }
+        },
+        "tags": [
+          "session-manager-controller"
+        ]
       }
     },
     "/sessions/names": {
       "get": {
-        "tags": [
-          "session-manager-controller"
-        ],
         "operationId": "getSessionNames",
         "parameters": [
           {
-            "name": "name",
             "in": "query",
+            "name": "name",
             "required": false,
             "schema": {
               "type": "string"
@@ -2449,123 +3219,36 @@
         ],
         "responses": {
           "200": {
-            "description": "default response",
             "content": {
               "*/*": {
                 "schema": {
-                  "uniqueItems": true,
-                  "type": "array",
                   "items": {
                     "type": "string"
-                  }
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/sources/names": {
-      "get": {
-        "tags": [
-          "source-manager-controller"
-        ],
-        "operationId": "getSourcesNames",
-        "parameters": [
-          {
-            "name": "name",
-            "in": "query",
-            "required": false,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "default response",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "uniqueItems": true,
+                  },
                   "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
+                  "uniqueItems": true
                 }
               }
-            }
+            },
+            "description": "default response"
           }
-        }
-      }
-    },
-    "/sources": {
-      "get": {
+        },
         "tags": [
-          "source-manager-controller"
-        ],
-        "operationId": "getSources",
-        "parameters": [
-          {
-            "name": "sourceName",
-            "in": "query",
-            "required": false,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "sourceState",
-            "in": "query",
-            "required": false,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "pageable",
-            "in": "query",
-            "required": true,
-            "schema": {
-              "$ref": "#/components/schemas/Pageable"
-            }
-          },
-          {
-            "name": "assembler",
-            "in": "query",
-            "required": true,
-            "schema": {
-              "$ref": "#/components/schemas/PagedResourcesAssemblerSource"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "default response",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/PagedModelEntityModelSource"
-                }
-              }
-            }
-          }
-        }
+          "session-manager-controller"
+        ]
       }
     },
-    "/sources/{name}": {
+    "/sessions/{id}": {
       "delete": {
-        "tags": [
-          "source-manager-controller"
-        ],
-        "operationId": "deleteSource",
+        "operationId": "deleteSession",
         "parameters": [
           {
-            "name": "name",
             "in": "path",
+            "name": "id",
             "required": true,
             "schema": {
-              "type": "string"
+              "format": "int64",
+              "type": "integer"
             }
           }
         ],
@@ -2573,56 +3256,113 @@
           "200": {
             "description": "default response"
           }
-        }
-      }
-    },
-    "/settings": {
-      "get": {
+        },
         "tags": [
-          "dynamic-tenant-setting-controller"
-        ],
-        "operationId": "retrieveAll",
+          "session-manager-controller"
+        ]
+      },
+      "get": {
+        "operationId": "getSessionById",
         "parameters": [
           {
-            "name": "names",
-            "in": "query",
-            "required": false,
+            "in": "path",
+            "name": "id",
+            "required": true,
             "schema": {
-              "uniqueItems": true,
-              "type": "array",
-              "items": {
-                "type": "string"
-              }
+              "format": "int64",
+              "type": "integer"
             }
           }
         ],
         "responses": {
           "200": {
-            "description": "default response",
             "content": {
               "*/*": {
                 "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/EntityModelDynamicTenantSettingDto"
-                  }
+                  "$ref": "#/components/schemas/EntityModelSession"
                 }
               }
+            },
+            "description": "default response"
+          }
+        },
+        "tags": [
+          "session-manager-controller"
+        ]
+      }
+    },
+    "/settings": {
+      "get": {
+        "operationId": "retrieveAll",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "names",
+            "required": false,
+            "schema": {
+              "items": {
+                "type": "string"
+              },
+              "type": "array",
+              "uniqueItems": true
             }
           }
-        }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "*/*": {
+                "schema": {
+                  "items": {
+                    "$ref": "#/components/schemas/EntityModelDynamicTenantSettingDto"
+                  },
+                  "type": "array"
+                }
+              }
+            },
+            "description": "default response"
+          }
+        },
+        "tags": [
+          "dynamic-tenant-setting-controller"
+        ]
       }
     },
     "/settings/{name}": {
-      "put": {
+      "delete": {
+        "operationId": "reset",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "name",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/EntityModelDynamicTenantSettingDto"
+                }
+              }
+            },
+            "description": "default response"
+          }
+        },
         "tags": [
           "dynamic-tenant-setting-controller"
-        ],
+        ]
+      },
+      "put": {
         "operationId": "update",
         "parameters": [
           {
-            "name": "name",
             "in": "path",
+            "name": "name",
             "required": true,
             "schema": {
               "type": "string"
@@ -2641,26 +3381,129 @@
         },
         "responses": {
           "200": {
-            "description": "default response",
             "content": {
               "*/*": {
                 "schema": {
                   "$ref": "#/components/schemas/EntityModelDynamicTenantSettingDto"
                 }
               }
-            }
+            },
+            "description": "default response"
           }
-        }
-      },
-      "delete": {
+        },
         "tags": [
           "dynamic-tenant-setting-controller"
-        ],
-        "operationId": "reset",
+        ]
+      }
+    },
+    "/shutdown/immediate": {
+      "post": {
+        "operationId": "immediateShutdown",
+        "responses": {
+          "200": {
+            "description": "default response"
+          }
+        },
+        "tags": [
+          "manager-controller"
+        ]
+      }
+    },
+    "/sources": {
+      "get": {
+        "operationId": "getSources",
         "parameters": [
           {
+            "in": "query",
+            "name": "sourceName",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "sourceState",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "pageable",
+            "required": true,
+            "schema": {
+              "$ref": "#/components/schemas/Pageable"
+            }
+          },
+          {
+            "in": "query",
+            "name": "assembler",
+            "required": true,
+            "schema": {
+              "$ref": "#/components/schemas/PagedResourcesAssemblerSource"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/PagedModelEntityModelSource"
+                }
+              }
+            },
+            "description": "default response"
+          }
+        },
+        "tags": [
+          "source-manager-controller"
+        ]
+      }
+    },
+    "/sources/names": {
+      "get": {
+        "operationId": "getSourcesNames",
+        "parameters": [
+          {
+            "in": "query",
             "name": "name",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "*/*": {
+                "schema": {
+                  "items": {
+                    "type": "string"
+                  },
+                  "type": "array",
+                  "uniqueItems": true
+                }
+              }
+            },
+            "description": "default response"
+          }
+        },
+        "tags": [
+          "source-manager-controller"
+        ]
+      }
+    },
+    "/sources/{name}": {
+      "delete": {
+        "operationId": "deleteSource",
+        "parameters": [
+          {
             "in": "path",
+            "name": "name",
             "required": true,
             "schema": {
               "type": "string"
@@ -2669,1606 +3512,763 @@
         ],
         "responses": {
           "200": {
-            "description": "default response",
+            "description": "default response"
+          }
+        },
+        "tags": [
+          "source-manager-controller"
+        ]
+      }
+    },
+    "/users": {
+      "get": {
+        "operationId": "retrieveProjectUserList",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "pageable",
+            "required": true,
+            "schema": {
+              "$ref": "#/components/schemas/Pageable"
+            }
+          },
+          {
+            "in": "query",
+            "name": "pagedResourcesAssembler",
+            "required": true,
+            "schema": {
+              "$ref": "#/components/schemas/PagedResourcesAssemblerProjectUser"
+            }
+          },
+          {
+            "in": "query",
+            "name": "parameters",
+            "required": true,
+            "schema": {
+              "$ref": "#/components/schemas/ProjectUserSearchParameters"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
             "content": {
               "*/*": {
                 "schema": {
-                  "$ref": "#/components/schemas/EntityModelDynamicTenantSettingDto"
+                  "$ref": "#/components/schemas/PagedModelEntityModelProjectUser"
                 }
               }
-            }
+            },
+            "description": "default response"
           }
-        }
-      }
-    },
-    "/security/resources": {
-      "get": {
+        },
         "tags": [
-          "security-resources-controller"
-        ],
-        "operationId": "getAllResources",
+          "project-users-controller"
+        ]
+      },
+      "post": {
+        "operationId": "createUser",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AccessRequestDto"
+              }
+            }
+          },
+          "required": true
+        },
         "responses": {
           "200": {
-            "description": "default response",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/EntityModelProjectUser"
+                }
+              }
+            },
+            "description": "default response"
+          }
+        },
+        "tags": [
+          "project-users-controller"
+        ]
+      }
+    },
+    "/users/count": {
+      "get": {
+        "operationId": "getUserCountByAccessGroup",
+        "responses": {
+          "200": {
+            "content": {
+              "*/*": {
+                "schema": {
+                  "additionalProperties": {
+                    "format": "int64",
+                    "type": "integer"
+                  },
+                  "type": "object"
+                }
+              }
+            },
+            "description": "default response"
+          }
+        },
+        "tags": [
+          "project-users-controller"
+        ]
+      }
+    },
+    "/users/email/{email}": {
+      "get": {
+        "operationId": "retrieveProjectUserByEmail",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "email",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/EntityModelProjectUser"
+                }
+              }
+            },
+            "description": "default response"
+          }
+        },
+        "tags": [
+          "project-users-controller"
+        ]
+      }
+    },
+    "/users/email/{email}/admin": {
+      "get": {
+        "operationId": "isAdmin",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "email",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "*/*": {
+                "schema": {
+                  "type": "boolean"
+                }
+              }
+            },
+            "description": "default response"
+          }
+        },
+        "tags": [
+          "project-users-controller"
+        ]
+      }
+    },
+    "/users/email/{email}/groups": {
+      "post": {
+        "operationId": "linkAccessGroups",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "email",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "items": {
+                  "type": "string"
+                },
+                "type": "array"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "default response"
+          }
+        },
+        "tags": [
+          "project-users-controller"
+        ]
+      }
+    },
+    "/users/email/{email}/origin/{origin}": {
+      "put": {
+        "operationId": "updateOrigin",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "email",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "origin",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "default response"
+          }
+        },
+        "tags": [
+          "project-users-controller"
+        ]
+      }
+    },
+    "/users/email/{email}/verification/resend": {
+      "get": {
+        "operationId": "sendVerificationEmail",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "email",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "default response"
+          }
+        },
+        "tags": [
+          "project-users-controller"
+        ]
+      }
+    },
+    "/users/export": {
+      "get": {
+        "operationId": "exportAsCSV",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "parameters",
+            "required": true,
+            "schema": {
+              "$ref": "#/components/schemas/ProjectUserSearchParameters"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "default response"
+          }
+        },
+        "tags": [
+          "project-users-controller"
+        ]
+      }
+    },
+    "/users/myuser": {
+      "get": {
+        "operationId": "retrieveCurrentProjectUser",
+        "responses": {
+          "200": {
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/EntityModelProjectUser"
+                }
+              }
+            },
+            "description": "default response"
+          }
+        },
+        "tags": [
+          "project-users-controller"
+        ]
+      },
+      "put": {
+        "operationId": "updateCurrentProjectUser",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ProjectUser"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/EntityModelProjectUser"
+                }
+              }
+            },
+            "description": "default response"
+          }
+        },
+        "tags": [
+          "project-users-controller"
+        ]
+      }
+    },
+    "/users/pendingaccesses": {
+      "get": {
+        "operationId": "retrieveAccessRequestList",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "pageable",
+            "required": true,
+            "schema": {
+              "$ref": "#/components/schemas/Pageable"
+            }
+          },
+          {
+            "in": "query",
+            "name": "assembler",
+            "required": true,
+            "schema": {
+              "$ref": "#/components/schemas/PagedResourcesAssemblerProjectUser"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/PagedModelEntityModelProjectUser"
+                }
+              }
+            },
+            "description": "default response"
+          }
+        },
+        "tags": [
+          "project-users-controller"
+        ]
+      }
+    },
+    "/users/roles": {
+      "get": {
+        "operationId": "retrieveRoleProjectUsersList",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "role_name",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "pageable",
+            "required": true,
+            "schema": {
+              "$ref": "#/components/schemas/Pageable"
+            }
+          },
+          {
+            "in": "query",
+            "name": "assembler",
+            "required": true,
+            "schema": {
+              "$ref": "#/components/schemas/PagedResourcesAssemblerProjectUser"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/PagedModelEntityModelProjectUser"
+                }
+              }
+            },
+            "description": "default response"
+          }
+        },
+        "tags": [
+          "project-users-controller"
+        ]
+      }
+    },
+    "/users/roles/{role_id}": {
+      "get": {
+        "operationId": "retrieveRoleProjectUserList",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "role_id",
+            "required": true,
+            "schema": {
+              "format": "int64",
+              "type": "integer"
+            }
+          },
+          {
+            "in": "query",
+            "name": "pageable",
+            "required": true,
+            "schema": {
+              "$ref": "#/components/schemas/Pageable"
+            }
+          },
+          {
+            "in": "query",
+            "name": "assembler",
+            "required": true,
+            "schema": {
+              "$ref": "#/components/schemas/PagedResourcesAssemblerProjectUser"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/PagedModelEntityModelProjectUser"
+                }
+              }
+            },
+            "description": "default response"
+          }
+        },
+        "tags": [
+          "project-users-controller"
+        ]
+      }
+    },
+    "/users/{user_email}/resources": {
+      "delete": {
+        "operationId": "removeProjectUserResources",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "user_email",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "default response"
+          }
+        },
+        "tags": [
+          "user-resource-controller"
+        ]
+      },
+      "get": {
+        "operationId": "retrieveProjectUserResources",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "user_email",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "borrowedRoleName",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "*/*": {
+                "schema": {
+                  "items": {
+                    "$ref": "#/components/schemas/EntityModelResourcesAccess"
+                  },
+                  "type": "array"
+                }
+              }
+            },
+            "description": "default response"
+          }
+        },
+        "tags": [
+          "user-resource-controller"
+        ]
+      },
+      "put": {
+        "operationId": "updateProjectUserResources",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "user_email",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "items": {
+                  "$ref": "#/components/schemas/ResourcesAccess"
+                },
+                "type": "array"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "default response"
+          }
+        },
+        "tags": [
+          "user-resource-controller"
+        ]
+      }
+    },
+    "/users/{user_id}": {
+      "delete": {
+        "operationId": "removeProjectUser",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "user_id",
+            "required": true,
+            "schema": {
+              "format": "int64",
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "default response"
+          }
+        },
+        "tags": [
+          "project-users-controller"
+        ]
+      },
+      "get": {
+        "operationId": "retrieveProjectUser",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "user_id",
+            "required": true,
+            "schema": {
+              "format": "int64",
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/EntityModelProjectUser"
+                }
+              }
+            },
+            "description": "default response"
+          }
+        },
+        "tags": [
+          "project-users-controller"
+        ]
+      },
+      "put": {
+        "operationId": "updateProjectUser",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "user_id",
+            "required": true,
+            "schema": {
+              "format": "int64",
+              "type": "integer"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ProjectUser"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/EntityModelProjectUser"
+                }
+              }
+            },
+            "description": "default response"
+          }
+        },
+        "tags": [
+          "project-users-controller"
+        ]
+      }
+    },
+    "/users/{user_id}/metadatas": {
+      "delete": {
+        "operationId": "removeProjectUserMetaData",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "user_id",
+            "required": true,
+            "schema": {
+              "format": "int64",
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "default response"
+          }
+        },
+        "tags": [
+          "project-user-metadata-controller"
+        ]
+      },
+      "get": {
+        "operationId": "retrieveProjectUserMetaData",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "user_id",
+            "required": true,
+            "schema": {
+              "format": "int64",
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/ResourceMapping"
-                  }
+                    "$ref": "#/components/schemas/EntityModelMetaData"
+                  },
+                  "type": "array"
                 }
               }
+            },
+            "description": "default response"
+          }
+        },
+        "tags": [
+          "project-user-metadata-controller"
+        ]
+      },
+      "put": {
+        "operationId": "updateProjectUserMetaData",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "user_id",
+            "required": true,
+            "schema": {
+              "format": "int64",
+              "type": "integer"
             }
           }
-        }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "items": {
+                  "$ref": "#/components/schemas/MetaData"
+                },
+                "type": "array"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "*/*": {
+                "schema": {
+                  "items": {
+                    "$ref": "#/components/schemas/EntityModelMetaData"
+                  },
+                  "type": "array"
+                }
+              }
+            },
+            "description": "default response"
+          }
+        },
+        "tags": [
+          "project-user-metadata-controller"
+        ]
       }
     }
   },
-  "components": {
-    "schemas": {
-      "Pageable": {
-        "type": "object",
-        "properties": {
-          "pageNumber": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "sort": {
-            "$ref": "#/components/schemas/Sort"
-          },
-          "paged": {
-            "type": "boolean"
-          },
-          "pageSize": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "unpaged": {
-            "type": "boolean"
-          },
-          "offset": {
-            "type": "integer",
-            "format": "int64"
-          }
-        }
-      },
-      "Sort": {
-        "type": "object",
-        "properties": {
-          "unsorted": {
-            "type": "boolean"
-          },
-          "sorted": {
-            "type": "boolean"
-          },
-          "empty": {
-            "type": "boolean"
-          }
-        }
-      },
-      "PagedResourcesAssemblerINotificationWithoutMessage": {
-        "type": "object",
-        "properties": {
-          "forceFirstAndLastRels": {
-            "type": "boolean",
-            "writeOnly": true
-          }
-        }
-      },
-      "EntityModelINotificationWithoutMessage": {
-        "type": "object",
-        "properties": {
-          "date": {
-            "type": "string",
-            "format": "date-time"
-          },
-          "level": {
-            "type": "string",
-            "enum": [
-              "INFO",
-              "WARNING",
-              "ERROR",
-              "FATAL"
-            ]
-          },
-          "mimeType": {
-            "$ref": "#/components/schemas/MimeType"
-          },
-          "title": {
-            "type": "string"
-          },
-          "sender": {
-            "type": "string"
-          },
-          "status": {
-            "type": "string",
-            "enum": [
-              "READ",
-              "UNREAD"
-            ]
-          },
-          "id": {
-            "type": "integer",
-            "format": "int64"
-          },
-          "links": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/Link"
-            }
-          }
-        }
-      },
-      "Link": {
-        "type": "object",
-        "properties": {
-          "rel": {
-            "type": "string"
-          },
-          "href": {
-            "type": "string"
-          },
-          "hreflang": {
-            "type": "string"
-          },
-          "media": {
-            "type": "string"
-          },
-          "title": {
-            "type": "string"
-          },
-          "type": {
-            "type": "string"
-          },
-          "deprecation": {
-            "type": "string"
-          },
-          "profile": {
-            "type": "string"
-          },
-          "name": {
-            "type": "string"
-          }
-        }
-      },
-      "MimeType": {
-        "type": "object",
-        "properties": {
-          "type": {
-            "type": "string"
-          },
-          "subtype": {
-            "type": "string"
-          },
-          "parameters": {
-            "type": "object",
-            "additionalProperties": {
-              "type": "string"
-            }
-          },
-          "charset": {
-            "type": "object",
-            "properties": {
-              "registered": {
-                "type": "boolean"
-              }
-            }
-          },
-          "concrete": {
-            "type": "boolean"
-          },
-          "wildcardType": {
-            "type": "boolean"
-          },
-          "wildcardSubtype": {
-            "type": "boolean"
-          }
-        }
-      },
-      "PageMetadata": {
-        "type": "object",
-        "properties": {
-          "size": {
-            "type": "integer",
-            "format": "int64"
-          },
-          "totalElements": {
-            "type": "integer",
-            "format": "int64"
-          },
-          "totalPages": {
-            "type": "integer",
-            "format": "int64"
-          },
-          "number": {
-            "type": "integer",
-            "format": "int64"
-          }
-        }
-      },
-      "PagedModelEntityModelINotificationWithoutMessage": {
-        "type": "object",
-        "properties": {
-          "links": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/Link"
-            }
-          },
-          "content": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/EntityModelINotificationWithoutMessage"
-            }
-          },
-          "page": {
-            "$ref": "#/components/schemas/PageMetadata"
-          }
-        }
-      },
-      "Notification": {
-        "required": [
-          "level",
-          "message",
-          "projectUserRecipients",
-          "roleRecipients",
-          "sender",
-          "status"
-        ],
-        "type": "object",
-        "properties": {
-          "date": {
-            "type": "string",
-            "format": "date-time"
-          },
-          "id": {
-            "type": "integer",
-            "format": "int64"
-          },
-          "message": {
-            "type": "string"
-          },
-          "roleRecipients": {
-            "uniqueItems": true,
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
-          },
-          "projectUserRecipients": {
-            "uniqueItems": true,
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
-          },
-          "sender": {
-            "type": "string"
-          },
-          "status": {
-            "type": "string",
-            "enum": [
-              "READ",
-              "UNREAD"
-            ]
-          },
-          "level": {
-            "type": "string",
-            "enum": [
-              "INFO",
-              "WARNING",
-              "ERROR",
-              "FATAL"
-            ]
-          },
-          "title": {
-            "type": "string"
-          },
-          "mimeType": {
-            "$ref": "#/components/schemas/MimeType"
-          },
-          "identifiable": {
-            "type": "boolean"
-          }
-        }
-      },
-      "NotificationSettings": {
-        "required": [
-          "projectUserEmail"
-        ],
-        "type": "object",
-        "properties": {
-          "days": {
-            "minimum": 1,
-            "type": "integer",
-            "format": "int32"
-          },
-          "frequency": {
-            "type": "string",
-            "enum": [
-              "DAILY",
-              "WEEKLY",
-              "MONTHLY",
-              "CUSTOM"
-            ]
-          },
-          "hours": {
-            "maximum": 24,
-            "minimum": 0,
-            "type": "integer",
-            "format": "int32"
-          },
-          "id": {
-            "type": "integer",
-            "format": "int64"
-          },
-          "projectUserEmail": {
-            "type": "string"
-          },
-          "identifiable": {
-            "type": "boolean"
-          }
-        }
-      },
-      "NotificationSettingsDTO": {
-        "type": "object",
-        "properties": {
-          "days": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "frequency": {
-            "type": "string",
-            "enum": [
-              "DAILY",
-              "WEEKLY",
-              "MONTHLY",
-              "CUSTOM"
-            ]
-          },
-          "hours": {
-            "type": "integer",
-            "format": "int32"
-          }
-        }
-      },
-      "NotificationDTO": {
-        "type": "object",
-        "properties": {
-          "message": {
-            "type": "string"
-          },
-          "projectUserRecipients": {
-            "uniqueItems": true,
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
-          },
-          "roleRecipients": {
-            "uniqueItems": true,
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
-          },
-          "sender": {
-            "type": "string"
-          },
-          "title": {
-            "type": "string"
-          },
-          "level": {
-            "type": "string",
-            "enum": [
-              "INFO",
-              "WARNING",
-              "ERROR",
-              "FATAL"
-            ]
-          },
-          "mimeType": {
-            "$ref": "#/components/schemas/MimeType"
-          }
-        }
-      },
-      "NotificationSummary": {
-        "type": "object",
-        "properties": {
-          "unreads": {
-            "type": "integer",
-            "format": "int64"
-          },
-          "reads": {
-            "type": "integer",
-            "format": "int64"
-          }
-        }
-      },
-      "EntityModelMetaData": {
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "integer",
-            "format": "int64"
-          },
-          "key": {
-            "type": "string"
-          },
-          "value": {
-            "type": "string"
-          },
-          "visibility": {
-            "type": "string",
-            "enum": [
-              "READABLE",
-              "WRITEABLE",
-              "HIDDEN"
-            ]
-          },
-          "identifiable": {
-            "type": "boolean"
-          },
-          "links": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/Link"
-            }
-          }
-        }
-      },
-      "MetaData": {
-        "required": [
-          "key"
-        ],
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "integer",
-            "format": "int64"
-          },
-          "key": {
-            "type": "string"
-          },
-          "value": {
-            "type": "string"
-          },
-          "visibility": {
-            "type": "string",
-            "enum": [
-              "READABLE",
-              "WRITEABLE",
-              "HIDDEN"
-            ]
-          },
-          "identifiable": {
-            "type": "boolean"
-          }
-        }
-      },
-      "ResourcesAccess": {
-        "required": [
-          "controllerSimpleName",
-          "defaultRole",
-          "microservice",
-          "resource",
-          "verb"
-        ],
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "integer",
-            "format": "int64"
-          },
-          "description": {
-            "type": "string"
-          },
-          "microservice": {
-            "type": "string"
-          },
-          "controllerSimpleName": {
-            "type": "string"
-          },
-          "resource": {
-            "type": "string"
-          },
-          "verb": {
-            "type": "string",
-            "enum": [
-              "GET",
-              "HEAD",
-              "POST",
-              "PUT",
-              "PATCH",
-              "DELETE",
-              "OPTIONS",
-              "TRACE"
-            ]
-          },
-          "defaultRole": {
-            "type": "string",
-            "enum": [
-              "INSTANCE_ADMIN",
-              "PROJECT_ADMIN",
-              "EXPLOIT",
-              "ADMIN",
-              "REGISTERED_USER",
-              "PUBLIC"
-            ]
-          },
-          "identifiable": {
-            "type": "boolean"
-          }
-        }
-      },
-      "Role": {
-        "required": [
-          "name"
-        ],
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "integer",
-            "format": "int64"
-          },
-          "name": {
-            "type": "string"
-          },
-          "parentRole": {
-            "$ref": "#/components/schemas/Role"
-          },
-          "permissions": {
-            "uniqueItems": true,
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/ResourcesAccess"
-            }
-          },
-          "authorizedAddresses": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
-          },
-          "default": {
-            "type": "boolean"
-          },
-          "native": {
-            "type": "boolean"
-          },
-          "identifiable": {
-            "type": "boolean"
-          }
-        }
-      },
-      "EntityModelRole": {
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "integer",
-            "format": "int64"
-          },
-          "name": {
-            "type": "string"
-          },
-          "parentRole": {
-            "$ref": "#/components/schemas/Role"
-          },
-          "permissions": {
-            "uniqueItems": true,
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/ResourcesAccess"
-            }
-          },
-          "authorizedAddresses": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
-          },
-          "default": {
-            "type": "boolean"
-          },
-          "native": {
-            "type": "boolean"
-          },
-          "identifiable": {
-            "type": "boolean"
-          },
-          "links": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/Link"
-            }
-          }
-        }
-      },
-      "EntityModelResourcesAccess": {
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "integer",
-            "format": "int64"
-          },
-          "description": {
-            "type": "string"
-          },
-          "microservice": {
-            "type": "string"
-          },
-          "controllerSimpleName": {
-            "type": "string"
-          },
-          "resource": {
-            "type": "string"
-          },
-          "verb": {
-            "type": "string",
-            "enum": [
-              "GET",
-              "HEAD",
-              "POST",
-              "PUT",
-              "PATCH",
-              "DELETE",
-              "OPTIONS",
-              "TRACE"
-            ]
-          },
-          "defaultRole": {
-            "type": "string",
-            "enum": [
-              "INSTANCE_ADMIN",
-              "PROJECT_ADMIN",
-              "EXPLOIT",
-              "ADMIN",
-              "REGISTERED_USER",
-              "PUBLIC"
-            ]
-          },
-          "identifiable": {
-            "type": "boolean"
-          },
-          "links": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/Link"
-            }
-          }
-        }
-      },
-      "PagedResourcesAssemblerResourcesAccess": {
-        "type": "object",
-        "properties": {
-          "forceFirstAndLastRels": {
-            "type": "boolean",
-            "writeOnly": true
-          }
-        }
-      },
-      "PagedModelEntityModelResourcesAccess": {
-        "type": "object",
-        "properties": {
-          "links": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/Link"
-            }
-          },
-          "content": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/EntityModelResourcesAccess"
-            }
-          },
-          "page": {
-            "$ref": "#/components/schemas/PageMetadata"
-          }
-        }
-      },
-      "ResourceAccess": {
-        "type": "object"
-      },
-      "ResourceMapping": {
-        "type": "object",
-        "properties": {
-          "resourceAccess": {
-            "$ref": "#/components/schemas/ResourceAccess"
-          },
-          "fullPath": {
-            "type": "string"
-          },
-          "controllerSimpleName": {
-            "type": "string"
-          },
-          "method": {
-            "type": "string",
-            "enum": [
-              "GET",
-              "HEAD",
-              "POST",
-              "PUT",
-              "PATCH",
-              "DELETE",
-              "OPTIONS",
-              "TRACE"
-            ]
-          },
-          "autorizedRoles": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/RoleAuthority"
-            }
-          },
-          "resourceMappingId": {
-            "type": "string"
-          }
-        }
-      },
-      "RoleAuthority": {
-        "type": "object",
-        "properties": {
-          "authorizedIpAdresses": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
-          },
-          "roleName": {
-            "type": "string"
-          },
-          "authority": {
-            "type": "string"
-          }
-        }
-      },
-      "EntityModelLicenseDTO": {
-        "type": "object",
-        "properties": {
-          "accepted": {
-            "type": "boolean"
-          },
-          "licenceLink": {
-            "type": "string"
-          },
-          "links": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/Link"
-            }
-          }
-        }
-      },
-      "PagedResourcesAssemblerProjectUser": {
-        "type": "object",
-        "properties": {
-          "forceFirstAndLastRels": {
-            "type": "boolean",
-            "writeOnly": true
-          }
-        }
-      },
-      "EntityModelProjectUser": {
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "integer",
-            "format": "int64"
-          },
-          "email": {
-            "type": "string"
-          },
-          "firstName": {
-            "type": "string"
-          },
-          "lastName": {
-            "type": "string"
-          },
-          "lastConnection": {
-            "type": "string",
-            "format": "date-time"
-          },
-          "lastUpdate": {
-            "type": "string",
-            "format": "date-time"
-          },
-          "created": {
-            "type": "string",
-            "format": "date-time"
-          },
-          "origin": {
-            "type": "string"
-          },
-          "accessGroups": {
-            "uniqueItems": true,
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
-          },
-          "maxQuota": {
-            "type": "integer",
-            "format": "int64"
-          },
-          "currentQuota": {
-            "type": "integer",
-            "format": "int64"
-          },
-          "status": {
-            "type": "string",
-            "enum": [
-              "WAITING_ACCESS",
-              "ACCESS_DENIED",
-              "ACCESS_GRANTED",
-              "ACCESS_INACTIVE",
-              "WAITING_ACCOUNT_ACTIVE",
-              "WAITING_EMAIL_VERIFICATION"
-            ]
-          },
-          "metadata": {
-            "uniqueItems": true,
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/MetaData"
-            }
-          },
-          "role": {
-            "$ref": "#/components/schemas/Role"
-          },
-          "permissions": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/ResourcesAccess"
-            }
-          },
-          "licenseAccepted": {
-            "type": "boolean"
-          },
-          "identifiable": {
-            "type": "boolean"
-          },
-          "links": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/Link"
-            }
-          }
-        }
-      },
-      "PagedModelEntityModelProjectUser": {
-        "type": "object",
-        "properties": {
-          "links": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/Link"
-            }
-          },
-          "content": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/EntityModelProjectUser"
-            }
-          },
-          "page": {
-            "$ref": "#/components/schemas/PageMetadata"
-          }
-        }
-      },
-      "ProjectUser": {
-        "required": [
-          "origin",
-          "status"
-        ],
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "integer",
-            "format": "int64"
-          },
-          "email": {
-            "type": "string"
-          },
-          "firstName": {
-            "type": "string"
-          },
-          "lastName": {
-            "type": "string"
-          },
-          "lastConnection": {
-            "type": "string",
-            "format": "date-time"
-          },
-          "lastUpdate": {
-            "type": "string",
-            "format": "date-time"
-          },
-          "created": {
-            "type": "string",
-            "format": "date-time"
-          },
-          "origin": {
-            "type": "string"
-          },
-          "accessGroups": {
-            "uniqueItems": true,
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
-          },
-          "maxQuota": {
-            "type": "integer",
-            "format": "int64"
-          },
-          "currentQuota": {
-            "type": "integer",
-            "format": "int64"
-          },
-          "status": {
-            "type": "string",
-            "enum": [
-              "WAITING_ACCESS",
-              "ACCESS_DENIED",
-              "ACCESS_GRANTED",
-              "ACCESS_INACTIVE",
-              "WAITING_ACCOUNT_ACTIVE",
-              "WAITING_EMAIL_VERIFICATION"
-            ]
-          },
-          "metadata": {
-            "uniqueItems": true,
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/MetaData"
-            }
-          },
-          "role": {
-            "$ref": "#/components/schemas/Role"
-          },
-          "permissions": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/ResourcesAccess"
-            }
-          },
-          "licenseAccepted": {
-            "type": "boolean"
-          },
-          "identifiable": {
-            "type": "boolean"
-          }
-        }
-      },
-      "ProjectUserSearchParameters": {
-        "type": "object",
-        "properties": {
-          "email": {
-            "type": "string"
-          },
-          "lastName": {
-            "type": "string"
-          },
-          "firstName": {
-            "type": "string"
-          },
-          "status": {
-            "type": "string"
-          },
-          "origin": {
-            "type": "string"
-          },
-          "role": {
-            "type": "string"
-          },
-          "createdBefore": {
-            "type": "string",
-            "format": "date-time"
-          },
-          "createdAfter": {
-            "type": "string",
-            "format": "date-time"
-          },
-          "lastConnectionBefore": {
-            "type": "string",
-            "format": "date-time"
-          },
-          "lastConnectionAfter": {
-            "type": "string",
-            "format": "date-time"
-          },
-          "quotaWarningCount": {
-            "type": "integer",
-            "format": "int64"
-          },
-          "accessGroup": {
-            "type": "string"
-          }
-        }
-      },
-      "AccessRequestDto": {
-        "required": [
-          "email"
-        ],
-        "type": "object",
-        "properties": {
-          "email": {
-            "type": "string"
-          },
-          "firstName": {
-            "type": "string"
-          },
-          "lastName": {
-            "type": "string"
-          },
-          "roleName": {
-            "type": "string"
-          },
-          "metadata": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/MetaData"
-            }
-          },
-          "password": {
-            "type": "string"
-          },
-          "originUrl": {
-            "type": "string"
-          },
-          "requestLink": {
-            "type": "string"
-          },
-          "origin": {
-            "type": "string"
-          },
-          "accessGroups": {
-            "uniqueItems": true,
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
-          },
-          "maxQuota": {
-            "type": "integer",
-            "format": "int64"
-          }
-        }
-      },
-      "Email": {
-        "required": [
-          "to"
-        ],
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "integer",
-            "format": "int64"
-          },
-          "bcc": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
-          },
-          "cc": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
-          },
-          "from": {
-            "type": "string"
-          },
-          "replyTo": {
-            "type": "string"
-          },
-          "sentDate": {
-            "type": "string",
-            "format": "date-time"
-          },
-          "subject": {
-            "type": "string"
-          },
-          "text": {
-            "type": "string"
-          },
-          "to": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
-          },
-          "attName": {
-            "type": "string"
-          },
-          "attachment": {
-            "type": "array",
-            "items": {
-              "type": "string",
-              "format": "byte"
-            }
-          },
-          "identifiable": {
-            "type": "boolean"
-          }
-        }
-      },
-      "SimpleMailMessage": {
-        "type": "object",
-        "properties": {
-          "from": {
-            "type": "string"
-          },
-          "replyTo": {
-            "type": "string"
-          },
-          "to": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
-          },
-          "cc": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
-          },
-          "bcc": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
-          },
-          "sentDate": {
-            "type": "string",
-            "format": "date-time"
-          },
-          "subject": {
-            "type": "string"
-          },
-          "text": {
-            "type": "string"
-          }
-        }
-      },
-      "GenericResponseBody": {
-        "type": "object",
-        "properties": {
-          "message": {
-            "type": "string"
-          },
-          "properties": {
-            "type": "object",
-            "additionalProperties": {
-              "type": "object"
-            }
-          }
-        }
-      },
-      "EntityModelMapStringMaintenanceInfo": {
-        "type": "object",
-        "properties": {
-          "links": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/Link"
-            }
-          }
-        }
-      },
-      "ModuleImportReport": {
-        "type": "object",
-        "properties": {
-          "moduleInformation": {
-            "$ref": "#/components/schemas/ModuleInformation"
-          },
-          "importErrors": {
-            "uniqueItems": true,
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
-          },
-          "onlyErrors": {
-            "type": "boolean"
-          }
-        }
-      },
-      "ModuleInformation": {
-        "required": [
-          "author",
-          "id",
-          "name",
-          "version"
-        ],
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "string"
-          },
-          "name": {
-            "type": "string"
-          },
-          "description": {
-            "type": "string"
-          },
-          "version": {
-            "type": "string"
-          },
-          "author": {
-            "type": "string"
-          },
-          "legalOwner": {
-            "type": "string"
-          },
-          "documentation": {
-            "type": "string"
-          }
-        }
-      },
-      "ModuleReadinessReportObject": {
-        "type": "object",
-        "properties": {
-          "ready": {
-            "type": "boolean"
-          },
-          "reasons": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
-          },
-          "specifications": {
-            "type": "object"
-          }
-        }
-      },
-      "ModuleRestartReport": {
-        "type": "object",
-        "properties": {
-          "moduleInformation": {
-            "$ref": "#/components/schemas/ModuleInformation"
-          },
-          "messages": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
-          }
-        }
-      },
-      "PagedResourcesAssemblerSession": {
-        "type": "object",
-        "properties": {
-          "forceFirstAndLastRels": {
-            "type": "boolean",
-            "writeOnly": true
-          }
-        }
-      },
-      "EntityModelSession": {
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "integer",
-            "format": "int64"
-          },
-          "name": {
-            "type": "string"
-          },
-          "source": {
-            "type": "string"
-          },
-          "creationDate": {
-            "type": "string",
-            "format": "date-time"
-          },
-          "lastUpdateDate": {
-            "type": "string",
-            "format": "date-time"
-          },
-          "steps": {
-            "uniqueItems": true,
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/SessionStep"
-            }
-          },
-          "managerState": {
-            "$ref": "#/components/schemas/ManagerState"
-          },
-          "links": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/Link"
-            }
-          }
-        }
-      },
-      "ManagerState": {
-        "required": [
-          "errors",
-          "running",
-          "waiting"
-        ],
-        "type": "object",
-        "properties": {
-          "running": {
-            "type": "boolean"
-          },
-          "errors": {
-            "type": "boolean"
-          },
-          "waiting": {
-            "type": "boolean"
-          }
-        }
-      },
-      "PagedModelEntityModelSession": {
-        "type": "object",
-        "properties": {
-          "links": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/Link"
-            }
-          },
-          "content": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/EntityModelSession"
-            }
-          },
-          "page": {
-            "$ref": "#/components/schemas/PageMetadata"
-          }
-        }
-      },
-      "SessionStep": {
-        "required": [
-          "inputRelated",
-          "lastUpdateDate",
-          "outputRelated",
-          "properties",
-          "session",
-          "source",
-          "state",
-          "stepId",
-          "type"
-        ],
-        "type": "object",
-        "properties": {
-          "stepId": {
-            "type": "string"
-          },
-          "source": {
-            "type": "string"
-          },
-          "session": {
-            "type": "string"
-          },
-          "type": {
-            "type": "string",
-            "enum": [
-              "ACQUISITION",
-              "REFERENCING",
-              "STORAGE",
-              "DISSEMINATION"
-            ]
-          },
-          "inputRelated": {
-            "type": "integer",
-            "format": "int64"
-          },
-          "outputRelated": {
-            "type": "integer",
-            "format": "int64"
-          },
-          "state": {
-            "$ref": "#/components/schemas/StepState"
-          },
-          "properties": {
-            "type": "object",
-            "properties": {
-              "empty": {
-                "type": "boolean"
-              }
-            },
-            "additionalProperties": {
-              "type": "string"
-            }
-          },
-          "lastUpdateDate": {
-            "type": "string",
-            "format": "date-time"
-          },
-          "registrationDate": {
-            "type": "string",
-            "format": "date-time"
-          }
-        }
-      },
-      "StepState": {
-        "type": "object",
-        "properties": {
-          "errors": {
-            "type": "integer",
-            "format": "int64"
-          },
-          "waiting": {
-            "type": "integer",
-            "format": "int64"
-          },
-          "running": {
-            "type": "integer",
-            "format": "int64"
-          }
-        }
-      },
-      "PagedResourcesAssemblerSource": {
-        "type": "object",
-        "properties": {
-          "forceFirstAndLastRels": {
-            "type": "boolean",
-            "writeOnly": true
-          }
-        }
-      },
-      "AggregationState": {
-        "type": "object",
-        "properties": {
-          "errors": {
-            "type": "integer",
-            "format": "int64"
-          },
-          "waiting": {
-            "type": "integer",
-            "format": "int64"
-          },
-          "running": {
-            "type": "integer",
-            "format": "int64"
-          }
-        }
-      },
-      "EntityModelSource": {
-        "type": "object",
-        "properties": {
-          "name": {
-            "type": "string"
-          },
-          "nbSessions": {
-            "type": "integer",
-            "format": "int64"
-          },
-          "steps": {
-            "uniqueItems": true,
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/SourceStepAggregation"
-            }
-          },
-          "lastUpdateDate": {
-            "type": "string",
-            "format": "date-time"
-          },
-          "managerState": {
-            "$ref": "#/components/schemas/ManagerState"
-          },
-          "links": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/Link"
-            }
-          }
-        }
-      },
-      "PagedModelEntityModelSource": {
-        "type": "object",
-        "properties": {
-          "links": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/Link"
-            }
-          },
-          "content": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/EntityModelSource"
-            }
-          },
-          "page": {
-            "$ref": "#/components/schemas/PageMetadata"
-          }
-        }
-      },
-      "SourceStepAggregation": {
-        "required": [
-          "state",
-          "totalIn",
-          "totalOut",
-          "type"
-        ],
-        "type": "object",
-        "properties": {
-          "type": {
-            "type": "string",
-            "enum": [
-              "ACQUISITION",
-              "REFERENCING",
-              "STORAGE",
-              "DISSEMINATION"
-            ]
-          },
-          "totalIn": {
-            "type": "integer",
-            "format": "int64"
-          },
-          "totalOut": {
-            "type": "integer",
-            "format": "int64"
-          },
-          "state": {
-            "$ref": "#/components/schemas/AggregationState"
-          }
-        }
-      },
-      "DynamicTenantSettingDto": {
-        "type": "object",
-        "properties": {
-          "name": {
-            "type": "string"
-          },
-          "description": {
-            "type": "string"
-          },
-          "value": {
-            "type": "object"
-          },
-          "defaultValue": {
-            "type": "object"
-          }
-        }
-      },
-      "EntityModelDynamicTenantSettingDto": {
-        "type": "object",
-        "properties": {
-          "name": {
-            "type": "string"
-          },
-          "description": {
-            "type": "string"
-          },
-          "value": {
-            "type": "object"
-          },
-          "defaultValue": {
-            "type": "object"
-          },
-          "links": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/Link"
-            }
-          }
-        }
-      }
-    },
-    "securitySchemes": {
-      "REGARDS_OAUTH2": {
-        "type": "oauth2",
-        "flows": {
-          "password": {
-            "tokenUrl": "http://vm-perf.cloud-espace.si.c-s.fr:80/api/v1/rs-authentication/oauth/token",
-            "scopes": {}
-          }
-        }
-      }
+  "security": [
+    {
+      "REGARDS_OAUTH2": []
     }
-  }
+  ],
+  "servers": [
+    {
+      "description": "Generated server url",
+      "url": "https://regardsoss.github.io/api/v1/rs-admin"
+    }
+  ]
 }
