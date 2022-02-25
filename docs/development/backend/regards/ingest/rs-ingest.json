@@ -6,7 +6,7 @@
     "license": {
       "name": "GPL-3.0"
     },
-    "version": "1.7.1"
+    "version": "1.8.0"
   },
   "servers": [
     {
@@ -150,6 +150,29 @@
         }
       }
     },
+    "/processingchains/{name}/export": {
+      "get": {
+        "tags": [
+          "ingest-processing-chain-controller"
+        ],
+        "operationId": "export",
+        "parameters": [
+          {
+            "name": "name",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "default response"
+          }
+        }
+      }
+    },
     "/processingchains/import": {
       "post": {
         "tags": [
@@ -181,29 +204,6 @@
                 }
               }
             }
-          }
-        }
-      }
-    },
-    "/processingchains/{name}/export": {
-      "get": {
-        "tags": [
-          "ingest-processing-chain-controller"
-        ],
-        "operationId": "export",
-        "parameters": [
-          {
-            "name": "name",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "default response"
           }
         }
       }
@@ -489,6 +489,126 @@
         }
       }
     },
+    "/aips/storages/search": {
+      "post": {
+        "tags": [
+          "aip-controller"
+        ],
+        "operationId": "retrieveAIPStorage",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SearchFacetsAIPsParameters"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "default response",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/aips/categories/search": {
+      "post": {
+        "tags": [
+          "aip-controller"
+        ],
+        "operationId": "retrieveAIPCategories",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SearchFacetsAIPsParameters"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "default response",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/aips/update": {
+      "post": {
+        "tags": [
+          "aip-controller"
+        ],
+        "operationId": "updateAips",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AIPUpdateParametersDto"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "default response"
+          }
+        }
+      }
+    },
+    "/aips/{aip_id}/download": {
+      "get": {
+        "tags": [
+          "aip-controller"
+        ],
+        "operationId": "downloadAIP",
+        "parameters": [
+          {
+            "name": "origin",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "aip_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "default response"
+          }
+        }
+      }
+    },
     "/aips": {
       "post": {
         "tags": [
@@ -559,126 +679,6 @@
                 }
               }
             }
-          }
-        }
-      }
-    },
-    "/aips/storages/search": {
-      "post": {
-        "tags": [
-          "aip-controller"
-        ],
-        "operationId": "retrieveAIPStorage",
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/SearchFacetsAIPsParameters"
-              }
-            }
-          },
-          "required": true
-        },
-        "responses": {
-          "200": {
-            "description": "default response",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/aips/categories/search": {
-      "post": {
-        "tags": [
-          "aip-controller"
-        ],
-        "operationId": "retrieveAIPCategories",
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/SearchFacetsAIPsParameters"
-              }
-            }
-          },
-          "required": true
-        },
-        "responses": {
-          "200": {
-            "description": "default response",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/aips/{aip_id}/download": {
-      "get": {
-        "tags": [
-          "aip-controller"
-        ],
-        "operationId": "downloadAIP",
-        "parameters": [
-          {
-            "name": "origin",
-            "in": "query",
-            "required": false,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "aip_id",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "default response"
-          }
-        }
-      }
-    },
-    "/aips/update": {
-      "post": {
-        "tags": [
-          "aip-controller"
-        ],
-        "operationId": "updateAips",
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/AIPUpdateParametersDto"
-              }
-            }
-          },
-          "required": true
-        },
-        "responses": {
-          "200": {
-            "description": "default response"
           }
         }
       }
@@ -789,26 +789,6 @@
         }
       }
     },
-    "/maintenance": {
-      "get": {
-        "tags": [
-          "maintenance-controller"
-        ],
-        "operationId": "retrieveTenantsInMaintenance",
-        "responses": {
-          "200": {
-            "description": "default response",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/EntityModelMapStringMaintenanceInfo"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
     "/maintenance/{tenant}/disable": {
       "put": {
         "tags": [
@@ -832,6 +812,26 @@
         }
       }
     },
+    "/maintenance": {
+      "get": {
+        "tags": [
+          "maintenance-controller"
+        ],
+        "operationId": "retrieveTenantsInMaintenance",
+        "responses": {
+          "200": {
+            "description": "default response",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/EntityModelMapStringMaintenanceInfo"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/shutdown/immediate": {
       "post": {
         "tags": [
@@ -845,28 +845,22 @@
         }
       }
     },
-    "/microservice/ready/enabled": {
+    "/microservice/ready": {
       "get": {
         "tags": [
           "module-manager-controller"
         ],
-        "operationId": "isReadyEnabled",
+        "operationId": "isReady",
         "responses": {
           "200": {
-            "description": "default response"
-          }
-        }
-      }
-    },
-    "/microservice/restart/enabled": {
-      "get": {
-        "tags": [
-          "module-manager-controller"
-        ],
-        "operationId": "isRestartEnabled",
-        "responses": {
-          "200": {
-            "description": "default response"
+            "description": "default response",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/ModuleReadinessReportObject"
+                }
+              }
+            }
           }
         }
       }
@@ -921,26 +915,6 @@
         }
       }
     },
-    "/microservice/ready": {
-      "get": {
-        "tags": [
-          "module-manager-controller"
-        ],
-        "operationId": "isReady",
-        "responses": {
-          "200": {
-            "description": "default response",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/ModuleReadinessReportObject"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
     "/microservice/configuration/enabled": {
       "get": {
         "tags": [
@@ -978,6 +952,32 @@
         }
       }
     },
+    "/microservice/ready/enabled": {
+      "get": {
+        "tags": [
+          "module-manager-controller"
+        ],
+        "operationId": "isReadyEnabled",
+        "responses": {
+          "200": {
+            "description": "default response"
+          }
+        }
+      }
+    },
+    "/microservice/restart/enabled": {
+      "get": {
+        "tags": [
+          "module-manager-controller"
+        ],
+        "operationId": "isRestartEnabled",
+        "responses": {
+          "200": {
+            "description": "default response"
+          }
+        }
+      }
+    },
     "/dumps/reset": {
       "patch": {
         "tags": [
@@ -987,100 +987,6 @@
         "responses": {
           "200": {
             "description": "default response"
-          }
-        }
-      }
-    },
-    "/plugins/{pluginId}/config": {
-      "get": {
-        "tags": [
-          "plugin-controller"
-        ],
-        "operationId": "getPluginConfigurations",
-        "parameters": [
-          {
-            "name": "pluginId",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "default response",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/EntityModelPluginConfiguration"
-                  }
-                }
-              }
-            }
-          }
-        }
-      },
-      "post": {
-        "tags": [
-          "plugin-controller"
-        ],
-        "operationId": "savePluginConfiguration",
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/PluginConfiguration"
-              }
-            }
-          },
-          "required": true
-        },
-        "responses": {
-          "200": {
-            "description": "default response",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/EntityModelPluginConfiguration"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/plugins/configs": {
-      "get": {
-        "tags": [
-          "plugin-controller"
-        ],
-        "operationId": "getPluginConfigurationsByType",
-        "parameters": [
-          {
-            "name": "pluginType",
-            "in": "query",
-            "required": false,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "default response",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/EntityModelPluginConfiguration"
-                  }
-                }
-              }
-            }
           }
         }
       }
@@ -1198,6 +1104,173 @@
         }
       }
     },
+    "/plugins/{pluginId}/config": {
+      "get": {
+        "tags": [
+          "plugin-controller"
+        ],
+        "operationId": "getPluginConfigurations",
+        "parameters": [
+          {
+            "name": "pluginId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "default response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/EntityModelPluginConfiguration"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "plugin-controller"
+        ],
+        "operationId": "savePluginConfiguration",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PluginConfiguration"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "default response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EntityModelPluginConfiguration"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/plugins/configs/{configBusinessId}": {
+      "get": {
+        "tags": [
+          "plugin-controller"
+        ],
+        "operationId": "getPluginConfigurationDirectAccess",
+        "parameters": [
+          {
+            "name": "configBusinessId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "default response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EntityModelPluginConfiguration"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/plugins/configs": {
+      "get": {
+        "tags": [
+          "plugin-controller"
+        ],
+        "operationId": "getPluginConfigurationsByType",
+        "parameters": [
+          {
+            "name": "pluginType",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "default response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/EntityModelPluginConfiguration"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/plugins/cache": {
+      "delete": {
+        "tags": [
+          "plugin-controller"
+        ],
+        "operationId": "emptyCache",
+        "responses": {
+          "200": {
+            "description": "default response"
+          }
+        }
+      }
+    },
+    "/plugins/{pluginId}": {
+      "get": {
+        "tags": [
+          "plugin-controller"
+        ],
+        "operationId": "getPluginMetaDataById",
+        "parameters": [
+          {
+            "name": "pluginId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "default response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EntityModelPluginMetaData"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/plugins": {
       "get": {
         "tags": [
@@ -1257,79 +1330,6 @@
                   "items": {
                     "$ref": "#/components/schemas/EntityModelString"
                   }
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/plugins/configs/{configBusinessId}": {
-      "get": {
-        "tags": [
-          "plugin-controller"
-        ],
-        "operationId": "getPluginConfigurationDirectAccess",
-        "parameters": [
-          {
-            "name": "configBusinessId",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "default response",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/EntityModelPluginConfiguration"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/plugins/cache": {
-      "delete": {
-        "tags": [
-          "plugin-controller"
-        ],
-        "operationId": "emptyCache",
-        "responses": {
-          "200": {
-            "description": "default response"
-          }
-        }
-      }
-    },
-    "/plugins/{pluginId}": {
-      "get": {
-        "tags": [
-          "plugin-controller"
-        ],
-        "operationId": "getPluginMetaDataById",
-        "parameters": [
-          {
-            "name": "pluginId",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "default response",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/EntityModelPluginMetaData"
                 }
               }
             }
@@ -1647,13 +1647,8 @@
       "Pageable": {
         "type": "object",
         "properties": {
-          "pageNumber": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "pageSize": {
-            "type": "integer",
-            "format": "int32"
+          "paged": {
+            "type": "boolean"
           },
           "sort": {
             "$ref": "#/components/schemas/Sort"
@@ -1661,8 +1656,13 @@
           "unpaged": {
             "type": "boolean"
           },
-          "paged": {
-            "type": "boolean"
+          "pageNumber": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "pageSize": {
+            "type": "integer",
+            "format": "int32"
           },
           "offset": {
             "type": "integer",
@@ -1673,10 +1673,10 @@
       "Sort": {
         "type": "object",
         "properties": {
-          "sorted": {
+          "unsorted": {
             "type": "boolean"
           },
-          "unsorted": {
+          "sorted": {
             "type": "boolean"
           },
           "empty": {
@@ -1993,15 +1993,15 @@
               "type": "string"
             }
           },
+          "isActive": {
+            "type": "boolean",
+            "writeOnly": true
+          },
           "pluginClassName": {
             "type": "string"
           },
           "metaDataAndPluginId": {
             "$ref": "#/components/schemas/PluginMetaData"
-          },
-          "isActive": {
-            "type": "boolean",
-            "writeOnly": true
           },
           "identifiable": {
             "type": "boolean"
@@ -2034,6 +2034,9 @@
             "type": "string"
           },
           "markdown": {
+            "type": "string"
+          },
+          "userMarkdown": {
             "type": "string"
           },
           "url": {
@@ -2076,6 +2079,9 @@
             "type": "string"
           },
           "markdown": {
+            "type": "string"
+          },
+          "userMarkdown": {
             "type": "string"
           },
           "parameterizedSubTypes": {
@@ -2346,6 +2352,12 @@
               "type": "string"
             }
           },
+          "wildcardType": {
+            "type": "boolean"
+          },
+          "wildcardSubtype": {
+            "type": "boolean"
+          },
           "charset": {
             "type": "object",
             "properties": {
@@ -2355,12 +2367,6 @@
             }
           },
           "concrete": {
-            "type": "boolean"
-          },
-          "wildcardType": {
-            "type": "boolean"
-          },
-          "wildcardSubtype": {
             "type": "boolean"
           }
         }
@@ -2577,11 +2583,8 @@
           "ref": {
             "$ref": "#/components/schemas/SIPReference"
           },
-          "tags": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
+          "lastEvent": {
+            "$ref": "#/components/schemas/Event"
           },
           "history": {
             "type": "array",
@@ -2589,10 +2592,13 @@
               "$ref": "#/components/schemas/Event"
             }
           },
-          "submissionEvent": {
-            "$ref": "#/components/schemas/Event"
+          "tags": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
           },
-          "lastEvent": {
+          "submissionEvent": {
             "$ref": "#/components/schemas/Event"
           }
         }
@@ -2979,6 +2985,117 @@
           }
         }
       },
+      "SearchFacetsAIPsParameters": {
+        "type": "object",
+        "properties": {
+          "state": {
+            "type": "string",
+            "enum": [
+              "GENERATED",
+              "STORED",
+              "DELETED"
+            ]
+          },
+          "ipType": {
+            "type": "string",
+            "enum": [
+              "COLLECTION",
+              "DATA",
+              "DATASET"
+            ]
+          },
+          "lastUpdate": {
+            "$ref": "#/components/schemas/OAISDateRange"
+          },
+          "providerIds": {
+            "uniqueItems": true,
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "sessionOwner": {
+            "type": "string"
+          },
+          "session": {
+            "type": "string"
+          },
+          "storages": {
+            "uniqueItems": true,
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "categories": {
+            "uniqueItems": true,
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "tags": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "last": {
+            "type": "boolean"
+          },
+          "selectionMode": {
+            "type": "string",
+            "enum": [
+              "INCLUDE",
+              "EXCLUDE"
+            ]
+          },
+          "aipIds": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      },
+      "AIPUpdateParametersDto": {
+        "type": "object",
+        "properties": {
+          "criteria": {
+            "$ref": "#/components/schemas/SearchAIPsParameters"
+          },
+          "addTags": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "removeTags": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "addCategories": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "removeCategories": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "removeStorages": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      },
       "SearchAIPsParameters": {
         "type": "object",
         "properties": {
@@ -3127,11 +3244,8 @@
           "sipIdUrn": {
             "$ref": "#/components/schemas/UniformResourceName"
           },
-          "tags": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
+          "lastEvent": {
+            "$ref": "#/components/schemas/Event"
           },
           "history": {
             "type": "array",
@@ -3139,10 +3253,13 @@
               "$ref": "#/components/schemas/Event"
             }
           },
-          "submissionEvent": {
-            "$ref": "#/components/schemas/Event"
+          "tags": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
           },
-          "lastEvent": {
+          "submissionEvent": {
             "$ref": "#/components/schemas/Event"
           }
         }
@@ -3302,117 +3419,6 @@
           }
         }
       },
-      "SearchFacetsAIPsParameters": {
-        "type": "object",
-        "properties": {
-          "state": {
-            "type": "string",
-            "enum": [
-              "GENERATED",
-              "STORED",
-              "DELETED"
-            ]
-          },
-          "ipType": {
-            "type": "string",
-            "enum": [
-              "COLLECTION",
-              "DATA",
-              "DATASET"
-            ]
-          },
-          "lastUpdate": {
-            "$ref": "#/components/schemas/OAISDateRange"
-          },
-          "providerIds": {
-            "uniqueItems": true,
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
-          },
-          "sessionOwner": {
-            "type": "string"
-          },
-          "session": {
-            "type": "string"
-          },
-          "storages": {
-            "uniqueItems": true,
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
-          },
-          "categories": {
-            "uniqueItems": true,
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
-          },
-          "tags": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
-          },
-          "last": {
-            "type": "boolean"
-          },
-          "selectionMode": {
-            "type": "string",
-            "enum": [
-              "INCLUDE",
-              "EXCLUDE"
-            ]
-          },
-          "aipIds": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
-          }
-        }
-      },
-      "AIPUpdateParametersDto": {
-        "type": "object",
-        "properties": {
-          "criteria": {
-            "$ref": "#/components/schemas/SearchAIPsParameters"
-          },
-          "addTags": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
-          },
-          "removeTags": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
-          },
-          "addCategories": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
-          },
-          "removeCategories": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
-          },
-          "removeStorages": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
-          }
-        }
-      },
       "OAISDeletionPayloadDto": {
         "required": [
           "deletionMode"
@@ -3521,6 +3527,23 @@
           }
         }
       },
+      "ModuleReadinessReportObject": {
+        "type": "object",
+        "properties": {
+          "ready": {
+            "type": "boolean"
+          },
+          "reasons": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "specifications": {
+            "type": "object"
+          }
+        }
+      },
       "ModuleImportReport": {
         "type": "object",
         "properties": {
@@ -3568,23 +3591,6 @@
           },
           "documentation": {
             "type": "string"
-          }
-        }
-      },
-      "ModuleReadinessReportObject": {
-        "type": "object",
-        "properties": {
-          "ready": {
-            "type": "boolean"
-          },
-          "reasons": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
-          },
-          "specifications": {
-            "type": "object"
           }
         }
       },
@@ -3650,15 +3656,15 @@
               "type": "string"
             }
           },
+          "isActive": {
+            "type": "boolean",
+            "writeOnly": true
+          },
           "pluginClassName": {
             "type": "string"
           },
           "metaDataAndPluginId": {
             "$ref": "#/components/schemas/PluginMetaData"
-          },
-          "isActive": {
-            "type": "boolean",
-            "writeOnly": true
           },
           "identifiable": {
             "type": "boolean"
@@ -3697,6 +3703,9 @@
             "type": "string"
           },
           "markdown": {
+            "type": "string"
+          },
+          "userMarkdown": {
             "type": "string"
           },
           "url": {

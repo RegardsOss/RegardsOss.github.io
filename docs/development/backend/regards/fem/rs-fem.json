@@ -6,7 +6,7 @@
     "license": {
       "name": "GPL-3.0"
     },
-    "version": "1.7.1"
+    "version": "1.8.0"
   },
   "servers": [
     {
@@ -20,145 +20,6 @@
     }
   ],
   "paths": {
-    "/extraction": {
-      "post": {
-        "tags": [
-          "feature-extraction-controller"
-        ],
-        "summary": "Publish locations collection to create features and return urns of granted and denied requests ids",
-        "description": "Publish locations collection to create features and return urns of granted and denied requests ids",
-        "operationId": "createFeaturesFromReferences",
-        "requestBody": {
-          "description": "Contain all Features to handle",
-          "content": {
-            "application/geo+json": {
-              "schema": {
-                "$ref": "#/components/schemas/FeatureReferenceCollection"
-              }
-            }
-          },
-          "required": true
-        },
-        "responses": {
-          "200": {
-            "description": "A RequestInfo",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/EntityModelRequestInfoString"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/extraction/requests/search": {
-      "get": {
-        "tags": [
-          "feature-extraction-request-controller"
-        ],
-        "summary": "Get feature requests",
-        "description": "Get feature requests",
-        "operationId": "getRequests",
-        "parameters": [
-          {
-            "name": "parameters",
-            "in": "query",
-            "required": true,
-            "schema": {
-              "$ref": "#/components/schemas/FeatureRequestSearchParameters"
-            }
-          },
-          {
-            "name": "page",
-            "in": "query",
-            "required": true,
-            "schema": {
-              "$ref": "#/components/schemas/Pageable"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Get feature requests",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/RequestsPagedModelEntityModelFeatureRequestDTO"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/extraction/requests": {
-      "delete": {
-        "tags": [
-          "feature-extraction-request-controller"
-        ],
-        "summary": "Delete feature requests by selection",
-        "description": "Delete feature requests by selection",
-        "operationId": "deleteRequests",
-        "requestBody": {
-          "description": "Requests selection",
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/FeatureRequestsSelectionDTO"
-              }
-            }
-          },
-          "required": true
-        },
-        "responses": {
-          "200": {
-            "description": "Delete feature requests by selection",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/RequestHandledResponse"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/extraction/requests/retry": {
-      "post": {
-        "tags": [
-          "feature-extraction-request-controller"
-        ],
-        "summary": "Retry feature requests by selection",
-        "description": "Retry feature requests by selection",
-        "operationId": "retryRequests",
-        "requestBody": {
-          "description": "Requests selection",
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/FeatureRequestsSelectionDTO"
-              }
-            }
-          },
-          "required": true
-        },
-        "responses": {
-          "200": {
-            "description": "Retry feature requests by selection",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/RequestHandledResponse"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
     "/features": {
       "post": {
         "tags": [
@@ -254,63 +115,6 @@
         }
       }
     },
-    "/requests/search/{type}": {
-      "get": {
-        "tags": [
-          "feature-request-controller"
-        ],
-        "summary": "Get feature requests",
-        "description": "Get feature requests",
-        "operationId": "getRequests_1",
-        "parameters": [
-          {
-            "name": "type",
-            "in": "path",
-            "description": "Type of requests to search for",
-            "required": true,
-            "schema": {
-              "type": "string",
-              "enum": [
-                "COPY",
-                "UPDATE",
-                "NOTIFICATION",
-                "CREATION",
-                "DELETION",
-                "SAVE_METADATA"
-              ]
-            }
-          },
-          {
-            "name": "parameters",
-            "in": "query",
-            "required": true,
-            "schema": {
-              "$ref": "#/components/schemas/FeatureRequestSearchParameters"
-            }
-          },
-          {
-            "name": "page",
-            "in": "query",
-            "required": true,
-            "schema": {
-              "$ref": "#/components/schemas/Pageable"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Get feature requests",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/RequestsPagedModelEntityModelFeatureRequestDTO"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
     "/requests/delete/{type}": {
       "delete": {
         "tags": [
@@ -318,7 +122,7 @@
         ],
         "summary": "Delete feature requests by selection",
         "description": "Delete feature requests by selection. Synchronous process, so the number of request handled is limited. Information about number of requests handled is returned in the response.",
-        "operationId": "deleteRequests_1",
+        "operationId": "deleteRequests",
         "parameters": [
           {
             "name": "type",
@@ -370,7 +174,7 @@
         ],
         "summary": "Retry feature requests by selection",
         "description": "Retry feature requests by selection. Synchronous process, so the number of request handled is limited. Information about number of requests handled is returned in the response.\")",
-        "operationId": "retryRequests_1",
+        "operationId": "retryRequests",
         "parameters": [
           {
             "name": "type",
@@ -415,6 +219,63 @@
         }
       }
     },
+    "/requests/search/{type}": {
+      "get": {
+        "tags": [
+          "feature-request-controller"
+        ],
+        "summary": "Get feature requests",
+        "description": "Get feature requests",
+        "operationId": "getRequests",
+        "parameters": [
+          {
+            "name": "type",
+            "in": "path",
+            "description": "Type of requests to search for",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "COPY",
+                "UPDATE",
+                "NOTIFICATION",
+                "CREATION",
+                "DELETION",
+                "SAVE_METADATA"
+              ]
+            }
+          },
+          {
+            "name": "parameters",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "$ref": "#/components/schemas/FeatureRequestSearchParameters"
+            }
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "$ref": "#/components/schemas/Pageable"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Get feature requests",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RequestsPagedModelEntityModelFeatureRequestDTO"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/admin/features/{urn}": {
       "get": {
         "tags": [
@@ -444,32 +305,6 @@
                 }
               }
             }
-          }
-        }
-      }
-    },
-    "/admin/features/delete": {
-      "delete": {
-        "tags": [
-          "feature-entity-controler"
-        ],
-        "summary": "Delete features according to search parameters",
-        "description": "Delete features according to search parameters",
-        "operationId": "deleteFeatures_1",
-        "requestBody": {
-          "description": "Features selection filters",
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/FeaturesSelectionDTO"
-              }
-            }
-          },
-          "required": true
-        },
-        "responses": {
-          "200": {
-            "description": "Delete features according to search parameters"
           }
         }
       }
@@ -549,6 +384,32 @@
         }
       }
     },
+    "/admin/features/delete": {
+      "delete": {
+        "tags": [
+          "feature-entity-controler"
+        ],
+        "summary": "Delete features according to search parameters",
+        "description": "Delete features according to search parameters",
+        "operationId": "deleteFeatures_1",
+        "requestBody": {
+          "description": "Features selection filters",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/FeaturesSelectionDTO"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Delete features according to search parameters"
+          }
+        }
+      }
+    },
     "/regards/{tenant}/datasource/status": {
       "get": {
         "tags": [
@@ -609,29 +470,6 @@
         }
       }
     },
-    "/maintenance/{tenant}/disable": {
-      "put": {
-        "tags": [
-          "maintenance-controller"
-        ],
-        "operationId": "unSetMaintenance",
-        "parameters": [
-          {
-            "name": "tenant",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "default response"
-          }
-        }
-      }
-    },
     "/maintenance": {
       "get": {
         "tags": [
@@ -675,6 +513,29 @@
         }
       }
     },
+    "/maintenance/{tenant}/disable": {
+      "put": {
+        "tags": [
+          "maintenance-controller"
+        ],
+        "operationId": "unSetMaintenance",
+        "parameters": [
+          {
+            "name": "tenant",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "default response"
+          }
+        }
+      }
+    },
     "/shutdown/immediate": {
       "post": {
         "tags": [
@@ -684,6 +545,39 @@
         "responses": {
           "200": {
             "description": "default response"
+          }
+        }
+      }
+    },
+    "/microservice/restart/enabled": {
+      "get": {
+        "tags": [
+          "module-manager-controller"
+        ],
+        "operationId": "isRestartEnabled",
+        "responses": {
+          "200": {
+            "description": "default response"
+          }
+        }
+      }
+    },
+    "/microservice/ready": {
+      "get": {
+        "tags": [
+          "module-manager-controller"
+        ],
+        "operationId": "isReady",
+        "responses": {
+          "200": {
+            "description": "default response",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/ModuleReadinessReportObject"
+                }
+              }
+            }
           }
         }
       }
@@ -775,39 +669,6 @@
         }
       }
     },
-    "/microservice/restart/enabled": {
-      "get": {
-        "tags": [
-          "module-manager-controller"
-        ],
-        "operationId": "isRestartEnabled",
-        "responses": {
-          "200": {
-            "description": "default response"
-          }
-        }
-      }
-    },
-    "/microservice/ready": {
-      "get": {
-        "tags": [
-          "module-manager-controller"
-        ],
-        "operationId": "isReady",
-        "responses": {
-          "200": {
-            "description": "default response",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/ModuleReadinessReportObject"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
     "/microservice/configuration/enabled": {
       "get": {
         "tags": [
@@ -834,48 +695,15 @@
         }
       }
     },
-    "/plugins/configs": {
+    "/plugins/configs/{configBusinessId}": {
       "get": {
         "tags": [
           "plugin-controller"
         ],
-        "operationId": "getPluginConfigurationsByType",
+        "operationId": "getPluginConfigurationDirectAccess",
         "parameters": [
           {
-            "name": "pluginType",
-            "in": "query",
-            "required": false,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "default response",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/EntityModelPluginConfiguration"
-                  }
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/plugins/{pluginId}/config": {
-      "get": {
-        "tags": [
-          "plugin-controller"
-        ],
-        "operationId": "getPluginConfigurations",
-        "parameters": [
-          {
-            "name": "pluginId",
+            "name": "configBusinessId",
             "in": "path",
             "required": true,
             "schema": {
@@ -883,37 +711,6 @@
             }
           }
         ],
-        "responses": {
-          "200": {
-            "description": "default response",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/EntityModelPluginConfiguration"
-                  }
-                }
-              }
-            }
-          }
-        }
-      },
-      "post": {
-        "tags": [
-          "plugin-controller"
-        ],
-        "operationId": "savePluginConfiguration",
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/PluginConfiguration"
-              }
-            }
-          },
-          "required": true
-        },
         "responses": {
           "200": {
             "description": "default response",
@@ -1087,36 +884,6 @@
         }
       }
     },
-    "/plugins/configs/{configBusinessId}": {
-      "get": {
-        "tags": [
-          "plugin-controller"
-        ],
-        "operationId": "getPluginConfigurationDirectAccess",
-        "parameters": [
-          {
-            "name": "configBusinessId",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "default response",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/EntityModelPluginConfiguration"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
     "/plugins/{pluginId}": {
       "get": {
         "tags": [
@@ -1140,6 +907,67 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/EntityModelPluginMetaData"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/plugins/{pluginId}/config": {
+      "get": {
+        "tags": [
+          "plugin-controller"
+        ],
+        "operationId": "getPluginConfigurations",
+        "parameters": [
+          {
+            "name": "pluginId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "default response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/EntityModelPluginConfiguration"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "plugin-controller"
+        ],
+        "operationId": "savePluginConfiguration",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PluginConfiguration"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "default response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EntityModelPluginConfiguration"
                 }
               }
             }
@@ -1172,6 +1000,39 @@
                   "type": "array",
                   "items": {
                     "$ref": "#/components/schemas/EntityModelPluginMetaData"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/plugins/configs": {
+      "get": {
+        "tags": [
+          "plugin-controller"
+        ],
+        "operationId": "getPluginConfigurationsByType",
+        "parameters": [
+          {
+            "name": "pluginType",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "default response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/EntityModelPluginConfiguration"
                   }
                 }
               }
@@ -1311,12 +1172,134 @@
   },
   "components": {
     "schemas": {
+      "Feature": {
+        "required": [
+          "entityType",
+          "model",
+          "type"
+        ],
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "string",
+            "enum": [
+              "FEATURE",
+              "FEATURE_COLLECTION",
+              "POINT",
+              "MULTIPOINT",
+              "LINESTRING",
+              "MULTILINESTRING",
+              "POLYGON",
+              "MULTIPOLYGON",
+              "GEOMETRY_COLLECTION",
+              "UNLOCATED"
+            ]
+          },
+          "bbox": {
+            "type": "array",
+            "items": {
+              "type": "number",
+              "format": "double"
+            }
+          },
+          "crs": {
+            "type": "string"
+          },
+          "id": {
+            "type": "string"
+          },
+          "geometry": {
+            "$ref": "#/components/schemas/IGeometry"
+          },
+          "normalizedGeometry": {
+            "$ref": "#/components/schemas/IGeometry"
+          },
+          "properties": {
+            "uniqueItems": true,
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/IPropertyObject"
+            }
+          },
+          "urn": {
+            "$ref": "#/components/schemas/FeatureUniformResourceName"
+          },
+          "entityType": {
+            "type": "string",
+            "enum": [
+              "COLLECTION",
+              "DATA",
+              "DATASET"
+            ]
+          },
+          "model": {
+            "type": "string"
+          },
+          "history": {
+            "$ref": "#/components/schemas/FeatureHistory"
+          },
+          "files": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/FeatureFile"
+            }
+          },
+          "last": {
+            "type": "boolean"
+          }
+        }
+      },
+      "FeatureCreationCollection": {
+        "required": [
+          "requestOwner",
+          "type"
+        ],
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "string",
+            "enum": [
+              "FEATURE",
+              "FEATURE_COLLECTION",
+              "POINT",
+              "MULTIPOINT",
+              "LINESTRING",
+              "MULTILINESTRING",
+              "POLYGON",
+              "MULTIPOLYGON",
+              "GEOMETRY_COLLECTION",
+              "UNLOCATED"
+            ]
+          },
+          "bbox": {
+            "type": "array",
+            "items": {
+              "type": "number",
+              "format": "double"
+            }
+          },
+          "crs": {
+            "type": "string"
+          },
+          "features": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Feature"
+            }
+          },
+          "requestOwner": {
+            "type": "string"
+          },
+          "metadata": {
+            "$ref": "#/components/schemas/FeatureCreationSessionMetadata"
+          }
+        }
+      },
       "FeatureCreationSessionMetadata": {
         "required": [
           "priority",
           "session",
-          "sessionOwner",
-          "storages"
+          "sessionOwner"
         ],
         "type": "object",
         "properties": {
@@ -1346,325 +1329,241 @@
           },
           "override": {
             "type": "boolean"
+          },
+          "updateIfExists": {
+            "type": "boolean"
           }
         }
       },
-      "FeatureReferenceCollection": {
+      "FeatureFile": {
         "required": [
-          "factory",
-          "metadata",
-          "parameters"
+          "attributes",
+          "locations"
         ],
         "type": "object",
         "properties": {
-          "metadata": {
-            "$ref": "#/components/schemas/FeatureCreationSessionMetadata"
-          },
-          "factory": {
-            "type": "string"
-          },
-          "parameters": {
+          "locations": {
             "uniqueItems": true,
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/JsonObject"
+              "$ref": "#/components/schemas/FeatureFileLocation"
             }
+          },
+          "attributes": {
+            "$ref": "#/components/schemas/FeatureFileAttributes"
           }
         }
       },
-      "JsonArray": {
+      "FeatureFileAttributes": {
+        "required": [
+          "algorithm",
+          "checksum",
+          "dataType",
+          "filename",
+          "filesize",
+          "mimeType"
+        ],
         "type": "object",
         "properties": {
-          "asString": {
+          "dataType": {
+            "type": "string",
+            "enum": [
+              "RAWDATA",
+              "QUICKLOOK_SD",
+              "QUICKLOOK_MD",
+              "QUICKLOOK_HD",
+              "DOCUMENT",
+              "THUMBNAIL",
+              "OTHER",
+              "AIP",
+              "DESCRIPTION"
+            ]
+          },
+          "mimeType": {
+            "$ref": "#/components/schemas/MimeType"
+          },
+          "filename": {
             "type": "string"
           },
-          "asBoolean": {
-            "type": "boolean"
-          },
-          "asDouble": {
-            "type": "number",
-            "format": "double"
-          },
-          "asInt": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "asLong": {
+          "filesize": {
             "type": "integer",
             "format": "int64"
           },
-          "asNumber": {
-            "type": "number"
-          },
-          "asFloat": {
-            "type": "number",
-            "format": "float"
-          },
-          "asByte": {
-            "type": "string",
-            "format": "byte"
-          },
-          "asCharacter": {
+          "algorithm": {
             "type": "string"
           },
-          "asBigDecimal": {
-            "type": "number"
+          "checksum": {
+            "type": "string"
           },
-          "asBigInteger": {
-            "type": "integer"
-          },
-          "asShort": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "jsonObject": {
-            "type": "boolean"
-          },
-          "asJsonObject": {
-            "$ref": "#/components/schemas/JsonObject"
-          },
-          "asJsonArray": {
-            "$ref": "#/components/schemas/JsonArray"
-          },
-          "jsonArray": {
-            "type": "boolean"
-          },
-          "asJsonPrimitive": {
-            "$ref": "#/components/schemas/JsonPrimitive"
-          },
-          "asJsonNull": {
-            "$ref": "#/components/schemas/JsonNull"
-          },
-          "jsonPrimitive": {
-            "type": "boolean"
-          },
-          "jsonNull": {
-            "type": "boolean"
+          "crc32": {
+            "type": "string"
           }
         }
       },
-      "JsonNull": {
+      "FeatureFileLocation": {
+        "required": [
+          "url"
+        ],
         "type": "object",
         "properties": {
-          "jsonObject": {
-            "type": "boolean"
-          },
-          "asJsonObject": {
-            "$ref": "#/components/schemas/JsonObject"
-          },
-          "asJsonArray": {
-            "$ref": "#/components/schemas/JsonArray"
-          },
-          "asString": {
+          "storage": {
             "type": "string"
           },
-          "jsonArray": {
-            "type": "boolean"
+          "url": {
+            "type": "string"
+          }
+        }
+      },
+      "FeatureHistory": {
+        "type": "object",
+        "properties": {
+          "createdBy": {
+            "type": "string"
           },
-          "asBoolean": {
-            "type": "boolean"
+          "updatedBy": {
+            "type": "string"
           },
-          "asJsonPrimitive": {
-            "$ref": "#/components/schemas/JsonPrimitive"
+          "deletedBy": {
+            "type": "string"
+          }
+        }
+      },
+      "FeatureUniformResourceName": {
+        "required": [
+          "entityId",
+          "entityType",
+          "identifier",
+          "tenant"
+        ],
+        "type": "object",
+        "properties": {
+          "identifier": {
+            "type": "string"
           },
-          "asJsonNull": {
-            "$ref": "#/components/schemas/JsonNull"
+          "entityType": {
+            "type": "string",
+            "enum": [
+              "COLLECTION",
+              "DATA",
+              "DATASET"
+            ]
           },
-          "asDouble": {
-            "type": "number",
-            "format": "double"
+          "tenant": {
+            "type": "string"
           },
-          "asInt": {
+          "entityId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "version": {
+            "maximum": 999,
+            "minimum": 1,
             "type": "integer",
             "format": "int32"
           },
-          "asLong": {
+          "order": {
             "type": "integer",
             "format": "int64"
           },
-          "asNumber": {
-            "type": "number"
-          },
-          "asFloat": {
-            "type": "number",
-            "format": "float"
-          },
-          "asByte": {
-            "type": "string",
-            "format": "byte"
-          },
-          "asCharacter": {
+          "revision": {
             "type": "string"
           },
-          "asBigDecimal": {
-            "type": "number"
-          },
-          "asBigInteger": {
-            "type": "integer"
-          },
-          "asShort": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "jsonPrimitive": {
+          "last": {
             "type": "boolean"
           },
-          "jsonNull": {
+          "randomEntityId": {
             "type": "boolean"
           }
         }
       },
-      "JsonObject": {
+      "IGeometry": {
         "type": "object",
         "properties": {
-          "jsonObject": {
-            "type": "boolean"
-          },
-          "asJsonObject": {
-            "$ref": "#/components/schemas/JsonObject"
-          },
-          "asJsonArray": {
-            "$ref": "#/components/schemas/JsonArray"
-          },
-          "asString": {
-            "type": "string"
-          },
-          "jsonArray": {
-            "type": "boolean"
-          },
-          "asBoolean": {
-            "type": "boolean"
-          },
-          "asJsonPrimitive": {
-            "$ref": "#/components/schemas/JsonPrimitive"
-          },
-          "asJsonNull": {
-            "$ref": "#/components/schemas/JsonNull"
-          },
-          "asDouble": {
-            "type": "number",
-            "format": "double"
-          },
-          "asInt": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "asLong": {
-            "type": "integer",
-            "format": "int64"
-          },
-          "asNumber": {
-            "type": "number"
-          },
-          "asFloat": {
-            "type": "number",
-            "format": "float"
-          },
-          "asByte": {
+          "crs": {
             "type": "string",
-            "format": "byte"
-          },
-          "asCharacter": {
-            "type": "string"
-          },
-          "asBigDecimal": {
-            "type": "number"
-          },
-          "asBigInteger": {
-            "type": "integer"
-          },
-          "asShort": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "jsonPrimitive": {
-            "type": "boolean"
-          },
-          "jsonNull": {
-            "type": "boolean"
-          }
-        }
-      },
-      "JsonPrimitive": {
-        "type": "object",
-        "properties": {
-          "value": {
-            "type": "object",
             "writeOnly": true
           },
-          "asString": {
-            "type": "string"
-          },
-          "boolean": {
-            "type": "boolean"
-          },
-          "asBoolean": {
-            "type": "boolean"
-          },
-          "asDouble": {
-            "type": "number",
-            "format": "double"
-          },
-          "asInt": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "number": {
-            "type": "boolean"
-          },
-          "asLong": {
-            "type": "integer",
-            "format": "int64"
-          },
-          "asNumber": {
-            "type": "number"
-          },
-          "asFloat": {
-            "type": "number",
-            "format": "float"
-          },
-          "asByte": {
+          "type": {
             "type": "string",
-            "format": "byte"
-          },
-          "asCharacter": {
+            "enum": [
+              "FEATURE",
+              "FEATURE_COLLECTION",
+              "POINT",
+              "MULTIPOINT",
+              "LINESTRING",
+              "MULTILINESTRING",
+              "POLYGON",
+              "MULTIPOLYGON",
+              "GEOMETRY_COLLECTION",
+              "UNLOCATED"
+            ]
+          }
+        }
+      },
+      "IPropertyObject": {
+        "type": "object",
+        "properties": {
+          "name": {
             "type": "string"
           },
-          "asBigDecimal": {
-            "type": "number"
+          "value": {
+            "type": "object"
           },
-          "asBigInteger": {
-            "type": "integer"
+          "type": {
+            "type": "string",
+            "enum": [
+              "STRING",
+              "JSON",
+              "INTEGER",
+              "DOUBLE",
+              "DATE_ISO8601",
+              "URL",
+              "BOOLEAN",
+              "STRING_ARRAY",
+              "INTEGER_ARRAY",
+              "DOUBLE_ARRAY",
+              "DATE_ARRAY",
+              "INTEGER_INTERVAL",
+              "DOUBLE_INTERVAL",
+              "DATE_INTERVAL",
+              "LONG",
+              "LONG_INTERVAL",
+              "LONG_ARRAY",
+              "OBJECT"
+            ]
+          }
+        }
+      },
+      "MimeType": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "string"
           },
-          "asShort": {
-            "type": "integer",
-            "format": "int32"
+          "subtype": {
+            "type": "string"
           },
-          "string": {
+          "parameters": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "string"
+            }
+          },
+          "charset": {
+            "type": "object",
+            "properties": {
+              "registered": {
+                "type": "boolean"
+              }
+            }
+          },
+          "concrete": {
             "type": "boolean"
           },
-          "jsonObject": {
+          "wildcardType": {
             "type": "boolean"
           },
-          "asJsonObject": {
-            "$ref": "#/components/schemas/JsonObject"
-          },
-          "asJsonArray": {
-            "$ref": "#/components/schemas/JsonArray"
-          },
-          "jsonArray": {
-            "type": "boolean"
-          },
-          "asJsonPrimitive": {
-            "$ref": "#/components/schemas/JsonPrimitive"
-          },
-          "asJsonNull": {
-            "$ref": "#/components/schemas/JsonNull"
-          },
-          "jsonPrimitive": {
-            "type": "boolean"
-          },
-          "jsonNull": {
+          "wildcardSubtype": {
             "type": "boolean"
           }
         }
@@ -1701,7 +1600,7 @@
           }
         }
       },
-      "EntityModelRequestInfoString": {
+      "EntityModelRequestInfoObject": {
         "type": "object",
         "properties": {
           "granted": {
@@ -1711,7 +1610,7 @@
             }
           },
           "denied": {
-            "$ref": "#/components/schemas/MultimapStringString"
+            "$ref": "#/components/schemas/MultimapObjectString"
           },
           "messages": {
             "type": "array",
@@ -1759,11 +1658,99 @@
           }
         }
       },
-      "MultimapStringString": {
+      "MultimapObjectString": {
         "type": "object",
         "properties": {
           "empty": {
             "type": "boolean"
+          }
+        }
+      },
+      "FeatureMetadata": {
+        "required": [
+          "priority"
+        ],
+        "type": "object",
+        "properties": {
+          "storages": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/StorageMetadata"
+            }
+          },
+          "priority": {
+            "type": "string",
+            "enum": [
+              "HIGH",
+              "NORMAL",
+              "LOW"
+            ]
+          }
+        }
+      },
+      "FeatureUpdateCollection": {
+        "required": [
+          "requestOwner",
+          "type"
+        ],
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "string",
+            "enum": [
+              "FEATURE",
+              "FEATURE_COLLECTION",
+              "POINT",
+              "MULTIPOINT",
+              "LINESTRING",
+              "MULTILINESTRING",
+              "POLYGON",
+              "MULTIPOLYGON",
+              "GEOMETRY_COLLECTION",
+              "UNLOCATED"
+            ]
+          },
+          "bbox": {
+            "type": "array",
+            "items": {
+              "type": "number",
+              "format": "double"
+            }
+          },
+          "crs": {
+            "type": "string"
+          },
+          "features": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Feature"
+            }
+          },
+          "requestOwner": {
+            "type": "string"
+          },
+          "metadata": {
+            "$ref": "#/components/schemas/FeatureMetadata"
+          }
+        }
+      },
+      "FeatureDeletionCollection": {
+        "type": "object",
+        "properties": {
+          "featuresUrns": {
+            "uniqueItems": true,
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/FeatureUniformResourceName"
+            }
+          },
+          "priority": {
+            "type": "string",
+            "enum": [
+              "HIGH",
+              "NORMAL",
+              "LOW"
+            ]
           }
         }
       },
@@ -1820,9 +1807,53 @@
           }
         }
       },
+      "FeatureRequestsSelectionDTO": {
+        "type": "object",
+        "properties": {
+          "filters": {
+            "$ref": "#/components/schemas/FeatureRequestSearchParameters"
+          },
+          "requestIds": {
+            "type": "array",
+            "items": {
+              "type": "integer",
+              "format": "int64"
+            }
+          },
+          "requestIdSelectionMode": {
+            "type": "string",
+            "enum": [
+              "INCLUDE",
+              "EXCLUDE"
+            ]
+          }
+        }
+      },
+      "RequestHandledResponse": {
+        "type": "object",
+        "properties": {
+          "totalRequested": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "totalHandled": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "message": {
+            "type": "string"
+          }
+        }
+      },
       "Pageable": {
         "type": "object",
         "properties": {
+          "sort": {
+            "$ref": "#/components/schemas/Sort"
+          },
+          "paged": {
+            "type": "boolean"
+          },
           "pageNumber": {
             "type": "integer",
             "format": "int32"
@@ -1830,12 +1861,6 @@
           "pageSize": {
             "type": "integer",
             "format": "int32"
-          },
-          "sort": {
-            "$ref": "#/components/schemas/Sort"
-          },
-          "paged": {
-            "type": "boolean"
           },
           "unpaged": {
             "type": "boolean"
@@ -1849,10 +1874,10 @@
       "Sort": {
         "type": "object",
         "properties": {
-          "unsorted": {
+          "sorted": {
             "type": "boolean"
           },
-          "sorted": {
+          "unsorted": {
             "type": "boolean"
           },
           "empty": {
@@ -1932,54 +1957,6 @@
           }
         }
       },
-      "FeatureUniformResourceName": {
-        "required": [
-          "entityId",
-          "entityType",
-          "identifier",
-          "tenant"
-        ],
-        "type": "object",
-        "properties": {
-          "identifier": {
-            "type": "string"
-          },
-          "entityType": {
-            "type": "string",
-            "enum": [
-              "COLLECTION",
-              "DATA",
-              "DATASET"
-            ]
-          },
-          "tenant": {
-            "type": "string"
-          },
-          "entityId": {
-            "type": "string",
-            "format": "uuid"
-          },
-          "version": {
-            "maximum": 999,
-            "minimum": 1,
-            "type": "integer",
-            "format": "int32"
-          },
-          "order": {
-            "type": "integer",
-            "format": "int64"
-          },
-          "revision": {
-            "type": "string"
-          },
-          "last": {
-            "type": "boolean"
-          },
-          "randomEntityId": {
-            "type": "boolean"
-          }
-        }
-      },
       "PageMetadata": {
         "type": "object",
         "properties": {
@@ -2033,471 +2010,8 @@
           }
         }
       },
-      "FeatureRequestsSelectionDTO": {
-        "type": "object",
-        "properties": {
-          "filters": {
-            "$ref": "#/components/schemas/FeatureRequestSearchParameters"
-          },
-          "requestIds": {
-            "type": "array",
-            "items": {
-              "type": "integer",
-              "format": "int64"
-            }
-          },
-          "requestIdSelectionMode": {
-            "type": "string",
-            "enum": [
-              "INCLUDE",
-              "EXCLUDE"
-            ]
-          }
-        }
-      },
-      "RequestHandledResponse": {
-        "type": "object",
-        "properties": {
-          "totalRequested": {
-            "type": "integer",
-            "format": "int64"
-          },
-          "totalHandled": {
-            "type": "integer",
-            "format": "int64"
-          },
-          "message": {
-            "type": "string"
-          }
-        }
-      },
-      "Feature": {
-        "required": [
-          "entityType",
-          "model",
-          "type"
-        ],
-        "type": "object",
-        "properties": {
-          "type": {
-            "type": "string",
-            "enum": [
-              "FEATURE",
-              "FEATURE_COLLECTION",
-              "POINT",
-              "MULTIPOINT",
-              "LINESTRING",
-              "MULTILINESTRING",
-              "POLYGON",
-              "MULTIPOLYGON",
-              "GEOMETRY_COLLECTION",
-              "UNLOCATED"
-            ]
-          },
-          "bbox": {
-            "type": "array",
-            "items": {
-              "type": "number",
-              "format": "double"
-            }
-          },
-          "crs": {
-            "type": "string"
-          },
-          "id": {
-            "type": "string"
-          },
-          "geometry": {
-            "$ref": "#/components/schemas/IGeometry"
-          },
-          "normalizedGeometry": {
-            "$ref": "#/components/schemas/IGeometry"
-          },
-          "properties": {
-            "uniqueItems": true,
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/IPropertyObject"
-            }
-          },
-          "urn": {
-            "$ref": "#/components/schemas/FeatureUniformResourceName"
-          },
-          "entityType": {
-            "type": "string",
-            "enum": [
-              "COLLECTION",
-              "DATA",
-              "DATASET"
-            ]
-          },
-          "model": {
-            "type": "string"
-          },
-          "history": {
-            "$ref": "#/components/schemas/FeatureHistory"
-          },
-          "files": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/FeatureFile"
-            }
-          },
-          "last": {
-            "type": "boolean"
-          }
-        }
-      },
-      "FeatureFile": {
-        "required": [
-          "attributes",
-          "locations"
-        ],
-        "type": "object",
-        "properties": {
-          "locations": {
-            "uniqueItems": true,
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/FeatureFileLocation"
-            }
-          },
-          "attributes": {
-            "$ref": "#/components/schemas/FeatureFileAttributes"
-          }
-        }
-      },
-      "FeatureFileAttributes": {
-        "required": [
-          "algorithm",
-          "checksum",
-          "dataType",
-          "filename",
-          "filesize",
-          "mimeType"
-        ],
-        "type": "object",
-        "properties": {
-          "dataType": {
-            "type": "string",
-            "enum": [
-              "RAWDATA",
-              "QUICKLOOK_SD",
-              "QUICKLOOK_MD",
-              "QUICKLOOK_HD",
-              "DOCUMENT",
-              "THUMBNAIL",
-              "OTHER",
-              "AIP",
-              "DESCRIPTION"
-            ]
-          },
-          "mimeType": {
-            "$ref": "#/components/schemas/MimeType"
-          },
-          "filename": {
-            "type": "string"
-          },
-          "filesize": {
-            "type": "integer",
-            "format": "int64"
-          },
-          "algorithm": {
-            "type": "string"
-          },
-          "checksum": {
-            "type": "string"
-          }
-        }
-      },
-      "FeatureFileLocation": {
-        "required": [
-          "url"
-        ],
-        "type": "object",
-        "properties": {
-          "storage": {
-            "type": "string"
-          },
-          "url": {
-            "type": "string"
-          }
-        }
-      },
-      "FeatureHistory": {
-        "type": "object",
-        "properties": {
-          "createdBy": {
-            "type": "string"
-          },
-          "updatedBy": {
-            "type": "string"
-          },
-          "deletedBy": {
-            "type": "string"
-          }
-        }
-      },
-      "FeatureMetadata": {
-        "required": [
-          "priority",
-          "storages"
-        ],
-        "type": "object",
-        "properties": {
-          "storages": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/StorageMetadata"
-            }
-          },
-          "priority": {
-            "type": "string",
-            "enum": [
-              "HIGH",
-              "NORMAL",
-              "LOW"
-            ]
-          }
-        }
-      },
-      "FeatureUpdateCollection": {
-        "required": [
-          "requestOwner",
-          "type"
-        ],
-        "type": "object",
-        "properties": {
-          "type": {
-            "type": "string",
-            "enum": [
-              "FEATURE",
-              "FEATURE_COLLECTION",
-              "POINT",
-              "MULTIPOINT",
-              "LINESTRING",
-              "MULTILINESTRING",
-              "POLYGON",
-              "MULTIPOLYGON",
-              "GEOMETRY_COLLECTION",
-              "UNLOCATED"
-            ]
-          },
-          "bbox": {
-            "type": "array",
-            "items": {
-              "type": "number",
-              "format": "double"
-            }
-          },
-          "crs": {
-            "type": "string"
-          },
-          "features": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/Feature"
-            }
-          },
-          "requestOwner": {
-            "type": "string"
-          },
-          "metadata": {
-            "$ref": "#/components/schemas/FeatureMetadata"
-          }
-        }
-      },
-      "IGeometry": {
-        "type": "object",
-        "properties": {
-          "crs": {
-            "type": "string",
-            "writeOnly": true
-          },
-          "type": {
-            "type": "string",
-            "enum": [
-              "FEATURE",
-              "FEATURE_COLLECTION",
-              "POINT",
-              "MULTIPOINT",
-              "LINESTRING",
-              "MULTILINESTRING",
-              "POLYGON",
-              "MULTIPOLYGON",
-              "GEOMETRY_COLLECTION",
-              "UNLOCATED"
-            ]
-          }
-        }
-      },
-      "IPropertyObject": {
-        "type": "object",
-        "properties": {
-          "name": {
-            "type": "string"
-          },
-          "value": {
-            "type": "object"
-          },
-          "type": {
-            "type": "string",
-            "enum": [
-              "STRING",
-              "JSON",
-              "INTEGER",
-              "DOUBLE",
-              "DATE_ISO8601",
-              "URL",
-              "BOOLEAN",
-              "STRING_ARRAY",
-              "INTEGER_ARRAY",
-              "DOUBLE_ARRAY",
-              "DATE_ARRAY",
-              "INTEGER_INTERVAL",
-              "DOUBLE_INTERVAL",
-              "DATE_INTERVAL",
-              "LONG",
-              "LONG_INTERVAL",
-              "LONG_ARRAY",
-              "OBJECT"
-            ]
-          }
-        }
-      },
-      "MimeType": {
-        "type": "object",
-        "properties": {
-          "type": {
-            "type": "string"
-          },
-          "subtype": {
-            "type": "string"
-          },
-          "parameters": {
-            "type": "object",
-            "additionalProperties": {
-              "type": "string"
-            }
-          },
-          "concrete": {
-            "type": "boolean"
-          },
-          "charset": {
-            "type": "object",
-            "properties": {
-              "registered": {
-                "type": "boolean"
-              }
-            }
-          },
-          "wildcardType": {
-            "type": "boolean"
-          },
-          "wildcardSubtype": {
-            "type": "boolean"
-          }
-        }
-      },
-      "EntityModelRequestInfoObject": {
-        "type": "object",
-        "properties": {
-          "granted": {
-            "type": "object",
-            "additionalProperties": {
-              "type": "string"
-            }
-          },
-          "denied": {
-            "$ref": "#/components/schemas/MultimapObjectString"
-          },
-          "messages": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
-          },
-          "links": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/Link"
-            }
-          }
-        }
-      },
-      "MultimapObjectString": {
-        "type": "object",
-        "properties": {
-          "empty": {
-            "type": "boolean"
-          }
-        }
-      },
-      "FeatureDeletionCollection": {
-        "type": "object",
-        "properties": {
-          "featuresUrns": {
-            "uniqueItems": true,
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/FeatureUniformResourceName"
-            }
-          },
-          "priority": {
-            "type": "string",
-            "enum": [
-              "HIGH",
-              "NORMAL",
-              "LOW"
-            ]
-          }
-        }
-      },
-      "FeatureCreationCollection": {
-        "required": [
-          "requestOwner",
-          "type"
-        ],
-        "type": "object",
-        "properties": {
-          "type": {
-            "type": "string",
-            "enum": [
-              "FEATURE",
-              "FEATURE_COLLECTION",
-              "POINT",
-              "MULTIPOINT",
-              "LINESTRING",
-              "MULTILINESTRING",
-              "POLYGON",
-              "MULTIPOLYGON",
-              "GEOMETRY_COLLECTION",
-              "UNLOCATED"
-            ]
-          },
-          "bbox": {
-            "type": "array",
-            "items": {
-              "type": "number",
-              "format": "double"
-            }
-          },
-          "crs": {
-            "type": "string"
-          },
-          "features": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/Feature"
-            }
-          },
-          "requestOwner": {
-            "type": "string"
-          },
-          "metadata": {
-            "$ref": "#/components/schemas/FeatureCreationSessionMetadata"
-          }
-        }
+      "FeatureDisseminationInfoDto": {
+        "type": "object"
       },
       "FeatureEntityDto": {
         "required": [
@@ -2537,6 +2051,16 @@
           },
           "feature": {
             "$ref": "#/components/schemas/Feature"
+          },
+          "disseminationPending": {
+            "type": "boolean"
+          },
+          "disseminationsInfo": {
+            "uniqueItems": true,
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/FeatureDisseminationInfoDto"
+            }
           }
         }
       },
@@ -2564,6 +2088,9 @@
             "format": "date-time"
           },
           "full": {
+            "type": "boolean"
+          },
+          "disseminationPending": {
             "type": "boolean"
           }
         }
@@ -2629,6 +2156,16 @@
           "feature": {
             "$ref": "#/components/schemas/Feature"
           },
+          "disseminationPending": {
+            "type": "boolean"
+          },
+          "disseminationsInfo": {
+            "uniqueItems": true,
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/FeatureDisseminationInfoDto"
+            }
+          },
           "links": {
             "type": "array",
             "items": {
@@ -2682,6 +2219,41 @@
           }
         }
       },
+      "ModuleReadinessReportObject": {
+        "type": "object",
+        "properties": {
+          "ready": {
+            "type": "boolean"
+          },
+          "reasons": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "specifications": {
+            "type": "object"
+          }
+        }
+      },
+      "ModuleImportReport": {
+        "type": "object",
+        "properties": {
+          "moduleInformation": {
+            "$ref": "#/components/schemas/ModuleInformation"
+          },
+          "importErrors": {
+            "uniqueItems": true,
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "onlyErrors": {
+            "type": "boolean"
+          }
+        }
+      },
       "ModuleInformation": {
         "required": [
           "author",
@@ -2728,41 +2300,6 @@
           }
         }
       },
-      "ModuleReadinessReportObject": {
-        "type": "object",
-        "properties": {
-          "ready": {
-            "type": "boolean"
-          },
-          "reasons": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
-          },
-          "specifications": {
-            "type": "object"
-          }
-        }
-      },
-      "ModuleImportReport": {
-        "type": "object",
-        "properties": {
-          "moduleInformation": {
-            "$ref": "#/components/schemas/ModuleInformation"
-          },
-          "importErrors": {
-            "uniqueItems": true,
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
-          },
-          "onlyErrors": {
-            "type": "boolean"
-          }
-        }
-      },
       "EntityModelPluginConfiguration": {
         "type": "object",
         "properties": {
@@ -2804,9 +2341,8 @@
             "type": "string",
             "format": "url"
           },
-          "isActive": {
-            "type": "boolean",
-            "writeOnly": true
+          "metaDataAndPluginId": {
+            "$ref": "#/components/schemas/PluginMetaData"
           },
           "interfaceNames": {
             "uniqueItems": true,
@@ -2815,8 +2351,9 @@
               "type": "string"
             }
           },
-          "metaDataAndPluginId": {
-            "$ref": "#/components/schemas/PluginMetaData"
+          "isActive": {
+            "type": "boolean",
+            "writeOnly": true
           },
           "pluginClassName": {
             "type": "string"
@@ -2908,9 +2445,8 @@
             "type": "string",
             "format": "url"
           },
-          "isActive": {
-            "type": "boolean",
-            "writeOnly": true
+          "metaDataAndPluginId": {
+            "$ref": "#/components/schemas/PluginMetaData"
           },
           "interfaceNames": {
             "uniqueItems": true,
@@ -2919,8 +2455,9 @@
               "type": "string"
             }
           },
-          "metaDataAndPluginId": {
-            "$ref": "#/components/schemas/PluginMetaData"
+          "isActive": {
+            "type": "boolean",
+            "writeOnly": true
           },
           "pluginClassName": {
             "type": "string"
@@ -2956,6 +2493,9 @@
             "type": "string"
           },
           "markdown": {
+            "type": "string"
+          },
+          "userMarkdown": {
             "type": "string"
           },
           "url": {
@@ -2998,6 +2538,9 @@
             "type": "string"
           },
           "markdown": {
+            "type": "string"
+          },
+          "userMarkdown": {
             "type": "string"
           },
           "parameterizedSubTypes": {
@@ -3098,6 +2641,9 @@
             "type": "string"
           },
           "markdown": {
+            "type": "string"
+          },
+          "userMarkdown": {
             "type": "string"
           },
           "url": {

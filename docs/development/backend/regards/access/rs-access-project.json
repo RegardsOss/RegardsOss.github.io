@@ -6,9 +6,14 @@
     "license": {
       "name": "GPL-3.0"
     },
-    "version": "1.7.1"
+    "version": "1.8.0"
   },
-  "servers": [],
+  "servers": [
+    {
+      "url": "https://regardsoss.github.io/api/v1/rs-access-project",
+      "description": "Generated server url"
+    }
+  ],
   "security": [
     {
       "REGARDS_OAUTH2": []
@@ -304,94 +309,65 @@
         }
       }
     },
-    "/uiplugins/configurations/{pluginConfId}": {
+    "/uiplugins/{pluginId}/configurations": {
       "get": {
         "tags": [
           "ui-plugin-configuration-controller"
         ],
-        "operationId": "retrievePluginConfiguration",
+        "operationId": "retrievePluginConfigurationsByPlugin",
         "parameters": [
           {
-            "name": "pluginConfId",
+            "name": "pluginId",
             "in": "path",
             "required": true,
             "schema": {
               "type": "integer",
               "format": "int64"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "default response",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/EntityModelUIPluginConfiguration"
-                }
-              }
-            }
-          }
-        }
-      },
-      "put": {
-        "tags": [
-          "ui-plugin-configuration-controller"
-        ],
-        "operationId": "updatePluginConfiguration",
-        "parameters": [
-          {
-            "name": "pluginConfId",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "integer",
-              "format": "int64"
-            }
-          }
-        ],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/UIPluginConfiguration"
-              }
             }
           },
-          "required": true
-        },
+          {
+            "name": "isActive",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          {
+            "name": "isLinkedToAllEntities",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          {
+            "name": "assembler",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "$ref": "#/components/schemas/PagedResourcesAssemblerUIPluginConfiguration"
+            }
+          },
+          {
+            "name": "pageable",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "$ref": "#/components/schemas/Pageable"
+            }
+          }
+        ],
         "responses": {
           "200": {
             "description": "default response",
             "content": {
               "*/*": {
                 "schema": {
-                  "$ref": "#/components/schemas/EntityModelUIPluginConfiguration"
+                  "$ref": "#/components/schemas/PagedModelEntityModelUIPluginConfiguration"
                 }
               }
             }
-          }
-        }
-      },
-      "delete": {
-        "tags": [
-          "ui-plugin-configuration-controller"
-        ],
-        "operationId": "deletePluginConfiguration",
-        "parameters": [
-          {
-            "name": "pluginConfId",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "integer",
-              "format": "int64"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "default response"
           }
         }
       }
@@ -490,52 +466,20 @@
         }
       }
     },
-    "/uiplugins/{pluginId}/configurations": {
+    "/uiplugins/configurations/{pluginConfId}": {
       "get": {
         "tags": [
           "ui-plugin-configuration-controller"
         ],
-        "operationId": "retrievePluginConfigurationsByPlugin",
+        "operationId": "retrievePluginConfiguration",
         "parameters": [
           {
-            "name": "pluginId",
+            "name": "pluginConfId",
             "in": "path",
             "required": true,
             "schema": {
               "type": "integer",
               "format": "int64"
-            }
-          },
-          {
-            "name": "isActive",
-            "in": "query",
-            "required": false,
-            "schema": {
-              "type": "boolean"
-            }
-          },
-          {
-            "name": "isLinkedToAllEntities",
-            "in": "query",
-            "required": false,
-            "schema": {
-              "type": "boolean"
-            }
-          },
-          {
-            "name": "assembler",
-            "in": "query",
-            "required": true,
-            "schema": {
-              "$ref": "#/components/schemas/PagedResourcesAssemblerUIPluginConfiguration"
-            }
-          },
-          {
-            "name": "pageable",
-            "in": "query",
-            "required": true,
-            "schema": {
-              "$ref": "#/components/schemas/Pageable"
             }
           }
         ],
@@ -545,10 +489,71 @@
             "content": {
               "*/*": {
                 "schema": {
-                  "$ref": "#/components/schemas/PagedModelEntityModelUIPluginConfiguration"
+                  "$ref": "#/components/schemas/EntityModelUIPluginConfiguration"
                 }
               }
             }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "ui-plugin-configuration-controller"
+        ],
+        "operationId": "updatePluginConfiguration",
+        "parameters": [
+          {
+            "name": "pluginConfId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UIPluginConfiguration"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "default response",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/EntityModelUIPluginConfiguration"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "ui-plugin-configuration-controller"
+        ],
+        "operationId": "deletePluginConfiguration",
+        "parameters": [
+          {
+            "name": "pluginConfId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "default response"
           }
         }
       }
@@ -750,7 +755,7 @@
         "tags": [
           "storage-download-quota-controller"
         ],
-        "operationId": "getQuotaLimits",
+        "operationId": "getQuotaLimits_1",
         "parameters": [
           {
             "name": "user_email",
@@ -813,26 +818,6 @@
         }
       }
     },
-    "/quota": {
-      "get": {
-        "tags": [
-          "storage-download-quota-controller"
-        ],
-        "operationId": "getQuotaLimits_1",
-        "responses": {
-          "200": {
-            "description": "default response",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/DownloadQuotaLimitsDto"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
     "/quota/current": {
       "get": {
         "tags": [
@@ -853,224 +838,22 @@
         }
       }
     },
-    "/users/myuser": {
+    "/quota": {
       "get": {
         "tags": [
-          "project-users-controller"
+          "storage-download-quota-controller"
         ],
-        "operationId": "retrieveCurrentProjectUser",
+        "operationId": "getQuotaLimits",
         "responses": {
           "200": {
             "description": "default response",
             "content": {
               "*/*": {
                 "schema": {
-                  "$ref": "#/components/schemas/EntityModelProjectUserDto"
+                  "$ref": "#/components/schemas/DownloadQuotaLimitsDto"
                 }
               }
             }
-          }
-        }
-      },
-      "put": {
-        "tags": [
-          "project-users-controller"
-        ],
-        "operationId": "updateCurrentProjectUser",
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/ProjectUserDto"
-              }
-            }
-          },
-          "required": true
-        },
-        "responses": {
-          "200": {
-            "description": "default response",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/EntityModelProjectUserDto"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/users": {
-      "get": {
-        "tags": [
-          "project-users-controller"
-        ],
-        "operationId": "retrieveProjectUserList",
-        "parameters": [
-          {
-            "name": "status",
-            "in": "query",
-            "required": false,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "partialEmail",
-            "in": "query",
-            "required": false,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "pageable",
-            "in": "query",
-            "required": true,
-            "schema": {
-              "$ref": "#/components/schemas/Pageable"
-            }
-          },
-          {
-            "name": "assembler",
-            "in": "query",
-            "required": true,
-            "schema": {
-              "$ref": "#/components/schemas/PagedResourcesAssemblerProjectUserDto"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "default response",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/PagedModelEntityModelProjectUserDto"
-                }
-              }
-            }
-          }
-        }
-      },
-      "post": {
-        "tags": [
-          "project-users-controller"
-        ],
-        "operationId": "createUser",
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/AccessRequestDto"
-              }
-            }
-          },
-          "required": true
-        },
-        "responses": {
-          "200": {
-            "description": "default response",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/EntityModelProjectUserDto"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/users/{user_id}": {
-      "get": {
-        "tags": [
-          "project-users-controller"
-        ],
-        "operationId": "retrieveProjectUser",
-        "parameters": [
-          {
-            "name": "user_id",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "integer",
-              "format": "int64"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "default response",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/EntityModelProjectUserDto"
-                }
-              }
-            }
-          }
-        }
-      },
-      "put": {
-        "tags": [
-          "project-users-controller"
-        ],
-        "operationId": "updateProjectUser",
-        "parameters": [
-          {
-            "name": "user_id",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "integer",
-              "format": "int64"
-            }
-          }
-        ],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/ProjectUserDto"
-              }
-            }
-          },
-          "required": true
-        },
-        "responses": {
-          "200": {
-            "description": "default response",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/EntityModelProjectUserDto"
-                }
-              }
-            }
-          }
-        }
-      },
-      "delete": {
-        "tags": [
-          "project-users-controller"
-        ],
-        "operationId": "removeProjectUser",
-        "parameters": [
-          {
-            "name": "user_id",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "integer",
-              "format": "int64"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "default response"
           }
         }
       }
@@ -1104,7 +887,7 @@
             "in": "query",
             "required": true,
             "schema": {
-              "$ref": "#/components/schemas/PagedResourcesAssemblerProjectUserDto"
+              "$ref": "#/components/schemas/PagedResourcesAssemblerProjectUserReadDto"
             }
           }
         ],
@@ -1114,7 +897,7 @@
             "content": {
               "*/*": {
                 "schema": {
-                  "$ref": "#/components/schemas/PagedModelEntityModelProjectUserDto"
+                  "$ref": "#/components/schemas/PagedModelEntityModelProjectUserReadDto"
                 }
               }
             }
@@ -1150,7 +933,7 @@
             "in": "query",
             "required": true,
             "schema": {
-              "$ref": "#/components/schemas/PagedResourcesAssemblerProjectUserDto"
+              "$ref": "#/components/schemas/PagedResourcesAssemblerProjectUserReadDto"
             }
           }
         ],
@@ -1160,7 +943,312 @@
             "content": {
               "*/*": {
                 "schema": {
-                  "$ref": "#/components/schemas/PagedModelEntityModelProjectUserDto"
+                  "$ref": "#/components/schemas/PagedModelEntityModelProjectUserReadDto"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/users/email/{email}/verification/resend": {
+      "get": {
+        "tags": [
+          "project-users-controller"
+        ],
+        "operationId": "sendVerificationEmail",
+        "parameters": [
+          {
+            "name": "email",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "default response"
+          }
+        }
+      }
+    },
+    "/users/pendingaccesses": {
+      "get": {
+        "tags": [
+          "project-users-controller"
+        ],
+        "operationId": "retrieveAccessRequestList",
+        "parameters": [
+          {
+            "name": "pageable",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "$ref": "#/components/schemas/Pageable"
+            }
+          },
+          {
+            "name": "assembler",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "$ref": "#/components/schemas/PagedResourcesAssemblerProjectUserReadDto"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "default response",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/PagedModelEntityModelProjectUserReadDto"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/users": {
+      "get": {
+        "tags": [
+          "project-users-controller"
+        ],
+        "operationId": "retrieveProjectUserList",
+        "parameters": [
+          {
+            "name": "pageable",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "$ref": "#/components/schemas/Pageable"
+            }
+          },
+          {
+            "name": "assembler",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "$ref": "#/components/schemas/PagedResourcesAssemblerProjectUserReadDto"
+            }
+          },
+          {
+            "name": "parameters",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "$ref": "#/components/schemas/ProjectUserSearchParameters"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "default response",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/PagedModelEntityModelProjectUserReadDto"
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "project-users-controller"
+        ],
+        "operationId": "createUser",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ProjectUserCreateDto"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "default response",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/EntityModelProjectUserReadDto"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/users/{user_id}": {
+      "get": {
+        "tags": [
+          "project-users-controller"
+        ],
+        "operationId": "retrieveProjectUser",
+        "parameters": [
+          {
+            "name": "user_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "default response",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/EntityModelProjectUserReadDto"
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "project-users-controller"
+        ],
+        "operationId": "updateProjectUser",
+        "parameters": [
+          {
+            "name": "user_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ProjectUserUpdateDto"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "default response",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/EntityModelProjectUserReadDto"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "project-users-controller"
+        ],
+        "operationId": "removeProjectUser",
+        "parameters": [
+          {
+            "name": "user_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "default response"
+          }
+        }
+      }
+    },
+    "/users/myuser": {
+      "get": {
+        "tags": [
+          "project-users-controller"
+        ],
+        "operationId": "retrieveCurrentProjectUser",
+        "responses": {
+          "200": {
+            "description": "default response",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/EntityModelProjectUserReadDto"
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "project-users-controller"
+        ],
+        "operationId": "updateCurrentProjectUser",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ProjectUserUpdateDto"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "default response",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/EntityModelProjectUserReadDto"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/users/email/{user_email}": {
+      "get": {
+        "tags": [
+          "project-users-controller"
+        ],
+        "operationId": "retrieveProjectUserByEmail",
+        "parameters": [
+          {
+            "name": "user_email",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "default response",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/EntityModelProjectUserReadDto"
                 }
               }
             }
@@ -1191,74 +1279,6 @@
               "*/*": {
                 "schema": {
                   "type": "boolean"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/users/pendingaccesses": {
-      "get": {
-        "tags": [
-          "project-users-controller"
-        ],
-        "operationId": "retrieveAccessRequestList",
-        "parameters": [
-          {
-            "name": "pageable",
-            "in": "query",
-            "required": true,
-            "schema": {
-              "$ref": "#/components/schemas/Pageable"
-            }
-          },
-          {
-            "name": "assembler",
-            "in": "query",
-            "required": true,
-            "schema": {
-              "$ref": "#/components/schemas/PagedResourcesAssemblerProjectUserDto"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "default response",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/PagedModelEntityModelProjectUserDto"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/users/email/{user_email}": {
-      "get": {
-        "tags": [
-          "project-users-controller"
-        ],
-        "operationId": "retrieveProjectUserByEmail",
-        "parameters": [
-          {
-            "name": "user_email",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "default response",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/EntityModelProjectUserDto"
                 }
               }
             }
@@ -2352,36 +2372,6 @@
         }
       }
     },
-    "/regards/{tenant}/datasource/status": {
-      "get": {
-        "tags": [
-          "jpa-multitenant-controller"
-        ],
-        "operationId": "getDataSourceStatus",
-        "parameters": [
-          {
-            "name": "tenant",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "default response",
-            "content": {
-              "application/json;charset=UTF-8": {
-                "schema": {
-                  "$ref": "#/components/schemas/GenericResponseBody"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
     "/regards/{tenant}/datasource/test": {
       "get": {
         "tags": [
@@ -2412,12 +2402,42 @@
         }
       }
     },
-    "/maintenance/{tenant}/disable": {
+    "/regards/{tenant}/datasource/status": {
+      "get": {
+        "tags": [
+          "jpa-multitenant-controller"
+        ],
+        "operationId": "getDataSourceStatus",
+        "parameters": [
+          {
+            "name": "tenant",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "default response",
+            "content": {
+              "application/json;charset=UTF-8": {
+                "schema": {
+                  "$ref": "#/components/schemas/GenericResponseBody"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/maintenance/{tenant}/enable": {
       "put": {
         "tags": [
           "maintenance-controller"
         ],
-        "operationId": "unSetMaintenance",
+        "operationId": "setMaintenance",
         "parameters": [
           {
             "name": "tenant",
@@ -2455,12 +2475,12 @@
         }
       }
     },
-    "/maintenance/{tenant}/enable": {
+    "/maintenance/{tenant}/disable": {
       "put": {
         "tags": [
           "maintenance-controller"
         ],
-        "operationId": "setMaintenance",
+        "operationId": "unSetMaintenance",
         "parameters": [
           {
             "name": "tenant",
@@ -2487,76 +2507,6 @@
         "responses": {
           "200": {
             "description": "default response"
-          }
-        }
-      }
-    },
-    "/microservice/restart/enabled": {
-      "get": {
-        "tags": [
-          "module-manager-controller"
-        ],
-        "operationId": "isRestartEnabled",
-        "responses": {
-          "200": {
-            "description": "default response"
-          }
-        }
-      }
-    },
-    "/microservice/configuration/enabled": {
-      "get": {
-        "tags": [
-          "module-manager-controller"
-        ],
-        "operationId": "isConfigurationEnabled",
-        "responses": {
-          "200": {
-            "description": "default response"
-          }
-        }
-      }
-    },
-    "/microservice/restart": {
-      "get": {
-        "tags": [
-          "module-manager-controller"
-        ],
-        "operationId": "restart",
-        "responses": {
-          "200": {
-            "description": "default response",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "uniqueItems": true,
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/ModuleRestartReport"
-                  }
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/microservice/ready": {
-      "get": {
-        "tags": [
-          "module-manager-controller"
-        ],
-        "operationId": "isReady",
-        "responses": {
-          "200": {
-            "description": "default response",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/ModuleReadinessReportObject"
-                }
-              }
-            }
           }
         }
       }
@@ -2611,12 +2561,82 @@
         }
       }
     },
+    "/microservice/restart": {
+      "get": {
+        "tags": [
+          "module-manager-controller"
+        ],
+        "operationId": "restart",
+        "responses": {
+          "200": {
+            "description": "default response",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "uniqueItems": true,
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/ModuleRestartReport"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/microservice/ready": {
+      "get": {
+        "tags": [
+          "module-manager-controller"
+        ],
+        "operationId": "isReady",
+        "responses": {
+          "200": {
+            "description": "default response",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/ModuleReadinessReportObject"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/microservice/ready/enabled": {
       "get": {
         "tags": [
           "module-manager-controller"
         ],
         "operationId": "isReadyEnabled",
+        "responses": {
+          "200": {
+            "description": "default response"
+          }
+        }
+      }
+    },
+    "/microservice/restart/enabled": {
+      "get": {
+        "tags": [
+          "module-manager-controller"
+        ],
+        "operationId": "isRestartEnabled",
+        "responses": {
+          "200": {
+            "description": "default response"
+          }
+        }
+      }
+    },
+    "/microservice/configuration/enabled": {
+      "get": {
+        "tags": [
+          "module-manager-controller"
+        ],
+        "operationId": "isConfigurationEnabled",
         "responses": {
           "200": {
             "description": "default response"
@@ -2854,6 +2874,55 @@
           }
         }
       },
+      "Pageable": {
+        "type": "object",
+        "properties": {
+          "sort": {
+            "$ref": "#/components/schemas/Sort"
+          },
+          "pageNumber": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "pageSize": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "paged": {
+            "type": "boolean"
+          },
+          "unpaged": {
+            "type": "boolean"
+          },
+          "offset": {
+            "type": "integer",
+            "format": "int64"
+          }
+        }
+      },
+      "Sort": {
+        "type": "object",
+        "properties": {
+          "unsorted": {
+            "type": "boolean"
+          },
+          "sorted": {
+            "type": "boolean"
+          },
+          "empty": {
+            "type": "boolean"
+          }
+        }
+      },
+      "PagedResourcesAssemblerUIPluginDefinition": {
+        "type": "object",
+        "properties": {
+          "forceFirstAndLastRels": {
+            "type": "boolean",
+            "writeOnly": true
+          }
+        }
+      },
       "EntityModelUIPluginDefinition": {
         "type": "object",
         "properties": {
@@ -2911,55 +2980,6 @@
           }
         }
       },
-      "Pageable": {
-        "type": "object",
-        "properties": {
-          "sort": {
-            "$ref": "#/components/schemas/Sort"
-          },
-          "pageNumber": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "pageSize": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "unpaged": {
-            "type": "boolean"
-          },
-          "paged": {
-            "type": "boolean"
-          },
-          "offset": {
-            "type": "integer",
-            "format": "int64"
-          }
-        }
-      },
-      "Sort": {
-        "type": "object",
-        "properties": {
-          "sorted": {
-            "type": "boolean"
-          },
-          "unsorted": {
-            "type": "boolean"
-          },
-          "empty": {
-            "type": "boolean"
-          }
-        }
-      },
-      "PagedResourcesAssemblerUIPluginDefinition": {
-        "type": "object",
-        "properties": {
-          "forceFirstAndLastRels": {
-            "type": "boolean",
-            "writeOnly": true
-          }
-        }
-      },
       "PageMetadata": {
         "type": "object",
         "properties": {
@@ -3001,6 +3021,15 @@
           }
         }
       },
+      "PagedResourcesAssemblerUIPluginConfiguration": {
+        "type": "object",
+        "properties": {
+          "forceFirstAndLastRels": {
+            "type": "boolean",
+            "writeOnly": true
+          }
+        }
+      },
       "EntityModelUIPluginConfiguration": {
         "type": "object",
         "properties": {
@@ -3028,15 +3057,6 @@
             "items": {
               "$ref": "#/components/schemas/Link"
             }
-          }
-        }
-      },
-      "PagedResourcesAssemblerUIPluginConfiguration": {
-        "type": "object",
-        "properties": {
-          "forceFirstAndLastRels": {
-            "type": "boolean",
-            "writeOnly": true
           }
         }
       },
@@ -3249,7 +3269,110 @@
           }
         }
       },
+      "PagedResourcesAssemblerProjectUserReadDto": {
+        "type": "object",
+        "properties": {
+          "forceFirstAndLastRels": {
+            "type": "boolean",
+            "writeOnly": true
+          }
+        }
+      },
+      "EntityModelProjectUserReadDto": {
+        "type": "object",
+        "properties": {
+          "email": {
+            "type": "string"
+          },
+          "firstName": {
+            "type": "string"
+          },
+          "lastName": {
+            "type": "string"
+          },
+          "permissions": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ResourcesAccess"
+            }
+          },
+          "metadata": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/MetaData"
+            }
+          },
+          "accessGroups": {
+            "uniqueItems": true,
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "maxQuota": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "rateLimit": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "id": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "lastConnection": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "lastUpdate": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "created": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "status": {
+            "type": "string",
+            "enum": [
+              "WAITING_ACCESS",
+              "ACCESS_DENIED",
+              "ACCESS_GRANTED",
+              "ACCESS_INACTIVE",
+              "WAITING_ACCOUNT_ACTIVE",
+              "WAITING_EMAIL_VERIFICATION"
+            ]
+          },
+          "role": {
+            "$ref": "#/components/schemas/Role"
+          },
+          "licenseAccepted": {
+            "type": "boolean"
+          },
+          "origin": {
+            "type": "string"
+          },
+          "currentQuota": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "currentRate": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "links": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Link"
+            }
+          }
+        }
+      },
       "MetaData": {
+        "required": [
+          "key"
+        ],
         "type": "object",
         "properties": {
           "id": {
@@ -3275,68 +3398,23 @@
           }
         }
       },
-      "ProjectUserDto": {
+      "PagedModelEntityModelProjectUserReadDto": {
         "type": "object",
         "properties": {
-          "id": {
-            "type": "integer",
-            "format": "int64"
-          },
-          "email": {
-            "type": "string"
-          },
-          "lastConnection": {
-            "type": "string",
-            "format": "date-time"
-          },
-          "lastUpdate": {
-            "type": "string",
-            "format": "date-time"
-          },
-          "status": {
-            "type": "string",
-            "enum": [
-              "WAITING_ACCESS",
-              "ACCESS_DENIED",
-              "ACCESS_GRANTED",
-              "ACCESS_INACTIVE",
-              "WAITING_ACCOUNT_ACTIVE",
-              "WAITING_EMAIL_VERIFICATION"
-            ]
-          },
-          "metadata": {
+          "links": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/MetaData"
+              "$ref": "#/components/schemas/Link"
             }
           },
-          "role": {
-            "$ref": "#/components/schemas/Role"
-          },
-          "permissions": {
+          "content": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/ResourcesAccess"
+              "$ref": "#/components/schemas/EntityModelProjectUserReadDto"
             }
           },
-          "licenseAccepted": {
-            "type": "boolean"
-          },
-          "maxQuota": {
-            "type": "integer",
-            "format": "int64"
-          },
-          "rateLimit": {
-            "type": "integer",
-            "format": "int64"
-          },
-          "currentQuota": {
-            "type": "integer",
-            "format": "int64"
-          },
-          "currentRate": {
-            "type": "integer",
-            "format": "int64"
+          "page": {
+            "$ref": "#/components/schemas/PageMetadata"
           }
         }
       },
@@ -3380,43 +3458,63 @@
           }
         }
       },
-      "EntityModelProjectUserDto": {
+      "ProjectUserSearchParameters": {
         "type": "object",
         "properties": {
-          "id": {
-            "type": "integer",
-            "format": "int64"
-          },
           "email": {
             "type": "string"
           },
-          "lastConnection": {
-            "type": "string",
-            "format": "date-time"
+          "lastName": {
+            "type": "string"
           },
-          "lastUpdate": {
-            "type": "string",
-            "format": "date-time"
+          "firstName": {
+            "type": "string"
           },
           "status": {
-            "type": "string",
-            "enum": [
-              "WAITING_ACCESS",
-              "ACCESS_DENIED",
-              "ACCESS_GRANTED",
-              "ACCESS_INACTIVE",
-              "WAITING_ACCOUNT_ACTIVE",
-              "WAITING_EMAIL_VERIFICATION"
-            ]
+            "type": "string"
           },
-          "metadata": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/MetaData"
-            }
+          "origin": {
+            "type": "string"
           },
           "role": {
-            "$ref": "#/components/schemas/Role"
+            "type": "string"
+          },
+          "createdBefore": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "createdAfter": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "lastConnectionBefore": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "lastConnectionAfter": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "quotaWarningCount": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "accessGroup": {
+            "type": "string"
+          }
+        }
+      },
+      "ProjectUserUpdateDto": {
+        "type": "object",
+        "properties": {
+          "email": {
+            "type": "string"
+          },
+          "firstName": {
+            "type": "string"
+          },
+          "lastName": {
+            "type": "string"
           },
           "permissions": {
             "type": "array",
@@ -3424,8 +3522,18 @@
               "$ref": "#/components/schemas/ResourcesAccess"
             }
           },
-          "licenseAccepted": {
-            "type": "boolean"
+          "metadata": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/MetaData"
+            }
+          },
+          "accessGroups": {
+            "uniqueItems": true,
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
           },
           "maxQuota": {
             "type": "integer",
@@ -3435,23 +3543,72 @@
             "type": "integer",
             "format": "int64"
           },
-          "currentQuota": {
+          "id": {
             "type": "integer",
             "format": "int64"
           },
-          "currentRate": {
-            "type": "integer",
-            "format": "int64"
+          "role": {
+            "$ref": "#/components/schemas/Role"
+          }
+        }
+      },
+      "ProjectUserCreateDto": {
+        "type": "object",
+        "properties": {
+          "email": {
+            "type": "string"
           },
-          "links": {
+          "firstName": {
+            "type": "string"
+          },
+          "lastName": {
+            "type": "string"
+          },
+          "permissions": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/Link"
+              "$ref": "#/components/schemas/ResourcesAccess"
             }
+          },
+          "metadata": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/MetaData"
+            }
+          },
+          "accessGroups": {
+            "uniqueItems": true,
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "maxQuota": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "rateLimit": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "roleName": {
+            "type": "string"
+          },
+          "password": {
+            "type": "string"
+          },
+          "originUrl": {
+            "type": "string"
+          },
+          "requestLink": {
+            "type": "string"
           }
         }
       },
       "AccessRequestDto": {
+        "required": [
+          "email"
+        ],
         "type": "object",
         "properties": {
           "email": {
@@ -3481,42 +3638,19 @@
           "requestLink": {
             "type": "string"
           },
+          "origin": {
+            "type": "string"
+          },
+          "accessGroups": {
+            "uniqueItems": true,
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
           "maxQuota": {
             "type": "integer",
             "format": "int64"
-          },
-          "rateLimit": {
-            "type": "integer",
-            "format": "int64"
-          }
-        }
-      },
-      "PagedResourcesAssemblerProjectUserDto": {
-        "type": "object",
-        "properties": {
-          "forceFirstAndLastRels": {
-            "type": "boolean",
-            "writeOnly": true
-          }
-        }
-      },
-      "PagedModelEntityModelProjectUserDto": {
-        "type": "object",
-        "properties": {
-          "links": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/Link"
-            }
-          },
-          "content": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/EntityModelProjectUserDto"
-            }
-          },
-          "page": {
-            "$ref": "#/components/schemas/PageMetadata"
           }
         }
       },
@@ -3609,39 +3743,11 @@
       "JsonArray": {
         "type": "object",
         "properties": {
-          "asNumber": {
-            "type": "number"
-          },
-          "asInt": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "asLong": {
-            "type": "integer",
-            "format": "int64"
-          },
           "asBoolean": {
             "type": "boolean"
           },
-          "asDouble": {
-            "type": "number",
-            "format": "double"
-          },
-          "asBigInteger": {
-            "type": "integer"
-          },
-          "asShort": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "asCharacter": {
-            "type": "string"
-          },
-          "asBigDecimal": {
+          "asNumber": {
             "type": "number"
-          },
-          "asString": {
-            "type": "string"
           },
           "asFloat": {
             "type": "number",
@@ -3651,11 +3757,36 @@
             "type": "string",
             "format": "byte"
           },
-          "asJsonArray": {
-            "$ref": "#/components/schemas/JsonArray"
+          "asCharacter": {
+            "type": "string"
           },
-          "asJsonNull": {
-            "$ref": "#/components/schemas/JsonNull"
+          "asBigDecimal": {
+            "type": "number"
+          },
+          "asBigInteger": {
+            "type": "integer"
+          },
+          "asDouble": {
+            "type": "number",
+            "format": "double"
+          },
+          "asInt": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "asLong": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "asString": {
+            "type": "string"
+          },
+          "asShort": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "jsonArray": {
+            "type": "boolean"
           },
           "jsonObject": {
             "type": "boolean"
@@ -3666,43 +3797,28 @@
           "asJsonPrimitive": {
             "$ref": "#/components/schemas/JsonPrimitive"
           },
-          "jsonArray": {
-            "type": "boolean"
-          },
-          "asJsonObject": {
-            "$ref": "#/components/schemas/JsonObject"
+          "asJsonNull": {
+            "$ref": "#/components/schemas/JsonNull"
           },
           "jsonNull": {
             "type": "boolean"
+          },
+          "asJsonArray": {
+            "$ref": "#/components/schemas/JsonArray"
+          },
+          "asJsonObject": {
+            "$ref": "#/components/schemas/JsonObject"
           }
         }
       },
       "JsonNull": {
         "type": "object",
         "properties": {
-          "asJsonArray": {
-            "$ref": "#/components/schemas/JsonArray"
-          },
-          "asJsonNull": {
-            "$ref": "#/components/schemas/JsonNull"
-          },
-          "asNumber": {
-            "type": "number"
-          },
-          "asInt": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "asLong": {
-            "type": "integer",
-            "format": "int64"
-          },
           "asBoolean": {
             "type": "boolean"
           },
-          "asDouble": {
-            "type": "number",
-            "format": "double"
+          "jsonArray": {
+            "type": "boolean"
           },
           "jsonObject": {
             "type": "boolean"
@@ -3713,30 +3829,11 @@
           "asJsonPrimitive": {
             "$ref": "#/components/schemas/JsonPrimitive"
           },
-          "jsonArray": {
-            "type": "boolean"
+          "asJsonNull": {
+            "$ref": "#/components/schemas/JsonNull"
           },
-          "asJsonObject": {
-            "$ref": "#/components/schemas/JsonObject"
-          },
-          "asBigInteger": {
-            "type": "integer"
-          },
-          "asShort": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "asCharacter": {
-            "type": "string"
-          },
-          "asBigDecimal": {
+          "asNumber": {
             "type": "number"
-          },
-          "jsonNull": {
-            "type": "boolean"
-          },
-          "asString": {
-            "type": "string"
           },
           "asFloat": {
             "type": "number",
@@ -3745,35 +3842,54 @@
           "asByte": {
             "type": "string",
             "format": "byte"
+          },
+          "asCharacter": {
+            "type": "string"
+          },
+          "asBigDecimal": {
+            "type": "number"
+          },
+          "asBigInteger": {
+            "type": "integer"
+          },
+          "asDouble": {
+            "type": "number",
+            "format": "double"
+          },
+          "asInt": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "asLong": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "jsonNull": {
+            "type": "boolean"
+          },
+          "asString": {
+            "type": "string"
+          },
+          "asShort": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "asJsonArray": {
+            "$ref": "#/components/schemas/JsonArray"
+          },
+          "asJsonObject": {
+            "$ref": "#/components/schemas/JsonObject"
           }
         }
       },
       "JsonObject": {
         "type": "object",
         "properties": {
-          "asJsonArray": {
-            "$ref": "#/components/schemas/JsonArray"
-          },
-          "asJsonNull": {
-            "$ref": "#/components/schemas/JsonNull"
-          },
-          "asNumber": {
-            "type": "number"
-          },
-          "asInt": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "asLong": {
-            "type": "integer",
-            "format": "int64"
-          },
           "asBoolean": {
             "type": "boolean"
           },
-          "asDouble": {
-            "type": "number",
-            "format": "double"
+          "jsonArray": {
+            "type": "boolean"
           },
           "jsonObject": {
             "type": "boolean"
@@ -3784,30 +3900,11 @@
           "asJsonPrimitive": {
             "$ref": "#/components/schemas/JsonPrimitive"
           },
-          "jsonArray": {
-            "type": "boolean"
+          "asJsonNull": {
+            "$ref": "#/components/schemas/JsonNull"
           },
-          "asJsonObject": {
-            "$ref": "#/components/schemas/JsonObject"
-          },
-          "asBigInteger": {
-            "type": "integer"
-          },
-          "asShort": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "asCharacter": {
-            "type": "string"
-          },
-          "asBigDecimal": {
+          "asNumber": {
             "type": "number"
-          },
-          "jsonNull": {
-            "type": "boolean"
-          },
-          "asString": {
-            "type": "string"
           },
           "asFloat": {
             "type": "number",
@@ -3816,6 +3913,43 @@
           "asByte": {
             "type": "string",
             "format": "byte"
+          },
+          "asCharacter": {
+            "type": "string"
+          },
+          "asBigDecimal": {
+            "type": "number"
+          },
+          "asBigInteger": {
+            "type": "integer"
+          },
+          "asDouble": {
+            "type": "number",
+            "format": "double"
+          },
+          "asInt": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "asLong": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "jsonNull": {
+            "type": "boolean"
+          },
+          "asString": {
+            "type": "string"
+          },
+          "asShort": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "asJsonArray": {
+            "$ref": "#/components/schemas/JsonArray"
+          },
+          "asJsonObject": {
+            "$ref": "#/components/schemas/JsonObject"
           }
         }
       },
@@ -3826,48 +3960,11 @@
             "type": "object",
             "writeOnly": true
           },
-          "asNumber": {
-            "type": "number"
-          },
-          "asInt": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "asLong": {
-            "type": "integer",
-            "format": "int64"
-          },
           "asBoolean": {
             "type": "boolean"
           },
-          "number": {
-            "type": "boolean"
-          },
-          "asDouble": {
-            "type": "number",
-            "format": "double"
-          },
-          "string": {
-            "type": "boolean"
-          },
-          "boolean": {
-            "type": "boolean"
-          },
-          "asBigInteger": {
-            "type": "integer"
-          },
-          "asShort": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "asCharacter": {
-            "type": "string"
-          },
-          "asBigDecimal": {
+          "asNumber": {
             "type": "number"
-          },
-          "asString": {
-            "type": "string"
           },
           "asFloat": {
             "type": "number",
@@ -3877,11 +3974,45 @@
             "type": "string",
             "format": "byte"
           },
-          "asJsonArray": {
-            "$ref": "#/components/schemas/JsonArray"
+          "asCharacter": {
+            "type": "string"
           },
-          "asJsonNull": {
-            "$ref": "#/components/schemas/JsonNull"
+          "asBigDecimal": {
+            "type": "number"
+          },
+          "asBigInteger": {
+            "type": "integer"
+          },
+          "asDouble": {
+            "type": "number",
+            "format": "double"
+          },
+          "asInt": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "asLong": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "asString": {
+            "type": "string"
+          },
+          "boolean": {
+            "type": "boolean"
+          },
+          "number": {
+            "type": "boolean"
+          },
+          "asShort": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "string": {
+            "type": "boolean"
+          },
+          "jsonArray": {
+            "type": "boolean"
           },
           "jsonObject": {
             "type": "boolean"
@@ -3892,14 +4023,36 @@
           "asJsonPrimitive": {
             "$ref": "#/components/schemas/JsonPrimitive"
           },
-          "jsonArray": {
-            "type": "boolean"
-          },
-          "asJsonObject": {
-            "$ref": "#/components/schemas/JsonObject"
+          "asJsonNull": {
+            "$ref": "#/components/schemas/JsonNull"
           },
           "jsonNull": {
             "type": "boolean"
+          },
+          "asJsonArray": {
+            "$ref": "#/components/schemas/JsonArray"
+          },
+          "asJsonObject": {
+            "$ref": "#/components/schemas/JsonObject"
+          }
+        }
+      },
+      "UILayout": {
+        "required": [
+          "applicationId",
+          "layout"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "applicationId": {
+            "type": "string"
+          },
+          "layout": {
+            "type": "string"
           }
         }
       },
@@ -3921,25 +4074,6 @@
             "items": {
               "$ref": "#/components/schemas/Link"
             }
-          }
-        }
-      },
-      "UILayout": {
-        "required": [
-          "applicationId",
-          "layout"
-        ],
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "integer",
-            "format": "int64"
-          },
-          "applicationId": {
-            "type": "string"
-          },
-          "layout": {
-            "type": "string"
           }
         }
       },
@@ -4062,29 +4196,6 @@
           }
         }
       },
-      "Theme": {
-        "required": [
-          "active",
-          "configuration",
-          "name"
-        ],
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "integer",
-            "format": "int64"
-          },
-          "name": {
-            "type": "string"
-          },
-          "active": {
-            "type": "boolean"
-          },
-          "configuration": {
-            "type": "string"
-          }
-        }
-      },
       "EntityModelTheme": {
         "type": "object",
         "properties": {
@@ -4106,6 +4217,29 @@
             "items": {
               "$ref": "#/components/schemas/Link"
             }
+          }
+        }
+      },
+      "Theme": {
+        "required": [
+          "active",
+          "configuration",
+          "name"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "name": {
+            "type": "string"
+          },
+          "active": {
+            "type": "boolean"
+          },
+          "configuration": {
+            "type": "string"
           }
         }
       },
@@ -4329,12 +4463,7 @@
         "flows": {
           "password": {
             "tokenUrl": "http://vm-perf.cloud-espace.si.c-s.fr:80/api/v1/rs-authentication/oauth/token",
-            "scopes": {
-              "iliana": "",
-              "rs_leo": "",
-              "testInterruptChain": "",
-              "perf": ""
-            }
+            "scopes": {}
           }
         }
       }

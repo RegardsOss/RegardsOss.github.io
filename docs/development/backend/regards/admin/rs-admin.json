@@ -6,7 +6,7 @@
     "license": {
       "name": "GPL-3.0"
     },
-    "version": "1.7.1"
+    "version": "1.8.0"
   },
   "servers": [
     {
@@ -20,120 +20,6 @@
     }
   ],
   "paths": {
-    "/notifications/settings": {
-      "get": {
-        "tags": [
-          "notification-controller"
-        ],
-        "operationId": "retrieveNotificationSettings",
-        "responses": {
-          "200": {
-            "description": "default response",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/NotificationSettings"
-                }
-              }
-            }
-          }
-        }
-      },
-      "put": {
-        "tags": [
-          "notification-controller"
-        ],
-        "operationId": "updateNotificationSettings",
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/NotificationSettingsDTO"
-              }
-            }
-          },
-          "required": true
-        },
-        "responses": {
-          "200": {
-            "description": "default response",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/NotificationSettings"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/notifications/read/delete": {
-      "delete": {
-        "tags": [
-          "notification-controller"
-        ],
-        "operationId": "deleteNotification",
-        "responses": {
-          "200": {
-            "description": "default response"
-          }
-        }
-      }
-    },
-    "/notifications/{notification_id}": {
-      "get": {
-        "tags": [
-          "notification-controller"
-        ],
-        "operationId": "retrieveNotification",
-        "parameters": [
-          {
-            "name": "notification_id",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "integer",
-              "format": "int64"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "default response",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/Notification"
-                }
-              }
-            }
-          }
-        }
-      },
-      "delete": {
-        "tags": [
-          "notification-controller"
-        ],
-        "operationId": "deleteNotification_1",
-        "parameters": [
-          {
-            "name": "notification_id",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "integer",
-              "format": "int64"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "default response"
-          }
-        }
-      }
-    },
     "/notifications": {
       "get": {
         "tags": [
@@ -212,57 +98,6 @@
         }
       }
     },
-    "/notifications/summary": {
-      "get": {
-        "tags": [
-          "notification-controller"
-        ],
-        "operationId": "summary",
-        "responses": {
-          "200": {
-            "description": "default response",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/NotificationSummary"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/notifications/{notification_id}/read": {
-      "put": {
-        "tags": [
-          "notification-controller"
-        ],
-        "operationId": "setNotificationRead",
-        "parameters": [
-          {
-            "name": "notification_id",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "integer",
-              "format": "int64"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "default response",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/Notification"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
     "/notifications/all/read": {
       "put": {
         "tags": [
@@ -320,59 +155,15 @@
         }
       }
     },
-    "/emails": {
+    "/notifications/{notification_id}": {
       "get": {
         "tags": [
-          "email-controller"
+          "notification-controller"
         ],
-        "operationId": "retrieveEmails",
-        "responses": {
-          "200": {
-            "description": "default response",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/Email"
-                  }
-                }
-              }
-            }
-          }
-        }
-      },
-      "post": {
-        "tags": [
-          "email-controller"
-        ],
-        "operationId": "sendEmail",
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/SimpleMailMessage"
-              }
-            }
-          },
-          "required": true
-        },
-        "responses": {
-          "200": {
-            "description": "default response"
-          }
-        }
-      }
-    },
-    "/emails/{mail_id}": {
-      "get": {
-        "tags": [
-          "email-controller"
-        ],
-        "operationId": "retrieveEmail",
+        "operationId": "retrieveNotification",
         "parameters": [
           {
-            "name": "mail_id",
+            "name": "notification_id",
             "in": "path",
             "required": true,
             "schema": {
@@ -387,7 +178,62 @@
             "content": {
               "*/*": {
                 "schema": {
-                  "$ref": "#/components/schemas/Email"
+                  "$ref": "#/components/schemas/Notification"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "notification-controller"
+        ],
+        "operationId": "deleteNotification",
+        "parameters": [
+          {
+            "name": "notification_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "default response"
+          }
+        }
+      }
+    },
+    "/notifications/read/delete": {
+      "delete": {
+        "tags": [
+          "notification-controller"
+        ],
+        "operationId": "deleteNotification_1",
+        "responses": {
+          "200": {
+            "description": "default response"
+          }
+        }
+      }
+    },
+    "/notifications/settings": {
+      "get": {
+        "tags": [
+          "notification-controller"
+        ],
+        "operationId": "retrieveNotificationSettings",
+        "responses": {
+          "200": {
+            "description": "default response",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/NotificationSettings"
                 }
               }
             }
@@ -396,34 +242,62 @@
       },
       "put": {
         "tags": [
-          "email-controller"
+          "notification-controller"
         ],
-        "operationId": "resendEmail",
-        "parameters": [
-          {
-            "name": "mail_id",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "integer",
-              "format": "int64"
+        "operationId": "updateNotificationSettings",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/NotificationSettingsDTO"
+              }
             }
-          }
-        ],
+          },
+          "required": true
+        },
         "responses": {
           "200": {
-            "description": "default response"
+            "description": "default response",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/NotificationSettings"
+                }
+              }
+            }
           }
         }
-      },
-      "delete": {
+      }
+    },
+    "/notifications/summary": {
+      "get": {
         "tags": [
-          "email-controller"
+          "notification-controller"
         ],
-        "operationId": "deleteEmail",
+        "operationId": "summary",
+        "responses": {
+          "200": {
+            "description": "default response",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/NotificationSummary"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/notifications/{notification_id}/read": {
+      "put": {
+        "tags": [
+          "notification-controller"
+        ],
+        "operationId": "setNotificationRead",
         "parameters": [
           {
-            "name": "mail_id",
+            "name": "notification_id",
             "in": "path",
             "required": true,
             "schema": {
@@ -434,7 +308,14 @@
         ],
         "responses": {
           "200": {
-            "description": "default response"
+            "description": "default response",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/Notification"
+                }
+              }
+            }
           }
         }
       }
@@ -540,148 +421,6 @@
         }
       }
     },
-    "/roles/borrowables": {
-      "get": {
-        "tags": [
-          "role-controller"
-        ],
-        "operationId": "getBorrowableRoles",
-        "responses": {
-          "200": {
-            "description": "default response",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/EntityModelRole"
-                  }
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/roles/resources/{resourceId}": {
-      "get": {
-        "tags": [
-          "role-controller"
-        ],
-        "operationId": "getRolesAccesingResource",
-        "parameters": [
-          {
-            "name": "resourceId",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "integer",
-              "format": "int64"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "default response",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/EntityModelRole"
-                  }
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/roles": {
-      "get": {
-        "tags": [
-          "role-controller"
-        ],
-        "operationId": "getAllRoles",
-        "responses": {
-          "200": {
-            "description": "default response",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/EntityModelRole"
-                  }
-                }
-              }
-            }
-          }
-        }
-      },
-      "post": {
-        "tags": [
-          "role-controller"
-        ],
-        "operationId": "createRole",
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/Role"
-              }
-            }
-          },
-          "required": true
-        },
-        "responses": {
-          "200": {
-            "description": "default response",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/EntityModelRole"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/roles/{role_name}/descendants": {
-      "get": {
-        "tags": [
-          "role-controller"
-        ],
-        "operationId": "retrieveRoleDescendants",
-        "parameters": [
-          {
-            "name": "role_name",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "default response",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "uniqueItems": true,
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/Role"
-                  }
-                }
-              }
-            }
-          }
-        }
-      }
-    },
     "/roles/{role_name}": {
       "get": {
         "tags": [
@@ -771,6 +510,40 @@
         }
       }
     },
+    "/roles/{role_name}/descendants": {
+      "get": {
+        "tags": [
+          "role-controller"
+        ],
+        "operationId": "retrieveRoleDescendants",
+        "parameters": [
+          {
+            "name": "role_name",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "default response",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "uniqueItems": true,
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Role"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/roles/include/{role_name}": {
       "get": {
         "tags": [
@@ -794,6 +567,114 @@
               "*/*": {
                 "schema": {
                   "type": "boolean"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/roles": {
+      "get": {
+        "tags": [
+          "role-controller"
+        ],
+        "operationId": "getAllRoles",
+        "responses": {
+          "200": {
+            "description": "default response",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/EntityModelRole"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "role-controller"
+        ],
+        "operationId": "createRole",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Role"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "default response",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/EntityModelRole"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/roles/borrowables": {
+      "get": {
+        "tags": [
+          "role-controller"
+        ],
+        "operationId": "getBorrowableRoles",
+        "responses": {
+          "200": {
+            "description": "default response",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/EntityModelRole"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/roles/resources/{resourceId}": {
+      "get": {
+        "tags": [
+          "role-controller"
+        ],
+        "operationId": "getRolesAccesingResource",
+        "parameters": [
+          {
+            "name": "resourceId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "default response",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/EntityModelRole"
+                  }
                 }
               }
             }
@@ -897,44 +778,6 @@
         }
       }
     },
-    "/resources": {
-      "get": {
-        "tags": [
-          "resource-controller"
-        ],
-        "operationId": "getAllResourceAccesses",
-        "parameters": [
-          {
-            "name": "pageable",
-            "in": "query",
-            "required": true,
-            "schema": {
-              "$ref": "#/components/schemas/Pageable"
-            }
-          },
-          {
-            "name": "assembler",
-            "in": "query",
-            "required": true,
-            "schema": {
-              "$ref": "#/components/schemas/PagedResourcesAssemblerResourcesAccess"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "default response",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/PagedModelEntityModelResourcesAccess"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
     "/resources/{resource_id}": {
       "get": {
         "tags": [
@@ -998,6 +841,44 @@
               "*/*": {
                 "schema": {
                   "$ref": "#/components/schemas/EntityModelResourcesAccess"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/resources": {
+      "get": {
+        "tags": [
+          "resource-controller"
+        ],
+        "operationId": "getAllResourceAccesses",
+        "parameters": [
+          {
+            "name": "pageable",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "$ref": "#/components/schemas/Pageable"
+            }
+          },
+          {
+            "name": "assembler",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "$ref": "#/components/schemas/PagedResourcesAssemblerResourcesAccess"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "default response",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/PagedModelEntityModelResourcesAccess"
                 }
               }
             }
@@ -1085,39 +966,6 @@
         }
       }
     },
-    "/resources/microservices/{microservicename}/controllers": {
-      "get": {
-        "tags": [
-          "microservice-resource-controller"
-        ],
-        "operationId": "retrieveMicroserviceControllers",
-        "parameters": [
-          {
-            "name": "microservicename",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "default response",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
-                }
-              }
-            }
-          }
-        }
-      }
-    },
     "/resources/microservices/{microservicename}/controllers/{controllername}": {
       "get": {
         "tags": [
@@ -1155,6 +1003,71 @@
                 }
               }
             }
+          }
+        }
+      }
+    },
+    "/resources/microservices/{microservicename}/controllers": {
+      "get": {
+        "tags": [
+          "microservice-resource-controller"
+        ],
+        "operationId": "retrieveMicroserviceControllers",
+        "parameters": [
+          {
+            "name": "microservicename",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "default response",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/roles/{role_name}/resources/{resources_access_id}": {
+      "delete": {
+        "tags": [
+          "role-resource-controller"
+        ],
+        "operationId": "deleteRoleResource",
+        "parameters": [
+          {
+            "name": "role_name",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "resources_access_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "default response"
           }
         }
       }
@@ -1226,38 +1139,6 @@
                 }
               }
             }
-          }
-        }
-      }
-    },
-    "/roles/{role_name}/resources/{resources_access_id}": {
-      "delete": {
-        "tags": [
-          "role-resource-controller"
-        ],
-        "operationId": "deleteRoleResource",
-        "parameters": [
-          {
-            "name": "role_name",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "resources_access_id",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "integer",
-              "format": "int64"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "default response"
           }
         }
       }
@@ -1405,6 +1286,52 @@
         }
       }
     },
+    "/users/roles": {
+      "get": {
+        "tags": [
+          "project-users-controller"
+        ],
+        "operationId": "retrieveRoleProjectUsersList",
+        "parameters": [
+          {
+            "name": "role_name",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "pageable",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "$ref": "#/components/schemas/Pageable"
+            }
+          },
+          {
+            "name": "assembler",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "$ref": "#/components/schemas/PagedResourcesAssemblerProjectUser"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "default response",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/PagedModelEntityModelProjectUser"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/users/myuser": {
       "get": {
         "tags": [
@@ -1453,7 +1380,7 @@
         }
       }
     },
-    "/users/email/{user_email}": {
+    "/users/email/{email}": {
       "get": {
         "tags": [
           "project-users-controller"
@@ -1461,7 +1388,7 @@
         "operationId": "retrieveProjectUserByEmail",
         "parameters": [
           {
-            "name": "user_email",
+            "name": "email",
             "in": "path",
             "required": true,
             "schema": {
@@ -1483,21 +1410,110 @@
         }
       }
     },
-    "/users/roles": {
+    "/users/email/{email}/admin": {
       "get": {
         "tags": [
           "project-users-controller"
         ],
-        "operationId": "retrieveRoleProjectUsersList",
+        "operationId": "isAdmin",
         "parameters": [
           {
-            "name": "role_name",
-            "in": "query",
+            "name": "email",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "default response",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "type": "boolean"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/users/email/{email}/origin/{origin}": {
+      "put": {
+        "tags": [
+          "project-users-controller"
+        ],
+        "operationId": "updateOrigin",
+        "parameters": [
+          {
+            "name": "email",
+            "in": "path",
             "required": true,
             "schema": {
               "type": "string"
             }
           },
+          {
+            "name": "origin",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "default response"
+          }
+        }
+      }
+    },
+    "/users/email/{email}/groups": {
+      "post": {
+        "tags": [
+          "project-users-controller"
+        ],
+        "operationId": "linkAccessGroups",
+        "parameters": [
+          {
+            "name": "email",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "default response"
+          }
+        }
+      }
+    },
+    "/users": {
+      "get": {
+        "tags": [
+          "project-users-controller"
+        ],
+        "operationId": "retrieveProjectUserList",
+        "parameters": [
           {
             "name": "pageable",
             "in": "query",
@@ -1507,11 +1523,19 @@
             }
           },
           {
-            "name": "assembler",
+            "name": "pagedResourcesAssembler",
             "in": "query",
             "required": true,
             "schema": {
               "$ref": "#/components/schemas/PagedResourcesAssemblerProjectUser"
+            }
+          },
+          {
+            "name": "parameters",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "$ref": "#/components/schemas/ProjectUserSearchParameters"
             }
           }
         ],
@@ -1522,6 +1546,81 @@
               "*/*": {
                 "schema": {
                   "$ref": "#/components/schemas/PagedModelEntityModelProjectUser"
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "project-users-controller"
+        ],
+        "operationId": "createUser",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AccessRequestDto"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "default response",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/EntityModelProjectUser"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/users/email/{email}/verification/resend": {
+      "get": {
+        "tags": [
+          "project-users-controller"
+        ],
+        "operationId": "sendVerificationEmail",
+        "parameters": [
+          {
+            "name": "email",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "default response"
+          }
+        }
+      }
+    },
+    "/users/count": {
+      "get": {
+        "tags": [
+          "project-users-controller"
+        ],
+        "operationId": "getUserCountByAccessGroup",
+        "responses": {
+          "200": {
+            "description": "default response",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": {
+                    "type": "integer",
+                    "format": "int64"
+                  }
                 }
               }
             }
@@ -1576,88 +1675,6 @@
         }
       }
     },
-    "/users": {
-      "get": {
-        "tags": [
-          "project-users-controller"
-        ],
-        "operationId": "retrieveProjectUserList",
-        "parameters": [
-          {
-            "name": "status",
-            "in": "query",
-            "required": false,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "partialEmail",
-            "in": "query",
-            "required": false,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "pageable",
-            "in": "query",
-            "required": true,
-            "schema": {
-              "$ref": "#/components/schemas/Pageable"
-            }
-          },
-          {
-            "name": "pagedResourcesAssembler",
-            "in": "query",
-            "required": true,
-            "schema": {
-              "$ref": "#/components/schemas/PagedResourcesAssemblerProjectUser"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "default response",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/PagedModelEntityModelProjectUser"
-                }
-              }
-            }
-          }
-        }
-      },
-      "post": {
-        "tags": [
-          "project-users-controller"
-        ],
-        "operationId": "createUser",
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/AccessRequestDto"
-              }
-            }
-          },
-          "required": true
-        },
-        "responses": {
-          "200": {
-            "description": "default response",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/EntityModelProjectUser"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
     "/users/pendingaccesses": {
       "get": {
         "tags": [
@@ -1696,76 +1713,22 @@
         }
       }
     },
-    "/users/email/{user_email}/admin": {
+    "/users/export": {
       "get": {
         "tags": [
           "project-users-controller"
         ],
-        "operationId": "isAdmin",
+        "operationId": "exportAsCSV",
         "parameters": [
           {
-            "name": "user_email",
-            "in": "path",
+            "name": "parameters",
+            "in": "query",
             "required": true,
             "schema": {
-              "type": "string"
+              "$ref": "#/components/schemas/ProjectUserSearchParameters"
             }
           }
         ],
-        "responses": {
-          "200": {
-            "description": "default response",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "type": "boolean"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/accesses/{access_id}": {
-      "delete": {
-        "tags": [
-          "registration-controller"
-        ],
-        "operationId": "removeAccessRequest",
-        "parameters": [
-          {
-            "name": "access_id",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "integer",
-              "format": "int64"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "default response"
-          }
-        }
-      }
-    },
-    "/accesses": {
-      "post": {
-        "tags": [
-          "registration-controller"
-        ],
-        "operationId": "requestAccess",
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/AccessRequestDto"
-              }
-            }
-          },
-          "required": true
-        },
         "responses": {
           "200": {
             "description": "default response"
@@ -1796,22 +1759,22 @@
         }
       }
     },
-    "/accesses/verifyEmail/{token}": {
-      "get": {
+    "/accesses": {
+      "post": {
         "tags": [
           "registration-controller"
         ],
-        "operationId": "verifyEmail",
-        "parameters": [
-          {
-            "name": "token",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string"
+        "operationId": "requestAccess",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AccessRequestDto"
+              }
             }
-          }
-        ],
+          },
+          "required": true
+        },
         "responses": {
           "200": {
             "description": "default response"
@@ -1867,6 +1830,29 @@
         }
       }
     },
+    "/accesses/verifyEmail/{token}": {
+      "get": {
+        "tags": [
+          "registration-controller"
+        ],
+        "operationId": "verifyEmail",
+        "parameters": [
+          {
+            "name": "token",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "default response"
+          }
+        }
+      }
+    },
     "/accesses/{access_id}/inactive": {
       "put": {
         "tags": [
@@ -1900,6 +1886,149 @@
         "parameters": [
           {
             "name": "access_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "default response"
+          }
+        }
+      }
+    },
+    "/accesses/{access_id}": {
+      "delete": {
+        "tags": [
+          "registration-controller"
+        ],
+        "operationId": "removeAccessRequest",
+        "parameters": [
+          {
+            "name": "access_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "default response"
+          }
+        }
+      }
+    },
+    "/emails": {
+      "get": {
+        "tags": [
+          "email-controller"
+        ],
+        "operationId": "retrieveEmails",
+        "responses": {
+          "200": {
+            "description": "default response",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Email"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "email-controller"
+        ],
+        "operationId": "sendEmail",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SimpleMailMessage"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "default response"
+          }
+        }
+      }
+    },
+    "/emails/{mail_id}": {
+      "get": {
+        "tags": [
+          "email-controller"
+        ],
+        "operationId": "retrieveEmail",
+        "parameters": [
+          {
+            "name": "mail_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "default response",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/Email"
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "email-controller"
+        ],
+        "operationId": "resendEmail",
+        "parameters": [
+          {
+            "name": "mail_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "default response"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "email-controller"
+        ],
+        "operationId": "deleteEmail",
+        "parameters": [
+          {
+            "name": "mail_id",
             "in": "path",
             "required": true,
             "schema": {
@@ -1975,26 +2104,6 @@
         }
       }
     },
-    "/maintenance": {
-      "get": {
-        "tags": [
-          "maintenance-controller"
-        ],
-        "operationId": "retrieveTenantsInMaintenance",
-        "responses": {
-          "200": {
-            "description": "default response",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/EntityModelMapStringMaintenanceInfo"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
     "/maintenance/{tenant}/enable": {
       "put": {
         "tags": [
@@ -2041,6 +2150,26 @@
         }
       }
     },
+    "/maintenance": {
+      "get": {
+        "tags": [
+          "maintenance-controller"
+        ],
+        "operationId": "retrieveTenantsInMaintenance",
+        "responses": {
+          "200": {
+            "description": "default response",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/EntityModelMapStringMaintenanceInfo"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/shutdown/immediate": {
       "post": {
         "tags": [
@@ -2050,89 +2179,6 @@
         "responses": {
           "200": {
             "description": "default response"
-          }
-        }
-      }
-    },
-    "/microservice/restart/enabled": {
-      "get": {
-        "tags": [
-          "module-manager-controller"
-        ],
-        "operationId": "isRestartEnabled",
-        "responses": {
-          "200": {
-            "description": "default response"
-          }
-        }
-      }
-    },
-    "/microservice/ready/enabled": {
-      "get": {
-        "tags": [
-          "module-manager-controller"
-        ],
-        "operationId": "isReadyEnabled",
-        "responses": {
-          "200": {
-            "description": "default response"
-          }
-        }
-      }
-    },
-    "/microservice/configuration/enabled": {
-      "get": {
-        "tags": [
-          "module-manager-controller"
-        ],
-        "operationId": "isConfigurationEnabled",
-        "responses": {
-          "200": {
-            "description": "default response"
-          }
-        }
-      }
-    },
-    "/microservice/restart": {
-      "get": {
-        "tags": [
-          "module-manager-controller"
-        ],
-        "operationId": "restart",
-        "responses": {
-          "200": {
-            "description": "default response",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "uniqueItems": true,
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/ModuleRestartReport"
-                  }
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/microservice/ready": {
-      "get": {
-        "tags": [
-          "module-manager-controller"
-        ],
-        "operationId": "isReady",
-        "responses": {
-          "200": {
-            "description": "default response",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/ModuleReadinessReportObject"
-                }
-              }
-            }
           }
         }
       }
@@ -2179,6 +2225,89 @@
                   "type": "array",
                   "items": {
                     "$ref": "#/components/schemas/ModuleImportReport"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/microservice/configuration/enabled": {
+      "get": {
+        "tags": [
+          "module-manager-controller"
+        ],
+        "operationId": "isConfigurationEnabled",
+        "responses": {
+          "200": {
+            "description": "default response"
+          }
+        }
+      }
+    },
+    "/microservice/ready/enabled": {
+      "get": {
+        "tags": [
+          "module-manager-controller"
+        ],
+        "operationId": "isReadyEnabled",
+        "responses": {
+          "200": {
+            "description": "default response"
+          }
+        }
+      }
+    },
+    "/microservice/restart/enabled": {
+      "get": {
+        "tags": [
+          "module-manager-controller"
+        ],
+        "operationId": "isRestartEnabled",
+        "responses": {
+          "200": {
+            "description": "default response"
+          }
+        }
+      }
+    },
+    "/microservice/ready": {
+      "get": {
+        "tags": [
+          "module-manager-controller"
+        ],
+        "operationId": "isReady",
+        "responses": {
+          "200": {
+            "description": "default response",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/ModuleReadinessReportObject"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/microservice/restart": {
+      "get": {
+        "tags": [
+          "module-manager-controller"
+        ],
+        "operationId": "restart",
+        "responses": {
+          "200": {
+            "description": "default response",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "uniqueItems": true,
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/ModuleRestartReport"
                   }
                 }
               }
@@ -2336,6 +2465,40 @@
         }
       }
     },
+    "/sources/names": {
+      "get": {
+        "tags": [
+          "source-manager-controller"
+        ],
+        "operationId": "getSourcesNames",
+        "parameters": [
+          {
+            "name": "name",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "default response",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "uniqueItems": true,
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/sources": {
       "get": {
         "tags": [
@@ -2409,40 +2572,6 @@
         "responses": {
           "200": {
             "description": "default response"
-          }
-        }
-      }
-    },
-    "/sources/names": {
-      "get": {
-        "tags": [
-          "source-manager-controller"
-        ],
-        "operationId": "getSourcesNames",
-        "parameters": [
-          {
-            "name": "name",
-            "in": "query",
-            "required": false,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "default response",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "uniqueItems": true,
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
-                }
-              }
-            }
           }
         }
       }
@@ -2578,78 +2707,18 @@
   },
   "components": {
     "schemas": {
-      "NotificationSettings": {
-        "required": [
-          "projectUserEmail"
-        ],
-        "type": "object",
-        "properties": {
-          "days": {
-            "minimum": 1,
-            "type": "integer",
-            "format": "int32"
-          },
-          "frequency": {
-            "type": "string",
-            "enum": [
-              "DAILY",
-              "WEEKLY",
-              "MONTHLY",
-              "CUSTOM"
-            ]
-          },
-          "hours": {
-            "maximum": 24,
-            "minimum": 0,
-            "type": "integer",
-            "format": "int32"
-          },
-          "id": {
-            "type": "integer",
-            "format": "int64"
-          },
-          "projectUserEmail": {
-            "type": "string"
-          },
-          "identifiable": {
-            "type": "boolean"
-          }
-        }
-      },
-      "NotificationSettingsDTO": {
-        "type": "object",
-        "properties": {
-          "days": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "frequency": {
-            "type": "string",
-            "enum": [
-              "DAILY",
-              "WEEKLY",
-              "MONTHLY",
-              "CUSTOM"
-            ]
-          },
-          "hours": {
-            "type": "integer",
-            "format": "int32"
-          }
-        }
-      },
       "Pageable": {
         "type": "object",
         "properties": {
+          "pageNumber": {
+            "type": "integer",
+            "format": "int32"
+          },
           "sort": {
             "$ref": "#/components/schemas/Sort"
           },
           "paged": {
             "type": "boolean"
-          },
-          "pageNumber": {
-            "type": "integer",
-            "format": "int32"
           },
           "pageSize": {
             "type": "integer",
@@ -2703,11 +2772,11 @@
               "FATAL"
             ]
           },
-          "title": {
-            "type": "string"
-          },
           "mimeType": {
             "$ref": "#/components/schemas/MimeType"
+          },
+          "title": {
+            "type": "string"
           },
           "sender": {
             "type": "string"
@@ -2904,16 +2973,63 @@
           }
         }
       },
-      "NotificationSummary": {
+      "NotificationSettings": {
+        "required": [
+          "projectUserEmail"
+        ],
         "type": "object",
         "properties": {
-          "unreads": {
+          "days": {
+            "minimum": 1,
+            "type": "integer",
+            "format": "int32"
+          },
+          "frequency": {
+            "type": "string",
+            "enum": [
+              "DAILY",
+              "WEEKLY",
+              "MONTHLY",
+              "CUSTOM"
+            ]
+          },
+          "hours": {
+            "maximum": 24,
+            "minimum": 0,
+            "type": "integer",
+            "format": "int32"
+          },
+          "id": {
             "type": "integer",
             "format": "int64"
           },
-          "reads": {
+          "projectUserEmail": {
+            "type": "string"
+          },
+          "identifiable": {
+            "type": "boolean"
+          }
+        }
+      },
+      "NotificationSettingsDTO": {
+        "type": "object",
+        "properties": {
+          "days": {
             "type": "integer",
-            "format": "int64"
+            "format": "int32"
+          },
+          "frequency": {
+            "type": "string",
+            "enum": [
+              "DAILY",
+              "WEEKLY",
+              "MONTHLY",
+              "CUSTOM"
+            ]
+          },
+          "hours": {
+            "type": "integer",
+            "format": "int32"
           }
         }
       },
@@ -2957,127 +3073,16 @@
           }
         }
       },
-      "Email": {
-        "required": [
-          "to"
-        ],
+      "NotificationSummary": {
         "type": "object",
         "properties": {
-          "id": {
+          "unreads": {
             "type": "integer",
             "format": "int64"
           },
-          "bcc": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
-          },
-          "cc": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
-          },
-          "from": {
-            "type": "string"
-          },
-          "replyTo": {
-            "type": "string"
-          },
-          "sentDate": {
-            "type": "string",
-            "format": "date-time"
-          },
-          "subject": {
-            "type": "string"
-          },
-          "text": {
-            "type": "string"
-          },
-          "to": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
-          },
-          "attName": {
-            "type": "string"
-          },
-          "attachment": {
-            "type": "array",
-            "items": {
-              "type": "string",
-              "format": "byte"
-            }
-          },
-          "identifiable": {
-            "type": "boolean"
-          }
-        }
-      },
-      "SimpleMailMessage": {
-        "type": "object",
-        "properties": {
-          "from": {
-            "type": "string"
-          },
-          "replyTo": {
-            "type": "string"
-          },
-          "to": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
-          },
-          "cc": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
-          },
-          "bcc": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
-          },
-          "sentDate": {
-            "type": "string",
-            "format": "date-time"
-          },
-          "subject": {
-            "type": "string"
-          },
-          "text": {
-            "type": "string"
-          }
-        }
-      },
-      "MetaData": {
-        "type": "object",
-        "properties": {
-          "id": {
+          "reads": {
             "type": "integer",
             "format": "int64"
-          },
-          "key": {
-            "type": "string"
-          },
-          "value": {
-            "type": "string"
-          },
-          "visibility": {
-            "type": "string",
-            "enum": [
-              "READABLE",
-              "WRITEABLE",
-              "HIDDEN"
-            ]
-          },
-          "identifiable": {
-            "type": "boolean"
           }
         }
       },
@@ -3113,46 +3118,32 @@
           }
         }
       },
-      "EntityModelRole": {
+      "MetaData": {
+        "required": [
+          "key"
+        ],
         "type": "object",
         "properties": {
           "id": {
             "type": "integer",
             "format": "int64"
           },
-          "name": {
+          "key": {
             "type": "string"
           },
-          "parentRole": {
-            "$ref": "#/components/schemas/Role"
+          "value": {
+            "type": "string"
           },
-          "permissions": {
-            "uniqueItems": true,
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/ResourcesAccess"
-            }
-          },
-          "authorizedAddresses": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
-          },
-          "default": {
-            "type": "boolean"
-          },
-          "native": {
-            "type": "boolean"
+          "visibility": {
+            "type": "string",
+            "enum": [
+              "READABLE",
+              "WRITEABLE",
+              "HIDDEN"
+            ]
           },
           "identifiable": {
             "type": "boolean"
-          },
-          "links": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/Link"
-            }
           }
         }
       },
@@ -3248,6 +3239,49 @@
           },
           "identifiable": {
             "type": "boolean"
+          }
+        }
+      },
+      "EntityModelRole": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "name": {
+            "type": "string"
+          },
+          "parentRole": {
+            "$ref": "#/components/schemas/Role"
+          },
+          "permissions": {
+            "uniqueItems": true,
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ResourcesAccess"
+            }
+          },
+          "authorizedAddresses": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "default": {
+            "type": "boolean"
+          },
+          "native": {
+            "type": "boolean"
+          },
+          "identifiable": {
+            "type": "boolean"
+          },
+          "links": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Link"
+            }
           }
         }
       },
@@ -3407,6 +3441,15 @@
           }
         }
       },
+      "PagedResourcesAssemblerProjectUser": {
+        "type": "object",
+        "properties": {
+          "forceFirstAndLastRels": {
+            "type": "boolean",
+            "writeOnly": true
+          }
+        }
+      },
       "EntityModelProjectUser": {
         "type": "object",
         "properties": {
@@ -3417,6 +3460,12 @@
           "email": {
             "type": "string"
           },
+          "firstName": {
+            "type": "string"
+          },
+          "lastName": {
+            "type": "string"
+          },
           "lastConnection": {
             "type": "string",
             "format": "date-time"
@@ -3424,6 +3473,28 @@
           "lastUpdate": {
             "type": "string",
             "format": "date-time"
+          },
+          "created": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "origin": {
+            "type": "string"
+          },
+          "accessGroups": {
+            "uniqueItems": true,
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "maxQuota": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "currentQuota": {
+            "type": "integer",
+            "format": "int64"
           },
           "status": {
             "type": "string",
@@ -3437,6 +3508,7 @@
             ]
           },
           "metadata": {
+            "uniqueItems": true,
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/MetaData"
@@ -3462,70 +3534,6 @@
             "items": {
               "$ref": "#/components/schemas/Link"
             }
-          }
-        }
-      },
-      "ProjectUser": {
-        "required": [
-          "status"
-        ],
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "integer",
-            "format": "int64"
-          },
-          "email": {
-            "type": "string"
-          },
-          "lastConnection": {
-            "type": "string",
-            "format": "date-time"
-          },
-          "lastUpdate": {
-            "type": "string",
-            "format": "date-time"
-          },
-          "status": {
-            "type": "string",
-            "enum": [
-              "WAITING_ACCESS",
-              "ACCESS_DENIED",
-              "ACCESS_GRANTED",
-              "ACCESS_INACTIVE",
-              "WAITING_ACCOUNT_ACTIVE",
-              "WAITING_EMAIL_VERIFICATION"
-            ]
-          },
-          "metadata": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/MetaData"
-            }
-          },
-          "role": {
-            "$ref": "#/components/schemas/Role"
-          },
-          "permissions": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/ResourcesAccess"
-            }
-          },
-          "licenseAccepted": {
-            "type": "boolean"
-          },
-          "identifiable": {
-            "type": "boolean"
-          }
-        }
-      },
-      "PagedResourcesAssemblerProjectUser": {
-        "type": "object",
-        "properties": {
-          "forceFirstAndLastRels": {
-            "type": "boolean",
-            "writeOnly": true
           }
         }
       },
@@ -3546,6 +3554,137 @@
           },
           "page": {
             "$ref": "#/components/schemas/PageMetadata"
+          }
+        }
+      },
+      "ProjectUser": {
+        "required": [
+          "origin",
+          "status"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "email": {
+            "type": "string"
+          },
+          "firstName": {
+            "type": "string"
+          },
+          "lastName": {
+            "type": "string"
+          },
+          "lastConnection": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "lastUpdate": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "created": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "origin": {
+            "type": "string"
+          },
+          "accessGroups": {
+            "uniqueItems": true,
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "maxQuota": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "currentQuota": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "status": {
+            "type": "string",
+            "enum": [
+              "WAITING_ACCESS",
+              "ACCESS_DENIED",
+              "ACCESS_GRANTED",
+              "ACCESS_INACTIVE",
+              "WAITING_ACCOUNT_ACTIVE",
+              "WAITING_EMAIL_VERIFICATION"
+            ]
+          },
+          "metadata": {
+            "uniqueItems": true,
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/MetaData"
+            }
+          },
+          "role": {
+            "$ref": "#/components/schemas/Role"
+          },
+          "permissions": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ResourcesAccess"
+            }
+          },
+          "licenseAccepted": {
+            "type": "boolean"
+          },
+          "identifiable": {
+            "type": "boolean"
+          }
+        }
+      },
+      "ProjectUserSearchParameters": {
+        "type": "object",
+        "properties": {
+          "email": {
+            "type": "string"
+          },
+          "lastName": {
+            "type": "string"
+          },
+          "firstName": {
+            "type": "string"
+          },
+          "status": {
+            "type": "string"
+          },
+          "origin": {
+            "type": "string"
+          },
+          "role": {
+            "type": "string"
+          },
+          "createdBefore": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "createdAfter": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "lastConnectionBefore": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "lastConnectionAfter": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "quotaWarningCount": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "accessGroup": {
+            "type": "string"
           }
         }
       },
@@ -3581,6 +3720,118 @@
           },
           "requestLink": {
             "type": "string"
+          },
+          "origin": {
+            "type": "string"
+          },
+          "accessGroups": {
+            "uniqueItems": true,
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "maxQuota": {
+            "type": "integer",
+            "format": "int64"
+          }
+        }
+      },
+      "Email": {
+        "required": [
+          "to"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "bcc": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "cc": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "from": {
+            "type": "string"
+          },
+          "replyTo": {
+            "type": "string"
+          },
+          "sentDate": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "subject": {
+            "type": "string"
+          },
+          "text": {
+            "type": "string"
+          },
+          "to": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "attName": {
+            "type": "string"
+          },
+          "attachment": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "format": "byte"
+            }
+          },
+          "identifiable": {
+            "type": "boolean"
+          }
+        }
+      },
+      "SimpleMailMessage": {
+        "type": "object",
+        "properties": {
+          "from": {
+            "type": "string"
+          },
+          "replyTo": {
+            "type": "string"
+          },
+          "to": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "cc": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "bcc": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "sentDate": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "subject": {
+            "type": "string"
+          },
+          "text": {
+            "type": "string"
           }
         }
       },
@@ -3606,6 +3857,24 @@
             "items": {
               "$ref": "#/components/schemas/Link"
             }
+          }
+        }
+      },
+      "ModuleImportReport": {
+        "type": "object",
+        "properties": {
+          "moduleInformation": {
+            "$ref": "#/components/schemas/ModuleInformation"
+          },
+          "importErrors": {
+            "uniqueItems": true,
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "onlyErrors": {
+            "type": "boolean"
           }
         }
       },
@@ -3641,20 +3910,6 @@
           }
         }
       },
-      "ModuleRestartReport": {
-        "type": "object",
-        "properties": {
-          "moduleInformation": {
-            "$ref": "#/components/schemas/ModuleInformation"
-          },
-          "messages": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
-          }
-        }
-      },
       "ModuleReadinessReportObject": {
         "type": "object",
         "properties": {
@@ -3672,21 +3927,17 @@
           }
         }
       },
-      "ModuleImportReport": {
+      "ModuleRestartReport": {
         "type": "object",
         "properties": {
           "moduleInformation": {
             "$ref": "#/components/schemas/ModuleInformation"
           },
-          "importErrors": {
-            "uniqueItems": true,
+          "messages": {
             "type": "array",
             "items": {
               "type": "string"
             }
-          },
-          "onlyErrors": {
-            "type": "boolean"
           }
         }
       },

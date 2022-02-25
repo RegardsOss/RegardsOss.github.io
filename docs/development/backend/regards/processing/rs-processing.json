@@ -6,7 +6,7 @@
     "license": {
       "name": "GPL-3.0"
     },
-    "version": "1.7.1"
+    "version": "1.8.0"
   },
   "servers": [
     {
@@ -20,52 +20,6 @@
     }
   ],
   "paths": {
-    "/processplugins/fordatasets": {
-      "post": {
-        "tags": [
-          "process-plugin-dataset-controller"
-        ],
-        "operationId": "findProcessesByDatasets",
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "type": "array",
-                "items": {
-                  "type": "string"
-                }
-              }
-            }
-          },
-          "required": true
-        },
-        "responses": {
-          "500": {
-            "description": "default response",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/ErrorStructure"
-                }
-              }
-            }
-          },
-          "200": {
-            "description": "default response",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "type": "object",
-                  "additionalProperties": {
-                    "type": "object"
-                  }
-                }
-              }
-            }
-          }
-        }
-      }
-    },
     "/processplugins/linkprocessdataset/{datasetIpId}": {
       "get": {
         "tags": [
@@ -154,6 +108,52 @@
         }
       }
     },
+    "/processplugins/fordatasets": {
+      "post": {
+        "tags": [
+          "process-plugin-dataset-controller"
+        ],
+        "operationId": "findProcessesByDatasets",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "500": {
+            "description": "default response",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorStructure"
+                }
+              }
+            }
+          },
+          "200": {
+            "description": "default response",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": {
+                    "type": "object"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/processplugins/config": {
       "get": {
         "tags": [
@@ -236,6 +236,48 @@
                 }
               }
             }
+          }
+        }
+      }
+    },
+    "/processplugins/config/{processBusinessId}/userRole": {
+      "put": {
+        "tags": [
+          "process-plugin-config-controller"
+        ],
+        "operationId": "attachRoleToProcess",
+        "parameters": [
+          {
+            "name": "processBusinessId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "userRole",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "500": {
+            "description": "default response",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorStructure"
+                }
+              }
+            }
+          },
+          "200": {
+            "description": "default response"
           }
         }
       }
@@ -362,48 +404,6 @@
         }
       }
     },
-    "/processplugins/config/{processBusinessId}/userRole": {
-      "put": {
-        "tags": [
-          "process-plugin-config-controller"
-        ],
-        "operationId": "attachRoleToProcess",
-        "parameters": [
-          {
-            "name": "processBusinessId",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string",
-              "format": "uuid"
-            }
-          },
-          {
-            "name": "userRole",
-            "in": "query",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "500": {
-            "description": "default response",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/ErrorStructure"
-                }
-              }
-            }
-          },
-          "200": {
-            "description": "default response"
-          }
-        }
-      }
-    },
     "/processplugins/metadata": {
       "get": {
         "tags": [
@@ -477,39 +477,6 @@
         }
       }
     },
-    "/process": {
-      "get": {
-        "tags": [
-          "p-process-controller"
-        ],
-        "operationId": "findAll_1",
-        "responses": {
-          "500": {
-            "description": "default response",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/ErrorStructure"
-                }
-              }
-            }
-          },
-          "200": {
-            "description": "default response",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/PProcessDTO"
-                  }
-                }
-              }
-            }
-          }
-        }
-      }
-    },
     "/process/{processBusinessId}": {
       "get": {
         "tags": [
@@ -551,6 +518,39 @@
         }
       }
     },
+    "/process": {
+      "get": {
+        "tags": [
+          "p-process-controller"
+        ],
+        "operationId": "findAll_1",
+        "responses": {
+          "500": {
+            "description": "default response",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorStructure"
+                }
+              }
+            }
+          },
+          "200": {
+            "description": "default response",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/PProcessDTO"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/monitoring/executions": {
       "get": {
         "tags": [
@@ -580,6 +580,7 @@
                   "CANCELLED",
                   "TIMED_OUT",
                   "CLEANUP",
+                  "PENDING",
                   "RUNNING",
                   "PREPARE",
                   "REGISTERED"
@@ -674,12 +675,12 @@
         }
       }
     },
-    "/regards/{tenant}/datasource/test": {
+    "/regards/{tenant}/datasource/status": {
       "get": {
         "tags": [
           "jpa-multitenant-controller"
         ],
-        "operationId": "testTenantConnection",
+        "operationId": "getDataSourceStatus",
         "parameters": [
           {
             "name": "tenant",
@@ -714,12 +715,12 @@
         }
       }
     },
-    "/regards/{tenant}/datasource/status": {
+    "/regards/{tenant}/datasource/test": {
       "get": {
         "tags": [
           "jpa-multitenant-controller"
         ],
-        "operationId": "getDataSourceStatus",
+        "operationId": "testTenantConnection",
         "parameters": [
           {
             "name": "tenant",
@@ -873,40 +874,6 @@
         }
       }
     },
-    "/microservice/restart": {
-      "get": {
-        "tags": [
-          "module-manager-controller"
-        ],
-        "operationId": "restart",
-        "responses": {
-          "500": {
-            "description": "default response",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/ErrorStructure"
-                }
-              }
-            }
-          },
-          "200": {
-            "description": "default response",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "uniqueItems": true,
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/ModuleRestartReport"
-                  }
-                }
-              }
-            }
-          }
-        }
-      }
-    },
     "/microservice/configuration": {
       "get": {
         "tags": [
@@ -977,12 +944,12 @@
         }
       }
     },
-    "/microservice/ready/enabled": {
+    "/microservice/restart/enabled": {
       "get": {
         "tags": [
           "module-manager-controller"
         ],
-        "operationId": "isReadyEnabled",
+        "operationId": "isRestartEnabled",
         "responses": {
           "500": {
             "description": "default response",
@@ -1000,12 +967,12 @@
         }
       }
     },
-    "/microservice/restart/enabled": {
+    "/microservice/configuration/enabled": {
       "get": {
         "tags": [
           "module-manager-controller"
         ],
-        "operationId": "isRestartEnabled",
+        "operationId": "isConfigurationEnabled",
         "responses": {
           "500": {
             "description": "default response",
@@ -1053,12 +1020,46 @@
         }
       }
     },
-    "/microservice/configuration/enabled": {
+    "/microservice/restart": {
       "get": {
         "tags": [
           "module-manager-controller"
         ],
-        "operationId": "isConfigurationEnabled",
+        "operationId": "restart",
+        "responses": {
+          "500": {
+            "description": "default response",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorStructure"
+                }
+              }
+            }
+          },
+          "200": {
+            "description": "default response",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "uniqueItems": true,
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/ModuleRestartReport"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/microservice/ready/enabled": {
+      "get": {
+        "tags": [
+          "module-manager-controller"
+        ],
+        "operationId": "isReadyEnabled",
         "responses": {
           "500": {
             "description": "default response",
@@ -1157,12 +1158,12 @@
         }
       }
     },
-    "/plugins/configs": {
+    "/plugins": {
       "get": {
         "tags": [
           "plugin-controller"
         ],
-        "operationId": "getPluginConfigurationsByType",
+        "operationId": "getPlugins",
         "parameters": [
           {
             "name": "pluginType",
@@ -1191,7 +1192,7 @@
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/EntityModelPluginConfiguration"
+                    "$ref": "#/components/schemas/EntityModelPluginMetaData"
                   }
                 }
               }
@@ -1343,69 +1344,6 @@
         }
       }
     },
-    "/plugins/configs/{configBusinessId}": {
-      "get": {
-        "tags": [
-          "plugin-controller"
-        ],
-        "operationId": "getPluginConfigurationDirectAccess",
-        "parameters": [
-          {
-            "name": "configBusinessId",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "500": {
-            "description": "default response",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/ErrorStructure"
-                }
-              }
-            }
-          },
-          "200": {
-            "description": "default response",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/EntityModelPluginConfiguration"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/plugins/cache": {
-      "delete": {
-        "tags": [
-          "plugin-controller"
-        ],
-        "operationId": "emptyCache",
-        "responses": {
-          "500": {
-            "description": "default response",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/ErrorStructure"
-                }
-              }
-            }
-          },
-          "200": {
-            "description": "default response"
-          }
-        }
-      }
-    },
     "/plugintypes": {
       "get": {
         "tags": [
@@ -1489,12 +1427,12 @@
         }
       }
     },
-    "/plugins": {
+    "/plugins/configs": {
       "get": {
         "tags": [
           "plugin-controller"
         ],
-        "operationId": "getPlugins",
+        "operationId": "getPluginConfigurationsByType",
         "parameters": [
           {
             "name": "pluginType",
@@ -1523,11 +1461,74 @@
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/EntityModelPluginMetaData"
+                    "$ref": "#/components/schemas/EntityModelPluginConfiguration"
                   }
                 }
               }
             }
+          }
+        }
+      }
+    },
+    "/plugins/configs/{configBusinessId}": {
+      "get": {
+        "tags": [
+          "plugin-controller"
+        ],
+        "operationId": "getPluginConfigurationDirectAccess",
+        "parameters": [
+          {
+            "name": "configBusinessId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "500": {
+            "description": "default response",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorStructure"
+                }
+              }
+            }
+          },
+          "200": {
+            "description": "default response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EntityModelPluginConfiguration"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/plugins/cache": {
+      "delete": {
+        "tags": [
+          "plugin-controller"
+        ],
+        "operationId": "emptyCache",
+        "responses": {
+          "500": {
+            "description": "default response",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorStructure"
+                }
+              }
+            }
+          },
+          "200": {
+            "description": "default response"
           }
         }
       }
@@ -1723,13 +1724,6 @@
             "type": "string",
             "format": "url"
           },
-          "interfaceNames": {
-            "uniqueItems": true,
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
-          },
           "isActive": {
             "type": "boolean",
             "writeOnly": true
@@ -1739,6 +1733,13 @@
           },
           "pluginClassName": {
             "type": "string"
+          },
+          "interfaceNames": {
+            "uniqueItems": true,
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
           },
           "identifiable": {
             "type": "boolean"
@@ -1771,6 +1772,9 @@
             "type": "string"
           },
           "markdown": {
+            "type": "string"
+          },
+          "userMarkdown": {
             "type": "string"
           },
           "url": {
@@ -1813,6 +1817,9 @@
             "type": "string"
           },
           "markdown": {
+            "type": "string"
+          },
+          "userMarkdown": {
             "type": "string"
           },
           "parameterizedSubTypes": {
@@ -2121,6 +2128,24 @@
           }
         }
       },
+      "ModuleImportReport": {
+        "type": "object",
+        "properties": {
+          "moduleInformation": {
+            "$ref": "#/components/schemas/ModuleInformation"
+          },
+          "importErrors": {
+            "uniqueItems": true,
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "onlyErrors": {
+            "type": "boolean"
+          }
+        }
+      },
       "ModuleInformation": {
         "required": [
           "author",
@@ -2153,38 +2178,6 @@
           }
         }
       },
-      "ModuleRestartReport": {
-        "type": "object",
-        "properties": {
-          "moduleInformation": {
-            "$ref": "#/components/schemas/ModuleInformation"
-          },
-          "messages": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
-          }
-        }
-      },
-      "ModuleImportReport": {
-        "type": "object",
-        "properties": {
-          "moduleInformation": {
-            "$ref": "#/components/schemas/ModuleInformation"
-          },
-          "importErrors": {
-            "uniqueItems": true,
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
-          },
-          "onlyErrors": {
-            "type": "boolean"
-          }
-        }
-      },
       "ModuleReadinessReportObject": {
         "type": "object",
         "properties": {
@@ -2199,6 +2192,20 @@
           },
           "specifications": {
             "type": "object"
+          }
+        }
+      },
+      "ModuleRestartReport": {
+        "type": "object",
+        "properties": {
+          "moduleInformation": {
+            "$ref": "#/components/schemas/ModuleInformation"
+          },
+          "messages": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
           }
         }
       },
@@ -2243,13 +2250,6 @@
             "type": "string",
             "format": "url"
           },
-          "interfaceNames": {
-            "uniqueItems": true,
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
-          },
           "isActive": {
             "type": "boolean",
             "writeOnly": true
@@ -2260,22 +2260,15 @@
           "pluginClassName": {
             "type": "string"
           },
-          "identifiable": {
-            "type": "boolean"
-          },
-          "links": {
+          "interfaceNames": {
+            "uniqueItems": true,
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/Link"
+              "type": "string"
             }
-          }
-        }
-      },
-      "EntityModelString": {
-        "type": "object",
-        "properties": {
-          "content": {
-            "type": "string"
+          },
+          "identifiable": {
+            "type": "boolean"
           },
           "links": {
             "type": "array",
@@ -2313,6 +2306,9 @@
           "markdown": {
             "type": "string"
           },
+          "userMarkdown": {
+            "type": "string"
+          },
           "url": {
             "type": "string"
           },
@@ -2334,6 +2330,20 @@
           "licence": {
             "type": "string",
             "writeOnly": true
+          },
+          "links": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Link"
+            }
+          }
+        }
+      },
+      "EntityModelString": {
+        "type": "object",
+        "properties": {
+          "content": {
+            "type": "string"
           },
           "links": {
             "type": "array",

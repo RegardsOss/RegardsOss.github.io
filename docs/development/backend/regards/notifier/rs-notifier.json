@@ -6,7 +6,7 @@
     "license": {
       "name": "GPL-3.0"
     },
-    "version": "1.7.1"
+    "version": "1.8.0"
   },
   "servers": [
     {
@@ -340,6 +340,26 @@
         }
       }
     },
+    "/maintenance": {
+      "get": {
+        "tags": [
+          "maintenance-controller"
+        ],
+        "operationId": "retrieveTenantsInMaintenance",
+        "responses": {
+          "200": {
+            "description": "default response",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/EntityModelMapStringMaintenanceInfo"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/maintenance/{tenant}/enable": {
       "put": {
         "tags": [
@@ -386,26 +406,6 @@
         }
       }
     },
-    "/maintenance": {
-      "get": {
-        "tags": [
-          "maintenance-controller"
-        ],
-        "operationId": "retrieveTenantsInMaintenance",
-        "responses": {
-          "200": {
-            "description": "default response",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/EntityModelMapStringMaintenanceInfo"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
     "/shutdown/immediate": {
       "post": {
         "tags": [
@@ -419,12 +419,12 @@
         }
       }
     },
-    "/microservice/ready/enabled": {
+    "/microservice/configuration/enabled": {
       "get": {
         "tags": [
           "module-manager-controller"
         ],
-        "operationId": "isReadyEnabled",
+        "operationId": "isConfigurationEnabled",
         "responses": {
           "200": {
             "description": "default response"
@@ -445,26 +445,15 @@
         }
       }
     },
-    "/microservice/restart": {
+    "/microservice/ready/enabled": {
       "get": {
         "tags": [
           "module-manager-controller"
         ],
-        "operationId": "restart",
+        "operationId": "isReadyEnabled",
         "responses": {
           "200": {
-            "description": "default response",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "uniqueItems": true,
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/ModuleRestartReport"
-                  }
-                }
-              }
-            }
+            "description": "default response"
           }
         }
       }
@@ -539,28 +528,26 @@
         }
       }
     },
-    "/microservice/configuration/enabled": {
+    "/microservice/restart": {
       "get": {
         "tags": [
           "module-manager-controller"
         ],
-        "operationId": "isConfigurationEnabled",
+        "operationId": "restart",
         "responses": {
           "200": {
-            "description": "default response"
-          }
-        }
-      }
-    },
-    "/plugins/cache": {
-      "delete": {
-        "tags": [
-          "plugin-controller"
-        ],
-        "operationId": "emptyCache",
-        "responses": {
-          "200": {
-            "description": "default response"
+            "description": "default response",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "uniqueItems": true,
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/ModuleRestartReport"
+                  }
+                }
+              }
+            }
           }
         }
       }
@@ -678,102 +665,6 @@
         }
       }
     },
-    "/plugintypes": {
-      "get": {
-        "tags": [
-          "plugin-controller"
-        ],
-        "operationId": "getPluginTypes",
-        "parameters": [
-          {
-            "name": "available",
-            "in": "query",
-            "required": false,
-            "schema": {
-              "type": "boolean"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "default response",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/EntityModelString"
-                  }
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/plugins/{pluginId}": {
-      "get": {
-        "tags": [
-          "plugin-controller"
-        ],
-        "operationId": "getPluginMetaDataById",
-        "parameters": [
-          {
-            "name": "pluginId",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "default response",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/EntityModelPluginMetaData"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/plugins/configs": {
-      "get": {
-        "tags": [
-          "plugin-controller"
-        ],
-        "operationId": "getPluginConfigurationsByType",
-        "parameters": [
-          {
-            "name": "pluginType",
-            "in": "query",
-            "required": false,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "default response",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/EntityModelPluginConfiguration"
-                  }
-                }
-              }
-            }
-          }
-        }
-      }
-    },
     "/plugins/{pluginId}/config": {
       "get": {
         "tags": [
@@ -865,6 +756,69 @@
         }
       }
     },
+    "/plugins/configs": {
+      "get": {
+        "tags": [
+          "plugin-controller"
+        ],
+        "operationId": "getPluginConfigurationsByType",
+        "parameters": [
+          {
+            "name": "pluginType",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "default response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/EntityModelPluginConfiguration"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/plugins/{pluginId}": {
+      "get": {
+        "tags": [
+          "plugin-controller"
+        ],
+        "operationId": "getPluginMetaDataById",
+        "parameters": [
+          {
+            "name": "pluginId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "default response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EntityModelPluginMetaData"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/plugins": {
       "get": {
         "tags": [
@@ -894,6 +848,52 @@
                 }
               }
             }
+          }
+        }
+      }
+    },
+    "/plugintypes": {
+      "get": {
+        "tags": [
+          "plugin-controller"
+        ],
+        "operationId": "getPluginTypes",
+        "parameters": [
+          {
+            "name": "available",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "boolean"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "default response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/EntityModelString"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/plugins/cache": {
+      "delete": {
+        "tags": [
+          "plugin-controller"
+        ],
+        "operationId": "emptyCache",
+        "responses": {
+          "200": {
+            "description": "default response"
           }
         }
       }
@@ -930,19 +930,19 @@
           "sort": {
             "$ref": "#/components/schemas/Sort"
           },
-          "unpaged": {
-            "type": "boolean"
-          },
           "pageNumber": {
             "type": "integer",
             "format": "int32"
           },
-          "paged": {
-            "type": "boolean"
-          },
           "pageSize": {
             "type": "integer",
             "format": "int32"
+          },
+          "unpaged": {
+            "type": "boolean"
+          },
+          "paged": {
+            "type": "boolean"
           },
           "offset": {
             "type": "integer",
@@ -953,10 +953,10 @@
       "Sort": {
         "type": "object",
         "properties": {
-          "unsorted": {
+          "sorted": {
             "type": "boolean"
           },
-          "sorted": {
+          "unsorted": {
             "type": "boolean"
           },
           "empty": {
@@ -1017,15 +1017,15 @@
           "metaDataAndPluginId": {
             "$ref": "#/components/schemas/PluginMetaData"
           },
+          "pluginClassName": {
+            "type": "string"
+          },
           "interfaceNames": {
             "uniqueItems": true,
             "type": "array",
             "items": {
               "type": "string"
             }
-          },
-          "pluginClassName": {
-            "type": "string"
           },
           "isActive": {
             "type": "boolean",
@@ -1153,15 +1153,15 @@
           "metaDataAndPluginId": {
             "$ref": "#/components/schemas/PluginMetaData"
           },
+          "pluginClassName": {
+            "type": "string"
+          },
           "interfaceNames": {
             "uniqueItems": true,
             "type": "array",
             "items": {
               "type": "string"
             }
-          },
-          "pluginClassName": {
-            "type": "string"
           },
           "isActive": {
             "type": "boolean",
@@ -1198,6 +1198,9 @@
             "type": "string"
           },
           "markdown": {
+            "type": "string"
+          },
+          "userMarkdown": {
             "type": "string"
           },
           "url": {
@@ -1240,6 +1243,9 @@
             "type": "string"
           },
           "markdown": {
+            "type": "string"
+          },
+          "userMarkdown": {
             "type": "string"
           },
           "parameterizedSubTypes": {
@@ -1415,6 +1421,24 @@
           }
         }
       },
+      "ModuleImportReport": {
+        "type": "object",
+        "properties": {
+          "moduleInformation": {
+            "$ref": "#/components/schemas/ModuleInformation"
+          },
+          "importErrors": {
+            "uniqueItems": true,
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "onlyErrors": {
+            "type": "boolean"
+          }
+        }
+      },
       "ModuleInformation": {
         "required": [
           "author",
@@ -1447,38 +1471,6 @@
           }
         }
       },
-      "ModuleRestartReport": {
-        "type": "object",
-        "properties": {
-          "moduleInformation": {
-            "$ref": "#/components/schemas/ModuleInformation"
-          },
-          "messages": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
-          }
-        }
-      },
-      "ModuleImportReport": {
-        "type": "object",
-        "properties": {
-          "moduleInformation": {
-            "$ref": "#/components/schemas/ModuleInformation"
-          },
-          "importErrors": {
-            "uniqueItems": true,
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
-          },
-          "onlyErrors": {
-            "type": "boolean"
-          }
-        }
-      },
       "ModuleReadinessReportObject": {
         "type": "object",
         "properties": {
@@ -1496,16 +1488,16 @@
           }
         }
       },
-      "EntityModelString": {
+      "ModuleRestartReport": {
         "type": "object",
         "properties": {
-          "content": {
-            "type": "string"
+          "moduleInformation": {
+            "$ref": "#/components/schemas/ModuleInformation"
           },
-          "links": {
+          "messages": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/Link"
+              "type": "string"
             }
           }
         }
@@ -1538,6 +1530,9 @@
           "markdown": {
             "type": "string"
           },
+          "userMarkdown": {
+            "type": "string"
+          },
           "url": {
             "type": "string"
           },
@@ -1559,6 +1554,20 @@
           "licence": {
             "type": "string",
             "writeOnly": true
+          },
+          "links": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Link"
+            }
+          }
+        }
+      },
+      "EntityModelString": {
+        "type": "object",
+        "properties": {
+          "content": {
+            "type": "string"
           },
           "links": {
             "type": "array",

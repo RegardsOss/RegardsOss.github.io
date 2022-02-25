@@ -1,7 +1,7 @@
 ---
 id: backend-access-api
 title: REGARDS Access API
-sidebar_label: Access project API
+sidebar_label: Access project API (legacy)
 slug: /development/backend/services/access/api/
 ---
 

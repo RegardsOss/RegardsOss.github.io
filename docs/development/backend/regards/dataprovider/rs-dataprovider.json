@@ -6,7 +6,7 @@
     "license": {
       "name": "GPL-3.0"
     },
-    "version": "1.7.1"
+    "version": "1.8.0"
   },
   "servers": [
     {
@@ -319,20 +319,89 @@
         }
       }
     },
-    "/chains/{chainId}/stop": {
+    "/chains/relaunch": {
       "get": {
         "tags": [
           "acquisition-processing-chain-controller"
         ],
-        "operationId": "stopChain",
+        "operationId": "relaunchErrors",
         "parameters": [
           {
-            "name": "chainId",
-            "in": "path",
+            "name": "chainName",
+            "in": "query",
             "required": true,
             "schema": {
-              "type": "integer",
-              "format": "int64"
+              "type": "string"
+            }
+          },
+          {
+            "name": "session",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "default response"
+          }
+        }
+      }
+    },
+    "/chains/products": {
+      "delete": {
+        "tags": [
+          "acquisition-processing-chain-controller"
+        ],
+        "operationId": "deleteProducts",
+        "parameters": [
+          {
+            "name": "chainName",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "session",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "default response"
+          }
+        }
+      }
+    },
+    "/chains": {
+      "get": {
+        "tags": [
+          "acquisition-processing-chain-controller"
+        ],
+        "operationId": "retrieveAll",
+        "parameters": [
+          {
+            "name": "pageable",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "$ref": "#/components/schemas/Pageable"
+            }
+          },
+          {
+            "name": "assembler",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "$ref": "#/components/schemas/PagedResourcesAssemblerAcquisitionProcessingChain"
             }
           }
         ],
@@ -342,7 +411,66 @@
             "content": {
               "*/*": {
                 "schema": {
+                  "$ref": "#/components/schemas/PagedModelEntityModelAcquisitionProcessingChain"
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "acquisition-processing-chain-controller"
+        ],
+        "operationId": "create",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AcquisitionProcessingChain"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "default response",
+            "content": {
+              "*/*": {
+                "schema": {
                   "$ref": "#/components/schemas/EntityModelAcquisitionProcessingChain"
+                }
+              }
+            }
+          }
+        }
+      },
+      "patch": {
+        "tags": [
+          "acquisition-processing-chain-controller"
+        ],
+        "operationId": "updateChainsStateAndMode",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateAcquisitionProcessingChains"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "default response",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/EntityModelAcquisitionProcessingChain"
+                  }
                 }
               }
             }
@@ -481,37 +609,6 @@
         }
       }
     },
-    "/chains/relaunch": {
-      "get": {
-        "tags": [
-          "acquisition-processing-chain-controller"
-        ],
-        "operationId": "relaunchErrors",
-        "parameters": [
-          {
-            "name": "chainName",
-            "in": "query",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "session",
-            "in": "query",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "default response"
-          }
-        }
-      }
-    },
     "/chains/{chainId}/start": {
       "get": {
         "tags": [
@@ -551,58 +648,23 @@
         }
       }
     },
-    "/chains": {
+    "/chains/{chainId}/stop": {
       "get": {
         "tags": [
           "acquisition-processing-chain-controller"
         ],
-        "operationId": "retrieveAll",
+        "operationId": "stopChain",
         "parameters": [
           {
-            "name": "pageable",
-            "in": "query",
+            "name": "chainId",
+            "in": "path",
             "required": true,
             "schema": {
-              "$ref": "#/components/schemas/Pageable"
-            }
-          },
-          {
-            "name": "assembler",
-            "in": "query",
-            "required": true,
-            "schema": {
-              "$ref": "#/components/schemas/PagedResourcesAssemblerAcquisitionProcessingChain"
+              "type": "integer",
+              "format": "int64"
             }
           }
         ],
-        "responses": {
-          "200": {
-            "description": "default response",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/PagedModelEntityModelAcquisitionProcessingChain"
-                }
-              }
-            }
-          }
-        }
-      },
-      "post": {
-        "tags": [
-          "acquisition-processing-chain-controller"
-        ],
-        "operationId": "create",
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/AcquisitionProcessingChain"
-              }
-            }
-          },
-          "required": true
-        },
         "responses": {
           "200": {
             "description": "default response",
@@ -613,68 +675,6 @@
                 }
               }
             }
-          }
-        }
-      },
-      "patch": {
-        "tags": [
-          "acquisition-processing-chain-controller"
-        ],
-        "operationId": "updateChainsStateAndMode",
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/UpdateAcquisitionProcessingChains"
-              }
-            }
-          },
-          "required": true
-        },
-        "responses": {
-          "200": {
-            "description": "default response",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/EntityModelAcquisitionProcessingChain"
-                  }
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/chains/products": {
-      "delete": {
-        "tags": [
-          "acquisition-processing-chain-controller"
-        ],
-        "operationId": "deleteProducts",
-        "parameters": [
-          {
-            "name": "chainName",
-            "in": "query",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "session",
-            "in": "query",
-            "required": false,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "default response"
           }
         }
       }
@@ -818,6 +818,19 @@
         }
       }
     },
+    "/microservice/ready/enabled": {
+      "get": {
+        "tags": [
+          "module-manager-controller"
+        ],
+        "operationId": "isReadyEnabled",
+        "responses": {
+          "200": {
+            "description": "default response"
+          }
+        }
+      }
+    },
     "/microservice/ready": {
       "get": {
         "tags": [
@@ -831,6 +844,30 @@
               "*/*": {
                 "schema": {
                   "$ref": "#/components/schemas/ModuleReadinessReportObject"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/microservice/restart": {
+      "get": {
+        "tags": [
+          "module-manager-controller"
+        ],
+        "operationId": "restart",
+        "responses": {
+          "200": {
+            "description": "default response",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "uniqueItems": true,
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/ModuleRestartReport"
+                  }
                 }
               }
             }
@@ -888,39 +925,15 @@
         }
       }
     },
-    "/microservice/ready/enabled": {
+    "/microservice/configuration/enabled": {
       "get": {
         "tags": [
           "module-manager-controller"
         ],
-        "operationId": "isReadyEnabled",
+        "operationId": "isConfigurationEnabled",
         "responses": {
           "200": {
             "description": "default response"
-          }
-        }
-      }
-    },
-    "/microservice/restart": {
-      "get": {
-        "tags": [
-          "module-manager-controller"
-        ],
-        "operationId": "restart",
-        "responses": {
-          "200": {
-            "description": "default response",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "uniqueItems": true,
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/ModuleRestartReport"
-                  }
-                }
-              }
-            }
           }
         }
       }
@@ -938,12 +951,12 @@
         }
       }
     },
-    "/microservice/configuration/enabled": {
-      "get": {
+    "/plugins/cache": {
+      "delete": {
         "tags": [
-          "module-manager-controller"
+          "plugin-controller"
         ],
-        "operationId": "isConfigurationEnabled",
+        "operationId": "emptyCache",
         "responses": {
           "200": {
             "description": "default response"
@@ -951,17 +964,17 @@
         }
       }
     },
-    "/plugins/{pluginId}/config": {
+    "/plugins/configs": {
       "get": {
         "tags": [
           "plugin-controller"
         ],
-        "operationId": "getPluginConfigurations",
+        "operationId": "getPluginConfigurationsByType",
         "parameters": [
           {
-            "name": "pluginId",
-            "in": "path",
-            "required": true,
+            "name": "pluginType",
+            "in": "query",
+            "required": false,
             "schema": {
               "type": "string"
             }
@@ -977,34 +990,6 @@
                   "items": {
                     "$ref": "#/components/schemas/EntityModelPluginConfiguration"
                   }
-                }
-              }
-            }
-          }
-        }
-      },
-      "post": {
-        "tags": [
-          "plugin-controller"
-        ],
-        "operationId": "savePluginConfiguration",
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/PluginConfiguration"
-              }
-            }
-          },
-          "required": true
-        },
-        "responses": {
-          "200": {
-            "description": "default response",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/EntityModelPluginConfiguration"
                 }
               }
             }
@@ -1158,6 +1143,97 @@
         }
       }
     },
+    "/plugins/configs/{configBusinessId}": {
+      "get": {
+        "tags": [
+          "plugin-controller"
+        ],
+        "operationId": "getPluginConfigurationDirectAccess",
+        "parameters": [
+          {
+            "name": "configBusinessId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "default response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EntityModelPluginConfiguration"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/plugins/{pluginId}/config": {
+      "get": {
+        "tags": [
+          "plugin-controller"
+        ],
+        "operationId": "getPluginConfigurations",
+        "parameters": [
+          {
+            "name": "pluginId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "default response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/EntityModelPluginConfiguration"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "plugin-controller"
+        ],
+        "operationId": "savePluginConfiguration",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PluginConfiguration"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "default response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EntityModelPluginConfiguration"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/plugintypes": {
       "get": {
         "tags": [
@@ -1214,82 +1290,6 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/EntityModelPluginMetaData"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/plugins/configs": {
-      "get": {
-        "tags": [
-          "plugin-controller"
-        ],
-        "operationId": "getPluginConfigurationsByType",
-        "parameters": [
-          {
-            "name": "pluginType",
-            "in": "query",
-            "required": false,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "default response",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/EntityModelPluginConfiguration"
-                  }
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/plugins/cache": {
-      "delete": {
-        "tags": [
-          "plugin-controller"
-        ],
-        "operationId": "emptyCache",
-        "responses": {
-          "200": {
-            "description": "default response"
-          }
-        }
-      }
-    },
-    "/plugins/configs/{configBusinessId}": {
-      "get": {
-        "tags": [
-          "plugin-controller"
-        ],
-        "operationId": "getPluginConfigurationDirectAccess",
-        "parameters": [
-          {
-            "name": "configBusinessId",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "default response",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/EntityModelPluginConfiguration"
                 }
               }
             }
@@ -1827,14 +1827,14 @@
             },
             "writeOnly": true
           },
-          "completionCount": {
-            "type": "integer",
-            "format": "int32"
-          },
           "jobInfoId": {
             "type": "string",
             "format": "uuid",
             "writeOnly": true
+          },
+          "completionCount": {
+            "type": "integer",
+            "format": "int32"
           },
           "workspace": {
             "type": "object",
@@ -1977,6 +1977,10 @@
             "format": "date-time"
           },
           "lastHeartbeatDate": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "triggerAfterDate": {
             "type": "string",
             "format": "date-time"
           },
@@ -2226,6 +2230,13 @@
             "type": "string",
             "format": "url"
           },
+          "isActive": {
+            "type": "boolean",
+            "writeOnly": true
+          },
+          "pluginClassName": {
+            "type": "string"
+          },
           "metaDataAndPluginId": {
             "$ref": "#/components/schemas/PluginMetaData"
           },
@@ -2235,13 +2246,6 @@
             "items": {
               "type": "string"
             }
-          },
-          "isActive": {
-            "type": "boolean",
-            "writeOnly": true
-          },
-          "pluginClassName": {
-            "type": "string"
           },
           "identifiable": {
             "type": "boolean"
@@ -2274,6 +2278,9 @@
             "type": "string"
           },
           "markdown": {
+            "type": "string"
+          },
+          "userMarkdown": {
             "type": "string"
           },
           "url": {
@@ -2316,6 +2323,9 @@
             "type": "string"
           },
           "markdown": {
+            "type": "string"
+          },
+          "userMarkdown": {
             "type": "string"
           },
           "parameterizedSubTypes": {
@@ -2594,12 +2604,6 @@
           "ref": {
             "$ref": "#/components/schemas/SIPReference"
           },
-          "tags": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
-          },
           "lastEvent": {
             "$ref": "#/components/schemas/Event"
           },
@@ -2611,6 +2615,12 @@
           },
           "submissionEvent": {
             "$ref": "#/components/schemas/Event"
+          },
+          "tags": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
           }
         }
       },
@@ -2863,11 +2873,11 @@
       "Pageable": {
         "type": "object",
         "properties": {
-          "unpaged": {
-            "type": "boolean"
-          },
           "sort": {
             "$ref": "#/components/schemas/Sort"
+          },
+          "paged": {
+            "type": "boolean"
           },
           "pageNumber": {
             "type": "integer",
@@ -2877,7 +2887,7 @@
             "type": "integer",
             "format": "int32"
           },
-          "paged": {
+          "unpaged": {
             "type": "boolean"
           },
           "offset": {
@@ -2889,10 +2899,10 @@
       "Sort": {
         "type": "object",
         "properties": {
-          "unsorted": {
+          "sorted": {
             "type": "boolean"
           },
-          "sorted": {
+          "unsorted": {
             "type": "boolean"
           },
           "empty": {
@@ -3214,6 +3224,36 @@
           }
         }
       },
+      "UpdateAcquisitionProcessingChains": {
+        "type": "object",
+        "properties": {
+          "active": {
+            "type": "boolean"
+          },
+          "mode": {
+            "type": "string",
+            "enum": [
+              "MANUAL",
+              "AUTO"
+            ]
+          },
+          "updateType": {
+            "type": "string",
+            "enum": [
+              "ONLY_ACTIVITY",
+              "ONLY_MODE",
+              "ALL"
+            ]
+          },
+          "chainIds": {
+            "type": "array",
+            "items": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        }
+      },
       "EntityModelAcquisitionProcessingChain": {
         "type": "object",
         "properties": {
@@ -3360,36 +3400,6 @@
           }
         }
       },
-      "UpdateAcquisitionProcessingChains": {
-        "type": "object",
-        "properties": {
-          "active": {
-            "type": "boolean"
-          },
-          "mode": {
-            "type": "string",
-            "enum": [
-              "MANUAL",
-              "AUTO"
-            ]
-          },
-          "updateType": {
-            "type": "string",
-            "enum": [
-              "ONLY_ACTIVITY",
-              "ONLY_MODE",
-              "ALL"
-            ]
-          },
-          "chainIds": {
-            "type": "array",
-            "items": {
-              "type": "integer",
-              "format": "int64"
-            }
-          }
-        }
-      },
       "GenericResponseBody": {
         "type": "object",
         "properties": {
@@ -3429,24 +3439,6 @@
           },
           "specifications": {
             "type": "object"
-          }
-        }
-      },
-      "ModuleImportReport": {
-        "type": "object",
-        "properties": {
-          "moduleInformation": {
-            "$ref": "#/components/schemas/ModuleInformation"
-          },
-          "importErrors": {
-            "uniqueItems": true,
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
-          },
-          "onlyErrors": {
-            "type": "boolean"
           }
         }
       },
@@ -3496,6 +3488,24 @@
           }
         }
       },
+      "ModuleImportReport": {
+        "type": "object",
+        "properties": {
+          "moduleInformation": {
+            "$ref": "#/components/schemas/ModuleInformation"
+          },
+          "importErrors": {
+            "uniqueItems": true,
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "onlyErrors": {
+            "type": "boolean"
+          }
+        }
+      },
       "EntityModelPluginConfiguration": {
         "type": "object",
         "properties": {
@@ -3537,6 +3547,13 @@
             "type": "string",
             "format": "url"
           },
+          "isActive": {
+            "type": "boolean",
+            "writeOnly": true
+          },
+          "pluginClassName": {
+            "type": "string"
+          },
           "metaDataAndPluginId": {
             "$ref": "#/components/schemas/PluginMetaData"
           },
@@ -3546,13 +3563,6 @@
             "items": {
               "type": "string"
             }
-          },
-          "isActive": {
-            "type": "boolean",
-            "writeOnly": true
-          },
-          "pluginClassName": {
-            "type": "string"
           },
           "identifiable": {
             "type": "boolean"
@@ -3591,6 +3601,9 @@
             "type": "string"
           },
           "markdown": {
+            "type": "string"
+          },
+          "userMarkdown": {
             "type": "string"
           },
           "url": {

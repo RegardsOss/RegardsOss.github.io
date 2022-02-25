@@ -489,6 +489,14 @@ module.exports = {
                 "development/backend/regards/storage/events/backend-storage-events",
               ],
             },
+            {
+              type: "category",
+              label: "Worker Manager",
+              items: [
+                "development/backend/regards/worker-manager/backend-worker-manager-overview",
+                "development/backend/regards/worker-manager/backend-worker-manager-api-swagger",
+              ],
+            },
           ],
         },
       ],

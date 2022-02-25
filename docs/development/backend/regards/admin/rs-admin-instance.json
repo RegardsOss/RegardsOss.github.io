@@ -6,7 +6,7 @@
     "license": {
       "name": "GPL-3.0"
     },
-    "version": "1.7.1"
+    "version": "1.8.0"
   },
   "servers": [
     {
@@ -20,12 +20,12 @@
     }
   ],
   "paths": {
-    "/accounts/{account_email}/unlockAccount": {
+    "/accounts/{account_email}/unlink/{project}": {
       "put": {
         "tags": [
           "accounts-controller"
         ],
-        "operationId": "performUnlockAccount",
+        "operationId": "unlink",
         "parameters": [
           {
             "name": "account_email",
@@ -34,32 +34,9 @@
             "schema": {
               "type": "string"
             }
-          }
-        ],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/PerformUnlockAccountDto"
-              }
-            }
           },
-          "required": true
-        },
-        "responses": {
-          "200": {
-            "description": "default response"
-          }
-        }
-      },
-      "post": {
-        "tags": [
-          "accounts-controller"
-        ],
-        "operationId": "requestUnlockAccount",
-        "parameters": [
           {
-            "name": "account_email",
+            "name": "project",
             "in": "path",
             "required": true,
             "schema": {
@@ -67,16 +44,6 @@
             }
           }
         ],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/RequestAccountUnlockDto"
-              }
-            }
-          },
-          "required": true
-        },
         "responses": {
           "200": {
             "description": "default response"
@@ -219,6 +186,85 @@
         }
       }
     },
+    "/accounts/password": {
+      "get": {
+        "tags": [
+          "accounts-controller"
+        ],
+        "operationId": "getPasswordRules",
+        "responses": {
+          "200": {
+            "description": "default response",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/PasswordRules"
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "accounts-controller"
+        ],
+        "operationId": "checkPassword",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Password"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "default response",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/Validity"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/accounts/{account_email}/link/{project}": {
+      "put": {
+        "tags": [
+          "accounts-controller"
+        ],
+        "operationId": "link",
+        "parameters": [
+          {
+            "name": "account_email",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "project",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "default response"
+          }
+        }
+      }
+    },
     "/accounts": {
       "get": {
         "tags": [
@@ -243,18 +289,11 @@
             }
           },
           {
-            "name": "status",
+            "name": "parameters",
             "in": "query",
-            "required": false,
+            "required": true,
             "schema": {
-              "type": "string",
-              "enum": [
-                "INACTIVE",
-                "INACTIVE_PASSWORD",
-                "ACTIVE",
-                "LOCKED",
-                "PENDING"
-              ]
+              "$ref": "#/components/schemas/AccountSearchParameters"
             }
           }
         ],
@@ -422,35 +461,27 @@
         }
       }
     },
-    "/accounts/password": {
-      "get": {
+    "/accounts/{account_email}/unlockAccount": {
+      "put": {
         "tags": [
           "accounts-controller"
         ],
-        "operationId": "getPasswordRules",
-        "responses": {
-          "200": {
-            "description": "default response",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/PasswordRules"
-                }
-              }
+        "operationId": "performUnlockAccount",
+        "parameters": [
+          {
+            "name": "account_email",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
             }
           }
-        }
-      },
-      "post": {
-        "tags": [
-          "accounts-controller"
         ],
-        "operationId": "checkPassword",
         "requestBody": {
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/Password"
+                "$ref": "#/components/schemas/PerformUnlockAccountDto"
               }
             }
           },
@@ -458,14 +489,38 @@
         },
         "responses": {
           "200": {
-            "description": "default response",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/Validity"
-                }
+            "description": "default response"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "accounts-controller"
+        ],
+        "operationId": "requestUnlockAccount",
+        "parameters": [
+          {
+            "name": "account_email",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/RequestAccountUnlockDto"
               }
             }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "default response"
           }
         }
       }
@@ -562,93 +617,69 @@
         }
       }
     },
-    "/notifications/{notification_id}": {
+    "/accounts/origins": {
       "get": {
         "tags": [
-          "notification-controller"
+          "accounts-controller"
         ],
-        "operationId": "retrieveNotification",
-        "parameters": [
-          {
-            "name": "notification_id",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "integer",
-              "format": "int64"
-            }
-          }
-        ],
+        "operationId": "getOrigins",
         "responses": {
           "200": {
             "description": "default response",
             "content": {
               "*/*": {
                 "schema": {
-                  "$ref": "#/components/schemas/Notification"
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
                 }
               }
             }
           }
         }
-      },
-      "delete": {
+      }
+    },
+    "/accounts/{account_email}/origin/{origin}": {
+      "put": {
         "tags": [
-          "notification-controller"
+          "accounts-controller"
         ],
-        "operationId": "deleteNotification",
+        "operationId": "updateOrigin",
         "parameters": [
           {
-            "name": "notification_id",
+            "name": "account_email",
             "in": "path",
             "required": true,
             "schema": {
-              "type": "integer",
-              "format": "int64"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "default response"
-          }
-        }
-      }
-    },
-    "/notifications/read/delete": {
-      "delete": {
-        "tags": [
-          "notification-controller"
-        ],
-        "operationId": "deleteNotification_1",
-        "responses": {
-          "200": {
-            "description": "default response"
-          }
-        }
-      }
-    },
-    "/notifications": {
-      "get": {
-        "tags": [
-          "notification-controller"
-        ],
-        "operationId": "retrieveNotifications",
-        "parameters": [
-          {
-            "name": "state",
-            "in": "query",
-            "required": false,
-            "schema": {
-              "type": "string",
-              "enum": [
-                "READ",
-                "UNREAD"
-              ]
+              "type": "string"
             }
           },
           {
-            "name": "page",
+            "name": "origin",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "default response"
+          }
+        }
+      }
+    },
+    "/projects/public": {
+      "get": {
+        "tags": [
+          "project-controller"
+        ],
+        "operationId": "retrievePublicProjectList",
+        "parameters": [
+          {
+            "name": "pageable",
             "in": "query",
             "required": true,
             "schema": {
@@ -660,7 +691,7 @@
             "in": "query",
             "required": true,
             "schema": {
-              "$ref": "#/components/schemas/PagedResourcesAssemblerINotificationWithoutMessage"
+              "$ref": "#/components/schemas/PagedResourcesAssemblerProject"
             }
           }
         ],
@@ -668,9 +699,47 @@
           "200": {
             "description": "default response",
             "content": {
-              "*/*": {
+              "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/PagedModelEntityModelINotificationWithoutMessage"
+                  "$ref": "#/components/schemas/PagedModelEntityModelProject"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/projects": {
+      "get": {
+        "tags": [
+          "project-controller"
+        ],
+        "operationId": "retrieveProjectList",
+        "parameters": [
+          {
+            "name": "pageable",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "$ref": "#/components/schemas/Pageable"
+            }
+          },
+          {
+            "name": "assembler",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "$ref": "#/components/schemas/PagedResourcesAssemblerProject"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "default response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PagedModelEntityModelProject"
                 }
               }
             }
@@ -679,14 +748,14 @@
       },
       "post": {
         "tags": [
-          "notification-controller"
+          "project-controller"
         ],
-        "operationId": "createNotification",
+        "operationId": "createProject",
         "requestBody": {
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/NotificationDTO"
+                "$ref": "#/components/schemas/Project"
               }
             }
           },
@@ -696,123 +765,12 @@
           "200": {
             "description": "default response",
             "content": {
-              "*/*": {
+              "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Notification"
+                  "$ref": "#/components/schemas/EntityModelProject"
                 }
               }
             }
-          }
-        }
-      }
-    },
-    "/notifications/{notification_id}/unread": {
-      "put": {
-        "tags": [
-          "notification-controller"
-        ],
-        "operationId": "setNotificationUnRead",
-        "parameters": [
-          {
-            "name": "notification_id",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "integer",
-              "format": "int64"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "default response",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/Notification"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/notifications/all/unread": {
-      "put": {
-        "tags": [
-          "notification-controller"
-        ],
-        "operationId": "markAllNotificationAsUnread",
-        "responses": {
-          "200": {
-            "description": "default response"
-          }
-        }
-      }
-    },
-    "/notifications/{notification_id}/read": {
-      "put": {
-        "tags": [
-          "notification-controller"
-        ],
-        "operationId": "setNotificationRead",
-        "parameters": [
-          {
-            "name": "notification_id",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "integer",
-              "format": "int64"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "default response",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/Notification"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/notifications/all/read": {
-      "put": {
-        "tags": [
-          "notification-controller"
-        ],
-        "operationId": "markAllNotificationAsRead",
-        "responses": {
-          "200": {
-            "description": "default response"
-          }
-        }
-      }
-    },
-    "/projects/{project_name}/license/reset": {
-      "put": {
-        "tags": [
-          "project-controller"
-        ],
-        "operationId": "resetLicense",
-        "parameters": [
-          {
-            "name": "project_name",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "default response"
           }
         }
       }
@@ -906,106 +864,25 @@
         }
       }
     },
-    "/projects": {
-      "get": {
+    "/projects/{project_name}/license/reset": {
+      "put": {
         "tags": [
           "project-controller"
         ],
-        "operationId": "retrieveProjectList",
+        "operationId": "resetLicense",
         "parameters": [
           {
-            "name": "pageable",
-            "in": "query",
+            "name": "project_name",
+            "in": "path",
             "required": true,
             "schema": {
-              "$ref": "#/components/schemas/Pageable"
-            }
-          },
-          {
-            "name": "assembler",
-            "in": "query",
-            "required": true,
-            "schema": {
-              "$ref": "#/components/schemas/PagedResourcesAssemblerProject"
+              "type": "string"
             }
           }
         ],
         "responses": {
           "200": {
-            "description": "default response",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/PagedModelEntityModelProject"
-                }
-              }
-            }
-          }
-        }
-      },
-      "post": {
-        "tags": [
-          "project-controller"
-        ],
-        "operationId": "createProject",
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/Project"
-              }
-            }
-          },
-          "required": true
-        },
-        "responses": {
-          "200": {
-            "description": "default response",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/EntityModelProject"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/projects/public": {
-      "get": {
-        "tags": [
-          "project-controller"
-        ],
-        "operationId": "retrievePublicProjectList",
-        "parameters": [
-          {
-            "name": "pageable",
-            "in": "query",
-            "required": true,
-            "schema": {
-              "$ref": "#/components/schemas/Pageable"
-            }
-          },
-          {
-            "name": "assembler",
-            "in": "query",
-            "required": true,
-            "schema": {
-              "$ref": "#/components/schemas/PagedResourcesAssemblerProject"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "default response",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/PagedModelEntityModelProject"
-                }
-              }
-            }
+            "description": "default response"
           }
         }
       }
@@ -1319,30 +1196,6 @@
         }
       }
     },
-    "/tenants": {
-      "get": {
-        "tags": [
-          "tenant-controller"
-        ],
-        "operationId": "getAllTenants",
-        "responses": {
-          "200": {
-            "description": "default response",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "uniqueItems": true,
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
-                }
-              }
-            }
-          }
-        }
-      }
-    },
     "/tenants/{microserviceName}": {
       "get": {
         "tags": [
@@ -1373,6 +1226,285 @@
                 }
               }
             }
+          }
+        }
+      }
+    },
+    "/tenants": {
+      "get": {
+        "tags": [
+          "tenant-controller"
+        ],
+        "operationId": "getAllTenants",
+        "responses": {
+          "200": {
+            "description": "default response",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "uniqueItems": true,
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/notifications/{notification_id}": {
+      "get": {
+        "tags": [
+          "notification-controller"
+        ],
+        "operationId": "retrieveNotification",
+        "parameters": [
+          {
+            "name": "notification_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "default response",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/Notification"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "notification-controller"
+        ],
+        "operationId": "deleteNotification",
+        "parameters": [
+          {
+            "name": "notification_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "default response"
+          }
+        }
+      }
+    },
+    "/notifications/{notification_id}/read": {
+      "put": {
+        "tags": [
+          "notification-controller"
+        ],
+        "operationId": "setNotificationRead",
+        "parameters": [
+          {
+            "name": "notification_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "default response",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/Notification"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/notifications/all/read": {
+      "put": {
+        "tags": [
+          "notification-controller"
+        ],
+        "operationId": "markAllNotificationAsRead",
+        "responses": {
+          "200": {
+            "description": "default response"
+          }
+        }
+      }
+    },
+    "/notifications/{notification_id}/unread": {
+      "put": {
+        "tags": [
+          "notification-controller"
+        ],
+        "operationId": "setNotificationUnRead",
+        "parameters": [
+          {
+            "name": "notification_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "default response",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/Notification"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/notifications/all/unread": {
+      "put": {
+        "tags": [
+          "notification-controller"
+        ],
+        "operationId": "markAllNotificationAsUnread",
+        "responses": {
+          "200": {
+            "description": "default response"
+          }
+        }
+      }
+    },
+    "/notifications": {
+      "get": {
+        "tags": [
+          "notification-controller"
+        ],
+        "operationId": "retrieveNotifications",
+        "parameters": [
+          {
+            "name": "state",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "READ",
+                "UNREAD"
+              ]
+            }
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "$ref": "#/components/schemas/Pageable"
+            }
+          },
+          {
+            "name": "assembler",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "$ref": "#/components/schemas/PagedResourcesAssemblerINotificationWithoutMessage"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "default response",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/PagedModelEntityModelINotificationWithoutMessage"
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "notification-controller"
+        ],
+        "operationId": "createNotification",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/NotificationDTO"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "default response",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/Notification"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/notifications/read/delete": {
+      "delete": {
+        "tags": [
+          "notification-controller"
+        ],
+        "operationId": "deleteNotification_1",
+        "responses": {
+          "200": {
+            "description": "default response"
+          }
+        }
+      }
+    },
+    "/maintenance/{tenant}/enable": {
+      "put": {
+        "tags": [
+          "maintenance-controller"
+        ],
+        "operationId": "setMaintenance",
+        "parameters": [
+          {
+            "name": "tenant",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "default response"
           }
         }
       }
@@ -1420,22 +1552,12 @@
         }
       }
     },
-    "/maintenance/{tenant}/enable": {
-      "put": {
+    "/shutdown/immediate": {
+      "post": {
         "tags": [
-          "maintenance-controller"
+          "manager-controller"
         ],
-        "operationId": "setMaintenance",
-        "parameters": [
-          {
-            "name": "tenant",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
+        "operationId": "immediateShutdown",
         "responses": {
           "200": {
             "description": "default response"
@@ -1443,12 +1565,45 @@
         }
       }
     },
-    "/shutdown/immediate": {
-      "post": {
+    "/microservice/ready": {
+      "get": {
         "tags": [
-          "manager-controller"
+          "module-manager-controller"
         ],
-        "operationId": "immediateShutdown",
+        "operationId": "isReady",
+        "responses": {
+          "200": {
+            "description": "default response",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/ModuleReadinessReportObject"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/microservice/ready/enabled": {
+      "get": {
+        "tags": [
+          "module-manager-controller"
+        ],
+        "operationId": "isReadyEnabled",
+        "responses": {
+          "200": {
+            "description": "default response"
+          }
+        }
+      }
+    },
+    "/microservice/restart/enabled": {
+      "get": {
+        "tags": [
+          "module-manager-controller"
+        ],
+        "operationId": "isRestartEnabled",
         "responses": {
           "200": {
             "description": "default response"
@@ -1519,32 +1674,6 @@
         }
       }
     },
-    "/microservice/ready/enabled": {
-      "get": {
-        "tags": [
-          "module-manager-controller"
-        ],
-        "operationId": "isReadyEnabled",
-        "responses": {
-          "200": {
-            "description": "default response"
-          }
-        }
-      }
-    },
-    "/microservice/restart/enabled": {
-      "get": {
-        "tags": [
-          "module-manager-controller"
-        ],
-        "operationId": "isRestartEnabled",
-        "responses": {
-          "200": {
-            "description": "default response"
-          }
-        }
-      }
-    },
     "/microservice/restart": {
       "get": {
         "tags": [
@@ -1562,26 +1691,6 @@
                   "items": {
                     "$ref": "#/components/schemas/ModuleRestartReport"
                   }
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/microservice/ready": {
-      "get": {
-        "tags": [
-          "module-manager-controller"
-        ],
-        "operationId": "isReady",
-        "responses": {
-          "200": {
-            "description": "default response",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/ModuleReadinessReportObject"
                 }
               }
             }
@@ -1720,14 +1829,6 @@
   },
   "components": {
     "schemas": {
-      "PerformUnlockAccountDto": {
-        "type": "object",
-        "properties": {
-          "token": {
-            "type": "string"
-          }
-        }
-      },
       "RequestResetPasswordDto": {
         "type": "object",
         "properties": {
@@ -1761,10 +1862,32 @@
           }
         }
       },
+      "Password": {
+        "type": "object",
+        "properties": {
+          "password": {
+            "type": "string"
+          }
+        }
+      },
+      "Validity": {
+        "type": "object",
+        "properties": {
+          "validity": {
+            "type": "boolean"
+          }
+        }
+      },
       "Pageable": {
         "type": "object",
         "properties": {
+          "sort": {
+            "$ref": "#/components/schemas/Sort"
+          },
           "paged": {
+            "type": "boolean"
+          },
+          "unpaged": {
             "type": "boolean"
           },
           "pageNumber": {
@@ -1774,12 +1897,6 @@
           "pageSize": {
             "type": "integer",
             "format": "int32"
-          },
-          "sort": {
-            "$ref": "#/components/schemas/Sort"
-          },
-          "unpaged": {
-            "type": "boolean"
           },
           "offset": {
             "type": "integer",
@@ -1810,6 +1927,29 @@
           }
         }
       },
+      "AccountSearchParameters": {
+        "type": "object",
+        "properties": {
+          "email": {
+            "type": "string"
+          },
+          "lastName": {
+            "type": "string"
+          },
+          "firstName": {
+            "type": "string"
+          },
+          "status": {
+            "type": "string"
+          },
+          "project": {
+            "type": "string"
+          },
+          "origin": {
+            "type": "string"
+          }
+        }
+      },
       "Account": {
         "required": [
           "firstName",
@@ -1835,8 +1975,8 @@
             "type": "string",
             "format": "date-time"
           },
-          "external": {
-            "type": "boolean"
+          "origin": {
+            "type": "string"
           },
           "authenticationFailedCounter": {
             "type": "integer",
@@ -1858,6 +1998,16 @@
               "LOCKED",
               "PENDING"
             ]
+          },
+          "projects": {
+            "uniqueItems": true,
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Project"
+            }
+          },
+          "external": {
+            "type": "boolean"
           },
           "identifiable": {
             "type": "boolean"
@@ -1884,8 +2034,8 @@
             "type": "string",
             "format": "date-time"
           },
-          "external": {
-            "type": "boolean"
+          "origin": {
+            "type": "string"
           },
           "authenticationFailedCounter": {
             "type": "integer",
@@ -1907,6 +2057,16 @@
               "LOCKED",
               "PENDING"
             ]
+          },
+          "projects": {
+            "uniqueItems": true,
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Project"
+            }
+          },
+          "external": {
+            "type": "boolean"
           },
           "identifiable": {
             "type": "boolean"
@@ -1992,325 +2152,6 @@
           }
         }
       },
-      "AccountNPassword": {
-        "type": "object",
-        "properties": {
-          "account": {
-            "$ref": "#/components/schemas/Account"
-          },
-          "password": {
-            "type": "string"
-          }
-        }
-      },
-      "Password": {
-        "type": "object",
-        "properties": {
-          "password": {
-            "type": "string"
-          }
-        }
-      },
-      "Validity": {
-        "type": "object",
-        "properties": {
-          "validity": {
-            "type": "boolean"
-          }
-        }
-      },
-      "PasswordRules": {
-        "type": "object",
-        "properties": {
-          "rules": {
-            "type": "string"
-          }
-        }
-      },
-      "RequestAccountUnlockDto": {
-        "required": [
-          "originUrl",
-          "requestLink"
-        ],
-        "type": "object",
-        "properties": {
-          "originUrl": {
-            "type": "string"
-          },
-          "requestLink": {
-            "type": "string"
-          }
-        }
-      },
-      "MimeType": {
-        "type": "object",
-        "properties": {
-          "type": {
-            "type": "string"
-          },
-          "subtype": {
-            "type": "string"
-          },
-          "parameters": {
-            "type": "object",
-            "additionalProperties": {
-              "type": "string"
-            }
-          },
-          "charset": {
-            "type": "object",
-            "properties": {
-              "registered": {
-                "type": "boolean"
-              }
-            }
-          },
-          "concrete": {
-            "type": "boolean"
-          },
-          "wildcardType": {
-            "type": "boolean"
-          },
-          "wildcardSubtype": {
-            "type": "boolean"
-          }
-        }
-      },
-      "NotificationDTO": {
-        "type": "object",
-        "properties": {
-          "message": {
-            "type": "string"
-          },
-          "projectUserRecipients": {
-            "uniqueItems": true,
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
-          },
-          "roleRecipients": {
-            "uniqueItems": true,
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
-          },
-          "sender": {
-            "type": "string"
-          },
-          "title": {
-            "type": "string"
-          },
-          "level": {
-            "type": "string",
-            "enum": [
-              "INFO",
-              "WARNING",
-              "ERROR",
-              "FATAL"
-            ]
-          },
-          "mimeType": {
-            "$ref": "#/components/schemas/MimeType"
-          }
-        }
-      },
-      "Notification": {
-        "required": [
-          "level",
-          "message",
-          "projectUserRecipients",
-          "roleRecipients",
-          "sender",
-          "status"
-        ],
-        "type": "object",
-        "properties": {
-          "date": {
-            "type": "string",
-            "format": "date-time"
-          },
-          "id": {
-            "type": "integer",
-            "format": "int64"
-          },
-          "message": {
-            "type": "string"
-          },
-          "roleRecipients": {
-            "uniqueItems": true,
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
-          },
-          "projectUserRecipients": {
-            "uniqueItems": true,
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
-          },
-          "sender": {
-            "type": "string"
-          },
-          "status": {
-            "type": "string",
-            "enum": [
-              "READ",
-              "UNREAD"
-            ]
-          },
-          "level": {
-            "type": "string",
-            "enum": [
-              "INFO",
-              "WARNING",
-              "ERROR",
-              "FATAL"
-            ]
-          },
-          "title": {
-            "type": "string"
-          },
-          "mimeType": {
-            "$ref": "#/components/schemas/MimeType"
-          },
-          "identifiable": {
-            "type": "boolean"
-          }
-        }
-      },
-      "PagedResourcesAssemblerINotificationWithoutMessage": {
-        "type": "object",
-        "properties": {
-          "forceFirstAndLastRels": {
-            "type": "boolean",
-            "writeOnly": true
-          }
-        }
-      },
-      "EntityModelINotificationWithoutMessage": {
-        "type": "object",
-        "properties": {
-          "date": {
-            "type": "string",
-            "format": "date-time"
-          },
-          "status": {
-            "type": "string",
-            "enum": [
-              "READ",
-              "UNREAD"
-            ]
-          },
-          "level": {
-            "type": "string",
-            "enum": [
-              "INFO",
-              "WARNING",
-              "ERROR",
-              "FATAL"
-            ]
-          },
-          "title": {
-            "type": "string"
-          },
-          "mimeType": {
-            "$ref": "#/components/schemas/MimeType"
-          },
-          "sender": {
-            "type": "string"
-          },
-          "id": {
-            "type": "integer",
-            "format": "int64"
-          },
-          "links": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/Link"
-            }
-          }
-        }
-      },
-      "PagedModelEntityModelINotificationWithoutMessage": {
-        "type": "object",
-        "properties": {
-          "links": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/Link"
-            }
-          },
-          "content": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/EntityModelINotificationWithoutMessage"
-            }
-          },
-          "page": {
-            "$ref": "#/components/schemas/PageMetadata"
-          }
-        }
-      },
-      "EntityModelProject": {
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "integer",
-            "format": "int64"
-          },
-          "name": {
-            "pattern": "[a-zA-Z0-9-_]*",
-            "type": "string"
-          },
-          "label": {
-            "type": "string"
-          },
-          "description": {
-            "type": "string"
-          },
-          "icon": {
-            "type": "string"
-          },
-          "licenceLink": {
-            "type": "string"
-          },
-          "host": {
-            "type": "string"
-          },
-          "crs": {
-            "type": "string"
-          },
-          "deleted": {
-            "type": "boolean"
-          },
-          "public": {
-            "type": "boolean"
-          },
-          "licenseLink": {
-            "type": "string",
-            "writeOnly": true
-          },
-          "poleToBeManaged": {
-            "type": "boolean"
-          },
-          "accessible": {
-            "type": "boolean"
-          },
-          "identifiable": {
-            "type": "boolean"
-          },
-          "links": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/Link"
-            }
-          }
-        }
-      },
       "Project": {
         "required": [
           "crs",
@@ -2346,8 +2187,109 @@
           "crs": {
             "type": "string"
           },
+          "public": {
+            "type": "boolean"
+          },
+          "licenseLink": {
+            "type": "string",
+            "writeOnly": true
+          },
+          "poleToBeManaged": {
+            "type": "boolean"
+          },
+          "accessible": {
+            "type": "boolean"
+          },
           "deleted": {
             "type": "boolean"
+          },
+          "identifiable": {
+            "type": "boolean"
+          }
+        }
+      },
+      "AccountNPassword": {
+        "type": "object",
+        "properties": {
+          "account": {
+            "$ref": "#/components/schemas/Account"
+          },
+          "password": {
+            "type": "string"
+          },
+          "project": {
+            "type": "string"
+          }
+        }
+      },
+      "RequestAccountUnlockDto": {
+        "required": [
+          "originUrl",
+          "requestLink"
+        ],
+        "type": "object",
+        "properties": {
+          "originUrl": {
+            "type": "string"
+          },
+          "requestLink": {
+            "type": "string"
+          }
+        }
+      },
+      "PerformUnlockAccountDto": {
+        "type": "object",
+        "properties": {
+          "token": {
+            "type": "string"
+          }
+        }
+      },
+      "PasswordRules": {
+        "type": "object",
+        "properties": {
+          "rules": {
+            "type": "string"
+          }
+        }
+      },
+      "PagedResourcesAssemblerProject": {
+        "type": "object",
+        "properties": {
+          "forceFirstAndLastRels": {
+            "type": "boolean",
+            "writeOnly": true
+          }
+        }
+      },
+      "EntityModelProject": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "name": {
+            "pattern": "[a-zA-Z0-9-_]*",
+            "type": "string"
+          },
+          "label": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "icon": {
+            "type": "string"
+          },
+          "licenceLink": {
+            "type": "string"
+          },
+          "host": {
+            "type": "string"
+          },
+          "crs": {
+            "type": "string"
           },
           "public": {
             "type": "boolean"
@@ -2362,17 +2304,17 @@
           "accessible": {
             "type": "boolean"
           },
+          "deleted": {
+            "type": "boolean"
+          },
           "identifiable": {
             "type": "boolean"
-          }
-        }
-      },
-      "PagedResourcesAssemblerProject": {
-        "type": "object",
-        "properties": {
-          "forceFirstAndLastRels": {
-            "type": "boolean",
-            "writeOnly": true
+          },
+          "links": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Link"
+            }
           }
         }
       },
@@ -2558,6 +2500,219 @@
           }
         }
       },
+      "MimeType": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "string"
+          },
+          "subtype": {
+            "type": "string"
+          },
+          "parameters": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "string"
+            }
+          },
+          "concrete": {
+            "type": "boolean"
+          },
+          "charset": {
+            "type": "object",
+            "properties": {
+              "registered": {
+                "type": "boolean"
+              }
+            }
+          },
+          "wildcardType": {
+            "type": "boolean"
+          },
+          "wildcardSubtype": {
+            "type": "boolean"
+          }
+        }
+      },
+      "Notification": {
+        "required": [
+          "level",
+          "message",
+          "projectUserRecipients",
+          "roleRecipients",
+          "sender",
+          "status"
+        ],
+        "type": "object",
+        "properties": {
+          "date": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "id": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "message": {
+            "type": "string"
+          },
+          "roleRecipients": {
+            "uniqueItems": true,
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "projectUserRecipients": {
+            "uniqueItems": true,
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "sender": {
+            "type": "string"
+          },
+          "status": {
+            "type": "string",
+            "enum": [
+              "READ",
+              "UNREAD"
+            ]
+          },
+          "level": {
+            "type": "string",
+            "enum": [
+              "INFO",
+              "WARNING",
+              "ERROR",
+              "FATAL"
+            ]
+          },
+          "title": {
+            "type": "string"
+          },
+          "mimeType": {
+            "$ref": "#/components/schemas/MimeType"
+          },
+          "identifiable": {
+            "type": "boolean"
+          }
+        }
+      },
+      "NotificationDTO": {
+        "type": "object",
+        "properties": {
+          "message": {
+            "type": "string"
+          },
+          "projectUserRecipients": {
+            "uniqueItems": true,
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "roleRecipients": {
+            "uniqueItems": true,
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "sender": {
+            "type": "string"
+          },
+          "title": {
+            "type": "string"
+          },
+          "level": {
+            "type": "string",
+            "enum": [
+              "INFO",
+              "WARNING",
+              "ERROR",
+              "FATAL"
+            ]
+          },
+          "mimeType": {
+            "$ref": "#/components/schemas/MimeType"
+          }
+        }
+      },
+      "PagedResourcesAssemblerINotificationWithoutMessage": {
+        "type": "object",
+        "properties": {
+          "forceFirstAndLastRels": {
+            "type": "boolean",
+            "writeOnly": true
+          }
+        }
+      },
+      "EntityModelINotificationWithoutMessage": {
+        "type": "object",
+        "properties": {
+          "date": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "level": {
+            "type": "string",
+            "enum": [
+              "INFO",
+              "WARNING",
+              "ERROR",
+              "FATAL"
+            ]
+          },
+          "title": {
+            "type": "string"
+          },
+          "mimeType": {
+            "$ref": "#/components/schemas/MimeType"
+          },
+          "sender": {
+            "type": "string"
+          },
+          "status": {
+            "type": "string",
+            "enum": [
+              "READ",
+              "UNREAD"
+            ]
+          },
+          "id": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "links": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Link"
+            }
+          }
+        }
+      },
+      "PagedModelEntityModelINotificationWithoutMessage": {
+        "type": "object",
+        "properties": {
+          "links": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Link"
+            }
+          },
+          "content": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/EntityModelINotificationWithoutMessage"
+            }
+          },
+          "page": {
+            "$ref": "#/components/schemas/PageMetadata"
+          }
+        }
+      },
       "EntityModelMapStringMaintenanceInfo": {
         "type": "object",
         "properties": {
@@ -2566,6 +2721,23 @@
             "items": {
               "$ref": "#/components/schemas/Link"
             }
+          }
+        }
+      },
+      "ModuleReadinessReportObject": {
+        "type": "object",
+        "properties": {
+          "ready": {
+            "type": "boolean"
+          },
+          "reasons": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "specifications": {
+            "type": "object"
           }
         }
       },
@@ -2630,23 +2802,6 @@
             "items": {
               "type": "string"
             }
-          }
-        }
-      },
-      "ModuleReadinessReportObject": {
-        "type": "object",
-        "properties": {
-          "ready": {
-            "type": "boolean"
-          },
-          "reasons": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
-          },
-          "specifications": {
-            "type": "object"
           }
         }
       },
@@ -2718,14 +2873,14 @@
               "TRACE"
             ]
           },
+          "resourceMappingId": {
+            "type": "string"
+          },
           "autorizedRoles": {
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/RoleAuthority"
             }
-          },
-          "resourceMappingId": {
-            "type": "string"
           }
         }
       },

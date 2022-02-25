@@ -6,7 +6,7 @@
     "license": {
       "name": "GPL-3.0"
     },
-    "version": "1.7.1"
+    "version": "1.8.0"
   },
   "servers": [
     {
@@ -180,87 +180,12 @@
         }
       }
     },
-    "/storages/{id}/requests/{type}": {
-      "delete": {
-        "tags": [
-          "storage-location-controller"
-        ],
-        "operationId": "deleteRequests",
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "type",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string",
-              "enum": [
-                "AVAILABILITY",
-                "COPY",
-                "DELETION",
-                "REFERENCE",
-                "STORAGE"
-              ]
-            }
-          },
-          {
-            "name": "status",
-            "in": "query",
-            "required": false,
-            "schema": {
-              "type": "string",
-              "enum": [
-                "TO_DO",
-                "PENDING",
-                "DELAYED",
-                "ERROR"
-              ]
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "default response"
-          }
-        }
-      }
-    },
     "/storages/{id}/up": {
       "put": {
         "tags": [
           "storage-location-controller"
         ],
         "operationId": "increaseStorageLocationPriority",
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "default response"
-          }
-        }
-      }
-    },
-    "/storages/{id}/down": {
-      "put": {
-        "tags": [
-          "storage-location-controller"
-        ],
-        "operationId": "decreaseStorageLocationPriority",
         "parameters": [
           {
             "name": "id",
@@ -339,15 +264,15 @@
         }
       }
     },
-    "/storages/retry/{source}/{session}": {
-      "get": {
+    "/storages/{id}/requests/{type}": {
+      "delete": {
         "tags": [
           "storage-location-controller"
         ],
-        "operationId": "retryErrorsBySourceAndSession",
+        "operationId": "deleteRequests",
         "parameters": [
           {
-            "name": "source",
+            "name": "id",
             "in": "path",
             "required": true,
             "schema": {
@@ -355,7 +280,51 @@
             }
           },
           {
-            "name": "session",
+            "name": "type",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "AVAILABILITY",
+                "COPY",
+                "DELETION",
+                "REFERENCE",
+                "STORAGE"
+              ]
+            }
+          },
+          {
+            "name": "status",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "TO_DO",
+                "PENDING",
+                "DELAYED",
+                "ERROR"
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "default response"
+          }
+        }
+      }
+    },
+    "/storages/{id}/down": {
+      "put": {
+        "tags": [
+          "storage-location-controller"
+        ],
+        "operationId": "decreaseStorageLocationPriority",
+        "parameters": [
+          {
+            "name": "id",
             "in": "path",
             "required": true,
             "schema": {
@@ -424,25 +393,126 @@
         }
       }
     },
-    "/quota/currents": {
-      "post": {
+    "/storages/retry/{source}/{session}": {
+      "get": {
+        "tags": [
+          "storage-location-controller"
+        ],
+        "operationId": "retryErrorsBySourceAndSession",
+        "parameters": [
+          {
+            "name": "source",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "session",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "default response"
+          }
+        }
+      }
+    },
+    "/quota/current/{user_email}": {
+      "get": {
         "tags": [
           "download-quota-controller"
         ],
-        "operationId": "getCurrentQuotasList",
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "type": "array",
-                "items": {
-                  "type": "string"
+        "operationId": "getCurrentQuotas",
+        "parameters": [
+          {
+            "name": "user_email",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "default response",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/UserCurrentQuotas"
                 }
               }
             }
-          },
-          "required": true
-        },
+          }
+        }
+      }
+    },
+    "/quota/current": {
+      "get": {
+        "tags": [
+          "download-quota-controller"
+        ],
+        "operationId": "getCurrentQuotas_1",
+        "responses": {
+          "200": {
+            "description": "default response",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/UserCurrentQuotas"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/quota": {
+      "get": {
+        "tags": [
+          "download-quota-controller"
+        ],
+        "operationId": "getQuotaLimits",
+        "responses": {
+          "200": {
+            "description": "default response",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/DownloadQuotaLimitsDto"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/quotas": {
+      "get": {
+        "tags": [
+          "download-quota-controller"
+        ],
+        "operationId": "getQuotaLimits_1",
+        "parameters": [
+          {
+            "name": "user_email",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          }
+        ],
         "responses": {
           "200": {
             "description": "default response",
@@ -451,7 +521,7 @@
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/UserCurrentQuotas"
+                    "$ref": "#/components/schemas/DownloadQuotaLimitsDto"
                   }
                 }
               }
@@ -465,7 +535,7 @@
         "tags": [
           "download-quota-controller"
         ],
-        "operationId": "getQuotaLimits_1",
+        "operationId": "getQuotaLimits_2",
         "parameters": [
           {
             "name": "user_email",
@@ -528,75 +598,25 @@
         }
       }
     },
-    "/quota/current/{user_email}": {
-      "get": {
+    "/quota/currents": {
+      "post": {
         "tags": [
           "download-quota-controller"
         ],
-        "operationId": "getCurrentQuotas",
-        "parameters": [
-          {
-            "name": "user_email",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "default response",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/UserCurrentQuotas"
+        "operationId": "getCurrentQuotasList",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "type": "string"
                 }
               }
             }
-          }
-        }
-      }
-    },
-    "/quota/current": {
-      "get": {
-        "tags": [
-          "download-quota-controller"
-        ],
-        "operationId": "getCurrentQuotas_1",
-        "responses": {
-          "200": {
-            "description": "default response",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/UserCurrentQuotas"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/quotas": {
-      "get": {
-        "tags": [
-          "download-quota-controller"
-        ],
-        "operationId": "getQuotaLimits",
-        "parameters": [
-          {
-            "name": "user_email",
-            "in": "query",
-            "required": true,
-            "schema": {
-              "type": "array",
-              "items": {
-                "type": "string"
-              }
-            }
-          }
-        ],
+          },
+          "required": true
+        },
         "responses": {
           "200": {
             "description": "default response",
@@ -605,28 +625,8 @@
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/DownloadQuotaLimitsDto"
+                    "$ref": "#/components/schemas/UserCurrentQuotas"
                   }
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/quota": {
-      "get": {
-        "tags": [
-          "download-quota-controller"
-        ],
-        "operationId": "getQuotaLimits_2",
-        "responses": {
-          "200": {
-            "description": "default response",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/DownloadQuotaLimitsDto"
                 }
               }
             }
@@ -668,6 +668,19 @@
                 }
               }
             }
+          }
+        }
+      }
+    },
+    "/files/csv": {
+      "get": {
+        "tags": [
+          "file-reference-controller"
+        ],
+        "operationId": "export",
+        "responses": {
+          "200": {
+            "description": "default response"
           }
         }
       }
@@ -718,15 +731,50 @@
         }
       }
     },
-    "/files/csv": {
-      "get": {
+    "/files/{storage}/locations": {
+      "post": {
         "tags": [
           "file-reference-controller"
         ],
-        "operationId": "export",
+        "operationId": "getFileReferencesWithoutOwners",
+        "parameters": [
+          {
+            "name": "storage",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "uniqueItems": true,
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "required": true
+        },
         "responses": {
           "200": {
-            "description": "default response"
+            "description": "default response",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "uniqueItems": true,
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/FileReferenceDTO"
+                  }
+                }
+              }
+            }
           }
         }
       }
@@ -753,6 +801,90 @@
         "responses": {
           "200": {
             "description": "default response"
+          }
+        }
+      }
+    },
+    "/resources/{checksum}/download": {
+      "get": {
+        "tags": [
+          "file-download-controller"
+        ],
+        "operationId": "downloadFile_1",
+        "parameters": [
+          {
+            "name": "checksum",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "isContentInline",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "boolean"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "default response",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/Resource"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/resources/{checksum}/download/token": {
+      "get": {
+        "tags": [
+          "file-download-controller"
+        ],
+        "operationId": "downloadFileWithToken_1",
+        "parameters": [
+          {
+            "name": "checksum",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "t",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "isContentInline",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "boolean"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "default response",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/Resource"
+                }
+              }
+            }
           }
         }
       }
@@ -904,12 +1036,12 @@
         }
       }
     },
-    "/regards/{tenant}/datasource/test": {
+    "/regards/{tenant}/datasource/status": {
       "get": {
         "tags": [
           "jpa-multitenant-controller"
         ],
-        "operationId": "testTenantConnection",
+        "operationId": "getDataSourceStatus",
         "parameters": [
           {
             "name": "tenant",
@@ -934,12 +1066,12 @@
         }
       }
     },
-    "/regards/{tenant}/datasource/status": {
+    "/regards/{tenant}/datasource/test": {
       "get": {
         "tags": [
           "jpa-multitenant-controller"
         ],
-        "operationId": "getDataSourceStatus",
+        "operationId": "testTenantConnection",
         "parameters": [
           {
             "name": "tenant",
@@ -1106,26 +1238,6 @@
         }
       }
     },
-    "/microservice/ready": {
-      "get": {
-        "tags": [
-          "module-manager-controller"
-        ],
-        "operationId": "isReady",
-        "responses": {
-          "200": {
-            "description": "default response",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/ModuleReadinessReportObject"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
     "/microservice/restart": {
       "get": {
         "tags": [
@@ -1150,15 +1262,22 @@
         }
       }
     },
-    "/microservice/restart/enabled": {
+    "/microservice/ready": {
       "get": {
         "tags": [
           "module-manager-controller"
         ],
-        "operationId": "isRestartEnabled",
+        "operationId": "isReady",
         "responses": {
           "200": {
-            "description": "default response"
+            "description": "default response",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/ModuleReadinessReportObject"
+                }
+              }
+            }
           }
         }
       }
@@ -1176,32 +1295,15 @@
         }
       }
     },
-    "/plugins/configs/{configBusinessId}": {
+    "/microservice/restart/enabled": {
       "get": {
         "tags": [
-          "plugin-controller"
+          "module-manager-controller"
         ],
-        "operationId": "getPluginConfigurationDirectAccess",
-        "parameters": [
-          {
-            "name": "configBusinessId",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
+        "operationId": "isRestartEnabled",
         "responses": {
           "200": {
-            "description": "default response",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/EntityModelPluginConfiguration"
-                }
-              }
-            }
+            "description": "default response"
           }
         }
       }
@@ -1219,12 +1321,12 @@
         }
       }
     },
-    "/plugins/{pluginId}/config": {
+    "/plugins/{pluginId}": {
       "get": {
         "tags": [
           "plugin-controller"
         ],
-        "operationId": "getPluginConfigurations",
+        "operationId": "getPluginMetaDataById",
         "parameters": [
           {
             "name": "pluginId",
@@ -1241,71 +1343,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/EntityModelPluginConfiguration"
-                  }
-                }
-              }
-            }
-          }
-        }
-      },
-      "post": {
-        "tags": [
-          "plugin-controller"
-        ],
-        "operationId": "savePluginConfiguration",
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/PluginConfiguration"
-              }
-            }
-          },
-          "required": true
-        },
-        "responses": {
-          "200": {
-            "description": "default response",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/EntityModelPluginConfiguration"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/plugintypes": {
-      "get": {
-        "tags": [
-          "plugin-controller"
-        ],
-        "operationId": "getPluginTypes",
-        "parameters": [
-          {
-            "name": "available",
-            "in": "query",
-            "required": false,
-            "schema": {
-              "type": "boolean"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "default response",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/EntityModelString"
-                  }
+                  "$ref": "#/components/schemas/EntityModelPluginMetaData"
                 }
               }
             }
@@ -1492,12 +1530,12 @@
         }
       }
     },
-    "/plugins/{pluginId}": {
+    "/plugins/{pluginId}/config": {
       "get": {
         "tags": [
           "plugin-controller"
         ],
-        "operationId": "getPluginMetaDataById",
+        "operationId": "getPluginConfigurations",
         "parameters": [
           {
             "name": "pluginId",
@@ -1514,7 +1552,101 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/EntityModelPluginMetaData"
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/EntityModelPluginConfiguration"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "plugin-controller"
+        ],
+        "operationId": "savePluginConfiguration",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PluginConfiguration"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "default response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EntityModelPluginConfiguration"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/plugintypes": {
+      "get": {
+        "tags": [
+          "plugin-controller"
+        ],
+        "operationId": "getPluginTypes",
+        "parameters": [
+          {
+            "name": "available",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "boolean"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "default response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/EntityModelString"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/plugins/configs/{configBusinessId}": {
+      "get": {
+        "tags": [
+          "plugin-controller"
+        ],
+        "operationId": "getPluginConfigurationDirectAccess",
+        "parameters": [
+          {
+            "name": "configBusinessId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "default response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EntityModelPluginConfiguration"
                 }
               }
             }
@@ -1819,6 +1951,13 @@
             "type": "string",
             "format": "url"
           },
+          "pluginClassName": {
+            "type": "string"
+          },
+          "isActive": {
+            "type": "boolean",
+            "writeOnly": true
+          },
           "interfaceNames": {
             "uniqueItems": true,
             "type": "array",
@@ -1828,13 +1967,6 @@
           },
           "metaDataAndPluginId": {
             "$ref": "#/components/schemas/PluginMetaData"
-          },
-          "isActive": {
-            "type": "boolean",
-            "writeOnly": true
-          },
-          "pluginClassName": {
-            "type": "string"
           },
           "identifiable": {
             "type": "boolean"
@@ -1867,6 +1999,9 @@
             "type": "string"
           },
           "markdown": {
+            "type": "string"
+          },
+          "userMarkdown": {
             "type": "string"
           },
           "url": {
@@ -1909,6 +2044,9 @@
             "type": "string"
           },
           "markdown": {
+            "type": "string"
+          },
+          "userMarkdown": {
             "type": "string"
           },
           "parameterizedSubTypes": {
@@ -2116,6 +2254,93 @@
       "StreamingResponseBody": {
         "type": "object"
       },
+      "FileReferenceDTO": {
+        "type": "object",
+        "properties": {
+          "storageDate": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "owners": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "metaInfo": {
+            "$ref": "#/components/schemas/FileReferenceMetaInfoDTO"
+          },
+          "location": {
+            "$ref": "#/components/schemas/FileLocationDTO"
+          }
+        }
+      },
+      "FileReferenceMetaInfoDTO": {
+        "type": "object",
+        "properties": {
+          "checksum": {
+            "type": "string"
+          },
+          "algorithm": {
+            "type": "string"
+          },
+          "fileName": {
+            "type": "string"
+          },
+          "fileSize": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "height": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "width": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "mimeType": {
+            "$ref": "#/components/schemas/MimeType"
+          },
+          "type": {
+            "type": "string"
+          }
+        }
+      },
+      "MimeType": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "string"
+          },
+          "subtype": {
+            "type": "string"
+          },
+          "parameters": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "string"
+            }
+          },
+          "wildcardType": {
+            "type": "boolean"
+          },
+          "wildcardSubtype": {
+            "type": "boolean"
+          },
+          "charset": {
+            "type": "object",
+            "properties": {
+              "registered": {
+                "type": "boolean"
+              }
+            }
+          },
+          "concrete": {
+            "type": "boolean"
+          }
+        }
+      },
       "FileStorageRequestDTO": {
         "required": [
           "algorithm",
@@ -2181,11 +2406,49 @@
           }
         }
       },
+      "Resource": {
+        "type": "object",
+        "properties": {
+          "description": {
+            "type": "string"
+          },
+          "readable": {
+            "type": "boolean"
+          },
+          "filename": {
+            "type": "string"
+          },
+          "uri": {
+            "type": "string",
+            "format": "uri"
+          },
+          "url": {
+            "type": "string",
+            "format": "url"
+          },
+          "file": {
+            "type": "string",
+            "format": "binary"
+          },
+          "open": {
+            "type": "boolean"
+          },
+          "inputStream": {
+            "type": "object"
+          }
+        }
+      },
       "Pageable": {
         "type": "object",
         "properties": {
           "sort": {
             "$ref": "#/components/schemas/Sort"
+          },
+          "unpaged": {
+            "type": "boolean"
+          },
+          "paged": {
+            "type": "boolean"
           },
           "pageNumber": {
             "type": "integer",
@@ -2194,12 +2457,6 @@
           "pageSize": {
             "type": "integer",
             "format": "int32"
-          },
-          "unpaged": {
-            "type": "boolean"
-          },
-          "paged": {
-            "type": "boolean"
           },
           "offset": {
             "type": "integer",
@@ -2332,24 +2589,6 @@
           }
         }
       },
-      "ModuleImportReport": {
-        "type": "object",
-        "properties": {
-          "moduleInformation": {
-            "$ref": "#/components/schemas/ModuleInformation"
-          },
-          "importErrors": {
-            "uniqueItems": true,
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
-          },
-          "onlyErrors": {
-            "type": "boolean"
-          }
-        }
-      },
       "ModuleInformation": {
         "required": [
           "author",
@@ -2382,6 +2621,20 @@
           }
         }
       },
+      "ModuleRestartReport": {
+        "type": "object",
+        "properties": {
+          "moduleInformation": {
+            "$ref": "#/components/schemas/ModuleInformation"
+          },
+          "messages": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      },
       "ModuleReadinessReportObject": {
         "type": "object",
         "properties": {
@@ -2399,16 +2652,81 @@
           }
         }
       },
-      "ModuleRestartReport": {
+      "ModuleImportReport": {
         "type": "object",
         "properties": {
           "moduleInformation": {
             "$ref": "#/components/schemas/ModuleInformation"
           },
-          "messages": {
+          "importErrors": {
+            "uniqueItems": true,
             "type": "array",
             "items": {
               "type": "string"
+            }
+          },
+          "onlyErrors": {
+            "type": "boolean"
+          }
+        }
+      },
+      "EntityModelPluginMetaData": {
+        "type": "object",
+        "properties": {
+          "pluginClassName": {
+            "type": "string"
+          },
+          "interfaceNames": {
+            "uniqueItems": true,
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "author": {
+            "type": "string"
+          },
+          "pluginId": {
+            "type": "string"
+          },
+          "version": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "markdown": {
+            "type": "string"
+          },
+          "userMarkdown": {
+            "type": "string"
+          },
+          "url": {
+            "type": "string"
+          },
+          "contact": {
+            "type": "string"
+          },
+          "owner": {
+            "type": "string"
+          },
+          "license": {
+            "type": "string"
+          },
+          "parameters": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/PluginParamDescriptor"
+            }
+          },
+          "licence": {
+            "type": "string",
+            "writeOnly": true
+          },
+          "links": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Link"
             }
           }
         }
@@ -2454,6 +2772,13 @@
             "type": "string",
             "format": "url"
           },
+          "pluginClassName": {
+            "type": "string"
+          },
+          "isActive": {
+            "type": "boolean",
+            "writeOnly": true
+          },
           "interfaceNames": {
             "uniqueItems": true,
             "type": "array",
@@ -2463,13 +2788,6 @@
           },
           "metaDataAndPluginId": {
             "$ref": "#/components/schemas/PluginMetaData"
-          },
-          "isActive": {
-            "type": "boolean",
-            "writeOnly": true
-          },
-          "pluginClassName": {
-            "type": "string"
           },
           "identifiable": {
             "type": "boolean"
@@ -2487,64 +2805,6 @@
         "properties": {
           "content": {
             "type": "string"
-          },
-          "links": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/Link"
-            }
-          }
-        }
-      },
-      "EntityModelPluginMetaData": {
-        "type": "object",
-        "properties": {
-          "pluginClassName": {
-            "type": "string"
-          },
-          "interfaceNames": {
-            "uniqueItems": true,
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
-          },
-          "author": {
-            "type": "string"
-          },
-          "pluginId": {
-            "type": "string"
-          },
-          "version": {
-            "type": "string"
-          },
-          "description": {
-            "type": "string"
-          },
-          "markdown": {
-            "type": "string"
-          },
-          "url": {
-            "type": "string"
-          },
-          "contact": {
-            "type": "string"
-          },
-          "owner": {
-            "type": "string"
-          },
-          "license": {
-            "type": "string"
-          },
-          "parameters": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/PluginParamDescriptor"
-            }
-          },
-          "licence": {
-            "type": "string",
-            "writeOnly": true
           },
           "links": {
             "type": "array",

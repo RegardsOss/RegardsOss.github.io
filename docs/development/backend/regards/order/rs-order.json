@@ -6,7 +6,7 @@
     "license": {
       "name": "GPL-3.0"
     },
-    "version": "1.7.1"
+    "version": "1.8.0"
   },
   "servers": [
     {
@@ -20,82 +20,6 @@
     }
   ],
   "paths": {
-    "/orders/public/files/{dataFileId}": {
-      "get": {
-        "tags": [
-          "order-data-file-controller"
-        ],
-        "operationId": "publicDownloadFile",
-        "parameters": [
-          {
-            "name": "dataFileId",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "integer",
-              "format": "int64"
-            }
-          },
-          {
-            "name": "orderToken",
-            "in": "query",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "default response",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/InputStreamResource"
-                }
-              }
-            }
-          }
-        }
-      },
-      "head": {
-        "tags": [
-          "order-data-file-controller"
-        ],
-        "operationId": "testDownloadFile",
-        "parameters": [
-          {
-            "name": "dataFileId",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "integer",
-              "format": "int64"
-            }
-          },
-          {
-            "name": "orderToken",
-            "in": "query",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "default response",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/InputStreamResource"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
     "/orders/{orderId}/dataset/{datasetId}/files": {
       "get": {
         "tags": [
@@ -183,40 +107,75 @@
         }
       }
     },
-    "/user/orders/{orderId}/restart": {
-      "post": {
+    "/orders/public/files/{dataFileId}": {
+      "get": {
         "tags": [
-          "order-controller"
+          "order-data-file-controller"
         ],
-        "operationId": "restartOrder",
+        "operationId": "publicDownloadFile",
         "parameters": [
           {
-            "name": "orderId",
+            "name": "dataFileId",
             "in": "path",
             "required": true,
             "schema": {
               "type": "integer",
               "format": "int64"
             }
+          },
+          {
+            "name": "orderToken",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/OrderRequest"
-              }
-            }
-          },
-          "required": true
-        },
         "responses": {
           "200": {
             "description": "default response",
             "content": {
               "*/*": {
                 "schema": {
-                  "$ref": "#/components/schemas/EntityModelOrderDto"
+                  "$ref": "#/components/schemas/InputStreamResource"
+                }
+              }
+            }
+          }
+        }
+      },
+      "head": {
+        "tags": [
+          "order-data-file-controller"
+        ],
+        "operationId": "testDownloadFile",
+        "parameters": [
+          {
+            "name": "dataFileId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          },
+          {
+            "name": "orderToken",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "default response",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/InputStreamResource"
                 }
               }
             }
@@ -618,45 +577,15 @@
         }
       }
     },
-    "/order/basket/selection": {
+    "/user/orders/{orderId}/restart": {
       "post": {
         "tags": [
-          "basket-controller"
+          "order-controller"
         ],
-        "operationId": "addSelection",
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/BasketSelectionRequest"
-              }
-            }
-          },
-          "required": true
-        },
-        "responses": {
-          "200": {
-            "description": "default response",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/EntityModelBasketDto"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/order/basket/dataset/{datasetSelectionId}/updateProcessing": {
-      "put": {
-        "tags": [
-          "basket-controller"
-        ],
-        "operationId": "attachProcessDescriptionToDatasetSelection",
+        "operationId": "restartOrder",
         "parameters": [
           {
-            "name": "datasetSelectionId",
+            "name": "orderId",
             "in": "path",
             "required": true,
             "schema": {
@@ -669,7 +598,37 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/ProcessDatasetDescription"
+                "$ref": "#/components/schemas/OrderRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "default response",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/EntityModelOrderDto"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/order/basket/selection": {
+      "post": {
+        "tags": [
+          "basket-controller"
+        ],
+        "operationId": "addSelection",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/BasketSelectionRequest"
               }
             }
           },
@@ -759,6 +718,47 @@
         }
       }
     },
+    "/order/basket/dataset/{datasetSelectionId}/updateProcessing": {
+      "put": {
+        "tags": [
+          "basket-controller"
+        ],
+        "operationId": "attachProcessDescriptionToDatasetSelection",
+        "parameters": [
+          {
+            "name": "datasetSelectionId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ProcessDatasetDescription"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "default response",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/EntityModelBasketDto"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/order/basket": {
       "get": {
         "tags": [
@@ -786,6 +786,36 @@
         "responses": {
           "200": {
             "description": "default response"
+          }
+        }
+      }
+    },
+    "/regards/{tenant}/datasource/status": {
+      "get": {
+        "tags": [
+          "jpa-multitenant-controller"
+        ],
+        "operationId": "getDataSourceStatus",
+        "parameters": [
+          {
+            "name": "tenant",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "default response",
+            "content": {
+              "application/json;charset=UTF-8": {
+                "schema": {
+                  "$ref": "#/components/schemas/GenericResponseBody"
+                }
+              }
+            }
           }
         }
       }
@@ -820,29 +850,19 @@
         }
       }
     },
-    "/regards/{tenant}/datasource/status": {
+    "/maintenance": {
       "get": {
         "tags": [
-          "jpa-multitenant-controller"
+          "maintenance-controller"
         ],
-        "operationId": "getDataSourceStatus",
-        "parameters": [
-          {
-            "name": "tenant",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
+        "operationId": "retrieveTenantsInMaintenance",
         "responses": {
           "200": {
             "description": "default response",
             "content": {
-              "application/json;charset=UTF-8": {
+              "*/*": {
                 "schema": {
-                  "$ref": "#/components/schemas/GenericResponseBody"
+                  "$ref": "#/components/schemas/EntityModelMapStringMaintenanceInfo"
                 }
               }
             }
@@ -896,26 +916,6 @@
         }
       }
     },
-    "/maintenance": {
-      "get": {
-        "tags": [
-          "maintenance-controller"
-        ],
-        "operationId": "retrieveTenantsInMaintenance",
-        "responses": {
-          "200": {
-            "description": "default response",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/EntityModelMapStringMaintenanceInfo"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
     "/shutdown/immediate": {
       "post": {
         "tags": [
@@ -929,28 +929,26 @@
         }
       }
     },
-    "/microservice/ready/enabled": {
+    "/microservice/restart": {
       "get": {
         "tags": [
           "module-manager-controller"
         ],
-        "operationId": "isReadyEnabled",
+        "operationId": "restart",
         "responses": {
           "200": {
-            "description": "default response"
-          }
-        }
-      }
-    },
-    "/microservice/restart/enabled": {
-      "get": {
-        "tags": [
-          "module-manager-controller"
-        ],
-        "operationId": "isRestartEnabled",
-        "responses": {
-          "200": {
-            "description": "default response"
+            "description": "default response",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "uniqueItems": true,
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/ModuleRestartReport"
+                  }
+                }
+              }
+            }
           }
         }
       }
@@ -1018,26 +1016,15 @@
         }
       }
     },
-    "/microservice/restart": {
+    "/microservice/ready/enabled": {
       "get": {
         "tags": [
           "module-manager-controller"
         ],
-        "operationId": "restart",
+        "operationId": "isReadyEnabled",
         "responses": {
           "200": {
-            "description": "default response",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "uniqueItems": true,
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/ModuleRestartReport"
-                  }
-                }
-              }
-            }
+            "description": "default response"
           }
         }
       }
@@ -1058,6 +1045,19 @@
                 }
               }
             }
+          }
+        }
+      }
+    },
+    "/microservice/restart/enabled": {
+      "get": {
+        "tags": [
+          "module-manager-controller"
+        ],
+        "operationId": "isRestartEnabled",
+        "responses": {
+          "200": {
+            "description": "default response"
           }
         }
       }
@@ -1193,57 +1193,25 @@
   },
   "components": {
     "schemas": {
-      "InputStreamResource": {
-        "type": "object",
-        "properties": {
-          "inputStream": {
-            "type": "object"
-          },
-          "description": {
-            "type": "string"
-          },
-          "open": {
-            "type": "boolean"
-          },
-          "uri": {
-            "type": "string",
-            "format": "uri"
-          },
-          "readable": {
-            "type": "boolean"
-          },
-          "filename": {
-            "type": "string"
-          },
-          "url": {
-            "type": "string",
-            "format": "url"
-          },
-          "file": {
-            "type": "string",
-            "format": "binary"
-          }
-        }
-      },
       "Pageable": {
         "type": "object",
         "properties": {
-          "pageNumber": {
-            "type": "integer",
-            "format": "int32"
+          "paged": {
+            "type": "boolean"
           },
           "sort": {
             "$ref": "#/components/schemas/Sort"
           },
-          "paged": {
+          "unpaged": {
             "type": "boolean"
+          },
+          "pageNumber": {
+            "type": "integer",
+            "format": "int32"
           },
           "pageSize": {
             "type": "integer",
             "format": "int32"
-          },
-          "unpaged": {
-            "type": "boolean"
           },
           "offset": {
             "type": "integer",
@@ -1330,6 +1298,9 @@
             "items": {
               "type": "string"
             }
+          },
+          "crc32": {
+            "type": "string"
           },
           "id": {
             "type": "integer",
@@ -1525,14 +1496,35 @@
           }
         }
       },
-      "OrderRequest": {
+      "InputStreamResource": {
         "type": "object",
         "properties": {
-          "label": {
+          "inputStream": {
+            "type": "object"
+          },
+          "description": {
             "type": "string"
           },
-          "onSuccessUrl": {
+          "open": {
+            "type": "boolean"
+          },
+          "uri": {
+            "type": "string",
+            "format": "uri"
+          },
+          "filename": {
             "type": "string"
+          },
+          "readable": {
+            "type": "boolean"
+          },
+          "url": {
+            "type": "string",
+            "format": "url"
+          },
+          "file": {
+            "type": "string",
+            "format": "binary"
           }
         }
       },
@@ -1648,6 +1640,17 @@
           },
           "page": {
             "$ref": "#/components/schemas/PageMetadata"
+          }
+        }
+      },
+      "OrderRequest": {
+        "type": "object",
+        "properties": {
+          "label": {
+            "type": "string"
+          },
+          "onSuccessUrl": {
+            "type": "string"
           }
         }
       },
@@ -1842,24 +1845,6 @@
           }
         }
       },
-      "ModuleImportReport": {
-        "type": "object",
-        "properties": {
-          "moduleInformation": {
-            "$ref": "#/components/schemas/ModuleInformation"
-          },
-          "importErrors": {
-            "uniqueItems": true,
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
-          },
-          "onlyErrors": {
-            "type": "boolean"
-          }
-        }
-      },
       "ModuleInformation": {
         "required": [
           "author",
@@ -1903,6 +1888,24 @@
             "items": {
               "type": "string"
             }
+          }
+        }
+      },
+      "ModuleImportReport": {
+        "type": "object",
+        "properties": {
+          "moduleInformation": {
+            "$ref": "#/components/schemas/ModuleInformation"
+          },
+          "importErrors": {
+            "uniqueItems": true,
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "onlyErrors": {
+            "type": "boolean"
           }
         }
       },
