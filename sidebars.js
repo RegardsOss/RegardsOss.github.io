@@ -254,6 +254,8 @@ module.exports = {
               items: [
                 "development/backend/regards/admin/backend-admin-overview",
                 "development/backend/regards/admin/api/backend-admin-api",
+                "development/backend/regards/admin/backend-admin-api-swagger",
+                "development/backend/regards/admin/backend-admin-instance-api-swagger",
               ],
             },
             {
@@ -262,6 +264,8 @@ module.exports = {
               items: [
                 "development/backend/regards/access/backend-access-overview",
                 "development/backend/regards/access/api/backend-access-api",
+                "development/backend/regards/access/backend-access-project-api-swagger",
+                "development/backend/regards/access/backend-access-instance-api-swagger",
               ],
             },
             {
@@ -269,9 +273,10 @@ module.exports = {
               label: "Catalog",
               items: [
                 "development/backend/regards/catalog/backend-catalog-overview",
+                "development/backend/regards/catalog/backend-catalog-api-swagger",
                 {
                   type: "category",
-                  label: "API",
+                  label: "API (legacy)",
                   items: [
                     "development/backend/regards/catalog/api/backend-catalog-search-api",
                   ],
@@ -292,9 +297,10 @@ module.exports = {
               label: "Data management",
               items: [
                 "development/backend/regards/dam/backend-dam-overview",
+                "development/backend/regards/dam/backend-dam-api-swagger",
                 {
                   type: "category",
-                  label: "API",
+                  label: "API (legacy)",
                   items: [
                     "development/backend/regards/dam/api/backend-dam-access-rights-api",
                     "development/backend/regards/dam/api/backend-dam-attachment-api",
@@ -322,9 +328,10 @@ module.exports = {
               label: "Feature manager",
               items: [
                 "development/backend/regards/fem/backend-fem-overview",
+                "development/backend/regards/fem/backend-fem-api-swagger",
                 {
                   type: "category",
-                  label: "API",
+                  label: "API (legacy)",
                   items: [
                     "development/backend/regards/fem/api/backend-fem-configuration-api",
                     "development/backend/regards/fem/api/backend-fem-rest-api",
@@ -345,9 +352,10 @@ module.exports = {
               label: "Notifier",
               items: [
                 "development/backend/regards/notifier/backend-notifier-overview",
+                "development/backend/regards/notifier/backend-notifier-api-swagger",
                 {
                   type: "category",
-                  label: "API",
+                  label: "API (legacy)",
                   items: [
                     "development/backend/regards/notifier/api/backend-notifier-api",
                     "development/backend/regards/notifier/api/backend-notifier-configuration-api",
@@ -367,9 +375,10 @@ module.exports = {
               label: "Data provider",
               items: [
                 "development/backend/regards/dataprovider/backend-dataprovider-overview",
+                "development/backend/regards/dataprovider/backend-dataprovider-api-swagger",
                 {
                   type: "category",
-                  label: "API",
+                  label: "API (legacy)",
                   items: [
                     "development/backend/regards/dataprovider/api/backend-dataprovider-api",
                   ],
@@ -392,9 +401,10 @@ module.exports = {
               label: "Ingest",
               items: [
                 "development/backend/regards/ingest/backend-ingest-overview",
+                "development/backend/regards/ingest/backend-ingest-api-swagger",
                 {
                   type: "category",
-                  label: "API",
+                  label: "API (legacy)",
                   items: [
                     "development/backend/regards/ingest/api/backend-ingest-api",
                   ],
@@ -418,9 +428,10 @@ module.exports = {
               label: "Order",
               items: [
                 "development/backend/regards/order/backend-order-overview",
+                "development/backend/regards/order/backend-order-api-swagger",
                 {
                   type: "category",
-                  label: "API",
+                  label: "API (legacy)",
                   items: [
                     "development/backend/regards/order/api/backend-order-basket-api",
                     "development/backend/regards/order/api/backend-order-api",
@@ -433,9 +444,10 @@ module.exports = {
               label: "Processing",
               items: [
                 "development/backend/regards/processing/backend-processing-overview",
+                "development/backend/regards/processing/backend-processing-api-swagger",
                 {
                   type: "category",
-                  label: "API",
+                  label: "API (legacy)",
                   items: [
                     "development/backend/regards/processing/api/backend-processing-process-api",
                     "development/backend/regards/processing/api/backend-processing-batch-api",
@@ -457,9 +469,10 @@ module.exports = {
               label: "Storage",
               items: [
                 "development/backend/regards/storage/backend-storage-overview",
+                "development/backend/regards/storage/backend-storage-api-swagger",
                 {
                   type: "category",
-                  label: "API",
+                  label: "API (legacy)",
                   items: [
                     "development/backend/regards/storage/api/backend-storage-api",
                   ],

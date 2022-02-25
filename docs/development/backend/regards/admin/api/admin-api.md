@@ -1,7 +1,7 @@
 ---
 id: backend-admin-api
 title: REGARDS admin API
-sidebar_label: Admin project API
+sidebar_label: Admin project API (legacy)
 slug: /development/backend/services/admin/api/
 ---
 
