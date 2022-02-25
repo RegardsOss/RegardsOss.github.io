@@ -12,14 +12,11 @@ module.exports = {
   projectName: "RegardsOss.github.io",
   i18n: {
     defaultLocale: 'en',
-    locales: ['en', 'fr'],
+    locales: ['en'],
     localeConfigs: {
       en: {
         label: 'en',
-      },
-      fr: {
-        label: 'fr',
-      },
+      }
     },
   },
   themeConfig: {
