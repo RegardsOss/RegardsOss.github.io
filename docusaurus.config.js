@@ -174,5 +174,42 @@ module.exports = {
         },
       },
     ],
+    [
+      'redocusaurus',
+      {
+        theme: {
+          /**
+           * Highlight color for docs
+           */
+          primaryColor: "#429be3",
+          /**
+           * Options to pass to override RedocThemeObject
+           * @see https://github.com/Redocly/redoc#redoc-theme-object
+           */
+          redocTheme: {
+            typography: {
+              fontSize: '16px',
+            },
+          },
+          /**
+          * Options to pass to redoc
+          * @see https://github.com/redocly/redoc#redoc-options-object
+          */
+          redocOptions: {
+            hideHostname: true,
+            noAutoAuth: true, // Hide auth url
+            menuToggle: false, // Double click on item on control won't close it
+            pathInMiddlePanel: true, // Put Verb and URL in the center panel
+            sortPropsAlphabetically: true, // Props sorted
+            // hideSingleRequestSampleTab: true,
+            jsonSampleExpandLevel: 1,
+            // expandResponses: "800",
+            // hideRequestPayloadSample: true,
+            scrollYOffset: 100,
+          }
+        }
+      }
+    ],
   ],
+
 };

@@ -1,0 +1,8 @@
+
+@media (min-width: 1600px) {
+  .redocusaurus {
+    width: calc(97vw - var(--doc-sidebar-width));
+    margin-left: calc((98vw - (var(--doc-sidebar-width) + var(--ifm-container-width-xl))) / -2);
+  }
+  
+}
