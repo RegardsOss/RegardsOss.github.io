@@ -1,4 +1,4 @@
-const currentVersion = "1.7.1";
+const currentVersion = "1.8.0";
 
 module.exports = {
   title: "REGARDS",
