@@ -187,9 +187,21 @@ module.exports = {
            * @see https://github.com/Redocly/redoc#redoc-theme-object
            */
           redocTheme: {
+            spacing: {
+              unit: 5,
+              sectionVertical: 8,
+            },
+            menu: {
+              arrow: {
+                size: '6em'
+              }
+            },
             typography: {
               fontSize: '16px',
             },
+            breakpoints: {
+              medium: '130rem'
+            }
           },
           /**
           * Options to pass to redoc
