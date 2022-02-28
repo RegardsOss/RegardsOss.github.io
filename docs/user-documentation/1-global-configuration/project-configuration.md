@@ -16,7 +16,7 @@ Un projet REGARDS peut avoir autant de modèles de données et le catalogue peut
 
 ---
 
-## <img src="/images/user-documentation/doc-icons/right-arrow.png" alt="arrow" height="12"/> Créer un nouveau projet
+## <img src="/images/user-documentation/doc-icons/right-arrow.png" alt="arrow" height="12" width="12"/> Créer un nouveau projet
 
 Pour commencer à utiliser REGARDS, créez et configurez votre premier projet. Depuis l'interface d'administration de l'instance du système REGARDS, sélectionnez le menu ***Projects*** et cliquez sur le bouton ***Add*** en bas à droite.
 
@@ -51,7 +51,7 @@ Chaque projet du système REGARDS utilise une base de données de type postgres 
 
 Une fois cette étape terminée, vous obtiendrez la liste des connexions aux schémas de la base de données. L'état de chacune d'entre elles est indiquée par le ***Configuration status***. Après un temps d'initialisation, nécessaire à la création des schémas, toutes les connexions doivent apparaître actives.
 
-Dans le cas contraire, vous pouvez retourner sur la page listant les projets pour reconfigurer les accès à la base de données via le bouton <img src="/images/user-documentation/regards-icons/admin/link.png" alt="link" height="25"/> ***Configure database connections***.
+Dans le cas contraire, vous pouvez retourner sur la page listant les projets pour reconfigurer les accès à la base de données via le bouton <img src="/images/user-documentation/regards-icons/admin/link.png" alt="link" height="25" width="25"/> ***Configure database connections***.
 
 <div align="center">
   <img src="/images/user-documentation/v1.4/1-global-configuration/project-connexions.png" alt="project connexions" width="800"/> 
@@ -61,9 +61,9 @@ Dans le cas contraire, vous pouvez retourner sur la page listant les projets pou
 Par défaut tous les services REGARDS utiliseront la même base de données en créant un schéma dédié. Si vous voulez configurer une base de données dédiée à chaque service, il vous faut pour cela décocher la case ***Use this configuration for all microservices of the project*** en bas du formulaire de configuration.
 :::
 
-## <img src="/images/user-documentation/doc-icons/right-arrow.png" alt="arrow" height="12"/> Supprimer un projet
+## <img src="/images/user-documentation/doc-icons/right-arrow.png" alt="arrow" height="12" width="12"/> Supprimer un projet
 
-Depuis l'interface d'administration de REGARDS, vous avez la possibilité de désactiver un projet avec le bouton <img src="/images/user-documentation/regards-icons/admin/delete.png" alt="deactivated" height="25"/>***Remove*** .
+Depuis l'interface d'administration de REGARDS, vous avez la possibilité de désactiver un projet avec le bouton <img src="/images/user-documentation/regards-icons/admin/delete.png" alt="deactivated" height="25" width="25"/>***Remove*** .
 
 Le projet ne sera plus accessible depuis les diverses interfaces et le système ne traitera plus aucune action liée à celui-ci ; néanmoins les données associées seront toujours conservées en base.
 
@@ -75,11 +75,11 @@ Le projet ne sera plus accessible depuis les diverses interfaces et le système 
 Attention : Cette action est **irréversible**. Toutefois, vous pouvez recréer un nouveau projet associé à la même base de données pour récupérer les informations qu'elle contenait.
 :::
 
-## <img src="/images/user-documentation/doc-icons/right-arrow.png" alt="arrow" height="12"/> Modifier la licence d'un projet
+## <img src="/images/user-documentation/doc-icons/right-arrow.png" alt="arrow" height="12" width="12"/> Modifier la licence d'un projet
 
 La license de votre projet est un document configuré lors de la création du projet. Elle devra être acceptée par tous les utilisateurs se connectant aux interfaces web. Il est possible au cours de la vie du projet de modifier cette license. Dans ce cas, vous pouvez imposer aux utilisateurs de votre projet, d'accepter de nouveau la license lors de leur prochaine connexion.
 
-Pour modifier la licence du projet, appuyez sur le bouton <img src="/images/user-documentation/regards-icons/admin/licence.png" alt="licence" height="25"/> ***Licence changed*** associé à votre projet depuis la page ***Projects***.
+Pour modifier la licence du projet, appuyez sur le bouton <img src="/images/user-documentation/regards-icons/admin/licence.png" alt="licence" height="25" width="25"/> ***Licence changed*** associé à votre projet depuis la page ***Projects***.
 
 <div align="center">
   <img src="/images/user-documentation/v1.4/1-global-configuration/project-update-licence.png" alt="project update licence" width="800"/> 

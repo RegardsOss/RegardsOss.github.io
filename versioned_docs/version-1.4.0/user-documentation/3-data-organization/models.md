@@ -20,9 +20,9 @@ Dans la partie suivante, vous apprendrez à créer et gérer un modèle de donn�
 
 ---
 
-## <img src="/images/user-documentation/doc-icons/right-arrow.png" alt="arrow" height="12"/> Créer un modèle
+## <img src="/images/user-documentation/doc-icons/right-arrow.png" alt="arrow" height="12" width="12"/> Créer un modèle
 
-Depuis **_Data models_** et la carte **_Models_** cliquez sur le bouton <img src="/images/user-documentation/regards-icons/admin/add.png" alt="add" height="25"/> **_Add_** .
+Depuis **_Data models_** et la carte **_Models_** cliquez sur le bouton <img src="/images/user-documentation/regards-icons/admin/add.png" alt="add" height="25" width="25"/> **_Add_** .
 
 <div align="center">
   <img src="/images/user-documentation/v1.4/3-data-organization/models/model-create-model.png" alt="create model" width="800"/> 
@@ -59,7 +59,7 @@ Si vous avez choisi de créer manuellement un fragment, ou si vous voulez ajoute
 
 ### Créer des attributs du modèle
 
-Depuis **_Data models_** et la carte **_Model attributes_**, appuyez sur le bouton <img src="/images/user-documentation/regards-icons/admin/add.png" alt="add" height="25"/> **_Add_**.
+Depuis **_Data models_** et la carte **_Model attributes_**, appuyez sur le bouton <img src="/images/user-documentation/regards-icons/admin/add.png" alt="add" height="25" width="25"/> **_Add_**.
 
 Remplissez les champs :
 
@@ -87,15 +87,15 @@ Les plugins de calculs sont des algorithmiques permettant de calculer automatiqu
 - **_MaxDateComputePlugin_** trouve la date la plus récente d'un jeu de données
 - **_MinDateComputePlugin_** trouve la date la plus ancienne d'un jeu de données
 
-Pour configurer une instance de plugin de calcul, cliquez sur le bouton <img src="/images/user-documentation/regards-icons/admin/add.png" alt="add" height="25"/> **_Add_** de la carte **_Attribute calculation plugins_**. Choisissez le plugin de calcul, remplissez éventuellement les paramètres et cliquez sur le bouton **_Add_**. Vous serez ensuite redirigé vers l'écran listant toutes les configurations de plugins de calcul.
+Pour configurer une instance de plugin de calcul, cliquez sur le bouton <img src="/images/user-documentation/regards-icons/admin/add.png" alt="add" height="25" width="25"/> **_Add_** de la carte **_Attribute calculation plugins_**. Choisissez le plugin de calcul, remplissez éventuellement les paramètres et cliquez sur le bouton **_Add_**. Vous serez ensuite redirigé vers l'écran listant toutes les configurations de plugins de calcul.
 
 Vous pouvez ensuite lier ce plugin à un attribut du modèle
 
 ### Lier les attributs au modèle
 
-Revenez sur la page des modèles dans **_Data models_** et la carte **_Models_** et cliquez sur le bouton <img src="/images/user-documentation/regards-icons/admin/list.png" alt="list" height="25"/> **_List_**.
+Revenez sur la page des modèles dans **_Data models_** et la carte **_Models_** et cliquez sur le bouton <img src="/images/user-documentation/regards-icons/admin/list.png" alt="list" height="25" width="25"/> **_List_**.
 
-Vous trouverez ici la liste de tous les modèles que vous avez créés. Appuyez sur le bouton <img src="/images/user-documentation/regards-icons/admin/link.png" alt="mapping" height="25"/> **_Link attributes_** pour lier des attributs au modèle.
+Vous trouverez ici la liste de tous les modèles que vous avez créés. Appuyez sur le bouton <img src="/images/user-documentation/regards-icons/admin/link.png" alt="mapping" height="25" width="25"/> **_Link attributes_** pour lier des attributs au modèle.
 
 Vous y trouverez l'interface suivante :
 
@@ -113,9 +113,9 @@ Si votre modèle est de type **_Dataset_**, vous pourrez ajouter un plugin de ca
 
 Une fois l'ensemble des éléments ajoutés à votre modèle, il sera prêt à être utilisé.
 
-## <img src="/images/user-documentation/doc-icons/right-arrow.png" alt="arrow" height="12"/> Gérer les modèles de données
+## <img src="/images/user-documentation/doc-icons/right-arrow.png" alt="arrow" height="12" width="12"/> Gérer les modèles de données
 
-Pour gérer les modèles de données, appuyez sur le bouton <img src="/images/user-documentation/regards-icons/admin/list.png" alt="list" height="25"/> de la carte **_Models_**.
+Pour gérer les modèles de données, appuyez sur le bouton <img src="/images/user-documentation/regards-icons/admin/list.png" alt="list" height="25" width="25"/> de la carte **_Models_**.
 
 <div align="center">
   <img src="/images/user-documentation/v1.4/3-data-organization/models/model-list-model.png" alt="list" width="800"/> 
@@ -123,11 +123,11 @@ Pour gérer les modèles de données, appuyez sur le bouton <img src="/images/us
 
 Les boutons d'action vous permette d'effectuer différentes tâches :
 
-- <img src="/images/user-documentation/regards-icons/admin/download.png" alt="download" height="25"/> <b><i>Download</i></b> exporte le modèle au format XML
-- <img src="/images/user-documentation/regards-icons/admin/link.png" alt="mapping" height="25"/> <b><i>Link attributes</i></b> édite les attributs et les fragments liés au modèle
-- <img src="/images/user-documentation/regards-icons/admin/edit.png" alt="edit" height="25"/> <b><i>Edit</i></b> permet de changer la description du modèle
-- <img src="/images/user-documentation/regards-icons/admin/duplicate.png" alt="duplicate" height="25"/> <b><i>Duplicate</i></b> duplique le modèle. Attention, les plugins de calcul associés aux attributs du modèle d'origine ne seront pas copiés.
-- <img src="/images/user-documentation/regards-icons/admin/delete.png" alt="delete" height="25"/> <b><i>Delete</i></b> il n'est pour le moment pas possible de supprimer un modèle de données
+- <img src="/images/user-documentation/regards-icons/admin/download.png" alt="download" height="25" width="25"/> <b><i>Download</i></b> exporte le modèle au format XML
+- <img src="/images/user-documentation/regards-icons/admin/link.png" alt="mapping" height="25" width="25"/> <b><i>Link attributes</i></b> édite les attributs et les fragments liés au modèle
+- <img src="/images/user-documentation/regards-icons/admin/edit.png" alt="edit" height="25" width="25"/> <b><i>Edit</i></b> permet de changer la description du modèle
+- <img src="/images/user-documentation/regards-icons/admin/duplicate.png" alt="duplicate" height="25" width="25"/> <b><i>Duplicate</i></b> duplique le modèle. Attention, les plugins de calcul associés aux attributs du modèle d'origine ne seront pas copiés.
+- <img src="/images/user-documentation/regards-icons/admin/delete.png" alt="delete" height="25" width="25"/> <b><i>Delete</i></b> il n'est pour le moment pas possible de supprimer un modèle de données
 
 :::info
 Vous pouvez filtrer les modèles par nom pour les rechercher plus facilement dans la liste

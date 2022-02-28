@@ -11,7 +11,7 @@ slug: /user-guide/catalog/configuration/
 
 ---
 
-## <img src="/images/user-documentation/doc-icons/right-arrow.png" alt="arrow" height="12"/> Explorer le catalogue par défaut ***search-results***
+## <img src="/images/user-documentation/doc-icons/right-arrow.png" alt="arrow" height="12" width="12"/> Explorer le catalogue par défaut ***search-results***
 
 Il existe un catalogue par défaut permettant de faire des recherches sur vos données. Il est visible depuis l'interface ***user*** et configurable depuis l'interface ***admin***. La section ci-dessous décrit ce module vous permettant par la suite de l'adapter à vos besoins ou en créer d'autres de même type.
 
@@ -23,7 +23,7 @@ Il existe un catalogue par défaut permettant de faire des recherches sur vos do
   <img src="/images/user-documentation/v1.4/6-catalog-consultation/catalog/user/catalog-data.png" alt="create data" width="800"/> 
 </div>
  
-- Dans un autre onglet de votre navigateur, connectez-vous à l'interface ***admin***. Puis rendez-vous dans la page ***UI modules*** accessible depuis le menu ***User Interface***, la carte ***UI modules*** et le bouton ***List***. Cliquez sur le bouton <img src="/images/user-documentation/regards-icons/admin/edit.png" alt="edit" height="25"/> ***Edit*** de la ligne ***Catalog*** pour configurer le catalogue de données.
+- Dans un autre onglet de votre navigateur, connectez-vous à l'interface ***admin***. Puis rendez-vous dans la page ***UI modules*** accessible depuis le menu ***User Interface***, la carte ***UI modules*** et le bouton ***List***. Cliquez sur le bouton <img src="/images/user-documentation/regards-icons/admin/edit.png" alt="edit" height="25" width="25"/> ***Edit*** de la ligne ***Catalog*** pour configurer le catalogue de données.
 
 :::info
 A chaque fois que vous modifierez un paramètre du module ***Catalog*** au travers de l'interface ***admin***, cliquez sur le bouton ***Update module*** pour que les changements soient pris en compte. Rendez-vous ensuite sur l'interface ***user***, rafraîchissez la page de votre navigateur et observez les changements induits par vos modifications.
@@ -42,14 +42,14 @@ La première partie permet à l'identification du module, elle est commune à to
 
 ### Page Settings
 
-Vous réglez ici l'affichage de l'onglet ***Catalag*** dans l'interface <img src="/images/user-documentation/v1.4/6-catalog-consultation/catalog/user/catalog-tab.png" alt="catalog tab" height="25"/> ***user***.
+Vous réglez ici l'affichage de l'onglet ***Catalag*** dans l'interface <img src="/images/user-documentation/v1.4/6-catalog-consultation/catalog/user/catalog-tab.png" alt="catalog tab" height="25" width="25"/> ***user***.
 
 <div align="center">
   <img src="/images/user-documentation/v1.4/6-catalog-consultation/catalog/admin/page-settings.png" alt="page settings" width="800"/> 
 </div>
 
 <ul> 
-  <li> <b><i>Define as site home page</i></b> définit <b><i>Catalog</i></b> comme page d'accueil de l'interface <b><i>user</i></b> La page changera alors de nom pour <img src="/images/user-documentation/regards-icons/user/home-page.png" alt="home-page" height="25"/> <b><i>Home page</i></b> Par défaut, cette case est décochée.</li>
+  <li> <b><i>Define as site home page</i></b> définit <b><i>Catalog</i></b> comme page d'accueil de l'interface <b><i>user</i></b> La page changera alors de nom pour <img src="/images/user-documentation/regards-icons/user/home-page.png" alt="home-page" height="25" width="25"/> <b><i>Home page</i></b> Par défaut, cette case est décochée.</li>
   <li>les options <b><i>No icon</i></b> <b><i>Default module icon</i></b> et <b><i>Custom module icon</i></b> définiront l'icône qui sera affichée à côté du nom de la page.
  Si vous choisissez <b><i>Custom module icon</i></b> vous devrez sur la ligne du dessous préciser l'adresse url pour y accéder.</li>
   <li> Pour finir, définissez le nom de la page affiché en anglais et en français.</li>
@@ -159,10 +159,10 @@ Dans ***Module settings -> Data*** vous pouvez régler l'affichage de l'onglet *
   - ***Option***
     - ***Show refresh button*** affiche le bouton ***Refresh*** dans la barre ***Data***, cliquez dessus afin d'actualiser le contenu du catalogue.
     - ***Show related files download option*** affiche sur chaque ligne de donnée une icône de téléchargement pour éventuellement télécharger les fichiers liés s'ils existent.
-    - ***Show related services options*** affiche l'icône <img src="/images/user-documentation/regards-icons/admin/gear-wheel.png" alt="gear wheel" height="25"/> ***Services*** sur chaque ligne de données pour exécuter des actions supplémentaires. Vous pouvez ajouter des services de type [processing](../../data-services/processing-services/) ou de [visualisation de données](../../data-services/ui-services/).
+    - ***Show related services options*** affiche l'icône <img src="/images/user-documentation/regards-icons/admin/gear-wheel.png" alt="gear wheel" height="25" width="25"/> ***Services*** sur chaque ligne de données pour exécuter des actions supplémentaires. Vous pouvez ajouter des services de type [processing](../../data-services/processing-services/) ou de [visualisation de données](../../data-services/ui-services/).
 - ***Sorting*** choisissez le tri initial effectué sur les données. Ajoutez une ou plusieurs colonnes parmi celles affichées dans l'interface ***user*** et déterminez l'ordre d'affichage de celles-ci. La première ligne de la liste correspondra au premier tri effectué dans l'interface et ainsi de suite.
-- ***List and table*** sélectionnez les colonnes qui seront affichées dans la vue <img src="/images/user-documentation/regards-icons/user/list.png" alt="list" height="25"/> ***List*** et <img src="/images/user-documentation/regards-icons/user/table.png" alt="table" height="25"/> ***Table***.
-- ***Quicklook*** de la même manière que dans ***List and table***, choisissez les informations qui seront affichées dans la vue <img src="/images/user-documentation/regards-icons/user/quicklook.png" alt="quicklook" height="25"/> ***Quicklooks***. A la différence de la vue ***List and table***, les informations s'afficheront dans des images associées aux données.
+- ***List and table*** sélectionnez les colonnes qui seront affichées dans la vue <img src="/images/user-documentation/regards-icons/user/list.png" alt="list" height="25" width="25"/> ***List*** et <img src="/images/user-documentation/regards-icons/user/table.png" alt="table" height="25" width="25"/> ***Table***.
+- ***Quicklook*** de la même manière que dans ***List and table***, choisissez les informations qui seront affichées dans la vue <img src="/images/user-documentation/regards-icons/user/quicklook.png" alt="quicklook" height="25" width="25"/> ***Quicklooks***. A la différence de la vue ***List and table***, les informations s'afficheront dans des images associées aux données.
 - ***Map*** la vue map n'est pas configurée par défaut dans le catalogue. Elle sert à afficher les informations géographiques sur un planisphère ou un globe. Pour apprendre à le configurer, lisez le chapitre ci-dessous *Ajouter des cartes à un module ***search-results****.
 
 ##### Dataset
@@ -176,11 +176,11 @@ L'utilisation des cartes est décrite ci-dessous.
 
 ---
 
-## <img src="/images/user-documentation/doc-icons/right-arrow.png" alt="arrow" height="12"/> Ajouter des cartes à un module ***search-results***
+## <img src="/images/user-documentation/doc-icons/right-arrow.png" alt="arrow" height="12" width="12"/> Ajouter des cartes à un module ***search-results***
 
-Allez dans la page ***UI modules*** accessible depuis ***User Interface***, ***UI modules*** et le bouton <img src="/images/user-documentation/regards-icons/admin/list.png" alt="list" height="25"/> ***List***.
+Allez dans la page ***UI modules*** accessible depuis ***User Interface***, ***UI modules*** et le bouton <img src="/images/user-documentation/regards-icons/admin/list.png" alt="list" height="25" width="25"/> ***List***.
 
-Depuis cette page, copiez le module ***Catalog*** en utilisant le bouton <img src="/images/user-documentation/regards-icons/admin/duplicate.png" alt="duplicate" height="25"/> ***Duplicate***.
+Depuis cette page, copiez le module ***Catalog*** en utilisant le bouton <img src="/images/user-documentation/regards-icons/admin/duplicate.png" alt="duplicate" height="25" width="25"/> ***Duplicate***.
 
 Commencez par changer les noms suivants :
 
@@ -238,11 +238,11 @@ Cliquez alternativement sur l'icône ***3D mode*** et ***2D mode*** pour voir le
 
 ---
 
-## <img src="/images/user-documentation/doc-icons/right-arrow.png" alt="arrow" height="12"/> Configurer le module par défaut ***description***
+## <img src="/images/user-documentation/doc-icons/right-arrow.png" alt="arrow" height="12" width="12"/> Configurer le module par défaut ***description***
 
 Vous remarquerez que pour chaque donnée du catalogue, il y a un bouton d'information. En cliquant dessus, vous serez redirigé vers une page de description de la donnée. Les informations que contiennent cette page sont configurables depuis le module ***Entities description*** proposé par défaut. Il ne peut n'y en avoir qu'un seul.
 
-Pour le configurer, rendez-vous dans la page ***UI modules*** accessible depuis le menu ***User Interface***, la carte ***UI modules*** et le bouton ***List***. Cliquez ensuite sur le bouton <img src="/images/user-documentation/regards-icons/admin/edit.png" alt="edit" height="25"/> ***Edit*** de la ligne ***Entities description***.
+Pour le configurer, rendez-vous dans la page ***UI modules*** accessible depuis le menu ***User Interface***, la carte ***UI modules*** et le bouton ***List***. Cliquez ensuite sur le bouton <img src="/images/user-documentation/regards-icons/admin/edit.png" alt="edit" height="25" width="25"/> ***Edit*** de la ligne ***Entities description***.
 
 Dans ***Module settings***, vous pouvez voir quatre onglets correspond aux quatre types d'entités du catalog, ***Data objects***, ***Datasets***, ***Collections***, ***Documents***. Ils se configurent de la même manière dans la section ***Main configuration***, décochez les valeurs que vous ne souhaitez pas voir apparaître dans la description :
 

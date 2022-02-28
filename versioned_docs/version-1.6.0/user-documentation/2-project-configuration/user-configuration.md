@@ -12,7 +12,7 @@ _L'onglet ***User Interface*** vous permettra de configurer une grande variété
 
 ---
 
-### <img src="/images/user-documentation/doc-icons/right-arrow.png" alt="arrow" height="12"/> UI settings
+### <img src="/images/user-documentation/doc-icons/right-arrow.png" alt="arrow" height="12" width="12"/> UI settings
 
 <div align="center">
   <img src="/images/user-documentation/v1.4/2-project-configuration/user-interface/ui-settings/configure-ui-settings.png" alt="ui settings" width="800"/> 
@@ -29,10 +29,10 @@ L'écran **_User interface settings_** est principalement découpé en trois par
 - **_Data and documents models_**
   - dans la partie de gauche, les jeux de données de type **_Data_** de votre projet sont listés. Faites les basculer de gauche à droite, à l'aide des flèches, si vous voulez que REGARDS les considèrent comme des documents.
 
-### <img src="/images/user-documentation/doc-icons/right-arrow.png" alt="arrow" height="12"/> Theme configuration
+### <img src="/images/user-documentation/doc-icons/right-arrow.png" alt="arrow" height="12" width="12"/> Theme configuration
 
 Il existe cinq thèmes de base dans REGARDS vous permettant de modifier la couleur, l'aspect de l'interface et de ses composants ainsi que l'image de fond.
-Que ce soit dans la partie d'administration ou utilisateur, changer le thème en appuyant sur le bouton en forme de <img src="/images/user-documentation/regards-icons/admin/palette.png" alt="palette" height="25"/> palette.
+Que ce soit dans la partie d'administration ou utilisateur, changer le thème en appuyant sur le bouton en forme de <img src="/images/user-documentation/regards-icons/admin/palette.png" alt="palette" height="25" width="25"/> palette.
 
 S'ils ne vous conviennent pas, vous pouvez modifier ceux de base ou en ajouter depuis la carte **_Themes configuration_** accessible depuis le menu **_User Interface_**.
 
@@ -46,7 +46,7 @@ Pour ajouter un nouveau thème, cliquez sur le bouton **_Add a new theme_**, don
   <img src="/images/user-documentation/v1.4/2-project-configuration/user-interface/themes/add-theme.png" alt="add theme" width="800"/> 
 </div>
 
-### <img src="/images/user-documentation/doc-icons/right-arrow.png" alt="arrow" height="12"/> UI modules
+### <img src="/images/user-documentation/doc-icons/right-arrow.png" alt="arrow" height="12" width="12"/> UI modules
 
 L'interface utilisateur est basée sur l'utilisation de modules que ce soit pour consulter et gérer vos données, commander des données ou spécifier la disposition des éléments.
 
@@ -86,12 +86,12 @@ Il correspond à la barre de menu de l'interface utilisateur :
 
 Sélectionnez les cases pour afficher ou non les icônes de la partie droite du menu :
 
-- <img src="/images/user-documentation/regards-icons/user/login.png" alt="login" height="25"/> <b><i>Display authentication option</i></b>
+- <img src="/images/user-documentation/regards-icons/user/login.png" alt="login" height="25" width="25"/> <b><i>Display authentication option</i></b>
   l'icône de connexion à la page. Une fois connecté, vous pourrez éditer votre profil et réglez la fréquence à laquelle vous souhaitez recevoir des mails récapitulant les notifications non lues. Notez que vous pouvez cacher l'icône de loggin si toutes les données de votre projet sont publiques et ne requièrent aucun accès spécifique.
-- <img src="/images/user-documentation/regards-icons/user/cart.png" alt="cart" height="25"/> <b><i>Display cart link</i></b> l'icône de commande des paniers. Il faut qu'un module de type <b><i>order</i></b> ait été configuré au préalable. Voir la rubrique <a href="../../order/introduction/">commande</a> pour en apprendre plus sur les commandes de données.
-- <img src="/images/user-documentation/regards-icons/user/bell.png" alt="bell" height="25"/> <b><i>Display notification center</i></b> toute notification provenant du système se retrouvera dans la liste qui s'affichera lorsque vous cliquerez sur cet icône.
-- <img src="/images/user-documentation/regards-icons/user/flag.png" alt="flag" height="25"/> <b><i>Display Locale selector</i></b> l'icône de sélection de langue. Pour le moment, il n'y a que le français et l'anglais.
-- <img src="/images/user-documentation/regards-icons/admin/palette.png" alt="palette" height="25"/> <b><i>Display Theme selector</i></b> pour changer le thème de REGARDS
+- <img src="/images/user-documentation/regards-icons/user/cart.png" alt="cart" height="25" width="25"/> <b><i>Display cart link</i></b> l'icône de commande des paniers. Il faut qu'un module de type <b><i>order</i></b> ait été configuré au préalable. Voir la rubrique <a href="../../order/introduction/">commande</a> pour en apprendre plus sur les commandes de données.
+- <img src="/images/user-documentation/regards-icons/user/bell.png" alt="bell" height="25" width="25"/> <b><i>Display notification center</i></b> toute notification provenant du système se retrouvera dans la liste qui s'affichera lorsque vous cliquerez sur cet icône.
+- <img src="/images/user-documentation/regards-icons/user/flag.png" alt="flag" height="25" width="25"/> <b><i>Display Locale selector</i></b> l'icône de sélection de langue. Pour le moment, il n'y a que le français et l'anglais.
+- <img src="/images/user-documentation/regards-icons/admin/palette.png" alt="palette" height="25" width="25"/> <b><i>Display Theme selector</i></b> pour changer le thème de REGARDS
 
 Dans la partie **_browsing_**, vous avez la possibilité de créer des liens et de modifier la disposition des icônes de l'interface utilisateur.
 
@@ -155,7 +155,7 @@ Vous pouvez par exemple afficher la documentation REGARDS dans l'interface utili
 Le site en question doit explicitement autoriser l'ouverture de ses ressources à des utilisateurs extérieurs (CORS) car votre utilisateur va accéder à cette ressource en utilisant un autre nom de domaine que celui qui héberge la ressource en question.
 :::
 
-### <img src="/images/user-documentation/doc-icons/right-arrow.png" alt="arrow" height="12"/> Plugins configuration
+### <img src="/images/user-documentation/doc-icons/right-arrow.png" alt="arrow" height="12" width="12"/> Plugins configuration
 
 Il existe deux types de plugins utilisés par l'interface utilisateur.
 

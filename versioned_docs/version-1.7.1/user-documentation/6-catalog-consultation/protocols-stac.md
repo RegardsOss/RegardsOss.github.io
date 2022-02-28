@@ -6,7 +6,7 @@ slug: /user-guide/catalog/protocols/stac
 
 *Dans cette page, vous apprendrez à ajouter à REGARDS le protocole de recherche standardisé STAC.*
 
-## <img src="/images/user-documentation/doc-icons/right-arrow.png" alt="arrow" height="12"/> STAC
+## <img src="/images/user-documentation/doc-icons/right-arrow.png" alt="arrow" height="12" width="12"/> STAC
 
 ### Description
 
@@ -51,7 +51,7 @@ Les collections dynamiques sont entièrement configurées dans la configuration 
 
 ### Configuration 
 
-Cliquez sur le bouton <img src="/images/user-documentation/regards-icons/admin/add.png" alt="add" height="25"/> ***Add*** de la carte ***Search protocols***.
+Cliquez sur le bouton <img src="/images/user-documentation/regards-icons/admin/add.png" alt="add" height="25" width="25"/> ***Add*** de la carte ***Search protocols***.
 Vous serez redirigé vers l'écran ***Configure search protocol***, renseignez les paramètres suivants :
 
 - ***Label*** la description de votre protocole qui apparaîtra dans la liste des protocoles

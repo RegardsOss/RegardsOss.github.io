@@ -16,7 +16,7 @@ Pour pouvoir commander des données, vous aurez besoin de configurer deux types 
 - ***order-cart***, un panier dans lequel vous pourrez ajouter les données que vous souhaitez commander et éventuellement décider de leur appliquer des traitements.
 - ***order-history***, pour retrouver l'état d'avancement de la commande et l'historique de vos commandes
 
-## <img src="/images/user-documentation/doc-icons/right-arrow.png" alt="arrow" height="12"/> Configurer les modules de type ***order***
+## <img src="/images/user-documentation/doc-icons/right-arrow.png" alt="arrow" height="12" width="12"/> Configurer les modules de type ***order***
 
 Depuis l'IHM d'administration du projet, cliquez sur l'onglet ***User Interface*** du menu, puis sur le bouton ***Add*** de la carte ***UI modules***.
 
@@ -51,10 +51,10 @@ Créer le module ***order-cart***
 Éditez le module ***Menu*** accessible depuis la liste des UI modules.
 
 - Vérifiez que la case ***Display cart link*** est bien cochée. Si ce n'est pas le cas, cochez-la.
-- Editez votre module de type ***order-cart*** et sélectionnez la visibilité cachée (***Display*** > ***Never***). Ainsi votre module s'affichera uniquement depuis l'icône cart <img src="/images/user-documentation/regards-icons/user/cart.png" alt="cart" height="25"/>
+- Editez votre module de type ***order-cart*** et sélectionnez la visibilité cachée (***Display*** > ***Never***). Ainsi votre module s'affichera uniquement depuis l'icône cart <img src="/images/user-documentation/regards-icons/user/cart.png" alt="cart" height="25" width="25"/>
 - Cliquez sur le bouton ***Update module***
 
-## <img src="/images/user-documentation/doc-icons/right-arrow.png" alt="arrow" height="12"/> Commander des données
+## <img src="/images/user-documentation/doc-icons/right-arrow.png" alt="arrow" height="12" width="12"/> Commander des données
 
 Accédez à l'interface user depuis l'adresse `http://<regards host>/user/<project>`, les modules ***order-history*** et ***order-cart*** sont à présent disponibles. Commandez les données depuis un module de type ***[search-result](../../catalog/configuration/)***, appelé ***Catalog*** dans l'image ci-dessous.
 

@@ -4,11 +4,11 @@ title: Configure ingestion chains
 slug: /user-guide/import-data/oais-files/configure-ingestion-chains/
 ---
 
-_Pour configurer les chaînes d'ingestion, allez dans le menu ***Add data***, dans la carte ***Products Manager (OAIS)*** et cliquez sur le bouton <img src="/images/user-documentation/regards-icons/admin/configure.png" alt="configure" height="25"/> ***Configure***. Appuyez ensuite sur ***Create new Chain***._
+_Pour configurer les chaînes d'ingestion, allez dans le menu ***Add data***, dans la carte ***Products Manager (OAIS)*** et cliquez sur le bouton <img src="/images/user-documentation/regards-icons/admin/configure.png" alt="configure" height="25" width="25"/> ***Configure***. Appuyez ensuite sur ***Create new Chain***._
 
 ---
 
-## <img src="/images/user-documentation/doc-icons/right-arrow.png" alt="arrow" height="12"/> Créer une chaîne d'ingestion
+## <img src="/images/user-documentation/doc-icons/right-arrow.png" alt="arrow" height="12" width="12"/> Créer une chaîne d'ingestion
 
 <div align="center">
     <img src="/images/user-documentation/v1.4/4_1-ingest/ingest-add-chain.png" alt="add chain" width="800"/> 
@@ -49,11 +49,11 @@ Complétez les champs suivants :
 - Vérifiez la création de votre chaîne dans la liste
 - Vous pouvez désormais ***[soumettre des SIPs](../submit-products/)*** avec la chaîne que vous venez de créer.
 
-## <img src="/images/user-documentation/doc-icons/right-arrow.png" alt="arrow" height="12"/> Gérer les chaînes d'ingestion
+## <img src="/images/user-documentation/doc-icons/right-arrow.png" alt="arrow" height="12" width="12"/> Gérer les chaînes d'ingestion
 
 Plusieurs actions vous permettent de gérer les chaînes d'ingestion :
 
-- Vous pouvez modifier les informations liées à une chaîne en cliquant sur le bouton <img src="/images/user-documentation/regards-icons/admin/edit.png" alt="edit" height="25"/> ***Edit***
+- Vous pouvez modifier les informations liées à une chaîne en cliquant sur le bouton <img src="/images/user-documentation/regards-icons/admin/edit.png" alt="edit" height="25" width="25"/> ***Edit***
 - Vous avez la possibilité de télécharger la chaîne sous forme de fichier JSON. Vous pourrez ainsi importer cette chaîne dans un autre projet REGARDS ou la conserver.
 - Les chaînes peuvent être supprimées à l'exception de la ***DefaultProcessingChain*** qui est celle par défaut.
 

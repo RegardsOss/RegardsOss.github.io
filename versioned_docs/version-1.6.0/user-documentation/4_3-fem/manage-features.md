@@ -8,7 +8,7 @@ slug: /user-guide/import-data/fem/manage-features/
 
 ---
 
-## <img src="/images/user-documentation/doc-icons/right-arrow.png" alt="arrow" height="12"/> Créer des features
+## <img src="/images/user-documentation/doc-icons/right-arrow.png" alt="arrow" height="12" width="12"/> Créer des features
 
 :::caution
 Avant de pouvoir importer des features dans REGARDS, vous devrez obligatoirement avoir [créé un modèle de données](../../../data-organization/models/) de type ***Data*** pour qu'elles puissent être interprétées.
@@ -43,7 +43,7 @@ Il vous expliquera comment :
 
 Pour développer des plugins de création de features par extraction de données, suivez le tutoriel [Feature Factory Plugins](../../../../development/backend/services/fem/plugins/feature-factory/)
 
-## <img src="/images/user-documentation/doc-icons/right-arrow.png" alt="arrow" height="12"/> Gérer des features
+## <img src="/images/user-documentation/doc-icons/right-arrow.png" alt="arrow" height="12" width="12"/> Gérer des features
 
 Les ***features*** aussi appelés ***produits GeoJson*** importés sont visibles dans l'IHM admin depuis le menu **Add data** et la carte **Products Manager (GeoJson)**.
 

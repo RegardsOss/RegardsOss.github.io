@@ -11,10 +11,10 @@ slug: /user-guide/catalog/protocols/introduction
 
 ---
 
-## <img src="/images/user-documentation/doc-icons/right-arrow.png" alt="arrow" height="12"/> Introduction
+## <img src="/images/user-documentation/doc-icons/right-arrow.png" alt="arrow" height="12" width="12"/> Introduction
 
 La gestion des protocoles de recherche est accessible depuis la carte ***Search protocols*** du menu ***Catalog Access***.
-Cliquez sur le bouton <img src="/images/user-documentation/regards-icons/admin/list.png" alt="list" height="25"/> ***List*** de la carte ***Search protocols*** .
+Cliquez sur le bouton <img src="/images/user-documentation/regards-icons/admin/list.png" alt="list" height="25" width="25"/> ***List*** de la carte ***Search protocols*** .
 
 <div align="center">
   <img src="/images/user-documentation/v1.4/6-catalog-consultation/protocols/protocol-update.png" alt="protocol list" width="800"/> 

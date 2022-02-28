@@ -12,7 +12,7 @@ _Définissez des espaces de stockage pour conserver les données créées dans R
 
 ---
 
-### <img src="/images/user-documentation/doc-icons/right-arrow.png" alt="arrow" height="12"/> Types de stockage
+### <img src="/images/user-documentation/doc-icons/right-arrow.png" alt="arrow" height="12" width="12"/> Types de stockage
 
 Dans REGARDS, un espace de stockage est un support dans lequel vos données sont sauvegardées ou référencées.
 
@@ -23,9 +23,9 @@ Il en existe plusieurs types :
 - ***Offline*** lorsque l'accès aux fichiers n'est pas possible.
 - ***Cache*** est utilisé pour récupérer les fichiers issus d'un téléchargement ***Nearline***.
 
-Pour configurer des espaces de stockages accédez à l'écran ***Configure data storage locations*** depuis le menu ***Add data***, la carte ***Storage*** et le bouton <img src="/images/user-documentation/regards-icons/admin/location.png" alt="location" height="25"/> ***Configure locations***.
+Pour configurer des espaces de stockages accédez à l'écran ***Configure data storage locations*** depuis le menu ***Add data***, la carte ***Storage*** et le bouton <img src="/images/user-documentation/regards-icons/admin/location.png" alt="location" height="25" width="25"/> ***Configure locations***.
 
-### <img src="/images/user-documentation/doc-icons/right-arrow.png" alt="arrow" height="12"/> Créer un espace de stockage
+### <img src="/images/user-documentation/doc-icons/right-arrow.png" alt="arrow" height="12" width="12"/> Créer un espace de stockage
 
 Appuyez sur le bouton ***Create a new storage*** depuis l'écran ***Configure data storage locations***.
 
@@ -45,7 +45,7 @@ Si aucun plugin ne correspond à vos besoins, vous avez la possibilité d'en dé
 
 Une fois ces étapes terminées, appuyez sur le bouton ***Create***. Votre nouvel espace est désormais prêt à être utilisé.
 
-### <img src="/images/user-documentation/doc-icons/right-arrow.png" alt="arrow" height="12"/> Gérer vos espaces de stockage
+### <img src="/images/user-documentation/doc-icons/right-arrow.png" alt="arrow" height="12" width="12"/> Gérer vos espaces de stockage
 
 Vous pouvez surveiller un certain nombre de paramètres depuis l'écran ***Configure data storage locations***.
 
@@ -69,8 +69,8 @@ Sur chaque ligne d'espace de stockage vous trouverez :
 
 Il y a également des boutons d'actions :
 
-- <img src="/images/user-documentation/regards-icons/admin/edit.png" alt="edit" height="25"/> <b><i>Edit configuration</i></b> pour modifier les paramètres de stockage
-- <img src="/images/user-documentation/regards-icons/admin/transfer-files.png" alt="transfer" height="25"/> <b><i>Copy files to another storage</i></b> pour copier tous les fichiers de l'espace de stockage vers un autre
-- <img src="/images/user-documentation/regards-icons/admin/arrow-up.png" alt="arrow up" height="25"/> <img src="/images/user-documentation/regards-icons/admin/arrow-down.png" alt="arrow down" height="25"/> permet de régler la priorité d'action sur un espace de stockage. Cela s'applique dans le cas où une même donnée serait stockée sur plusieurs espaces
-- <img src="/images/user-documentation/regards-icons/admin/empty-files.png" alt="empty" height="25"/> <b><i>Delete storage's files</i></b> pour vider l'espace de stockage
-- <img src="/images/user-documentation/regards-icons/admin/delete.png" alt="delete" height="25"/> <b><i>Delete this item</i></b> pour supprimer l'espace de stockage
+- <img src="/images/user-documentation/regards-icons/admin/edit.png" alt="edit" height="25" width="25"/> <b><i>Edit configuration</i></b> pour modifier les paramètres de stockage
+- <img src="/images/user-documentation/regards-icons/admin/transfer-files.png" alt="transfer" height="25" width="25"/> <b><i>Copy files to another storage</i></b> pour copier tous les fichiers de l'espace de stockage vers un autre
+- <img src="/images/user-documentation/regards-icons/admin/arrow-up.png" alt="arrow up" height="25" width="25"/> <img src="/images/user-documentation/regards-icons/admin/arrow-down.png" alt="arrow down" height="25" width="25"/> permet de régler la priorité d'action sur un espace de stockage. Cela s'applique dans le cas où une même donnée serait stockée sur plusieurs espaces
+- <img src="/images/user-documentation/regards-icons/admin/empty-files.png" alt="empty" height="25" width="25"/> <b><i>Delete storage's files</i></b> pour vider l'espace de stockage
+- <img src="/images/user-documentation/regards-icons/admin/delete.png" alt="delete" height="25" width="25"/> <b><i>Delete this item</i></b> pour supprimer l'espace de stockage

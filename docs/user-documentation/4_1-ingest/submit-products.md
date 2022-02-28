@@ -8,7 +8,7 @@ slug: /user-guide/import-data/oais-files/submit-products/
 
 ---
 
-## <img src="/images/user-documentation/doc-icons/right-arrow.png" alt="arrow" height="12"/> Pré-requis
+## <img src="/images/user-documentation/doc-icons/right-arrow.png" alt="arrow" height="12" width="12"/> Pré-requis
 
 Vous devez importer des fichiers avec un format spécifique pour qu'ils puissent être interprétés et traités par REGARDS.
 Pour construire votre fichier, lisez la page [REGARDS OAIS implementation](../../../../development/appendices/oais/).
@@ -20,9 +20,9 @@ Un fichier de dépôt est composé de deux parties principales :
 
 Une fois, ce fichier créé, vous pourrez le soumettre à REGARDS.
 
-## <img src="/images/user-documentation/doc-icons/right-arrow.png" alt="arrow" height="12"/> Soumettre des SIPs
+## <img src="/images/user-documentation/doc-icons/right-arrow.png" alt="arrow" height="12" width="12"/> Soumettre des SIPs
 
-Cliquez sur le bouton <img src="/images/user-documentation/regards-icons/admin/add.png" alt="add products" height="25"/> ***Submit products*** de la carte ***Products Manager (OAIS)*** accessible depuis ***Add data***.
+Cliquez sur le bouton <img src="/images/user-documentation/regards-icons/admin/add.png" alt="add products" height="25" width="25"/> ***Submit products*** de la carte ***Products Manager (OAIS)*** accessible depuis ***Add data***.
 
 - Depuis l'écran ***Data submission***, appuyez sur le bouton ***Select file containing data to submit*** et choisissez le fichier JSON que vous venez de créer.
 

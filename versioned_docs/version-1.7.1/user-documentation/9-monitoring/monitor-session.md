@@ -12,7 +12,7 @@ _Si vous ne connaissez pas un de ces concepts, vous pouvez lire les rubriques su
 - _[GeoJSON Feature Archive](../import-data/fem/introduction/)_
 - _[Build your catalog](../crawler/introduction/)_
 
-Depuis **Add data** et la carte **Dashboard**, cliquez le bouton <img src="/images/user-documentation/regards-icons/admin/monitor.png" alt="monitor" height="25"/> **Display dashboard**.
+Depuis **Add data** et la carte **Dashboard**, cliquez le bouton <img src="/images/user-documentation/regards-icons/admin/monitor.png" alt="monitor" height="25" width="25"/> **Display dashboard**.
 
 
 <img src="/images/user-documentation/regards-icons/admin/menu-add-data.png" alt="menu" height="200"/>

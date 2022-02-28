@@ -12,9 +12,9 @@ _Gérez les utilisateurs du projet depuis le menu ***Users*** de l'administratio
 
 ---
 
-### <img src="/images/user-documentation/doc-icons/right-arrow.png" alt="arrow" height="12"/> Configurer la validation des comptes utilisateur
+### <img src="/images/user-documentation/doc-icons/right-arrow.png" alt="arrow" height="12" width="12"/> Configurer la validation des comptes utilisateur
 
-Si vous êtes administrateur du projet, vous pouvez paramétrer le type de validation utilisé lors de la création de compte par des utilisateurs en cliquant sur le bouton <img src="/images/user-documentation/regards-icons/admin/gear-wheel.png" alt="settings" height="25"/> **_Settings_** accessible depuis la carte **_Users_** du menu **_Users_**.
+Si vous êtes administrateur du projet, vous pouvez paramétrer le type de validation utilisé lors de la création de compte par des utilisateurs en cliquant sur le bouton <img src="/images/user-documentation/regards-icons/admin/gear-wheel.png" alt="settings" height="25" width="25"/> **_Settings_** accessible depuis la carte **_Users_** du menu **_Users_**.
 
 <div align="center">
   <img src="/images/user-documentation/v1.4/2-project-configuration/users/user-settings.png" alt="user settings" width="800"/>
@@ -37,7 +37,7 @@ Appuyez ensuite sur le bouton **_Confirm_** pour valider la configuration.
 Ce système de validation est également mis en place au niveau des [comptes utilisateurs d'instance](../../global-configuration/users/). Il peut donc y avoir deux validations nécessaires, une niveau instance et une niveau projet.
 :::
 
-### <img src="/images/user-documentation/doc-icons/right-arrow.png" alt="arrow" height="12"/> Création de comptes
+### <img src="/images/user-documentation/doc-icons/right-arrow.png" alt="arrow" height="12" width="12"/> Création de comptes
 
 #### Création de compte par un utilisateur
 
@@ -73,7 +73,7 @@ Remplissez les champs suivants :
 
 Dans la partie Groups, associez l'utilisateur à des groupes d'accès aux données en appuyant sur le bouton **_Add_**. Pour en savoir plus, reportez-vous à la page [Configure data access rights](../../data-organization/data-access-rights/)
 
-### <img src="/images/user-documentation/doc-icons/right-arrow.png" alt="arrow" height="12"/> Gestion des utilisateurs
+### <img src="/images/user-documentation/doc-icons/right-arrow.png" alt="arrow" height="12" width="12"/> Gestion des utilisateurs
 
 #### Configuration des utilisateurs
 
@@ -82,7 +82,7 @@ Lorsqu'un utilisateur demande l'accès au projet, il est automatiquement associ�
 #### Rôles des utilisateurs
 
 Les rôles utilisateur permettent de définir les fonctionnalités accessibles pour un utilisateur donné.
-En cliquant sur le bouton <img src="/images/user-documentation/regards-icons/admin/list.png" alt="list" height="25"/> **_List_** de la carte **_Roles_**, vous verrez les cinq rôles proposés par défaut :
+En cliquant sur le bouton <img src="/images/user-documentation/regards-icons/admin/list.png" alt="list" height="25" width="25"/> **_List_** de la carte **_Roles_**, vous verrez les cinq rôles proposés par défaut :
 
 - **_Public_** : attribué aux utilisateurs non connectés. Les utilisateurs de ce rôle n'ont qu'un accès de consultation.
 - **_Registered users_** : attribué aux utilisateurs enregistrés. Les utilisateurs de ce rôle peuvent consulter, télécharger et commander des données.
@@ -96,7 +96,7 @@ Vous pouvez décider d'ajouter des rôles supplémentaires, en reprenant les con
   <img src="/images/user-documentation/v1.4/2-project-configuration/users/add-role.png" alt="add role" width="800"/>
 </div>
 
-Retournez ensuite dans la page listant les rôles et appuyez sur le bouton <img src="/images/user-documentation/regards-icons/admin/link.png" alt="link" height="25"/> **_Configure resources access_** du rôle en question.
+Retournez ensuite dans la page listant les rôles et appuyez sur le bouton <img src="/images/user-documentation/regards-icons/admin/link.png" alt="link" height="25" width="25"/> **_Configure resources access_** du rôle en question.
 
 <div align="center">
   <img src="/images/user-documentation/v1.4/2-project-configuration/users/role-list.png" alt="role list" width="800"/>
@@ -118,15 +118,15 @@ Pour savoir comment gérer les accès aux jeux de données, référez-vous à la
 Dans la liste **_Users_** accessible depuis la carte **_Users_**, vous pourrez effectuer de nombreuses actions sur chacun des utilisateurs.
 
 - <img src="/images/user-documentation/regards-icons/admin/quota.png" alt="quota" height="30"/> <b><i>Set max quota</i></b> vous permet de définir les quotas de téléchargement associés à l'utilisateur
-- <img src="/images/user-documentation/regards-icons/admin/enable-user.png" alt="enable user" height="25"/> <b><i>Enable access</i></b> pour autoriser l'utilisateur à accéder au projet
-- <img src="/images/user-documentation/regards-icons/admin/disable-user.png" alt="disable user" height="25"/> <b><i>Disable access</i></b> pour interdire l'accès au projet à l'utilisateur
-- <img src="/images/user-documentation/regards-icons/admin/edit.png" alt="edit" height="25"/> <b><i>Edit</i></b> pour :
+- <img src="/images/user-documentation/regards-icons/admin/enable-user.png" alt="enable user" height="25" width="25"/> <b><i>Enable access</i></b> pour autoriser l'utilisateur à accéder au projet
+- <img src="/images/user-documentation/regards-icons/admin/disable-user.png" alt="disable user" height="25" width="25"/> <b><i>Disable access</i></b> pour interdire l'accès au projet à l'utilisateur
+- <img src="/images/user-documentation/regards-icons/admin/edit.png" alt="edit" height="25" width="25"/> <b><i>Edit</i></b> pour :
 
   - Modifier les informations personnelles d'un utilisateur
   - Modifier le rôle d'un utilisateur
   - Modifier les groupes d'accès associés à l'utilisateur
 
-- <img src="/images/user-documentation/regards-icons/admin/delete.png" alt="delete" height="25"/> <b><i>Remove</i></b> pour supprimer un utilisateur
+- <img src="/images/user-documentation/regards-icons/admin/delete.png" alt="delete" height="25" width="25"/> <b><i>Remove</i></b> pour supprimer un utilisateur
 
 <div align="center">
   <img src="/images/user-documentation/v1.4/2-project-configuration/users/user-list.png" alt="user settings" width="800"/>

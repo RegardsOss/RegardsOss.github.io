@@ -11,7 +11,7 @@ slug: /user-guide/data-services/ui-services/
 
 ---
 
-## <img src="/images/user-documentation/doc-icons/right-arrow.png" alt="arrow" height="12"/> Configuration des services IHM
+## <img src="/images/user-documentation/doc-icons/right-arrow.png" alt="arrow" height="12" width="12"/> Configuration des services IHM
 
 La liste des services IHM est configurable dans la partie administration de votre projet, depuis le menu ***User Interface*** et la carte ***Services configuration***.
 
@@ -43,11 +43,11 @@ Chaque bloc représente un type de service. L'écran accessible depuis le bouton
 
 Vous aurez la possibilité d'activer ou non une configuration du service, et de l'associer ou non à tous les jeux de données existant de votre projet. Vous pouvez également activer ce plugin pour un ou plusieurs jeux de données directement depuis le jeu de données, pour cela suivez l'étape 5 de la section [création d'un jeu de données](../../data-organization/collections-datasets/).
 
-## <img src="/images/user-documentation/doc-icons/right-arrow.png" alt="arrow" height="12"/> Application des services IHM
+## <img src="/images/user-documentation/doc-icons/right-arrow.png" alt="arrow" height="12" width="12"/> Application des services IHM
 
 Les services IHM sont applicables sur les données du catalogue accessible depuis `http://<regards host>/user/<project>`.
 
-Sur chaque donnée, vous pouvez appuyer sur le bouton <img src="/images/user-documentation/regards-icons/admin/gear-wheel.png" alt="gear wheel" height="25"/> ***Services*** pour voir les services associés. Cliquez ensuite sur le service IHM que vous souhaitez activer. Vous pouvez également les appliquer sur un groupe en cochant plusieurs cases, puis en appuyant sur le bouton qui s'affichera dans la barre au-dessus des données. Cela est uniquement possible lorsque le service le permet.
+Sur chaque donnée, vous pouvez appuyer sur le bouton <img src="/images/user-documentation/regards-icons/admin/gear-wheel.png" alt="gear wheel" height="25" width="25"/> ***Services*** pour voir les services associés. Cliquez ensuite sur le service IHM que vous souhaitez activer. Vous pouvez également les appliquer sur un groupe en cochant plusieurs cases, puis en appuyant sur le bouton qui s'affichera dans la barre au-dessus des données. Cela est uniquement possible lorsque le service le permet.
 
 <div align="center">
   <img src="/images/user-documentation/v1.4/7-data-services/ui-services/catalog-ui-services.png" alt="services" width="800"/> 

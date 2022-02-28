@@ -18,11 +18,11 @@ slug: /user-guide/data-organization/collections-datasets/
 
 ---
 
-## <img src="/images/user-documentation/doc-icons/right-arrow.png" alt="arrow" height="12"/> Créer une collection
+## <img src="/images/user-documentation/doc-icons/right-arrow.png" alt="arrow" height="12" width="12"/> Créer une collection
 
 Avant de créer une collection, vous devez avoir créé un [modèle de données](../models/) de type ***Collection***.
 
-Accédez à l'onglet ***Collections & Datasets***, depuis la carte ***Collections***, appuyez sur le bouton <img src="/images/user-documentation/regards-icons/admin/add.png" alt="add" height="25"/> ***Add*** pour créer votre première collection de données.
+Accédez à l'onglet ***Collections & Datasets***, depuis la carte ***Collections***, appuyez sur le bouton <img src="/images/user-documentation/regards-icons/admin/add.png" alt="add" height="25" width="25"/> ***Add*** pour créer votre première collection de données.
 
 Il y a trois étapes principales.
 
@@ -68,7 +68,7 @@ Une fois que vous avez terminé, appuyez sur le bouton ***Save*** vous serez aut
 
 ---
 
-## <img src="/images/user-documentation/doc-icons/right-arrow.png" alt="arrow" height="12"/> Créer un jeu de données
+## <img src="/images/user-documentation/doc-icons/right-arrow.png" alt="arrow" height="12" width="12"/> Créer un jeu de données
 
 Avant de construire un jeu de données, vous devez avoir :
 
@@ -128,6 +128,6 @@ Vous pourrez lier ce jeu de données à une ou plusieurs collections. Pour ce fa
 **Etape 5. Ajouter éventuellement des plugins, des services ihm ou des traitements associés à votre jeu**
 
 Sélectionnez ici les [services de traitement](../../data-services/processing-services/), les [services ihm](../../data-services/ui-services/) ou les [traitements](../../order/processing/) qui seront associés à toutes les données appartenant à votre jeu.
-Si vous n'avez pas encore créé ces fonctionnalités, vous pourrez toujours le faire plus tard, et ré-éditer ce jeu en cliquant sur le bouton <img src="/images/user-documentation/regards-icons/admin/edit.png" alt="edit" height="25"/> ***Edit*** de votre jeu de données accessible depuis l'écran ***Datasets*** (bouton <img src="/images/user-documentation/regards-icons/admin/list.png" alt="list" height="25"/> ***List*** de la carte ***Datasets***).
+Si vous n'avez pas encore créé ces fonctionnalités, vous pourrez toujours le faire plus tard, et ré-éditer ce jeu en cliquant sur le bouton <img src="/images/user-documentation/regards-icons/admin/edit.png" alt="edit" height="25" width="25"/> ***Edit*** de votre jeu de données accessible depuis l'écran ***Datasets*** (bouton <img src="/images/user-documentation/regards-icons/admin/list.png" alt="list" height="25" width="25"/> ***List*** de la carte ***Datasets***).
 
 Une fois toutes ces étapes effectuées, appuyez sur le bouton ***Finish***. Votre jeu de données est à présent visible dans la liste.

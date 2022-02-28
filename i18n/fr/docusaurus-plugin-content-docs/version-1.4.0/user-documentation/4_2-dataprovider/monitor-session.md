@@ -4,7 +4,7 @@ title: Monitor session acquisitions
 slug: /user-guide/import-data/scanned-files/monitor-sessions/
 ---
 
-L'écran de suivi des sessions est accessible depuis ***Add data***, la carte ***Data acquisition*** et le bouton <img src="/images/user-documentation/regards-icons/admin/monitor.png" alt="monitor" height="25"/> ***Acquisition sessions***
+L'écran de suivi des sessions est accessible depuis ***Add data***, la carte ***Data acquisition*** et le bouton <img src="/images/user-documentation/regards-icons/admin/monitor.png" alt="monitor" height="25" width="25"/> ***Acquisition sessions***
 
 ---
 
@@ -30,7 +30,7 @@ Vous trouverez les renseignements suivants sur cet écran.
 - ***Archived products*** détaille la génération et l'archivage des AIPs issues des SIPs
 - ***Indexed products*** donne le nombre de produits indexés dans le catalogue. Cette rubrique peut être vide si vous n'avez pas configuré de source de données à aspirer.
 
- Ce bouton <img src="/images/user-documentation/regards-icons/admin/action.png" alt="action" height="25"/> présent dans certaines cases vous permet d'effectuer des actions supplémentaires qui s'afficheront lorsque vous cliquerez dessus. Il vous sera particulièrement utile dans le cas où une erreur surviendrait lors de l'archivage.
+ Ce bouton <img src="/images/user-documentation/regards-icons/admin/action.png" alt="action" height="25" width="25"/> présent dans certaines cases vous permet d'effectuer des actions supplémentaires qui s'afficheront lorsque vous cliquerez dessus. Il vous sera particulièrement utile dans le cas où une erreur surviendrait lors de l'archivage.
 
 - Dans la case ***Session*** :
   - ***Delete session product***. Pour pouvoir supprimer les produits liés à cette session, une fois cette action effectuée si vous cliquez de nouveau sur le bouton en pointillés vous pourrez supprimer la session. Attention ces actions sont définitives.

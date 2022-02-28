@@ -4,9 +4,9 @@ title: Manage acquisition chains
 slug: /user-guide/import-data/scanned-files/manage-acquisition-chains/
 ---
 
-_Pour configurer les chaînes d'acquisition, allez dans le menu ***Add data***, dans la carte ***Data acquisition*** et cliquez sur le bouton <img src="/images/user-documentation/regards-icons/admin/configure.png" alt="configure" height="25"/> ***Acquisition chains***._
+_Pour configurer les chaînes d'acquisition, allez dans le menu ***Add data***, dans la carte ***Data acquisition*** et cliquez sur le bouton <img src="/images/user-documentation/regards-icons/admin/configure.png" alt="configure" height="25" width="25"/> ***Acquisition chains***._
 
-## <img src="/images/user-documentation/doc-icons/right-arrow.png" alt="arrow" height="12"/> Créer une chaîne d'acquisition
+## <img src="/images/user-documentation/doc-icons/right-arrow.png" alt="arrow" height="12" width="12"/> Créer une chaîne d'acquisition
 
 <div align="center">
     <img src="/images/user-documentation/v1.4/4_2-dataprovider/acquisition-add-chain.png" alt="add chain" width="800"/> 
@@ -113,7 +113,7 @@ Vous pourrez ensuite suivre ce processus en temps réel en cliquant sur le bouto
 
 ---
 
-## <img src="/images/user-documentation/doc-icons/right-arrow.png" alt="arrow" height="12"/> Gérer les chaînes d'acquisition
+## <img src="/images/user-documentation/doc-icons/right-arrow.png" alt="arrow" height="12" width="12"/> Gérer les chaînes d'acquisition
 
 > Plusieurs actions vous permettent de gérer les chaînes d'acquisition.
 
@@ -124,10 +124,10 @@ Par groupe :
 Par ligne :
 
 - <img src="/images/user-documentation/regards-icons/admin/session.png" alt="session" height="22"/> Vous pouvez retrouver la ou les sessions d'acquisition liées à votre chaîne. Voir <a href="../monitor-sessions/">Monitor session</a>.
-- <img src="/images/user-documentation/regards-icons/admin/stop.png" alt="stop" height="25"/> Arrêter la génération de produits en cours en appuyant sur le bouton stop
-- <img src="/images/user-documentation/regards-icons/admin/play.png" alt="play" height="25"/> Modifier les informations liées à une chaîne en cliquant sur le bouton en forme de crayon
-- <img src="/images/user-documentation/regards-icons/admin/duplicate.png" alt="duplicate" height="25"/> Dupliquer une chaîne d'acquisition si votre nouvelle chaîne contient des informations semblables
-- <img src="/images/user-documentation/regards-icons/admin/delete.png" alt="delete" height="25"/> Supprimer une chaîne d'acquisition. Les chaînes toujours actives ne peuvent pas être supprimées, désactivez la chaîne à l'aide du toggle button <img src="/images/user-documentation/regards-icons/admin/toggle-button.png" alt="toggle button" height="25"/> pour effectuer cette opération.
+- <img src="/images/user-documentation/regards-icons/admin/stop.png" alt="stop" height="25" width="25"/> Arrêter la génération de produits en cours en appuyant sur le bouton stop
+- <img src="/images/user-documentation/regards-icons/admin/play.png" alt="play" height="25" width="25"/> Modifier les informations liées à une chaîne en cliquant sur le bouton en forme de crayon
+- <img src="/images/user-documentation/regards-icons/admin/duplicate.png" alt="duplicate" height="25" width="25"/> Dupliquer une chaîne d'acquisition si votre nouvelle chaîne contient des informations semblables
+- <img src="/images/user-documentation/regards-icons/admin/delete.png" alt="delete" height="25" width="25"/> Supprimer une chaîne d'acquisition. Les chaînes toujours actives ne peuvent pas être supprimées, désactivez la chaîne à l'aide du toggle button <img src="/images/user-documentation/regards-icons/admin/toggle-button.png" alt="toggle button" height="25" width="25"/> pour effectuer cette opération.
 
 Vous pouvez également utiliser les outils de filtrage pour rechercher plus simplement des chaînes. Pour cela, sélectionnez le filtre désiré et appuyez sur le bouton ***Apply filters*** pour l'appliquer. Vous pourrez par la suite vider les filtres en appuyant sur ***Clear***.
 

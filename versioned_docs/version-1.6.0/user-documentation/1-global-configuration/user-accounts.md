@@ -13,7 +13,7 @@ Depuis le menu ***Account*** de l'interface d'administration, vous pourrez voir 
 
 ---
 
-### <img src="/images/user-documentation/doc-icons/right-arrow.png" alt="arrow" height="12"/> Valider des comptes utilisateurs
+### <img src="/images/user-documentation/doc-icons/right-arrow.png" alt="arrow" height="12" width="12"/> Valider des comptes utilisateurs
 
 Lorsqu'un utilisateur demande la création d'un nouveau compte, il est possible de configurer le système pour demander deux niveaux d'acceptation de la demande :
 
@@ -49,7 +49,7 @@ Une fois les comptes acceptés, ils sont présents dans l'onglet ***All Users***
 
 La validation des comptes au niveau de l'instance est terminée, mais leur validation au niveau projet peut être encore nécessaire.
 
-### <img src="/images/user-documentation/doc-icons/right-arrow.png" alt="arrow" height="12"/> Supprimer un compte utilisateur
+### <img src="/images/user-documentation/doc-icons/right-arrow.png" alt="arrow" height="12" width="12"/> Supprimer un compte utilisateur
 
 Vous pouvez supprimer un compte que si celui-ci n'est associé à aucun utilisateur projet. Dans ce cas, l'icône de suppression est accessible apparaît sur pour le compte concerné.
 

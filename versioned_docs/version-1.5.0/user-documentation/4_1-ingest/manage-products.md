@@ -4,11 +4,11 @@ title: Manage OAIS products
 slug: /user-guide/import-data/oais-files/manage-products/
 ---
 
-_La gestion des produits est accessible depuis le menu ***Add data***, puis la carte ***Products Manager (OAIS)*** et le bouton <img src="/images/user-documentation/regards-icons/admin/monitor.png" alt="show products" height="25"/> ***Show products***. L'écran ***OAIS products*** vous permet de visualiser tous les produits stockés dans votre projet ainsi que les traitements associés._
+_La gestion des produits est accessible depuis le menu ***Add data***, puis la carte ***Products Manager (OAIS)*** et le bouton <img src="/images/user-documentation/regards-icons/admin/monitor.png" alt="show products" height="25" width="25"/> ***Show products***. L'écran ***OAIS products*** vous permet de visualiser tous les produits stockés dans votre projet ainsi que les traitements associés._
 
 ---
 
-## <img src="/images/user-documentation/doc-icons/right-arrow.png" alt="arrow" height="12"/> Les outils de recherche
+## <img src="/images/user-documentation/doc-icons/right-arrow.png" alt="arrow" height="12" width="12"/> Les outils de recherche
 
 Le système d'archivage peut potentiellement stocker des millions de produits, les outils de tri et de filtrage dynamiques vous aideront dans l'exploration des données.
 
@@ -37,7 +37,7 @@ Vous pouvez également utiliser les tris sur les produits ou les traitements.
 
 ---
 
-## <img src="/images/user-documentation/doc-icons/right-arrow.png" alt="arrow" height="12"/> Les actions
+## <img src="/images/user-documentation/doc-icons/right-arrow.png" alt="arrow" height="12" width="12"/> Les actions
 
 Vous pouvez effectuer des actions sur les produits ou les traitements.
 
