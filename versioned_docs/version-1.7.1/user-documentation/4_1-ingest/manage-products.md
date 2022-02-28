@@ -75,9 +75,9 @@ Vous pouvez supprimer soit de manière irrévocable, soit en marquant le produit
 
 Il y a trois boutons d'action par ligne :
 
-- <img src="/images/user-documentation/regards-icons/admin/load.png" alt="load product" height="20"/> en cliquant sur la flèche, deux options s'affichent <b><i>AIP</i></b> ou <b><i>SIP</i></b> En cliquant sur l'un ou l'autre, une popup affichera le contenu JSON associé.
-- <img src="/images/user-documentation/regards-icons/admin/edit.png" alt="edit product" height="20"/> ce bouton vous permettra d'éditer le produit de la même manière qu'en appuyant sur le bouton <b><i>Modify selection</i></b> (cf. ci-dessus)
-- <img src="/images/user-documentation/regards-icons/admin/delete.png" alt="delete product" height="20"/> ce bouton vous permettra de supprimer le produit de la même manière qu'en appuyant sur le bouton <b><i>Delete selection</i></b> (cf. ci-dessus)
+- <img src="/images/user-documentation/regards-icons/admin/load.png" alt="load product" height="20" width="20"/> en cliquant sur la flèche, deux options s'affichent <b><i>AIP</i></b> ou <b><i>SIP</i></b> En cliquant sur l'un ou l'autre, une popup affichera le contenu JSON associé.
+- <img src="/images/user-documentation/regards-icons/admin/edit.png" alt="edit product" height="20" width="20"/> ce bouton vous permettra d'éditer le produit de la même manière qu'en appuyant sur le bouton <b><i>Modify selection</i></b> (cf. ci-dessus)
+- <img src="/images/user-documentation/regards-icons/admin/delete.png" alt="delete product" height="20" width="20"/> ce bouton vous permettra de supprimer le produit de la même manière qu'en appuyant sur le bouton <b><i>Delete selection</i></b> (cf. ci-dessus)
 
 ### Effectuer des actions sur les traitements
 

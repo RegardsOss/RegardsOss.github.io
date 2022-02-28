@@ -13,7 +13,7 @@ Dans le menu latéral, cliquez sur **Add data** et observez la carte **Product M
 <img src="/images/user-documentation/v1.4/4_2-dataprovider/acquisition-card.png" alt="acquisition card" height="200"/>
 
 
-### <img src="/images/user-documentation/regards-icons/admin/configure.png" alt="configure" height="30"/> Manage acquisition chains
+### <img src="/images/user-documentation/regards-icons/admin/configure.png" alt="configure" height="30" width="30"/> Manage acquisition chains
 
  Dans cette catégorie, vous pouvez créer et gérer des chaînes d'acquisition. Elles permettent de générer des SIPs à partir de données scannées sur disque. Ils seront ensuite fournis au système d'ingestion pour leur conservation sous forme d'AIPs.
 

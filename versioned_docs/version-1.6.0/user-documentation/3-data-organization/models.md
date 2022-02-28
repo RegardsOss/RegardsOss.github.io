@@ -44,7 +44,7 @@ Si vous avez choisi la création manuelle, suivez les étapes ci-dessous pour aj
 ### Créer des fragments
 
 Avant de créer des attributs, vous pouvez créer des fragments qui serviront à les regrouper.
-Depuis **_Data models_** et la carte **_Fragments_**, appuyez sur le bouton <img src="/images/user-documentation/regards-icons/admin/add.png" alt="add" height="30"/> **_Add_**.
+Depuis **_Data models_** et la carte **_Fragments_**, appuyez sur le bouton <img src="/images/user-documentation/regards-icons/admin/add.png" alt="add" height="30" width="30"/> **_Add_**.
 
 Vous pouvez :
 

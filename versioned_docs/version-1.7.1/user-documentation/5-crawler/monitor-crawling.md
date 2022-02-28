@@ -33,6 +33,6 @@ Plusieurs informations sont disponibles :
 
 Il y a également des boutons d'action :
 
-- <img src="/images/user-documentation/regards-icons/admin/refresh.png" alt="refresh" height="20"/> le bouton <b><i>Refresh</i></b> mets à jour les informations de la page
-- <img src="/images/user-documentation/regards-icons/admin/clock.png" alt="clock" height="20"/> les boutons <b><i>Schedule an ingestion</i></b> permettent de démarrer une nouvelle aspiration. Cela n'a un impact que sur les nouvelles données n'ayant pas encore été aspirées. Cette fonctionnalité est utile si vous ne souhaitez pas attendre la prochaine aspiration programmée.
-- <img src="/images/user-documentation/regards-icons/admin/delete.png" alt="reset" height="20"/> les boutons <b><i>Delete</i></b> suppriment les données aspirées dans le catalogue et relancent l'aspiration de la totalité de la source.
+- <img src="/images/user-documentation/regards-icons/admin/refresh.png" alt="refresh" height="20" width="100"/> le bouton <b><i>Refresh</i></b> mets à jour les informations de la page
+- <img src="/images/user-documentation/regards-icons/admin/clock.png" alt="clock" height="30" width="30"/> les boutons <b><i>Schedule an ingestion</i></b> permettent de démarrer une nouvelle aspiration. Cela n'a un impact que sur les nouvelles données n'ayant pas encore été aspirées. Cette fonctionnalité est utile si vous ne souhaitez pas attendre la prochaine aspiration programmée.
+- <img src="/images/user-documentation/regards-icons/admin/delete.png" alt="reset" height="30" width="30"/> les boutons <b><i>Delete</i></b> suppriment les données aspirées dans le catalogue et relancent l'aspiration de la totalité de la source.

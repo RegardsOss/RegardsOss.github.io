@@ -54,7 +54,7 @@ Suivant la configuration de votre projet, deux actions sont possibles suite à v
 
 #### Création de compte par un administrateur
 
-Si vous êtes un administrateur de projet, vous avez la possibilité de créer directement des comptes utilisateurs. Cliquez sur le bouton <img src="/images/user-documentation/regards-icons/admin/add.png" alt="add" height="30"/> **_Add_**, vous serez redirigé vers l'écran de création d'un utilisateur.
+Si vous êtes un administrateur de projet, vous avez la possibilité de créer directement des comptes utilisateurs. Cliquez sur le bouton <img src="/images/user-documentation/regards-icons/admin/add.png" alt="add" height="30" width="30"/> **_Add_**, vous serez redirigé vers l'écran de création d'un utilisateur.
 
 :::info
 Si l'utilisateur possède déjà un compte au niveau instance, cochez la case **_The user already has a REGARDS user account_**, vous n'aurez pas à compléter tous les champs.
@@ -117,7 +117,7 @@ Pour savoir comment gérer les accès aux jeux de données, référez-vous à la
 
 Dans la liste **_Users_** accessible depuis la carte **_Users_**, vous pourrez effectuer de nombreuses actions sur chacun des utilisateurs.
 
-- <img src="/images/user-documentation/regards-icons/admin/quota.png" alt="quota" height="30"/> <b><i>Set max quota</i></b> vous permet de définir les quotas de téléchargement associés à l'utilisateur
+- <img src="/images/user-documentation/regards-icons/admin/quota.png" alt="quota" height="30" width="30"/> <b><i>Set max quota</i></b> vous permet de définir les quotas de téléchargement associés à l'utilisateur
 - <img src="/images/user-documentation/regards-icons/admin/enable-user.png" alt="enable user" height="25" width="25"/> <b><i>Enable access</i></b> pour autoriser l'utilisateur à accéder au projet
 - <img src="/images/user-documentation/regards-icons/admin/disable-user.png" alt="disable user" height="25" width="25"/> <b><i>Disable access</i></b> pour interdire l'accès au projet à l'utilisateur
 - <img src="/images/user-documentation/regards-icons/admin/edit.png" alt="edit" height="25" width="25"/> <b><i>Edit</i></b> pour :
