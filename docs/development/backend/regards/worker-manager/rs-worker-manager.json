@@ -2,12 +2,15 @@
   "components": {
     "schemas": {
       "DatesRangeRestriction": {
+        "description": "Request creation date restriction",
         "properties": {
-          "after": {
+          "Max date": {
+            "description": "Maximal date the Entity must have",
             "format": "date-time",
             "type": "string"
           },
-          "before": {
+          "Min date": {
+            "description": "Minimal date the Entity must have",
             "format": "date-time",
             "type": "string"
           }
@@ -31,7 +34,7 @@
         },
         "type": "object"
       },
-      "EntityModelDynamicTenantSettingDto": {
+      "EntityModelDynamicTenantSettingDtoObject": {
         "properties": {
           "defaultValue": {
             "type": "object"
@@ -101,6 +104,17 @@
         "type": "object"
       },
       "EntityModelMapStringMaintenanceInfo": {
+        "properties": {
+          "links": {
+            "items": {
+              "$ref": "#/components/schemas/Link"
+            },
+            "type": "array"
+          }
+        },
+        "type": "object"
+      },
+      "EntityModelVoid": {
         "properties": {
           "links": {
             "items": {
@@ -261,26 +275,21 @@
       },
       "Pageable": {
         "properties": {
-          "offset": {
-            "format": "int64",
-            "type": "integer"
-          },
-          "pageNumber": {
+          "page": {
             "format": "int32",
+            "minimum": 0,
             "type": "integer"
           },
-          "pageSize": {
+          "size": {
             "format": "int32",
+            "minimum": 1,
             "type": "integer"
-          },
-          "paged": {
-            "type": "boolean"
           },
           "sort": {
-            "$ref": "#/components/schemas/Sort"
-          },
-          "unpaged": {
-            "type": "boolean"
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
           }
         },
         "type": "object"
@@ -372,50 +381,41 @@
       },
       "SearchRequestParameters": {
         "properties": {
-          "contentTypes": {
+          "Content types": {
             "$ref": "#/components/schemas/ValuesRestrictionString"
           },
-          "creationDate": {
+          "Creation date": {
             "$ref": "#/components/schemas/DatesRangeRestriction"
           },
-          "dispatchedWorkerType": {
-            "type": "string"
-          },
-          "ids": {
+          "IDs": {
             "$ref": "#/components/schemas/ValuesRestrictionLong"
           },
-          "requestId": {
+          "Session": {
+            "description": "Session that emitted the request",
+            "example": "Today_Mission1",
             "type": "string"
           },
-          "session": {
+          "Source": {
+            "description": "Source that emitted the request",
+            "example": "CNES",
             "type": "string"
           },
-          "source": {
-            "type": "string"
-          },
-          "statuses": {
+          "Statuses": {
             "$ref": "#/components/schemas/ValuesRestrictionRequestStatus"
-          }
-        },
-        "type": "object"
-      },
-      "Sort": {
-        "properties": {
-          "empty": {
-            "type": "boolean"
           },
-          "sorted": {
-            "type": "boolean"
-          },
-          "unsorted": {
-            "type": "boolean"
+          "Worker type": {
+            "description": "Name of the Worker type matching the Request Content Type",
+            "example": "WorkerAcceptingContentType1",
+            "type": "string"
           }
         },
         "type": "object"
       },
       "ValuesRestrictionLong": {
+        "description": "Request IDs to filter with",
         "properties": {
           "mode": {
+            "description": "Restriction mode to use",
             "enum": [
               "INCLUDE",
               "EXCLUDE"
@@ -423,18 +423,26 @@
             "type": "string"
           },
           "values": {
+            "description": "List of values to filter with",
             "items": {
+              "description": "List of values to filter with",
               "format": "int64",
               "type": "integer"
             },
             "type": "array"
           }
         },
+        "required": [
+          "mode",
+          "values"
+        ],
         "type": "object"
       },
       "ValuesRestrictionRequestStatus": {
+        "description": "Request statuses to filter with",
         "properties": {
           "mode": {
+            "description": "Restriction mode to use",
             "enum": [
               "INCLUDE",
               "EXCLUDE"
@@ -442,7 +450,9 @@
             "type": "string"
           },
           "values": {
+            "description": "List of values to filter with",
             "items": {
+              "description": "List of values to filter with",
               "enum": [
                 "DISPATCHED",
                 "NO_WORKER_AVAILABLE",
@@ -458,11 +468,17 @@
             "type": "array"
           }
         },
+        "required": [
+          "mode",
+          "values"
+        ],
         "type": "object"
       },
       "ValuesRestrictionString": {
+        "description": "Content types to filter with",
         "properties": {
           "mode": {
+            "description": "Restriction mode to use",
             "enum": [
               "INCLUDE",
               "EXCLUDE"
@@ -470,12 +486,18 @@
             "type": "string"
           },
           "values": {
+            "description": "List of values to filter with",
             "items": {
+              "description": "List of values to filter with",
               "type": "string"
             },
             "type": "array"
           }
         },
+        "required": [
+          "mode",
+          "values"
+        ],
         "type": "object"
       },
       "WorkerTypeAlive": {
@@ -525,7 +547,7 @@
                 }
               }
             },
-            "description": "default response"
+            "description": "OK"
           }
         },
         "tags": [
@@ -548,7 +570,14 @@
         ],
         "responses": {
           "200": {
-            "description": "default response"
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/EntityModelVoid"
+                }
+              }
+            },
+            "description": "OK"
           }
         },
         "tags": [
@@ -571,7 +600,14 @@
         ],
         "responses": {
           "200": {
-            "description": "default response"
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/EntityModelVoid"
+                }
+              }
+            },
+            "description": "OK"
           }
         },
         "tags": [
@@ -584,7 +620,7 @@
         "operationId": "exportConfiguration",
         "responses": {
           "200": {
-            "description": "default response"
+            "description": "OK"
           }
         },
         "tags": [
@@ -603,6 +639,9 @@
                     "type": "string"
                   }
                 },
+                "required": [
+                  "file"
+                ],
                 "type": "object"
               }
             }
@@ -621,7 +660,7 @@
                 }
               }
             },
-            "description": "default response"
+            "description": "OK"
           }
         },
         "tags": [
@@ -634,7 +673,7 @@
         "operationId": "isConfigurationEnabled",
         "responses": {
           "200": {
-            "description": "default response"
+            "description": "OK"
           }
         },
         "tags": [
@@ -654,7 +693,7 @@
                 }
               }
             },
-            "description": "default response"
+            "description": "OK"
           }
         },
         "tags": [
@@ -667,7 +706,7 @@
         "operationId": "isReadyEnabled",
         "responses": {
           "200": {
-            "description": "default response"
+            "description": "OK"
           }
         },
         "tags": [
@@ -691,7 +730,7 @@
                 }
               }
             },
-            "description": "default response"
+            "description": "OK"
           }
         },
         "tags": [
@@ -704,7 +743,7 @@
         "operationId": "isRestartEnabled",
         "responses": {
           "200": {
-            "description": "default response"
+            "description": "OK"
           }
         },
         "tags": [
@@ -734,7 +773,7 @@
                 }
               }
             },
-            "description": "default response"
+            "description": "OK"
           }
         },
         "tags": [
@@ -764,7 +803,7 @@
                 }
               }
             },
-            "description": "default response"
+            "description": "OK"
           }
         },
         "tags": [
@@ -774,15 +813,23 @@
     },
     "/requests": {
       "post": {
+        "description": "Retrieve Requests matching given filters.",
         "operationId": "retrieveLightRequestList",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "assembler",
+            "required": true,
+            "schema": {
+              "$ref": "#/components/schemas/PagedResourcesAssemblerLightRequest"
+            }
+          }
+        ],
         "requestBody": {
           "content": {
             "application/json": {
               "schema": {
                 "properties": {
-                  "assembler": {
-                    "$ref": "#/components/schemas/PagedResourcesAssemblerLightRequest"
-                  },
                   "filters": {
                     "$ref": "#/components/schemas/SearchRequestParameters"
                   },
@@ -805,16 +852,18 @@
                 }
               }
             },
-            "description": "default response"
+            "description": "OK"
           }
         },
+        "summary": "Retrieve Requests",
         "tags": [
-          "request-controller"
+          "Request controller"
         ]
       }
     },
     "/requests/delete": {
       "delete": {
+        "description": "Delete Requests matching provided filters.",
         "operationId": "deleteRequests",
         "requestBody": {
           "content": {
@@ -828,16 +877,18 @@
         },
         "responses": {
           "200": {
-            "description": "default response"
+            "description": "OK"
           }
         },
+        "summary": "Delete Requests",
         "tags": [
-          "request-controller"
+          "Request controller"
         ]
       }
     },
     "/requests/retry": {
       "post": {
+        "description": "Retry Requests matching provided filters.",
         "operationId": "retryRequests",
         "requestBody": {
           "content": {
@@ -851,21 +902,24 @@
         },
         "responses": {
           "200": {
-            "description": "default response"
+            "description": "OK"
           }
         },
+        "summary": "Retry Requests",
         "tags": [
-          "request-controller"
+          "Request controller"
         ]
       }
     },
     "/requests/{requestId}": {
       "get": {
+        "description": "Retrieve a Request by its id.",
         "operationId": "retrieveLightRequest",
         "parameters": [
           {
+            "example": 1,
             "in": "path",
-            "name": "requestId",
+            "name": "Request ID",
             "required": true,
             "schema": {
               "type": "string"
@@ -881,11 +935,12 @@
                 }
               }
             },
-            "description": "default response"
+            "description": "OK"
           }
         },
+        "summary": "Retrieve Request",
         "tags": [
-          "request-controller"
+          "Request controller"
         ]
       }
     },
@@ -904,7 +959,7 @@
                 }
               }
             },
-            "description": "default response"
+            "description": "OK"
           }
         },
         "tags": [
@@ -935,13 +990,13 @@
               "*/*": {
                 "schema": {
                   "items": {
-                    "$ref": "#/components/schemas/EntityModelDynamicTenantSettingDto"
+                    "$ref": "#/components/schemas/EntityModelDynamicTenantSettingDtoObject"
                   },
                   "type": "array"
                 }
               }
             },
-            "description": "default response"
+            "description": "OK"
           }
         },
         "tags": [
@@ -967,11 +1022,11 @@
             "content": {
               "*/*": {
                 "schema": {
-                  "$ref": "#/components/schemas/EntityModelDynamicTenantSettingDto"
+                  "$ref": "#/components/schemas/EntityModelDynamicTenantSettingDtoObject"
                 }
               }
             },
-            "description": "default response"
+            "description": "OK"
           }
         },
         "tags": [
@@ -1005,11 +1060,11 @@
             "content": {
               "*/*": {
                 "schema": {
-                  "$ref": "#/components/schemas/EntityModelDynamicTenantSettingDto"
+                  "$ref": "#/components/schemas/EntityModelDynamicTenantSettingDtoObject"
                 }
               }
             },
-            "description": "default response"
+            "description": "OK"
           }
         },
         "tags": [
@@ -1022,7 +1077,7 @@
         "operationId": "immediateShutdown",
         "responses": {
           "200": {
-            "description": "default response"
+            "description": "OK"
           }
         },
         "tags": [
@@ -1032,11 +1087,12 @@
     },
     "/workers": {
       "get": {
+        "description": "Retrieve worker types with its number of alive instances.",
         "operationId": "retrieveWorkerList",
         "parameters": [
           {
             "in": "query",
-            "name": "contentTypes",
+            "name": "Content types",
             "required": false,
             "schema": {
               "items": {
@@ -1058,11 +1114,12 @@
                 }
               }
             },
-            "description": "default response"
+            "description": "OK"
           }
         },
+        "summary": "Retrieve worker types",
         "tags": [
-          "worker-controller"
+          "Worker manager"
         ]
       }
     }
@@ -1076,6 +1133,14 @@
     {
       "description": "Generated server url",
       "url": "https://regardsoss.github.io/api/v1/rs-worker-manager"
+    }
+  ],
+  "tags": [
+    {
+      "name": "Request controller"
+    },
+    {
+      "name": "Worker manager"
     }
   ]
 }
