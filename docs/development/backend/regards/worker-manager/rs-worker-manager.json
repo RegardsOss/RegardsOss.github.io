@@ -4,13 +4,13 @@
       "DatesRangeRestriction": {
         "description": "Request creation date restriction",
         "properties": {
-          "Max date": {
-            "description": "Maximal date the Entity must have",
+          "after": {
+            "description": "Keep entities having date greater than",
             "format": "date-time",
             "type": "string"
           },
-          "Min date": {
-            "description": "Minimal date the Entity must have",
+          "before": {
+            "description": "Keep entities having date less than",
             "format": "date-time",
             "type": "string"
           }
@@ -274,6 +274,7 @@
         "type": "object"
       },
       "Pageable": {
+        "description": "Sorting and page configuration",
         "properties": {
           "page": {
             "format": "int32",
@@ -310,15 +311,6 @@
           },
           "page": {
             "$ref": "#/components/schemas/PageMetadata"
-          }
-        },
-        "type": "object"
-      },
-      "PagedResourcesAssemblerLightRequest": {
-        "properties": {
-          "forceFirstAndLastRels": {
-            "type": "boolean",
-            "writeOnly": true
           }
         },
         "type": "object"
@@ -380,39 +372,40 @@
         "type": "object"
       },
       "SearchRequestParameters": {
+        "description": "Filter requests using criteria",
         "properties": {
-          "Content types": {
+          "contentTypes": {
             "$ref": "#/components/schemas/ValuesRestrictionString"
           },
-          "Creation date": {
+          "creationDate": {
             "$ref": "#/components/schemas/DatesRangeRestriction"
           },
-          "IDs": {
+          "dispatchedWorkerType": {
+            "description": "Name of the Worker type matching the Request Content Type",
+            "example": "WorkerAcceptingContentType1",
+            "type": "string"
+          },
+          "ids": {
             "$ref": "#/components/schemas/ValuesRestrictionLong"
           },
-          "Session": {
+          "session": {
             "description": "Session that emitted the request",
             "example": "Today_Mission1",
             "type": "string"
           },
-          "Source": {
+          "source": {
             "description": "Source that emitted the request",
             "example": "CNES",
             "type": "string"
           },
-          "Statuses": {
+          "statuses": {
             "$ref": "#/components/schemas/ValuesRestrictionRequestStatus"
-          },
-          "Worker type": {
-            "description": "Name of the Worker type matching the Request Content Type",
-            "example": "WorkerAcceptingContentType1",
-            "type": "string"
           }
         },
         "type": "object"
       },
       "ValuesRestrictionLong": {
-        "description": "Request IDs to filter with",
+        "description": "Filter on Request IDs",
         "properties": {
           "mode": {
             "description": "Restriction mode to use",
@@ -423,9 +416,9 @@
             "type": "string"
           },
           "values": {
-            "description": "List of values to filter with",
+            "description": "List of accepted or refused values (according to the mode)",
             "items": {
-              "description": "List of values to filter with",
+              "description": "List of accepted or refused values (according to the mode)",
               "format": "int64",
               "type": "integer"
             },
@@ -439,7 +432,7 @@
         "type": "object"
       },
       "ValuesRestrictionRequestStatus": {
-        "description": "Request statuses to filter with",
+        "description": "Filter on Request statuses",
         "properties": {
           "mode": {
             "description": "Restriction mode to use",
@@ -450,9 +443,9 @@
             "type": "string"
           },
           "values": {
-            "description": "List of values to filter with",
+            "description": "List of accepted or refused values (according to the mode)",
             "items": {
-              "description": "List of values to filter with",
+              "description": "List of accepted or refused values (according to the mode)",
               "enum": [
                 "DISPATCHED",
                 "NO_WORKER_AVAILABLE",
@@ -475,7 +468,7 @@
         "type": "object"
       },
       "ValuesRestrictionString": {
-        "description": "Content types to filter with",
+        "description": "Filter on Content types",
         "properties": {
           "mode": {
             "description": "Restriction mode to use",
@@ -486,9 +479,9 @@
             "type": "string"
           },
           "values": {
-            "description": "List of values to filter with",
+            "description": "List of accepted or refused values (according to the mode)",
             "items": {
-              "description": "List of values to filter with",
+              "description": "List of accepted or refused values (according to the mode)",
               "type": "string"
             },
             "type": "array"
@@ -815,16 +808,6 @@
       "post": {
         "description": "Retrieve Requests matching given filters.",
         "operationId": "retrieveLightRequestList",
-        "parameters": [
-          {
-            "in": "query",
-            "name": "assembler",
-            "required": true,
-            "schema": {
-              "$ref": "#/components/schemas/PagedResourcesAssemblerLightRequest"
-            }
-          }
-        ],
         "requestBody": {
           "content": {
             "application/json": {
@@ -917,9 +900,10 @@
         "operationId": "retrieveLightRequest",
         "parameters": [
           {
+            "description": "Request ID",
             "example": 1,
             "in": "path",
-            "name": "Request ID",
+            "name": "requestId",
             "required": true,
             "schema": {
               "type": "string"
@@ -1091,8 +1075,9 @@
         "operationId": "retrieveWorkerList",
         "parameters": [
           {
+            "description": "Filter Workers on Request Content Types they handle",
             "in": "query",
-            "name": "Content types",
+            "name": "contentTypes",
             "required": false,
             "schema": {
               "items": {
