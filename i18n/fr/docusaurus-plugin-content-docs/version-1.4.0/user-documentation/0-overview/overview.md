@@ -39,7 +39,7 @@ REGARDS (**_RE_**nouvellement des outils **_G_**énériques d'**_A_**ccès et d'
   <img
     src="/images/user-documentation/v1.4/0-overview/overview_generic.png"
     alt="Project configuration"
-    height="140"
+    height="140" width="140"
   />
 </div>
 
@@ -68,7 +68,7 @@ REGARDS (**_RE_**nouvellement des outils **_G_**énériques d'**_A_**ccès et d'
   <img
     src="/images/user-documentation/v1.4/0-overview/overview_config.png"
     alt="Project configuration"
-    height="140"
+    height="140" width="140"
   />
 </div>
 
@@ -92,7 +92,7 @@ REGARDS (**_RE_**nouvellement des outils **_G_**énériques d'**_A_**ccès et d'
   <img
     src="/images/user-documentation/v1.4/0-overview/overview_data.png"
     alt="Data Sources"
-    height="140"
+    height="140" width="140"
   />
 </div>
 
@@ -114,7 +114,7 @@ REGARDS (**_RE_**nouvellement des outils **_G_**énériques d'**_A_**ccès et d'
   <img
     src="/images/user-documentation/v1.4/0-overview/overview_plugin.png"
     alt="Plugins"
-    height="140"
+    height="140" width="140"
   />
 </div>
 
