@@ -21,6 +21,7 @@ Docker swarm installation of REGARDS is available for CentOS, Ubuntu, Debian and
 
 1. Install Ansible version `2.9.2.23` at least [docs.ansible.com](https://docs.ansible.com/ansible/latest/installation_guide/intro_installation.html)
 1. Download [regards-docker playbooks](https://codeload.github.com/RegardsOss/regards-docker/zip/refs/heads/master).
+1. Your user is sudoer. Note that all command on this tutorial shall not be runned with root user.
 
 ## Create your inventory
 
@@ -39,12 +40,6 @@ Let's create an `hosts` file that defines nodes that will be used during this de
 
 ```bash
 cat >> hosts << FIN_CAT
-[ansible_host]
-ansible ansible_connection=local ansible_python_interpreter='{{ansible_playbook_python}}'
-
-[ansible_host:vars]
-gen_certificates_group_name=docker_nodes
-
 [regards_nodes]
 [1] Keep next line if you run Ansible on the server where REGARDS will be installed. Do not edit ansible_host value.
 regards-master ansible_host='{{ global_stack.master_node_host_name }}' ansible_connection=local
@@ -99,7 +94,8 @@ First, you need to initialise the `group_vars` folder using one of these command
 cp -R ../../demo/group_vars ./
 
 # Install REGARDS on one server when you don't want any security activated. 
-# In that case, you need to setup SWARM by yourself, as this is trivial and documented out there
+# In that case, you need to setup SWARM by YOURSELF, as this is trivial and documented out there
+# Use it when you install REGARDS on your own developper PC and not a distant server.
 cp -R ../../demo-insecure/group_vars ./
 
 # Install REGARDS on several servers - using multihosts inventory
@@ -160,6 +156,13 @@ In multi nodes deployment mode, the `global_stack.workdir` value have to be the 
 Once inventory configuration has been saved, you can install Docker SWARM and REGARDS.  
 If you want an insecure REGARDS install on your desktop and you know what you're doing, you can search for a tutorial out there to install Docker SWARM on your computer then executes the playbook `regards.yml`.
 If you're OK with a secure installation of SWARM, execute the playbook `setup-vm.yml` which setup swarm and secures it, then pursue with the `regards.yml` playbook.
+
+:::info
+Run the command `python -v` on the server where you want to install REGARDS.  
+If it returns `v2.x`, you need to : 
+- edit the file `inventories/<inventory name>/docker_nodes/main.yml` and edit the value used on `python_version`. Set that value to `python_version: 2`.
+- if `ansible-playbook` does not work, you can try to use `ansible-playbook-2.7` instead.
+:::
 
 ### Ansible CLI overview
 
@@ -266,3 +269,42 @@ Congratulations, your REGARDS installation is over. System is starting and will 
 - User interface : http://`value of global_stack.master_node_host_name`/user/`value of global_regards.project_name`
 
 You can now monitor and administrate the deployed stack thanks to cli commands as explained [here](swarm/cli/)
+
+### Test REGARDS is up
+
+Connect to the master node of your stack, and open the REGARDS working directory.  
+To do that, you need these two values from your inventories :
+
+```yaml
+group_workdir_local: /opt/regards/
+group_stack_name: regards
+```
+
+It means your stack is installed inside `/opt/regards/regards`.
+
+Open this folder and go to the cli folder:
+
+```bash
+cd /opt/regards/regards/cli
+```
+
+Execute `./health.sh all`, you should get the following :
+
+```bash
+$ ./health.sh all
+[200]	fem
+[200]	admin
+[200]	dam
+[200]	processing
+[200]	storage
+[200]	access_project
+[200]	ingest
+[200]	admin_instance
+[200]	order
+[200]	catalog
+[200]	access_instance
+[200]	worker_manager
+[200]	dataprovider
+[200]	notifier
+[200]	authentication
+```

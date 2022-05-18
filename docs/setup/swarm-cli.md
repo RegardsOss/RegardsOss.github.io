@@ -21,7 +21,7 @@ It means your stack is installed inside `/opt/regards/regards`.
 Open this folder and go to the cli folder:
 
 ```bash
-cd /opt/regards/regards-cnes/cli
+cd /opt/regards/regards/cli
 ```
 
 Let's look at these scripts :
