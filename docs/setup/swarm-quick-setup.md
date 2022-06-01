@@ -19,7 +19,7 @@ As we install REGARDS docker swarm in a securized way, the docker configuration 
 Docker swarm installation of REGARDS is available for CentOS, Ubuntu, Debian and Fedora linux distributions.
 :::
 
-1. Install Ansible version `2.9.2.23` at least [docs.ansible.com](https://docs.ansible.com/ansible/latest/installation_guide/intro_installation.html)
+1. Install Ansible version `2.9.27` at least [docs.ansible.com](https://docs.ansible.com/ansible/latest/installation_guide/intro_installation.html)
 1. Download [regards-docker playbooks](https://codeload.github.com/RegardsOss/regards-docker/zip/refs/heads/master).
 1. Your user is sudoer. Note that all command on this tutorial shall not be runned with root user.
 
@@ -158,7 +158,7 @@ If you want an insecure REGARDS install on your desktop and you know what you're
 If you're OK with a secure installation of SWARM, execute the playbook `setup-vm.yml` which setup swarm and secures it, then pursue with the `regards.yml` playbook.
 
 :::info
-Run the command `python -v` on the server where you want to install REGARDS.  
+Run the command `python --version` on the server where you want to install REGARDS.  
 If it returns `v2.x`, you need to : 
 - edit the file `inventories/<inventory name>/docker_nodes/main.yml` and edit the value used on `python_version`. Set that value to `python_version: 2`.
 - if `ansible-playbook` does not work, you can try to use `ansible-playbook-2.7` instead.
