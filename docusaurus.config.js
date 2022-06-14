@@ -21,7 +21,8 @@ module.exports = {
   },
   themeConfig: {
     algolia: {
-      apiKey: 'b1cf65426b28724deca84be1c3bbe40f',
+      appId: 'BP0ACDVAUR',
+      apiKey: 'd232ff7a6dff6f9c3ad4894ee7c66403',
       indexName: 'regardsoss',
       // Do not mix cross-version search results
       contextualSearch: true,
