@@ -2,7 +2,10 @@ name: Test deployment
 
 on:
   pull_request:
-    branches: [master]
+    branches:
+      - master
+    # Review gh actions docs if you want to further define triggers, paths, etc
+    # https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#on
 
 jobs:
   test-deploy:
@@ -10,13 +13,14 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - uses: actions/setup-node@v2
+      - uses: actions/setup-node@v3
         with:
-          node-version: 14.x
+          node-version: 16.x
           cache: yarn
-      - name: Test build
+
+      - name: Install dependencies
+        run: yarn install --frozen-lockfile
+      - name: Test build website
         env:
           NODE_OPTIONS: "--max-old-space-size=8192"
-        run: |
-          yarn install --frozen-lockfile
-          yarn build
+        run: yarn build
