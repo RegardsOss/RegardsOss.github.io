@@ -143,6 +143,25 @@
         ],
         "type": "object"
       },
+      "EmailVerificationDto": {
+        "properties": {
+          "email": {
+            "type": "string"
+          },
+          "originUrl": {
+            "type": "string"
+          },
+          "requestLink": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "email",
+          "originUrl",
+          "requestLink"
+        ],
+        "type": "object"
+      },
       "EntityModelDynamicTenantSettingDto": {
         "properties": {
           "defaultValue": {
@@ -1558,7 +1577,7 @@
         "flows": {
           "password": {
             "scopes": {},
-            "tokenUrl": "http://vm-perf.cloud-espace.si.c-s.fr:80/api/v1/rs-authentication/oauth/token"
+            "tokenUrl": "https://regardsoss.github.io/api/v1/rs-authentication/oauth/token"
           }
         },
         "type": "oauth2"
@@ -1571,7 +1590,7 @@
       "name": "GPL-3.0"
     },
     "title": "MICROSERVICE ADMIN",
-    "version": "1.8.0"
+    "version": "1.8.1"
   },
   "openapi": "3.0.1",
   "paths": {
@@ -2239,7 +2258,7 @@
     },
     "/notifications/read/delete": {
       "delete": {
-        "operationId": "deleteNotification_1",
+        "operationId": "deleteNotification",
         "responses": {
           "200": {
             "description": "default response"
@@ -2320,7 +2339,7 @@
     },
     "/notifications/{notification_id}": {
       "delete": {
-        "operationId": "deleteNotification",
+        "operationId": "deleteNotification_1",
         "parameters": [
           {
             "in": "path",
@@ -3618,6 +3637,29 @@
         ]
       }
     },
+    "/users/email/verification/resend": {
+      "post": {
+        "operationId": "sendVerificationEmail",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/EmailVerificationDto"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "default response"
+          }
+        },
+        "tags": [
+          "project-users-controller"
+        ]
+      }
+    },
     "/users/email/{email}": {
       "get": {
         "operationId": "retrieveProjectUserByEmail",
@@ -3729,29 +3771,6 @@
           {
             "in": "path",
             "name": "origin",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "default response"
-          }
-        },
-        "tags": [
-          "project-users-controller"
-        ]
-      }
-    },
-    "/users/email/{email}/verification/resend": {
-      "get": {
-        "operationId": "sendVerificationEmail",
-        "parameters": [
-          {
-            "in": "path",
-            "name": "email",
             "required": true,
             "schema": {
               "type": "string"

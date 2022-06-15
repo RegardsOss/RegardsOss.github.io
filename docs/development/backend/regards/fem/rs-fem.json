@@ -1607,7 +1607,7 @@
         "flows": {
           "password": {
             "scopes": {},
-            "tokenUrl": "http://vm-perf.cloud-espace.si.c-s.fr:80/api/v1/rs-authentication/oauth/token"
+            "tokenUrl": "https://regardsoss.github.io/api/v1/rs-authentication/oauth/token"
           }
         },
         "type": "oauth2"
@@ -1620,7 +1620,7 @@
       "name": "GPL-3.0"
     },
     "title": "MICROSERVICE FEM",
-    "version": "1.8.0"
+    "version": "1.8.1"
   },
   "openapi": "3.0.1",
   "paths": {

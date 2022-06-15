@@ -3,9 +3,9 @@
 if [ "$#" != 2 ]; then
    echo "oops $#"
    echo "updateAPI.sh [server] [version]"
-   echo "exemple : ./updateAPI.sh https://regards.cnes.fr/ 1.6.0"
-   echo "C-S : ./updateAPI.sh http://vm-perf.cloud-espace.si.c-s.fr/ 1.8.0"
-   exit 0
+   echo "exemple : ./updateAPI.sh https://regards.cnes.fr 1.6.0"
+   echo "C-S : ./updateAPI.sh http://vm-perf.cloud-espace.si.c-s.fr 1.10.0"
+   exit 1
 fi
 
 server=$1
@@ -18,11 +18,13 @@ function importMServiceControllers
   microservice=$1
   folder_name=$2
   dest=./docs/development/backend/regards/$folder_name/$microservice.json
-  curl $server/api/v1/$microservice/v3/api-docs --output $dest
+  echo "Fetching ${server}/api/v1/$microservice/v3/api-docs"
+  curl ${server}/api/v1/$microservice/v3/api-docs --output $dest
   
   sed -i s/\'\@project.version\@\'/$version/g $dest
   sed -i s@$server@https://regardsoss.github.io/@g $dest
   sed -i s@https://regardsoss.github.io/\:80/@https://regardsoss.github.io/@g $dest
+  sed -i s@https://regardsoss.github.io//@https://regardsoss.github.io/@g $dest
   sed -i -E "s@\"scopes\"\:\{\".*\"}@\"scopes\"\:\{}@g" $dest
   jq -S . ./docs/development/backend/regards/$folder_name/$microservice.json > ./docs/development/backend/regards/$folder_name/$microservice.json.formated
   mv ./docs/development/backend/regards/$folder_name/$microservice.json.formated  ./docs/development/backend/regards/$folder_name/$microservice.json

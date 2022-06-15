@@ -150,19 +150,6 @@
         },
         "type": "object"
       },
-      "DatesRangeRestriction": {
-        "properties": {
-          "after": {
-            "format": "date-time",
-            "type": "string"
-          },
-          "before": {
-            "format": "date-time",
-            "type": "string"
-          }
-        },
-        "type": "object"
-      },
       "DynamicTenantSettingDto": {
         "properties": {
           "defaultValue": {
@@ -395,7 +382,8 @@
               "FAILED",
               "DONE_WITH_WARNING",
               "DONE",
-              "DELETED"
+              "DELETED",
+              "REMOVED"
             ],
             "type": "string"
           },
@@ -780,23 +768,6 @@
         },
         "type": "object"
       },
-      "SearchRequestParameters": {
-        "properties": {
-          "creationDate": {
-            "$ref": "#/components/schemas/DatesRangeRestriction"
-          },
-          "owner": {
-            "type": "string"
-          },
-          "statuses": {
-            "$ref": "#/components/schemas/ValuesRestrictionOrderStatus"
-          },
-          "waitingForUser": {
-            "type": "boolean"
-          }
-        },
-        "type": "object"
-      },
       "Sort": {
         "properties": {
           "empty": {
@@ -858,34 +829,6 @@
           "tenant"
         ],
         "type": "object"
-      },
-      "ValuesRestrictionOrderStatus": {
-        "properties": {
-          "mode": {
-            "enum": [
-              "INCLUDE",
-              "EXCLUDE"
-            ],
-            "type": "string"
-          },
-          "values": {
-            "items": {
-              "enum": [
-                "PENDING",
-                "RUNNING",
-                "PAUSED",
-                "EXPIRED",
-                "FAILED",
-                "DONE_WITH_WARNING",
-                "DONE",
-                "DELETED"
-              ],
-              "type": "string"
-            },
-            "type": "array"
-          }
-        },
-        "type": "object"
       }
     },
     "securitySchemes": {
@@ -893,7 +836,7 @@
         "flows": {
           "password": {
             "scopes": {},
-            "tokenUrl": "http://vm-perf.cloud-espace.si.c-s.fr:80/api/v1/rs-authentication/oauth/token"
+            "tokenUrl": "https://regardsoss.github.io/api/v1/rs-authentication/oauth/token"
           }
         },
         "type": "oauth2"
@@ -906,7 +849,7 @@
       "name": "GPL-3.0"
     },
     "title": "MICROSERVICE ORDER",
-    "version": "1.8.0"
+    "version": "1.8.1"
   },
   "openapi": "3.0.1",
   "paths": {
@@ -1282,6 +1225,42 @@
       }
     },
     "/orders": {
+      "get": {
+        "operationId": "findAllAdmin",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "user",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "pageRequest",
+            "required": true,
+            "schema": {
+              "$ref": "#/components/schemas/Pageable"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/PagedModelEntityModelOrderDto"
+                }
+              }
+            },
+            "description": "default response"
+          }
+        },
+        "tags": [
+          "order-controller"
+        ]
+      },
       "post": {
         "operationId": "createAppOrder",
         "requestBody": {
@@ -1328,7 +1307,8 @@
                 "FAILED",
                 "DONE_WITH_WARNING",
                 "DONE",
-                "DELETED"
+                "DELETED",
+                "REMOVED"
               ],
               "type": "string"
             }
@@ -1464,44 +1444,6 @@
         },
         "tags": [
           "order-data-file-controller"
-        ]
-      }
-    },
-    "/orders/search": {
-      "post": {
-        "operationId": "findAllAdmin",
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "properties": {
-                  "filters": {
-                    "$ref": "#/components/schemas/SearchRequestParameters"
-                  },
-                  "pageRequest": {
-                    "$ref": "#/components/schemas/Pageable"
-                  }
-                },
-                "type": "object"
-              }
-            }
-          },
-          "required": true
-        },
-        "responses": {
-          "200": {
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/PagedModelEntityModelOrderDto"
-                }
-              }
-            },
-            "description": "default response"
-          }
-        },
-        "tags": [
-          "order-controller"
         ]
       }
     },

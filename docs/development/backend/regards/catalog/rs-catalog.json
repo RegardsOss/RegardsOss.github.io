@@ -819,6 +819,9 @@
         },
         "type": "object"
       },
+      "Download": {
+        "type": "object"
+      },
       "DownloadCollectionPreparationBody": {
         "properties": {
           "collectionId": {
@@ -2954,7 +2957,7 @@
         "flows": {
           "password": {
             "scopes": {},
-            "tokenUrl": "http://vm-perf.cloud-espace.si.c-s.fr:80/api/v1/rs-authentication/oauth/token"
+            "tokenUrl": "https://regardsoss.github.io/api/v1/rs-authentication/oauth/token"
           }
         },
         "type": "oauth2"
@@ -2967,7 +2970,7 @@
       "name": "GPL-3.0"
     },
     "title": "MICROSERVICE CATALOG",
-    "version": "1.8.0"
+    "version": "1.8.1"
   },
   "openapi": "3.0.1",
   "paths": {
@@ -3511,6 +3514,15 @@
             "schema": {
               "type": "boolean"
             }
+          },
+          {
+            "in": "query",
+            "name": "acceptLicense",
+            "required": false,
+            "schema": {
+              "default": false,
+              "type": "boolean"
+            }
           }
         ],
         "responses": {
@@ -3518,10 +3530,39 @@
             "content": {
               "*/*": {
                 "schema": {
-                  "$ref": "#/components/schemas/InputStreamResource"
+                  "$ref": "#/components/schemas/Download"
                 }
               }
             },
+            "description": "default response"
+          }
+        },
+        "tags": [
+          "catalog-download-controller"
+        ]
+      },
+      "head": {
+        "operationId": "testProductAccess",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "aip_id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "checksum",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
             "description": "default response"
           }
         },
