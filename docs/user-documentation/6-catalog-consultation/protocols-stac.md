@@ -71,7 +71,7 @@ Remplissez ensuite tous les champs relatifs au protocole Opensearch:
   - ***STAC root static collection title*** *[Optionnel, défaut "static"]*, le label utilisé pour la racine des collections statiques
   - ***STAC root dynamic collection title*** *[Optionnel, defaut "dynamic"]*, le label utilisé pour la racine des collections dynamiques
   - ***STAC datetime property***, la configuration de l'attribut datetime, correspondant à l'aspect temporel de la specification STAC.
-    - ***Source model property path*** *[Optionnel, defaut creationDate]*, le nom de l'attribut REGARDS, précédé du fragment si présent (**fragment.attribut**)
+    - ***Source model property path*** *[Optionnel, defaut creationDate]*, le chemin au sein du produit REGARDS : le nom de l'attribut REGARDS précédé du fragment si présent (**fragment.attribut**)
     - ***JSON property path*** *[Optionnel]*, si l'attribut est de type JSON, le chemin dans cet attribut pour accéder à l'attribut servant de date
     - ***STAC dynamic collection level*** *[Optionnel, defaut -1]*, le niveau au sein des collection dynamiques  - cf [Niveau des collections dynamiques](#niveau-dans-larbre-des-collections-dynamiques)
     - ***STAC dynamic collection format*** *[Optionnel]*, le format à utiliser au sein des collection dynamiques - cf [Format des valeurs proposées dans les collections dynamiques](#format-des-valeurs-proposées-dans-les-collections-dynamiques)
@@ -91,9 +91,94 @@ L'administrateur peut spécifier pour chaque paramètre STAC:
 - ***Name or URL of the STAC extension*** *[Optionnel]*, si la propriété `STAC` n'est pas définie dans le standard, le nom ou lien vers de cette extension
 - ***STAC property type*** *[Optionnel, défaut à 'STRING']*, avec une des valeurs suivantes : 'DATETIME', 'URL', 'STRING', 'ANGLE', 'LENGTH', 'PERCENTAGE', 'NUMBER', 'BOOLEAN', 'JSON_OBJECT'
 - ***Format for the STAC value***, si une transformation entre la valeur REGARDS et la valeur STAC est nécessaire - cf [Format d'un attribut STAC](#format-dun-attribut-stac). Peut prendre la valeur ``
-- ***Source model property path*** *[Obligatoire]*, le nom de l'attribut REGARDS, précédé du fragment si présent (**fragment.attribut**)
+- ***Source model property path*** *[Obligatoire]*, le chemin au sein du produit REGARDS : le nom de l'attribut REGARDS précédé du fragment si présent (**fragment.attribut**)
 - ***JSON property path (for a JSON type attribute only)*** *[Optionnel]*, si l'attribut est de type JSON, le chemin dans cet attribut pour accéder à l'attribut servant de date
-- ***Format for the source property value*** ????????????????
+- ***Format for the source property value*** *[Optionnel]*, si l'attribut est de type `PERCENTAGE`, permet de spécifier si la valeur dans le catalogue REGARDS est en base 100 (utiliser `HUNDRED`, ce qui est la valeur par défaut) ou en base 1 (utiliser `ONE`)
+
+#### STAC links property
+
+Cette configuration permet d'enrichir les relations (cf [Link Object
+](https://github.com/radiantearth/stac-spec/blob/master/item-spec/item-spec.md#link-object)) exposées au niveau du produit STAC, ce qui permet de lier un produit envers d'autres entités.
+Si aucune configuration n'est précisée par l'administrateur, alors notre moteur de recherche essaiera de lire une propriété `properties.links` pour l'inclure dans les produits STAC.
+
+La valeur de la propriété fournie au moteur de recherche STAC, par défaut `properties.links`, doit respecter le format suivant :
+
+| Field Name | Type   | Description |
+| ---------- | ------ | ----------- |
+| links      | Array[Object] | A list of Link, which is defined here under |
+| links[].href       | string | **REQUIRED.** The actual link in the format of an URL. Relative and absolute links are both allowed. |
+| links[].rel        | string | **REQUIRED.** Relationship between the current document and the linked document. See chapter "Relation types" for more information. |
+| links[].type       | string | [Media type](https://github.com/radiantearth/stac-spec/blob/master/catalog-spec/catalog-spec.md#media-types) of the referenced entity. |
+| links[].title      | string | A human readable title to be used in rendered displays of the link. |
+
+La configuration permet donc de changer de propriété à lire au sein des produits REGARDS  :
+
+- ***Source model property path*** *[Obligatoire]*, le chemin au sein du produit REGARDS : le nom de l'attribut REGARDS précédé du fragment si présent (**fragment.attribut**)
+- ***JSON property path (for a JSON type attribute only)*** *[Optionnel]*, si l'attribut est de type JSON, le chemin dans cet attribut pour accéder à l'attribut servant de date
+- ***Format for the source property value*** - Laissez cette propriété vide -
+
+Exemple de valeur correcte au sein d'un produit REGARDS :
+```json
+{
+  [...]
+  "properties": {
+    [...]
+    "links": [{
+        "href": "https://spdx.org/licenses/Apache-2.0.html",
+        "rel": "license",
+        "type": "application/html",
+        "title": "Apache License 2.0"
+    }],
+  }
+}
+```
+
+
+#### STAC assets property
+
+Cette configuration permet d'associer des URLs téléchargeables ou streamables à un produit STAC (cf [Asset Object](https://github.com/radiantearth/stac-spec/blob/master/item-spec/item-spec.md#asset-object))
+Si aucune configuration n'est précisée par l'administrateur, alors notre moteur de recherche essaiera de lire une propriété `properties.assets` pour l'inclure dans les produits STAC.
+REGARDS ajoute également tous les fichiers associés au produit sous le format d'Asset Object STAC.
+
+La valeur de la propriété fournie au moteur de recherche STAC, par défaut `properties.assets`, doit respecter le format suivant :
+
+| Field Name  | Type      | Description |
+| ----------- | --------- | ----------- |
+| assets      | Object | An object that maps a key -> an AssetObject (see here) |
+| assets.*someAssetKey*.href        | string    | **REQUIRED.** URI to the asset object. Relative and absolute URI are both allowed. |
+| assets.*someAssetKey*.title       | string    | The displayed title for clients and users. |
+| assets.*someAssetKey*.description | string    | A description of the Asset providing additional details, such as how it was processed or created. [CommonMark 0.29](http://commonmark.org/) syntax MAY be used for rich text representation. |
+| assets.*someAssetKey*.type        | string    | [Media type](https://github.com/radiantearth/stac-spec/blob/master/catalog-spec/catalog-spec.md#media-types) of the asset. See the [common media types](https://github.com/radiantearth/stac-spec/blob/master/best-practices.md#common-media-types-in-stac) in the best practice doc for commonly used asset types. |
+| assets.*someAssetKey*.roles       | \[string] | The [semantic roles](https://github.com/radiantearth/stac-spec/blob/master/item-spec/item-spec.md#asset-roles) of the asset, similar to the use of `rel` in links. |
+
+La configuration permet donc de changer de propriété à lire au sein des produits REGARDS  :
+
+- ***Source model property path*** *[Obligatoire]*, le chemin au sein du produit REGARDS : le nom de l'attribut REGARDS précédé du fragment si présent (**fragment.attribut**)
+- ***JSON property path (for a JSON type attribute only)*** *[Optionnel]*, si l'attribut est de type JSON, le chemin dans cet attribut pour accéder à l'attribut servant de date
+- ***Format for the source property value*** - Laissez cette propriété vide -
+
+Exemple de valeur correcte au sein d'un produit REGARDS :
+```json
+{
+  [...]
+  "properties": {
+    [...]
+    "assets": {
+      "wms_capabilities": {
+          "href": "https://cnes.fr/geoserver/SWOT_HR/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetCapabilities",
+          "title": "Get Capabilites",
+          "description": "WMS Get Capabilites",
+          "type": "application/vnd.ogc.wms_xml",
+          "roles": [
+            "wms",
+            "capabilities"
+          ]
+      }
+    }
+  }
+}
+```
+
 
 ### Propriétés des jeux de données 
 
