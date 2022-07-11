@@ -1,6 +1,6 @@
 ---
 id: swarm-setup
-title: Advanced setup
+title: Inventory configuration
 slug: /setup/swarm/advanced-setup/
 ---
 

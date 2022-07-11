@@ -258,18 +258,6 @@ regards-master   : ok=23 changed=8 unreachable=0 failed=0 skipped=1 rescued=0 ig
 regards-slave-1  : ok=23 changed=8 unreachable=0 failed=0 skipped=1 rescued=0 ignored=0
 ```
 
-### Conclusion
-
-
-Congratulations, your REGARDS installation is over. System is starting and will be up soon. You can access web interfaces at :
-
-- Instance administration : http://`value of global_stack.master_node_host_name`
-- Administration : http://`value of global_stack.master_node_host_name`/admin/`value of global_regards.project_name`
-- Portal : http://`value of global_stack.master_node_host_name`
-- User interface : http://`value of global_stack.master_node_host_name`/user/`value of global_regards.project_name`
-
-You can now monitor and administrate the deployed stack thanks to cli commands as explained [here](swarm/cli/)
-
 ### Test REGARDS is up
 
 Connect to the master node of your stack, and open the REGARDS working directory.  
@@ -292,19 +280,33 @@ Execute `./health.sh all`, you should get the following :
 
 ```bash
 $ ./health.sh all
-[200]	fem
 [200]	admin
 [200]	dam
-[200]	processing
-[200]	storage
 [200]	access_project
-[200]	ingest
 [200]	admin_instance
-[200]	order
 [200]	catalog
 [200]	access_instance
-[200]	worker_manager
-[200]	dataprovider
-[200]	notifier
 [200]	authentication
 ```
+
+You can monitor and administrate the deployed stack thanks to cli commands as explained [here](swarm/cli/)
+
+### Quick setup conclusion
+
+Still there ? Congratulations, you've just finished the first step of the install!
+
+Several web interfaces are accessible on your server now :
+
+- Instance administration : http://`<server name>`/admin
+- Administration : http://`<server name>`/admin/`<first project>`
+- User interface : http://`<server name>`/user/`<first project>`
+- Portal : http://`<server name>`
+- Fake SMTP server : http://`<server name>`:5081
+- Phppgadmin : http://`<server name>`:5080
+- RabbitMQ admin : http://`<server name>`:15672
+
+
+:::info Don't go away !
+You've just deployed on your(s) server(s) the core of REGARDS, but many REGARDS microservices are still missing...  
+In the next chapter, you'll discover which microservices are required for your own environment and how to deploy them using Ansible. 
+:::

@@ -5,7 +5,15 @@ module.exports = {
       label: "Installation - Docker Swarm",
       items: [
         "setup/swarm-quick-setup",
+        "setup/swarm-full-setup",
         "setup/swarm-cli",
+        "setup/swarm-common-issues",
+      ],
+    },
+    {
+      type: "category",
+      label: "Playbook Guide",
+      items: [
         "setup/ansible-tasks",
         "setup/swarm-setup",
       ],
