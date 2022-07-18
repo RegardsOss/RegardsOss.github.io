@@ -41,7 +41,15 @@ Attention, l'adresse d'accès publique configurée sera utilisée par le systèm
 
 ### Etape 2 : Base de données
 
-Chaque projet du système REGARDS utilise une base de données de type postgres dédiée. Une fois votre projet créé, configurez l'accès à celle-ci pour tous les microservices. Les informations suivantes vous seront alors demandées :
+Une fois votre projet créé, configurez l'accès à celle-ci pour tous les microservices. 
+
+
+:::danger 1 tenant = 1 base de données
+Chaque projet du système REGARDS utilise une base de données de type postgres dédiée. Autrement dit, si vous avez 10 projets enregistré sur votre instance REGARDS, vous aurez 10 bases de données (une pour chaque tenant) et une base de données en plus pour la partie Instance.  
+Si vous avez un environnement de qualification et un environnement d'exploitation, alors vous auriez 10 bases de données pour la qualification, 10 bases de données pour l'exploitation, 1 base de données pour la partie Instance en qualification et 1 base de données pour la partie Instance en exploitation.
+:::
+
+Les informations suivantes vous seront alors demandées :
 
 - ***Database ip address*** *[Obligatoire]*, hôte de la base de données posgres
 - ***Database port*** *[Obligatoire]*, port de connexion à la base de données
