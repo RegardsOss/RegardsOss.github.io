@@ -8,8 +8,8 @@ slug: /development/frontend/introduction/setup/
 
 ### Requirements
 
--	node v8.10
--	npm v5.7.1 (npm i -g npm to upgrade)
+-	node v8.10+
+-	npm v16+ (npm i -g npm to upgrade)
 
 :::caution
 As REGARDS frontend is developed around two main libraries, [React](https://reactjs.org) and [Redux](http://redux.js.org), we highly recommand new developers to start by watching the here under [Egghead](https://egghead.io) videos to learn the basics of these two libraries.

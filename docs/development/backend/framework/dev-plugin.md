@@ -10,8 +10,8 @@ REGARDS plugins are designed to customize functionalities for business specifics
 ## Requirements for development:
 
 - Git client
-- Maven 3.x
-- JDK 1.8
+- Maven v3.8.4+
+- JDK Eclipse Temurin v17.0.3+
 
 ## Set-up
 
@@ -38,7 +38,12 @@ Edit your `pom.xml` and add the here under standard plugin information :
   <groupId>fr.cnes.regards.modules.catalog.plugins</groupId>
   <artifactId>myPlugin</artifactId>
   <description>TODO</description>
-  <version>1.0.0</version>
+
+  <parent>
+    <groupId>fr.cnes.regards.modules.catalog.plugins</groupId>
+    <artifactId>catalog-plugins</artifactId>
+    <version>1.8.0</version>
+  </parent
 
   <url>https://github.com/RegardsOss/RegardsOss.github.io</url>
   <inceptionYear>2019</inceptionYear>
@@ -62,12 +67,6 @@ Edit your `pom.xml` and add the here under standard plugin information :
       <organizationUrl>TODO</organizationUrl>
     </developer>
   </developers>
-
-  <parent>
-    <groupId>fr.cnes.regards.modules.catalog.plugins</groupId>
-    <artifactId>catalog-plugins</artifactId>
-    <version>3.1.0-RC</version>
-  </parent
 
   <dependencies>
     <dependency>

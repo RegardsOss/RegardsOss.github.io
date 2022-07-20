@@ -10,13 +10,9 @@ slug: /development/backend/framework/getting-started/
 REGARDS framework is built on top of [Spring projects](https://spring.io/):
 
 At the moment, the framework relies on:
-  * OpenJDK 8
-  * [Spring Boot](https://spring.io/projects/spring-boot#learn) `1.5.X.RELEASE`
-  * [Spring Cloud](https://spring.io/projects/spring-cloud#learn) `Dalston SR5`
-
-:::caution
-Note that we are upgrading COTS : cf. [Roadmap](/roadmap/)
-:::
+  * JDK Eclipse Temurin v17.0.3+
+  * [Spring Boot](https://spring.io/projects/spring-boot#learn) `2.6.4`
+  * [Spring Cloud](https://spring.io/projects/spring-cloud#learn) `2021.0.1`
 
 ![](/schemas/architecture/microservice_architecture_spring.png)
 

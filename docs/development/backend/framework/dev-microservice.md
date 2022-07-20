@@ -10,8 +10,8 @@ REGARDS Microservices are REST services exposed by a Jetty web server contained 
 ## Requirements for development
 
 - Git client
-- Maven 3.x
-- JDK 1.8
+- Maven v3.8.4+
+- JDK Eclipse Temurin v17.0.3+
 
 ## Common features
 

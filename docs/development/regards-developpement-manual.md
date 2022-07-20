@@ -15,8 +15,8 @@ REGARDS allows developers to extends the REGARDS backend functionnalities by cre
 
 **Requirements :** You need a development environment with :
 
-- Java 1.8
-- Maven 3.3.1+
+- Maven v3.8.4+
+- JDK Eclipse Temurin v17.0.3+
 - Git client
 
 ### Frontend
@@ -29,7 +29,8 @@ REGARDS allows developers to extends REGARDS Frontend functionnalities by creati
 
 **Requirements :** You need a development environment with :
 
-- npm 4+
+-	node v8.10+
+-	npm v16+ (npm i -g npm to upgrade)
 - Git client
 
 ## Create a new microservice
