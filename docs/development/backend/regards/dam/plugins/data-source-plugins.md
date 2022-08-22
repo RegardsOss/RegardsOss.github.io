@@ -13,8 +13,8 @@ This extension point allows you to crawl data from any source into the REGARDS c
 :::
 
 REGARDS provides many implementation of this extension point :
-- [AIPDataSourcePlugin](https://github.com/RegardsOss/regards-plugins/blob/master/datasource-plugins/aip-datasource/src/main/java/fr/cnes/regards/modules/dam/plugins/datasources/AipDataSourcePlugin.java) : To crawl data from the AIP storage microservice (rs-storage).
-- [PostgreDataSourcePlugin](https://github.com/RegardsOss/regards-plugins/blob/master/datasource-plugins/postgresql-datasource/src/main/java/fr/cnes/regards/modules/dam/plugins/datasources/PostgreDataSourcePlugin.java) : To crawl data from a postgres database
+- [AIPDataSourcePlugin](https://github.com/RegardsOss/regards-plugins/blob/master/dam-plugins/aip-datasource/src/main/java/fr/cnes/regards/modules/dam/plugins/datasources/AipDataSourcePlugin.java) : To crawl data from the AIP storage microservice (rs-storage).
+- [PostgreDataSourcePlugin](https://github.com/RegardsOss/regards-plugins/blob/master/dam-plugins/postgresql-datasource/src/main/java/fr/cnes/regards/modules/dam/plugins/datasources/PostgreDataSourcePlugin.java) : To crawl data from a postgres database
 - WebServicePlugin : `Not released yet` To crawl data from a standard opensearch web service with geojson response format.
 
 ## Interface
