@@ -19,7 +19,7 @@ As we install REGARDS docker swarm in a securized way, the docker configuration 
 Docker swarm installation of REGARDS is available for CentOS, Ubuntu, Debian and Fedora linux distributions.
 :::
 
-1. Install Ansible version `2.9.27` at least [docs.ansible.com](https://docs.ansible.com/ansible/latest/installation_guide/intro_installation.html)
+1. Install Ansible version `2.9.27` at least [docs.ansible.com](https://docs.ansible.com/ansible/latest/installation_guide/installation_distros.html)
 1. Download [regards-docker playbooks](https://codeload.github.com/RegardsOss/regards-docker/zip/refs/heads/master).
 1. Your user is sudoer. Note that all command on this tutorial shall not be runned with root user.
 

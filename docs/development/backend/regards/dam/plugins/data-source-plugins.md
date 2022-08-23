@@ -13,9 +13,10 @@ This extension point allows you to crawl data from any source into the REGARDS c
 :::
 
 REGARDS provides many implementation of this extension point :
-- [AIPDataSourcePlugin](https://github.com/RegardsOss/regards-plugins/blob/master/dam-plugins/aip-datasource/src/main/java/fr/cnes/regards/modules/dam/plugins/datasources/AipDataSourcePlugin.java) : To crawl data from the AIP storage microservice (rs-storage).
+- [AIPDataSourcePlugin](https://github.com/RegardsOss/regards-plugins/blob/master/dam-plugins/aip-datasource/src/main/java/fr/cnes/regards/modules/dam/plugins/datasources/AipDataSourcePlugin.java) : To crawl OAIS products (Ingest microservice).
+- [AIPDataSourcePlugin](https://github.com/RegardsOss/regards-plugins/blob/master/dam-plugins/feature-datasource/src/main/java/fr/cnes/regards/modules/dam/plugins/datasources/FeatureDatasourcePlugin.java) : To crawl GeoJSON products (FEM microservice).
 - [PostgreDataSourcePlugin](https://github.com/RegardsOss/regards-plugins/blob/master/dam-plugins/postgresql-datasource/src/main/java/fr/cnes/regards/modules/dam/plugins/datasources/PostgreDataSourcePlugin.java) : To crawl data from a postgres database
-- WebServicePlugin : `Not released yet` To crawl data from a standard opensearch web service with geojson response format.
+- [WebserviceDatasourcePlugin](https://github.com/RegardsOss/regards-plugins/blob/master/dam-plugins/webservice-datasource/src/main/java/fr/cnes/regards/modules/dam/plugins/datasources/webservice/WebserviceDatasourcePlugin.java) : Plugin to use an OpenSearch compliant webservice as a REGARDS datasource.
 
 ## Interface
   [IDataSourcePlugin](https://github.com/RegardsOss/regards-backend/blob/master/rs-dam/dam/dam-domain/src/main/java/fr/cnes/regards/modules/dam/domain/datasources/plugins/IDataSourcePlugin.java)
