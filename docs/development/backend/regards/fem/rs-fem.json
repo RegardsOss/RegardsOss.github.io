@@ -18,19 +18,13 @@
         },
         "type": "object"
       },
-      "EntityModelDynamicTenantSettingDto": {
+      "DynamicTenantSettingDtoObject": {
         "properties": {
           "defaultValue": {
             "type": "object"
           },
           "description": {
             "type": "string"
-          },
-          "links": {
-            "items": {
-              "$ref": "#/components/schemas/Link"
-            },
-            "type": "array"
           },
           "name": {
             "type": "string"
@@ -41,128 +35,56 @@
         },
         "type": "object"
       },
-      "EntityModelFeatureEntityDto": {
+      "EntityModelDynamicTenantSettingDtoObject": {
         "properties": {
-          "disseminationPending": {
-            "type": "boolean"
-          },
-          "disseminationsInfo": {
-            "items": {
-              "$ref": "#/components/schemas/FeatureDisseminationInfoDto"
-            },
-            "type": "array",
-            "uniqueItems": true
-          },
-          "feature": {
-            "$ref": "#/components/schemas/Feature"
-          },
-          "id": {
-            "format": "int64",
-            "type": "integer"
-          },
-          "lastUpdate": {
-            "format": "date-time",
-            "type": "string"
+          "content": {
+            "$ref": "#/components/schemas/DynamicTenantSettingDtoObject"
           },
           "links": {
             "items": {
               "$ref": "#/components/schemas/Link"
             },
             "type": "array"
+          }
+        },
+        "type": "object"
+      },
+      "EntityModelFeatureEntityDto": {
+        "properties": {
+          "content": {
+            "$ref": "#/components/schemas/FeatureEntityDto"
           },
-          "providerId": {
-            "type": "string"
-          },
-          "session": {
-            "type": "string"
-          },
-          "source": {
-            "type": "string"
-          },
-          "urn": {
-            "$ref": "#/components/schemas/FeatureUniformResourceName"
-          },
-          "version": {
-            "format": "int32",
-            "type": "integer"
+          "links": {
+            "items": {
+              "$ref": "#/components/schemas/Link"
+            },
+            "type": "array"
           }
         },
         "type": "object"
       },
       "EntityModelFeatureRequestDTO": {
         "properties": {
-          "errors": {
-            "items": {
-              "type": "string"
-            },
-            "type": "array",
-            "uniqueItems": true
-          },
-          "id": {
-            "format": "int64",
-            "type": "integer"
+          "content": {
+            "$ref": "#/components/schemas/FeatureRequestDTO"
           },
           "links": {
             "items": {
               "$ref": "#/components/schemas/Link"
             },
             "type": "array"
-          },
-          "processing": {
-            "type": "boolean"
-          },
-          "providerId": {
-            "type": "string"
-          },
-          "registrationDate": {
-            "format": "date-time",
-            "type": "string"
-          },
-          "session": {
-            "type": "string"
-          },
-          "source": {
-            "type": "string"
-          },
-          "state": {
-            "enum": [
-              "GRANTED",
-              "DENIED",
-              "SUCCESS",
-              "ERROR"
-            ],
-            "type": "string"
-          },
-          "step": {
-            "enum": [
-              "LOCAL_DENIED",
-              "LOCAL_DELAYED",
-              "LOCAL_SCHEDULED",
-              "LOCAL_ERROR",
-              "LOCAL_NOTIFICATION_ERROR",
-              "REMOTE_STORAGE_DELETION_REQUESTED",
-              "REMOTE_STORAGE_REQUESTED",
-              "LOCAL_TO_BE_NOTIFIED",
-              "REMOTE_NOTIFICATION_REQUESTED",
-              "REMOTE_NOTIFICATION_SUCCESS",
-              "REMOTE_NOTIFICATION_ERROR",
-              "REMOTE_CREATION_REQUESTED",
-              "REMOTE_CREATION_ERROR",
-              "REMOTE_STORAGE_ERROR"
-            ],
-            "type": "string"
-          },
-          "type": {
-            "type": "string"
-          },
-          "urn": {
-            "$ref": "#/components/schemas/FeatureUniformResourceName"
           }
         },
         "type": "object"
       },
       "EntityModelMapStringMaintenanceInfo": {
         "properties": {
+          "content": {
+            "additionalProperties": {
+              "$ref": "#/components/schemas/MaintenanceInfo"
+            },
+            "type": "object"
+          },
           "links": {
             "items": {
               "$ref": "#/components/schemas/Link"
@@ -174,154 +96,40 @@
       },
       "EntityModelPluginConfiguration": {
         "properties": {
-          "active": {
-            "type": "boolean"
-          },
-          "businessId": {
-            "pattern": "[0-9a-zA-Z_-]*",
-            "type": "string"
-          },
-          "iconUrl": {
-            "format": "url",
-            "type": "string"
-          },
-          "id": {
-            "format": "int64",
-            "type": "integer"
-          },
-          "identifiable": {
-            "type": "boolean"
-          },
-          "interfaceNames": {
-            "items": {
-              "type": "string"
-            },
-            "type": "array",
-            "uniqueItems": true
-          },
-          "isActive": {
-            "type": "boolean",
-            "writeOnly": true
-          },
-          "label": {
-            "type": "string"
+          "content": {
+            "$ref": "#/components/schemas/PluginConfiguration"
           },
           "links": {
             "items": {
               "$ref": "#/components/schemas/Link"
             },
             "type": "array"
-          },
-          "metaData": {
-            "$ref": "#/components/schemas/PluginMetaData"
-          },
-          "metaDataAndPluginId": {
-            "$ref": "#/components/schemas/PluginMetaData"
-          },
-          "parameters": {
-            "items": {
-              "$ref": "#/components/schemas/IPluginParam"
-            },
-            "type": "array",
-            "uniqueItems": true
-          },
-          "pluginClassName": {
-            "type": "string"
-          },
-          "pluginId": {
-            "type": "string"
-          },
-          "priorityOrder": {
-            "format": "int32",
-            "type": "integer"
-          },
-          "version": {
-            "type": "string"
           }
         },
         "type": "object"
       },
       "EntityModelPluginMetaData": {
         "properties": {
-          "author": {
-            "type": "string"
-          },
-          "contact": {
-            "type": "string"
-          },
-          "description": {
-            "type": "string"
-          },
-          "interfaceNames": {
-            "items": {
-              "type": "string"
-            },
-            "type": "array",
-            "uniqueItems": true
-          },
-          "licence": {
-            "type": "string",
-            "writeOnly": true
-          },
-          "license": {
-            "type": "string"
+          "content": {
+            "$ref": "#/components/schemas/PluginMetaData"
           },
           "links": {
             "items": {
               "$ref": "#/components/schemas/Link"
             },
             "type": "array"
-          },
-          "markdown": {
-            "type": "string"
-          },
-          "owner": {
-            "type": "string"
-          },
-          "parameters": {
-            "items": {
-              "$ref": "#/components/schemas/PluginParamDescriptor"
-            },
-            "type": "array"
-          },
-          "pluginClassName": {
-            "type": "string"
-          },
-          "pluginId": {
-            "type": "string"
-          },
-          "url": {
-            "type": "string"
-          },
-          "userMarkdown": {
-            "type": "string"
-          },
-          "version": {
-            "type": "string"
           }
         },
         "type": "object"
       },
       "EntityModelRequestInfoObject": {
         "properties": {
-          "denied": {
-            "$ref": "#/components/schemas/MultimapObjectString"
-          },
-          "granted": {
-            "additionalProperties": {
-              "type": "string"
-            },
-            "type": "object"
+          "content": {
+            "$ref": "#/components/schemas/RequestInfoObject"
           },
           "links": {
             "items": {
               "$ref": "#/components/schemas/Link"
-            },
-            "type": "array"
-          },
-          "messages": {
-            "items": {
-              "type": "string"
             },
             "type": "array"
           }
@@ -332,6 +140,20 @@
         "properties": {
           "content": {
             "type": "string"
+          },
+          "links": {
+            "items": {
+              "$ref": "#/components/schemas/Link"
+            },
+            "type": "array"
+          }
+        },
+        "type": "object"
+      },
+      "EntityModelVoid": {
+        "properties": {
+          "content": {
+            "type": "object"
           },
           "links": {
             "items": {
@@ -394,18 +216,6 @@
             "uniqueItems": true
           },
           "type": {
-            "enum": [
-              "FEATURE",
-              "FEATURE_COLLECTION",
-              "POINT",
-              "MULTIPOINT",
-              "LINESTRING",
-              "MULTILINESTRING",
-              "POLYGON",
-              "MULTIPOLYGON",
-              "GEOMETRY_COLLECTION",
-              "UNLOCATED"
-            ],
             "type": "string"
           },
           "urn": {
@@ -420,6 +230,7 @@
         "type": "object"
       },
       "FeatureCreationCollection": {
+        "description": "Contain all Features to handle",
         "properties": {
           "bbox": {
             "items": {
@@ -444,18 +255,6 @@
             "type": "string"
           },
           "type": {
-            "enum": [
-              "FEATURE",
-              "FEATURE_COLLECTION",
-              "POINT",
-              "MULTIPOINT",
-              "LINESTRING",
-              "MULTILINESTRING",
-              "POLYGON",
-              "MULTIPOLYGON",
-              "GEOMETRY_COLLECTION",
-              "UNLOCATED"
-            ],
             "type": "string"
           }
         },
@@ -506,6 +305,7 @@
         "type": "object"
       },
       "FeatureDeletionCollection": {
+        "description": "Contain all Features to handle",
         "properties": {
           "featuresUrns": {
             "items": {
@@ -526,6 +326,19 @@
         "type": "object"
       },
       "FeatureDisseminationInfoDto": {
+        "properties": {
+          "ackDate": {
+            "format": "date-time",
+            "type": "string"
+          },
+          "label": {
+            "type": "string"
+          },
+          "requestDate": {
+            "format": "date-time",
+            "type": "string"
+          }
+        },
         "type": "object"
       },
       "FeatureEntityDto": {
@@ -694,6 +507,77 @@
         ],
         "type": "object"
       },
+      "FeatureRequestDTO": {
+        "properties": {
+          "errors": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "uniqueItems": true
+          },
+          "id": {
+            "format": "int64",
+            "type": "integer"
+          },
+          "processing": {
+            "type": "boolean"
+          },
+          "providerId": {
+            "type": "string"
+          },
+          "registrationDate": {
+            "format": "date-time",
+            "type": "string"
+          },
+          "session": {
+            "type": "string"
+          },
+          "source": {
+            "type": "string"
+          },
+          "state": {
+            "enum": [
+              "GRANTED",
+              "DENIED",
+              "SUCCESS",
+              "ERROR"
+            ],
+            "type": "string"
+          },
+          "step": {
+            "enum": [
+              "LOCAL_DENIED",
+              "LOCAL_DELAYED",
+              "LOCAL_SCHEDULED",
+              "LOCAL_ERROR",
+              "LOCAL_NOTIFICATION_ERROR",
+              "REMOTE_STORAGE_DELETION_REQUESTED",
+              "REMOTE_STORAGE_REQUESTED",
+              "LOCAL_TO_BE_NOTIFIED",
+              "REMOTE_NOTIFICATION_REQUESTED",
+              "REMOTE_NOTIFICATION_SUCCESS",
+              "REMOTE_NOTIFICATION_ERROR",
+              "REMOTE_CREATION_REQUESTED",
+              "REMOTE_CREATION_ERROR",
+              "REMOTE_STORAGE_ERROR"
+            ],
+            "type": "string"
+          },
+          "type": {
+            "type": "string"
+          },
+          "urn": {
+            "$ref": "#/components/schemas/FeatureUniformResourceName"
+          }
+        },
+        "required": [
+          "id",
+          "registrationDate",
+          "state"
+        ],
+        "type": "object"
+      },
       "FeatureRequestSearchParameters": {
         "properties": {
           "from": {
@@ -748,6 +632,7 @@
         "type": "object"
       },
       "FeatureRequestsSelectionDTO": {
+        "description": "Requests selection",
         "properties": {
           "filters": {
             "$ref": "#/components/schemas/FeatureRequestSearchParameters"
@@ -818,6 +703,7 @@
         "type": "object"
       },
       "FeatureUpdateCollection": {
+        "description": "Contain all Features to handle",
         "properties": {
           "bbox": {
             "items": {
@@ -842,18 +728,6 @@
             "type": "string"
           },
           "type": {
-            "enum": [
-              "FEATURE",
-              "FEATURE_COLLECTION",
-              "POINT",
-              "MULTIPOINT",
-              "LINESTRING",
-              "MULTILINESTRING",
-              "POLYGON",
-              "MULTIPOLYGON",
-              "GEOMETRY_COLLECTION",
-              "UNLOCATED"
-            ],
             "type": "string"
           }
         },
@@ -895,6 +769,7 @@
         "type": "object"
       },
       "FeaturesSelectionDTO": {
+        "description": "Features selection filters",
         "properties": {
           "featureIds": {
             "items": {
@@ -937,18 +812,6 @@
             "writeOnly": true
           },
           "type": {
-            "enum": [
-              "FEATURE",
-              "FEATURE_COLLECTION",
-              "POINT",
-              "MULTIPOINT",
-              "LINESTRING",
-              "MULTILINESTRING",
-              "POLYGON",
-              "MULTIPOLYGON",
-              "GEOMETRY_COLLECTION",
-              "UNLOCATED"
-            ],
             "type": "string"
           }
         },
@@ -1051,15 +914,22 @@
         },
         "type": "object"
       },
+      "MaintenanceInfo": {
+        "properties": {
+          "active": {
+            "type": "boolean"
+          },
+          "lastUpdate": {
+            "format": "date-time",
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
       "MimeType": {
         "properties": {
           "charset": {
-            "properties": {
-              "registered": {
-                "type": "boolean"
-              }
-            },
-            "type": "object"
+            "type": "string"
           },
           "concrete": {
             "type": "boolean"
@@ -1071,6 +941,9 @@
             "type": "object"
           },
           "subtype": {
+            "type": "string"
+          },
+          "subtypeSuffix": {
             "type": "string"
           },
           "type": {
@@ -1197,26 +1070,21 @@
       },
       "Pageable": {
         "properties": {
-          "offset": {
-            "format": "int64",
-            "type": "integer"
-          },
-          "pageNumber": {
+          "page": {
             "format": "int32",
+            "minimum": 0,
             "type": "integer"
           },
-          "pageSize": {
+          "size": {
             "format": "int32",
+            "minimum": 1,
             "type": "integer"
-          },
-          "paged": {
-            "type": "boolean"
           },
           "sort": {
-            "$ref": "#/components/schemas/Sort"
-          },
-          "unpaged": {
-            "type": "boolean"
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
           }
         },
         "type": "object"
@@ -1467,6 +1335,26 @@
         },
         "type": "object"
       },
+      "RequestInfoObject": {
+        "properties": {
+          "denied": {
+            "$ref": "#/components/schemas/MultimapObjectString"
+          },
+          "granted": {
+            "additionalProperties": {
+              "type": "string"
+            },
+            "type": "object"
+          },
+          "messages": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          }
+        },
+        "type": "object"
+      },
       "RequestsInfo": {
         "properties": {
           "nbErrors": {
@@ -1555,20 +1443,6 @@
         },
         "type": "object"
       },
-      "Sort": {
-        "properties": {
-          "empty": {
-            "type": "boolean"
-          },
-          "sorted": {
-            "type": "boolean"
-          },
-          "unsorted": {
-            "type": "boolean"
-          }
-        },
-        "type": "object"
-      },
       "StorageMetadata": {
         "properties": {
           "pluginBusinessId": {
@@ -1620,7 +1494,7 @@
       "name": "GPL-3.0"
     },
     "title": "MICROSERVICE FEM",
-    "version": "1.8.1"
+    "version": "1.10.0"
   },
   "openapi": "3.0.1",
   "paths": {
@@ -1685,7 +1559,6 @@
               }
             }
           },
-          "description": "Features selection filters",
           "required": true
         },
         "responses": {
@@ -1711,7 +1584,6 @@
               }
             }
           },
-          "description": "Features selection filters",
           "required": true
         },
         "responses": {
@@ -1763,7 +1635,7 @@
         "operationId": "resetLastDumpDate",
         "responses": {
           "200": {
-            "description": "default response"
+            "description": "OK"
           }
         },
         "tags": [
@@ -1783,7 +1655,6 @@
               }
             }
           },
-          "description": "Contain all Features to handle",
           "required": true
         },
         "responses": {
@@ -1814,7 +1685,6 @@
               }
             }
           },
-          "description": "Contain all Features to handle",
           "required": true
         },
         "responses": {
@@ -1845,7 +1715,6 @@
               }
             }
           },
-          "description": "Contain all Features to handle",
           "required": true
         },
         "responses": {
@@ -1878,7 +1747,7 @@
                 }
               }
             },
-            "description": "default response"
+            "description": "OK"
           }
         },
         "tags": [
@@ -1901,7 +1770,14 @@
         ],
         "responses": {
           "200": {
-            "description": "default response"
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/EntityModelVoid"
+                }
+              }
+            },
+            "description": "OK"
           }
         },
         "tags": [
@@ -1924,7 +1800,14 @@
         ],
         "responses": {
           "200": {
-            "description": "default response"
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/EntityModelVoid"
+                }
+              }
+            },
+            "description": "OK"
           }
         },
         "tags": [
@@ -1937,7 +1820,7 @@
         "operationId": "exportConfiguration",
         "responses": {
           "200": {
-            "description": "default response"
+            "description": "OK"
           }
         },
         "tags": [
@@ -1956,6 +1839,9 @@
                     "type": "string"
                   }
                 },
+                "required": [
+                  "file"
+                ],
                 "type": "object"
               }
             }
@@ -1974,7 +1860,7 @@
                 }
               }
             },
-            "description": "default response"
+            "description": "OK"
           }
         },
         "tags": [
@@ -1987,7 +1873,7 @@
         "operationId": "isConfigurationEnabled",
         "responses": {
           "200": {
-            "description": "default response"
+            "description": "OK"
           }
         },
         "tags": [
@@ -2007,7 +1893,7 @@
                 }
               }
             },
-            "description": "default response"
+            "description": "OK"
           }
         },
         "tags": [
@@ -2020,7 +1906,7 @@
         "operationId": "isReadyEnabled",
         "responses": {
           "200": {
-            "description": "default response"
+            "description": "OK"
           }
         },
         "tags": [
@@ -2044,7 +1930,7 @@
                 }
               }
             },
-            "description": "default response"
+            "description": "OK"
           }
         },
         "tags": [
@@ -2057,7 +1943,7 @@
         "operationId": "isRestartEnabled",
         "responses": {
           "200": {
-            "description": "default response"
+            "description": "OK"
           }
         },
         "tags": [
@@ -2090,7 +1976,7 @@
                 }
               }
             },
-            "description": "default response"
+            "description": "OK"
           }
         },
         "tags": [
@@ -2103,7 +1989,7 @@
         "operationId": "emptyCache",
         "responses": {
           "200": {
-            "description": "default response"
+            "description": "OK"
           }
         },
         "tags": [
@@ -2136,7 +2022,7 @@
                 }
               }
             },
-            "description": "default response"
+            "description": "OK"
           }
         },
         "tags": [
@@ -2166,7 +2052,7 @@
                 }
               }
             },
-            "description": "default response"
+            "description": "OK"
           }
         },
         "tags": [
@@ -2196,7 +2082,7 @@
                 }
               }
             },
-            "description": "default response"
+            "description": "OK"
           }
         },
         "tags": [
@@ -2229,7 +2115,7 @@
                 }
               }
             },
-            "description": "default response"
+            "description": "OK"
           }
         },
         "tags": [
@@ -2257,7 +2143,7 @@
                 }
               }
             },
-            "description": "default response"
+            "description": "OK"
           }
         },
         "tags": [
@@ -2288,7 +2174,7 @@
         ],
         "responses": {
           "200": {
-            "description": "default response"
+            "description": "OK"
           }
         },
         "tags": [
@@ -2324,7 +2210,7 @@
                 }
               }
             },
-            "description": "default response"
+            "description": "OK"
           }
         },
         "tags": [
@@ -2370,7 +2256,7 @@
                 }
               }
             },
-            "description": "default response"
+            "description": "OK"
           }
         },
         "tags": [
@@ -2403,7 +2289,7 @@
                 }
               }
             },
-            "description": "default response"
+            "description": "OK"
           }
         },
         "tags": [
@@ -2433,7 +2319,7 @@
                 }
               }
             },
-            "description": "default response"
+            "description": "OK"
           }
         },
         "tags": [
@@ -2463,7 +2349,7 @@
                 }
               }
             },
-            "description": "default response"
+            "description": "OK"
           }
         },
         "tags": [
@@ -2502,7 +2388,6 @@
               }
             }
           },
-          "description": "Requests selection",
           "required": true
         },
         "responses": {
@@ -2554,7 +2439,6 @@
               }
             }
           },
-          "description": "Requests selection",
           "required": true
         },
         "responses": {
@@ -2647,7 +2531,7 @@
                 }
               }
             },
-            "description": "default response"
+            "description": "OK"
           }
         },
         "tags": [
@@ -2678,13 +2562,13 @@
               "*/*": {
                 "schema": {
                   "items": {
-                    "$ref": "#/components/schemas/EntityModelDynamicTenantSettingDto"
+                    "$ref": "#/components/schemas/EntityModelDynamicTenantSettingDtoObject"
                   },
                   "type": "array"
                 }
               }
             },
-            "description": "default response"
+            "description": "OK"
           }
         },
         "tags": [
@@ -2710,11 +2594,11 @@
             "content": {
               "*/*": {
                 "schema": {
-                  "$ref": "#/components/schemas/EntityModelDynamicTenantSettingDto"
+                  "$ref": "#/components/schemas/EntityModelDynamicTenantSettingDtoObject"
                 }
               }
             },
-            "description": "default response"
+            "description": "OK"
           }
         },
         "tags": [
@@ -2748,11 +2632,11 @@
             "content": {
               "*/*": {
                 "schema": {
-                  "$ref": "#/components/schemas/EntityModelDynamicTenantSettingDto"
+                  "$ref": "#/components/schemas/EntityModelDynamicTenantSettingDtoObject"
                 }
               }
             },
-            "description": "default response"
+            "description": "OK"
           }
         },
         "tags": [
@@ -2765,7 +2649,7 @@
         "operationId": "immediateShutdown",
         "responses": {
           "200": {
-            "description": "default response"
+            "description": "OK"
           }
         },
         "tags": [

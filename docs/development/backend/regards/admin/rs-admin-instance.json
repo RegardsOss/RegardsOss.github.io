@@ -119,84 +119,13 @@
         },
         "type": "object"
       },
-      "EntityModelAccount": {
-        "properties": {
-          "authenticationFailedCounter": {
-            "format": "int64",
-            "type": "integer"
-          },
-          "email": {
-            "type": "string"
-          },
-          "external": {
-            "type": "boolean"
-          },
-          "firstName": {
-            "type": "string"
-          },
-          "id": {
-            "format": "int64",
-            "type": "integer"
-          },
-          "identifiable": {
-            "type": "boolean"
-          },
-          "invalidityDate": {
-            "format": "date-time",
-            "type": "string"
-          },
-          "lastName": {
-            "type": "string"
-          },
-          "links": {
-            "items": {
-              "$ref": "#/components/schemas/Link"
-            },
-            "type": "array"
-          },
-          "origin": {
-            "type": "string"
-          },
-          "password": {
-            "type": "string"
-          },
-          "passwordUpdateDate": {
-            "format": "date-time",
-            "type": "string"
-          },
-          "projects": {
-            "items": {
-              "$ref": "#/components/schemas/Project"
-            },
-            "type": "array",
-            "uniqueItems": true
-          },
-          "status": {
-            "enum": [
-              "INACTIVE",
-              "INACTIVE_PASSWORD",
-              "ACTIVE",
-              "LOCKED",
-              "PENDING"
-            ],
-            "type": "string"
-          }
-        },
-        "type": "object"
-      },
-      "EntityModelDynamicTenantSettingDto": {
+      "DynamicTenantSettingDtoObject": {
         "properties": {
           "defaultValue": {
             "type": "object"
           },
           "description": {
             "type": "string"
-          },
-          "links": {
-            "items": {
-              "$ref": "#/components/schemas/Link"
-            },
-            "type": "array"
           },
           "name": {
             "type": "string"
@@ -207,7 +136,108 @@
         },
         "type": "object"
       },
+      "EntityModelAccount": {
+        "properties": {
+          "content": {
+            "$ref": "#/components/schemas/Account"
+          },
+          "links": {
+            "items": {
+              "$ref": "#/components/schemas/Link"
+            },
+            "type": "array"
+          }
+        },
+        "type": "object"
+      },
+      "EntityModelDynamicTenantSettingDtoObject": {
+        "properties": {
+          "content": {
+            "$ref": "#/components/schemas/DynamicTenantSettingDtoObject"
+          },
+          "links": {
+            "items": {
+              "$ref": "#/components/schemas/Link"
+            },
+            "type": "array"
+          }
+        },
+        "type": "object"
+      },
       "EntityModelINotificationWithoutMessage": {
+        "properties": {
+          "content": {
+            "$ref": "#/components/schemas/INotificationWithoutMessage"
+          },
+          "links": {
+            "items": {
+              "$ref": "#/components/schemas/Link"
+            },
+            "type": "array"
+          }
+        },
+        "type": "object"
+      },
+      "EntityModelMapStringMaintenanceInfo": {
+        "properties": {
+          "content": {
+            "additionalProperties": {
+              "$ref": "#/components/schemas/MaintenanceInfo"
+            },
+            "type": "object"
+          },
+          "links": {
+            "items": {
+              "$ref": "#/components/schemas/Link"
+            },
+            "type": "array"
+          }
+        },
+        "type": "object"
+      },
+      "EntityModelProject": {
+        "properties": {
+          "content": {
+            "$ref": "#/components/schemas/Project"
+          },
+          "links": {
+            "items": {
+              "$ref": "#/components/schemas/Link"
+            },
+            "type": "array"
+          }
+        },
+        "type": "object"
+      },
+      "EntityModelProjectConnection": {
+        "properties": {
+          "content": {
+            "$ref": "#/components/schemas/ProjectConnection"
+          },
+          "links": {
+            "items": {
+              "$ref": "#/components/schemas/Link"
+            },
+            "type": "array"
+          }
+        },
+        "type": "object"
+      },
+      "EntityModelVoid": {
+        "properties": {
+          "content": {
+            "type": "object"
+          },
+          "links": {
+            "items": {
+              "$ref": "#/components/schemas/Link"
+            },
+            "type": "array"
+          }
+        },
+        "type": "object"
+      },
+      "INotificationWithoutMessage": {
         "properties": {
           "date": {
             "format": "date-time",
@@ -226,12 +256,6 @@
             ],
             "type": "string"
           },
-          "links": {
-            "items": {
-              "$ref": "#/components/schemas/Link"
-            },
-            "type": "array"
-          },
           "mimeType": {
             "$ref": "#/components/schemas/MimeType"
           },
@@ -246,121 +270,6 @@
             "type": "string"
           },
           "title": {
-            "type": "string"
-          }
-        },
-        "type": "object"
-      },
-      "EntityModelMapStringMaintenanceInfo": {
-        "properties": {
-          "links": {
-            "items": {
-              "$ref": "#/components/schemas/Link"
-            },
-            "type": "array"
-          }
-        },
-        "type": "object"
-      },
-      "EntityModelProject": {
-        "properties": {
-          "accessible": {
-            "type": "boolean"
-          },
-          "crs": {
-            "type": "string"
-          },
-          "deleted": {
-            "type": "boolean"
-          },
-          "description": {
-            "type": "string"
-          },
-          "host": {
-            "type": "string"
-          },
-          "icon": {
-            "type": "string"
-          },
-          "id": {
-            "format": "int64",
-            "type": "integer"
-          },
-          "identifiable": {
-            "type": "boolean"
-          },
-          "label": {
-            "type": "string"
-          },
-          "licenceLink": {
-            "type": "string"
-          },
-          "licenseLink": {
-            "type": "string",
-            "writeOnly": true
-          },
-          "links": {
-            "items": {
-              "$ref": "#/components/schemas/Link"
-            },
-            "type": "array"
-          },
-          "name": {
-            "pattern": "[a-zA-Z0-9-_]*",
-            "type": "string"
-          },
-          "poleToBeManaged": {
-            "type": "boolean"
-          },
-          "public": {
-            "type": "boolean"
-          }
-        },
-        "type": "object"
-      },
-      "EntityModelProjectConnection": {
-        "properties": {
-          "driverClassName": {
-            "type": "string"
-          },
-          "errorCause": {
-            "type": "string"
-          },
-          "id": {
-            "format": "int64",
-            "type": "integer"
-          },
-          "identifiable": {
-            "type": "boolean"
-          },
-          "links": {
-            "items": {
-              "$ref": "#/components/schemas/Link"
-            },
-            "type": "array"
-          },
-          "microservice": {
-            "type": "string"
-          },
-          "password": {
-            "type": "string"
-          },
-          "project": {
-            "$ref": "#/components/schemas/Project"
-          },
-          "state": {
-            "enum": [
-              "ENABLED",
-              "DISABLED",
-              "CONNECTING",
-              "ERROR"
-            ],
-            "type": "string"
-          },
-          "url": {
-            "type": "string"
-          },
-          "userName": {
             "type": "string"
           }
         },
@@ -398,15 +307,22 @@
         },
         "type": "object"
       },
+      "MaintenanceInfo": {
+        "properties": {
+          "active": {
+            "type": "boolean"
+          },
+          "lastUpdate": {
+            "format": "date-time",
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
       "MimeType": {
         "properties": {
           "charset": {
-            "properties": {
-              "registered": {
-                "type": "boolean"
-              }
-            },
-            "type": "object"
+            "type": "string"
           },
           "concrete": {
             "type": "boolean"
@@ -418,6 +334,9 @@
             "type": "object"
           },
           "subtype": {
+            "type": "string"
+          },
+          "subtypeSuffix": {
             "type": "string"
           },
           "type": {
@@ -642,26 +561,21 @@
       },
       "Pageable": {
         "properties": {
-          "offset": {
-            "format": "int64",
-            "type": "integer"
-          },
-          "pageNumber": {
+          "page": {
             "format": "int32",
+            "minimum": 0,
             "type": "integer"
           },
-          "pageSize": {
+          "size": {
             "format": "int32",
+            "minimum": 1,
             "type": "integer"
-          },
-          "paged": {
-            "type": "boolean"
           },
           "sort": {
-            "$ref": "#/components/schemas/Sort"
-          },
-          "unpaged": {
-            "type": "boolean"
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
           }
         },
         "type": "object"
@@ -1016,20 +930,6 @@
         },
         "type": "object"
       },
-      "Sort": {
-        "properties": {
-          "empty": {
-            "type": "boolean"
-          },
-          "sorted": {
-            "type": "boolean"
-          },
-          "unsorted": {
-            "type": "boolean"
-          }
-        },
-        "type": "object"
-      },
       "TenantConnection": {
         "properties": {
           "driverClassName": {
@@ -1092,7 +992,7 @@
       "name": "GPL-3.0"
     },
     "title": "MICROSERVICE ADMIN INSTANCE",
-    "version": "1.8.1"
+    "version": "1.10.0"
   },
   "openapi": "3.0.1",
   "paths": {
@@ -1134,7 +1034,7 @@
                 }
               }
             },
-            "description": "default response"
+            "description": "OK"
           }
         },
         "tags": [
@@ -1162,7 +1062,7 @@
                 }
               }
             },
-            "description": "default response"
+            "description": "OK"
           }
         },
         "tags": [
@@ -1192,7 +1092,7 @@
                 }
               }
             },
-            "description": "default response"
+            "description": "OK"
           }
         },
         "tags": [
@@ -1215,7 +1115,7 @@
                 }
               }
             },
-            "description": "default response"
+            "description": "OK"
           }
         },
         "tags": [
@@ -1235,7 +1135,7 @@
                 }
               }
             },
-            "description": "default response"
+            "description": "OK"
           }
         },
         "tags": [
@@ -1263,7 +1163,7 @@
                 }
               }
             },
-            "description": "default response"
+            "description": "OK"
           }
         },
         "tags": [
@@ -1286,7 +1186,7 @@
         ],
         "responses": {
           "200": {
-            "description": "default response"
+            "description": "OK"
           }
         },
         "tags": [
@@ -1309,7 +1209,7 @@
         ],
         "responses": {
           "200": {
-            "description": "default response"
+            "description": "OK"
           }
         },
         "tags": [
@@ -1342,7 +1242,7 @@
         },
         "responses": {
           "200": {
-            "description": "default response"
+            "description": "OK"
           }
         },
         "tags": [
@@ -1365,7 +1265,7 @@
         ],
         "responses": {
           "200": {
-            "description": "default response"
+            "description": "OK"
           }
         },
         "tags": [
@@ -1396,7 +1296,7 @@
         ],
         "responses": {
           "200": {
-            "description": "default response"
+            "description": "OK"
           }
         },
         "tags": [
@@ -1427,7 +1327,7 @@
         ],
         "responses": {
           "200": {
-            "description": "default response"
+            "description": "OK"
           }
         },
         "tags": [
@@ -1450,7 +1350,7 @@
         ],
         "responses": {
           "200": {
-            "description": "default response"
+            "description": "OK"
           }
         },
         "tags": [
@@ -1483,7 +1383,7 @@
         },
         "responses": {
           "200": {
-            "description": "default response"
+            "description": "OK"
           }
         },
         "tags": [
@@ -1514,7 +1414,7 @@
         },
         "responses": {
           "200": {
-            "description": "default response"
+            "description": "OK"
           }
         },
         "tags": [
@@ -1545,7 +1445,7 @@
         ],
         "responses": {
           "200": {
-            "description": "default response"
+            "description": "OK"
           }
         },
         "tags": [
@@ -1578,7 +1478,7 @@
         },
         "responses": {
           "200": {
-            "description": "default response"
+            "description": "OK"
           }
         },
         "tags": [
@@ -1609,7 +1509,7 @@
         },
         "responses": {
           "200": {
-            "description": "default response"
+            "description": "OK"
           }
         },
         "tags": [
@@ -1647,7 +1547,7 @@
                 }
               }
             },
-            "description": "default response"
+            "description": "OK"
           }
         },
         "tags": [
@@ -1671,7 +1571,7 @@
         ],
         "responses": {
           "200": {
-            "description": "default response"
+            "description": "OK"
           }
         },
         "tags": [
@@ -1700,7 +1600,7 @@
                 }
               }
             },
-            "description": "default response"
+            "description": "OK"
           }
         },
         "tags": [
@@ -1739,7 +1639,7 @@
                 }
               }
             },
-            "description": "default response"
+            "description": "OK"
           }
         },
         "tags": [
@@ -1772,7 +1672,7 @@
                 }
               }
             },
-            "description": "default response"
+            "description": "OK"
           }
         },
         "tags": [
@@ -1810,7 +1710,7 @@
                 }
               }
             },
-            "description": "default response"
+            "description": "OK"
           }
         },
         "tags": [
@@ -1848,7 +1748,7 @@
                 }
               }
             },
-            "description": "default response"
+            "description": "OK"
           }
         },
         "tags": [
@@ -1868,7 +1768,7 @@
                 }
               }
             },
-            "description": "default response"
+            "description": "OK"
           }
         },
         "tags": [
@@ -1891,7 +1791,14 @@
         ],
         "responses": {
           "200": {
-            "description": "default response"
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/EntityModelVoid"
+                }
+              }
+            },
+            "description": "OK"
           }
         },
         "tags": [
@@ -1914,7 +1821,14 @@
         ],
         "responses": {
           "200": {
-            "description": "default response"
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/EntityModelVoid"
+                }
+              }
+            },
+            "description": "OK"
           }
         },
         "tags": [
@@ -1927,7 +1841,7 @@
         "operationId": "exportConfiguration",
         "responses": {
           "200": {
-            "description": "default response"
+            "description": "OK"
           }
         },
         "tags": [
@@ -1946,6 +1860,9 @@
                     "type": "string"
                   }
                 },
+                "required": [
+                  "file"
+                ],
                 "type": "object"
               }
             }
@@ -1964,7 +1881,7 @@
                 }
               }
             },
-            "description": "default response"
+            "description": "OK"
           }
         },
         "tags": [
@@ -1977,7 +1894,7 @@
         "operationId": "isConfigurationEnabled",
         "responses": {
           "200": {
-            "description": "default response"
+            "description": "OK"
           }
         },
         "tags": [
@@ -1997,7 +1914,7 @@
                 }
               }
             },
-            "description": "default response"
+            "description": "OK"
           }
         },
         "tags": [
@@ -2010,7 +1927,7 @@
         "operationId": "isReadyEnabled",
         "responses": {
           "200": {
-            "description": "default response"
+            "description": "OK"
           }
         },
         "tags": [
@@ -2034,7 +1951,7 @@
                 }
               }
             },
-            "description": "default response"
+            "description": "OK"
           }
         },
         "tags": [
@@ -2047,7 +1964,7 @@
         "operationId": "isRestartEnabled",
         "responses": {
           "200": {
-            "description": "default response"
+            "description": "OK"
           }
         },
         "tags": [
@@ -2097,7 +2014,7 @@
                 }
               }
             },
-            "description": "default response"
+            "description": "OK"
           }
         },
         "tags": [
@@ -2125,7 +2042,7 @@
                 }
               }
             },
-            "description": "default response"
+            "description": "OK"
           }
         },
         "tags": [
@@ -2138,7 +2055,7 @@
         "operationId": "markAllNotificationAsRead",
         "responses": {
           "200": {
-            "description": "default response"
+            "description": "OK"
           }
         },
         "tags": [
@@ -2151,7 +2068,7 @@
         "operationId": "markAllNotificationAsUnread",
         "responses": {
           "200": {
-            "description": "default response"
+            "description": "OK"
           }
         },
         "tags": [
@@ -2161,10 +2078,10 @@
     },
     "/notifications/read/delete": {
       "delete": {
-        "operationId": "deleteNotification",
+        "operationId": "deleteNotification_1",
         "responses": {
           "200": {
-            "description": "default response"
+            "description": "OK"
           }
         },
         "tags": [
@@ -2174,7 +2091,7 @@
     },
     "/notifications/{notification_id}": {
       "delete": {
-        "operationId": "deleteNotification_1",
+        "operationId": "deleteNotification",
         "parameters": [
           {
             "in": "path",
@@ -2188,7 +2105,7 @@
         ],
         "responses": {
           "200": {
-            "description": "default response"
+            "description": "OK"
           }
         },
         "tags": [
@@ -2217,7 +2134,7 @@
                 }
               }
             },
-            "description": "default response"
+            "description": "OK"
           }
         },
         "tags": [
@@ -2248,7 +2165,7 @@
                 }
               }
             },
-            "description": "default response"
+            "description": "OK"
           }
         },
         "tags": [
@@ -2279,7 +2196,7 @@
                 }
               }
             },
-            "description": "default response"
+            "description": "OK"
           }
         },
         "tags": [
@@ -2317,7 +2234,7 @@
                 }
               }
             },
-            "description": "default response"
+            "description": "OK"
           }
         },
         "tags": [
@@ -2345,7 +2262,7 @@
                 }
               }
             },
-            "description": "default response"
+            "description": "OK"
           }
         },
         "tags": [
@@ -2383,7 +2300,7 @@
                 }
               }
             },
-            "description": "default response"
+            "description": "OK"
           }
         },
         "tags": [
@@ -2429,7 +2346,7 @@
                 }
               }
             },
-            "description": "default response"
+            "description": "OK"
           }
         },
         "tags": [
@@ -2467,7 +2384,7 @@
                 }
               }
             },
-            "description": "default response"
+            "description": "OK"
           }
         },
         "tags": [
@@ -2499,7 +2416,7 @@
         ],
         "responses": {
           "200": {
-            "description": "default response"
+            "description": "OK"
           }
         },
         "tags": [
@@ -2536,7 +2453,7 @@
                 }
               }
             },
-            "description": "default response"
+            "description": "OK"
           }
         },
         "tags": [
@@ -2583,7 +2500,7 @@
                 }
               }
             },
-            "description": "default response"
+            "description": "OK"
           }
         },
         "tags": [
@@ -2606,7 +2523,7 @@
         ],
         "responses": {
           "200": {
-            "description": "default response"
+            "description": "OK"
           }
         },
         "tags": [
@@ -2634,7 +2551,7 @@
                 }
               }
             },
-            "description": "default response"
+            "description": "OK"
           }
         },
         "tags": [
@@ -2672,7 +2589,7 @@
                 }
               }
             },
-            "description": "default response"
+            "description": "OK"
           }
         },
         "tags": [
@@ -2695,7 +2612,7 @@
         ],
         "responses": {
           "200": {
-            "description": "default response"
+            "description": "OK"
           }
         },
         "tags": [
@@ -2718,7 +2635,7 @@
                 }
               }
             },
-            "description": "default response"
+            "description": "OK"
           }
         },
         "tags": [
@@ -2749,13 +2666,13 @@
               "*/*": {
                 "schema": {
                   "items": {
-                    "$ref": "#/components/schemas/EntityModelDynamicTenantSettingDto"
+                    "$ref": "#/components/schemas/EntityModelDynamicTenantSettingDtoObject"
                   },
                   "type": "array"
                 }
               }
             },
-            "description": "default response"
+            "description": "OK"
           }
         },
         "tags": [
@@ -2781,11 +2698,11 @@
             "content": {
               "*/*": {
                 "schema": {
-                  "$ref": "#/components/schemas/EntityModelDynamicTenantSettingDto"
+                  "$ref": "#/components/schemas/EntityModelDynamicTenantSettingDtoObject"
                 }
               }
             },
-            "description": "default response"
+            "description": "OK"
           }
         },
         "tags": [
@@ -2819,11 +2736,11 @@
             "content": {
               "*/*": {
                 "schema": {
-                  "$ref": "#/components/schemas/EntityModelDynamicTenantSettingDto"
+                  "$ref": "#/components/schemas/EntityModelDynamicTenantSettingDtoObject"
                 }
               }
             },
-            "description": "default response"
+            "description": "OK"
           }
         },
         "tags": [
@@ -2836,7 +2753,7 @@
         "operationId": "immediateShutdown",
         "responses": {
           "200": {
-            "description": "default response"
+            "description": "OK"
           }
         },
         "tags": [
@@ -2860,7 +2777,7 @@
                 }
               }
             },
-            "description": "default response"
+            "description": "OK"
           }
         },
         "tags": [
@@ -2894,7 +2811,7 @@
                 }
               }
             },
-            "description": "default response"
+            "description": "OK"
           }
         },
         "tags": [

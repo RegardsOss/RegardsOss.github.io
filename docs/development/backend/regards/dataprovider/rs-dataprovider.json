@@ -1,672 +1,14 @@
 {
   "components": {
     "schemas": {
-      "AccessRightInformation": {
-        "properties": {
-          "dataRights": {
-            "type": "string"
-          },
-          "licence": {
-            "type": "string"
-          },
-          "publicReleaseDate": {
-            "format": "date-time",
-            "type": "string"
-          }
-        },
-        "required": [
-          "dataRights"
-        ],
-        "type": "object"
-      },
-      "AcquisitionFile": {
-        "properties": {
-          "acqDate": {
-            "format": "date-time",
-            "type": "string"
-          },
-          "error": {
-            "type": "string"
-          },
-          "fileInfo": {
-            "$ref": "#/components/schemas/AcquisitionFileInfo"
-          },
-          "filePath": {
-            "properties": {
-              "absolute": {
-                "type": "boolean"
-              },
-              "fileName": {
-                "properties": {
-                  "absolute": {
-                    "type": "boolean"
-                  },
-                  "fileSystem": {
-                    "properties": {
-                      "fileStores": {
-                        "type": "object"
-                      },
-                      "open": {
-                        "type": "boolean"
-                      },
-                      "readOnly": {
-                        "type": "boolean"
-                      },
-                      "rootDirectories": {
-                        "type": "object"
-                      },
-                      "separator": {
-                        "type": "string"
-                      },
-                      "userPrincipalLookupService": {
-                        "type": "object"
-                      }
-                    },
-                    "type": "object"
-                  },
-                  "nameCount": {
-                    "format": "int32",
-                    "type": "integer"
-                  }
-                },
-                "type": "object"
-              },
-              "fileSystem": {
-                "properties": {
-                  "fileStores": {
-                    "type": "object"
-                  },
-                  "open": {
-                    "type": "boolean"
-                  },
-                  "readOnly": {
-                    "type": "boolean"
-                  },
-                  "rootDirectories": {
-                    "type": "object"
-                  },
-                  "separator": {
-                    "type": "string"
-                  },
-                  "userPrincipalLookupService": {
-                    "type": "object"
-                  }
-                },
-                "type": "object"
-              },
-              "nameCount": {
-                "format": "int32",
-                "type": "integer"
-              },
-              "parent": {
-                "properties": {
-                  "absolute": {
-                    "type": "boolean"
-                  },
-                  "fileSystem": {
-                    "properties": {
-                      "fileStores": {
-                        "type": "object"
-                      },
-                      "open": {
-                        "type": "boolean"
-                      },
-                      "readOnly": {
-                        "type": "boolean"
-                      },
-                      "rootDirectories": {
-                        "type": "object"
-                      },
-                      "separator": {
-                        "type": "string"
-                      },
-                      "userPrincipalLookupService": {
-                        "type": "object"
-                      }
-                    },
-                    "type": "object"
-                  },
-                  "nameCount": {
-                    "format": "int32",
-                    "type": "integer"
-                  }
-                },
-                "type": "object"
-              },
-              "root": {
-                "properties": {
-                  "absolute": {
-                    "type": "boolean"
-                  },
-                  "fileSystem": {
-                    "properties": {
-                      "fileStores": {
-                        "type": "object"
-                      },
-                      "open": {
-                        "type": "boolean"
-                      },
-                      "readOnly": {
-                        "type": "boolean"
-                      },
-                      "rootDirectories": {
-                        "type": "object"
-                      },
-                      "separator": {
-                        "type": "string"
-                      },
-                      "userPrincipalLookupService": {
-                        "type": "object"
-                      }
-                    },
-                    "type": "object"
-                  },
-                  "nameCount": {
-                    "format": "int32",
-                    "type": "integer"
-                  }
-                },
-                "type": "object"
-              }
-            },
-            "type": "object"
-          },
-          "id": {
-            "format": "int64",
-            "type": "integer"
-          },
-          "product": {
-            "$ref": "#/components/schemas/Product"
-          },
-          "state": {
-            "enum": [
-              "IN_PROGRESS",
-              "VALID",
-              "INVALID",
-              "ACQUIRED",
-              "SUPERSEDED",
-              "SUPERSEDED_AFTER_ERROR",
-              "ERROR"
-            ],
-            "type": "string"
-          }
-        },
-        "required": [
-          "acqDate",
-          "fileInfo",
-          "filePath"
-        ],
-        "type": "object"
-      },
-      "AcquisitionFileInfo": {
-        "properties": {
-          "comment": {
-            "type": "string"
-          },
-          "dataType": {
-            "enum": [
-              "RAWDATA",
-              "QUICKLOOK_SD",
-              "QUICKLOOK_MD",
-              "QUICKLOOK_HD",
-              "DOCUMENT",
-              "THUMBNAIL",
-              "OTHER",
-              "AIP",
-              "DESCRIPTION"
-            ],
-            "type": "string"
-          },
-          "id": {
-            "format": "int64",
-            "type": "integer"
-          },
-          "mandatory": {
-            "type": "boolean"
-          },
-          "mimeType": {
-            "$ref": "#/components/schemas/MimeType"
-          },
-          "scanDirInfo": {
-            "items": {
-              "$ref": "#/components/schemas/ScanDirectoryInfo"
-            },
-            "maxItems": 2147483647,
-            "minItems": 1,
-            "type": "array",
-            "uniqueItems": true
-          },
-          "scanPlugin": {
-            "$ref": "#/components/schemas/PluginConfiguration"
-          }
-        },
-        "required": [
-          "dataType",
-          "mandatory",
-          "mimeType",
-          "scanDirInfo",
-          "scanPlugin"
-        ],
-        "type": "object"
-      },
-      "AcquisitionProcessingChain": {
-        "properties": {
-          "active": {
-            "type": "boolean"
-          },
-          "categories": {
-            "items": {
-              "type": "string"
-            },
-            "type": "array",
-            "uniqueItems": true
-          },
-          "fileInfos": {
-            "items": {
-              "$ref": "#/components/schemas/AcquisitionFileInfo"
-            },
-            "maxItems": 2147483647,
-            "minItems": 1,
-            "type": "array",
-            "uniqueItems": true
-          },
-          "generateSipPluginConf": {
-            "$ref": "#/components/schemas/PluginConfiguration"
-          },
-          "id": {
-            "format": "int64",
-            "type": "integer"
-          },
-          "ingestChain": {
-            "type": "string"
-          },
-          "label": {
-            "type": "string"
-          },
-          "lastActivationDate": {
-            "format": "date-time",
-            "type": "string"
-          },
-          "lastProductAcquisitionJobInfo": {
-            "$ref": "#/components/schemas/JobInfo"
-          },
-          "locked": {
-            "type": "boolean"
-          },
-          "mode": {
-            "enum": [
-              "MANUAL",
-              "AUTO"
-            ],
-            "type": "string"
-          },
-          "periodicity": {
-            "pattern": "0 .*",
-            "type": "string"
-          },
-          "postProcessSipPluginConf": {
-            "$ref": "#/components/schemas/PluginConfiguration"
-          },
-          "productPluginConf": {
-            "$ref": "#/components/schemas/PluginConfiguration"
-          },
-          "productsStored": {
-            "type": "boolean"
-          },
-          "referenceLocation": {
-            "type": "string"
-          },
-          "storages": {
-            "items": {
-              "$ref": "#/components/schemas/StorageMetadataProvider"
-            },
-            "type": "array"
-          },
-          "validationPluginConf": {
-            "$ref": "#/components/schemas/PluginConfiguration"
-          },
-          "versioningMode": {
-            "enum": [
-              "IGNORE",
-              "INC_VERSION",
-              "MANUAL",
-              "REPLACE"
-            ],
-            "type": "string"
-          }
-        },
-        "required": [
-          "active",
-          "categories",
-          "fileInfos",
-          "generateSipPluginConf",
-          "ingestChain",
-          "label",
-          "mode",
-          "productPluginConf",
-          "productsStored",
-          "storages",
-          "validationPluginConf"
-        ],
-        "type": "object"
-      },
-      "ContentInformation": {
-        "properties": {
-          "dataObject": {
-            "$ref": "#/components/schemas/OAISDataObject"
-          },
-          "representationInformation": {
-            "$ref": "#/components/schemas/RepresentationInformation"
-          }
-        },
-        "required": [
-          "dataObject",
-          "representationInformation"
-        ],
-        "type": "object"
-      },
-      "EntityModelAcquisitionFile": {
-        "properties": {
-          "acqDate": {
-            "format": "date-time",
-            "type": "string"
-          },
-          "error": {
-            "type": "string"
-          },
-          "fileInfo": {
-            "$ref": "#/components/schemas/AcquisitionFileInfo"
-          },
-          "filePath": {
-            "properties": {
-              "absolute": {
-                "type": "boolean"
-              },
-              "fileName": {
-                "properties": {
-                  "absolute": {
-                    "type": "boolean"
-                  },
-                  "fileSystem": {
-                    "properties": {
-                      "fileStores": {
-                        "type": "object"
-                      },
-                      "open": {
-                        "type": "boolean"
-                      },
-                      "readOnly": {
-                        "type": "boolean"
-                      },
-                      "rootDirectories": {
-                        "type": "object"
-                      },
-                      "separator": {
-                        "type": "string"
-                      },
-                      "userPrincipalLookupService": {
-                        "type": "object"
-                      }
-                    },
-                    "type": "object"
-                  },
-                  "nameCount": {
-                    "format": "int32",
-                    "type": "integer"
-                  }
-                },
-                "type": "object"
-              },
-              "fileSystem": {
-                "properties": {
-                  "fileStores": {
-                    "type": "object"
-                  },
-                  "open": {
-                    "type": "boolean"
-                  },
-                  "readOnly": {
-                    "type": "boolean"
-                  },
-                  "rootDirectories": {
-                    "type": "object"
-                  },
-                  "separator": {
-                    "type": "string"
-                  },
-                  "userPrincipalLookupService": {
-                    "type": "object"
-                  }
-                },
-                "type": "object"
-              },
-              "nameCount": {
-                "format": "int32",
-                "type": "integer"
-              },
-              "parent": {
-                "properties": {
-                  "absolute": {
-                    "type": "boolean"
-                  },
-                  "fileSystem": {
-                    "properties": {
-                      "fileStores": {
-                        "type": "object"
-                      },
-                      "open": {
-                        "type": "boolean"
-                      },
-                      "readOnly": {
-                        "type": "boolean"
-                      },
-                      "rootDirectories": {
-                        "type": "object"
-                      },
-                      "separator": {
-                        "type": "string"
-                      },
-                      "userPrincipalLookupService": {
-                        "type": "object"
-                      }
-                    },
-                    "type": "object"
-                  },
-                  "nameCount": {
-                    "format": "int32",
-                    "type": "integer"
-                  }
-                },
-                "type": "object"
-              },
-              "root": {
-                "properties": {
-                  "absolute": {
-                    "type": "boolean"
-                  },
-                  "fileSystem": {
-                    "properties": {
-                      "fileStores": {
-                        "type": "object"
-                      },
-                      "open": {
-                        "type": "boolean"
-                      },
-                      "readOnly": {
-                        "type": "boolean"
-                      },
-                      "rootDirectories": {
-                        "type": "object"
-                      },
-                      "separator": {
-                        "type": "string"
-                      },
-                      "userPrincipalLookupService": {
-                        "type": "object"
-                      }
-                    },
-                    "type": "object"
-                  },
-                  "nameCount": {
-                    "format": "int32",
-                    "type": "integer"
-                  }
-                },
-                "type": "object"
-              }
-            },
-            "type": "object"
-          },
-          "id": {
-            "format": "int64",
-            "type": "integer"
-          },
-          "links": {
-            "items": {
-              "$ref": "#/components/schemas/Link"
-            },
-            "type": "array"
-          },
-          "product": {
-            "$ref": "#/components/schemas/Product"
-          },
-          "state": {
-            "enum": [
-              "IN_PROGRESS",
-              "VALID",
-              "INVALID",
-              "ACQUIRED",
-              "SUPERSEDED",
-              "SUPERSEDED_AFTER_ERROR",
-              "ERROR"
-            ],
-            "type": "string"
-          }
-        },
-        "type": "object"
-      },
-      "EntityModelAcquisitionProcessingChain": {
-        "properties": {
-          "active": {
-            "type": "boolean"
-          },
-          "categories": {
-            "items": {
-              "type": "string"
-            },
-            "type": "array",
-            "uniqueItems": true
-          },
-          "fileInfos": {
-            "items": {
-              "$ref": "#/components/schemas/AcquisitionFileInfo"
-            },
-            "maxItems": 2147483647,
-            "minItems": 1,
-            "type": "array",
-            "uniqueItems": true
-          },
-          "generateSipPluginConf": {
-            "$ref": "#/components/schemas/PluginConfiguration"
-          },
-          "id": {
-            "format": "int64",
-            "type": "integer"
-          },
-          "ingestChain": {
-            "type": "string"
-          },
-          "label": {
-            "type": "string"
-          },
-          "lastActivationDate": {
-            "format": "date-time",
-            "type": "string"
-          },
-          "lastProductAcquisitionJobInfo": {
-            "$ref": "#/components/schemas/JobInfo"
-          },
-          "links": {
-            "items": {
-              "$ref": "#/components/schemas/Link"
-            },
-            "type": "array"
-          },
-          "locked": {
-            "type": "boolean"
-          },
-          "mode": {
-            "enum": [
-              "MANUAL",
-              "AUTO"
-            ],
-            "type": "string"
-          },
-          "periodicity": {
-            "pattern": "0 .*",
-            "type": "string"
-          },
-          "postProcessSipPluginConf": {
-            "$ref": "#/components/schemas/PluginConfiguration"
-          },
-          "productPluginConf": {
-            "$ref": "#/components/schemas/PluginConfiguration"
-          },
-          "productsStored": {
-            "type": "boolean"
-          },
-          "referenceLocation": {
-            "type": "string"
-          },
-          "storages": {
-            "items": {
-              "$ref": "#/components/schemas/StorageMetadataProvider"
-            },
-            "type": "array"
-          },
-          "validationPluginConf": {
-            "$ref": "#/components/schemas/PluginConfiguration"
-          },
-          "versioningMode": {
-            "enum": [
-              "IGNORE",
-              "INC_VERSION",
-              "MANUAL",
-              "REPLACE"
-            ],
-            "type": "string"
-          }
-        },
-        "type": "object"
-      },
-      "EntityModelAcquisitionProcessingChainMonitor": {
-        "properties": {
-          "active": {
-            "type": "boolean"
-          },
-          "chain": {
-            "$ref": "#/components/schemas/AcquisitionProcessingChain"
-          },
-          "deletionPending": {
-            "type": "boolean"
-          },
-          "executionBlockers": {
-            "items": {
-              "type": "string"
-            },
-            "type": "array"
-          },
-          "links": {
-            "items": {
-              "$ref": "#/components/schemas/Link"
-            },
-            "type": "array"
-          }
-        },
-        "type": "object"
-      },
       "EntityModelMapStringMaintenanceInfo": {
         "properties": {
+          "content": {
+            "additionalProperties": {
+              "$ref": "#/components/schemas/MaintenanceInfo"
+            },
+            "type": "object"
+          },
           "links": {
             "items": {
               "$ref": "#/components/schemas/Link"
@@ -678,200 +20,28 @@
       },
       "EntityModelPluginConfiguration": {
         "properties": {
-          "active": {
-            "type": "boolean"
-          },
-          "businessId": {
-            "pattern": "[0-9a-zA-Z_-]*",
-            "type": "string"
-          },
-          "iconUrl": {
-            "format": "url",
-            "type": "string"
-          },
-          "id": {
-            "format": "int64",
-            "type": "integer"
-          },
-          "identifiable": {
-            "type": "boolean"
-          },
-          "interfaceNames": {
-            "items": {
-              "type": "string"
-            },
-            "type": "array",
-            "uniqueItems": true
-          },
-          "isActive": {
-            "type": "boolean",
-            "writeOnly": true
-          },
-          "label": {
-            "type": "string"
+          "content": {
+            "$ref": "#/components/schemas/PluginConfiguration"
           },
           "links": {
             "items": {
               "$ref": "#/components/schemas/Link"
             },
             "type": "array"
-          },
-          "metaData": {
-            "$ref": "#/components/schemas/PluginMetaData"
-          },
-          "metaDataAndPluginId": {
-            "$ref": "#/components/schemas/PluginMetaData"
-          },
-          "parameters": {
-            "items": {
-              "$ref": "#/components/schemas/IPluginParam"
-            },
-            "type": "array",
-            "uniqueItems": true
-          },
-          "pluginClassName": {
-            "type": "string"
-          },
-          "pluginId": {
-            "type": "string"
-          },
-          "priorityOrder": {
-            "format": "int32",
-            "type": "integer"
-          },
-          "version": {
-            "type": "string"
           }
         },
         "type": "object"
       },
       "EntityModelPluginMetaData": {
         "properties": {
-          "author": {
-            "type": "string"
-          },
-          "contact": {
-            "type": "string"
-          },
-          "description": {
-            "type": "string"
-          },
-          "interfaceNames": {
-            "items": {
-              "type": "string"
-            },
-            "type": "array",
-            "uniqueItems": true
-          },
-          "licence": {
-            "type": "string",
-            "writeOnly": true
-          },
-          "license": {
-            "type": "string"
+          "content": {
+            "$ref": "#/components/schemas/PluginMetaData"
           },
           "links": {
             "items": {
               "$ref": "#/components/schemas/Link"
             },
             "type": "array"
-          },
-          "markdown": {
-            "type": "string"
-          },
-          "owner": {
-            "type": "string"
-          },
-          "parameters": {
-            "items": {
-              "$ref": "#/components/schemas/PluginParamDescriptor"
-            },
-            "type": "array"
-          },
-          "pluginClassName": {
-            "type": "string"
-          },
-          "pluginId": {
-            "type": "string"
-          },
-          "url": {
-            "type": "string"
-          },
-          "userMarkdown": {
-            "type": "string"
-          },
-          "version": {
-            "type": "string"
-          }
-        },
-        "type": "object"
-      },
-      "EntityModelProduct": {
-        "properties": {
-          "acquisitionFiles": {
-            "items": {
-              "$ref": "#/components/schemas/AcquisitionFile"
-            },
-            "type": "array",
-            "uniqueItems": true
-          },
-          "activeAcquisitionFiles": {
-            "items": {
-              "$ref": "#/components/schemas/AcquisitionFile"
-            },
-            "type": "array",
-            "uniqueItems": true
-          },
-          "error": {
-            "type": "string"
-          },
-          "id": {
-            "format": "int64",
-            "type": "integer"
-          },
-          "ipId": {
-            "type": "string"
-          },
-          "lastPostProductionJobInfo": {
-            "$ref": "#/components/schemas/JobInfo"
-          },
-          "lastSIPGenerationJobInfo": {
-            "$ref": "#/components/schemas/JobInfo"
-          },
-          "lastUpdate": {
-            "format": "date-time",
-            "type": "string"
-          },
-          "links": {
-            "items": {
-              "$ref": "#/components/schemas/Link"
-            },
-            "type": "array"
-          },
-          "processingChain": {
-            "$ref": "#/components/schemas/AcquisitionProcessingChain"
-          },
-          "productName": {
-            "type": "string"
-          },
-          "session": {
-            "type": "string"
-          },
-          "sip": {
-            "$ref": "#/components/schemas/SIP"
-          },
-          "sipState": {
-            "$ref": "#/components/schemas/ISipState"
-          },
-          "state": {
-            "enum": [
-              "ACQUIRING",
-              "COMPLETED",
-              "FINISHED",
-              "INVALID",
-              "UPDATED"
-            ],
-            "type": "string"
           }
         },
         "type": "object"
@@ -890,40 +60,18 @@
         },
         "type": "object"
       },
-      "EnvironmentDescription": {
+      "EntityModelVoid": {
         "properties": {
-          "hardwareEnvironment": {
-            "additionalProperties": {
-              "type": "object"
-            },
+          "content": {
             "type": "object"
           },
-          "softwareEnvironment": {
-            "additionalProperties": {
-              "type": "object"
+          "links": {
+            "items": {
+              "$ref": "#/components/schemas/Link"
             },
-            "type": "object"
+            "type": "array"
           }
         },
-        "type": "object"
-      },
-      "Event": {
-        "properties": {
-          "comment": {
-            "type": "string"
-          },
-          "date": {
-            "format": "date-time",
-            "type": "string"
-          },
-          "type": {
-            "type": "string"
-          }
-        },
-        "required": [
-          "comment",
-          "date"
-        ],
         "type": "object"
       },
       "GenericResponseBody": {
@@ -934,89 +82,6 @@
           "properties": {
             "additionalProperties": {
               "type": "object"
-            },
-            "type": "object"
-          }
-        },
-        "type": "object"
-      },
-      "IGeometry": {
-        "properties": {
-          "crs": {
-            "type": "string",
-            "writeOnly": true
-          },
-          "type": {
-            "enum": [
-              "FEATURE",
-              "FEATURE_COLLECTION",
-              "POINT",
-              "MULTIPOINT",
-              "LINESTRING",
-              "MULTILINESTRING",
-              "POLYGON",
-              "MULTIPOLYGON",
-              "GEOMETRY_COLLECTION",
-              "UNLOCATED"
-            ],
-            "type": "string"
-          }
-        },
-        "type": "object"
-      },
-      "IJob": {
-        "properties": {
-          "completionCount": {
-            "format": "int32",
-            "type": "integer"
-          },
-          "jobInfoId": {
-            "format": "uuid",
-            "type": "string",
-            "writeOnly": true
-          },
-          "parameters": {
-            "additionalProperties": {
-              "$ref": "#/components/schemas/JobParameter"
-            },
-            "type": "object",
-            "writeOnly": true
-          },
-          "result": {
-            "type": "object"
-          },
-          "workspace": {
-            "properties": {
-              "absolute": {
-                "type": "boolean"
-              },
-              "fileSystem": {
-                "properties": {
-                  "fileStores": {
-                    "type": "object"
-                  },
-                  "open": {
-                    "type": "boolean"
-                  },
-                  "readOnly": {
-                    "type": "boolean"
-                  },
-                  "rootDirectories": {
-                    "type": "object"
-                  },
-                  "separator": {
-                    "type": "string"
-                  },
-                  "userPrincipalLookupService": {
-                    "type": "object"
-                  }
-                },
-                "type": "object"
-              },
-              "nameCount": {
-                "format": "int32",
-                "type": "integer"
-              }
             },
             "type": "object"
           }
@@ -1062,147 +127,6 @@
         },
         "type": "object"
       },
-      "InformationPackageProperties": {
-        "properties": {
-          "contentInformations": {
-            "items": {
-              "$ref": "#/components/schemas/ContentInformation"
-            },
-            "type": "array"
-          },
-          "descriptiveInformation": {
-            "additionalProperties": {
-              "type": "object"
-            },
-            "type": "object"
-          },
-          "pdi": {
-            "$ref": "#/components/schemas/PreservationDescriptionInformation"
-          }
-        },
-        "required": [
-          "pdi"
-        ],
-        "type": "object"
-      },
-      "JobInfo": {
-        "properties": {
-          "className": {
-            "type": "string"
-          },
-          "expirationDate": {
-            "format": "date-time",
-            "type": "string"
-          },
-          "id": {
-            "format": "uuid",
-            "type": "string"
-          },
-          "job": {
-            "$ref": "#/components/schemas/IJob"
-          },
-          "lastCompletionUpdate": {
-            "format": "date-time",
-            "type": "string"
-          },
-          "lastHeartbeatDate": {
-            "format": "date-time",
-            "type": "string"
-          },
-          "locked": {
-            "type": "boolean"
-          },
-          "owner": {
-            "type": "string"
-          },
-          "parameters": {
-            "items": {
-              "$ref": "#/components/schemas/JobParameter"
-            },
-            "type": "array",
-            "uniqueItems": true
-          },
-          "parametersAsMap": {
-            "additionalProperties": {
-              "$ref": "#/components/schemas/JobParameter"
-            },
-            "type": "object"
-          },
-          "priority": {
-            "format": "int32",
-            "type": "integer"
-          },
-          "result": {
-            "type": "object"
-          },
-          "status": {
-            "$ref": "#/components/schemas/JobStatusInfo"
-          },
-          "tenant": {
-            "type": "string"
-          },
-          "triggerAfterDate": {
-            "format": "date-time",
-            "type": "string"
-          }
-        },
-        "type": "object"
-      },
-      "JobParameter": {
-        "properties": {
-          "name": {
-            "type": "string"
-          },
-          "value": {
-            "type": "object"
-          }
-        },
-        "type": "object"
-      },
-      "JobStatusInfo": {
-        "properties": {
-          "estimatedCompletion": {
-            "format": "date-time",
-            "type": "string"
-          },
-          "percentCompleted": {
-            "format": "int32",
-            "type": "integer"
-          },
-          "queuedDate": {
-            "format": "date-time",
-            "type": "string"
-          },
-          "stackTrace": {
-            "type": "string"
-          },
-          "startDate": {
-            "format": "date-time",
-            "type": "string"
-          },
-          "status": {
-            "enum": [
-              "PENDING",
-              "QUEUED",
-              "TO_BE_RUN",
-              "RUNNING",
-              "SUCCEEDED",
-              "FAILED",
-              "ABORTED"
-            ],
-            "type": "string"
-          },
-          "statusDate": {
-            "format": "date-time",
-            "type": "string"
-          },
-          "stopDate": {
-            "format": "date-time",
-            "type": "string"
-          }
-        },
-        "type": "object"
-      },
       "Link": {
         "properties": {
           "deprecation": {
@@ -1235,36 +159,14 @@
         },
         "type": "object"
       },
-      "MimeType": {
+      "MaintenanceInfo": {
         "properties": {
-          "charset": {
-            "properties": {
-              "registered": {
-                "type": "boolean"
-              }
-            },
-            "type": "object"
-          },
-          "concrete": {
+          "active": {
             "type": "boolean"
           },
-          "parameters": {
-            "additionalProperties": {
-              "type": "string"
-            },
-            "type": "object"
-          },
-          "subtype": {
+          "lastUpdate": {
+            "format": "date-time",
             "type": "string"
-          },
-          "type": {
-            "type": "string"
-          },
-          "wildcardSubtype": {
-            "type": "boolean"
-          },
-          "wildcardType": {
-            "type": "boolean"
           }
         },
         "type": "object"
@@ -1350,192 +252,23 @@
         },
         "type": "object"
       },
-      "OAISDataObject": {
+      "Pageable": {
         "properties": {
-          "algorithm": {
-            "type": "string"
-          },
-          "checksum": {
-            "type": "string"
-          },
-          "fileSize": {
-            "format": "int64",
-            "type": "integer"
-          },
-          "filename": {
-            "type": "string"
-          },
-          "locations": {
-            "items": {
-              "$ref": "#/components/schemas/OAISDataObjectLocation"
-            },
-            "type": "array",
-            "uniqueItems": true
-          },
-          "regardsDataType": {
-            "enum": [
-              "RAWDATA",
-              "QUICKLOOK_SD",
-              "QUICKLOOK_MD",
-              "QUICKLOOK_HD",
-              "DOCUMENT",
-              "THUMBNAIL",
-              "OTHER",
-              "AIP",
-              "DESCRIPTION"
-            ],
-            "type": "string"
-          }
-        },
-        "required": [
-          "checksum",
-          "filename",
-          "locations",
-          "regardsDataType"
-        ],
-        "type": "object"
-      },
-      "OAISDataObjectLocation": {
-        "properties": {
-          "storage": {
-            "type": "string"
-          },
-          "storePath": {
-            "type": "string"
-          },
-          "url": {
-            "pattern": "\\b[a-zA-Z]+://?[-a-zA-Z0-9+&@#/%'?=~_|!:,.;]*[-a-zA-Z0-9+&@#/%'=~_|]",
-            "type": "string"
-          }
-        },
-        "required": [
-          "url"
-        ],
-        "type": "object"
-      },
-      "PageMetadata": {
-        "properties": {
-          "number": {
-            "format": "int64",
+          "page": {
+            "format": "int32",
+            "minimum": 0,
             "type": "integer"
           },
           "size": {
-            "format": "int64",
-            "type": "integer"
-          },
-          "totalElements": {
-            "format": "int64",
-            "type": "integer"
-          },
-          "totalPages": {
-            "format": "int64",
-            "type": "integer"
-          }
-        },
-        "type": "object"
-      },
-      "Pageable": {
-        "properties": {
-          "offset": {
-            "format": "int64",
-            "type": "integer"
-          },
-          "pageNumber": {
             "format": "int32",
+            "minimum": 1,
             "type": "integer"
-          },
-          "pageSize": {
-            "format": "int32",
-            "type": "integer"
-          },
-          "paged": {
-            "type": "boolean"
           },
           "sort": {
-            "$ref": "#/components/schemas/Sort"
-          },
-          "unpaged": {
-            "type": "boolean"
-          }
-        },
-        "type": "object"
-      },
-      "PagedModelEntityModelAcquisitionFile": {
-        "properties": {
-          "content": {
             "items": {
-              "$ref": "#/components/schemas/EntityModelAcquisitionFile"
+              "type": "string"
             },
             "type": "array"
-          },
-          "links": {
-            "items": {
-              "$ref": "#/components/schemas/Link"
-            },
-            "type": "array"
-          },
-          "page": {
-            "$ref": "#/components/schemas/PageMetadata"
-          }
-        },
-        "type": "object"
-      },
-      "PagedModelEntityModelAcquisitionProcessingChain": {
-        "properties": {
-          "content": {
-            "items": {
-              "$ref": "#/components/schemas/EntityModelAcquisitionProcessingChain"
-            },
-            "type": "array"
-          },
-          "links": {
-            "items": {
-              "$ref": "#/components/schemas/Link"
-            },
-            "type": "array"
-          },
-          "page": {
-            "$ref": "#/components/schemas/PageMetadata"
-          }
-        },
-        "type": "object"
-      },
-      "PagedModelEntityModelAcquisitionProcessingChainMonitor": {
-        "properties": {
-          "content": {
-            "items": {
-              "$ref": "#/components/schemas/EntityModelAcquisitionProcessingChainMonitor"
-            },
-            "type": "array"
-          },
-          "links": {
-            "items": {
-              "$ref": "#/components/schemas/Link"
-            },
-            "type": "array"
-          },
-          "page": {
-            "$ref": "#/components/schemas/PageMetadata"
-          }
-        },
-        "type": "object"
-      },
-      "PagedModelEntityModelProduct": {
-        "properties": {
-          "content": {
-            "items": {
-              "$ref": "#/components/schemas/EntityModelProduct"
-            },
-            "type": "array"
-          },
-          "links": {
-            "items": {
-              "$ref": "#/components/schemas/Link"
-            },
-            "type": "array"
-          },
-          "page": {
-            "$ref": "#/components/schemas/PageMetadata"
           }
         },
         "type": "object"
@@ -1777,169 +510,6 @@
         },
         "type": "object"
       },
-      "PreservationDescriptionInformation": {
-        "properties": {
-          "accessRightInformation": {
-            "$ref": "#/components/schemas/AccessRightInformation"
-          },
-          "contextInformation": {
-            "additionalProperties": {
-              "type": "object"
-            },
-            "type": "object"
-          },
-          "fixityInformation": {
-            "additionalProperties": {
-              "type": "object"
-            },
-            "type": "object"
-          },
-          "provenanceInformation": {
-            "$ref": "#/components/schemas/ProvenanceInformation"
-          },
-          "referenceInformation": {
-            "additionalProperties": {
-              "type": "string"
-            },
-            "type": "object"
-          },
-          "tags": {
-            "items": {
-              "type": "string"
-            },
-            "type": "array"
-          }
-        },
-        "required": [
-          "accessRightInformation",
-          "contextInformation",
-          "fixityInformation",
-          "provenanceInformation",
-          "referenceInformation"
-        ],
-        "type": "object"
-      },
-      "Product": {
-        "properties": {
-          "acquisitionFiles": {
-            "items": {
-              "$ref": "#/components/schemas/AcquisitionFile"
-            },
-            "type": "array",
-            "uniqueItems": true
-          },
-          "activeAcquisitionFiles": {
-            "items": {
-              "$ref": "#/components/schemas/AcquisitionFile"
-            },
-            "type": "array",
-            "uniqueItems": true
-          },
-          "error": {
-            "type": "string"
-          },
-          "id": {
-            "format": "int64",
-            "type": "integer"
-          },
-          "ipId": {
-            "type": "string"
-          },
-          "lastPostProductionJobInfo": {
-            "$ref": "#/components/schemas/JobInfo"
-          },
-          "lastSIPGenerationJobInfo": {
-            "$ref": "#/components/schemas/JobInfo"
-          },
-          "lastUpdate": {
-            "format": "date-time",
-            "type": "string"
-          },
-          "processingChain": {
-            "$ref": "#/components/schemas/AcquisitionProcessingChain"
-          },
-          "productName": {
-            "type": "string"
-          },
-          "session": {
-            "type": "string"
-          },
-          "sip": {
-            "$ref": "#/components/schemas/SIP"
-          },
-          "sipState": {
-            "$ref": "#/components/schemas/ISipState"
-          },
-          "state": {
-            "enum": [
-              "ACQUIRING",
-              "COMPLETED",
-              "FINISHED",
-              "INVALID",
-              "UPDATED"
-            ],
-            "type": "string"
-          }
-        },
-        "required": [
-          "processingChain",
-          "productName",
-          "session"
-        ],
-        "type": "object"
-      },
-      "ProvenanceInformation": {
-        "properties": {
-          "additional": {
-            "additionalProperties": {
-              "type": "object"
-            },
-            "type": "object"
-          },
-          "detector": {
-            "type": "string"
-          },
-          "facility": {
-            "type": "string"
-          },
-          "filter": {
-            "type": "string"
-          },
-          "history": {
-            "items": {
-              "$ref": "#/components/schemas/Event"
-            },
-            "type": "array"
-          },
-          "instrument": {
-            "type": "string"
-          },
-          "proposal": {
-            "type": "string"
-          }
-        },
-        "required": [
-          "history"
-        ],
-        "type": "object"
-      },
-      "RepresentationInformation": {
-        "properties": {
-          "environmentDescription": {
-            "$ref": "#/components/schemas/EnvironmentDescription"
-          },
-          "semantic": {
-            "$ref": "#/components/schemas/Semantic"
-          },
-          "syntax": {
-            "$ref": "#/components/schemas/Syntax"
-          }
-        },
-        "required": [
-          "syntax"
-        ],
-        "type": "object"
-      },
       "ResourceAccess": {
         "type": "object"
       },
@@ -1994,341 +564,6 @@
             "type": "string"
           }
         },
-        "type": "object"
-      },
-      "SIP": {
-        "properties": {
-          "bbox": {
-            "items": {
-              "format": "double",
-              "type": "number"
-            },
-            "type": "array"
-          },
-          "crs": {
-            "type": "string"
-          },
-          "geometry": {
-            "$ref": "#/components/schemas/IGeometry"
-          },
-          "history": {
-            "items": {
-              "$ref": "#/components/schemas/Event"
-            },
-            "type": "array"
-          },
-          "id": {
-            "type": "string"
-          },
-          "ipType": {
-            "enum": [
-              "COLLECTION",
-              "DATA",
-              "DATASET"
-            ],
-            "type": "string"
-          },
-          "lastEvent": {
-            "$ref": "#/components/schemas/Event"
-          },
-          "normalizedGeometry": {
-            "$ref": "#/components/schemas/IGeometry"
-          },
-          "properties": {
-            "$ref": "#/components/schemas/InformationPackageProperties"
-          },
-          "ref": {
-            "$ref": "#/components/schemas/SIPReference"
-          },
-          "submissionEvent": {
-            "$ref": "#/components/schemas/Event"
-          },
-          "tags": {
-            "items": {
-              "type": "string"
-            },
-            "type": "array"
-          },
-          "type": {
-            "enum": [
-              "FEATURE",
-              "FEATURE_COLLECTION",
-              "POINT",
-              "MULTIPOINT",
-              "LINESTRING",
-              "MULTILINESTRING",
-              "POLYGON",
-              "MULTIPOLYGON",
-              "GEOMETRY_COLLECTION",
-              "UNLOCATED"
-            ],
-            "type": "string"
-          }
-        },
-        "required": [
-          "ipType",
-          "type"
-        ],
-        "type": "object"
-      },
-      "SIPReference": {
-        "properties": {
-          "algorithm": {
-            "type": "string"
-          },
-          "checksum": {
-            "type": "string"
-          },
-          "url": {
-            "format": "url",
-            "type": "string"
-          }
-        },
-        "required": [
-          "algorithm",
-          "checksum",
-          "url"
-        ],
-        "type": "object"
-      },
-      "ScanDirectoryInfo": {
-        "properties": {
-          "id": {
-            "format": "int64",
-            "type": "integer"
-          },
-          "lastModificationDate": {
-            "format": "date-time",
-            "type": "string"
-          },
-          "scannedDirectory": {
-            "properties": {
-              "absolute": {
-                "type": "boolean"
-              },
-              "fileName": {
-                "properties": {
-                  "absolute": {
-                    "type": "boolean"
-                  },
-                  "fileSystem": {
-                    "properties": {
-                      "fileStores": {
-                        "type": "object"
-                      },
-                      "open": {
-                        "type": "boolean"
-                      },
-                      "readOnly": {
-                        "type": "boolean"
-                      },
-                      "rootDirectories": {
-                        "type": "object"
-                      },
-                      "separator": {
-                        "type": "string"
-                      },
-                      "userPrincipalLookupService": {
-                        "type": "object"
-                      }
-                    },
-                    "type": "object"
-                  },
-                  "nameCount": {
-                    "format": "int32",
-                    "type": "integer"
-                  }
-                },
-                "type": "object"
-              },
-              "fileSystem": {
-                "properties": {
-                  "fileStores": {
-                    "type": "object"
-                  },
-                  "open": {
-                    "type": "boolean"
-                  },
-                  "readOnly": {
-                    "type": "boolean"
-                  },
-                  "rootDirectories": {
-                    "type": "object"
-                  },
-                  "separator": {
-                    "type": "string"
-                  },
-                  "userPrincipalLookupService": {
-                    "type": "object"
-                  }
-                },
-                "type": "object"
-              },
-              "nameCount": {
-                "format": "int32",
-                "type": "integer"
-              },
-              "parent": {
-                "properties": {
-                  "absolute": {
-                    "type": "boolean"
-                  },
-                  "fileSystem": {
-                    "properties": {
-                      "fileStores": {
-                        "type": "object"
-                      },
-                      "open": {
-                        "type": "boolean"
-                      },
-                      "readOnly": {
-                        "type": "boolean"
-                      },
-                      "rootDirectories": {
-                        "type": "object"
-                      },
-                      "separator": {
-                        "type": "string"
-                      },
-                      "userPrincipalLookupService": {
-                        "type": "object"
-                      }
-                    },
-                    "type": "object"
-                  },
-                  "nameCount": {
-                    "format": "int32",
-                    "type": "integer"
-                  }
-                },
-                "type": "object"
-              },
-              "root": {
-                "properties": {
-                  "absolute": {
-                    "type": "boolean"
-                  },
-                  "fileSystem": {
-                    "properties": {
-                      "fileStores": {
-                        "type": "object"
-                      },
-                      "open": {
-                        "type": "boolean"
-                      },
-                      "readOnly": {
-                        "type": "boolean"
-                      },
-                      "rootDirectories": {
-                        "type": "object"
-                      },
-                      "separator": {
-                        "type": "string"
-                      },
-                      "userPrincipalLookupService": {
-                        "type": "object"
-                      }
-                    },
-                    "type": "object"
-                  },
-                  "nameCount": {
-                    "format": "int32",
-                    "type": "integer"
-                  }
-                },
-                "type": "object"
-              }
-            },
-            "type": "object"
-          }
-        },
-        "type": "object"
-      },
-      "Semantic": {
-        "properties": {
-          "description": {
-            "type": "string"
-          }
-        },
-        "required": [
-          "description"
-        ],
-        "type": "object"
-      },
-      "Sort": {
-        "properties": {
-          "empty": {
-            "type": "boolean"
-          },
-          "sorted": {
-            "type": "boolean"
-          },
-          "unsorted": {
-            "type": "boolean"
-          }
-        },
-        "type": "object"
-      },
-      "StorageMetadataProvider": {
-        "properties": {
-          "pluginBusinessId": {
-            "maxLength": 128,
-            "minLength": 1,
-            "type": "string"
-          },
-          "storePath": {
-            "maxLength": 2048,
-            "minLength": 0,
-            "type": "string"
-          },
-          "targetTypes": {
-            "items": {
-              "enum": [
-                "RAWDATA",
-                "QUICKLOOK_SD",
-                "QUICKLOOK_MD",
-                "QUICKLOOK_HD",
-                "DOCUMENT",
-                "THUMBNAIL",
-                "OTHER",
-                "AIP",
-                "DESCRIPTION"
-              ],
-              "type": "string"
-            },
-            "type": "array",
-            "uniqueItems": true
-          }
-        },
-        "required": [
-          "pluginBusinessId",
-          "targetTypes"
-        ],
-        "type": "object"
-      },
-      "Syntax": {
-        "properties": {
-          "description": {
-            "type": "string"
-          },
-          "height": {
-            "format": "double",
-            "type": "number"
-          },
-          "mimeType": {
-            "$ref": "#/components/schemas/MimeType"
-          },
-          "name": {
-            "type": "string"
-          },
-          "width": {
-            "format": "double",
-            "type": "number"
-          }
-        },
-        "required": [
-          "mimeType"
-        ],
         "type": "object"
       },
       "UpdateAcquisitionProcessingChain": {
@@ -2403,13 +638,13 @@
       "name": "GPL-3.0"
     },
     "title": "MICROSERVICE DATAPROVIDER",
-    "version": "1.8.1"
+    "version": "1.10.0"
   },
   "openapi": "3.0.1",
   "paths": {
     "/acquisition-files": {
       "get": {
-        "operationId": "search_1",
+        "operationId": "search_2",
         "parameters": [
           {
             "in": "query",
@@ -2485,14 +720,8 @@
         ],
         "responses": {
           "200": {
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/PagedModelEntityModelAcquisitionFile"
-                }
-              }
-            },
-            "description": "default response"
+            "content": {},
+            "description": "OK"
           }
         },
         "tags": [
@@ -2502,7 +731,7 @@
     },
     "/chain-monitoring": {
       "get": {
-        "operationId": "search_2",
+        "operationId": "search_1",
         "parameters": [
           {
             "in": "query",
@@ -2551,14 +780,8 @@
         ],
         "responses": {
           "200": {
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/PagedModelEntityModelAcquisitionProcessingChainMonitor"
-                }
-              }
-            },
-            "description": "default response"
+            "content": {},
+            "description": "OK"
           }
         },
         "tags": [
@@ -2589,14 +812,8 @@
         ],
         "responses": {
           "200": {
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/PagedModelEntityModelAcquisitionProcessingChain"
-                }
-              }
-            },
-            "description": "default response"
+            "content": {},
+            "description": "OK"
           }
         },
         "tags": [
@@ -2617,17 +834,8 @@
         },
         "responses": {
           "200": {
-            "content": {
-              "*/*": {
-                "schema": {
-                  "items": {
-                    "$ref": "#/components/schemas/EntityModelAcquisitionProcessingChain"
-                  },
-                  "type": "array"
-                }
-              }
-            },
-            "description": "default response"
+            "content": {},
+            "description": "OK"
           }
         },
         "tags": [
@@ -2638,24 +846,14 @@
         "operationId": "create",
         "requestBody": {
           "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/AcquisitionProcessingChain"
-              }
-            }
+            "application/json": {}
           },
           "required": true
         },
         "responses": {
           "200": {
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/EntityModelAcquisitionProcessingChain"
-                }
-              }
-            },
-            "description": "default response"
+            "content": {},
+            "description": "OK"
           }
         },
         "tags": [
@@ -2686,7 +884,7 @@
         ],
         "responses": {
           "200": {
-            "description": "default response"
+            "description": "OK"
           }
         },
         "tags": [
@@ -2717,7 +915,7 @@
         ],
         "responses": {
           "200": {
-            "description": "default response"
+            "description": "OK"
           }
         },
         "tags": [
@@ -2741,7 +939,7 @@
         ],
         "responses": {
           "200": {
-            "description": "default response"
+            "description": "OK"
           }
         },
         "tags": [
@@ -2763,14 +961,8 @@
         ],
         "responses": {
           "200": {
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/EntityModelAcquisitionProcessingChain"
-                }
-              }
-            },
-            "description": "default response"
+            "content": {},
+            "description": "OK"
           }
         },
         "tags": [
@@ -2802,14 +994,8 @@
         },
         "responses": {
           "200": {
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/EntityModelAcquisitionProcessingChain"
-                }
-              }
-            },
-            "description": "default response"
+            "content": {},
+            "description": "OK"
           }
         },
         "tags": [
@@ -2831,24 +1017,14 @@
         ],
         "requestBody": {
           "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/AcquisitionProcessingChain"
-              }
-            }
+            "application/json": {}
           },
           "required": true
         },
         "responses": {
           "200": {
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/EntityModelAcquisitionProcessingChain"
-                }
-              }
-            },
-            "description": "default response"
+            "content": {},
+            "description": "OK"
           }
         },
         "tags": [
@@ -2880,14 +1056,8 @@
         ],
         "responses": {
           "200": {
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/EntityModelAcquisitionProcessingChain"
-                }
-              }
-            },
-            "description": "default response"
+            "content": {},
+            "description": "OK"
           }
         },
         "tags": [
@@ -2911,14 +1081,8 @@
         ],
         "responses": {
           "200": {
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/EntityModelAcquisitionProcessingChain"
-                }
-              }
-            },
-            "description": "default response"
+            "content": {},
+            "description": "OK"
           }
         },
         "tags": [
@@ -2938,7 +1102,7 @@
                 }
               }
             },
-            "description": "default response"
+            "description": "OK"
           }
         },
         "tags": [
@@ -2961,7 +1125,14 @@
         ],
         "responses": {
           "200": {
-            "description": "default response"
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/EntityModelVoid"
+                }
+              }
+            },
+            "description": "OK"
           }
         },
         "tags": [
@@ -2984,7 +1155,14 @@
         ],
         "responses": {
           "200": {
-            "description": "default response"
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/EntityModelVoid"
+                }
+              }
+            },
+            "description": "OK"
           }
         },
         "tags": [
@@ -2997,7 +1175,7 @@
         "operationId": "exportConfiguration",
         "responses": {
           "200": {
-            "description": "default response"
+            "description": "OK"
           }
         },
         "tags": [
@@ -3016,6 +1194,9 @@
                     "type": "string"
                   }
                 },
+                "required": [
+                  "file"
+                ],
                 "type": "object"
               }
             }
@@ -3034,7 +1215,7 @@
                 }
               }
             },
-            "description": "default response"
+            "description": "OK"
           }
         },
         "tags": [
@@ -3047,7 +1228,7 @@
         "operationId": "isConfigurationEnabled",
         "responses": {
           "200": {
-            "description": "default response"
+            "description": "OK"
           }
         },
         "tags": [
@@ -3067,7 +1248,7 @@
                 }
               }
             },
-            "description": "default response"
+            "description": "OK"
           }
         },
         "tags": [
@@ -3080,7 +1261,7 @@
         "operationId": "isReadyEnabled",
         "responses": {
           "200": {
-            "description": "default response"
+            "description": "OK"
           }
         },
         "tags": [
@@ -3104,7 +1285,7 @@
                 }
               }
             },
-            "description": "default response"
+            "description": "OK"
           }
         },
         "tags": [
@@ -3117,7 +1298,7 @@
         "operationId": "isRestartEnabled",
         "responses": {
           "200": {
-            "description": "default response"
+            "description": "OK"
           }
         },
         "tags": [
@@ -3150,7 +1331,7 @@
                 }
               }
             },
-            "description": "default response"
+            "description": "OK"
           }
         },
         "tags": [
@@ -3163,7 +1344,7 @@
         "operationId": "emptyCache",
         "responses": {
           "200": {
-            "description": "default response"
+            "description": "OK"
           }
         },
         "tags": [
@@ -3196,7 +1377,7 @@
                 }
               }
             },
-            "description": "default response"
+            "description": "OK"
           }
         },
         "tags": [
@@ -3226,7 +1407,7 @@
                 }
               }
             },
-            "description": "default response"
+            "description": "OK"
           }
         },
         "tags": [
@@ -3256,7 +1437,7 @@
                 }
               }
             },
-            "description": "default response"
+            "description": "OK"
           }
         },
         "tags": [
@@ -3289,7 +1470,7 @@
                 }
               }
             },
-            "description": "default response"
+            "description": "OK"
           }
         },
         "tags": [
@@ -3317,7 +1498,7 @@
                 }
               }
             },
-            "description": "default response"
+            "description": "OK"
           }
         },
         "tags": [
@@ -3348,7 +1529,7 @@
         ],
         "responses": {
           "200": {
-            "description": "default response"
+            "description": "OK"
           }
         },
         "tags": [
@@ -3384,7 +1565,7 @@
                 }
               }
             },
-            "description": "default response"
+            "description": "OK"
           }
         },
         "tags": [
@@ -3430,7 +1611,7 @@
                 }
               }
             },
-            "description": "default response"
+            "description": "OK"
           }
         },
         "tags": [
@@ -3463,7 +1644,7 @@
                 }
               }
             },
-            "description": "default response"
+            "description": "OK"
           }
         },
         "tags": [
@@ -3565,14 +1746,8 @@
         ],
         "responses": {
           "200": {
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/PagedModelEntityModelProduct"
-                }
-              }
-            },
-            "description": "default response"
+            "content": {},
+            "description": "OK"
           }
         },
         "tags": [
@@ -3596,14 +1771,8 @@
         ],
         "responses": {
           "200": {
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/EntityModelProduct"
-                }
-              }
-            },
-            "description": "default response"
+            "content": {},
+            "description": "OK"
           }
         },
         "tags": [
@@ -3633,7 +1802,7 @@
                 }
               }
             },
-            "description": "default response"
+            "description": "OK"
           }
         },
         "tags": [
@@ -3663,7 +1832,7 @@
                 }
               }
             },
-            "description": "default response"
+            "description": "OK"
           }
         },
         "tags": [
@@ -3686,7 +1855,7 @@
                 }
               }
             },
-            "description": "default response"
+            "description": "OK"
           }
         },
         "tags": [
@@ -3699,7 +1868,7 @@
         "operationId": "immediateShutdown",
         "responses": {
           "200": {
-            "description": "default response"
+            "description": "OK"
           }
         },
         "tags": [

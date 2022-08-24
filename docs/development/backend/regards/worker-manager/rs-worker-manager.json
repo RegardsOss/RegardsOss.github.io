@@ -34,19 +34,13 @@
         },
         "type": "object"
       },
-      "EntityModelDynamicTenantSettingDtoObject": {
+      "DynamicTenantSettingDtoObject": {
         "properties": {
           "defaultValue": {
             "type": "object"
           },
           "description": {
             "type": "string"
-          },
-          "links": {
-            "items": {
-              "$ref": "#/components/schemas/Link"
-            },
-            "type": "array"
           },
           "name": {
             "type": "string"
@@ -57,7 +51,80 @@
         },
         "type": "object"
       },
+      "EntityModelDynamicTenantSettingDtoObject": {
+        "properties": {
+          "content": {
+            "$ref": "#/components/schemas/DynamicTenantSettingDtoObject"
+          },
+          "links": {
+            "items": {
+              "$ref": "#/components/schemas/Link"
+            },
+            "type": "array"
+          }
+        },
+        "type": "object"
+      },
       "EntityModelLightRequest": {
+        "properties": {
+          "content": {
+            "$ref": "#/components/schemas/LightRequest"
+          },
+          "links": {
+            "items": {
+              "$ref": "#/components/schemas/Link"
+            },
+            "type": "array"
+          }
+        },
+        "type": "object"
+      },
+      "EntityModelMapStringMaintenanceInfo": {
+        "properties": {
+          "content": {
+            "additionalProperties": {
+              "$ref": "#/components/schemas/MaintenanceInfo"
+            },
+            "type": "object"
+          },
+          "links": {
+            "items": {
+              "$ref": "#/components/schemas/Link"
+            },
+            "type": "array"
+          }
+        },
+        "type": "object"
+      },
+      "EntityModelVoid": {
+        "properties": {
+          "content": {
+            "type": "object"
+          },
+          "links": {
+            "items": {
+              "$ref": "#/components/schemas/Link"
+            },
+            "type": "array"
+          }
+        },
+        "type": "object"
+      },
+      "GenericResponseBody": {
+        "properties": {
+          "message": {
+            "type": "string"
+          },
+          "properties": {
+            "additionalProperties": {
+              "type": "object"
+            },
+            "type": "object"
+          }
+        },
+        "type": "object"
+      },
+      "LightRequest": {
         "properties": {
           "contentType": {
             "type": "string"
@@ -71,12 +138,6 @@
           },
           "error": {
             "type": "string"
-          },
-          "links": {
-            "items": {
-              "$ref": "#/components/schemas/Link"
-            },
-            "type": "array"
           },
           "requestId": {
             "type": "string"
@@ -99,42 +160,6 @@
               "TO_DELETE"
             ],
             "type": "string"
-          }
-        },
-        "type": "object"
-      },
-      "EntityModelMapStringMaintenanceInfo": {
-        "properties": {
-          "links": {
-            "items": {
-              "$ref": "#/components/schemas/Link"
-            },
-            "type": "array"
-          }
-        },
-        "type": "object"
-      },
-      "EntityModelVoid": {
-        "properties": {
-          "links": {
-            "items": {
-              "$ref": "#/components/schemas/Link"
-            },
-            "type": "array"
-          }
-        },
-        "type": "object"
-      },
-      "GenericResponseBody": {
-        "properties": {
-          "message": {
-            "type": "string"
-          },
-          "properties": {
-            "additionalProperties": {
-              "type": "object"
-            },
-            "type": "object"
           }
         },
         "type": "object"
@@ -166,6 +191,18 @@
             "type": "string"
           },
           "type": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "MaintenanceInfo": {
+        "properties": {
+          "active": {
+            "type": "boolean"
+          },
+          "lastUpdate": {
+            "format": "date-time",
             "type": "string"
           }
         },
@@ -511,7 +548,7 @@
         "flows": {
           "password": {
             "scopes": {},
-            "tokenUrl": "http://vm-perf.cloud-espace.si.c-s.fr:80/api/v1/rs-authentication/oauth/token"
+            "tokenUrl": "https://regardsoss.github.io/api/v1/rs-authentication/oauth/token"
           }
         },
         "type": "oauth2"
@@ -524,7 +561,7 @@
       "name": "GPL-3.0"
     },
     "title": "MICROSERVICE WORKER MANAGER",
-    "version": "1.8.0"
+    "version": "1.10.0"
   },
   "openapi": "3.0.1",
   "paths": {

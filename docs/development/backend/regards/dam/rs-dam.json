@@ -1,6 +1,108 @@
 {
   "components": {
     "schemas": {
+      "AbstractEntityObject": {
+        "properties": {
+          "creationDate": {
+            "format": "date-time",
+            "type": "string"
+          },
+          "docId": {
+            "type": "string"
+          },
+          "feature": {
+            "type": "object"
+          },
+          "files": {
+            "$ref": "#/components/schemas/MultimapDataTypeDataFile"
+          },
+          "geometry": {
+            "$ref": "#/components/schemas/IGeometry"
+          },
+          "groups": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "uniqueItems": true
+          },
+          "id": {
+            "format": "int64",
+            "type": "integer"
+          },
+          "ipId": {
+            "$ref": "#/components/schemas/UniformResourceName"
+          },
+          "label": {
+            "type": "string"
+          },
+          "last": {
+            "type": "boolean"
+          },
+          "lastUpdate": {
+            "format": "date-time",
+            "type": "string"
+          },
+          "model": {
+            "$ref": "#/components/schemas/Model"
+          },
+          "mutableCopyOfPropertiesPaths": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "uniqueItems": true
+          },
+          "normalizedGeometry": {
+            "$ref": "#/components/schemas/IGeometry"
+          },
+          "properties": {
+            "items": {
+              "$ref": "#/components/schemas/IPropertyObject"
+            },
+            "properties": {
+              "empty": {
+                "type": "boolean"
+              }
+            },
+            "type": "array",
+            "uniqueItems": true
+          },
+          "providerId": {
+            "type": "string"
+          },
+          "tags": {
+            "items": {
+              "type": "string"
+            },
+            "properties": {
+              "empty": {
+                "type": "boolean"
+              }
+            },
+            "type": "array",
+            "uniqueItems": true
+          },
+          "type": {
+            "type": "string"
+          },
+          "version": {
+            "format": "int32",
+            "type": "integer"
+          },
+          "virtualId": {
+            "$ref": "#/components/schemas/UniformResourceName"
+          },
+          "wgs84": {
+            "$ref": "#/components/schemas/IGeometry"
+          }
+        },
+        "required": [
+          "feature",
+          "model"
+        ],
+        "type": "object"
+      },
       "AbstractRestriction": {
         "properties": {
           "id": {
@@ -157,6 +259,9 @@
             "type": "integer"
           },
           "identifiable": {
+            "type": "boolean"
+          },
+          "indexed": {
             "type": "boolean"
           },
           "internal": {
@@ -435,18 +540,6 @@
             "uniqueItems": true
           },
           "type": {
-            "enum": [
-              "FEATURE",
-              "FEATURE_COLLECTION",
-              "POINT",
-              "MULTIPOINT",
-              "LINESTRING",
-              "MULTILINESTRING",
-              "POLYGON",
-              "MULTIPOLYGON",
-              "GEOMETRY_COLLECTION",
-              "UNLOCATED"
-            ],
             "type": "string"
           },
           "version": {
@@ -475,6 +568,32 @@
             "type": "string"
           },
           "sqlType": {
+            "format": "int32",
+            "type": "integer"
+          }
+        },
+        "type": "object"
+      },
+      "CrawlingCursor": {
+        "properties": {
+          "hasNext": {
+            "type": "boolean",
+            "writeOnly": true
+          },
+          "lastEntityDate": {
+            "format": "date-time",
+            "type": "string"
+          },
+          "position": {
+            "format": "int32",
+            "minimum": 0,
+            "type": "integer"
+          },
+          "previousLastEntityDate": {
+            "format": "date-time",
+            "type": "string"
+          },
+          "size": {
             "format": "int32",
             "type": "integer"
           }
@@ -513,9 +632,8 @@
           "dataObjectAccess": {
             "type": "boolean"
           },
-          "dataObjectAccessFilterPluginId": {
-            "format": "int64",
-            "type": "integer"
+          "dataObjectAccessFilterPluginBusinessId": {
+            "type": "string"
           },
           "datasetAccess": {
             "type": "boolean"
@@ -523,11 +641,81 @@
           "groupName": {
             "type": "string"
           },
-          "metaDataObjectAccessFilterPluginId": {
-            "format": "int64",
-            "type": "integer"
+          "metaDataObjectAccessFilterPluginBusinessId": {
+            "type": "string"
           }
         },
+        "type": "object"
+      },
+      "DataSourceDTO": {
+        "properties": {
+          "active": {
+            "type": "boolean"
+          },
+          "associatedDatasets": {
+            "format": "int64",
+            "type": "integer"
+          },
+          "businessId": {
+            "pattern": "[0-9a-zA-Z_-]*",
+            "type": "string"
+          },
+          "iconUrl": {
+            "format": "url",
+            "type": "string"
+          },
+          "id": {
+            "format": "int64",
+            "type": "integer"
+          },
+          "identifiable": {
+            "type": "boolean"
+          },
+          "interfaceNames": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "uniqueItems": true
+          },
+          "isActive": {
+            "type": "boolean",
+            "writeOnly": true
+          },
+          "label": {
+            "type": "string"
+          },
+          "metaData": {
+            "$ref": "#/components/schemas/PluginMetaData"
+          },
+          "metaDataAndPluginId": {
+            "$ref": "#/components/schemas/PluginMetaData"
+          },
+          "parameters": {
+            "items": {
+              "$ref": "#/components/schemas/IPluginParam"
+            },
+            "type": "array",
+            "uniqueItems": true
+          },
+          "pluginClassName": {
+            "type": "string"
+          },
+          "pluginId": {
+            "type": "string"
+          },
+          "priorityOrder": {
+            "format": "int32",
+            "type": "integer"
+          },
+          "version": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "label",
+          "priorityOrder"
+        ],
         "type": "object"
       },
       "Dataset": {
@@ -734,18 +922,6 @@
             "uniqueItems": true
           },
           "type": {
-            "enum": [
-              "FEATURE",
-              "FEATURE_COLLECTION",
-              "POINT",
-              "MULTIPOINT",
-              "LINESTRING",
-              "MULTILINESTRING",
-              "POLYGON",
-              "MULTIPOLYGON",
-              "GEOMETRY_COLLECTION",
-              "UNLOCATED"
-            ],
             "type": "string"
           },
           "version": {
@@ -783,673 +959,21 @@
         },
         "type": "object"
       },
-      "DynamicTenantSettingDto": {
-        "properties": {
-          "defaultValue": {
-            "type": "object"
-          },
-          "description": {
-            "type": "string"
-          },
-          "name": {
-            "type": "string"
-          },
-          "value": {
-            "type": "object"
-          }
-        },
-        "type": "object"
-      },
-      "EntityModelAbstractEntityObject": {
-        "properties": {
-          "creationDate": {
-            "format": "date-time",
-            "type": "string"
-          },
-          "docId": {
-            "type": "string"
-          },
-          "feature": {
-            "type": "object"
-          },
-          "files": {
-            "$ref": "#/components/schemas/MultimapDataTypeDataFile"
-          },
-          "geometry": {
-            "$ref": "#/components/schemas/IGeometry"
-          },
-          "groups": {
-            "items": {
-              "type": "string"
-            },
-            "type": "array",
-            "uniqueItems": true
-          },
-          "id": {
-            "format": "int64",
-            "type": "integer"
-          },
-          "ipId": {
-            "$ref": "#/components/schemas/UniformResourceName"
-          },
-          "label": {
-            "type": "string"
-          },
-          "last": {
-            "type": "boolean"
-          },
-          "lastUpdate": {
-            "format": "date-time",
-            "type": "string"
-          },
-          "links": {
-            "items": {
-              "$ref": "#/components/schemas/Link"
-            },
-            "type": "array"
-          },
-          "model": {
-            "$ref": "#/components/schemas/Model"
-          },
-          "mutableCopyOfPropertiesPaths": {
-            "items": {
-              "type": "string"
-            },
-            "type": "array",
-            "uniqueItems": true
-          },
-          "normalizedGeometry": {
-            "$ref": "#/components/schemas/IGeometry"
-          },
-          "properties": {
-            "items": {
-              "$ref": "#/components/schemas/IPropertyObject"
-            },
-            "properties": {
-              "empty": {
-                "type": "boolean"
-              }
-            },
-            "type": "array",
-            "uniqueItems": true
-          },
-          "providerId": {
-            "type": "string"
-          },
-          "tags": {
-            "items": {
-              "type": "string"
-            },
-            "properties": {
-              "empty": {
-                "type": "boolean"
-              }
-            },
-            "type": "array",
-            "uniqueItems": true
-          },
-          "type": {
-            "type": "string"
-          },
-          "version": {
-            "format": "int32",
-            "type": "integer"
-          },
-          "virtualId": {
-            "$ref": "#/components/schemas/UniformResourceName"
-          },
-          "wgs84": {
-            "$ref": "#/components/schemas/IGeometry"
-          }
-        },
-        "type": "object"
-      },
-      "EntityModelAccessGroup": {
-        "properties": {
-          "id": {
-            "format": "int64",
-            "type": "integer"
-          },
-          "identifiable": {
-            "type": "boolean"
-          },
-          "internal": {
-            "type": "boolean"
-          },
-          "links": {
-            "items": {
-              "$ref": "#/components/schemas/Link"
-            },
-            "type": "array"
-          },
-          "name": {
-            "maxLength": 32,
-            "minLength": 3,
-            "pattern": "[a-zA-Z_][0-9a-zA-Z_]*",
-            "type": "string"
-          },
-          "public": {
-            "type": "boolean"
-          },
-          "users": {
-            "items": {
-              "$ref": "#/components/schemas/User"
-            },
-            "type": "array",
-            "uniqueItems": true
-          }
-        },
-        "type": "object"
-      },
-      "EntityModelAccessRight": {
-        "properties": {
-          "accessGroup": {
-            "$ref": "#/components/schemas/AccessGroup"
-          },
-          "accessLevel": {
-            "enum": [
-              "NO_ACCESS",
-              "RESTRICTED_ACCESS",
-              "CUSTOM_ACCESS",
-              "FULL_ACCESS"
-            ],
-            "type": "string"
-          },
-          "constrained": {
-            "$ref": "#/components/schemas/Dataset"
-          },
-          "dataAccessLevel": {
-            "enum": [
-              "NO_ACCESS",
-              "INHERITED_ACCESS",
-              "CUSTOM_ACCESS"
-            ],
-            "type": "string"
-          },
-          "dataAccessPlugin": {
-            "$ref": "#/components/schemas/PluginConfiguration"
-          },
-          "dataset": {
-            "$ref": "#/components/schemas/Dataset"
-          },
-          "id": {
-            "format": "int64",
-            "type": "integer"
-          },
-          "identifiable": {
-            "type": "boolean"
-          },
-          "links": {
-            "items": {
-              "$ref": "#/components/schemas/Link"
-            },
-            "type": "array"
-          },
-          "qualityFilter": {
-            "$ref": "#/components/schemas/QualityFilter"
-          }
-        },
-        "type": "object"
-      },
-      "EntityModelAttributeModel": {
-        "properties": {
-          "alterable": {
-            "type": "boolean"
-          },
-          "arraysize": {
-            "format": "int32",
-            "type": "integer"
-          },
-          "booleanAttribute": {
-            "type": "boolean"
-          },
-          "description": {
-            "type": "string"
-          },
-          "dynamic": {
-            "type": "boolean"
-          },
-          "esMapping": {
-            "type": "string"
-          },
-          "fragment": {
-            "$ref": "#/components/schemas/Fragment"
-          },
-          "fullJsonPath": {
-            "type": "string"
-          },
-          "fullName": {
-            "type": "string"
-          },
-          "group": {
-            "maxLength": 32,
-            "minLength": 1,
-            "pattern": "[a-zA-Z_][0-9a-zA-Z_]*",
-            "type": "string"
-          },
-          "id": {
-            "format": "int64",
-            "type": "integer"
-          },
-          "identifiable": {
-            "type": "boolean"
-          },
-          "internal": {
-            "type": "boolean"
-          },
-          "jsonPath": {
-            "type": "string"
-          },
-          "jsonPropertyPath": {
-            "type": "string"
-          },
-          "label": {
-            "maxLength": 255,
-            "minLength": 0,
-            "type": "string"
-          },
-          "links": {
-            "items": {
-              "$ref": "#/components/schemas/Link"
-            },
-            "type": "array"
-          },
-          "name": {
-            "maxLength": 32,
-            "minLength": 1,
-            "pattern": "[a-zA-Z_][0-9a-zA-Z_]*",
-            "type": "string"
-          },
-          "optional": {
-            "type": "boolean"
-          },
-          "precision": {
-            "format": "int32",
-            "type": "integer"
-          },
-          "properties": {
-            "items": {
-              "$ref": "#/components/schemas/AttributeProperty"
-            },
-            "type": "array"
-          },
-          "restriction": {
-            "$ref": "#/components/schemas/AbstractRestriction"
-          },
-          "restrictionType": {
-            "enum": [
-              "NO_RESTRICTION",
-              "PATTERN",
-              "ENUMERATION",
-              "DATE_ISO8601",
-              "INTEGER_RANGE",
-              "LONG_RANGE",
-              "DOUBLE_RANGE",
-              "URL",
-              "GEOMETRY",
-              "JSON_SCHEMA"
-            ],
-            "type": "string"
-          },
-          "textAttribute": {
-            "type": "boolean"
-          },
-          "type": {
-            "enum": [
-              "STRING",
-              "JSON",
-              "INTEGER",
-              "DOUBLE",
-              "DATE_ISO8601",
-              "URL",
-              "BOOLEAN",
-              "STRING_ARRAY",
-              "INTEGER_ARRAY",
-              "DOUBLE_ARRAY",
-              "DATE_ARRAY",
-              "INTEGER_INTERVAL",
-              "DOUBLE_INTERVAL",
-              "DATE_INTERVAL",
-              "LONG",
-              "LONG_INTERVAL",
-              "LONG_ARRAY",
-              "OBJECT"
-            ],
-            "type": "string"
-          },
-          "unit": {
-            "type": "string"
-          },
-          "virtual": {
-            "type": "boolean"
-          }
-        },
-        "type": "object"
-      },
-      "EntityModelCollection": {
-        "properties": {
-          "creationDate": {
-            "format": "date-time",
-            "type": "string"
-          },
-          "docId": {
-            "type": "string"
-          },
-          "feature": {
-            "$ref": "#/components/schemas/CollectionFeature"
-          },
-          "files": {
-            "$ref": "#/components/schemas/MultimapDataTypeDataFile"
-          },
-          "geometry": {
-            "$ref": "#/components/schemas/IGeometry"
-          },
-          "groups": {
-            "items": {
-              "type": "string"
-            },
-            "type": "array",
-            "uniqueItems": true
-          },
-          "id": {
-            "format": "int64",
-            "type": "integer"
-          },
-          "ipId": {
-            "$ref": "#/components/schemas/UniformResourceName"
-          },
-          "label": {
-            "type": "string"
-          },
-          "last": {
-            "type": "boolean"
-          },
-          "lastUpdate": {
-            "format": "date-time",
-            "type": "string"
-          },
-          "links": {
-            "items": {
-              "$ref": "#/components/schemas/Link"
-            },
-            "type": "array"
-          },
-          "model": {
-            "$ref": "#/components/schemas/Model"
-          },
-          "mutableCopyOfPropertiesPaths": {
-            "items": {
-              "type": "string"
-            },
-            "type": "array",
-            "uniqueItems": true
-          },
-          "normalizedGeometry": {
-            "$ref": "#/components/schemas/IGeometry"
-          },
-          "properties": {
-            "items": {
-              "$ref": "#/components/schemas/IPropertyObject"
-            },
-            "properties": {
-              "empty": {
-                "type": "boolean"
-              }
-            },
-            "type": "array",
-            "uniqueItems": true
-          },
-          "providerId": {
-            "type": "string"
-          },
-          "tags": {
-            "items": {
-              "type": "string"
-            },
-            "properties": {
-              "empty": {
-                "type": "boolean"
-              }
-            },
-            "type": "array",
-            "uniqueItems": true
-          },
-          "type": {
-            "type": "string"
-          },
-          "version": {
-            "format": "int32",
-            "type": "integer"
-          },
-          "virtualId": {
-            "$ref": "#/components/schemas/UniformResourceName"
-          },
-          "wgs84": {
-            "$ref": "#/components/schemas/IGeometry"
-          }
-        },
-        "type": "object"
-      },
-      "EntityModelDataSourceDTO": {
-        "properties": {
-          "active": {
-            "type": "boolean"
-          },
-          "associatedDatasets": {
-            "format": "int64",
-            "type": "integer"
-          },
-          "businessId": {
-            "pattern": "[0-9a-zA-Z_-]*",
-            "type": "string"
-          },
-          "iconUrl": {
-            "format": "url",
-            "type": "string"
-          },
-          "id": {
-            "format": "int64",
-            "type": "integer"
-          },
-          "identifiable": {
-            "type": "boolean"
-          },
-          "interfaceNames": {
-            "items": {
-              "type": "string"
-            },
-            "type": "array",
-            "uniqueItems": true
-          },
-          "isActive": {
-            "type": "boolean",
-            "writeOnly": true
-          },
-          "label": {
-            "type": "string"
-          },
-          "links": {
-            "items": {
-              "$ref": "#/components/schemas/Link"
-            },
-            "type": "array"
-          },
-          "metaData": {
-            "$ref": "#/components/schemas/PluginMetaData"
-          },
-          "metaDataAndPluginId": {
-            "$ref": "#/components/schemas/PluginMetaData"
-          },
-          "parameters": {
-            "items": {
-              "$ref": "#/components/schemas/IPluginParam"
-            },
-            "type": "array",
-            "uniqueItems": true
-          },
-          "pluginClassName": {
-            "type": "string"
-          },
-          "pluginId": {
-            "type": "string"
-          },
-          "priorityOrder": {
-            "format": "int32",
-            "type": "integer"
-          },
-          "version": {
-            "type": "string"
-          }
-        },
-        "type": "object"
-      },
-      "EntityModelDataset": {
-        "properties": {
-          "creationDate": {
-            "format": "date-time",
-            "type": "string"
-          },
-          "dataModel": {
-            "type": "string"
-          },
-          "dataSource": {
-            "$ref": "#/components/schemas/PluginConfiguration"
-          },
-          "docId": {
-            "type": "string"
-          },
-          "feature": {
-            "$ref": "#/components/schemas/DatasetFeature"
-          },
-          "files": {
-            "$ref": "#/components/schemas/MultimapDataTypeDataFile"
-          },
-          "geometry": {
-            "$ref": "#/components/schemas/IGeometry"
-          },
-          "groups": {
-            "items": {
-              "type": "string"
-            },
-            "type": "array",
-            "uniqueItems": true
-          },
-          "id": {
-            "format": "int64",
-            "type": "integer"
-          },
-          "ipId": {
-            "$ref": "#/components/schemas/UniformResourceName"
-          },
-          "label": {
-            "type": "string"
-          },
-          "last": {
-            "type": "boolean"
-          },
-          "lastUpdate": {
-            "format": "date-time",
-            "type": "string"
-          },
-          "licence": {
-            "type": "string"
-          },
-          "links": {
-            "items": {
-              "$ref": "#/components/schemas/Link"
-            },
-            "type": "array"
-          },
-          "metadata": {
-            "$ref": "#/components/schemas/DatasetMetadata"
-          },
-          "model": {
-            "$ref": "#/components/schemas/Model"
-          },
-          "mutableCopyOfPropertiesPaths": {
-            "items": {
-              "type": "string"
-            },
-            "type": "array",
-            "uniqueItems": true
-          },
-          "normalizedGeometry": {
-            "$ref": "#/components/schemas/IGeometry"
-          },
-          "openSearchSubsettingClause": {
-            "type": "string"
-          },
-          "properties": {
-            "items": {
-              "$ref": "#/components/schemas/IPropertyObject"
-            },
-            "properties": {
-              "empty": {
-                "type": "boolean"
-              }
-            },
-            "type": "array",
-            "uniqueItems": true
-          },
-          "providerId": {
-            "type": "string"
-          },
-          "subsettingClause": {
-            "$ref": "#/components/schemas/ICriterion"
-          },
-          "tags": {
-            "items": {
-              "type": "string"
-            },
-            "properties": {
-              "empty": {
-                "type": "boolean"
-              }
-            },
-            "type": "array",
-            "uniqueItems": true
-          },
-          "type": {
-            "type": "string"
-          },
-          "userSubsettingClause": {
-            "$ref": "#/components/schemas/ICriterion"
-          },
-          "version": {
-            "format": "int32",
-            "type": "integer"
-          },
-          "virtualId": {
-            "$ref": "#/components/schemas/UniformResourceName"
-          },
-          "wgs84": {
-            "$ref": "#/components/schemas/IGeometry"
-          }
-        },
-        "type": "object"
-      },
-      "EntityModelDatasetWithAccessRight": {
+      "DatasetWithAccessRight": {
         "properties": {
           "accessRight": {
             "$ref": "#/components/schemas/AccessRight"
           },
           "dataset": {
             "$ref": "#/components/schemas/Dataset"
-          },
-          "links": {
-            "items": {
-              "$ref": "#/components/schemas/Link"
-            },
-            "type": "array"
           }
         },
         "type": "object"
       },
-      "EntityModelDatasourceIngestion": {
+      "DatasourceIngestion": {
         "properties": {
-          "errorPageNumber": {
-            "format": "int32",
-            "type": "integer"
+          "cursor": {
+            "$ref": "#/components/schemas/CrawlingCursor"
           },
           "id": {
             "type": "string"
@@ -1461,15 +985,14 @@
           "label": {
             "type": "string"
           },
+          "lastEntityDate": {
+            "format": "date-time",
+            "type": "string",
+            "writeOnly": true
+          },
           "lastIngestDate": {
             "format": "date-time",
             "type": "string"
-          },
-          "links": {
-            "items": {
-              "$ref": "#/components/schemas/Link"
-            },
-            "type": "array"
           },
           "nextPlannedIngestDate": {
             "format": "date-time",
@@ -1501,19 +1024,13 @@
         },
         "type": "object"
       },
-      "EntityModelDynamicTenantSettingDto": {
+      "DynamicTenantSettingDto": {
         "properties": {
           "defaultValue": {
             "type": "object"
           },
           "description": {
             "type": "string"
-          },
-          "links": {
-            "items": {
-              "$ref": "#/components/schemas/Link"
-            },
-            "type": "array"
           },
           "name": {
             "type": "string"
@@ -1524,46 +1041,185 @@
         },
         "type": "object"
       },
-      "EntityModelFragment": {
+      "DynamicTenantSettingDtoObject": {
         "properties": {
-          "defaultFragment": {
-            "type": "boolean"
+          "defaultValue": {
+            "type": "object"
           },
           "description": {
             "type": "string"
           },
-          "id": {
-            "format": "int64",
-            "type": "integer"
+          "name": {
+            "type": "string"
           },
-          "identifiable": {
-            "type": "boolean"
+          "value": {
+            "type": "object"
+          }
+        },
+        "type": "object"
+      },
+      "EntityModelAbstractEntityObject": {
+        "properties": {
+          "content": {
+            "$ref": "#/components/schemas/AbstractEntityObject"
           },
           "links": {
             "items": {
               "$ref": "#/components/schemas/Link"
             },
             "type": "array"
+          }
+        },
+        "type": "object"
+      },
+      "EntityModelAccessGroup": {
+        "properties": {
+          "content": {
+            "$ref": "#/components/schemas/AccessGroup"
           },
-          "name": {
-            "maxLength": 32,
-            "minLength": 1,
-            "pattern": "[a-zA-Z_][0-9a-zA-Z_]*",
-            "type": "string"
+          "links": {
+            "items": {
+              "$ref": "#/components/schemas/Link"
+            },
+            "type": "array"
+          }
+        },
+        "type": "object"
+      },
+      "EntityModelAccessRight": {
+        "properties": {
+          "content": {
+            "$ref": "#/components/schemas/AccessRight"
           },
-          "version": {
-            "maxLength": 16,
-            "minLength": 0,
-            "type": "string"
+          "links": {
+            "items": {
+              "$ref": "#/components/schemas/Link"
+            },
+            "type": "array"
+          }
+        },
+        "type": "object"
+      },
+      "EntityModelAttributeModel": {
+        "properties": {
+          "content": {
+            "$ref": "#/components/schemas/AttributeModel"
           },
-          "virtual": {
-            "type": "boolean"
+          "links": {
+            "items": {
+              "$ref": "#/components/schemas/Link"
+            },
+            "type": "array"
+          }
+        },
+        "type": "object"
+      },
+      "EntityModelCollection": {
+        "properties": {
+          "content": {
+            "$ref": "#/components/schemas/Collection"
+          },
+          "links": {
+            "items": {
+              "$ref": "#/components/schemas/Link"
+            },
+            "type": "array"
+          }
+        },
+        "type": "object"
+      },
+      "EntityModelDataSourceDTO": {
+        "properties": {
+          "content": {
+            "$ref": "#/components/schemas/DataSourceDTO"
+          },
+          "links": {
+            "items": {
+              "$ref": "#/components/schemas/Link"
+            },
+            "type": "array"
+          }
+        },
+        "type": "object"
+      },
+      "EntityModelDataset": {
+        "properties": {
+          "content": {
+            "$ref": "#/components/schemas/Dataset"
+          },
+          "links": {
+            "items": {
+              "$ref": "#/components/schemas/Link"
+            },
+            "type": "array"
+          }
+        },
+        "type": "object"
+      },
+      "EntityModelDatasetWithAccessRight": {
+        "properties": {
+          "content": {
+            "$ref": "#/components/schemas/DatasetWithAccessRight"
+          },
+          "links": {
+            "items": {
+              "$ref": "#/components/schemas/Link"
+            },
+            "type": "array"
+          }
+        },
+        "type": "object"
+      },
+      "EntityModelDatasourceIngestion": {
+        "properties": {
+          "content": {
+            "$ref": "#/components/schemas/DatasourceIngestion"
+          },
+          "links": {
+            "items": {
+              "$ref": "#/components/schemas/Link"
+            },
+            "type": "array"
+          }
+        },
+        "type": "object"
+      },
+      "EntityModelDynamicTenantSettingDtoObject": {
+        "properties": {
+          "content": {
+            "$ref": "#/components/schemas/DynamicTenantSettingDtoObject"
+          },
+          "links": {
+            "items": {
+              "$ref": "#/components/schemas/Link"
+            },
+            "type": "array"
+          }
+        },
+        "type": "object"
+      },
+      "EntityModelFragment": {
+        "properties": {
+          "content": {
+            "$ref": "#/components/schemas/Fragment"
+          },
+          "links": {
+            "items": {
+              "$ref": "#/components/schemas/Link"
+            },
+            "type": "array"
           }
         },
         "type": "object"
       },
       "EntityModelMapStringMaintenanceInfo": {
         "properties": {
+          "content": {
+            "additionalProperties": {
+              "$ref": "#/components/schemas/MaintenanceInfo"
+            },
+            "type": "object"
+          },
           "links": {
             "items": {
               "$ref": "#/components/schemas/Link"
@@ -1575,206 +1231,56 @@
       },
       "EntityModelModel": {
         "properties": {
-          "description": {
-            "type": "string"
-          },
-          "id": {
-            "format": "int64",
-            "type": "integer"
-          },
-          "identifiable": {
-            "type": "boolean"
+          "content": {
+            "$ref": "#/components/schemas/Model"
           },
           "links": {
             "items": {
               "$ref": "#/components/schemas/Link"
             },
             "type": "array"
-          },
-          "name": {
-            "maxLength": 32,
-            "minLength": 1,
-            "pattern": "[a-zA-Z_][0-9a-zA-Z_]*",
-            "type": "string"
-          },
-          "type": {
-            "enum": [
-              "COLLECTION",
-              "DATA",
-              "DATASET"
-            ],
-            "type": "string"
-          },
-          "version": {
-            "type": "string"
           }
         },
         "type": "object"
       },
       "EntityModelModelAttrAssoc": {
         "properties": {
-          "attribute": {
-            "$ref": "#/components/schemas/AttributeModel"
-          },
-          "computationConf": {
-            "$ref": "#/components/schemas/PluginConfiguration"
-          },
-          "id": {
-            "format": "int64",
-            "type": "integer"
-          },
-          "identifiable": {
-            "type": "boolean"
+          "content": {
+            "$ref": "#/components/schemas/ModelAttrAssoc"
           },
           "links": {
             "items": {
               "$ref": "#/components/schemas/Link"
             },
             "type": "array"
-          },
-          "mode": {
-            "enum": [
-              "GIVEN",
-              "COMPUTED"
-            ],
-            "type": "string"
-          },
-          "model": {
-            "$ref": "#/components/schemas/Model"
-          },
-          "pos": {
-            "format": "int32",
-            "type": "integer"
           }
         },
         "type": "object"
       },
       "EntityModelPluginConfiguration": {
         "properties": {
-          "active": {
-            "type": "boolean"
-          },
-          "businessId": {
-            "pattern": "[0-9a-zA-Z_-]*",
-            "type": "string"
-          },
-          "iconUrl": {
-            "format": "url",
-            "type": "string"
-          },
-          "id": {
-            "format": "int64",
-            "type": "integer"
-          },
-          "identifiable": {
-            "type": "boolean"
-          },
-          "interfaceNames": {
-            "items": {
-              "type": "string"
-            },
-            "type": "array",
-            "uniqueItems": true
-          },
-          "isActive": {
-            "type": "boolean",
-            "writeOnly": true
-          },
-          "label": {
-            "type": "string"
+          "content": {
+            "$ref": "#/components/schemas/PluginConfiguration"
           },
           "links": {
             "items": {
               "$ref": "#/components/schemas/Link"
             },
             "type": "array"
-          },
-          "metaData": {
-            "$ref": "#/components/schemas/PluginMetaData"
-          },
-          "metaDataAndPluginId": {
-            "$ref": "#/components/schemas/PluginMetaData"
-          },
-          "parameters": {
-            "items": {
-              "$ref": "#/components/schemas/IPluginParam"
-            },
-            "type": "array",
-            "uniqueItems": true
-          },
-          "pluginClassName": {
-            "type": "string"
-          },
-          "pluginId": {
-            "type": "string"
-          },
-          "priorityOrder": {
-            "format": "int32",
-            "type": "integer"
-          },
-          "version": {
-            "type": "string"
           }
         },
         "type": "object"
       },
       "EntityModelPluginMetaData": {
         "properties": {
-          "author": {
-            "type": "string"
-          },
-          "contact": {
-            "type": "string"
-          },
-          "description": {
-            "type": "string"
-          },
-          "interfaceNames": {
-            "items": {
-              "type": "string"
-            },
-            "type": "array",
-            "uniqueItems": true
-          },
-          "licence": {
-            "type": "string",
-            "writeOnly": true
-          },
-          "license": {
-            "type": "string"
+          "content": {
+            "$ref": "#/components/schemas/PluginMetaData"
           },
           "links": {
             "items": {
               "$ref": "#/components/schemas/Link"
             },
             "type": "array"
-          },
-          "markdown": {
-            "type": "string"
-          },
-          "owner": {
-            "type": "string"
-          },
-          "parameters": {
-            "items": {
-              "$ref": "#/components/schemas/PluginParamDescriptor"
-            },
-            "type": "array"
-          },
-          "pluginClassName": {
-            "type": "string"
-          },
-          "pluginId": {
-            "type": "string"
-          },
-          "url": {
-            "type": "string"
-          },
-          "userMarkdown": {
-            "type": "string"
-          },
-          "version": {
-            "type": "string"
           }
         },
         "type": "object"
@@ -1795,44 +1301,26 @@
       },
       "EntityModelTypeMetadataResourceConfMapping": {
         "properties": {
-          "attrType": {
-            "enum": [
-              "STRING",
-              "JSON",
-              "INTEGER",
-              "DOUBLE",
-              "DATE_ISO8601",
-              "URL",
-              "BOOLEAN",
-              "STRING_ARRAY",
-              "INTEGER_ARRAY",
-              "DOUBLE_ARRAY",
-              "DATE_ARRAY",
-              "INTEGER_INTERVAL",
-              "DOUBLE_INTERVAL",
-              "DATE_INTERVAL",
-              "LONG",
-              "LONG_INTERVAL",
-              "LONG_ARRAY",
-              "OBJECT"
-            ],
-            "type": "string"
+          "content": {
+            "$ref": "#/components/schemas/TypeMetadataResourceConfMapping"
           },
           "links": {
             "items": {
               "$ref": "#/components/schemas/Link"
             },
             "type": "array"
+          }
+        },
+        "type": "object"
+      },
+      "EntityModelVoid": {
+        "properties": {
+          "content": {
+            "type": "object"
           },
-          "pluginConfigurations": {
+          "links": {
             "items": {
-              "$ref": "#/components/schemas/EntityModelPluginConfiguration"
-            },
-            "type": "array"
-          },
-          "pluginMetaDatas": {
-            "items": {
-              "$ref": "#/components/schemas/EntityModelPluginMetaData"
+              "$ref": "#/components/schemas/Link"
             },
             "type": "array"
           }
@@ -1903,18 +1391,6 @@
             "writeOnly": true
           },
           "type": {
-            "enum": [
-              "FEATURE",
-              "FEATURE_COLLECTION",
-              "POINT",
-              "MULTIPOINT",
-              "LINESTRING",
-              "MULTILINESTRING",
-              "POLYGON",
-              "MULTIPOLYGON",
-              "GEOMETRY_COLLECTION",
-              "UNLOCATED"
-            ],
             "type": "string"
           }
         },
@@ -2043,15 +1519,22 @@
         },
         "type": "object"
       },
+      "MaintenanceInfo": {
+        "properties": {
+          "active": {
+            "type": "boolean"
+          },
+          "lastUpdate": {
+            "format": "date-time",
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
       "MimeType": {
         "properties": {
           "charset": {
-            "properties": {
-              "registered": {
-                "type": "boolean"
-              }
-            },
-            "type": "object"
+            "type": "string"
           },
           "concrete": {
             "type": "boolean"
@@ -2063,6 +1546,9 @@
             "type": "object"
           },
           "subtype": {
+            "type": "string"
+          },
+          "subtypeSuffix": {
             "type": "string"
           },
           "type": {
@@ -2233,40 +1719,6 @@
         "properties": {
           "empty": {
             "type": "boolean"
-          }
-        },
-        "type": "object"
-      },
-      "MultipartFile": {
-        "properties": {
-          "bytes": {
-            "items": {
-              "format": "byte",
-              "type": "string"
-            },
-            "type": "array"
-          },
-          "contentType": {
-            "type": "string"
-          },
-          "empty": {
-            "type": "boolean"
-          },
-          "inputStream": {
-            "type": "object"
-          },
-          "name": {
-            "type": "string"
-          },
-          "originalFilename": {
-            "type": "string"
-          },
-          "resource": {
-            "$ref": "#/components/schemas/Resource"
-          },
-          "size": {
-            "format": "int64",
-            "type": "integer"
           }
         },
         "type": "object"
@@ -2565,26 +2017,21 @@
       },
       "Pageable": {
         "properties": {
-          "offset": {
-            "format": "int64",
-            "type": "integer"
-          },
-          "pageNumber": {
+          "page": {
             "format": "int32",
+            "minimum": 0,
             "type": "integer"
           },
-          "pageSize": {
+          "size": {
             "format": "int32",
+            "minimum": 1,
             "type": "integer"
-          },
-          "paged": {
-            "type": "boolean"
           },
           "sort": {
-            "$ref": "#/components/schemas/Sort"
-          },
-          "unpaged": {
-            "type": "boolean"
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
           }
         },
         "type": "object"
@@ -3068,38 +2515,6 @@
         },
         "type": "object"
       },
-      "Resource": {
-        "properties": {
-          "description": {
-            "type": "string"
-          },
-          "file": {
-            "format": "binary",
-            "type": "string"
-          },
-          "filename": {
-            "type": "string"
-          },
-          "inputStream": {
-            "type": "object"
-          },
-          "open": {
-            "type": "boolean"
-          },
-          "readable": {
-            "type": "boolean"
-          },
-          "uri": {
-            "format": "uri",
-            "type": "string"
-          },
-          "url": {
-            "format": "url",
-            "type": "string"
-          }
-        },
-        "type": "object"
-      },
       "ResourceAccess": {
         "type": "object"
       },
@@ -3156,20 +2571,6 @@
         },
         "type": "object"
       },
-      "Sort": {
-        "properties": {
-          "empty": {
-            "type": "boolean"
-          },
-          "sorted": {
-            "type": "boolean"
-          },
-          "unsorted": {
-            "type": "boolean"
-          }
-        },
-        "type": "object"
-      },
       "Table": {
         "properties": {
           "catalog": {
@@ -3186,6 +2587,46 @@
           },
           "tableDefinition": {
             "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "TypeMetadataResourceConfMapping": {
+        "properties": {
+          "attrType": {
+            "enum": [
+              "STRING",
+              "JSON",
+              "INTEGER",
+              "DOUBLE",
+              "DATE_ISO8601",
+              "URL",
+              "BOOLEAN",
+              "STRING_ARRAY",
+              "INTEGER_ARRAY",
+              "DOUBLE_ARRAY",
+              "DATE_ARRAY",
+              "INTEGER_INTERVAL",
+              "DOUBLE_INTERVAL",
+              "DATE_INTERVAL",
+              "LONG",
+              "LONG_INTERVAL",
+              "LONG_ARRAY",
+              "OBJECT"
+            ],
+            "type": "string"
+          },
+          "pluginConfigurations": {
+            "items": {
+              "$ref": "#/components/schemas/EntityModelPluginConfiguration"
+            },
+            "type": "array"
+          },
+          "pluginMetaDatas": {
+            "items": {
+              "$ref": "#/components/schemas/EntityModelPluginMetaData"
+            },
+            "type": "array"
           }
         },
         "type": "object"
@@ -3327,7 +2768,7 @@
       "name": "GPL-3.0"
     },
     "title": "MICROSERVICE DAM",
-    "version": "1.8.1"
+    "version": "1.10.0"
   },
   "openapi": "3.0.1",
   "paths": {
@@ -3369,7 +2810,7 @@
                 }
               }
             },
-            "description": "default response"
+            "description": "OK"
           }
         },
         "tags": [
@@ -3397,7 +2838,7 @@
                 }
               }
             },
-            "description": "default response"
+            "description": "OK"
           }
         },
         "tags": [
@@ -3420,7 +2861,7 @@
         ],
         "responses": {
           "200": {
-            "description": "default response"
+            "description": "OK"
           }
         },
         "tags": [
@@ -3448,7 +2889,7 @@
                 }
               }
             },
-            "description": "default response"
+            "description": "OK"
           }
         },
         "tags": [
@@ -3486,7 +2927,7 @@
                 }
               }
             },
-            "description": "default response"
+            "description": "OK"
           }
         },
         "tags": [
@@ -3511,7 +2952,7 @@
             "name": "dataset",
             "required": false,
             "schema": {
-              "$ref": "#/components/schemas/UniformResourceName"
+              "type": "string"
             }
           },
           {
@@ -3540,7 +2981,7 @@
                 }
               }
             },
-            "description": "default response"
+            "description": "OK"
           }
         },
         "tags": [
@@ -3568,7 +3009,7 @@
                 }
               }
             },
-            "description": "default response"
+            "description": "OK"
           }
         },
         "tags": [
@@ -3593,7 +3034,7 @@
             "name": "dataset",
             "required": true,
             "schema": {
-              "$ref": "#/components/schemas/UniformResourceName"
+              "type": "string"
             }
           }
         ],
@@ -3606,7 +3047,7 @@
                 }
               }
             },
-            "description": "default response"
+            "description": "OK"
           }
         },
         "tags": [
@@ -3644,7 +3085,7 @@
                 }
               }
             },
-            "description": "default response"
+            "description": "OK"
           }
         },
         "tags": [
@@ -3668,7 +3109,7 @@
         ],
         "responses": {
           "200": {
-            "description": "default response"
+            "description": "OK"
           }
         },
         "tags": [
@@ -3697,7 +3138,7 @@
                 }
               }
             },
-            "description": "default response"
+            "description": "OK"
           }
         },
         "tags": [
@@ -3736,7 +3177,7 @@
                 }
               }
             },
-            "description": "default response"
+            "description": "OK"
           }
         },
         "tags": [
@@ -3782,7 +3223,7 @@
                 }
               }
             },
-            "description": "default response"
+            "description": "OK"
           }
         },
         "tags": [
@@ -3810,7 +3251,7 @@
                 }
               }
             },
-            "description": "default response"
+            "description": "OK"
           }
         },
         "tags": [
@@ -3834,7 +3275,7 @@
         ],
         "responses": {
           "200": {
-            "description": "default response"
+            "description": "OK"
           }
         },
         "tags": [
@@ -3863,7 +3304,7 @@
                 }
               }
             },
-            "description": "default response"
+            "description": "OK"
           }
         },
         "tags": [
@@ -3902,7 +3343,7 @@
                 }
               }
             },
-            "description": "default response"
+            "description": "OK"
           }
         },
         "tags": [
@@ -3912,7 +3353,7 @@
     },
     "/collections/{collection_id}/associate": {
       "put": {
-        "operationId": "associate",
+        "operationId": "associate_1",
         "parameters": [
           {
             "in": "path",
@@ -3940,7 +3381,7 @@
         },
         "responses": {
           "200": {
-            "description": "default response"
+            "description": "OK"
           }
         },
         "tags": [
@@ -3950,7 +3391,7 @@
     },
     "/collections/{collection_id}/dissociate": {
       "put": {
-        "operationId": "dissociate",
+        "operationId": "dissociate_1",
         "parameters": [
           {
             "in": "path",
@@ -3978,7 +3419,7 @@
         },
         "responses": {
           "200": {
-            "description": "default response"
+            "description": "OK"
           }
         },
         "tags": [
@@ -4001,7 +3442,7 @@
                 }
               }
             },
-            "description": "default response"
+            "description": "OK"
           }
         },
         "tags": [
@@ -4029,7 +3470,7 @@
                 }
               }
             },
-            "description": "default response"
+            "description": "OK"
           }
         },
         "tags": [
@@ -4052,7 +3493,7 @@
         ],
         "responses": {
           "200": {
-            "description": "default response"
+            "description": "OK"
           }
         },
         "tags": [
@@ -4080,7 +3521,7 @@
                 }
               }
             },
-            "description": "default response"
+            "description": "OK"
           }
         },
         "tags": [
@@ -4108,7 +3549,7 @@
                 }
               }
             },
-            "description": "default response"
+            "description": "OK"
           }
         },
         "tags": [
@@ -4146,7 +3587,7 @@
                 }
               }
             },
-            "description": "default response"
+            "description": "OK"
           }
         },
         "tags": [
@@ -4179,7 +3620,7 @@
                 }
               }
             },
-            "description": "default response"
+            "description": "OK"
           }
         },
         "tags": [
@@ -4220,7 +3661,7 @@
                 }
               }
             },
-            "description": "default response"
+            "description": "OK"
           }
         },
         "tags": [
@@ -4243,7 +3684,7 @@
                 }
               }
             },
-            "description": "default response"
+            "description": "OK"
           }
         },
         "tags": [
@@ -4266,7 +3707,7 @@
         ],
         "responses": {
           "200": {
-            "description": "default response"
+            "description": "OK"
           }
         },
         "tags": [
@@ -4287,7 +3728,7 @@
         ],
         "responses": {
           "200": {
-            "description": "default response"
+            "description": "OK"
           }
         },
         "tags": [
@@ -4297,7 +3738,7 @@
     },
     "/datasets": {
       "get": {
-        "operationId": "retrieveDatasets_1",
+        "operationId": "retrieveDatasets",
         "parameters": [
           {
             "in": "query",
@@ -4333,7 +3774,7 @@
                 }
               }
             },
-            "description": "default response"
+            "description": "OK"
           }
         },
         "tags": [
@@ -4361,7 +3802,7 @@
                 }
               }
             },
-            "description": "default response"
+            "description": "OK"
           }
         },
         "tags": [
@@ -4371,7 +3812,7 @@
     },
     "/datasets/access-rights/group/{accessGroupName}": {
       "get": {
-        "operationId": "retrieveDatasets",
+        "operationId": "retrieveDatasets_1",
         "parameters": [
           {
             "in": "path",
@@ -4415,7 +3856,7 @@
                 }
               }
             },
-            "description": "default response"
+            "description": "OK"
           }
         },
         "tags": [
@@ -4426,22 +3867,29 @@
     "/datasets/attributes": {
       "post": {
         "operationId": "retrieveAttributes",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "pageable",
+            "required": true,
+            "schema": {
+              "$ref": "#/components/schemas/Pageable"
+            }
+          },
+          {
+            "in": "query",
+            "name": "assembler",
+            "required": true,
+            "schema": {
+              "$ref": "#/components/schemas/PagedResourcesAssemblerAttributeModel"
+            }
+          }
+        ],
         "requestBody": {
           "content": {
             "application/json": {
               "schema": {
-                "properties": {
-                  "assembler": {
-                    "$ref": "#/components/schemas/PagedResourcesAssemblerAttributeModel"
-                  },
-                  "body": {
-                    "$ref": "#/components/schemas/DatasetDataAttributesRequestBody"
-                  },
-                  "pageable": {
-                    "$ref": "#/components/schemas/Pageable"
-                  }
-                },
-                "type": "object"
+                "$ref": "#/components/schemas/DatasetDataAttributesRequestBody"
               }
             }
           },
@@ -4456,7 +3904,7 @@
                 }
               }
             },
-            "description": "default response"
+            "description": "OK"
           }
         },
         "tags": [
@@ -4467,22 +3915,29 @@
     "/datasets/data/attributes": {
       "post": {
         "operationId": "retrieveDataAttributes",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "pageable",
+            "required": true,
+            "schema": {
+              "$ref": "#/components/schemas/Pageable"
+            }
+          },
+          {
+            "in": "query",
+            "name": "assembler",
+            "required": true,
+            "schema": {
+              "$ref": "#/components/schemas/PagedResourcesAssemblerAttributeModel"
+            }
+          }
+        ],
         "requestBody": {
           "content": {
             "application/json": {
               "schema": {
-                "properties": {
-                  "assembler": {
-                    "$ref": "#/components/schemas/PagedResourcesAssemblerAttributeModel"
-                  },
-                  "pageable": {
-                    "$ref": "#/components/schemas/Pageable"
-                  },
-                  "requestBody": {
-                    "$ref": "#/components/schemas/DatasetDataAttributesRequestBody"
-                  }
-                },
-                "type": "object"
+                "$ref": "#/components/schemas/DatasetDataAttributesRequestBody"
               }
             }
           },
@@ -4497,7 +3952,7 @@
                 }
               }
             },
-            "description": "default response"
+            "description": "OK"
           }
         },
         "tags": [
@@ -4527,7 +3982,7 @@
                 }
               }
             },
-            "description": "default response"
+            "description": "OK"
           }
         },
         "tags": [
@@ -4538,16 +3993,6 @@
     "/datasets/isValidSubsetting": {
       "post": {
         "operationId": "validateSubSettingClause",
-        "parameters": [
-          {
-            "in": "query",
-            "name": "dataModelName",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
         "requestBody": {
           "content": {
             "application/json": {
@@ -4567,7 +4012,7 @@
                 }
               }
             },
-            "description": "default response"
+            "description": "OK"
           }
         },
         "tags": [
@@ -4584,7 +4029,7 @@
             "name": "datasetUrn",
             "required": true,
             "schema": {
-              "$ref": "#/components/schemas/UniformResourceName"
+              "type": "string"
             }
           }
         ],
@@ -4600,7 +4045,7 @@
                 }
               }
             },
-            "description": "default response"
+            "description": "OK"
           }
         },
         "tags": [
@@ -4624,7 +4069,7 @@
         ],
         "responses": {
           "200": {
-            "description": "default response"
+            "description": "OK"
           }
         },
         "tags": [
@@ -4653,7 +4098,7 @@
                 }
               }
             },
-            "description": "default response"
+            "description": "OK"
           }
         },
         "tags": [
@@ -4692,7 +4137,7 @@
                 }
               }
             },
-            "description": "default response"
+            "description": "OK"
           }
         },
         "tags": [
@@ -4702,7 +4147,7 @@
     },
     "/datasets/{dataset_id}/associate": {
       "put": {
-        "operationId": "associate_1",
+        "operationId": "associate",
         "parameters": [
           {
             "in": "path",
@@ -4730,7 +4175,7 @@
         },
         "responses": {
           "200": {
-            "description": "default response"
+            "description": "OK"
           }
         },
         "tags": [
@@ -4740,7 +4185,7 @@
     },
     "/datasets/{dataset_id}/dissociate": {
       "put": {
-        "operationId": "dissociate_1",
+        "operationId": "dissociate",
         "parameters": [
           {
             "in": "path",
@@ -4768,7 +4213,7 @@
         },
         "responses": {
           "200": {
-            "description": "default response"
+            "description": "OK"
           }
         },
         "tags": [
@@ -4791,7 +4236,7 @@
                 }
               }
             },
-            "description": "default response"
+            "description": "OK"
           }
         },
         "tags": [
@@ -4819,7 +4264,7 @@
                 }
               }
             },
-            "description": "default response"
+            "description": "OK"
           }
         },
         "tags": [
@@ -4842,7 +4287,7 @@
         ],
         "responses": {
           "200": {
-            "description": "default response"
+            "description": "OK"
           }
         },
         "tags": [
@@ -4870,7 +4315,7 @@
                 }
               }
             },
-            "description": "default response"
+            "description": "OK"
           }
         },
         "tags": [
@@ -4908,7 +4353,7 @@
                 }
               }
             },
-            "description": "default response"
+            "description": "OK"
           }
         },
         "tags": [
@@ -4925,7 +4370,7 @@
             "name": "urn",
             "required": true,
             "schema": {
-              "$ref": "#/components/schemas/UniformResourceName"
+              "type": "string"
             }
           },
           {
@@ -4946,7 +4391,7 @@
                 }
               }
             },
-            "description": "default response"
+            "description": "OK"
           }
         },
         "tags": [
@@ -4961,7 +4406,7 @@
             "name": "urn",
             "required": true,
             "schema": {
-              "$ref": "#/components/schemas/UniformResourceName"
+              "type": "string"
             }
           },
           {
@@ -4991,7 +4436,7 @@
         ],
         "responses": {
           "200": {
-            "description": "default response"
+            "description": "OK"
           }
         },
         "tags": [
@@ -5008,7 +4453,7 @@
             "name": "urn",
             "required": true,
             "schema": {
-              "$ref": "#/components/schemas/UniformResourceName"
+              "type": "string"
             }
           },
           {
@@ -5038,7 +4483,8 @@
                 "properties": {
                   "file": {
                     "items": {
-                      "$ref": "#/components/schemas/MultipartFile"
+                      "format": "binary",
+                      "type": "string"
                     },
                     "type": "array"
                   },
@@ -5063,7 +4509,7 @@
                 }
               }
             },
-            "description": "default response"
+            "description": "OK"
           }
         },
         "tags": [
@@ -5076,7 +4522,7 @@
         "operationId": "recreateIndex",
         "responses": {
           "200": {
-            "description": "default response"
+            "description": "OK"
           }
         },
         "tags": [
@@ -5089,7 +4535,7 @@
         "operationId": "updateCollections",
         "responses": {
           "200": {
-            "description": "default response"
+            "description": "OK"
           }
         },
         "tags": [
@@ -5102,7 +4548,7 @@
         "operationId": "updateDatasets",
         "responses": {
           "200": {
-            "description": "default response"
+            "description": "OK"
           }
         },
         "tags": [
@@ -5122,7 +4568,7 @@
                 }
               }
             },
-            "description": "default response"
+            "description": "OK"
           }
         },
         "tags": [
@@ -5145,7 +4591,14 @@
         ],
         "responses": {
           "200": {
-            "description": "default response"
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/EntityModelVoid"
+                }
+              }
+            },
+            "description": "OK"
           }
         },
         "tags": [
@@ -5168,7 +4621,14 @@
         ],
         "responses": {
           "200": {
-            "description": "default response"
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/EntityModelVoid"
+                }
+              }
+            },
+            "description": "OK"
           }
         },
         "tags": [
@@ -5181,7 +4641,7 @@
         "operationId": "exportConfiguration",
         "responses": {
           "200": {
-            "description": "default response"
+            "description": "OK"
           }
         },
         "tags": [
@@ -5200,6 +4660,9 @@
                     "type": "string"
                   }
                 },
+                "required": [
+                  "file"
+                ],
                 "type": "object"
               }
             }
@@ -5218,7 +4681,7 @@
                 }
               }
             },
-            "description": "default response"
+            "description": "OK"
           }
         },
         "tags": [
@@ -5231,7 +4694,7 @@
         "operationId": "isConfigurationEnabled",
         "responses": {
           "200": {
-            "description": "default response"
+            "description": "OK"
           }
         },
         "tags": [
@@ -5251,7 +4714,7 @@
                 }
               }
             },
-            "description": "default response"
+            "description": "OK"
           }
         },
         "tags": [
@@ -5264,7 +4727,7 @@
         "operationId": "isReadyEnabled",
         "responses": {
           "200": {
-            "description": "default response"
+            "description": "OK"
           }
         },
         "tags": [
@@ -5288,7 +4751,7 @@
                 }
               }
             },
-            "description": "default response"
+            "description": "OK"
           }
         },
         "tags": [
@@ -5301,7 +4764,7 @@
         "operationId": "isRestartEnabled",
         "responses": {
           "200": {
-            "description": "default response"
+            "description": "OK"
           }
         },
         "tags": [
@@ -5339,7 +4802,7 @@
                 }
               }
             },
-            "description": "default response"
+            "description": "OK"
           }
         },
         "tags": [
@@ -5367,7 +4830,7 @@
                 }
               }
             },
-            "description": "default response"
+            "description": "OK"
           }
         },
         "tags": [
@@ -5405,7 +4868,7 @@
                 }
               }
             },
-            "description": "default response"
+            "description": "OK"
           }
         },
         "tags": [
@@ -5428,7 +4891,7 @@
                 }
               }
             },
-            "description": "default response"
+            "description": "OK"
           }
         },
         "tags": [
@@ -5509,7 +4972,7 @@
                 }
               }
             },
-            "description": "default response"
+            "description": "OK"
           }
         },
         "tags": [
@@ -5537,7 +5000,7 @@
                 }
               }
             },
-            "description": "default response"
+            "description": "OK"
           }
         },
         "tags": [
@@ -5575,7 +5038,7 @@
                 }
               }
             },
-            "description": "default response"
+            "description": "OK"
           }
         },
         "tags": [
@@ -5628,7 +5091,7 @@
                 }
               }
             },
-            "description": "default response"
+            "description": "OK"
           }
         },
         "tags": [
@@ -5651,7 +5114,7 @@
                 }
               }
             },
-            "description": "default response"
+            "description": "OK"
           }
         },
         "tags": [
@@ -5675,7 +5138,7 @@
         ],
         "responses": {
           "200": {
-            "description": "default response"
+            "description": "OK"
           }
         },
         "tags": [
@@ -5704,7 +5167,7 @@
                 }
               }
             },
-            "description": "default response"
+            "description": "OK"
           }
         },
         "tags": [
@@ -5743,7 +5206,7 @@
                 }
               }
             },
-            "description": "default response"
+            "description": "OK"
           }
         },
         "tags": [
@@ -5766,7 +5229,7 @@
                 }
               }
             },
-            "description": "default response"
+            "description": "OK"
           }
         },
         "tags": [
@@ -5794,7 +5257,7 @@
                 }
               }
             },
-            "description": "default response"
+            "description": "OK"
           }
         },
         "tags": [
@@ -5815,6 +5278,9 @@
                     "type": "string"
                   }
                 },
+                "required": [
+                  "file"
+                ],
                 "type": "object"
               }
             }
@@ -5829,7 +5295,7 @@
                 }
               }
             },
-            "description": "default response"
+            "description": "OK"
           }
         },
         "tags": [
@@ -5853,7 +5319,7 @@
         ],
         "responses": {
           "200": {
-            "description": "default response"
+            "description": "OK"
           }
         },
         "tags": [
@@ -5882,7 +5348,7 @@
                 }
               }
             },
-            "description": "default response"
+            "description": "OK"
           }
         },
         "tags": [
@@ -5921,7 +5387,7 @@
                 }
               }
             },
-            "description": "default response"
+            "description": "OK"
           }
         },
         "tags": [
@@ -5945,7 +5411,7 @@
         ],
         "responses": {
           "200": {
-            "description": "default response"
+            "description": "OK"
           }
         },
         "tags": [
@@ -5961,11 +5427,14 @@
             "application/json": {
               "schema": {
                 "properties": {
-                  "pFile": {
+                  "file": {
                     "format": "binary",
                     "type": "string"
                   }
                 },
+                "required": [
+                  "file"
+                ],
                 "type": "object"
               }
             }
@@ -5980,7 +5449,7 @@
                 }
               }
             },
-            "description": "default response"
+            "description": "OK"
           }
         },
         "tags": [
@@ -6003,7 +5472,7 @@
         ],
         "responses": {
           "200": {
-            "description": "default response"
+            "description": "OK"
           }
         },
         "tags": [
@@ -6031,7 +5500,7 @@
                 }
               }
             },
-            "description": "default response"
+            "description": "OK"
           }
         },
         "tags": [
@@ -6069,7 +5538,7 @@
                 }
               }
             },
-            "description": "default response"
+            "description": "OK"
           }
         },
         "tags": [
@@ -6102,7 +5571,7 @@
                 }
               }
             },
-            "description": "default response"
+            "description": "OK"
           }
         },
         "tags": [
@@ -6140,7 +5609,7 @@
                 }
               }
             },
-            "description": "default response"
+            "description": "OK"
           }
         },
         "tags": [
@@ -6183,7 +5652,7 @@
                 }
               }
             },
-            "description": "default response"
+            "description": "OK"
           }
         },
         "tags": [
@@ -6215,7 +5684,7 @@
         ],
         "responses": {
           "200": {
-            "description": "default response"
+            "description": "OK"
           }
         },
         "tags": [
@@ -6247,7 +5716,7 @@
         ],
         "responses": {
           "200": {
-            "description": "default response"
+            "description": "OK"
           }
         },
         "tags": [
@@ -6284,7 +5753,7 @@
                 }
               }
             },
-            "description": "default response"
+            "description": "OK"
           }
         },
         "tags": [
@@ -6331,7 +5800,7 @@
                 }
               }
             },
-            "description": "default response"
+            "description": "OK"
           }
         },
         "tags": [
@@ -6371,7 +5840,7 @@
                 }
               }
             },
-            "description": "default response"
+            "description": "OK"
           }
         },
         "tags": [
@@ -6394,7 +5863,7 @@
         ],
         "responses": {
           "200": {
-            "description": "default response"
+            "description": "OK"
           }
         },
         "tags": [
@@ -6424,7 +5893,7 @@
                 }
               }
             },
-            "description": "default response"
+            "description": "OK"
           }
         },
         "tags": [
@@ -6457,7 +5926,7 @@
                 }
               }
             },
-            "description": "default response"
+            "description": "OK"
           }
         },
         "tags": [
@@ -6470,7 +5939,7 @@
         "operationId": "emptyCache",
         "responses": {
           "200": {
-            "description": "default response"
+            "description": "OK"
           }
         },
         "tags": [
@@ -6503,7 +5972,7 @@
                 }
               }
             },
-            "description": "default response"
+            "description": "OK"
           }
         },
         "tags": [
@@ -6533,7 +6002,7 @@
                 }
               }
             },
-            "description": "default response"
+            "description": "OK"
           }
         },
         "tags": [
@@ -6563,7 +6032,7 @@
                 }
               }
             },
-            "description": "default response"
+            "description": "OK"
           }
         },
         "tags": [
@@ -6596,7 +6065,7 @@
                 }
               }
             },
-            "description": "default response"
+            "description": "OK"
           }
         },
         "tags": [
@@ -6624,7 +6093,7 @@
                 }
               }
             },
-            "description": "default response"
+            "description": "OK"
           }
         },
         "tags": [
@@ -6655,7 +6124,7 @@
         ],
         "responses": {
           "200": {
-            "description": "default response"
+            "description": "OK"
           }
         },
         "tags": [
@@ -6691,7 +6160,7 @@
                 }
               }
             },
-            "description": "default response"
+            "description": "OK"
           }
         },
         "tags": [
@@ -6737,7 +6206,7 @@
                 }
               }
             },
-            "description": "default response"
+            "description": "OK"
           }
         },
         "tags": [
@@ -6770,7 +6239,7 @@
                 }
               }
             },
-            "description": "default response"
+            "description": "OK"
           }
         },
         "tags": [
@@ -6800,7 +6269,7 @@
                 }
               }
             },
-            "description": "default response"
+            "description": "OK"
           }
         },
         "tags": [
@@ -6830,7 +6299,7 @@
                 }
               }
             },
-            "description": "default response"
+            "description": "OK"
           }
         },
         "tags": [
@@ -6853,7 +6322,7 @@
                 }
               }
             },
-            "description": "default response"
+            "description": "OK"
           }
         },
         "tags": [
@@ -6884,13 +6353,13 @@
               "*/*": {
                 "schema": {
                   "items": {
-                    "$ref": "#/components/schemas/EntityModelDynamicTenantSettingDto"
+                    "$ref": "#/components/schemas/EntityModelDynamicTenantSettingDtoObject"
                   },
                   "type": "array"
                 }
               }
             },
-            "description": "default response"
+            "description": "OK"
           }
         },
         "tags": [
@@ -6916,11 +6385,11 @@
             "content": {
               "*/*": {
                 "schema": {
-                  "$ref": "#/components/schemas/EntityModelDynamicTenantSettingDto"
+                  "$ref": "#/components/schemas/EntityModelDynamicTenantSettingDtoObject"
                 }
               }
             },
-            "description": "default response"
+            "description": "OK"
           }
         },
         "tags": [
@@ -6954,11 +6423,11 @@
             "content": {
               "*/*": {
                 "schema": {
-                  "$ref": "#/components/schemas/EntityModelDynamicTenantSettingDto"
+                  "$ref": "#/components/schemas/EntityModelDynamicTenantSettingDtoObject"
                 }
               }
             },
-            "description": "default response"
+            "description": "OK"
           }
         },
         "tags": [
@@ -6971,7 +6440,7 @@
         "operationId": "immediateShutdown",
         "responses": {
           "200": {
-            "description": "default response"
+            "description": "OK"
           }
         },
         "tags": [
