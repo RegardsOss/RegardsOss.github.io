@@ -16,6 +16,7 @@ module.exports = {
       items: [
         "setup/ansible-tasks",
         "setup/swarm-setup",
+        "setup/swarm-setup-optimization",
       ],
     },
   ],
