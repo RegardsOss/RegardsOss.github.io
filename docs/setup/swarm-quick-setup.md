@@ -307,6 +307,6 @@ Several web interfaces are accessible on your server now :
 
 
 :::info Don't go away !
-You've just deployed on your(s) server(s) the core of REGARDS, but many REGARDS microservices are still missing...  
-In the next chapter, you'll discover which microservices are required for your own environment and how to deploy them using Ansible. 
+You've just deployed the heart of REGARDS, but many REGARDS microservices are still missing...  
+**Click on the link Introduction just below**, you'll discover how to customize your inventory to improve your deployment. 
 :::

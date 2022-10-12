@@ -5,9 +5,25 @@ module.exports = {
       label: "Installation - Docker Swarm",
       items: [
         "setup/swarm-quick-setup",
-        "setup/swarm-full-setup",
+        {
+          type: "category",
+          label: "Advanced setup",
+          items: [
+            "setup/advanced/advanced-introduction",
+            "setup/advanced/microservice-setup",
+            "setup/advanced/postgres-database",
+            "setup/advanced/optimizations",
+          ],
+        },
         "setup/swarm-cli",
         "setup/swarm-common-issues",
+        {
+          type: "category",
+          label: "Migrations",
+          items: [
+            "setup/migration/1.8-to-1.11",
+          ],
+        },
       ],
     },
     {
@@ -16,7 +32,6 @@ module.exports = {
       items: [
         "setup/ansible-tasks",
         "setup/swarm-setup",
-        "setup/swarm-setup-optimization",
       ],
     },
   ],

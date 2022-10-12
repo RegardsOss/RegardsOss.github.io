@@ -1,12 +1,16 @@
 ---
-id: swarm-full-setup
-title: Full setup
-slug: /setup/swarm/full-setup
+id: microservice-setup
+title: Deploy required microservices
+slug: /setup/swarm/microservice-setup
 ---
 
 ## Update inventory with microservices you need
 
+
+:::info 
 The next section will list all REGARDS microservices, what do they offer and how to enable them.
+:::
+
 
 ### Disable/enable a REGARDS microservice
 
@@ -58,10 +62,10 @@ There is 3 types of crawler that lets REGARDS populate its meta-catalog :
  - the *internal* [GeoJSON catalog](../../user-guide/import-data/fem/introduction/)
  - or an *external* [datasource](../../user-guide/crawler/configure-connection/) (an OpenSearch Web source, an external Database...)
 
-All types of crawlers can be active on the same time, but you may not need them on your instance on the same time.
+All types of crawlers can be active at the same time, but you may not need them on your instance at the same time.
 
 :::info Activate microservice carrefully
-If you active only microservices you need, the admin HMI will not show you the configuration and pages related to everything you have desactivated !  
+If you active only microservices you need, the admin HMI won't show you the configuration and pages related to everything you have desactivated !  
 Activate them only if you need them. 
 :::
 
@@ -105,7 +109,7 @@ Activate the Feature Manager microservice :
 ```
 
 :::info
-If you want to crawl an external datasource, do not activate any of theses internal catalog.
+If you want to crawl an external datasource, do not activate any of theses internal catalogs.
 :::
 
 ### Create Ingest product using DataProvider
@@ -142,7 +146,7 @@ But it also manage *external* files, which are already available threw an existi
 |    Expose file <br/>threw STORAGE REST API   | No<br/>Storage does not proxy over <br/>the existing REST HTTP(S) server |                                                                                 Y                                                                                 |
 |        Allow nearline storage system        |                                   N                                   |                                                                                 Y                                                                                 |
 
-Once a file is managed by the Storage microservice, its product can be ordered by users.
+Once a file is managed by the Storage microservice, its products can be ordered by users.
 
 :::info
 Any product coming from an internal catalog will use the Storage microservice to referenciate or store its files
@@ -164,7 +168,7 @@ This microservice requires : `FEM` or `Ingest`
 
 The microservice Notifier receives all FEM and Ingest products everytime they change.  
 It allows you to emit a notification to any system with a very granular syntax to decide whenever a product must be sent to some destination.  
-The plugin system allows you to adpat the content of the notification to match your needs.
+The Notifier plugin system allows you to adpat the content of the notification sent to match your needs.
 
 Activate the Notifier microservice : 
 ```yml
