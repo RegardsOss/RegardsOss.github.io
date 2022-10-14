@@ -8,7 +8,7 @@ Supported Postgres version: 11
 Posgis extension: Facultative 
 
 Edit your inventory file `inventories/<your inventory>/group_vars/regards_nodes/main.yml` 
-- add connection informations
+- add connection information
 ```yaml
 group_config_mservices:
   [...]
@@ -37,7 +37,7 @@ group_docker_cots:
 # After
 group_docker_cots:
 ```
-- if you do not have Postgis on your `database-inst.cnes.fr` database, edit the `access_instance` service to explicit there is no Postgis available:
+- if you do not have Postgis on your `database-inst.cnes.fr` database, edit the `access_instance` service to indicate there is no Postgis available:
 ```yaml
 # Before
 group_docker_mservices:

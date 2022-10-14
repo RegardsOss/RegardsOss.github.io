@@ -307,6 +307,6 @@ Several web interfaces are accessible on your server now :
 
 
 :::info Don't go away !
-You've just deployed the heart of REGARDS, but many REGARDS microservices are still missing...  
-**Click on the link Introduction just below**, you'll discover how to customize your inventory to improve your deployment. 
+You have just deployed the core of REGARDS, but many REGARDS microservices are still missing...  
+**Click on the link Introduction just below**, you will discover how to customize your inventory to improve your deployment. 
 :::

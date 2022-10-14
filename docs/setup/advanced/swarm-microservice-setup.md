@@ -8,7 +8,7 @@ slug: /setup/swarm/microservice-setup
 
 
 :::info 
-The next section will list all REGARDS microservices, what do they offer and how to enable them.
+The next section will describe all REGARDS microservices and how to enable them.
 :::
 
 
@@ -65,7 +65,7 @@ There is 3 types of crawler that lets REGARDS populate its meta-catalog :
 All types of crawlers can be active at the same time, but you may not need them on your instance at the same time.
 
 :::info Activate microservice carrefully
-If you active only microservices you need, the admin HMI won't show you the configuration and pages related to everything you have desactivated !  
+If you activate only the microservices you need, the admin HMI will not show you the configuration and pages related to everything you have desactivated !  
 Activate them only if you need them. 
 :::
 
@@ -109,16 +109,16 @@ Activate the Feature Manager microservice :
 ```
 
 :::info
-If you want to crawl an external datasource, do not activate any of theses internal catalogs.
+If you want to crawl an external datasource, do not activate any of these internal catalogs.
 :::
 
 ### Create Ingest product using DataProvider
 
-The microservice DataProvider allows you to create yours products using [Data acquisition chains](../../user-guide/import-data/scanned-files/manage-acquisition-chains/) that scans files on disk and creates SIP according to these files.  
-Here is some core features of DataProvider :
+The microservice DataProvider allows you to create your products using [Data acquisition chains](../../user-guide/import-data/scanned-files/manage-acquisition-chains/). It scans files on disk and creates SIP according to these files.  
+Here are some core features of DataProvider :
 - Regroup several files inside a product (SIP)
 - Scan the folder periodically in order to create new product when they are available
-- When necessary, product generation can be fully customize using dedicated plugin to extract metadata from filename or file content 
+- When necessary, product generation can be fully customized using dedicated plugin to extract metadata from the filename or the file content 
 
 Activate the DataProvider microservice : 
 ```yml
@@ -138,18 +138,18 @@ The Storage microservice can store on [different types of storage system](../../
 - Online storages : local disk, NFS...
 - Nearline storages : Tape Backup, S3 Glacier...
 
-But it also manage *external* files, which are already available threw an existing REST HTTP(S) server.
+But it also manages *external* files that are already available through an existing REST HTTP(S) server.
 
-|                                             |     File already available <br/>threw existing REST HTTP(S) server     |                                                     File NOT available <br/>threw existing REST HTTP(S) server                                                     |
+|                                             |     File already available <br/>through existing REST HTTP(S) server     |                                                     File NOT available <br/>through existing REST HTTP(S) server                                                     |
 |:-------------------------------------------:|:---------------------------------------------------------------------:|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------:|
-| On file indexed inside <br/>internal catalog |         Reference the provided <br/>remote server <br/>file link        | Two possibilities :<br/>- copy the file to one/many storage sytem<br/>- reference provided file link, as it is <br/>already associated to an existing storage system |
-|    Expose file <br/>threw STORAGE REST API   | No<br/>Storage does not proxy over <br/>the existing REST HTTP(S) server |                                                                                 Y                                                                                 |
-|        Allow nearline storage system        |                                   N                                   |                                                                                 Y                                                                                 |
+| On file indexed inside <br/>internal catalog |         Reference the provided <br/>remote server <br/>file link        | Two possibilities :<br/>- copy the file to one/many storage sytems<br/>- reference provided file link, as it is <br/>already associated to an existing storage system |
+|    Expose file <br/>through STORAGE REST API   | No<br/>Storage does not proxy over <br/>the existing REST HTTP(S) server |                                                                                 Y                                                                                 |
+|        Enable nearline storage system        |                                   N                                   |                                                                                 Y                                                                                 |
 
 Once a file is managed by the Storage microservice, its products can be ordered by users.
 
 :::info
-Any product coming from an internal catalog will use the Storage microservice to referenciate or store its files
+Any product coming from an internal catalog will use the Storage microservice to reference or store its files
 :::
 
 Activate the Storage microservice : 
@@ -168,7 +168,7 @@ This microservice requires : `FEM` or `Ingest`
 
 The microservice Notifier receives all FEM and Ingest products everytime they change.  
 It allows you to emit a notification to any system with a very granular syntax to decide whenever a product must be sent to some destination.  
-The Notifier plugin system allows you to adpat the content of the notification sent to match your needs.
+The Notifier plugin system allows you to adapt the content of the notification sent to match your needs.
 
 Activate the Notifier microservice : 
 ```yml
@@ -184,11 +184,12 @@ This microservice requires : `FEM` or `Ingest`
 
 ### Workers manager
 
-The microservice WorkerManager is a early but powerfull system designed to handle a type of task that you need on your workflow.  
+The microservice WorkerManager is still under development. 
+It is a powerful system designed to handle any type of task on your workflow.  
 For example, you can raise a product notification using Notifier microservice to ask a worker to enhance the product.  
 The worker can read the file and send an update request into the internal catalog. 
 
-As there is no Worker available, you don't need to enable this service yet.
+As there is no Worker available, you do not need to enable this service yet.
 
 ### Orders management
 
@@ -230,7 +231,7 @@ This microservice requires : `Order`
 
 ## Run changes
 
-Once you've edited your inventory, you must execute the following command to update the stack:
+Once you have edited your inventory, you must execute the following command to update the stack:
 
 ```bash
 # cd regards-docker-master/

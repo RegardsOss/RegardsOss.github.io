@@ -8,15 +8,15 @@ slug: /setup/swarm/optimizations/
 
 REGARDS provides several type of configurations in order to optimize its performances:
 - the number of parallel processes that can be run by microservice - this global thread pool will be **shared by all tenants** on every instance of microservice (`regards.jobs.pool.size`)
-- the number of parallel database connections you allow **by tenant** and by microservice - a connection pool is created for every tenant on every instance of microservice (`regards.jpa.multitenant.maxPoolSize`)
+- the number of parallel database connections permitted **by tenant** and by microservice - a connection pool is created for every tenant on every instance of microservice (`regards.jpa.multitenant.maxPoolSize`)
 - the number of entities handled inside a microservice process. Every REGARDS process exposes a property to override the number of entities handled *on a bulk*
 
 :::caution Important
-Usually, it's more efficient to configure each service to allow:
+Usually, it is more efficient to configure each service to allow:
 - a large number of parallel processes
 - a small number of entities to process on every parallel process
 
-But it depends on how many resources you can allocated to REGARDS services. 
+But it depends on how many resources you can allocate to REGARDS services. 
 :::
 
 :::info Implications
