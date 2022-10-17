@@ -144,7 +144,7 @@ But it also manages *external* files that are already available through an exist
 |:-------------------------------------------:|:---------------------------------------------------------------------:|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------:|
 | On file indexed inside <br/>internal catalog |         Reference the provided <br/>remote server <br/>file link        | Two possibilities :<br/>- copy the file to one/many storage sytems<br/>- reference provided file link, as it is <br/>already associated to an existing storage system |
 |    Expose file <br/>through STORAGE REST API   | No<br/>Storage does not proxy over <br/>the existing REST HTTP(S) server |                                                                                 Y                                                                                 |
-|        Enable nearline storage system        |                                   N                                   |                                                                                 Y                                                                                 |
+|        Support nearline storage system        |                                   N                                   |                                                                                 Y                                                                                 |
 
 Once a file is managed by the Storage microservice, its products can be ordered by users.
 
@@ -184,12 +184,11 @@ This microservice requires : `FEM` or `Ingest`
 
 ### Workers manager
 
-The microservice WorkerManager is still under development. 
-It is a powerful system designed to handle any type of task on your workflow.  
+Workers manager is a powerful system designed to handle any type of task on your workflow.  
 For example, you can raise a product notification using Notifier microservice to ask a worker to enhance the product.  
 The worker can read the file and send an update request into the internal catalog. 
 
-As there is no Worker available, you do not need to enable this service yet.
+As there is no Worker publicly available, you do not need to enable this service yet.
 
 ### Orders management
 
