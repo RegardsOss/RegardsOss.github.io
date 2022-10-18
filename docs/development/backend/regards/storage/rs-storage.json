@@ -1011,7 +1011,7 @@
       "name": "GPL-3.0"
     },
     "title": "MICROSERVICE STORAGE",
-    "version": "1.10.0"
+    "version": "1.11.0"
   },
   "openapi": "3.0.1",
   "paths": {
@@ -2090,14 +2090,6 @@
                 "ERROR"
               ],
               "type": "string"
-            }
-          },
-          {
-            "in": "query",
-            "name": "page",
-            "required": true,
-            "schema": {
-              "$ref": "#/components/schemas/Pageable"
             }
           }
         ],

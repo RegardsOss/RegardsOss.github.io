@@ -669,6 +669,9 @@
       },
       "IngestProcessingChain": {
         "properties": {
+          "aipStorageMetadataPlugin": {
+            "$ref": "#/components/schemas/PluginConfiguration"
+          },
           "chainPlugins": {
             "items": {
               "$ref": "#/components/schemas/PluginConfiguration"
@@ -2188,8 +2191,7 @@
           }
         },
         "required": [
-          "pluginBusinessId",
-          "targetTypes"
+          "pluginBusinessId"
         ],
         "type": "object"
       },
@@ -2285,7 +2287,7 @@
       "name": "GPL-3.0"
     },
     "title": "MICROSERVICE INGEST",
-    "version": "1.10.0"
+    "version": "1.11.0"
   },
   "openapi": "3.0.1",
   "paths": {
