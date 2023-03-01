@@ -19,11 +19,12 @@ function importMServiceControllers
   folder_name=$2
   dest=./docs/development/backend/regards/$folder_name/$microservice.json
   echo "Fetching ${server}/api/v1/$microservice/v3/api-docs"
-  curl ${server}/api/v1/$microservice/v3/api-docs --output $dest
+  curl -k ${server}/api/v1/$microservice/v3/api-docs --output $dest
   
   sed -i s/\'\@project.version\@\'/$version/g $dest
   sed -i s@$server@https://regardsoss.github.io/@g $dest
   sed -i s@https://regardsoss.github.io/\:80/@https://regardsoss.github.io/@g $dest
+  sed -i s@https://regardsoss.github.io/\:443/@https://regardsoss.github.io/@g $dest
   sed -i s@https://regardsoss.github.io//@https://regardsoss.github.io/@g $dest
   sed -i -E "s@\"scopes\"\:\{\".*\"}@\"scopes\"\:\{}@g" $dest
   jq -S . ./docs/development/backend/regards/$folder_name/$microservice.json > ./docs/development/backend/regards/$folder_name/$microservice.json.formated

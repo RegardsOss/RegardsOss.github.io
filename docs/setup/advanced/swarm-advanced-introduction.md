@@ -12,9 +12,10 @@ We assume you have successfully deployed REGARDS using the [Quick setup](/docs/s
 
 ### Guides
 
-- [Deploy required microservices](/docs/setup/swarm/microservice-setup) introduces you the REGARDS microservices and the way to enable them depending on your needs.
-- [Postgres Database](/docs/setup/swarm/postgres-database/) shows you how to connect microservices to external databases. **Highly recommended**
-- [Microservices optimizations](/docs/setup/swarm/optimizations/) provides you all the possible inventory configurations to optimize microservices.
+- [Deploy required microservices](/docs/setup/swarm/advanced/microservice-setup) introduces you the REGARDS microservices and the way to enable them depending on your needs.
+- [Postgres Database](/docs/setup/swarm/advanced/postgres-database/) shows you how to connect microservices to external databases. **Highly recommended**
+- [Microservices optimizations](/docs/setup/swarm/advanced/optimizations/) provides you all the possible inventory configurations to optimize microservices.
+- [Ansible Vault](/docs/setup/swarm/advanced/ansible-vault/) allows you to crypt passwords inside your inventory and commit them on Git safely. **Highly recommended**
 
 
 ### Run changes after inventory modification

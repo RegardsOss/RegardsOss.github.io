@@ -13,6 +13,7 @@ module.exports = {
             "setup/advanced/microservice-setup",
             "setup/advanced/postgres-database",
             "setup/advanced/optimizations",
+            "setup/advanced/ansible-vault",
           ],
         },
         "setup/swarm-cli",
@@ -143,6 +144,7 @@ module.exports = {
         },
         "user-documentation/crawler/crawler-monitor-crawling",
         "user-documentation/crawler/crawler-reset-catalog",
+        "user-documentation/crawler/crawler-elasticsearch-shard",
       ],
     },
     {

@@ -1,7 +1,7 @@
 ---
 id: microservice-setup
 title: Deploy required microservices
-slug: /setup/swarm/microservice-setup
+slug: /setup/swarm/advanced/microservice-setup
 ---
 
 ## Update inventory with microservices you need

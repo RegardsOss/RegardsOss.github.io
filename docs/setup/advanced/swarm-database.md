@@ -1,7 +1,7 @@
 ---
 id: postgres-database
 title: Posgres database
-slug: /setup/swarm/postgres-database/
+slug: /setup/swarm/advanced/postgres-database/
 ---
 
 Supported Postgres version: 11  

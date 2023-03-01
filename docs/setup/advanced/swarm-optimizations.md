@@ -1,7 +1,7 @@
 ---
 id: optimizations
 title: Microservices optimizations
-slug: /setup/swarm/optimizations/
+slug: /setup/swarm/advanced/optimizations/
 ---
 
 ### Introduction
