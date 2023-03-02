@@ -57,4 +57,4 @@ ansible --ask-vault-pass -m ansible.builtin.debug all -a var="group_config_mserv
 ansible-vault create --ask-vault-pass <file.to.encryt>
 ```
 
-The file `<file.to.encryt>` does not exist before running this command.
+The file `<file.to.encryt>` must not exist before running this command.

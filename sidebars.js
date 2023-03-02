@@ -14,6 +14,7 @@ module.exports = {
             "setup/advanced/postgres-database",
             "setup/advanced/optimizations",
             "setup/advanced/ansible-vault",
+            "setup/advanced/swarm-mount",
           ],
         },
         "setup/swarm-cli",
