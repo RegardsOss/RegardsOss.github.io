@@ -4,7 +4,7 @@ title: Ansible Vault
 slug: /setup/swarm/advanced/ansible-vault
 ---
 
-Your inventory may content some passwords that you don't want to share under source control.  
+Your inventory may contain some passwords that you do not want to share under source control.  
 [Ansible Vault](https://docs.ansible.com/ansible/latest/user_guide/vault.html) allows you to crypt variable values and files content inside your inventory.  
 After that, you will need to add ` --ask-vault-pass` when running `ansible-playbook` to let Ansible decrypt crypted values on the fly.
 
@@ -57,4 +57,4 @@ ansible --ask-vault-pass -m ansible.builtin.debug all -a var="group_config_mserv
 ansible-vault create --ask-vault-pass <file.to.encryt>
 ```
 
-The file `<file.to.encryt>` shall not exist before running this command.
+The file `<file.to.encryt>` does not exist before running this command.

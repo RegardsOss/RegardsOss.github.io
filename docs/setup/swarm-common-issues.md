@@ -10,6 +10,6 @@ Here is some issues you may encounter while deploying REGARDS using our playbook
 
 You don't have enough ressources to deploy REGARDS on your VM. Your Docker daemon just died.
 
-**[ISSUE] My containers fail to reach another one if both containers are not located on the same server**
+**[ISSUE] My container fails to reach another container if both are not located on the same server**
 
-You should look for your Docker Swarm network configuration. You can view where packets are drop using a tool like [wbitt/network-multitool](https://hub.docker.com/r/wbitt/network-multitool).
+You should look for your Docker Swarm network configuration. You can view where packets are dropped using a tool like [wbitt/network-multitool](https://hub.docker.com/r/wbitt/network-multitool).

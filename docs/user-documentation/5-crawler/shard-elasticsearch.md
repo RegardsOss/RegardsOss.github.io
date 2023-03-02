@@ -7,14 +7,14 @@ slug: /user-guide/crawler/crawler-elasticsearch-shard
 Elasticsearch a besoin de connaître le nombre de shard pour chaque tenant avant de créer et peupler l'index pour des questions de performance. 
 
 :::warning Modifier cette valeur
-Une fois l'index crée, il n'est pas possible de modifier cette valeur et il sera nécessaire de Reinitialiser le catalogue, modifier les valeurs que nous verrons dans ce guide et reindexer toutes les données du projet.
+Une fois l'index créé, il n'est pas possible de modifier cette valeur et il sera nécessaire de réinitialiser le catalogue, modifier les valeurs et réindexer toutes les données du projet.
 :::
 
 ## Récupérer le poids moyen de chaque produit
 
-### Supprimer de vieilles données
+### Supprimer des données anciennes
 
-Il est possible de supprimer de vieilles données d'un index pour minimiser le nombre de produit supprimées (`docs.deleted`).  
+Il est possible de supprimer des données anciennes d'un index pour minimiser le nombre de produits supprimés (`docs.deleted`).  
 La requête suivante réalise par exemple ce nettoyage pour un tenant nommée `projet1`.
 
 ```bash
@@ -27,7 +27,7 @@ Ces commandes peuvent être exécutées depuis l'intérieur du container, en uti
 
 ### Récupérer le poids d'un index
 
-Nous vous conseillons de récupérer dans un premier temps le nombre de données et la poids sur disque par index dans un environnement de qualification :
+Nous vous conseillons de récupérer dans un premier temps le nombre de données et le poids sur disque par index dans un environnement de qualification :
 
 ```bash
 [admregards@tu-regards-q01 ~]$ curl "localhost:9200/_cat/indices/?pretty&human&v=true&bytes=b"
@@ -101,7 +101,7 @@ Donc 4 et 5 sont deux valeurs possible pour ce projet
 
 Pour finir, il est nécessaire d'enregistrer la valeur dans la configuration du microservice DAM.
 
-Le nombre de shard (et de réplica) peut être spécifié en créer un fichier `configuration-shard-projet1.rs-dam.json` avec le contenu suivant : 
+Le nombre de shard (et de réplicas) peut être spécifié en créer un fichier `configuration-shard-projet1.rs-dam.json` avec le contenu suivant : 
 
 ```json
 {
