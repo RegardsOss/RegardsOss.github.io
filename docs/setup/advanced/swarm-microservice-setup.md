@@ -58,9 +58,9 @@ It means to the playbook that the microservice storage will be activate on the n
 ### Internal catalogs
 
 There is 3 types of crawler that lets REGARDS populate its meta-catalog :
- - the *internal* [OAIS catalog](../../user-guide/import-data/oais-files/introduction/)
- - the *internal* [GeoJSON catalog](../../user-guide/import-data/fem/introduction/)
- - or an *external* [datasource](../../user-guide/crawler/configure-connection/) (an OpenSearch Web source, an external Database...)
+ - the *internal* [OAIS catalog](../../../user-guide/import-data/oais-files/introduction/)
+ - the *internal* [GeoJSON catalog](../../../user-guide/import-data/fem/introduction/)
+ - or an *external* [datasource](../../../user-guide/crawler/configure-connection/) (an OpenSearch Web source, an external Database...)
 
 All types of crawlers can be active at the same time, but you may not need them on your instance at the same time.
 
@@ -78,7 +78,7 @@ Here is the difference between these two internal catalogs:
 | Product deletion                             |                                          Y                                          |                                                            Y                                                           |
 | Product update                               |                  No<br/>To update a product, use product versionning                 |                                                            Y                                                           |
 | Product versionning                          |                                          Y                                          |                                                            Y                                                           |
-| Product creation tools                       | Scan yours files using <br/>[Data acquisition chains](../../user-guide/import-data/scanned-files/manage-acquisition-chains/)<br/>in order to generate SIP |                                                           DIY                                                          |
+| Product creation tools                       | Scan yours files using <br/>[Data acquisition chains](../../../user-guide/import-data/scanned-files/manage-acquisition-chains/)<br/>in order to generate SIP |                                                           DIY                                                          |
 | Product creation feedback <br/>using AMQP     |                            Y                           |                                      Y                                       |
 | Product creation feedback<br/>using REST API  | Y                                                                                   | Y                                                                                                                      |
 | Product creation feedback<br/>using HMI       | Y                                                                                   | Y                                                                                                                      |
@@ -114,7 +114,7 @@ If you want to crawl an external datasource, do not activate any of these intern
 
 ### Create Ingest product using DataProvider
 
-The microservice DataProvider allows you to create your products using [Data acquisition chains](../../user-guide/import-data/scanned-files/manage-acquisition-chains/). It scans files on disk and creates SIP according to these files.  
+The microservice DataProvider allows you to create your products using [Data acquisition chains](../../../user-guide/import-data/scanned-files/manage-acquisition-chains/). It scans files on disk and creates SIP according to these files.  
 Here are some core features of DataProvider :
 - Regroup several files inside a product (SIP)
 - Scan the folder periodically in order to create new product when they are available
@@ -134,7 +134,7 @@ This microservice requires : `Ingest`
 
 ### File management using Storage
 
-The Storage microservice can store on [different types of storage system](../../user-guide/project-configuration/storages/):
+The Storage microservice can store on [different types of storage system](../../../user-guide/project-configuration/storages/):
 - Online storages : local disk, NFS...
 - Nearline storages : Tape Backup, S3 Glacier...
 
@@ -192,7 +192,7 @@ As there is no Worker publicly available, you do not need to enable this service
 
 ### Orders management
 
-The microservice Order allows [users to make orders](../../user-guide/order/introduction/).  
+The microservice Order allows [users to make orders](../../../user-guide/order/introduction/).  
 If this system is not active, orders are not available.
 
 Activate the Order microservice : 
@@ -209,7 +209,7 @@ This microservice requires : `Storage`
 
 ### Process orders
 
-The microservice Processing allows you to [process ordered datafiles](../../user-guide/order/processing/).  
+The microservice Processing allows you to [process ordered datafiles](../../../user-guide/order/processing/).  
 Once configured, the user can choose to activate a processing on its ordered data :
 - Convert the project of a NetCDF file
 - Crop a file
