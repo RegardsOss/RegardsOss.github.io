@@ -1,0 +1,33 @@
+# NOTE: Only supports options marked as "Supported in Redoc CE"
+# See https://redocly.com/docs/cli/configuration/ for more information.
+
+extends:
+  - recommended
+
+rules:
+  no-unused-components: error
+
+theme:
+  # See https://redocly.com/docs/api-reference-docs/configuration/functionality/
+  openapi:
+    hideHostname: true,
+    showSecuritySchemeType: false
+    noAutoAuth: true
+    menuToggle: false
+    pathInMiddlePanel: true
+    sortPropsAlphabetically: true
+    jsonSampleExpandLevel: 1
+    scrollYOffset: 100
+    disableSearch: true
+    # See https://redocly.com/docs/api-reference-docs/configuration/theming/
+    theme:
+      spacing:
+        unit: 5
+        sectionVertical: 8
+      typography:
+        fontSize: 16px
+      breakpoints:
+        medium: 130rem
+      colors:
+        primary:
+          main: '#429be3'
