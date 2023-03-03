@@ -4,49 +4,49 @@ title: Mount volumes, configs...
 slug: /setup/swarm/advanced/swarm-mount
 ---
 
-This guide allows you to describe, inside your inventory, volumes, configs and secrets files container access once they have booted.
+This guide allows you to describe, inside your inventory, volumes, configs and secrets files containers have access to once they have booted.
 
 :::info Benefits
 You should avoid any manual operation that can be fully automated by Ansible : connecting NFS to your container, creating local folders, mounting config and secret files inside services...  
-**All configuration that describes platform deployment should be share under source control.**
+**All configurations that describe platform deployment should be shared under source control.**
 :::
 
 :::warning Cons about volume usage
-Docker Swarm cannot update on-the-fly volume definitions. If you make **an update to an existing Docker Swarm volume**, please shutdown the REGARDS stack then run it again using `regards.yml`.  
+Docker Swarm cannot update volume definitions on-the-fly. If you do **an update on an existing Docker Swarm volume**, please shutdown the REGARDS stack then run it again using `regards.yml`.  
 This issue does not concern configs, secrets and new Docker Swarm volume.  
 :::
 
 
 ### Inventory configuration file
 
-The REGARDS convention is to save these informations inside :  
+The REGARDS convention is to save these information inside :  
 `inventories/<your inventory>/group_vars/regards_nodes/mounts.yml`
 
-If you don't have the `mounts.yml` file, you can initiate it with the following, which is the default if you don't have it yet:
+If you don't have the `mounts.yml` file, you can initiate it with the following code, which is the default mounting if you don't have it yet:
 
 ```yml
 # Define volumes, REGARDS volumes, configs and secrets
 group_docker_mounts:
   # Define NFS configurations used by REGARDS volumes
   nfs: []
-  # Allows some files inside <inventory>/group_vars/regards_nodes/files/... to be attached 
+  # Allow some files inside <inventory>/group_vars/regards_nodes/files/... to be attached 
   # to frontend / workers containers as Secret file (read only) 
   secrets: []
-  # Allows some files inside <inventory>/group_vars/regards_nodes/files/... to be attached 
+  # Allow some files inside <inventory>/group_vars/regards_nodes/files/... to be attached 
   # to frontend / workers containers as Config file (read only) 
   configs: []
   volumes: []
   regards:
-    # Common inputs folder for dataprovider, fem, ingest and storage
+    # Common input folder for dataprovider, fem, ingest and storage
     data_inputs: []
 ```
 
-The default configuration does not use any NFS server, so the plabook understands all files are stored localy on the main server and you should deploy REGARDS on one single node.  
-If you have more than 1 server, the default configuration is not good : if a running container on `node1` write some files on its local disk workdir and reboots on `node2`, it won't find its file unless you reboot the service on `node1`.
+The default configuration does not use any NFS server, all files are considered to be stored locally on the main server by the playbook. Thus, you should deploy REGARDS on one single node.  
+If you have more than one server, the default configuration is insufficient: if a running container on `node1` writes some files on its local disk workdir and reboots on `node2`, it won't find its file unless you reboot the service on `node1`.
 
 ### NFS definition
 
-You can define a list of **Network File System servers** REGARDS will connect to like this:
+You can define a list of **Network File System servers** REGARDS will connect to as following:
 
 ```yml
 group_docker_mounts:
@@ -73,13 +73,12 @@ This example defines 2 NFS :
 | config.device_prefix | x           | Prefix of the path inside the NFS server every volume share. Must be accessible by the REGARDS runtime docker user  |
 | config.type          |             | (Default value `nfs`) - Driver used by Docker swarm |
 
-You will be able to use the same NFS server, using its name, on several mount definitions. See [Volume definition](#volume-definition), [Data inputs](#data-inputs) and [Workdir configuration
-](#workdir-configuration).
+You will be able to use the same NFS server, using its name, on several mount definitions. See [Volume definition](#volume-definition), [Data inputs](#data-inputs) and [Workdir configuration](#workdir-configuration).
 
 ### Data inputs
 
-Data inputs allows you to define Docker Swarm volume that are automaticaly mounted to dataprovider, fem, ingest and storage services.  
-They are meant to allow REGARDS to access to your data.  
+Data inputs configuration allow you to define a Docker Swarm volume that is automatically mounted on dataprovider, fem, ingest and storage services.  
+It allows REGARDS to access to your data.  
 
 ```yml
 group_docker_mounts:
@@ -107,7 +106,7 @@ group_docker_mounts:
 
 ### Volume definition
 
-Volumes allows you to define Docker Swarm volume. Contrary to Data inputs, you need to explicitly mount these volumes to services. Volume definition and Data inputs shares the same syntax.  
+Volumes allow you to define Docker Swarm volumes. Unlike the Data inputs configuration, you need to explicitly mount these volumes to services. Volume definitions and Data inputs share the same syntax.  
 
 ```yml
 group_docker_mounts:
@@ -124,7 +123,7 @@ group_docker_mounts:
 
 ### Mount volume to services
 
-Once Docker swarm volumes are defined, either from [Volume definition](#volume-definition) or [Data inputs](#data-inputs), you can attach them using the `volumes` property inside any service definition. Data inputs are automacily attached to dataprovider, fem, ingest and storage services.  
+Once Docker swarm volumes are defined, either from [Volume definition](#volume-definition) or [Data inputs](#data-inputs), you can attach them using the `volumes` property inside any service definition. Data inputs are automatically attached to dataprovider, fem, ingest and storage services.  
 
 ```yml
 group_docker_mservices:
@@ -137,7 +136,7 @@ group_docker_mservices:
 
 ### Config and secrets files
 
-Our playbook allows you to transfer a file located inside your inventory into the main Swarm manager host. Then, when your stack boots, the file is read by Swarm into memory and sent over the network to any host running container requiring the Config or Secret file. Again, the main point is to share configs and secrets files (see [Encrypt secrets file using Ansible Vault](/docs/setup/swarm/advanced/ansible-vault#encrypt-file)) under source control.  
+Our playbook allows you to transfer a file located inside your inventory into the main Swarm manager host. Then, when your stack boots, the file is read by Swarm into memory and sent over the network to any host running container requiring the Config or Secret file. Again, the main point is to share configs and secret files (see [Encrypt secrets file using Ansible Vault](/docs/setup/swarm/advanced/ansible-vault#encrypt-file)) under source control.  
 When you deploy a new version of a config or secret file, any container link to that file will be recreated with the updated version of the file.
 
 :::warning Cons
@@ -243,6 +242,6 @@ Most of the time, you want to provide a NFS to REGARDS for all its workdir, but 
 
 :::info Multi node deployment, CoTS and replication
 You can configure CoTs workdir too, but be careful :  
-It's preferable to deploy a RabbitMQ cluster than a single instance.  
-In a RabbitMQ cluster, every RabbitMQ replica need local disk and not NFS mount.
+it's preferable to deploy a RabbitMQ cluster than a single instance.  
+In a RabbitMQ cluster, every RabbitMQ replica needs local disk and not NFS mount.
 :::
