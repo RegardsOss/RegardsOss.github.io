@@ -25,18 +25,13 @@ In components **with i18n context** (see later sections), you can retrieve inter
 * `this.context.intl.formatMessage` method, which produces a string out of the two parameters:
   * First parameter is an object, where field `id` is the message key
   * Second parameter is an object, where each field key is the value key in messages (allowing messages with dynamic values)
-* `FormattedMessage` component which builds a React.Element. It has the two following fields:
-  * `id`, that is the message key
-  * `values`, corresponding to formatMessage second parameter
  
 *Notes :*
-* To use the `formatMessage` method of the [react-intl](https://github.com/yahoo/react-intl) library, you need to define the react component context with the react-intl properties. To do so, you can use the `i18nContextType` 
-of the `@regardsoss/i18n` package. The FormattedMessage component does not require to explicitely mention context type.
-* In many cases, when setting an HTML node title property for instance, the value must be a string (and not a React.Element). In such cases, the developer has to use formatMessage method.
+* To use the `formatMessage` method of the [react-intl](https://github.com/yahoo/react-intl) library, you need to define the react component context with the react-intl properties. To do so, you can use the `i18nContextType` of the `@regardsoss/i18n` package.
+* Value returned by `formatMessage` is a string (and not a React.Element).
 
 ```javascript
 import { i18nContextType } from '@regardsoss/i18n'
-import { FormattedMessage } from 'react-intl'
 
 export class ExampleComponent extends React.Component {
 
@@ -45,11 +40,10 @@ export class ExampleComponent extends React.Component {
     }
 
   render() {
-    const internationalizedMessage = this.context.intl.formatMessage({ id: 'example.message' })
+    const { intl: { formatMessage } } = this.context
     return (
       <div>
-        <span>{internationalizedMessage}</span>
-        <FormattedMessage id="example.message" />
+        <span>{formatMessage({ id: 'example.message' })}</span>
       </div>
     )
   }
@@ -64,7 +58,10 @@ In REGARDS, the internationalization context can be provided to children by usin
 
 Those two methods are detailed in sections below.
 
-*Note: I18N connectors also define an optional parameter/property called `stackCallingContext` (false by default). That property, when true, indicates that the new context and parent context should be merged. It results in providing both parent and new context messages to children. When exploring REGARDS code, that method is frequently encountered, especially in common components, as it allows the calling component defining children using calling context messages while API components still access messages in their own context.*
+:::info What's `stackCallingContext`?
+I18N connectors also define an optional parameter/property called `stackCallingContext` (false by default).  
+That property, when true, indicates that the new context and parent context should be merged. It results in providing both parent and new context messages to children. When exploring REGARDS code, that method is frequently encountered, especially in common components, as it allows the calling component defining children using calling context messages while API components still access messages in their own context.*
+:::
 
 ### Using I18nProvider
 
@@ -119,8 +116,10 @@ import messages from '../i18n'
 class ExampleContainer extends React.Component {
 
   render() {
+    const { intl: { formatMessage } } = this.context
+
     return (
-      <FormattedMessage id="example.message" />
+      {formatMessage({ id: 'example.message' })}
     )
   }
 }
@@ -198,18 +197,39 @@ Let's illustrate how to create it.
   }
     
   render() {
+    const { intl: { formatMessage } } = this.context
     const name = 'john'
-    const message = this.context.intl.formatMessage({ id: 'example.message.with.parameter' }, { name })
     return (
       <div>
         <span>{message}</span>
-        <FormattedMessage 
-          id="example.message.with.parameter"
-          values={{ name }} 
-        />
+        {formatMessage({ id: 'example.message.with.parameter' }, { name })}
       </div>
     )
   }
+```
+
+You can also customize the displayed message using the provided value.
+
+For string parameters, you can use `select`:
+
+```javascript
+  'example.message.with.string.parameter': 'Hello {name, select, john {John Doe} other {you}}',
+```
+
+For boolean parameters, you can use `select`:
+
+```javascript
+  'example.message.with.boolean.parameter': 'Sir, {accepted, select, true {please enter in the room} other {you cannot come in this place}}.',
+```
+
+
+For integer parameters, you can use `plural`:
+```javascript
+  'example.message.with.integer.parameter': `{count, plural,
+    =0 {None}
+    one {Single entity}
+    other {Many entities}
+  }`,
 ```
 
 ### More informations
