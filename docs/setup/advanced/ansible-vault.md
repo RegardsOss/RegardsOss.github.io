@@ -53,8 +53,13 @@ ansible --ask-vault-pass -m ansible.builtin.debug all -a var="group_config_mserv
 
 ## Encrypt file
 
+You can also encrypt the content of a file.
+
 ```bash
 ansible-vault create --ask-vault-pass <file.to.encryt>
 ```
+
+This command asks you for the vault password, then opens the vi program to let you write the content.  
+Don't forget to press `i` before writing inside the file, then save the content by pressing `Escape`, then input `:wq` and finally press `Enter`
 
 The file `<file.to.encryt>` must not exist before running this command.

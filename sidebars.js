@@ -15,6 +15,7 @@ module.exports = {
             "setup/advanced/optimizations",
             "setup/advanced/ansible-vault",
             "setup/advanced/swarm-mount",
+            "setup/advanced/regards-https",
           ],
         },
         "setup/swarm-cli",
