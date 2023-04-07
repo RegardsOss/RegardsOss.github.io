@@ -17,6 +17,7 @@ We assume you have successfully deployed REGARDS using the [Quick setup](/docs/s
 - [Microservices optimizations](/docs/setup/swarm/advanced/optimizations/) provides you all the possible inventory configurations to optimize microservices.
 - [Ansible Vault](/docs/setup/swarm/advanced/ansible-vault/) allows you to crypt passwords inside your inventory and commit them on Git safely. **Highly recommended**
 - [Mount volumes, configs...](/docs/setup/swarm/advanced/swarm-mount) allows you to describe volumes, configs and secrets files containers have access to. **Highly recommended**
+- [Network tuning](/docs/setup/swarm/advanced/swarm-networks) allows you to understand and properly configure network properties.
 - [Securise using HTTPS](/docs/setup/swarm/advanced/regards-https) allows you to expose the REGARDS API and HMI through HTTPS. **Highly recommended**
 
 
