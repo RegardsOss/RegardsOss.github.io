@@ -273,8 +273,20 @@ module.exports = {
               label: "Authentication",
               items: [
                 "development/backend/regards/authentication/backend-authentication-overview",
-                "development/backend/regards/authentication/api/backend-authentication-api",
-                "development/backend/regards/authentication/plugins/backend-authentication-plugins",
+                {
+                  type: "category",
+                  label: "API Guides",
+                  items: [
+                    "development/backend/regards/authentication/api-guides/backend-authentication-token-curl",
+                  ],
+                },
+                {
+                  type: "category",
+                  label: "Contributors guides",
+                  items: [
+                    "development/backend/regards/authentication/contributor-guides/backend-authentication-plugins",
+                  ],
+                },
                 "development/backend/regards/authentication/backend-authentication-api-swagger",
               ],
             },

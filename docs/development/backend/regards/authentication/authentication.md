@@ -1,14 +1,22 @@
 ---
 id: backend-authentication-overview
-title: REGARDS authentication microservice
+title: RS-AUTHENTICATION microservice
 sidebar_label: Overview
 slug: /development/backend/services/authentication/overview/
 ---
 
-## Available APIs
+The RS-AUTHENTICATION multi-tenant microservice allows users to authenticate.  
+To do so, RS-AUTHENTICATION provides these functionnalities:
+ - allow authentication using REGARDS internal user base
+ - allow fully externalized authentication system to connect through external SSO
+ - allow connection using deported external user base (LDAP,...).
 
-- [Authentication](../api/)
+### API Guides
+- [Get token using REST API](../api-guides/retrieve-token-rest/) shows how to retrieve a REGARDS token using user and password and use it in following requests.  
 
-## Available Extension points
+### REST API
+- The [RS-AUTHENTICATION microservice REST API](../api-swagger/) auto generated using OpenAPI.  
 
-- [Authentication plugins](../plugins/)
+
+### Contributors guides
+- [Authentication plugins](../contributor-guides/plugins/) shows to contributors how to implement new authentication plugin
