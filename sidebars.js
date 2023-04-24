@@ -26,6 +26,7 @@ module.exports = {
           label: "Migrations",
           items: [
             "setup/migration/1.8-to-1.11",
+            "setup/migration/1.11-to-1.12",
           ],
         },
       ],
