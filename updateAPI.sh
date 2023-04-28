@@ -19,7 +19,7 @@ function importMServiceControllers
   folder_name=$2
   dest=./docs/development/backend/regards/$folder_name/$microservice.json
   echo "Fetching ${server}/api/v1/$microservice/v3/api-docs"
-  curl -k ${server}/api/v1/$microservice/v3/api-docs --output $dest
+  curl -s -S -f -X GET -k ${server}/api/v1/$microservice/v3/api-docs --output $dest || printf >&2 "[\033[31mFailed\033[m] $microservice api doc generation failed\n"
   
   sed -i s/\'\@project.version\@\'/$version/g $dest
   sed -i s@$server@https://regardsoss.github.io/@g $dest

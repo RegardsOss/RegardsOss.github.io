@@ -12,8 +12,3 @@ slug: /development/backend/services/access/overview/
 * Backend for frontend
 * UI configuration
 * Proxy for catalog search to add UI plugin applicable on each result
-
-## Available APIs
-
-* [access api](../api/)
-

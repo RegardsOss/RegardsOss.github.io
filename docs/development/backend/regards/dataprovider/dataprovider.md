@@ -17,10 +17,6 @@ slug: /development/backend/services/dataprovider/overview/
 
 ![Data provider plugins](/schemas/microservices/dataprovider.svg)
 
-## Available APIs
-
-* [Data provider](../api/)
-
 ## Available Extension points
 
 * [Scan plugins](../plugins/scan/)

@@ -17,7 +17,3 @@ slug: /development/backend/services/admin/overview/
  - Manage project notifications
  - Manage licences
  - Send emails
-
-# Available APIs
-
-* [Admin](../api/)

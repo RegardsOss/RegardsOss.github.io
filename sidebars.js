@@ -259,7 +259,6 @@ module.exports = {
               items: [
                 "development/backend/framework/modules/backend-framework-modules-plugins",
                 "development/backend/framework/backend-framework-dev-plugin",
-                "development/backend/regards/common/api/backend-framework-plugins-api",
               ],
             },
           ],
@@ -269,6 +268,24 @@ module.exports = {
           label: "Services",
           items: [
             "development/backend/regards/backend-services-overview",
+            {
+              type: "category",
+              label: "Access project",
+              items: [
+                "development/backend/regards/access/backend-access-overview",
+                "development/backend/regards/access/backend-access-project-api-swagger",
+                "development/backend/regards/access/backend-access-instance-api-swagger",
+              ],
+            },
+            {
+              type: "category",
+              label: "Admin project",
+              items: [
+                "development/backend/regards/admin/backend-admin-overview",
+                "development/backend/regards/admin/backend-admin-api-swagger",
+                "development/backend/regards/admin/backend-admin-instance-api-swagger",
+              ],
+            },
             {
               type: "category",
               label: "Authentication",
@@ -289,26 +306,6 @@ module.exports = {
                   ],
                 },
                 "development/backend/regards/authentication/backend-authentication-api-swagger",
-              ],
-            },
-            {
-              type: "category",
-              label: "Admin project",
-              items: [
-                "development/backend/regards/admin/backend-admin-overview",
-                "development/backend/regards/admin/api/backend-admin-api",
-                "development/backend/regards/admin/backend-admin-api-swagger",
-                "development/backend/regards/admin/backend-admin-instance-api-swagger",
-              ],
-            },
-            {
-              type: "category",
-              label: "Access project",
-              items: [
-                "development/backend/regards/access/backend-access-overview",
-                "development/backend/regards/access/api/backend-access-api",
-                "development/backend/regards/access/backend-access-project-api-swagger",
-                "development/backend/regards/access/backend-access-instance-api-swagger",
               ],
             },
             {
@@ -341,18 +338,6 @@ module.exports = {
               items: [
                 "development/backend/regards/dam/backend-dam-overview",
                 "development/backend/regards/dam/backend-dam-api-swagger",
-                {
-                  type: "category",
-                  label: "API (legacy)",
-                  items: [
-                    "development/backend/regards/dam/api/backend-dam-access-rights-api",
-                    "development/backend/regards/dam/api/backend-dam-attachment-api",
-                    "development/backend/regards/dam/api/backend-dam-collection-api",
-                    "development/backend/regards/dam/api/backend-dam-dataset-api",
-                    "development/backend/regards/dam/api/backend-dam-datasource-api",
-                    "development/backend/regards/dam/api/backend-dam-model-api",
-                  ],
-                },
                 {
                   type: "category",
                   label: "Plugins",
@@ -421,13 +406,6 @@ module.exports = {
                 "development/backend/regards/dataprovider/backend-dataprovider-api-swagger",
                 {
                   type: "category",
-                  label: "API (legacy)",
-                  items: [
-                    "development/backend/regards/dataprovider/api/backend-dataprovider-api",
-                  ],
-                },
-                {
-                  type: "category",
                   label: "Plugins",
                   items: [
                     "development/backend/regards/dataprovider/plugins/backend-dataprovider-post-processing-plugin",
@@ -445,13 +423,6 @@ module.exports = {
               items: [
                 "development/backend/regards/ingest/backend-ingest-overview",
                 "development/backend/regards/ingest/backend-ingest-api-swagger",
-                {
-                  type: "category",
-                  label: "API (legacy)",
-                  items: [
-                    "development/backend/regards/ingest/api/backend-ingest-api",
-                  ],
-                },
                 {
                   type: "category",
                   label: "Plugins",
@@ -517,13 +488,6 @@ module.exports = {
               items: [
                 "development/backend/regards/storage/backend-storage-overview",
                 "development/backend/regards/storage/backend-storage-api-swagger",
-                {
-                  type: "category",
-                  label: "API (legacy)",
-                  items: [
-                    "development/backend/regards/storage/api/backend-storage-api",
-                  ],
-                },
                 {
                   type: "category",
                   label: "Plugins",
