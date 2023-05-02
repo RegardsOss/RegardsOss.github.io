@@ -2,7 +2,7 @@
 id: backend-order-download-ordered-files
 title: Download ordered files inside archive
 sidebar_label: Download ordered files inside archive
-slug: /development/backend/services/order/guides/download-ordered-files
+slug: /development/backend/services/order/guides/guides/download-ordered-files
 ---
 
 *This page assumes you know how to [authenticate](/docs/development/backend/services/authentication/api-guides/retrieve-token-rest/) your REST API requests *
