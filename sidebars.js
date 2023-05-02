@@ -544,6 +544,24 @@ module.exports = {
                 "development/backend/regards/worker-manager/backend-worker-manager-api-swagger",
               ],
             },
+            {
+              type: "category",
+              label: "LTA Manager",
+              items: [
+                "development/backend/regards/lta-manager/backend-lta-manager-overview",
+                {
+                  type: "category",
+                  label: "API Guides",
+                  items: [
+                    "development/backend/regards/lta-manager/api-guides/backend-amqp-submit-product",
+                    "development/backend/regards/lta-manager/api-guides/backend-amqp-get-product-progress",
+                    "development/backend/regards/lta-manager/api-guides/backend-rest-create-product",
+                    "development/backend/regards/lta-manager/api-guides/backend-rest-request-status",
+                  ],
+                },
+                "development/backend/regards/lta-manager/backend-lta-manager-api-swagger",
+              ],
+            },
           ],
         },
       ],

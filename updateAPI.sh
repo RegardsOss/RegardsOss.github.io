@@ -41,6 +41,7 @@ importMServiceControllers rs-dam                 dam
 importMServiceControllers rs-dataprovider        dataprovider
 importMServiceControllers rs-fem                 fem
 importMServiceControllers rs-ingest              ingest
+importMServiceControllers rs-lta-manager         lta-manager
 importMServiceControllers rs-notifier            notifier
 importMServiceControllers rs-order               order
 importMServiceControllers rs-processing          processing
