@@ -444,6 +444,20 @@
       "ValuesRestrictionLong": {
         "description": "Filter on Request IDs",
         "properties": {
+          "ignoreCase": {
+            "description": "Only available for String resitrctions. Allow if true, to search values ignoring case. Default false",
+            "type": "boolean"
+          },
+          "matchMode": {
+            "description": "Match mode to use, can be STRICT|STARTS_WITH|CONTAINS|ENDS_WITH (default STRICT)",
+            "enum": [
+              "STRICT",
+              "STARTS_WITH",
+              "CONTAINS",
+              "ENDS_WITH"
+            ],
+            "type": "string"
+          },
           "mode": {
             "description": "Restriction mode to use",
             "enum": [
@@ -459,6 +473,8 @@
               "format": "int64",
               "type": "integer"
             },
+            "maxItems": 1000,
+            "minItems": 0,
             "type": "array"
           }
         },
@@ -471,6 +487,20 @@
       "ValuesRestrictionRequestStatus": {
         "description": "Filter on Request statuses",
         "properties": {
+          "ignoreCase": {
+            "description": "Only available for String resitrctions. Allow if true, to search values ignoring case. Default false",
+            "type": "boolean"
+          },
+          "matchMode": {
+            "description": "Match mode to use, can be STRICT|STARTS_WITH|CONTAINS|ENDS_WITH (default STRICT)",
+            "enum": [
+              "STRICT",
+              "STARTS_WITH",
+              "CONTAINS",
+              "ENDS_WITH"
+            ],
+            "type": "string"
+          },
           "mode": {
             "description": "Restriction mode to use",
             "enum": [
@@ -495,6 +525,8 @@
               ],
               "type": "string"
             },
+            "maxItems": 1000,
+            "minItems": 0,
             "type": "array"
           }
         },
@@ -507,6 +539,20 @@
       "ValuesRestrictionString": {
         "description": "Filter on Content types",
         "properties": {
+          "ignoreCase": {
+            "description": "Only available for String resitrctions. Allow if true, to search values ignoring case. Default false",
+            "type": "boolean"
+          },
+          "matchMode": {
+            "description": "Match mode to use, can be STRICT|STARTS_WITH|CONTAINS|ENDS_WITH (default STRICT)",
+            "enum": [
+              "STRICT",
+              "STARTS_WITH",
+              "CONTAINS",
+              "ENDS_WITH"
+            ],
+            "type": "string"
+          },
           "mode": {
             "description": "Restriction mode to use",
             "enum": [
@@ -521,6 +567,8 @@
               "description": "List of accepted or refused values (according to the mode)",
               "type": "string"
             },
+            "maxItems": 1000,
+            "minItems": 0,
             "type": "array"
           }
         },
@@ -561,7 +609,7 @@
       "name": "GPL-3.0"
     },
     "title": "MICROSERVICE WORKER MANAGER",
-    "version": "1.11.0"
+    "version": "1.12.0"
   },
   "openapi": "3.0.1",
   "paths": {

@@ -116,6 +116,9 @@
             "format": "date-time",
             "type": "string"
           },
+          "originUrn": {
+            "type": "string"
+          },
           "providerId": {
             "type": "string"
           },
@@ -226,7 +229,7 @@
       "ChooseVersioningRequestParameters": {
         "properties": {
           "creationDate": {
-            "$ref": "#/components/schemas/OAISDateRange"
+            "$ref": "#/components/schemas/DatesRangeRestriction"
           },
           "newVersioningMode": {
             "enum": [
@@ -238,73 +241,25 @@
             "type": "string"
           },
           "providerIds": {
-            "items": {
-              "type": "string"
-            },
-            "type": "array",
-            "uniqueItems": true
-          },
-          "requestIdSelectionMode": {
-            "enum": [
-              "INCLUDE",
-              "EXCLUDE"
-            ],
-            "type": "string"
+            "$ref": "#/components/schemas/ValuesRestrictionString"
           },
           "requestIds": {
-            "items": {
-              "type": "string"
-            },
-            "type": "array",
-            "uniqueItems": true
+            "$ref": "#/components/schemas/ValuesRestrictionLong"
           },
-          "requestType": {
-            "enum": [
-              "INGEST",
-              "UPDATE",
-              "AIP_UPDATES_CREATOR",
-              "AIP_SAVE_METADATA",
-              "AIP_POST_PROCESS",
-              "OAIS_DELETION",
-              "OAIS_DELETION_CREATOR"
-            ],
-            "type": "string"
+          "requestStates": {
+            "$ref": "#/components/schemas/ValuesRestrictionInternalRequestState"
+          },
+          "requestTypes": {
+            "$ref": "#/components/schemas/ValuesRestrictionRequestTypeEnum"
           },
           "session": {
+            "description": "Filter on session that emitted the request",
+            "example": "Today_Mission1",
             "type": "string"
           },
           "sessionOwner": {
+            "description": "Filter on owner of session that emitted the request",
             "type": "string"
-          },
-          "stateExcluded": {
-            "enum": [
-              "TO_SCHEDULE",
-              "CREATED",
-              "WAITING_VERSIONING_MODE",
-              "BLOCKED",
-              "RUNNING",
-              "ERROR",
-              "ABORTED",
-              "IGNORED"
-            ],
-            "type": "string"
-          },
-          "states": {
-            "items": {
-              "enum": [
-                "TO_SCHEDULE",
-                "CREATED",
-                "WAITING_VERSIONING_MODE",
-                "BLOCKED",
-                "RUNNING",
-                "ERROR",
-                "ABORTED",
-                "IGNORED"
-              ],
-              "type": "string"
-            },
-            "type": "array",
-            "uniqueItems": true
           }
         },
         "type": "object"
@@ -322,6 +277,22 @@
           "dataObject",
           "representationInformation"
         ],
+        "type": "object"
+      },
+      "DatesRangeRestriction": {
+        "description": "Filter on range of date for last update",
+        "properties": {
+          "after": {
+            "description": "Keep entities having date greater than",
+            "format": "date-time",
+            "type": "string"
+          },
+          "before": {
+            "description": "Keep entities having date less than",
+            "format": "date-time",
+            "type": "string"
+          }
+        },
         "type": "object"
       },
       "DynamicTenantSettingDto": {
@@ -631,6 +602,11 @@
             "minLength": 0,
             "type": "string"
           },
+          "model": {
+            "maxLength": 128,
+            "minLength": 0,
+            "type": "string"
+          },
           "session": {
             "maxLength": 128,
             "minLength": 0,
@@ -934,33 +910,19 @@
         ],
         "type": "object"
       },
-      "OAISDateRange": {
-        "properties": {
-          "from": {
-            "format": "date-time",
-            "type": "string"
-          },
-          "to": {
-            "format": "date-time",
-            "type": "string"
-          }
-        },
-        "type": "object"
-      },
       "OAISDeletionPayloadDto": {
         "properties": {
           "aipIds": {
-            "items": {
-              "type": "string"
-            },
-            "type": "array"
+            "$ref": "#/components/schemas/ValuesRestrictionString"
+          },
+          "aipIpTypes": {
+            "$ref": "#/components/schemas/ValuesRestrictionEntityType"
+          },
+          "aipStates": {
+            "$ref": "#/components/schemas/ValuesRestrictionAIPState"
           },
           "categories": {
-            "items": {
-              "type": "string"
-            },
-            "type": "array",
-            "uniqueItems": true
+            "$ref": "#/components/schemas/ValuesRestrictionString"
           },
           "deletionMode": {
             "enum": [
@@ -969,60 +931,33 @@
             ],
             "type": "string"
           },
-          "ipType": {
-            "enum": [
-              "COLLECTION",
-              "DATA",
-              "DATASET"
-            ],
-            "type": "string"
-          },
           "last": {
+            "description": "Filter on last",
             "type": "boolean"
           },
           "lastUpdate": {
-            "$ref": "#/components/schemas/OAISDateRange"
+            "$ref": "#/components/schemas/DatesRangeRestriction"
           },
-          "providerIds": {
-            "items": {
-              "type": "string"
-            },
-            "type": "array",
-            "uniqueItems": true
-          },
-          "selectionMode": {
-            "enum": [
-              "INCLUDE",
-              "EXCLUDE"
-            ],
+          "originUrn": {
             "type": "string"
           },
+          "providerIds": {
+            "$ref": "#/components/schemas/ValuesRestrictionString"
+          },
           "session": {
+            "description": "Filter on session that emitted the request",
+            "example": "Today_Mission1",
             "type": "string"
           },
           "sessionOwner": {
-            "type": "string"
-          },
-          "state": {
-            "enum": [
-              "GENERATED",
-              "STORED",
-              "DELETED"
-            ],
+            "description": "Filter on owner of session that emitted the request",
             "type": "string"
           },
           "storages": {
-            "items": {
-              "type": "string"
-            },
-            "type": "array",
-            "uniqueItems": true
+            "$ref": "#/components/schemas/ValuesRestrictionString"
           },
           "tags": {
-            "items": {
-              "type": "string"
-            },
-            "type": "array"
+            "$ref": "#/components/schemas/ValuesRestrictionString"
           }
         },
         "required": [
@@ -1196,15 +1131,6 @@
           },
           "page": {
             "$ref": "#/components/schemas/PageMetadata"
-          }
-        },
-        "type": "object"
-      },
-      "PagedResourcesAssemblerAIPEntityLight": {
-        "properties": {
-          "forceFirstAndLastRels": {
-            "type": "boolean",
-            "writeOnly": true
           }
         },
         "type": "object"
@@ -1503,6 +1429,9 @@
             "type": "array"
           },
           "instrument": {
+            "type": "string"
+          },
+          "originUrn": {
             "type": "string"
           },
           "proposal": {
@@ -1841,7 +1770,6 @@
           "providerId",
           "session",
           "sessionOwner",
-          "sip",
           "sipId",
           "state",
           "version"
@@ -1871,222 +1799,73 @@
       "SearchAIPsParameters": {
         "properties": {
           "aipIds": {
-            "items": {
-              "type": "string"
-            },
-            "type": "array"
+            "$ref": "#/components/schemas/ValuesRestrictionString"
+          },
+          "aipIpTypes": {
+            "$ref": "#/components/schemas/ValuesRestrictionEntityType"
+          },
+          "aipStates": {
+            "$ref": "#/components/schemas/ValuesRestrictionAIPState"
           },
           "categories": {
-            "items": {
-              "type": "string"
-            },
-            "type": "array",
-            "uniqueItems": true
-          },
-          "ipType": {
-            "enum": [
-              "COLLECTION",
-              "DATA",
-              "DATASET"
-            ],
-            "type": "string"
+            "$ref": "#/components/schemas/ValuesRestrictionString"
           },
           "last": {
+            "description": "Filter on last",
             "type": "boolean"
           },
           "lastUpdate": {
-            "$ref": "#/components/schemas/OAISDateRange"
+            "$ref": "#/components/schemas/DatesRangeRestriction"
           },
-          "providerIds": {
-            "items": {
-              "type": "string"
-            },
-            "type": "array",
-            "uniqueItems": true
-          },
-          "selectionMode": {
-            "enum": [
-              "INCLUDE",
-              "EXCLUDE"
-            ],
+          "originUrn": {
             "type": "string"
           },
+          "providerIds": {
+            "$ref": "#/components/schemas/ValuesRestrictionString"
+          },
           "session": {
+            "description": "Filter on session that emitted the request",
+            "example": "Today_Mission1",
             "type": "string"
           },
           "sessionOwner": {
-            "type": "string"
-          },
-          "state": {
-            "enum": [
-              "GENERATED",
-              "STORED",
-              "DELETED"
-            ],
+            "description": "Filter on owner of session that emitted the request",
             "type": "string"
           },
           "storages": {
-            "items": {
-              "type": "string"
-            },
-            "type": "array",
-            "uniqueItems": true
+            "$ref": "#/components/schemas/ValuesRestrictionString"
           },
           "tags": {
-            "items": {
-              "type": "string"
-            },
-            "type": "array"
+            "$ref": "#/components/schemas/ValuesRestrictionString"
           }
         },
         "type": "object"
       },
-      "SearchFacetsAIPsParameters": {
-        "properties": {
-          "aipIds": {
-            "items": {
-              "type": "string"
-            },
-            "type": "array"
-          },
-          "categories": {
-            "items": {
-              "type": "string"
-            },
-            "type": "array",
-            "uniqueItems": true
-          },
-          "ipType": {
-            "enum": [
-              "COLLECTION",
-              "DATA",
-              "DATASET"
-            ],
-            "type": "string"
-          },
-          "last": {
-            "type": "boolean"
-          },
-          "lastUpdate": {
-            "$ref": "#/components/schemas/OAISDateRange"
-          },
-          "providerIds": {
-            "items": {
-              "type": "string"
-            },
-            "type": "array",
-            "uniqueItems": true
-          },
-          "selectionMode": {
-            "enum": [
-              "INCLUDE",
-              "EXCLUDE"
-            ],
-            "type": "string"
-          },
-          "session": {
-            "type": "string"
-          },
-          "sessionOwner": {
-            "type": "string"
-          },
-          "state": {
-            "enum": [
-              "GENERATED",
-              "STORED",
-              "DELETED"
-            ],
-            "type": "string"
-          },
-          "storages": {
-            "items": {
-              "type": "string"
-            },
-            "type": "array",
-            "uniqueItems": true
-          },
-          "tags": {
-            "items": {
-              "type": "string"
-            },
-            "type": "array"
-          }
-        },
-        "type": "object"
-      },
-      "SearchRequestsParameters": {
+      "SearchRequestParameters": {
         "properties": {
           "creationDate": {
-            "$ref": "#/components/schemas/OAISDateRange"
+            "$ref": "#/components/schemas/DatesRangeRestriction"
           },
           "providerIds": {
-            "items": {
-              "type": "string"
-            },
-            "type": "array",
-            "uniqueItems": true
-          },
-          "requestIdSelectionMode": {
-            "enum": [
-              "INCLUDE",
-              "EXCLUDE"
-            ],
-            "type": "string"
+            "$ref": "#/components/schemas/ValuesRestrictionString"
           },
           "requestIds": {
-            "items": {
-              "type": "string"
-            },
-            "type": "array",
-            "uniqueItems": true
+            "$ref": "#/components/schemas/ValuesRestrictionLong"
           },
-          "requestType": {
-            "enum": [
-              "INGEST",
-              "UPDATE",
-              "AIP_UPDATES_CREATOR",
-              "AIP_SAVE_METADATA",
-              "AIP_POST_PROCESS",
-              "OAIS_DELETION",
-              "OAIS_DELETION_CREATOR"
-            ],
-            "type": "string"
+          "requestStates": {
+            "$ref": "#/components/schemas/ValuesRestrictionInternalRequestState"
+          },
+          "requestTypes": {
+            "$ref": "#/components/schemas/ValuesRestrictionRequestTypeEnum"
           },
           "session": {
+            "description": "Filter on session that emitted the request",
+            "example": "Today_Mission1",
             "type": "string"
           },
           "sessionOwner": {
+            "description": "Filter on owner of session that emitted the request",
             "type": "string"
-          },
-          "stateExcluded": {
-            "enum": [
-              "TO_SCHEDULE",
-              "CREATED",
-              "WAITING_VERSIONING_MODE",
-              "BLOCKED",
-              "RUNNING",
-              "ERROR",
-              "ABORTED",
-              "IGNORED"
-            ],
-            "type": "string"
-          },
-          "states": {
-            "items": {
-              "enum": [
-                "TO_SCHEDULE",
-                "CREATED",
-                "WAITING_VERSIONING_MODE",
-                "BLOCKED",
-                "RUNNING",
-                "ERROR",
-                "ABORTED",
-                "IGNORED"
-              ],
-              "type": "string"
-            },
-            "type": "array",
-            "uniqueItems": true
           }
         },
         "type": "object"
@@ -2094,17 +1873,21 @@
       "SearchSIPsParameters": {
         "properties": {
           "categories": {
+            "description": "Filter on categories",
             "items": {
+              "description": "Filter on categories",
               "type": "string"
             },
             "type": "array",
             "uniqueItems": true
           },
           "from": {
+            "description": "Filter on range of date for last update",
             "format": "date-time",
             "type": "string"
           },
           "ipType": {
+            "description": "Filter on type of SIP",
             "enum": [
               "COLLECTION",
               "DATA",
@@ -2113,34 +1896,45 @@
             "type": "string"
           },
           "processing": {
+            "description": "Filter on processing chain",
             "type": "string"
           },
           "providerIds": {
+            "description": "Filter on provider ids",
             "items": {
+              "description": "Filter on provider ids",
               "type": "string"
             },
             "type": "array",
             "uniqueItems": true
           },
           "session": {
+            "description": "Filter on session that emitted the request",
             "type": "string"
           },
           "sessionOwner": {
+            "description": "Filter on owner of session that emitted the request",
             "type": "string"
           },
           "states": {
+            "description": "Filter on given states of SIP",
+            "example": "INGESTED|STORED|DELETED",
             "items": {
+              "description": "Filter on given states of SIP",
               "enum": [
                 "INGESTED",
                 "STORED",
                 "DELETED"
               ],
+              "example": "INGESTED|STORED|DELETED",
               "type": "string"
             },
             "type": "array"
           },
           "tags": {
+            "description": "Filter on tags",
             "items": {
+              "description": "Filter on tags",
               "type": "string"
             },
             "type": "array"
@@ -2168,6 +1962,9 @@
           "pluginBusinessId": {
             "type": "string"
           },
+          "size": {
+            "$ref": "#/components/schemas/StorageSize"
+          },
           "storePath": {
             "type": "string"
           },
@@ -2193,6 +1990,19 @@
         "required": [
           "pluginBusinessId"
         ],
+        "type": "object"
+      },
+      "StorageSize": {
+        "properties": {
+          "max": {
+            "format": "int32",
+            "type": "integer"
+          },
+          "min": {
+            "format": "int32",
+            "type": "integer"
+          }
+        },
         "type": "object"
       },
       "Syntax": {
@@ -2267,6 +2077,290 @@
           "tenant"
         ],
         "type": "object"
+      },
+      "ValuesRestrictionAIPState": {
+        "description": "Filter on state of aip",
+        "properties": {
+          "ignoreCase": {
+            "description": "Only available for String resitrctions. Allow if true, to search values ignoring case. Default false",
+            "type": "boolean"
+          },
+          "matchMode": {
+            "description": "Match mode to use, can be STRICT|STARTS_WITH|CONTAINS|ENDS_WITH (default STRICT)",
+            "enum": [
+              "STRICT",
+              "STARTS_WITH",
+              "CONTAINS",
+              "ENDS_WITH"
+            ],
+            "type": "string"
+          },
+          "mode": {
+            "description": "Restriction mode to use",
+            "enum": [
+              "INCLUDE",
+              "EXCLUDE"
+            ],
+            "type": "string"
+          },
+          "values": {
+            "description": "List of accepted or refused values (according to the mode)",
+            "items": {
+              "description": "List of accepted or refused values (according to the mode)",
+              "enum": [
+                "GENERATED",
+                "STORED",
+                "DELETED"
+              ],
+              "type": "string"
+            },
+            "maxItems": 1000,
+            "minItems": 0,
+            "type": "array"
+          }
+        },
+        "required": [
+          "mode",
+          "values"
+        ],
+        "type": "object"
+      },
+      "ValuesRestrictionEntityType": {
+        "description": "Filter on types of entity",
+        "properties": {
+          "ignoreCase": {
+            "description": "Only available for String resitrctions. Allow if true, to search values ignoring case. Default false",
+            "type": "boolean"
+          },
+          "matchMode": {
+            "description": "Match mode to use, can be STRICT|STARTS_WITH|CONTAINS|ENDS_WITH (default STRICT)",
+            "enum": [
+              "STRICT",
+              "STARTS_WITH",
+              "CONTAINS",
+              "ENDS_WITH"
+            ],
+            "type": "string"
+          },
+          "mode": {
+            "description": "Restriction mode to use",
+            "enum": [
+              "INCLUDE",
+              "EXCLUDE"
+            ],
+            "type": "string"
+          },
+          "values": {
+            "description": "List of accepted or refused values (according to the mode)",
+            "items": {
+              "description": "List of accepted or refused values (according to the mode)",
+              "enum": [
+                "COLLECTION",
+                "DATA",
+                "DATASET"
+              ],
+              "type": "string"
+            },
+            "maxItems": 1000,
+            "minItems": 0,
+            "type": "array"
+          }
+        },
+        "required": [
+          "mode",
+          "values"
+        ],
+        "type": "object"
+      },
+      "ValuesRestrictionInternalRequestState": {
+        "description": "List of internal request states",
+        "example": "TO_SCHEDULE|CREATED|WAITING_VERSIONING_MODE|BLOCKED|RUNNING|ERROR|ABORTED|IGNORED",
+        "properties": {
+          "ignoreCase": {
+            "description": "Only available for String resitrctions. Allow if true, to search values ignoring case. Default false",
+            "type": "boolean"
+          },
+          "matchMode": {
+            "description": "Match mode to use, can be STRICT|STARTS_WITH|CONTAINS|ENDS_WITH (default STRICT)",
+            "enum": [
+              "STRICT",
+              "STARTS_WITH",
+              "CONTAINS",
+              "ENDS_WITH"
+            ],
+            "type": "string"
+          },
+          "mode": {
+            "description": "Restriction mode to use",
+            "enum": [
+              "INCLUDE",
+              "EXCLUDE"
+            ],
+            "type": "string"
+          },
+          "values": {
+            "description": "List of accepted or refused values (according to the mode)",
+            "items": {
+              "description": "List of accepted or refused values (according to the mode)",
+              "enum": [
+                "TO_SCHEDULE",
+                "CREATED",
+                "WAITING_VERSIONING_MODE",
+                "BLOCKED",
+                "RUNNING",
+                "ERROR",
+                "ABORTED",
+                "IGNORED"
+              ],
+              "type": "string"
+            },
+            "maxItems": 1000,
+            "minItems": 0,
+            "type": "array"
+          }
+        },
+        "required": [
+          "mode",
+          "values"
+        ],
+        "type": "object"
+      },
+      "ValuesRestrictionLong": {
+        "description": "Filter on request id",
+        "properties": {
+          "ignoreCase": {
+            "description": "Only available for String resitrctions. Allow if true, to search values ignoring case. Default false",
+            "type": "boolean"
+          },
+          "matchMode": {
+            "description": "Match mode to use, can be STRICT|STARTS_WITH|CONTAINS|ENDS_WITH (default STRICT)",
+            "enum": [
+              "STRICT",
+              "STARTS_WITH",
+              "CONTAINS",
+              "ENDS_WITH"
+            ],
+            "type": "string"
+          },
+          "mode": {
+            "description": "Restriction mode to use",
+            "enum": [
+              "INCLUDE",
+              "EXCLUDE"
+            ],
+            "type": "string"
+          },
+          "values": {
+            "description": "List of accepted or refused values (according to the mode)",
+            "items": {
+              "description": "List of accepted or refused values (according to the mode)",
+              "format": "int64",
+              "type": "integer"
+            },
+            "maxItems": 1000,
+            "minItems": 0,
+            "type": "array"
+          }
+        },
+        "required": [
+          "mode",
+          "values"
+        ],
+        "type": "object"
+      },
+      "ValuesRestrictionRequestTypeEnum": {
+        "description": "List of request type",
+        "example": "INGEST|UPDATE|AIP_UPDATES_CREATOR|AIP_SAVE_METADATA|AIP_POST_PROCESS|OAIS_DELETION|ABORTED|OAIS_DELETION_CREATOR",
+        "properties": {
+          "ignoreCase": {
+            "description": "Only available for String resitrctions. Allow if true, to search values ignoring case. Default false",
+            "type": "boolean"
+          },
+          "matchMode": {
+            "description": "Match mode to use, can be STRICT|STARTS_WITH|CONTAINS|ENDS_WITH (default STRICT)",
+            "enum": [
+              "STRICT",
+              "STARTS_WITH",
+              "CONTAINS",
+              "ENDS_WITH"
+            ],
+            "type": "string"
+          },
+          "mode": {
+            "description": "Restriction mode to use",
+            "enum": [
+              "INCLUDE",
+              "EXCLUDE"
+            ],
+            "type": "string"
+          },
+          "values": {
+            "description": "List of accepted or refused values (according to the mode)",
+            "items": {
+              "description": "List of accepted or refused values (according to the mode)",
+              "enum": [
+                "INGEST",
+                "UPDATE",
+                "AIP_UPDATES_CREATOR",
+                "AIP_SAVE_METADATA",
+                "AIP_POST_PROCESS",
+                "OAIS_DELETION",
+                "OAIS_DELETION_CREATOR"
+              ],
+              "type": "string"
+            },
+            "maxItems": 1000,
+            "minItems": 0,
+            "type": "array"
+          }
+        },
+        "required": [
+          "mode",
+          "values"
+        ],
+        "type": "object"
+      },
+      "ValuesRestrictionString": {
+        "description": "Filter on identifier of aip",
+        "properties": {
+          "ignoreCase": {
+            "description": "Only available for String resitrctions. Allow if true, to search values ignoring case. Default false",
+            "type": "boolean"
+          },
+          "matchMode": {
+            "description": "Match mode to use, can be STRICT|STARTS_WITH|CONTAINS|ENDS_WITH (default STRICT)",
+            "enum": [
+              "STRICT",
+              "STARTS_WITH",
+              "CONTAINS",
+              "ENDS_WITH"
+            ],
+            "type": "string"
+          },
+          "mode": {
+            "description": "Restriction mode to use",
+            "enum": [
+              "INCLUDE",
+              "EXCLUDE"
+            ],
+            "type": "string"
+          },
+          "values": {
+            "description": "List of accepted or refused values (according to the mode)",
+            "items": {
+              "description": "List of accepted or refused values (according to the mode)",
+              "type": "string"
+            },
+            "maxItems": 1000,
+            "minItems": 0,
+            "type": "array"
+          }
+        },
+        "required": [
+          "mode",
+          "values"
+        ],
+        "type": "object"
       }
     },
     "securitySchemes": {
@@ -2287,53 +2381,38 @@
       "name": "GPL-3.0"
     },
     "title": "MICROSERVICE INGEST",
-    "version": "1.11.0"
+    "version": "1.12.0"
   },
   "openapi": "3.0.1",
   "paths": {
     "/aips": {
       "post": {
+        "description": "Return a page of AIPs matching criterias.",
         "operationId": "searchAIPs",
-        "parameters": [
-          {
-            "in": "query",
-            "name": "assembler",
-            "required": true,
-            "schema": {
-              "$ref": "#/components/schemas/PagedResourcesAssemblerAIPEntityLight"
-            }
-          }
-        ],
         "requestBody": {
           "content": {
             "application/json": {
               "schema": {
-                "properties": {
-                  "filters": {
-                    "$ref": "#/components/schemas/SearchAIPsParameters"
-                  },
-                  "pageable": {
-                    "$ref": "#/components/schemas/Pageable"
-                  }
-                },
-                "type": "object"
+                "$ref": "#/components/schemas/SearchAIPsParameters"
               }
             }
           },
+          "description": "Set of search criterias.",
           "required": true
         },
         "responses": {
           "200": {
             "content": {
-              "*/*": {
+              "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/PagedModelEntityModelAIPEntityLight"
                 }
               }
             },
-            "description": "OK"
+            "description": "All AIPs were retrieved."
           }
         },
+        "summary": "Get AIPs",
         "tags": [
           "aip-controller"
         ]
@@ -2346,7 +2425,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/SearchFacetsAIPsParameters"
+                "$ref": "#/components/schemas/SearchAIPsParameters"
               }
             }
           },
@@ -2402,7 +2481,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/SearchFacetsAIPsParameters"
+                "$ref": "#/components/schemas/SearchAIPsParameters"
               }
             }
           },
@@ -2435,7 +2514,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/SearchFacetsAIPsParameters"
+                "$ref": "#/components/schemas/SearchAIPsParameters"
               }
             }
           },
@@ -2792,6 +2871,7 @@
     },
     "/plugins/configs": {
       "get": {
+        "description": "Return a list of plugin configurations for a specific type",
         "operationId": "getPluginConfigurationsByType",
         "parameters": [
           {
@@ -2815,9 +2895,10 @@
                 }
               }
             },
-            "description": "OK"
+            "description": "All plugin configurations for a specific type were retrieved."
           }
         },
+        "summary": "Get plugin configurations",
         "tags": [
           "plugin-controller"
         ]
@@ -3092,7 +3173,8 @@
     },
     "/processingchains": {
       "get": {
-        "operationId": "search",
+        "description": "Return a page of ingest processing chains",
+        "operationId": "search_1",
         "parameters": [
           {
             "in": "query",
@@ -3128,9 +3210,10 @@
                 }
               }
             },
-            "description": "OK"
+            "description": "All ingest processing chains were retrieved."
           }
         },
+        "summary": "Get ingest processing chains",
         "tags": [
           "ingest-processing-chain-controller"
         ]
@@ -3376,6 +3459,7 @@
     },
     "/requests": {
       "post": {
+        "description": "Return a page of requests matching criteria",
         "operationId": "searchRequest",
         "parameters": [
           {
@@ -3391,18 +3475,11 @@
           "content": {
             "application/json": {
               "schema": {
-                "properties": {
-                  "filters": {
-                    "$ref": "#/components/schemas/SearchRequestsParameters"
-                  },
-                  "pageable": {
-                    "$ref": "#/components/schemas/Pageable"
-                  }
-                },
-                "type": "object"
+                "$ref": "#/components/schemas/SearchRequestParameters"
               }
             }
           },
+          "description": "Set of search criteria.",
           "required": true
         },
         "responses": {
@@ -3414,9 +3491,10 @@
                 }
               }
             },
-            "description": "OK"
+            "description": "All requests were retrieved."
           }
         },
+        "summary": "Get requests",
         "tags": [
           "request-controller"
         ]
@@ -3424,12 +3502,14 @@
     },
     "/requests/abort": {
       "put": {
+        "description": "Abort all running requests",
         "operationId": "abortRequests",
         "responses": {
           "200": {
-            "description": "OK"
+            "description": "Abort process has been successfully initialized."
           }
         },
+        "summary": "Abort all running requests",
         "tags": [
           "request-controller"
         ]
@@ -3437,22 +3517,25 @@
     },
     "/requests/delete": {
       "post": {
+        "description": "Delete all requests matching given search criteria",
         "operationId": "delete",
         "requestBody": {
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/SearchRequestsParameters"
+                "$ref": "#/components/schemas/SearchRequestParameters"
               }
             }
           },
+          "description": "Set of search criteria to find requests to delete",
           "required": true
         },
         "responses": {
           "200": {
-            "description": "OK"
+            "description": "Delete process has been successfully initialized."
           }
         },
+        "summary": "Delete selected requests",
         "tags": [
           "request-controller"
         ]
@@ -3460,22 +3543,25 @@
     },
     "/requests/retry": {
       "post": {
+        "description": "Retry all requests matching given search criteria",
         "operationId": "retryRequests",
         "requestBody": {
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/SearchRequestsParameters"
+                "$ref": "#/components/schemas/SearchRequestParameters"
               }
             }
           },
+          "description": "Set of search criteria to find requests to retry",
           "required": true
         },
         "responses": {
           "200": {
-            "description": "OK"
+            "description": "Retry process has been successfully initialized."
           }
         },
+        "summary": "Retry selected requests",
         "tags": [
           "request-controller"
         ]
@@ -3483,7 +3569,8 @@
     },
     "/requests/versioning": {
       "put": {
-        "operationId": "chooseVersioning",
+        "description": "Apply given versioning mode to all requests matching given search criteria",
+        "operationId": "chooseVersioningMode",
         "requestBody": {
           "content": {
             "application/json": {
@@ -3492,6 +3579,7 @@
               }
             }
           },
+          "description": "Set of search criteria to find requests to update with new versioning mode",
           "required": true
         },
         "responses": {
@@ -3503,9 +3591,10 @@
                 }
               }
             },
-            "description": "OK"
+            "description": "Update versioning mode process has been successfully initialized."
           }
         },
+        "summary": "Choose versioning mode",
         "tags": [
           "request-controller"
         ]
@@ -3654,35 +3743,12 @@
     },
     "/sips": {
       "post": {
-        "operationId": "search_1",
-        "parameters": [
-          {
-            "in": "query",
-            "name": "pAssembler",
-            "required": true,
-            "schema": {
-              "$ref": "#/components/schemas/PagedResourcesAssemblerSIPEntity"
-            }
-          }
-        ],
+        "operationId": "ingest",
         "requestBody": {
           "content": {
             "application/geo+json": {
               "schema": {
                 "$ref": "#/components/schemas/SIPCollection"
-              }
-            },
-            "application/json": {
-              "schema": {
-                "properties": {
-                  "pageable": {
-                    "$ref": "#/components/schemas/Pageable"
-                  },
-                  "params": {
-                    "$ref": "#/components/schemas/SearchSIPsParameters"
-                  }
-                },
-                "type": "object"
               }
             }
           },
@@ -3693,14 +3759,7 @@
             "content": {
               "*/*": {
                 "schema": {
-                  "oneOf": [
-                    {
-                      "$ref": "#/components/schemas/RequestInfoDto"
-                    },
-                    {
-                      "$ref": "#/components/schemas/PagedModelEntityModelSIPEntity"
-                    }
-                  ]
+                  "$ref": "#/components/schemas/RequestInfoDto"
                 }
               }
             },
@@ -3745,6 +3804,68 @@
             "description": "OK"
           }
         },
+        "tags": [
+          "sip-controller"
+        ]
+      }
+    },
+    "/sips/launchDeletionJob": {
+      "post": {
+        "operationId": "launchSipDeletionJob",
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        },
+        "tags": [
+          "sip-controller"
+        ]
+      }
+    },
+    "/sips/search": {
+      "post": {
+        "description": "Search for SIP entities with search parameters.",
+        "operationId": "search",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "pAssembler",
+            "required": true,
+            "schema": {
+              "$ref": "#/components/schemas/PagedResourcesAssemblerSIPEntity"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SearchSIPsParameters"
+              }
+            }
+          },
+          "description": "Search criterion.",
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/PagedModelEntityModelSIPEntity"
+                }
+              }
+            },
+            "description": "The search request has been successfully processed."
+          },
+          "403": {
+            "content": {
+              "application/html": {}
+            },
+            "description": "The endpoint is not accessible for the user."
+          }
+        },
+        "summary": "Search for SIP entities",
         "tags": [
           "sip-controller"
         ]

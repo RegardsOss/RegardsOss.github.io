@@ -291,15 +291,6 @@
         },
         "type": "object"
       },
-      "PagedResourcesAssemblerAcquisitionProcessingChainMonitor": {
-        "properties": {
-          "forceFirstAndLastRels": {
-            "type": "boolean",
-            "writeOnly": true
-          }
-        },
-        "type": "object"
-      },
       "PagedResourcesAssemblerProduct": {
         "properties": {
           "forceFirstAndLastRels": {
@@ -638,7 +629,7 @@
       "name": "GPL-3.0"
     },
     "title": "MICROSERVICE DATAPROVIDER",
-    "version": "1.11.0"
+    "version": "1.12.0"
   },
   "openapi": "3.0.1",
   "paths": {
@@ -731,6 +722,7 @@
     },
     "/chain-monitoring": {
       "get": {
+        "description": "Return a page of acquisition processing chain monitors",
         "operationId": "search_1",
         "parameters": [
           {
@@ -768,22 +760,15 @@
             "schema": {
               "$ref": "#/components/schemas/Pageable"
             }
-          },
-          {
-            "in": "query",
-            "name": "assembler",
-            "required": true,
-            "schema": {
-              "$ref": "#/components/schemas/PagedResourcesAssemblerAcquisitionProcessingChainMonitor"
-            }
           }
         ],
         "responses": {
           "200": {
             "content": {},
-            "description": "OK"
+            "description": "All acquisition processing chain monitors were retrieved."
           }
         },
+        "summary": "Get acquisition processing chain monitors",
         "tags": [
           "monitoring-controller"
         ]
@@ -1354,6 +1339,7 @@
     },
     "/plugins/configs": {
       "get": {
+        "description": "Return a list of plugin configurations for a specific type",
         "operationId": "getPluginConfigurationsByType",
         "parameters": [
           {
@@ -1377,9 +1363,10 @@
                 }
               }
             },
-            "description": "OK"
+            "description": "All plugin configurations for a specific type were retrieved."
           }
         },
+        "summary": "Get plugin configurations",
         "tags": [
           "plugin-controller"
         ]
