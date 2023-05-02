@@ -471,15 +471,19 @@ module.exports = {
               label: "Order",
               items: [
                 "development/backend/regards/order/backend-order-overview",
-                "development/backend/regards/order/backend-order-api-swagger",
                 {
                   type: "category",
-                  label: "API (legacy)",
+                  label: "API Guides",
                   items: [
-                    "development/backend/regards/order/api/backend-order-basket-api",
-                    "development/backend/regards/order/api/backend-order-api",
+                    "development/backend/regards/order/api-guides/backend-order-lifecycle",
+                    "development/backend/regards/order/api-guides/backend-create-order-amqp",
+                    "development/backend/regards/order/api-guides/backend-get-order-progress-amqp",
+                    "development/backend/regards/order/api-guides/backend-create-order-rest",
+                    "development/backend/regards/order/api-guides/backend-get-order-status-rest",
+                    "development/backend/regards/order/api-guides/backend-order-download-ordered-files",
                   ],
                 },
+                "development/backend/regards/order/backend-order-api-swagger",
               ],
             },
             {
