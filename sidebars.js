@@ -26,6 +26,7 @@ module.exports = {
           label: "Migrations",
           items: [
             "setup/migration/1.8-to-1.11",
+            "setup/migration/1.11-to-1.12",
           ],
         },
       ],
@@ -258,7 +259,6 @@ module.exports = {
               items: [
                 "development/backend/framework/modules/backend-framework-modules-plugins",
                 "development/backend/framework/backend-framework-dev-plugin",
-                "development/backend/regards/common/api/backend-framework-plugins-api",
               ],
             },
           ],
@@ -268,6 +268,24 @@ module.exports = {
           label: "Services",
           items: [
             "development/backend/regards/backend-services-overview",
+            {
+              type: "category",
+              label: "Access project",
+              items: [
+                "development/backend/regards/access/backend-access-overview",
+                "development/backend/regards/access/backend-access-project-api-swagger",
+                "development/backend/regards/access/backend-access-instance-api-swagger",
+              ],
+            },
+            {
+              type: "category",
+              label: "Admin project",
+              items: [
+                "development/backend/regards/admin/backend-admin-overview",
+                "development/backend/regards/admin/backend-admin-api-swagger",
+                "development/backend/regards/admin/backend-admin-instance-api-swagger",
+              ],
+            },
             {
               type: "category",
               label: "Authentication",
@@ -288,26 +306,6 @@ module.exports = {
                   ],
                 },
                 "development/backend/regards/authentication/backend-authentication-api-swagger",
-              ],
-            },
-            {
-              type: "category",
-              label: "Admin project",
-              items: [
-                "development/backend/regards/admin/backend-admin-overview",
-                "development/backend/regards/admin/api/backend-admin-api",
-                "development/backend/regards/admin/backend-admin-api-swagger",
-                "development/backend/regards/admin/backend-admin-instance-api-swagger",
-              ],
-            },
-            {
-              type: "category",
-              label: "Access project",
-              items: [
-                "development/backend/regards/access/backend-access-overview",
-                "development/backend/regards/access/api/backend-access-api",
-                "development/backend/regards/access/backend-access-project-api-swagger",
-                "development/backend/regards/access/backend-access-instance-api-swagger",
               ],
             },
             {
@@ -340,18 +338,6 @@ module.exports = {
               items: [
                 "development/backend/regards/dam/backend-dam-overview",
                 "development/backend/regards/dam/backend-dam-api-swagger",
-                {
-                  type: "category",
-                  label: "API (legacy)",
-                  items: [
-                    "development/backend/regards/dam/api/backend-dam-access-rights-api",
-                    "development/backend/regards/dam/api/backend-dam-attachment-api",
-                    "development/backend/regards/dam/api/backend-dam-collection-api",
-                    "development/backend/regards/dam/api/backend-dam-dataset-api",
-                    "development/backend/regards/dam/api/backend-dam-datasource-api",
-                    "development/backend/regards/dam/api/backend-dam-model-api",
-                  ],
-                },
                 {
                   type: "category",
                   label: "Plugins",
@@ -420,13 +406,6 @@ module.exports = {
                 "development/backend/regards/dataprovider/backend-dataprovider-api-swagger",
                 {
                   type: "category",
-                  label: "API (legacy)",
-                  items: [
-                    "development/backend/regards/dataprovider/api/backend-dataprovider-api",
-                  ],
-                },
-                {
-                  type: "category",
                   label: "Plugins",
                   items: [
                     "development/backend/regards/dataprovider/plugins/backend-dataprovider-post-processing-plugin",
@@ -446,13 +425,6 @@ module.exports = {
                 "development/backend/regards/ingest/backend-ingest-api-swagger",
                 {
                   type: "category",
-                  label: "API (legacy)",
-                  items: [
-                    "development/backend/regards/ingest/api/backend-ingest-api",
-                  ],
-                },
-                {
-                  type: "category",
                   label: "Plugins",
                   items: [
                     "development/backend/regards/ingest/plugins/backend-ingest-pre-processing-plugins",
@@ -470,15 +442,19 @@ module.exports = {
               label: "Order",
               items: [
                 "development/backend/regards/order/backend-order-overview",
-                "development/backend/regards/order/backend-order-api-swagger",
                 {
                   type: "category",
-                  label: "API (legacy)",
+                  label: "API Guides",
                   items: [
-                    "development/backend/regards/order/api/backend-order-basket-api",
-                    "development/backend/regards/order/api/backend-order-api",
+                    "development/backend/regards/order/api-guides/backend-order-lifecycle",
+                    "development/backend/regards/order/api-guides/backend-create-order-amqp",
+                    "development/backend/regards/order/api-guides/backend-get-order-progress-amqp",
+                    "development/backend/regards/order/api-guides/backend-create-order-rest",
+                    "development/backend/regards/order/api-guides/backend-get-order-status-rest",
+                    "development/backend/regards/order/api-guides/backend-order-download-ordered-files",
                   ],
                 },
+                "development/backend/regards/order/backend-order-api-swagger",
               ],
             },
             {
@@ -514,13 +490,6 @@ module.exports = {
                 "development/backend/regards/storage/backend-storage-api-swagger",
                 {
                   type: "category",
-                  label: "API (legacy)",
-                  items: [
-                    "development/backend/regards/storage/api/backend-storage-api",
-                  ],
-                },
-                {
-                  type: "category",
                   label: "Plugins",
                   items: [
                     "development/backend/regards/storage/plugins/backend-storage-allocation-strategy-plugins",
@@ -537,6 +506,24 @@ module.exports = {
               items: [
                 "development/backend/regards/worker-manager/backend-worker-manager-overview",
                 "development/backend/regards/worker-manager/backend-worker-manager-api-swagger",
+              ],
+            },
+            {
+              type: "category",
+              label: "LTA Manager",
+              items: [
+                "development/backend/regards/lta-manager/backend-lta-manager-overview",
+                {
+                  type: "category",
+                  label: "API Guides",
+                  items: [
+                    "development/backend/regards/lta-manager/api-guides/backend-amqp-submit-product",
+                    "development/backend/regards/lta-manager/api-guides/backend-amqp-get-product-progress",
+                    "development/backend/regards/lta-manager/api-guides/backend-rest-create-product",
+                    "development/backend/regards/lta-manager/api-guides/backend-rest-request-status",
+                  ],
+                },
+                "development/backend/regards/lta-manager/backend-lta-manager-api-swagger",
               ],
             },
           ],

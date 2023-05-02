@@ -2684,7 +2684,7 @@
       "name": "GPL-3.0"
     },
     "title": "MICROSERVICE CATALOG",
-    "version": "1.11.0"
+    "version": "1.12.0"
   },
   "openapi": "3.0.1",
   "paths": {
@@ -3966,6 +3966,7 @@
     },
     "/enginesconfig": {
       "get": {
+        "description": "Return a page of engine configurations",
         "operationId": "retrieveConfs",
         "parameters": [
           {
@@ -4002,9 +4003,10 @@
                 }
               }
             },
-            "description": "OK"
+            "description": "All engine configurations were retrieved."
           }
         },
+        "summary": "Get engine configurations",
         "tags": [
           "search-engine-configuration-controller"
         ]
@@ -4183,7 +4185,7 @@
             "name": "urn",
             "required": true,
             "schema": {
-              "type": "string"
+              "$ref": "#/components/schemas/UniformResourceName"
             }
           }
         ],
@@ -4611,6 +4613,7 @@
     },
     "/plugins/configs": {
       "get": {
+        "description": "Return a list of plugin configurations for a specific type",
         "operationId": "getPluginConfigurationsByType",
         "parameters": [
           {
@@ -4634,9 +4637,10 @@
                 }
               }
             },
-            "description": "OK"
+            "description": "All plugin configurations for a specific type were retrieved."
           }
         },
+        "summary": "Get plugin configurations",
         "tags": [
           "plugin-controller"
         ]
@@ -5170,7 +5174,7 @@
             "name": "bbox",
             "required": false,
             "schema": {
-              "type": "string"
+              "$ref": "#/components/schemas/BBox"
             }
           },
           {
@@ -5226,7 +5230,7 @@
             "name": "item_bbox",
             "required": false,
             "schema": {
-              "type": "string"
+              "$ref": "#/components/schemas/BBox"
             }
           },
           {
@@ -5465,7 +5469,7 @@
             "name": "bbox",
             "required": false,
             "schema": {
-              "type": "string"
+              "$ref": "#/components/schemas/BBox"
             }
           },
           {
@@ -5980,7 +5984,7 @@
             "name": "bbox",
             "required": false,
             "schema": {
-              "type": "string"
+              "$ref": "#/components/schemas/BBox"
             }
           },
           {

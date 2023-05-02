@@ -16,9 +16,6 @@ slug: /development/backend/services/ingest/overview/
 
 ![Ingest plugins](/schemas/microservices/ingest.svg)
 
-## Available APIs
-
-* [Ingest](../api/)
 
 ## Available Extension points
 * [SIP Pre processing plugins](../plugins/sip-pre-processing/)

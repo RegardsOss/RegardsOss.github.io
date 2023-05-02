@@ -26,10 +26,6 @@ The schema here under shows the main process of AIP storing. [Allocation strateg
 
 In order to optimize files access time, REGARDS handle a cache storage system. When a file is asked to be retrieve, if the file is not directly accessible from disk storage [Online Data storages](../plugins/data-storage/) the file is temporarly copied in cache system. The expiration date of a file in this cache system is configurable in the retrieve access request.
 
-## Available APIs
-
-* [Storage](../api/)
-
 ## Available Extension points
 
 - [Allocation strategy plugins](../plugins/allocation-strategy/) : Strategy to dispatch files in available storage systems.

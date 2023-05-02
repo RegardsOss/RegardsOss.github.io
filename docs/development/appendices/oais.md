@@ -98,7 +98,11 @@ Exemple :
       {
         "pluginBusinessId": "Local",
         "storePath" : "/demo/exemple-1",
-        "targetTypes": []
+        "targetTypes": [],
+        "size": {
+          "min": 10,
+          "max" : 10000,
+        }
       }
     ]
   }
@@ -127,6 +131,8 @@ Versionning mode values :
 | pluginBusinessId | x | Name of the configured storage. Each storage have to be configured though the administrator HMI | Any configured storage label |
 | storePath |  | Optional property to define a directory into the storage location to store each files | subdirectory path |
 | targetTypes |  | Optional property to define which REGARDS type of files need to be stored in the current storage. If empty all files are stored in the storage | `RAWDATA` , `QUICKLOOK_SD`, `QUICKLOOK_MD`, `QUICKLOOK_HD`,  `DOCUMENT`,  `THUMBNAIL`, `AIP`, `DESCRIPTION` |
+| size |  | Optional property to define accepted file sizes on this storage location. At least one property among min and max is mandatory to limit the size, otherwise all sizes will be accepted. |
+
 
 
 ### Features

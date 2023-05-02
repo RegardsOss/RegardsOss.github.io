@@ -576,6 +576,10 @@
       },
       "CrawlingCursor": {
         "properties": {
+          "currentLastEntityDate": {
+            "format": "date-time",
+            "type": "string"
+          },
           "hasNext": {
             "type": "boolean",
             "writeOnly": true
@@ -985,11 +989,6 @@
           "label": {
             "type": "string"
           },
-          "lastEntityDate": {
-            "format": "date-time",
-            "type": "string",
-            "writeOnly": true
-          },
           "lastIngestDate": {
             "format": "date-time",
             "type": "string"
@@ -1328,6 +1327,7 @@
         "type": "object"
       },
       "Fragment": {
+        "description": "Fragment to add to the model",
         "properties": {
           "defaultFragment": {
             "type": "boolean"
@@ -1600,6 +1600,7 @@
         "type": "object"
       },
       "ModelAttrAssoc": {
+        "description": "Model attribute association to save",
         "properties": {
           "attribute": {
             "$ref": "#/components/schemas/AttributeModel"
@@ -2768,12 +2769,13 @@
       "name": "GPL-3.0"
     },
     "title": "MICROSERVICE DAM",
-    "version": "1.11.0"
+    "version": "1.12.0"
   },
   "openapi": "3.0.1",
   "paths": {
     "/accessgroups": {
       "get": {
+        "description": "Return a page of groups of user",
         "operationId": "retrieveAccessGroupsList",
         "parameters": [
           {
@@ -2810,9 +2812,10 @@
                 }
               }
             },
-            "description": "OK"
+            "description": "All groups of user were retrieved."
           }
         },
+        "summary": "Get groups of user",
         "tags": [
           "access-group-controller"
         ]
@@ -2952,7 +2955,7 @@
             "name": "dataset",
             "required": false,
             "schema": {
-              "type": "string"
+              "$ref": "#/components/schemas/UniformResourceName"
             }
           },
           {
@@ -3034,7 +3037,7 @@
             "name": "dataset",
             "required": true,
             "schema": {
-              "type": "string"
+              "$ref": "#/components/schemas/UniformResourceName"
             }
           }
         ],
@@ -3187,6 +3190,7 @@
     },
     "/collections": {
       "get": {
+        "description": "Return a page of collections",
         "operationId": "retrieveCollections",
         "parameters": [
           {
@@ -3223,9 +3227,10 @@
                 }
               }
             },
-            "description": "OK"
+            "description": "All collections were retrieved."
           }
         },
+        "summary": "Get collections",
         "tags": [
           "collection-controller"
         ]
@@ -3671,6 +3676,7 @@
     },
     "/crawler/datasourceIngestions": {
       "get": {
+        "description": "Return a list of crawler datasources",
         "operationId": "getAllDatasourceIngestion",
         "responses": {
           "200": {
@@ -3684,9 +3690,10 @@
                 }
               }
             },
-            "description": "OK"
+            "description": "All crawler datasources were retrieved."
           }
         },
+        "summary": "Get crawler datasources",
         "tags": [
           "crawler-controller"
         ]
@@ -3738,6 +3745,7 @@
     },
     "/datasets": {
       "get": {
+        "description": "Return a page of datasets always sorted by their label",
         "operationId": "retrieveDatasets",
         "parameters": [
           {
@@ -3774,9 +3782,10 @@
                 }
               }
             },
-            "description": "OK"
+            "description": "All datasets were retrieved."
           }
         },
+        "summary": "Get datasets",
         "tags": [
           "dataset-controller"
         ]
@@ -4029,7 +4038,7 @@
             "name": "datasetUrn",
             "required": true,
             "schema": {
-              "type": "string"
+              "$ref": "#/components/schemas/UniformResourceName"
             }
           }
         ],
@@ -4223,6 +4232,7 @@
     },
     "/datasources": {
       "get": {
+        "description": "Return a list of plugin configurations of type IDataSourcePlugin",
         "operationId": "getAllDataSources",
         "responses": {
           "200": {
@@ -4236,9 +4246,10 @@
                 }
               }
             },
-            "description": "OK"
+            "description": "All plugin configurations of type IDataSourcePlugin were retrieved."
           }
         },
+        "summary": "Get IDataSourcePlugin plugin configurations",
         "tags": [
           "data-source-controller"
         ]
@@ -4370,7 +4381,7 @@
             "name": "urn",
             "required": true,
             "schema": {
-              "type": "string"
+              "$ref": "#/components/schemas/UniformResourceName"
             }
           },
           {
@@ -4406,7 +4417,7 @@
             "name": "urn",
             "required": true,
             "schema": {
-              "type": "string"
+              "$ref": "#/components/schemas/UniformResourceName"
             }
           },
           {
@@ -4453,7 +4464,7 @@
             "name": "urn",
             "required": true,
             "schema": {
-              "type": "string"
+              "$ref": "#/components/schemas/UniformResourceName"
             }
           },
           {
@@ -4774,6 +4785,7 @@
     },
     "/models": {
       "get": {
+        "description": "Return a model list",
         "operationId": "getModels",
         "parameters": [
           {
@@ -4802,9 +4814,10 @@
                 }
               }
             },
-            "description": "OK"
+            "description": "All models were retrieved."
           }
         },
+        "summary": "Get models",
         "tags": [
           "model-controller"
         ]
@@ -4840,9 +4853,11 @@
     },
     "/models/assocs": {
       "get": {
+        "description": "Endpoint enabling retrieval of all links between models and attribute for a given type of entity",
         "operationId": "getModelAttrAssocsFor",
         "parameters": [
           {
+            "description": "Filter using entity type",
             "in": "query",
             "name": "type",
             "required": false,
@@ -4871,6 +4886,7 @@
             "description": "OK"
           }
         },
+        "summary": "Models and attrs links by type",
         "tags": [
           "model-attr-assoc-controller"
         ]
@@ -4878,6 +4894,7 @@
     },
     "/models/assocs/computation/types": {
       "get": {
+        "description": "Endpoint enabling retrieval, for every attribute type, compatible plugin configurations and plugin metadata",
         "operationId": "getMappingForComputedAttribute",
         "responses": {
           "200": {
@@ -4894,6 +4911,7 @@
             "description": "OK"
           }
         },
+        "summary": "Available plugin conf by attr type",
         "tags": [
           "model-attr-assoc-controller"
         ]
@@ -4901,6 +4919,7 @@
     },
     "/models/attributes": {
       "get": {
+        "description": "Return a list of attribute models",
         "operationId": "getAttributes",
         "parameters": [
           {
@@ -4972,9 +4991,10 @@
                 }
               }
             },
-            "description": "OK"
+            "description": "All attribute models were retrieved."
           }
         },
+        "summary": "Get attribute models",
         "tags": [
           "attribute-model-controller"
         ]
@@ -5216,6 +5236,7 @@
     },
     "/models/fragments": {
       "get": {
+        "description": "Return a list of fragments",
         "operationId": "getFragments",
         "responses": {
           "200": {
@@ -5229,9 +5250,10 @@
                 }
               }
             },
-            "description": "OK"
+            "description": "All fragments were retrieved."
           }
         },
+        "summary": "Get fragments",
         "tags": [
           "fragment-controller"
         ]
@@ -5548,9 +5570,11 @@
     },
     "/models/{modelName}/attributes": {
       "get": {
+        "description": "Return all model attribute associations matching provided criteria.",
         "operationId": "getModelAttrAssocs",
         "parameters": [
           {
+            "description": "Filter using model name",
             "in": "path",
             "name": "modelName",
             "required": true,
@@ -5571,17 +5595,20 @@
                 }
               }
             },
-            "description": "OK"
+            "description": "The list of model attribute associations."
           }
         },
+        "summary": "Get model attr assocs",
         "tags": [
           "model-attr-assoc-controller"
         ]
       },
       "post": {
+        "description": "Bind an attribute to a model.",
         "operationId": "bindAttributeToModel",
         "parameters": [
           {
+            "description": "Filter using model name",
             "in": "path",
             "name": "modelName",
             "required": true,
@@ -5609,9 +5636,10 @@
                 }
               }
             },
-            "description": "OK"
+            "description": "The new attribute model association."
           }
         },
+        "summary": "Bind attr to model",
         "tags": [
           "model-attr-assoc-controller"
         ]
@@ -5619,9 +5647,11 @@
     },
     "/models/{modelName}/attributes/fragments": {
       "post": {
+        "description": "Bind fragment attributes to a model.",
         "operationId": "bindNSAttributeToModel",
         "parameters": [
           {
+            "description": "Model receiving the fragment",
             "in": "path",
             "name": "modelName",
             "required": true,
@@ -5652,9 +5682,10 @@
                 }
               }
             },
-            "description": "OK"
+            "description": "The list of model attribute associations created by the bind between the model and the fragment."
           }
         },
+        "summary": "Bind fragment",
         "tags": [
           "model-attr-assoc-controller"
         ]
@@ -5662,9 +5693,11 @@
     },
     "/models/{modelName}/attributes/fragments/{fragmentId}": {
       "delete": {
+        "description": "Unbind fragment attributes from a model.",
         "operationId": "unbindNSAttributeFromModel",
         "parameters": [
           {
+            "description": "Filter using model name",
             "in": "path",
             "name": "modelName",
             "required": true,
@@ -5673,6 +5706,7 @@
             }
           },
           {
+            "description": "Fragment id to unbind",
             "in": "path",
             "name": "fragmentId",
             "required": true,
@@ -5684,9 +5718,10 @@
         ],
         "responses": {
           "200": {
-            "description": "OK"
+            "description": "Fragment is not binded to the model."
           }
         },
+        "summary": "Unbind fragment",
         "tags": [
           "model-attr-assoc-controller"
         ]
@@ -5694,9 +5729,11 @@
     },
     "/models/{modelName}/attributes/{attributeId}": {
       "delete": {
+        "description": "Unbind an attribute from a model.",
         "operationId": "unbindAttributeFromModel",
         "parameters": [
           {
+            "description": "Model that loose one attribute",
             "in": "path",
             "name": "modelName",
             "required": true,
@@ -5705,6 +5742,7 @@
             }
           },
           {
+            "description": "Attribute id to unbind",
             "in": "path",
             "name": "attributeId",
             "required": true,
@@ -5716,17 +5754,20 @@
         ],
         "responses": {
           "200": {
-            "description": "OK"
+            "description": "The model attribute association has been removed."
           }
         },
+        "summary": "Unbind attribute",
         "tags": [
           "model-attr-assoc-controller"
         ]
       },
       "get": {
+        "description": "Return a model attribute association matching criteria.",
         "operationId": "getModelAttrAssoc",
         "parameters": [
           {
+            "description": "Filter using model name",
             "in": "path",
             "name": "modelName",
             "required": true,
@@ -5735,6 +5776,7 @@
             }
           },
           {
+            "description": "Filter using attribute id",
             "in": "path",
             "name": "attributeId",
             "required": true,
@@ -5753,17 +5795,20 @@
                 }
               }
             },
-            "description": "OK"
+            "description": "A model attribute association."
           }
         },
+        "summary": "Get model attr assoc",
         "tags": [
           "model-attr-assoc-controller"
         ]
       },
       "put": {
+        "description": "Update a model attribute association matching provided model name and attribute id.",
         "operationId": "updateModelAttrAssoc",
         "parameters": [
           {
+            "description": "Filter using model name",
             "in": "path",
             "name": "modelName",
             "required": true,
@@ -5772,6 +5817,7 @@
             }
           },
           {
+            "description": "Filter using attribute id",
             "in": "path",
             "name": "attributeId",
             "required": true,
@@ -5800,9 +5846,10 @@
                 }
               }
             },
-            "description": "OK"
+            "description": "The updated model attribute association."
           }
         },
+        "summary": "Update model attr assoc",
         "tags": [
           "model-attr-assoc-controller"
         ]
@@ -5949,6 +5996,7 @@
     },
     "/plugins/configs": {
       "get": {
+        "description": "Return a list of plugin configurations for a specific type",
         "operationId": "getPluginConfigurationsByType",
         "parameters": [
           {
@@ -5972,9 +6020,10 @@
                 }
               }
             },
-            "description": "OK"
+            "description": "All plugin configurations for a specific type were retrieved."
           }
         },
+        "summary": "Get plugin configurations",
         "tags": [
           "plugin-controller"
         ]

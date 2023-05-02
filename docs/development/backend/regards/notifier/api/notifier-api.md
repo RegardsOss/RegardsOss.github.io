@@ -81,4 +81,10 @@ Notification format using **RabbitMQSender** plugin has been updated between ver
 1. `element` has been renamed to `payload`
 1. `action` has been moved into objet `metadata` and is now located at `$.metadata.action` instead of `$.action`
 
-{@import notifier-management-api.md}
+## Notification management
+
+### How to retry notifications that failed
+
+To retry notifications that failed, you need to send a new AMQP event with the same `regards.request.id` header.  
+- If your event does not contain any body, it will retry the same event
+- If you provides a body, it will be taken into account before retrying.

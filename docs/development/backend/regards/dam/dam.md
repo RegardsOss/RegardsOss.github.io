@@ -16,15 +16,6 @@ slug: /development/backend/services/dam/overview/
 
 ![Ingest plugins](/schemas/microservices/dam.svg)
 
-## Available APIs
-
-* [Access rights api](../api/access-rights/)
-* [Models api](../api/model/)
-* [Collection api](../api/collection/)
-* [Dataset api](../api/dataset/)
-* [Datasource api](../api/datasource/)
-* [Document api](../api/document/)
-
 ## Available Extension points
 
 * [Access rights](../plugins/data-access-rights/)

@@ -1,29 +1,37 @@
 ---
 id: backend-order-overview
-title: REGARDS order microservice
+title: RS-ORDER microservice
 sidebar_label: Overview
 slug: /development/backend/services/order/overview/
 ---
 
+The RS-ORDER microservice allows authenticated users to order files from the REGARDS catalog and download them.  
+To do so, RS-ORDER provides these functionnalities:
+ - an user basket - you can add a selection of catalog products to your cart and order them later
+ - create order - you can transform your user basket selection into an order
+ - retrieve order status - the order may be running or even wait for user to download a subset of the order (SubOrders)
+ - download ordered files
+ - process ordered files - your ordered files can be reprocessed before you download them
 
-## Overview
+:::info Max order size 
+There is no limit on the number of files or even on the size of the files users can order.  
+Nevertheless, if the order is too big, it will be devided in many groups of files we name **SubOrders**.  
+In that case, user has to retrieve available files from the finished SubOrder, before the next one can be processed by the system.
+:::
 
-`Order` reponsabilities:
+### API Guides
 
-* Manage user basket,
-* Order files,
-* Download ordered files,
-
- The `Order` microservice is designed to allow authenticated users to order files of the REGARDS catalog. To do so, users have to build a basket by adding entities in it thanks to `opensearch` requests.
-
- There is no limit on the number of files or even on the size of the files users can order. Nevertheless, if the order is too big, it will be devided in many groups of files (suborders). In this case, the user have to retrieve the available group files (suborder) before the next one is made available by the system.
-
- Here under is the state diagram of the order process :
-
- ![](/schemas/order/ord_state_diagram.png)
+ - [Order life cycle](../guides/order-lifecycle) allows you to understand how an order will progress over time.
+ - Create Order [using REST API](../guides/create-order-rest) or [using AMQP API](../guides/create-order-amqp) shows you how to create a basket selection and create the order in a single request. **Recommended for interoperability since v1.12**
+ - Get Order [status using REST API](../guides/get-order-status-rest) or [progress threw AMQP API](../guides/get-order-progress-amqp) shows you how to create a basket selection and create the order in a single request. **Recommended for interoperability since v1.12**
+ - [Download ordered files using REST API](../guides/download-ordered-files)
 
 
-## Available APIs
+### REST API
+- The [RS-ORDER microservice REST API](../api-swagger/) auto generated using OpenAPI.  
 
- - [Basket](../api/basket/) : API to manage user basket (add and remove entities/)
- - [Order](../api/) : API to submit, cancel and monitoring user orders.
+ 
+### Contributors guides
+ - more incomming...
+
+ 

@@ -633,7 +633,7 @@
       "name": "GPL-3.0"
     },
     "title": "MICROSERVICE NOTIFIER",
-    "version": "1.11.0"
+    "version": "1.12.0"
   },
   "openapi": "3.0.1",
   "paths": {
@@ -901,6 +901,7 @@
     },
     "/plugins/configs": {
       "get": {
+        "description": "Return a list of plugin configurations for a specific type",
         "operationId": "getPluginConfigurationsByType",
         "parameters": [
           {
@@ -924,9 +925,10 @@
                 }
               }
             },
-            "description": "OK"
+            "description": "All plugin configurations for a specific type were retrieved."
           }
         },
+        "summary": "Get plugin configurations",
         "tags": [
           "plugin-controller"
         ]
