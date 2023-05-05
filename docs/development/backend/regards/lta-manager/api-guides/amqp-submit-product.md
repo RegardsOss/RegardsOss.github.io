@@ -44,7 +44,7 @@ Submission requests have to be published to REGARDS Rabbitmq exchange:
 ```json
 {
   "correlationId": "xxx",
-  "id": "xxx",
+  "productId": "xxx",
   "datatype": "xxx",
   "geometry": {
     "coordinates": [
@@ -103,7 +103,7 @@ Submission requests have to be published to REGARDS Rabbitmq exchange:
 | Parameter | Type | Optional | Description |
 | --------- | ---- | :--------: | ----------- |
 | correlationId | String | No | Request correlation unique identifier |
-| id | String | No | Product identifier. If two products are submitted with the same id, a new version is created or the previous one is replaced. |
+| productId | String | No | Product identifier. If two products are submitted with the same id, a new version is created or the previous one is replaced. |
 | datatype |  String | No | Product type. Have to be a REGARDS known datatype. |
 | geometry | GeoJSON RFC 7946 | Yes | Product geometry |
 | files.type | String | No | Type of the file can be RAWDATA, THUMBNAIL, QUICKLOOK_SD, QUICKLOOK_MD or QUICKLOOK_HD |

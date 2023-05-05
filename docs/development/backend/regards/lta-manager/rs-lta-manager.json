@@ -571,6 +571,12 @@
           "geometry": {
             "$ref": "#/components/schemas/IGeometry"
           },
+          "productId": {
+            "description": "Provider id of the OAIS product to generate.",
+            "maxLength": 255,
+            "minLength": 0,
+            "type": "string"
+          },
           "originUrn": {
             "description": "Id of the product in the original catalog.",
             "maxLength": 255,
