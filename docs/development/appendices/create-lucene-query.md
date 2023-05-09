@@ -93,3 +93,8 @@ The API supports escaping special characters that are part of the query syntax. 
 To escape these character use the \ before the character. For example to search for (1+1):2 use the query:
 
 `\(1\+1\)\:2`
+
+### Testing existence
+
+In order to test if a field exists, you can use `/.*/`. For exemple:  
+`title:/.*/`
