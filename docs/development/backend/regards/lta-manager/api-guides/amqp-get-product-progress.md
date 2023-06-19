@@ -42,6 +42,12 @@ REGARDS will publish a granted notification on the response exchange when the re
 }
 ```
 
+| Parameter | Type | Optional | Description |
+| --------- | ---- | :--------: | ----------- |
+| correlationId | String | No | Request identifier |
+| productId | String | No | Id of the product to create |
+| responseStatus | String | No | Status of the request. More details below.|
+
 ### Success response
 
 REGARDS will publish a success notification on the response exchange when the request is terminated in success.
@@ -51,11 +57,20 @@ REGARDS will publish a success notification on the response exchange when the re
     "correlationId": "xxx",
     "productId": "xxx",
     "responseStatus": "SUCCESS",
-    "expires": "",
+    "expires": "2022-12-22T10:25:52.243Z",
     "session": "xxx",
     "message": ""
 }
 ```
+
+| Parameter | Type | Optional | Description |
+| --------- | ---- | :--------: | ----------- |
+| correlationId | String | No | Request identifier |
+| productId | String | No | Id of the product to create |
+| responseStatus | String | No | Status of the request. More details below.|
+| expires | String Date ISO 8601| No | Request expiration date. Format yyyy-MM-dd'T'HH:mm:ss.SSSZ |
+| session | String | No | Request session name |
+| message | String | Yes | Information message about your request |
 
 ### Invalid request responses
 
@@ -66,11 +81,16 @@ REGARDS will publish a denied notification on the response exchange when the req
     "correlationId": "xxx",
     "productId": "xxx",
     "responseStatus": "DENIED",
-    "expires": "",
-    "session": "xxx",
     "message": ""
 }
 ```
+
+| Parameter | Type | Optional | Description |
+| --------- | ---- | :--------: | ----------- |
+| correlationId | String | No | Request identifier |
+| productId | String | No | Id of the product to create |
+| responseStatus | String | No | Status of the request. More details below.|
+| message | String | Yes | Information message about your request |
 
 A request can be invalid, if :
  - Request is not well formed
@@ -89,11 +109,20 @@ After request has been granted by REGARDS, internal errors may occur.  In such c
     "correlationId": "xxx",
     "productId": "xxx",
     "responseStatus": "ERROR",
-    "expires": "",
+    "expires": "2022-12-22T10:25:52.243Z",
     "session": "xxx",
     "message": "Cause of the internal error"
 }
 ```
+
+| Parameter | Type | Optional | Description |
+| --------- | ---- | :--------: | ----------- |
+| correlationId | String | No | Request identifier |
+| productId | String | No | Id of the product to create |
+| responseStatus | String | No | Status of the request. More details below.|
+| expires | String Date ISO 8601| No | Request expiration date. Format yyyy-MM-dd'T'HH:mm:ss.SSSZ |
+| session | String | No | Request session name |
+| message | String | Yes | Information message about your request |
 
 :::info How to handle it?
 Retry later with new request or contact REGARDS administrators.

@@ -43,16 +43,20 @@ slug: /development/backend/services/lta-manager/guides/get-request-status-rest
 }
 ```
 
- - `correlationId`: Request identifier
- - `productId`: Id of the product to create
- - `status` : can be :
-    - `VALIDATED` : Your request is valid and will be processed soon.
-    - `GENERATION_PENDING` : Your request is processing.
-    - `GENERATED`: Your request is processing.
-    - `INGESTION_PENDING`: Your request is processing.
-    - `DONE`: Your request is successfully done.
-    - `GENERATION_ERROR` : Your request is terminated in error during OAIS product generation.
-    - `INGESTION_ERROR` : Your request is terminated in error during OAIS product ingestion.
- - `expires`: Expiration date of your request
- - `session`: Session of your request
- - `message`: Information message about your request
+| Parameter | Type | Optional | Description |
+| --------- | ---- | :--------: | ----------- |
+| correlationId | String | No | Request identifier |
+| productId | String | No | Id of the product to create |
+| status | String | No | Status of the request. More details below.|
+| expires | String Date ISO 8601| No |  Request expiration date. Format yyyy-MM-dd'T'HH:mm:ss.SSSZ |
+| session | String | No | Request session name |
+| message | String | Yes | Information message about your request |
+
+ `status` : can be :
+  - `VALIDATED` : Your request is valid and will be processed soon.
+  - `GENERATION_PENDING` : Your request is processing.
+  - `GENERATED`: Your request is processing.
+  - `INGESTION_PENDING`: Your request is processing.
+  - `DONE`: Your request is successfully done.
+  - `GENERATION_ERROR` : Your request is terminated in error during OAIS product generation.
+  - `INGESTION_ERROR` : Your request is terminated in error during OAIS product ingestion.
