@@ -5,6 +5,7 @@ module.exports = {
   tagline: "An opensource software to store and add value to your data.",
   url: "https://RegardsOss.github.io/",
   baseUrl: "/",
+  trailingSlash: false,
   onBrokenLinks: "throw",
   onBrokenMarkdownLinks: "warn",
   favicon: "img/logos/regards-png/regards-favicon.png",
