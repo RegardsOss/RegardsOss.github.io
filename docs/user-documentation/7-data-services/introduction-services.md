@@ -8,5 +8,5 @@ Les services de données sont des plugins supplémentaires proposés dans le cat
 
 Il en existe deux types de services de données :
 
-- les ***[processing services](../processing-services/)***. Contrairement aux [processings](../../order/processing/) intervenant lors de commandes de données, les processing services sont des traitements synchrones ; par conséquent, ils doivent être légers et rapides.
-- les ***[ui services](../ui-services/)*** proposant des outils de visualisation de la donnée.
+- les ***[processing services](processing-services/)***. Contrairement aux [processings](../8-order-data/processing.md) intervenant lors de commandes de données, les processing services sont des traitements synchrones ; par conséquent, ils doivent être légers et rapides.
+- les ***[ui services](ui-services.md)*** proposant des outils de visualisation de la donnée.

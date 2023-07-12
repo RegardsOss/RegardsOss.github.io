@@ -10,6 +10,6 @@ L'archive de produits Geojson se différentie de l'archive OAIS par :
  - Format plus léger, moins restrictif et correspondant au standard GeoJson
  - Absence de métadonnées fixe de pérénisation 
 
-Apprenez à [créer et gérer des features](../manage-features/)
+Apprenez à [créer et gérer des features](manage-features.md)
 
-Apprenez à [gérer les paramètres de FEM](../manage-features-settings/)
+Apprenez à [gérer les paramètres de FEM](manage-features-settings.md)

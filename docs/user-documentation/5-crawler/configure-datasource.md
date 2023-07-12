@@ -14,11 +14,11 @@ L'écran de configuration des aspirations de données (accessible depuis la cart
 Vous pouvez ajouter deux types de sources de données selon vos besoins.
 
 - Depuis des sources de données internes à REGARDS :
-  - depuis des [AIPs au format OAIS](../configure-datasources/aips/)
-  - depuis des [features du feature manager](../configure-datasources/fem/)
+  - depuis des [AIPs au format OAIS](aip.md)
+  - depuis des [features du feature manager](fem.md)
 - Depuis des sources de données externes à REGARDS :
-  - depuis une [base de données externe](../configure-datasources/external-databases/)
-  - depuis une [source web OpenSearch](../configure-datasources/opensearch/)
+  - depuis une [base de données externe](database.md)
+  - depuis une [source web OpenSearch](opensearch.md)
 
 ---
 
@@ -29,4 +29,4 @@ Vous pouvez ajouter deux types de sources de données selon vos besoins.
 </div>
 
 - Vous pouvez activer ou désactiver les aspirations avec les <img src="/images/user-documentation/regards-icons/admin/toggle-button.png" alt="toggle" height="25" width="25"/> toggles buttons. Si vous choisissez d'en désactiver une, l'indexation du catalogue ne s'effectuera plus à partir de cette source de données.
-- Vous pouvez modifier les aspirations ou les supprimer. Attention, seules les sources de données non associées à un jeu de données peuvent être supprimées. Cliquez ici pour en savoir plus sur les ***[Datasets](../../data-organization/collections-datasets/)***
+- Vous pouvez modifier les aspirations ou les supprimer. Attention, seules les sources de données non associées à un jeu de données peuvent être supprimées. Cliquez ici pour en savoir plus sur les ***[Datasets](../3-data-organization/dataset-collection.md)***

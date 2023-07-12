@@ -21,7 +21,7 @@ REGARDS do not provides any implementation of this extension point yet.
 
 ## Implementation
 
-To learn more about how to create your own plugin see [Plugins](../../../../framework/modules/plugins/)
+To learn more about how to create your own plugin see [Plugins](../../../framework/modules/plugins.md)
 
 Here under is an exemple of how to implements this extension point to create your own business logic.
 

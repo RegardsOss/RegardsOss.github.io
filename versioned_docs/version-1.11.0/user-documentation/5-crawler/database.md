@@ -7,7 +7,7 @@ slug: /user-guide/crawler/configure-datasources/external-databases/
 *Peuplez le catalogue avec les données contenues dans une base externe à REGARDS*
 
 :::caution
-Avant de pouvoir configurer une source de données depuis une base externe, vous devez obligatoirement avoir [créé un modèle de données](../../../data-organization/models/) de type ***Data***, il servira à mettre en correspondance vos données et le modèle utilisé par le catalogue
+Avant de pouvoir configurer une source de données depuis une base externe, vous devez obligatoirement avoir [créé un modèle de données](../3-data-organization/models.md) de type ***Data***, il servira à mettre en correspondance vos données et le modèle utilisé par le catalogue
 :::
 
 ---
@@ -55,4 +55,4 @@ Vous entrez ensuite l'éditeur de création d'une source de données composé de
      - sélectionnez la table qui sera utilisée pour le mapping.
      - la section ***Links between model attributes and the connection***, vous propose deux manières de sélectionner les attributs. Vous pouvez directement choisir l'attribut de la table grâce à la liste déroulante ou cocher la case ***Use SQL*** pour écrire la clause du SELECT.
    - Cliquez ensuite sur le bouton ***Save***. Vous serez ensuite redirigé vers la liste des aspirations de données.
-   - Vérifiez la création de votre aspiration de données. Une fois l'aspiration créée vous pouvez suivre son traitement dans [Monitoring](../../monitor-crawling/).
+   - Vérifiez la création de votre aspiration de données. Une fois l'aspiration créée vous pouvez suivre son traitement dans [Monitoring](monitor-crawling.md).

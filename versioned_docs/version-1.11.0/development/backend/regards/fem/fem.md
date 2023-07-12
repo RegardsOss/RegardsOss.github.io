@@ -10,14 +10,14 @@ slug: /development/backend/services/fem/overview/
 
 `Fem` reponsabilities:
 
-* Feature extraction thanks to one of [IFeatureFactoryPlugin](../plugins/feature-factory/) implementation,
+* Feature extraction thanks to one of [IFeatureFactoryPlugin](plugins/feature-factory-plugins.md) implementation,
 * Feature creation,
 * Feature update,
 * Feature deletion.
 
 ## Available APIs
 
-* [Configuration REST API](../api/configuration/)
-* [REST API](../api/rest/)
-* [AMQP API](../api/amqp/)
+* [Configuration REST API](api/feature-management-configuration.md)
+* [REST API](api/feature-management-rest-api.md)
+* [AMQP API](api/feature-management-amqp-api.md)
 

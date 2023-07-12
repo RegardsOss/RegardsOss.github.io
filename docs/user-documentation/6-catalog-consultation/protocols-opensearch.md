@@ -81,7 +81,7 @@ En cliquant sur le bouton info, vous pourrez accéder au endpoint de recherche a
 </div>
 
 :::caution
-Pensez à rendre vos jeux de données disponibles depuis l'extérieur en autorisant l'accès aux jeux de données et objets pour le groupe public. Pour plus d'informations, référez-vous à la page [Configure data access rights](../../data-organization/data-access-rights/)
+Pensez à rendre vos jeux de données disponibles depuis l'extérieur en autorisant l'accès aux jeux de données et objets pour le groupe public. Pour plus d'informations, référez-vous à la page [Configure data access rights](../3-data-organization/data-access-rights.md)
 :::
 
 ### Utilisation

@@ -36,7 +36,7 @@ A partir de l'écran ***Create a new processing chain***, vous avez deux façons
 - Appuyez sur ***Import***
 - Appuyez ensuite sur ***Create***
 - Vérifiez la création de votre chaîne dans la liste
-- Vous pouvez désormais ***[soumettre des SIPs](../submit-products/)*** avec la chaîne que vous venez de créer.
+- Vous pouvez désormais ***[soumettre des SIPs](submit-products.md)*** avec la chaîne que vous venez de créer.
 
 ### Créer une chaîne manuellement (2)
 
@@ -47,7 +47,7 @@ Complétez les champs suivants :
 - Choisissez les plugins associés à chacune des étapes d'ingestion présentées ci-dessus. Seuls deux plugins sont obligatoires ***Data validation*** et ***Data generation***
 - Appuyez ensuite sur ***Create***
 - Vérifiez la création de votre chaîne dans la liste
-- Vous pouvez désormais ***[soumettre des SIPs](../submit-products/)*** avec la chaîne que vous venez de créer.
+- Vous pouvez désormais ***[soumettre des SIPs](submit-products.md)*** avec la chaîne que vous venez de créer.
 
 ## <img src="/images/user-documentation/doc-icons/right-arrow.png" alt="arrow" height="12" width="12"/> Gérer les chaînes d'ingestion
 

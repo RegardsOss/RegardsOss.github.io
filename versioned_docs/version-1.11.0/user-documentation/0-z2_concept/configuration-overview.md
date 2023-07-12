@@ -26,4 +26,4 @@ La majeure partie de la configuration est stockée dans la base de données du m
 Si le microservice est de type Projet, alors la valeur est propre à chaque projet.  
 L'administrateur peut modifier cette valeur sans avoir à redémarrer les microservices associés
 
-Les informations de configuration d'un projet REGARDS sont visualisables et éditables depuis [l'administration projet de REGARDS](../../project-configuration/introduction/)
+Les informations de configuration d'un projet REGARDS sont visualisables et éditables depuis [l'administration projet de REGARDS](../2-project-configuration/introduction-project-configuration.md)

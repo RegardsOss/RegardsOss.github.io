@@ -32,7 +32,7 @@ Business dependency
 
 Dependency :
 
-* [Multitenant starter](../multitenant/)
+* [Multitenant starter](./multitenant-starter.md)
 
 Prerequisites :
 

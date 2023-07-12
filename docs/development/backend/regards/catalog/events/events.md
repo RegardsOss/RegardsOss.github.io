@@ -6,7 +6,7 @@ slug: /development/backend/services/catalog/events/
 ---
 
 :::info
-To know more about bus message mechanism look at [AMQP starter](../../../framework/starters/amqp/)
+To know more about bus message mechanism look at [AMQP starter](../../../framework/starters/amqp-starter.md)
 :::
 
  | Event    | Target   | Mode    | Description     |

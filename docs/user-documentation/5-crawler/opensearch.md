@@ -7,7 +7,7 @@ slug: /user-guide/crawler/configure-datasources/opensearch/
 *Peuplez le catalogue avec les données issues d'une source web Opensearch*
 
 :::caution
-Avant de pouvoir configurer une source de données depuis une source Opensearch, vous devez obligatoirement avoir [créé un modèle de données](../../../data-organization/models/) de type ***Data***, il servira à mettre en correspondance vos données et le modèle utilisé par le catalogue
+Avant de pouvoir configurer une source de données depuis une source Opensearch, vous devez obligatoirement avoir [créé un modèle de données](../3-data-organization/models.md) de type ***Data***, il servira à mettre en correspondance vos données et le modèle utilisé par le catalogue
 :::
 
 ---
@@ -48,4 +48,4 @@ Depuis le menu ***Add data*** et la carte ***Crawling***, cliquez sur ***Map dat
  <img src="/images/user-documentation/v1.4/5-crawler/crawler-opensearch-step-3-example.png" alt="example" width="800"/> 
 </div>
 
-Appuyez sur le bouton ***Finish***, Vous serez redirigé vers la liste des aspirations de données dans laquelle vous pourrez retrouver votre configuration. Vous pouvez suivre son traitement dans [Monitoring](../../monitor-crawling/).
+Appuyez sur le bouton ***Finish***, Vous serez redirigé vers la liste des aspirations de données dans laquelle vous pourrez retrouver votre configuration. Vous pouvez suivre son traitement dans [Monitoring](monitor-crawling.md).

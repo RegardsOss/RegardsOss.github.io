@@ -102,7 +102,7 @@ cp -R ../../demo-insecure/group_vars ./
 cp -R ../../multihosts/group_vars ./
 ```
 
-Following chapter explains how to adapt these configurations to your needs, dependending the inventory you choosed. You can find [here](swarm/advanced-setup/) the full list of possibilities that our playbook offers.
+Following chapter explains how to adapt these configurations to your needs, dependending the inventory you choosed. You can find [here](advanced/swarm-advanced-introduction.md) the full list of possibilities that our playbook offers.
 
 #### Customise a demo's based inventory
 
@@ -289,7 +289,7 @@ $ ./health.sh all
 [200]	authentication
 ```
 
-You can monitor and administrate the deployed stack thanks to cli commands as explained [here](swarm/cli/)
+You can monitor and administrate the deployed stack thanks to cli commands as explained [here](swarm-cli.md)
 
 ### Quick setup conclusion
 

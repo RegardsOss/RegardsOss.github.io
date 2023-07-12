@@ -40,10 +40,10 @@ All dependencies are expressed in term of **Maven dependencies**.
 
 ## Starters
 
-REGARDS framework provides [building blocks (aka starters)](../starters/) to ease modules and microservices development.
+REGARDS framework provides [building blocks (aka starters)](starters.md) to ease modules and microservices development.
 
-Go to the [dedicated section](../starters/) to learn more.
+Go to the [dedicated section](starters.md) to learn more.
 
 ## Modules
 
-REGARDS framework provides common modules to manage [jobs](../modules/jobs/), [plugins](../modules/plugins/), [templates](../modules/templates/) and [workspace](../modules/workspace/).
+REGARDS framework provides common modules to manage [jobs](./modules/jobs.md), [plugins](./modules/plugins.md), [templates](./modules/templates.md) and [workspace](./modules/workspace.md).

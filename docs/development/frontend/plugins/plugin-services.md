@@ -8,12 +8,12 @@ slug: /development/frontend/plugins/service/
 
 ## Presentation
 
-A front-end service plugin is a javascript bundle used by [search results modules](../../packages/lazy-modules/search-results/) to add a graphical service onto a given entity or entities selection.
+A front-end service plugin is a javascript bundle used by [search results modules](../modules/search-results.md) to add a graphical service onto a given entity or entities selection.
 
 ![](/images/frontend/plugins/services-example.png)
 *Some services example: on lines, services for one entity. On header, services for current selection.*
 
-**Notes**:  Service plugin also respects main plugin consideration. Thus, make sure reading [plugins page](../../plugins/) first!
+**Notes**:  Service plugin also respects main plugin consideration. Thus, make sure reading [plugins page](plugins.md) first!
 
 A service may work for one or for many data objects. It allows defining administrator (static) and user (dynamic) parameters for execution. 
 

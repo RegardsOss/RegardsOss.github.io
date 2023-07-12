@@ -9,7 +9,7 @@ slug: /development/backend/services/storage/plugins/allocation-strategy/
 ## Overview
 
 :::note
-This extension point allows to define how storage microservice decides which [Data storage plugin](../data-storage/) to use to store a given AIP and its associated files.
+This extension point allows to define how storage microservice decides which [Data storage plugin](data-storage-plugins.md) to use to store a given AIP and its associated files.
 :::
 
 REGARDS provides many implementation of this extension point :
@@ -23,7 +23,7 @@ REGARDS provides many implementation of this extension point :
 
 ## Implementation
 
-To learn more about how to create your own plugin see [Plugins](../../../../framework/modules/plugins/)
+To learn more about how to create your own plugin see [Plugins](../../../framework/modules/plugins.md)
 
 Here under is an exemple of how to implements this extension point to create your own business logic.
 

@@ -34,10 +34,10 @@ Vous avez deux manières de créer un modèle de données :
   - **_Name_** le nom du modèle
   - **_Description_** la description du modèle
   - **_Type_** le type du modèle parmi **_Collection_**, **_Data_** ou **_Dataset_**. Définissez-le selon vos besoins :
-    - **_Collection_** est utilisé par les [collections de données](../collections-datasets/)
-    - **_Dataset_** est utilisé par les [jeux de données](../collections-datasets/)
-    - **_Data_** est utilisé par les [crawlers](../../crawler/introduction/) afin d'établir une correspondance entre vos données aspirées et le catalogue REGARDS
-- En important un fichier de données au format XML (2). C'est une solution qui est à privilégiée car elle permet de créer avec un seul fichier le modèle, ses attributs et éventuellement ses fragments. Pour sa rédaction, veuillez vous référez à la page [Create a model](../../../development/appendices/create-model/) et importez le modèle en appuyant sur le bouton **_Select a file_**.
+    - **_Collection_** est utilisé par les [collections de données](dataset-collection.md)
+    - **_Dataset_** est utilisé par les [jeux de données](dataset-collection.md)
+    - **_Data_** est utilisé par les [crawlers](../5-crawler/introduction-crawler.md) afin d'établir une correspondance entre vos données aspirées et le catalogue REGARDS
+- En important un fichier de données au format XML (2). C'est une solution qui est à privilégiée car elle permet de créer avec un seul fichier le modèle, ses attributs et éventuellement ses fragments. Pour sa rédaction, veuillez vous référez à la page [Create a model](../../development/appendices/create-model.md) et importez le modèle en appuyant sur le bouton **_Select a file_**.
 
 Si vous avez choisi la création manuelle, suivez les étapes ci-dessous pour ajouter des attributs et des fragments au modèle de données.
 
@@ -49,7 +49,7 @@ Depuis **_Data models_** et la carte **_Fragments_**, appuyez sur le bouton <img
 Vous pouvez :
 
 - soit créer un fragment manuellement en renseignant les champs **_Fragment name_** et **_Description_** puis appuyer sur le bouton **_Save_**
-- soit importer un fichier XML qui importera directement un fragment et ses attributs. Lire [Create a model](../../../development/appendices/create-model/) pour écrire ce fichier.
+- soit importer un fichier XML qui importera directement un fragment et ses attributs. Lire [Create a model](../../development/appendices/create-model.md) pour écrire ce fichier.
 
 <div align="center">
   <img src="/images/user-documentation/v1.4/3-data-organization/models/model-create-fragment.png" alt="create fragment" width="800"/> 

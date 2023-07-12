@@ -63,7 +63,7 @@ Après avoir ajouter un ou plusieurs toponymes en base de données, vous pouvez 
 Les toponymes générés précédemment seront conservés définitivement en base de données. Vous avez également la possibilité d’ajouter des toponymes temporaires directement à partir de l'interface IHM utilisateur.
 :::
 
-Avoir configuré une carte (voir [ajouter des cartes à un module search-results](../configuration#ajouter-des-cartes-à-un-module-search-results) pour plus d'information), connectez-vous à l'interface utilisateur et accédez à la vue carte depuis votre catalogue de données comme ci-dessous. 
+Avoir configuré une carte (voir [ajouter des cartes à un module search-results](configuration#ajouter-des-cartes-à-un-module-search-results) pour plus d'information.md), connectez-vous à l'interface utilisateur et accédez à la vue carte depuis votre catalogue de données comme ci-dessous. 
 
 <div align="center">
   <img src="/images/user-documentation/v1.4/6-catalog-consultation/catalog/user/catalog-toponyms.png" alt="toponyms" width="800"/> 

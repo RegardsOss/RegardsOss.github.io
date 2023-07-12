@@ -20,4 +20,4 @@ slug: /development/backend/services/admin/overview/
 
 # Available APIs
 
-* [Admin](../api/)
+* [Admin](admin-api-swagger.mdx)

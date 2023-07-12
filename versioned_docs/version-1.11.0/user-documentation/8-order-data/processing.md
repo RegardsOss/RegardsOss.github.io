@@ -22,9 +22,9 @@ Dans l'exemple suivant, vous serez en mesure d'ajouter un plugin de traitement d
 
 Depuis la carte ***Processing***, cliquez sur le bouton <img src="/images/user-documentation/regards-icons/admin/add.png" alt="add" height="25" width="25"/> ***Create a processing configuration*** .
 
-Sélectionnez le plugin que vous avez développé (_dans le cas suivant, il s'agira d'un plugin de test_), donnez un nom à cette configuration et remplissez tous les champs nécessaires. Choisissez ensuite quel type d'utilisateur aura le droit d'utiliser ce plugin. Pour rappel, il y a une section expliquant les rôles de REGARDS dans la page [Manage project users](../../project-configuration/users/) et la section ***Rôles des utilisateurs***.
+Sélectionnez le plugin que vous avez développé (_dans le cas suivant, il s'agira d'un plugin de test_), donnez un nom à cette configuration et remplissez tous les champs nécessaires. Choisissez ensuite quel type d'utilisateur aura le droit d'utiliser ce plugin. Pour rappel, il y a une section expliquant les rôles de REGARDS dans la page [Manage project users](../2-project-configuration/users.md) et la section ***Rôles des utilisateurs***.
 
-Cochez la case ***Associate this process to all datasets*** pour associer ce process à tous les jeux de données. Vous pouvez également activer ce plugin pour un ou plusieurs jeux de données directement depuis le jeu de données, pour cela suivez l'étape 5 de la section [création d'un jeu de données](../../data-organization/collections-datasets/).
+Cochez la case ***Associate this process to all datasets*** pour associer ce process à tous les jeux de données. Vous pouvez également activer ce plugin pour un ou plusieurs jeux de données directement depuis le jeu de données, pour cela suivez l'étape 5 de la section [création d'un jeu de données](../3-data-organization/dataset-collection.md).
 
 Une fois la configuration du module terminée, cliquez sur le bouton ***Create***. Vous serez alors redirigé vers l'écran listant tous les processing configurés.
 
@@ -35,7 +35,7 @@ Une fois la configuration du module terminée, cliquez sur le bouton ***Create**
  
 ## <img src="/images/user-documentation/doc-icons/right-arrow.png" alt="arrow" height="12" width="12"/> Appliquer des plugins de traitement
 
-Accédez à l'interface user depuis l'adresse `http://<regards host>/user/<project>`. Vous devriez déjà avoir créé les modules ***order-history*** et ***order-cart*** et savoir comment commander des données, si ce n'est pas le cas, cliquez sur la page suivante [Configure order modules](../manage-orders/).
+Accédez à l'interface user depuis l'adresse `http://<regards host>/user/<project>`. Vous devriez déjà avoir créé les modules ***order-history*** et ***order-cart*** et savoir comment commander des données, si ce n'est pas le cas, cliquez sur la page suivante [Configure order modules](manage-orders.md).
 
 Ajoutez des données au panier depuis le catalogue de données. Avant de commander, vous pouvez ajouter des plugins de traitements à toutes les données contenues dans un jeu en cliquant sur le bouton ***+ Process***.
 

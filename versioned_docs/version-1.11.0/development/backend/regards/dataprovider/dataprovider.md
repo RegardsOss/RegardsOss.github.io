@@ -19,12 +19,12 @@ slug: /development/backend/services/dataprovider/overview/
 
 ## Available APIs
 
-* [Data provider](../api/)
+* [Data provider](dataprovider-api-swagger.mdx)
 
 ## Available Extension points
 
-* [Scan plugins](../plugins/scan/)
-* [Validation plugins](../plugins/validation/)
-* [Product genertor plugins](../plugins/product/)
-* [SIP generation plugins](../plugins/sip-generation/)
-* [Post processing plugins](../plugins/post-processing/)
+* [Scan plugins](plugins/scan-plugins.md)
+* [Validation plugins](plugins/validation-plugins.md)
+* [Product genertor plugins](plugins/product-plugins.md)
+* [SIP generation plugins](plugins/sip-generation-plugins.md)
+* [Post processing plugins](plugins/post-processing-plugins.md)

@@ -35,7 +35,7 @@ Dependency :
 
 Used by :
 
-* [Security starter](../security/)
+* [Security starter](security-starter.md)
 
 ## Autoconfiguration
 

@@ -56,7 +56,7 @@ Créer le module ***order-cart***
 
 ## <img src="/images/user-documentation/doc-icons/right-arrow.png" alt="arrow" height="12" width="12"/> Commander des données
 
-Accédez à l'interface user depuis l'adresse `http://<regards host>/user/<project>`, les modules ***order-history*** et ***order-cart*** sont à présent disponibles. Commandez les données depuis un module de type ***[search-result](../../catalog/configuration/)***, appelé ***Catalog*** dans l'image ci-dessous.
+Accédez à l'interface user depuis l'adresse `http://<regards host>/user/<project>`, les modules ***order-history*** et ***order-cart*** sont à présent disponibles. Commandez les données depuis un module de type ***[search-result](../6-catalog-consultation/catalog-configuration.md)***, appelé ***Catalog*** dans l'image ci-dessous.
 
 Pour commander des données, ajoutez les une par une à l'aide de l'icône ***Add item to my cart*** affiché sur chaque ligne ou sélectionnez un groupe de données et ajoutez-les en appuyant sur le bouton ***Add to Basket*** sur la barre principale du ***Catalog***.
 
@@ -80,7 +80,7 @@ Cliquez ensuite sur l'icône <img src="/images/user-documentation/regards-icons/
   <img src="/images/user-documentation/v1.4/8-order-data/order/order-cart.png" alt="order cart" width="800"/> 
 </div>
 
-La sélection est triée par jeux de données (si vous avez coché la case ***Display datasets*** du module ***order-cart***), dans lesquels vous trouverez les données choisies, le nombre d'objets et la taille associée lorsque celle-ci est disponible. Appuyez sur le bouton en forme de loupe ***Shows added object list*** pour avoir le détail des données. Appliquez des [traitements](../processing/) si nécessaire en appuyant sur le bouton ***Process***. Vous pouvez retirer des éléments en appuyant sur le bouton ***Clear*** qui videra tout le panier, ou en appuyant sur les boutons de suppression des jeux de données ou des données.
+La sélection est triée par jeux de données (si vous avez coché la case ***Display datasets*** du module ***order-cart***), dans lesquels vous trouverez les données choisies, le nombre d'objets et la taille associée lorsque celle-ci est disponible. Appuyez sur le bouton en forme de loupe ***Shows added object list*** pour avoir le détail des données. Appliquez des [traitements](processing.md) si nécessaire en appuyant sur le bouton ***Process***. Vous pouvez retirer des éléments en appuyant sur le bouton ***Clear*** qui videra tout le panier, ou en appuyant sur les boutons de suppression des jeux de données ou des données.
 
 Une fois que vous aurez terminé, appuyez sur le bouton ***Order***. Donnez éventuellement un nom de commande, que vous retrouverez dans l'historique des commandes ***My orders***.
 
@@ -108,5 +108,5 @@ Il est recommandé d'utiliser l'outil ***REGARDS Downloader*** dans le cas de co
 :::
 
 :::info
-Vous pourrez également retrouver toutes vos commandes depuis l'interface d'administration. Référez-vous à la page [Monitor orders](../monitor-orders/) pour en savoir plus.
+Vous pourrez également retrouver toutes vos commandes depuis l'interface d'administration. Référez-vous à la page [Monitor orders](monitor-orders.md) pour en savoir plus.
 :::

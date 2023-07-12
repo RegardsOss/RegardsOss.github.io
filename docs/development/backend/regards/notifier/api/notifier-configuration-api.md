@@ -44,8 +44,8 @@ Import your configuration file in multipart request using name `file`.
 Configuration parameters :
 
 - `resetBeforeImport`: You can configure to delete all previous configuration before import new one.
-- `RuleMatcher`: Configuration of rules based on [plugins](../../plugins#rule-matcher-plugins). Rules are used to define if a notification should be sent to associated RecipientSenders
-- `RecipientSender`: Configuration of notification senders based on [plugins](../../plugins#recipient-sender-plugins). Senders are used to define how to send notification to recipients.
+- `RuleMatcher`: Configuration of rules based on [plugins](../plugins/notifier-plugins.md#rule-matcher-plugins). Rules are used to define if a notification should be sent to associated RecipientSenders
+- `RecipientSender`: Configuration of notification senders based on [plugins](../plugins/notifier-plugins.md#recipient-sender-plugins). Senders are used to define how to send notification to recipients.
 - `Rule/RecipientSenders assocation` : Configuration to associates one RuleMatcher to one or many RecipientSenders
 
 ```json

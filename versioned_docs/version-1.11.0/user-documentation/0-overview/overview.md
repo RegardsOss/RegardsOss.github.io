@@ -145,106 +145,28 @@ REGARDS (**_RE_**nouvellement des outils **_G_**énériques d'**_A_**ccès et d'
 
 ## Utilisation de REGARDS étape par étape
 
-<ol>
-  <li>
-    <a href="global-configuration/introduction/">
-      Configurer l'instance de REGARDS
-    </a>
-  </li>
-  <li>
-    <a href="project-configuration/introduction/">
-      Configurer un projet REGARDS
-    </a>
-  </li>
-  <li>
-    <a href="data-organization/models/">
-      Définir les modèles de données
-    </a>
-  </li>
-  <li>
-    <a href="import-data/introduction/">
-      Construire son archive scientifique
-    </a>
-    <ul>
-      <li>
-        <a href="import-data/oais-files/introduction/">
-          Archivage OAIS 
-        </a>
-      </li>
-      <li>
-        <a href="import-data/fem/introduction/">
-          Archivage de produits GeoJSON
-        </a>
-      </li>
-    </ul>
-  </li>
-  <li>
-    <a href="data-organization/collections-datasets/">
-      Regrouper les données en jeux ou collections
-    </a>
-  </li>
-  <li>
-    <a href="data-organization/data-access-rights/">
-      Gérer les droits d’accès aux données
-    </a>
-  </li>
-  <li>
-    <a href="crawler/introduction/">
-      Peupler le catalogue
-    </a>
-    <ul>
-      <li>
-         Depuis des sources de données internes
-        <ul>
-          <li>
-            <a href="crawler/configure-datasources/aips/">Depuis la base interne OAIS</a>
-          </li>
-          <li>
-            <a href="crawler/configure-datasources/fem/">Depuis la base interne de produits GeoJSON</a>
-          </li>
-        </ul>
-      </li>
-      <li>
-         Depuis des sources de données externes
-        <ul>
-          <li>
-            <a href="crawler/configure-datasources/external-databases/">
-              Depuis des bases de données externes
-            </a>
-          </li>
-          <li>
-            <a href="crawler/configure-datasources/opensearch/">
-              Depuis des sources de données web Opensearch
-            </a>
-          </li>
-        </ul>
-      </li>
-    </ul>
-  </li>
-  <li>
-    <a href="catalog/introduction/">
-      Configurer le catalogue
-    </a>
-  </li>
-  <li>
-    <a href="data-services/introduction/">
-      Ajouter des services aux données
-    </a>
-  </li>
-  <li>
-    <a href="order/introduction/">
-      Commander des données depuis le catalogue
-    </a>
-  </li>
-  <li>
-    <a href="monitoring/dashboard">
-      Monitorer l'archive scientifique interne et le catalogue
-    </a>
-  </li>
-</ol>
+1. [Configurer l'instance de REGARDS](../1-global-configuration/introduction-global-configuration.md)
+1. [Configurer un projet REGARDS](../2-project-configuration/introduction-project-configuration.md)
+1. [Définir les modèles de données](../3-data-organization/models.md)
+1. [Construire son archive scientifique](../4-import-data/import-data.md)
+	 - [Archivage OAIS](../4_1-ingest/introduction-ingest.md)
+	 - [Archivage de produits GeoJSON](../4_3-fem/introduction-fem.md)
+1. [Regrouper les données en jeux ou collections](../3-data-organization/dataset-collection.md)
+1. [Gérer les droits d’accès aux données](../3-data-organization/data-access-rights.md)
+1. [Peupler le catalogue](../5-crawler/introduction-crawler.md)
+	 - Depuis des sources de données internes
+		 - [Depuis la base interne OAIS](../5-crawler/aip.md)
+		 - [Depuis la base interne de produits GeoJSON](../5-crawler/fem.md)
+	 - Depuis des sources de données externes
+		 - [Depuis des bases de données externes](../5-crawler/database.md)
+		 - [Depuis des sources de données web Opensearch](../5-crawler/opensearch.md)
+1. [Configurer le catalogue](../6-catalog-consultation/introduction-catalog.md)
+1. [Ajouter des services aux données](../7-data-services/introduction-services.md)
+1. [Commander des données depuis le catalogue](../8-order-data/introduction-order.md)
+1. [Monitorer l'archive scientifique interne et le catalogue](../9-monitoring/monitor-session.md)
 
 :::info
-Pour en savoir plus sur le développement de plugins [Backend](../development/backend/framework/modules/plugins/) ou [Frontend](../development/frontend/plugins/).
+Pour en savoir plus sur le développement de plugins [Backend](../../development/backend/framework/modules/plugins.md) ou [Frontend](../../development/frontend/plugins/plugins.md).
 :::
 
 **_Mot-clés_** : catalogue de données, métadonnées, données, modèles de données, différentes sources de données, protocole de recherche standardisé, gestion des accès.

@@ -18,12 +18,12 @@ slug: /development/backend/services/ingest/overview/
 
 
 ## Available Extension points
-* [SIP Pre processing plugins](../plugins/sip-pre-processing/)
-* [SIP Validation plugins](../plugins/sip-validation/)
-* [AIP Generation plugins](../plugins/aip-generation/)
-* [AIP Tagging plugins](../plugins/aip-tagging/)
-* [SIP Post processing plugins](../plugins/sip-post-processing/)
+* [SIP Pre processing plugins](plugins/sip-pre-processing-plugins.md)
+* [SIP Validation plugins](plugins/sip-validation-plugins.md)
+* [AIP Generation plugins](plugins/aip-generation-plugins.md)
+* [AIP Tagging plugins](plugins/aip-tagging-plugins.md)
+* [SIP Post processing plugins](plugins/sip-post-processing-plugins.md)
 
 ## Bus message events
 
- * [Events](../events/)
+ * [Events](events/events.md)

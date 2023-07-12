@@ -8,9 +8,9 @@ _Le tableau de bord est un outil transverse qui permet de suivre l'exécution de
 
 _Si vous ne connaissez pas un de ces concepts, vous pouvez lire les rubriques suivantes pour en savoir plus :_
 
-- _[OAIS Archive](../import-data/oais-files/introduction/)_
-- _[GeoJSON Feature Archive](../import-data/fem/introduction/)_
-- _[Build your catalog](../crawler/introduction/)_
+- _[OAIS Archive](../4_1-ingest/introduction-ingest.md)_
+- _[GeoJSON Feature Archive](../4_3-fem/introduction-fem.md)_
+- _[Build your catalog](../5-crawler/introduction-crawler.md)_
 
 Depuis **Add data** et la carte **Dashboard**, cliquez le bouton <img src="/images/user-documentation/regards-icons/admin/monitor.png" alt="monitor" height="25" width="25"/> **Display dashboard**.
 
@@ -72,10 +72,10 @@ Des boutons d'actions peuvent également s'afficher dans ces étapes :
   - **See errors**, pour voir les traitement en erreur
   - **Relaunch errors**, pour relancer les traitements en erreur
 - _Storage_
-  - **See storages**, pour voir l'ensemble des espaces de stockage et la place occupée par les fichiers, pour en savoir plus référez-vous à la [page dédiée](../project-configuration/storages/).
+  - **See storages**, pour voir l'ensemble des espaces de stockage et la place occupée par les fichiers, pour en savoir plus référez-vous à la [page dédiée](../2-project-configuration/storage-configuration.md).
   - **Relaunch errors**, pour essayer de stocker de nouveau les fichiers en erreur
 - _Diffusion_
-  - **See detail**, pour accéder à l'écran de suivi des aspirations de données vers le catalogue dans le cas où une [chaîne aurait été configurée](../crawler/introduction/). 
+  - **See detail**, pour accéder à l'écran de suivi des aspirations de données vers le catalogue dans le cas où une [chaîne aurait été configurée](../5-crawler/introduction-crawler.md). 
 
 
 

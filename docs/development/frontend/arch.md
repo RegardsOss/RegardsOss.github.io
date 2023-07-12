@@ -13,7 +13,7 @@ The REGARDS frontend contains three differents interfaces:
  - The `User interface`, fully configurable (layout, theme and modules displayed), that lets users browse project content. 
  - The `Administrator interface`, that allows **Instance admin** creating Projects and **Project Admin** configuring them. 
 
-For the `Portal` and `User` interfaces, REGARDS UI defines [Dynamic modules](../../packages/lazy-modules/) to bring UI features that the administrator can control (options, layout, menus.../).
+For the `Portal` and `User` interfaces, REGARDS UI defines [Dynamic modules](modules/dynamic-modules.md) to bring UI features that the administrator can control (options, layout, menus....md).
 
 ## Structure
 
@@ -144,19 +144,19 @@ Those servers are used to develop and test new functionnalities. The team recent
 
 ## Plugins
 
-The `plugins` folder contains REGARDS front end plugins code. Those plugins are separed of front end core code. However, it is convenient for development to keep the folder within webapp to address compilation, version and references issues. For more detail about plugins, see [plugins page](../../plugins/)
+The `plugins` folder contains REGARDS front end plugins code. Those plugins are separed of front end core code. However, it is convenient for development to keep the folder within webapp to address compilation, version and references issues. For more detail about plugins, see [plugins page](plugins/plugins.md)
 
 ## Components modules
 
-This package provides **React** generic components to handle forms, buttons, cards and so on. More details are available in [components detail page](../../packages/components/)
+This package provides **React** generic components to handle forms, buttons, cards and so on. More details are available in [components detail page](components/components.md)
 
 ## Data
 
-This folder holds API data related modules (server fetching, shapes, redux store, middlewares...). See [data presentation page](../../data/ui-data/)
+This folder holds API data related modules (server fetching, shapes, redux store, middlewares...). See [data presentation page](data.md)
 
 ## Modules
 
-This folder contains all _dynamic_ modules, ie all modules that can be configured to be displayed in user and portal application. For more details, see [dynamic modules sections](../../packages/lazy-modules/)  
+This folder contains all _dynamic_ modules, ie all modules that can be configured to be displayed in user and portal application. For more details, see [dynamic modules sections](modules/dynamic-modules.md)  
 
 ## Utils modules
 This folder holds modules, one by folder, providing high level tools and components shared by all application interfaces (administration, user application and portal application).

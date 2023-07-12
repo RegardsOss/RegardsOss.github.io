@@ -15,18 +15,18 @@ Microservices `rs-access-instance` and `rs-access-project` store the configurati
 ## Modules list
 
 REGARDS defines currently the following dynamic modules:
-- [Authentication](../lazy-modules/authentication/)
-- [Embedded HTML](../lazy-modules/embedded-html/)
-- [License](../lazy-modules/licenses/)
-- [Menu](../lazy-modules/menu/)
-- [Order Cart](../lazy-modules/order-cart/)
-- [Order History](../lazy-modules/order-history/)
-- [Project About Page](../lazy-modules/project-about-page/)
-- [Project List](../lazy-modules/project-list/)
+- [Authentication](authentication.md)
+- [Embedded HTML](embedded-html.md)
+- [License](licenses.md)
+- [Menu](menu.md)
+- [Order Cart](order-cart.md)
+- [Order History](order-history.md)
+- [Project About Page](project-about-page.md)
+- [Project List](projects-list.md)
 - Search Form
-- [Search Graph](../lazy-modules/search-graph/)  
-- [Search Results](../lazy-modules/search-results/)
-- [Storage Monitoring](../lazy-modules/storage-monitoring/)
+- [Search Graph](search-graph.md)  
+- [Search Results](search-results.md)
+- [Storage Monitoring](storage-monitoring.md)
 
 
 ## Module structure
@@ -278,7 +278,7 @@ export default Example
 
 ```
 
-More information about the theme management are available in [theme page](../../view/theme/).
+More information about the theme management are available in [theme page](../components/theme.md).
 
 ### Reducer
 
@@ -323,7 +323,7 @@ const messages = {
 ```
 By convention, we import that object in module main.js file from `src/i18n/index.js` (noted src/i18n in code). That file only imports all locales languages from corresponding files `messages.<language>.i18n.js`, where language is 'en', 'fr'... Then it exports messages object as illustrated before.
 
-More information about the internationalization are available in [internationalization page](../../view/international/).
+More information about the internationalization are available in [internationalization page](../components/internationalization.md).
 
 ### Dependencies
 

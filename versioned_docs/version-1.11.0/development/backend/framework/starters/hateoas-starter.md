@@ -10,7 +10,7 @@ slug: /development/backend/framework/starters/hateoas/
 Nothing to configure at the moment.
 
 Dependency :
-- [Security starter](../security/)
+- [Security starter](security-starter.md)
 
 :::caution
 At the moment, this starter only accepts **@RequestMapping** annotation to work fine.

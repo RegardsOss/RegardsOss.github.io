@@ -108,7 +108,7 @@ The shaded plugin is mandatory to build your plugin in order to ensure the compi
 :::
 
 You can now develop your plugin implementation following the documentation of the extension point found in this github documentation.
-See [plugins API](../plugins-api/) for more information.
+See [plugins API](../regards/common/api/plugins-api.md) for more information.
 
 Here under is an exemple of an empty implementation :
 

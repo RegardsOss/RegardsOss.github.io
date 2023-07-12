@@ -31,8 +31,8 @@ Business dependency :
 
 Dependency :
 
-* [GeoJSON starter](../geojson/)
-* [GSON starter](../gson/)
+* [GeoJSON starter](geojson-starter.md)
+* [GSON starter](gson-starter.md)
 
 ## Autoconfiguration
 

@@ -22,7 +22,7 @@ Configurez-le selon votre utilisation :
 - Si vos plugins nécessitent des paramètres, choisissez si vous souhaitez que leurs valeurs soient :
   - ***fixe***, l'administrateur décide d'une valeur qui sera utilisée pour tous les traitements
   - ***dynamique***, à chaque utilisation du plugin, il sera demandé de fournir une valeur. Il est possible de contraindre celle-ci parmi une liste de valeurs possibles.
-- Choisissez si vous voulez l'activer pour tous les jeux de données au travers du paramètre ***Activate this service for datas of every datasets*** (par défaut la valeur n'est pas activée). Si vous souhaitez l'ajouter seulement pour un ou plusieurs jeux de données, suivez l'étape 5 de la [création d'un jeu de données](../../data-organization/collections-datasets/)
+- Choisissez si vous voulez l'activer pour tous les jeux de données au travers du paramètre ***Activate this service for datas of every datasets*** (par défaut la valeur n'est pas activée). Si vous souhaitez l'ajouter seulement pour un ou plusieurs jeux de données, suivez l'étape 5 de la [création d'un jeu de données](../3-data-organization/dataset-collection.md)
 
 <div align="center">
   <img src="/images/user-documentation/v1.4/7-data-services/processing-services/service-create.png" alt="create service" width="800"/> 

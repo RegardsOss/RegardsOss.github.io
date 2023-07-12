@@ -9,7 +9,7 @@ slug: /user-guide/crawler/configure-datasources/fem/
 :::caution
 Vous devez déjà avoir :
 
-- créé des features depuis le feature manager, référez-vous à la section [Import data - FEM](../../../import-data/fem/introduction/) si ce n'est déjà fait.
+- créé des features depuis le feature manager, référez-vous à la section [Import data - FEM](../4_3-fem/introduction-fem.md) si ce n'est déjà fait.
 :::
 
 ---
@@ -32,4 +32,4 @@ Depuis le menu ***Add data*** et la carte ***Crawling***, cliquez sur ***Map dat
   - ***Data model***, où vous devrez obligatoirement choisir dans la liste déroulante le modèle ayant servi à la création des features que vous souhaitez référencer dans le catalogue
 - Appuyez ensuite sur ***Save***
 - Vérifiez que votre source de données se trouve dans la liste
-- Rendez-vous ensuite dans la section ***[Monitor data crawling](../../monitor-crawling/)*** pour suivre l'aspiration de vos features.
+- Rendez-vous ensuite dans la section ***[Monitor data crawling](monitor-crawling.md)*** pour suivre l'aspiration de vos features.

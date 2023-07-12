@@ -41,7 +41,7 @@ Chaque bloc représente un type de service. L'écran accessible depuis le bouton
   <img src="/images/user-documentation/v1.4/7-data-services/ui-services/configuration-list.png" alt="configuration list" width="800"/> 
 </div>
 
-Vous aurez la possibilité d'activer ou non une configuration du service, et de l'associer ou non à tous les jeux de données existant de votre projet. Vous pouvez également activer ce plugin pour un ou plusieurs jeux de données directement depuis le jeu de données, pour cela suivez l'étape 5 de la section [création d'un jeu de données](../../data-organization/collections-datasets/).
+Vous aurez la possibilité d'activer ou non une configuration du service, et de l'associer ou non à tous les jeux de données existant de votre projet. Vous pouvez également activer ce plugin pour un ou plusieurs jeux de données directement depuis le jeu de données, pour cela suivez l'étape 5 de la section [création d'un jeu de données](../3-data-organization/dataset-collection.md).
 
 ## <img src="/images/user-documentation/doc-icons/right-arrow.png" alt="arrow" height="12" width="12"/> Application des services IHM
 

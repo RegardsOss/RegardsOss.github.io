@@ -18,14 +18,14 @@ slug: /development/backend/services/dam/overview/
 
 ## Available Extension points
 
-* [Access rights](../plugins/data-access-rights/)
-* [Computed attributes](../plugins/computed-attribute/)
-* [Data sources](../plugins/datasource/)
+* [Access rights](plugins/access-rights-plugins.md)
+* [Computed attributes](plugins/computed-attribute-plugins.md)
+* [Data sources](plugins/data-source-plugins.md)
 
 ## Bus message events
 
- * [Events](../events/)
+ * [Events](events/events.md)
 
 ## Appendices
 
-* [Geospatial behavior](../geo/)
+* [Geospatial behavior](geo.md)

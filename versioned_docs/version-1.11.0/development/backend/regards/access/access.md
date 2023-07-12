@@ -15,5 +15,5 @@ slug: /development/backend/services/access/overview/
 
 ## Available APIs
 
-* [access api](../api/)
+* [access api]access-project-api-swagger.mdx)
 

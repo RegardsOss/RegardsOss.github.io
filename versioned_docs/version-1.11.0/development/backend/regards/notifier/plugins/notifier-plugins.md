@@ -16,7 +16,7 @@ Configuration parameters are :
  - attributeToSeek : attribut name to search for the notification json content. 
  - attributeValueToSeek : attribut value to match.
 
-To configure this plugin, use the here-under configuration block in [import service configuration](../api/configuration/)
+To configure this plugin, use the here-under configuration block in [import service configuration](../api/notifier-configuration-api.md)
 
 ```json
  {
@@ -39,9 +39,9 @@ To configure this plugin, use the here-under configuration block in [import serv
 ### LuceneRuleMatcher :
 This rule matcher allows to check if the given lucene expression match the notification json object content. If so, the notification is sent to associated senders.
 Configuration parameters are :
- - luceneRule : Lucene expression to seek [example](../../../../appendices/lucene-query)
+ - luceneRule : Lucene expression to seek [example](../../../../appendices/create-lucene-query.md)
 
-To configure this plugin, use the here-under configuration block in [import service configuration](../api/configuration/)
+To configure this plugin, use the here-under configuration block in [import service configuration](../api/notifier-configuration-api.md)
 
 ```json
  {
@@ -72,7 +72,7 @@ Configuration parameters are :
  - exchange : Name  of the  exchange to use
  - queueName : Name of the queue to use
 
-To configure this plugin, use the here-under configuration block in [import service configuration](../api/configuration/)
+To configure this plugin, use the here-under configuration block in [import service configuration](../api/notifier-configuration-api.md)
 
 ```json
  {
@@ -94,7 +94,7 @@ To configure this plugin, use the here-under configuration block in [import serv
 ## Recipients / Rules association
 
 In order to have a functional notification system, the last configuration to make is to associate your recipients to your rules. You can associate one rule too many recipients.
-To do so, please use the here under configuration block in [import module configuration](../api/configuration/)
+To do so, please use the here under configuration block in [import module configuration](../api/notifier-configuration-api.md)
 
 ```json
 {

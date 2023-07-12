@@ -18,17 +18,17 @@ slug: /development/backend/services/catalog/overview/
 
 ### Search API
 
-* [Catalog](../search-api/)
+* [Catalog](catalog-api-swagger.mdx)
 
 ## Available Extension points
 
-* [Catalog service](../service-plugins/)
-* [Search engine](../search-engine-plugins/)
+* [Catalog service](./plugins/catalog-service-plugins.md)
+* [Search engine](./plugins/search-engine-plugins.md)
 
 ## Bus message events
 
- * [Events](../events/)
+ * [Events](events/events.md)
 
 ## Plugins
 
-* [STAC plugin](../stac-plugin/)
+* [STAC plugin](plugins/stac-plugin.md)

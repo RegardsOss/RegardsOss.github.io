@@ -18,23 +18,23 @@ slug: /development/backend/services/dam/overview/
 
 ## Available APIs
 
-* [Access rights api](../api/access-rights/)
-* [Models api](../api/model/)
-* [Collection api](../api/collection/)
-* [Dataset api](../api/dataset/)
-* [Datasource api](../api/datasource/)
-* [Document api](../api/document/)
+* [Access rights api](api/access-rights-api.md)
+* [Models api](api/model-api.md)
+* [Collection api](api/collection-api.md)
+* [Dataset api](api/dataset-api.md)
+* [Datasource api](api/datasource-api.md)
+* [Document api](api/document-api.md)
 
 ## Available Extension points
 
-* [Access rights](../plugins/data-access-rights/)
-* [Computed attributes](../plugins/computed-attribute/)
-* [Data sources](../plugins/datasource/)
+* [Access rights](plugins/access-rights-plugins.md)
+* [Computed attributes](plugins/computed-attribute-plugins.md)
+* [Data sources](plugins/data-source-plugins.md)
 
 ## Bus message events
 
- * [Events](../events/)
+ * [Events](events/events.md)
 
 ## Appendices
 
-* [Geospatial behavior](../geo/)
+* [Geospatial behavior](geo.md)

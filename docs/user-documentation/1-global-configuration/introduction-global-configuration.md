@@ -17,9 +17,9 @@ L'interface d'administration est accessible depuis l'adresse `http://<regards ho
 
 Depuis celle-ci, vous pourrez :
 
-- [Créer et gérer des projets](../projects/)
-- [Identifier les utilisateurs et contrôler leurs droits d'accès](../users/)
-- [Personnaliser l'interface](../portal/)
+- [Créer et gérer des projets](project-configuration.md)
+- [Identifier les utilisateurs et contrôler leurs droits d'accès](user-accounts.md)
+- [Personnaliser l'interface](portal-configuration.md)
 
 <div align="center">
   <img src="/images/user-documentation/v1.4/1-global-configuration/admin-instance-hmi.png" alt="interface admin" width="800"/> 

@@ -21,14 +21,14 @@ In that case, user has to retrieve available files from the finished SubOrder, b
 
 ### API Guides
 
- - [Order life cycle](../guides/order-lifecycle) allows you to understand how an order will progress over time.
- - Create Order [using REST API](../guides/create-order-rest) or [using AMQP API](../guides/create-order-amqp) shows you how to create a basket selection and create the order in a single request. **Recommended for interoperability since v1.12**
- - Get Order [status using REST API](../guides/get-order-status-rest) or [progress threw AMQP API](../guides/get-order-progress-amqp) shows you how to create a basket selection and create the order in a single request. **Recommended for interoperability since v1.12**
- - [Download ordered files using REST API](../guides/download-ordered-files)
+ - [Order life cycle](api-guides/order-lifecycle.md) allows you to understand how an order will progress over time.
+ - Create Order [using REST API](api-guides/rest-create-order.md) or [using AMQP API](api-guides/amqp-create-order.md) shows you how to create a basket selection and create the order in a single request. **Recommended for interoperability since v1.12**
+ - Get Order [status using REST API](api-guides/rest-get-order-status.md) or [progress threw AMQP API](api-guides/amqp-get-order-progress.md) shows you how to create a basket selection and create the order in a single request. **Recommended for interoperability since v1.12**
+ - [Download ordered files using REST API](api-guides/rest-download-ordered-files.md)
 
 
 ### REST API
-- The [RS-ORDER microservice REST API](../api-swagger/) auto generated using OpenAPI.  
+- The [RS-ORDER microservice REST API](order-api-swagger.mdx) auto generated using OpenAPI.  
 
  
 ### Contributors guides

@@ -15,11 +15,11 @@ slug: /development/backend/services/notifier/overview/
 
 ## Available APIs
 
-* [Configuration API](../api/configuration/)
-* [API](../api/)
+* [Configuration API](api/notifier-configuration-api.md)
+* [Notifier API](notifier-api-swagger.mdx)
 
 ## Available Plugins
 
-* [Rule matchers](../plugins#rule-matcher-plugins)
-* [Recipient senders](../plugins#recipient-sender-plugins)
+* [Rule matchers](plugins/notifier-plugins.md#rule-matcher-plugins)
+* [Recipient senders](plugins/notifier-plugins.md#recipient-sender-plugins)
 

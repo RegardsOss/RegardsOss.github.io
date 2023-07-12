@@ -17,7 +17,7 @@ Dans le menu latéral, cliquez sur **Add data** et observez la carte **Product M
 
 Dans cette catégorie, vous pouvez créer et gérer des chaînes d'ingestion. Celles-ci permettent l'ingestion des SIPs, leur transformation en AIP et leur stockage.
 
-<img src="/images/user-documentation/doc-icons/link.png" alt="link" height="20" width="20"/> <i><a href="../configure-ingestion-chains/">Learn how to configure an ingestion chain</a></i>
+[Learn how to configure an ingestion chain](ingestion-chain-configuration.md)
 
 ---
 
@@ -25,7 +25,7 @@ Dans cette catégorie, vous pouvez créer et gérer des chaînes d'ingestion. Ce
 
 Cet onglet permet de déposer vos SIPs au format OAIS.
 
-<img src="/images/user-documentation/doc-icons/link.png" alt="link" height="20" width="20"/> <i><a href="../submit-products/">Learn how to submit products</a></i>
+[Learn how to submit products](submit-products.md)
 
 ---
 
@@ -33,7 +33,7 @@ Cet onglet permet de déposer vos SIPs au format OAIS.
 
 Voyez cette page comme un outil de gestion de base de données simplifié. Vous avez la possibilité d'effectuer des opérations de base sur les produits (accès, modification, suppression), de voir les traitements associés et de filtrer les produits en fonctions de divers paramètres. Pour en savoir plus :
 
-<img src="/images/user-documentation/doc-icons/link.png" alt="link" height="20" width="20"/> <i><a href="../manage-products/">Learn how to configure an manage products</a></i>
+[Learn how to configure an manage products](manage-products.md)
 
 ---
 
@@ -41,4 +41,4 @@ Voyez cette page comme un outil de gestion de base de données simplifié. Vous 
 
 Cet écran permet de gérer les paramètres d'ingestion des SIPs
 
-<img src="/images/user-documentation/doc-icons/link.png" alt="link" height="20" width="20"/> <i><a href="../settings-ingest">Learn how to configure ingestion settings</a></i>
+[Learn how to configure ingestion settings](settings-ingest.md)

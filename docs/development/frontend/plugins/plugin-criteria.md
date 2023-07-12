@@ -7,14 +7,14 @@ slug: /development/frontend/plugins/criteria/
 
 ## Presentation
 
-A front-end criterion plugin is a javascript bundle used in [Search results modules](../../packages/lazy-modules/search-results/) to create form fields and panes. Each criterion plugin generates OpenSearch request parameters sent to the rs-catalog microservice in order to search resulting entities. Criterion plugins accept attributes to filter as configuration.
+A front-end criterion plugin is a javascript bundle used in [Search results modules](../modules/search-results.md) to create form fields and panes. Each criterion plugin generates OpenSearch request parameters sent to the rs-catalog microservice in order to search resulting entities. Criterion plugins accept attributes to filter as configuration.
 
 ![](/images/frontend/plugins/search-form-small.png)  
 _Example of search form, using many criterion plugins_
 
 **Notes** :
 
-- Criterion plugin also respects main plugin consideration. Thus, make sure reading [plugins page](../../plugins/) first!
+- Criterion plugin also respects main plugin consideration. Thus, make sure reading [plugins page](plugins.md) first!
 - OpenSearch requests are expressed using the [Lucene format](https://lucene.apache.org/core/2_9_4/queryparsersyntax.html).
 
 ## Main principles

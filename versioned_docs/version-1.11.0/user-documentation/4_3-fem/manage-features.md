@@ -11,7 +11,7 @@ slug: /user-guide/import-data/fem/manage-features/
 ## <img src="/images/user-documentation/doc-icons/right-arrow.png" alt="arrow" height="12" width="12"/> Créer des features
 
 :::caution
-Avant de pouvoir importer des features dans REGARDS, vous devrez obligatoirement avoir [créé un modèle de données](../../../data-organization/models/) de type ***Data*** pour qu'elles puissent être interprétées.
+Avant de pouvoir importer des features dans REGARDS, vous devrez obligatoirement avoir [créé un modèle de données](../3-data-organization/models.md) de type ***Data*** pour qu'elles puissent être interprétées.
 :::
 
 Pour créer des features, il existe deux types de services proposés par le feature manager :
@@ -21,7 +21,7 @@ Pour créer des features, il existe deux types de services proposés par le feat
 
 ### Par le service feature
 
-Pour envoyer des features dans REGARDS, suivez le tutoriel [Feature Manager AMQP API](../../../../development/backend/services/fem/api/amqp/).
+Pour envoyer des features dans REGARDS, suivez le tutoriel [Feature Manager AMQP API](../../development/backend/regards/fem/api/feature-management-amqp-api.md).
 Il vous expliquera comment :
 
 - Créer des fichiers afin de stocker des features dans REGARDS. Ceux-ci sont composés de trois parties principales :
@@ -41,7 +41,7 @@ Il vous expliquera comment :
 
 ### Par le service feature provider
 
-Pour développer des plugins de création de features par extraction de données, suivez le tutoriel [Feature Factory Plugins](../../../../development/backend/services/fem/plugins/feature-factory/)
+Pour développer des plugins de création de features par extraction de données, suivez le tutoriel [Feature Factory Plugins](../../development/backend/regards/fem/plugins/feature-factory-plugins.md)
 
 ## <img src="/images/user-documentation/doc-icons/right-arrow.png" alt="arrow" height="12" width="12"/> Gérer des features
 
@@ -90,7 +90,7 @@ Vous pouvez filtrer les features ou les requêtes selon les critères suivants :
 Vous pouvez ***notifier*** ou ***supprimer*** une sélection de features. A noter que la notification est une étape déjà intégrée au workflow de traitement d'une requête de feature, cette action vous permettra donc d'en lancer une nouvelle si nécessaire. 
 
 :::info 
-La modification d'une feature uniquement se fait uniquement par requête, pour cela référez-vous au tutoriel [Feature Manager AMQP API](../../../../development/backend/services/fem/api/amqp/#feature-patch-request)
+La modification d'une feature uniquement se fait uniquement par requête, pour cela référez-vous au tutoriel [Feature Manager AMQP API](../../development/backend/regards/fem/api/feature-management-amqp-api.md)
 ::: 
 
 Vous pouvez également consulter, supprimer ou notifier une feature individuellement.

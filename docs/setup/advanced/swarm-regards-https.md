@@ -20,7 +20,7 @@ openssl rsa -in <your domain>.encrypted.key -out <your domain>.key
 ```
 - Create the folder `<inventory>/group_vars/regards_nodes/files/ssl` in your inventory then open this folder using your terminal 
 
-- Using [Ansible Vault - Encrypt file](../ansible-vault/#encrypt-file), generates an encrypted version of the `<your domain>.key` file
+- Using [Ansible Vault - Encrypt file](ansible-vault.md#encrypt-file), generates an encrypted version of the `<your domain>.key` file
 - Copy the `<your domain>.key` file without any Ansible Vault encryption (it's not a sensitive information)
 - Edit your inventory file `inventories/<your inventory>/group_vars/regards_nodes/main.yml` 
 ```yaml

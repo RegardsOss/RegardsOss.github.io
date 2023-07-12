@@ -68,7 +68,7 @@ Vous pouvez supprimer un compte que si celui-ci n'est associé à aucun utilisat
 
 Lorsqu'un utilisateur demande la création d'un nouveau compte, il est possible de configurer le système pour demander deux niveaux d'acceptation de la demande :
 
-1.  Validation du compte au niveau du projet. Pour plus d'information, reportez-vous à la page [Manage project users](../../project-configuration/users/)
+1.  Validation du compte au niveau du projet. Pour plus d'information, reportez-vous à la page [Manage project users](../2-project-configuration/users.md)
 2.  Validation du compte au niveau de l'instance.
 
 Pour la validation du compte au niveau de l'instance, deux configurations sont possibles :

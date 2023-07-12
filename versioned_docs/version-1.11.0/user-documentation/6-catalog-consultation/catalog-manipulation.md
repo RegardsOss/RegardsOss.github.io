@@ -11,7 +11,7 @@ slug: /user-guide/catalog/use/
 ## <img src="/images/user-documentation/doc-icons/right-arrow.png" alt="arrow" height="12" width="12"/> Explorer le catalogue
 
 :::info
-L'ensemble du catalogue est configurable. Pour savoir en savoir plus, référez-vous à la page [Configure the catalog](../configuration/).
+L'ensemble du catalogue est configurable. Pour savoir en savoir plus, référez-vous à la page [Configure the catalog](catalog-configuration.md).
 :::
 
 Le catalogue se présente de cette manière :
@@ -26,7 +26,7 @@ Le catalogue se présente de cette manière :
 
 Il y a deux onglets principaux :
 
-- ***Datasets***, présente les jeux de données accessibles à l'utilisateur. Dans ce cas, il s'agit de données publiques car aucun utilisateur n'est connecté. Pour rappel, vous pouvez resteindre l'accès à certains jeux de données en suivant les instrutions indiquées dans <a href="../../data-organization/data-access-rights/">Configure data access rights</a>.
+- ***Datasets***, présente les jeux de données accessibles à l'utilisateur. Dans ce cas, il s'agit de données publiques car aucun utilisateur n'est connecté. Pour rappel, vous pouvez resteindre l'accès à certains jeux de données en suivant les instrutions indiquées dans [Configure data access rights](../3-data-organization/data-access-rights.md).
 - ***Data***, présente les données aspirées dans le catalogue.
 
 Dans le catalogue présent par défaut, deux vues vous sont proposées sur les ***Datasets***. L'onglet ***Data*** possède une vue supplémentaire :
@@ -47,8 +47,8 @@ Choisissez les colonnes que vous souhaitez afficher une appuyant sur le bouton <
 
 Il se peut que les onglets suivants apparaissent selon la configuration de vos modules d'interface :
 
-- <img src="/images/user-documentation/regards-icons/user/cart.png" alt="cart" height="25" width="25"/> pour ajouter des données au panier afin de les <a href="../../order/introduction/">commander</a>
-- <img src="/images/user-documentation/regards-icons/admin/gear-wheel.png" alt="gear-wheel" height="25" width="25"/> pour appliquer des services <a href="../../data-services/processing-services/">processing</a> ou de <a href="../../data-services/ui-services/">visualisation</a> aux données
+- <img src="/images/user-documentation/regards-icons/user/cart.png" alt="cart" height="25" width="25"/> pour ajouter des données au panier afin de les <a href="../order/introduction">commander</a>
+- <img src="/images/user-documentation/regards-icons/admin/gear-wheel.png" alt="gear-wheel" height="25" width="25"/> pour appliquer des services <a href="../data-services/processing-services">processing</a> ou de <a href="../data-services/ui-services">visualisation</a> aux données
 
 ## <img src="/images/user-documentation/doc-icons/right-arrow.png" alt="arrow" height="12" width="12"/> Utiliser la vue carte
 

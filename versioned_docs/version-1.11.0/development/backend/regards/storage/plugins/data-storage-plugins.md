@@ -28,5 +28,5 @@ REGARDS provides many implementation of this extension point :
 
 ## Implementation
 
-To learn more about how to create your own plugin see [Plugins](../../../../framework/modules/plugins/)
+To learn more about how to create your own plugin see [Plugins](../../../framework/modules/plugins.md)
 

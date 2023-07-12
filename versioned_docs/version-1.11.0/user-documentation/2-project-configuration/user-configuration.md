@@ -21,7 +21,7 @@ _L'onglet ***User Interface*** vous permettra de configurer une grande variété
 L'écran **_User interface settings_** est principalement découpé en trois parties :
 
 - **_Data presentation_**
-  - En naviguant dans le catalogue, vous remarquerez que chaque donnée peut être, si vous le souhaitez, associée à une quicklook ou à d'un groupe de quicklooks. Une quicklook est une petite image décrivant la donnée, elle peut par exemple offrir un aperçu de la zone géographique concernée. Lorsque vous précisez **_primary_**, la première quicklook sera sélectionnée pour l'affichage de l'aperçu. Pour comprendre comment associer une quicklook à une donnée, lisez la rubrique dataObject dans la page [REGARDS OAIS implementation](../../../development/appendices/oais/)
+  - En naviguant dans le catalogue, vous remarquerez que chaque donnée peut être, si vous le souhaitez, associée à une quicklook ou à d'un groupe de quicklooks. Une quicklook est une petite image décrivant la donnée, elle peut par exemple offrir un aperçu de la zone géographique concernée. Lorsque vous précisez **_primary_**, la première quicklook sera sélectionnée pour l'affichage de l'aperçu. Pour comprendre comment associer une quicklook à une donnée, lisez la rubrique dataObject dans la page [REGARDS OAIS implementation](../../development/appendices/oais.md)
   - Cochez la case **_Show products version_** si vous souhaitez afficher le numéro de version dans le nom de la donnée lorsque vous accéderez à sa description
 - **_Quota warning_**
   - **_Low quota warning_** est un seuil de téléchargements restants en dessous duquel une alerte s'affichera sous votre **_Login_** de l'interface utilisateur.
@@ -55,7 +55,7 @@ Dans cette partie, la configuration générale des modules sera décrite ainsi q
 - **_menu_**
 - **_embedded-html_**
 
-Les modules de [consultation du catalogue](../../catalog/introduction/) et de [commande](../../order/introduction/) font l'objet de rubriques à part entière, leur utilisation étant orientée métier.
+Les modules de [consultation du catalogue](../6-catalog-consultation/introduction-catalog.md) et de [commande](../8-order-data/introduction-order.md) font l'objet de rubriques à part entière, leur utilisation étant orientée métier.
 
 #### Configuration générale des modules
 
@@ -88,7 +88,7 @@ Sélectionnez les cases pour afficher ou non les icônes de la partie droite du 
 
 - <img src="/images/user-documentation/regards-icons/user/login.png" alt="login" height="25" width="25"/> <b><i>Display authentication option</i></b>
   l'icône de connexion à la page. Une fois connecté, vous pourrez éditer votre profil et réglez la fréquence à laquelle vous souhaitez recevoir des mails récapitulant les notifications non lues. Notez que vous pouvez cacher l'icône de loggin si toutes les données de votre projet sont publiques et ne requièrent aucun accès spécifique.
-- <img src="/images/user-documentation/regards-icons/user/cart.png" alt="cart" height="25" width="25"/> <b><i>Display cart link</i></b> l'icône de commande des paniers. Il faut qu'un module de type <b><i>order</i></b> ait été configuré au préalable. Voir la rubrique <a href="../../order/introduction/">commande</a> pour en apprendre plus sur les commandes de données.
+- <img src="/images/user-documentation/regards-icons/user/cart.png" alt="cart" height="25" width="25"/> <b><i>Display cart link</i></b> l'icône de commande des paniers. Il faut qu'un module de type <b><i>order</i></b> ait été configuré au préalable. Voir la rubrique <a href="../order/introduction">commande</a> pour en apprendre plus sur les commandes de données.
 - <img src="/images/user-documentation/regards-icons/user/bell.png" alt="bell" height="25" width="25"/> <b><i>Display notification center</i></b> toute notification provenant du système se retrouvera dans la liste qui s'affichera lorsque vous cliquerez sur cet icône.
 - <img src="/images/user-documentation/regards-icons/user/flag.png" alt="flag" height="25" width="25"/> <b><i>Display Locale selector</i></b> l'icône de sélection de langue. Pour le moment, il n'y a que le français et l'anglais.
 - <img src="/images/user-documentation/regards-icons/admin/palette.png" alt="palette" height="25" width="25"/> <b><i>Display Theme selector</i></b> pour changer le thème de REGARDS
@@ -112,7 +112,7 @@ Vous pouvez ajouter un lien en cliquant sur le bouton **_New link_**.
   - le nom du lien en anglais et en français
   - l'URL de redirection du lien
   - l'endroit où vous l'afficherez (dans la barre de menu ou dans un dossier de la barre de menu) et sa position
-  - sa visibilité selon les rôles utilisateurs. Pour en savoir plus sur les rôles, lisez la partie _rôles des utilisateurs_ de la page [Manage users](../../project-configuration/users/)
+  - sa visibilité selon les rôles utilisateurs. Pour en savoir plus sur les rôles, lisez la partie _rôles des utilisateurs_ de la page [Manage users](../2-project-configuration/users.md)
 
 Cliquez sur **_Confirm_**
 
@@ -159,5 +159,5 @@ Le site en question doit explicitement autoriser l'ouverture de ses ressources �
 
 Il existe deux types de plugins utilisés par l'interface utilisateur.
 
-- des plugins de type critère utilisés dans les recherches du catalogue. Référez-vous à la partie Search Tab de la page **_[Configure the catalog](../../catalog/configuration/)_** pour en savoir plus.
-- des plugins de type service utilisés dans le catalogue pour de la visualisation de données. Référez-vous à la page **_[Add UI services](../../data-services/ui-services/)_** pour en savoir plus.
+- des plugins de type critère utilisés dans les recherches du catalogue. Référez-vous à la partie Search Tab de la page **_[Configure the catalog](../6-catalog-consultation/catalog-configuration.md)_** pour en savoir plus.
+- des plugins de type service utilisés dans le catalogue pour de la visualisation de données. Référez-vous à la page **_[Add UI services](../7-data-services/ui-services.md)_** pour en savoir plus.

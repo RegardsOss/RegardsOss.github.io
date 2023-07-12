@@ -40,9 +40,9 @@ Business dependency just containing security annotation and roles.
 
 Dependency :
 
-* [Multitenant starter](../multitenant/)
-* [Authentication starter](../authentication/)
-* [AMQP starter](../amqp/)
+* [Multitenant starter](./multitenant-starter.md)
+* [Authentication starter](authentication-starter.md)
+* [AMQP starter](amqp-starter.md)
 
 ```properties
 # Authorize system to access all endpoints
@@ -60,7 +60,7 @@ jwt.secret=
 
 ## Autoconfiguration
 
-Security starter overrides `IRuntimeTenantResolver` ([Multitenant starter](../multitenant/) and `IAuthenticationResolver` ([Authentication starter](../authentication/)) default behavior to a **thread safe** implementation based on JWT authentification.
+Security starter overrides `IRuntimeTenantResolver` ([Multitenant starter](./multitenant-starter.md) and `IAuthenticationResolver` ([Authentication starter](authentication-starter.md)) default behavior to a **thread safe** implementation based on JWT authentification.
 
 It autoconfigures :
 

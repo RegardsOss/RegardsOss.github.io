@@ -31,7 +31,7 @@ Business dependency
 
 Dependency :
 
-* [GSON starter](../gson/)
+* [GSON starter](gson-starter.md)
 
 ## Autoconfiguration
 

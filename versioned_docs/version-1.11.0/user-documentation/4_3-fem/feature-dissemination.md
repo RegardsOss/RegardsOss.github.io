@@ -12,6 +12,6 @@ Pour ce faire, un service de notification est dédié à l'envoie de messages à
  - Les destinataires du message
  - Les règles de diffusion des message aux divers destinataires
 
- Pour comprendre ce fonctionnement en détail, vous pouvez vous référer à la  [description du service notifier](../../../../development/backend/services/notifier/overview/).
+ Pour comprendre ce fonctionnement en détail, vous pouvez vous référer à la  [description du service notifier](../../development/backend/regards/notifier/notifier.md).
 
 

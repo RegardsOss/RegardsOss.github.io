@@ -8,7 +8,7 @@ REGARDS permet de modifier de nombreuses configurations afin d'adapter votre pro
 
 L'interface d'administration projet permet entre autres de :
 
-- gérer les [utilisateurs](../users/) du projet
-- configurer l'[interface utilisateur](../user-interface/)
-- vérifier l'[état du système](../microservices/)
-- gérer les [espaces de stockage](../storages/)
+- gérer les [utilisateurs](users.md) du projet
+- configurer l'[interface utilisateur](user-configuration.md)
+- vérifier l'[état du système](microservices.md)
+- gérer les [espaces de stockage](storage-configuration.md)
