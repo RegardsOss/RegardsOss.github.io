@@ -156,6 +156,8 @@ The last but not least, the configuration of microservices :
 | `group_docker_mservices.proxy.url`               | `String` | Proxy URL                                | Facultative, false, or a valid URL           |
 | `group_docker_mservices.proxy.username`          | `String` | Proxy username                           | Facultative. Empty by default                |
 | `group_docker_mservices.proxy.password`          | `String` | Proxy password                           | Facultative. Empty by default                |
+| `group_docker_mservices.session`                   | `Object` | Source/Session services configuration. Sessions are used by microservices to monitor products activity                      | Facultative.                                 |
+| `group_docker_mservices.session.retention_days`                   | `Int` | Number of retention days for inactive source/sessions in database                      | Facultative.                                 |
 
 ### Add RabbitMQ shovel
 
