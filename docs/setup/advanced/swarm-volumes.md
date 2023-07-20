@@ -118,7 +118,6 @@ group_docker_mounts:
     - name: myworker-workspace-volume
       local: true
       source: "{{ group_workdir_local }}{{ group_stack_name }}/workspace/regards/myworker"
-      destination: /workspace
 ```
 
 ### Mount volume to services
