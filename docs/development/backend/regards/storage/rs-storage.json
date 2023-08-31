@@ -605,15 +605,6 @@
         },
         "type": "object"
       },
-      "PagedResourcesAssemblerFileRequestInfoDTO": {
-        "properties": {
-          "forceFirstAndLastRels": {
-            "type": "boolean",
-            "writeOnly": true
-          }
-        },
-        "type": "object"
-      },
       "PluginConfiguration": {
         "properties": {
           "active": {
@@ -882,9 +873,6 @@
           },
           "groupId": {
             "type": "string"
-          },
-          "messageCorrelationId": {
-            "type": "string"
           }
         },
         "type": "object"
@@ -958,6 +946,12 @@
             "format": "int64",
             "type": "integer"
           },
+          "pendingActionRemaining": {
+            "type": "boolean"
+          },
+          "pendingActionRunning": {
+            "type": "boolean"
+          },
           "storageRunning": {
             "type": "boolean"
           },
@@ -1014,7 +1008,7 @@
       "name": "GPL-3.0"
     },
     "title": "MICROSERVICE STORAGE",
-    "version": "1.12.0"
+    "version": "1.13.0"
   },
   "openapi": "3.0.1",
   "paths": {
@@ -1305,7 +1299,7 @@
         "operationId": "importConfiguration",
         "requestBody": {
           "content": {
-            "application/json": {
+            "multipart/form-data": {
               "schema": {
                 "properties": {
                   "file": {
@@ -2153,14 +2147,6 @@
             "required": true,
             "schema": {
               "$ref": "#/components/schemas/Pageable"
-            }
-          },
-          {
-            "in": "query",
-            "name": "assembler",
-            "required": true,
-            "schema": {
-              "$ref": "#/components/schemas/PagedResourcesAssemblerFileRequestInfoDTO"
             }
           }
         ],

@@ -319,6 +319,20 @@
         },
         "type": "object"
       },
+      "EntityModelOrderResponseDto": {
+        "properties": {
+          "content": {
+            "$ref": "#/components/schemas/OrderResponseDto"
+          },
+          "links": {
+            "items": {
+              "$ref": "#/components/schemas/Link"
+            },
+            "type": "array"
+          }
+        },
+        "type": "object"
+      },
       "EntityModelVoid": {
         "properties": {
           "content": {
@@ -594,10 +608,10 @@
             "type": "number"
           },
           "ipId": {
-            "$ref": "#/components/schemas/UniformResourceName"
+            "type": "string"
           },
           "mimeType": {
-            "$ref": "#/components/schemas/MimeType"
+            "type": "string"
           },
           "online": {
             "type": "boolean"
@@ -813,6 +827,37 @@
         ],
         "type": "object"
       },
+      "OrderResponseDto": {
+        "properties": {
+          "correlationId": {
+            "type": "string"
+          },
+          "downloadLink": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          },
+          "orderId": {
+            "format": "int64",
+            "type": "integer"
+          },
+          "status": {
+            "enum": [
+              "GRANTED",
+              "DENIED",
+              "SUBORDER_DONE",
+              "DONE",
+              "FAILED"
+            ],
+            "type": "string"
+          }
+        },
+        "required": [
+          "status"
+        ],
+        "type": "object"
+      },
       "PageMetadata": {
         "properties": {
           "number": {
@@ -915,15 +960,6 @@
         },
         "type": "object"
       },
-      "PagedResourcesAssemblerOrderDataFile": {
-        "properties": {
-          "forceFirstAndLastRels": {
-            "type": "boolean",
-            "writeOnly": true
-          }
-        },
-        "type": "object"
-      },
       "ProcessDatasetDescription": {
         "properties": {
           "parameters": {
@@ -1014,54 +1050,6 @@
         },
         "type": "object"
       },
-      "UniformResourceName": {
-        "properties": {
-          "entityId": {
-            "format": "uuid",
-            "type": "string"
-          },
-          "entityType": {
-            "enum": [
-              "COLLECTION",
-              "DATA",
-              "DATASET"
-            ],
-            "type": "string"
-          },
-          "identifier": {
-            "type": "string"
-          },
-          "last": {
-            "type": "boolean"
-          },
-          "order": {
-            "format": "int64",
-            "type": "integer"
-          },
-          "randomEntityId": {
-            "type": "boolean"
-          },
-          "revision": {
-            "type": "string"
-          },
-          "tenant": {
-            "type": "string"
-          },
-          "version": {
-            "format": "int32",
-            "maximum": 999,
-            "minimum": 1,
-            "type": "integer"
-          }
-        },
-        "required": [
-          "entityId",
-          "entityType",
-          "identifier",
-          "tenant"
-        ],
-        "type": "object"
-      },
       "ValuesRestrictionOrderStatus": {
         "description": "Filter on status of request",
         "properties": {
@@ -1133,7 +1121,7 @@
       "name": "GPL-3.0"
     },
     "title": "MICROSERVICE ORDER",
-    "version": "1.12.0"
+    "version": "1.13.0"
   },
   "openapi": "3.0.1",
   "paths": {
@@ -1233,7 +1221,7 @@
         "operationId": "importConfiguration",
         "requestBody": {
           "content": {
-            "application/json": {
+            "multipart/form-data": {
               "schema": {
                 "properties": {
                   "file": {
@@ -1820,14 +1808,6 @@
             "schema": {
               "$ref": "#/components/schemas/Pageable"
             }
-          },
-          {
-            "in": "query",
-            "name": "assembler",
-            "required": true,
-            "schema": {
-              "$ref": "#/components/schemas/PagedResourcesAssemblerOrderDataFile"
-            }
           }
         ],
         "responses": {
@@ -2192,25 +2172,41 @@
         "responses": {
           "200": {
             "content": {
-              "application/json": {}
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/EntityModelOrderResponseDto"
+                }
+              }
             },
             "description": "The order was successfully initiated. Returns OrderRequestResponseDtoEvent with the createdOrderId."
           },
           "400": {
             "content": {
-              "application/json": {}
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/EntityModelOrderResponseDto"
+                }
+              }
             },
             "description": "The order could not be created. Refer to the response returned for more information."
           },
           "403": {
             "content": {
-              "application/html": {}
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/EntityModelOrderResponseDto"
+                }
+              }
             },
             "description": "The endpoint is not accessible for the user."
           },
           "422": {
             "content": {
-              "application/json": {}
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/EntityModelOrderResponseDto"
+                }
+              }
             },
             "description": "The submission request dto syntax is incorrect."
           }

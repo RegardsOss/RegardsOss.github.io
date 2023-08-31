@@ -458,7 +458,7 @@
             "type": "string"
           },
           "mimeType": {
-            "$ref": "#/components/schemas/MimeType"
+            "type": "string"
           },
           "projectUserRecipients": {
             "items": {
@@ -660,42 +660,6 @@
         },
         "type": "object"
       },
-      "PagedResourcesAssemblerAccount": {
-        "properties": {
-          "forceFirstAndLastRels": {
-            "type": "boolean",
-            "writeOnly": true
-          }
-        },
-        "type": "object"
-      },
-      "PagedResourcesAssemblerINotificationWithoutMessage": {
-        "properties": {
-          "forceFirstAndLastRels": {
-            "type": "boolean",
-            "writeOnly": true
-          }
-        },
-        "type": "object"
-      },
-      "PagedResourcesAssemblerProject": {
-        "properties": {
-          "forceFirstAndLastRels": {
-            "type": "boolean",
-            "writeOnly": true
-          }
-        },
-        "type": "object"
-      },
-      "PagedResourcesAssemblerProjectConnection": {
-        "properties": {
-          "forceFirstAndLastRels": {
-            "type": "boolean",
-            "writeOnly": true
-          }
-        },
-        "type": "object"
-      },
       "Password": {
         "properties": {
           "password": {
@@ -744,14 +708,8 @@
       },
       "Project": {
         "properties": {
-          "accessible": {
-            "type": "boolean"
-          },
           "crs": {
             "type": "string"
-          },
-          "deleted": {
-            "type": "boolean"
           },
           "description": {
             "type": "string"
@@ -769,6 +727,18 @@
           "identifiable": {
             "type": "boolean"
           },
+          "isAccessible": {
+            "type": "boolean"
+          },
+          "isDeleted": {
+            "type": "boolean"
+          },
+          "isPoleToBeManaged": {
+            "type": "boolean"
+          },
+          "isPublic": {
+            "type": "boolean"
+          },
           "label": {
             "type": "string"
           },
@@ -782,12 +752,6 @@
           "name": {
             "pattern": "[a-zA-Z0-9-_]*",
             "type": "string"
-          },
-          "poleToBeManaged": {
-            "type": "boolean"
-          },
-          "public": {
-            "type": "boolean"
           }
         },
         "required": [
@@ -930,6 +894,45 @@
         },
         "type": "object"
       },
+      "SimpleMailMessage": {
+        "properties": {
+          "bcc": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "cc": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "from": {
+            "type": "string"
+          },
+          "replyTo": {
+            "type": "string"
+          },
+          "sentDate": {
+            "format": "date-time",
+            "type": "string"
+          },
+          "subject": {
+            "type": "string"
+          },
+          "text": {
+            "type": "string"
+          },
+          "to": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          }
+        },
+        "type": "object"
+      },
       "TenantConnection": {
         "properties": {
           "driverClassName": {
@@ -992,7 +995,7 @@
       "name": "GPL-3.0"
     },
     "title": "MICROSERVICE ADMIN INSTANCE",
-    "version": "1.12.0"
+    "version": "1.13.0"
   },
   "openapi": "3.0.1",
   "paths": {
@@ -1006,14 +1009,6 @@
             "required": true,
             "schema": {
               "$ref": "#/components/schemas/Pageable"
-            }
-          },
-          {
-            "in": "query",
-            "name": "assembler",
-            "required": true,
-            "schema": {
-              "$ref": "#/components/schemas/PagedResourcesAssemblerAccount"
             }
           },
           {
@@ -1756,6 +1751,30 @@
         ]
       }
     },
+    "/email": {
+      "post": {
+        "operationId": "sendEmail",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SimpleMailMessage"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "201": {
+            "description": "The email was successfully created in database."
+          }
+        },
+        "summary": "Create an email request in database, then send a email by a asynchronous process.",
+        "tags": [
+          "Email request controller"
+        ]
+      }
+    },
     "/maintenance": {
       "get": {
         "operationId": "retrieveTenantsInMaintenance",
@@ -1852,7 +1871,7 @@
         "operationId": "importConfiguration",
         "requestBody": {
           "content": {
-            "application/json": {
+            "multipart/form-data": {
               "schema": {
                 "properties": {
                   "file": {
@@ -1994,14 +2013,6 @@
             "required": true,
             "schema": {
               "$ref": "#/components/schemas/Pageable"
-            }
-          },
-          {
-            "in": "query",
-            "name": "assembler",
-            "required": true,
-            "schema": {
-              "$ref": "#/components/schemas/PagedResourcesAssemblerINotificationWithoutMessage"
             }
           }
         ],
@@ -2215,14 +2226,6 @@
             "schema": {
               "$ref": "#/components/schemas/Pageable"
             }
-          },
-          {
-            "in": "query",
-            "name": "assembler",
-            "required": true,
-            "schema": {
-              "$ref": "#/components/schemas/PagedResourcesAssemblerProject"
-            }
           }
         ],
         "responses": {
@@ -2281,14 +2284,6 @@
             "schema": {
               "$ref": "#/components/schemas/Pageable"
             }
-          },
-          {
-            "in": "query",
-            "name": "assembler",
-            "required": true,
-            "schema": {
-              "$ref": "#/components/schemas/PagedResourcesAssemblerProject"
-            }
           }
         ],
         "responses": {
@@ -2326,14 +2321,6 @@
             "required": true,
             "schema": {
               "$ref": "#/components/schemas/Pageable"
-            }
-          },
-          {
-            "in": "query",
-            "name": "assembler",
-            "required": true,
-            "schema": {
-              "$ref": "#/components/schemas/PagedResourcesAssemblerProjectConnection"
             }
           }
         ],
@@ -2829,6 +2816,11 @@
     {
       "description": "Generated server url",
       "url": "https://regardsoss.github.io/api/v1/rs-admin-instance"
+    }
+  ],
+  "tags": [
+    {
+      "name": "Email request controller"
     }
   ]
 }

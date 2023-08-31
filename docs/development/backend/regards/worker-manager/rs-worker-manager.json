@@ -609,7 +609,7 @@
       "name": "GPL-3.0"
     },
     "title": "MICROSERVICE WORKER MANAGER",
-    "version": "1.12.0"
+    "version": "1.13.0"
   },
   "openapi": "3.0.1",
   "paths": {
@@ -709,7 +709,7 @@
         "operationId": "importConfiguration",
         "requestBody": {
           "content": {
-            "application/json": {
+            "multipart/form-data": {
               "schema": {
                 "properties": {
                   "file": {

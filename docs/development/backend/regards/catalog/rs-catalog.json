@@ -503,9 +503,6 @@
           "dataModel": {
             "type": "string"
           },
-          "dataSource": {
-            "$ref": "#/components/schemas/PluginConfiguration"
-          },
           "docId": {
             "type": "string"
           },
@@ -530,7 +527,7 @@
             "type": "integer"
           },
           "ipId": {
-            "$ref": "#/components/schemas/UniformResourceName"
+            "type": "string"
           },
           "label": {
             "type": "string"
@@ -563,6 +560,9 @@
           },
           "openSearchSubsettingClause": {
             "type": "string"
+          },
+          "plgConfDataSource": {
+            "$ref": "#/components/schemas/PluginConfiguration"
           },
           "properties": {
             "items": {
@@ -605,7 +605,7 @@
             "type": "integer"
           },
           "virtualId": {
-            "$ref": "#/components/schemas/UniformResourceName"
+            "type": "string"
           },
           "wgs84": {
             "$ref": "#/components/schemas/IGeometry"
@@ -644,7 +644,7 @@
             "$ref": "#/components/schemas/IGeometry"
           },
           "id": {
-            "$ref": "#/components/schemas/UniformResourceName"
+            "type": "string"
           },
           "label": {
             "type": "string"
@@ -660,13 +660,6 @@
           },
           "normalizedGeometry": {
             "$ref": "#/components/schemas/IGeometry"
-          },
-          "properties": {
-            "items": {
-              "$ref": "#/components/schemas/IPropertyObject"
-            },
-            "type": "array",
-            "uniqueItems": true
           },
           "providerId": {
             "type": "string"
@@ -686,7 +679,7 @@
             "type": "integer"
           },
           "virtualId": {
-            "$ref": "#/components/schemas/UniformResourceName"
+            "type": "string"
           }
         },
         "required": [
@@ -701,13 +694,6 @@
       "DatasetMetadata": {
         "properties": {
           "dataObjectsGroups": {
-            "items": {
-              "type": "string"
-            },
-            "type": "array",
-            "uniqueItems": true
-          },
-          "dataObjectsGroupsMap": {
             "additionalProperties": {
               "$ref": "#/components/schemas/DataObjectGroup"
             },
@@ -814,7 +800,7 @@
             "$ref": "#/components/schemas/IGeometry"
           },
           "id": {
-            "$ref": "#/components/schemas/UniformResourceName"
+            "type": "string"
           },
           "label": {
             "type": "string"
@@ -827,13 +813,6 @@
           },
           "normalizedGeometry": {
             "$ref": "#/components/schemas/IGeometry"
-          },
-          "properties": {
-            "items": {
-              "$ref": "#/components/schemas/IPropertyObject"
-            },
-            "type": "array",
-            "uniqueItems": true
           },
           "providerId": {
             "type": "string"
@@ -853,7 +832,7 @@
             "type": "integer"
           },
           "virtualId": {
-            "$ref": "#/components/schemas/UniformResourceName"
+            "type": "string"
           }
         },
         "required": [
@@ -1069,6 +1048,9 @@
       },
       "FiltersByCollection": {
         "properties": {
+          "appendAuthParameters": {
+            "type": "boolean"
+          },
           "collections": {
             "$ref": "#/components/schemas/ListCollectionFilters"
           }
@@ -1122,6 +1104,17 @@
             "type": "object"
           }
         },
+        "type": "object"
+      },
+      "GeometryRequestParameter": {
+        "properties": {
+          "wktString": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "wktString"
+        ],
         "type": "object"
       },
       "ICriterion": {
@@ -1988,24 +1981,6 @@
         },
         "type": "object"
       },
-      "PagedResourcesAssemblerEntityFeature": {
-        "properties": {
-          "forceFirstAndLastRels": {
-            "type": "boolean",
-            "writeOnly": true
-          }
-        },
-        "type": "object"
-      },
-      "PagedResourcesAssemblerSearchEngineConfiguration": {
-        "properties": {
-          "forceFirstAndLastRels": {
-            "type": "boolean",
-            "writeOnly": true
-          }
-        },
-        "type": "object"
-      },
       "PluginConfiguration": {
         "properties": {
           "active": {
@@ -2300,6 +2275,24 @@
       "QueryObject": {
         "type": "object"
       },
+      "RecipientsSearchRequest": {
+        "description": "Contain feature seach request",
+        "properties": {
+          "recipients": {
+            "description": "List of recipient(business identifiers) for direct notification",
+            "items": {
+              "description": "List of recipient(business identifiers) for direct notification",
+              "type": "string"
+            },
+            "type": "array",
+            "uniqueItems": true
+          },
+          "searchRequest": {
+            "$ref": "#/components/schemas/SearchRequest"
+          }
+        },
+        "type": "object"
+      },
       "ResourceAccess": {
         "type": "object"
       },
@@ -2550,6 +2543,9 @@
       },
       "TimelineFiltersByCollection": {
         "properties": {
+          "appendAuthParameters": {
+            "type": "boolean"
+          },
           "collections": {
             "$ref": "#/components/schemas/ListCollectionFilters"
           },
@@ -2616,54 +2612,6 @@
           }
         },
         "type": "object"
-      },
-      "UniformResourceName": {
-        "properties": {
-          "entityId": {
-            "format": "uuid",
-            "type": "string"
-          },
-          "entityType": {
-            "enum": [
-              "COLLECTION",
-              "DATA",
-              "DATASET"
-            ],
-            "type": "string"
-          },
-          "identifier": {
-            "type": "string"
-          },
-          "last": {
-            "type": "boolean"
-          },
-          "order": {
-            "format": "int64",
-            "type": "integer"
-          },
-          "randomEntityId": {
-            "type": "boolean"
-          },
-          "revision": {
-            "type": "string"
-          },
-          "tenant": {
-            "type": "string"
-          },
-          "version": {
-            "format": "int32",
-            "maximum": 999,
-            "minimum": 1,
-            "type": "integer"
-          }
-        },
-        "required": [
-          "entityId",
-          "entityType",
-          "identifier",
-          "tenant"
-        ],
-        "type": "object"
       }
     },
     "securitySchemes": {
@@ -2684,23 +2632,13 @@
       "name": "GPL-3.0"
     },
     "title": "MICROSERVICE CATALOG",
-    "version": "1.12.0"
+    "version": "1.13.0"
   },
   "openapi": "3.0.1",
   "paths": {
     "/complex/search": {
       "post": {
         "operationId": "searchDataObjects",
-        "parameters": [
-          {
-            "in": "query",
-            "name": "assembler",
-            "required": true,
-            "schema": {
-              "$ref": "#/components/schemas/PagedResourcesAssemblerEntityFeature"
-            }
-          }
-        ],
         "requestBody": {
           "content": {
             "application/json": {
@@ -3984,14 +3922,6 @@
             "schema": {
               "$ref": "#/components/schemas/Pageable"
             }
-          },
-          {
-            "in": "query",
-            "name": "assembler",
-            "required": true,
-            "schema": {
-              "$ref": "#/components/schemas/PagedResourcesAssemblerSearchEngineConfiguration"
-            }
           }
         ],
         "responses": {
@@ -4147,7 +4077,7 @@
             "application/json": {
               "schema": {
                 "items": {
-                  "$ref": "#/components/schemas/UniformResourceName"
+                  "type": "string"
                 },
                 "type": "array"
               }
@@ -4161,7 +4091,7 @@
               "*/*": {
                 "schema": {
                   "items": {
-                    "$ref": "#/components/schemas/UniformResourceName"
+                    "type": "string"
                   },
                   "type": "array",
                   "uniqueItems": true
@@ -4185,7 +4115,7 @@
             "name": "urn",
             "required": true,
             "schema": {
-              "$ref": "#/components/schemas/UniformResourceName"
+              "type": "string"
             }
           }
         ],
@@ -4239,7 +4169,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/SearchRequest"
+                "$ref": "#/components/schemas/RecipientsSearchRequest"
               }
             }
           },
@@ -4445,7 +4375,7 @@
         "operationId": "importConfiguration",
         "requestBody": {
           "content": {
-            "application/json": {
+            "multipart/form-data": {
               "schema": {
                 "properties": {
                   "file": {
@@ -6135,6 +6065,40 @@
         "summary": "continue to next/previous search page",
         "tags": [
           "item-search-controller"
+        ]
+      }
+    },
+    "/validation/geo": {
+      "post": {
+        "description": "Validate that the given WKT Geometry is valid.",
+        "operationId": "isValidGeometry",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/GeometryRequestParameter"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "The given geometry is valid."
+          },
+          "403": {
+            "content": {
+              "application/html": {}
+            },
+            "description": "The endpoint is not accessible for the user."
+          },
+          "422": {
+            "description": "The given geometry is not valid."
+          }
+        },
+        "summary": "Validate Geometry search parameter",
+        "tags": [
+          "search-validation-controller"
         ]
       }
     }

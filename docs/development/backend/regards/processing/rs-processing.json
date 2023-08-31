@@ -471,7 +471,6 @@
         "type": "object"
       },
       "Pageable": {
-        "description": "Sorting and page configuration",
         "properties": {
           "page": {
             "format": "int32",
@@ -822,8 +821,7 @@
             "$ref": "#/components/schemas/ValuesRestrictionExecutionStatus"
           },
           "userEmail": {
-            "description": "Filter on email of user",
-            "type": "string"
+            "$ref": "#/components/schemas/ValuesRestrictionString"
           }
         },
         "type": "object"
@@ -880,6 +878,48 @@
           "values"
         ],
         "type": "object"
+      },
+      "ValuesRestrictionString": {
+        "description": "Filter on email of user",
+        "properties": {
+          "ignoreCase": {
+            "description": "Only available for String resitrctions. Allow if true, to search values ignoring case. Default false",
+            "type": "boolean"
+          },
+          "matchMode": {
+            "description": "Match mode to use, can be STRICT|STARTS_WITH|CONTAINS|ENDS_WITH (default STRICT)",
+            "enum": [
+              "STRICT",
+              "STARTS_WITH",
+              "CONTAINS",
+              "ENDS_WITH"
+            ],
+            "type": "string"
+          },
+          "mode": {
+            "description": "Restriction mode to use",
+            "enum": [
+              "INCLUDE",
+              "EXCLUDE"
+            ],
+            "type": "string"
+          },
+          "values": {
+            "description": "List of accepted or refused values (according to the mode)",
+            "items": {
+              "description": "List of accepted or refused values (according to the mode)",
+              "type": "string"
+            },
+            "maxItems": 1000,
+            "minItems": 0,
+            "type": "array"
+          }
+        },
+        "required": [
+          "mode",
+          "values"
+        ],
+        "type": "object"
       }
     },
     "securitySchemes": {
@@ -900,7 +940,7 @@
       "name": "GPL-3.0"
     },
     "title": "MICROSERVICE PROCESSING",
-    "version": "1.12.0"
+    "version": "1.13.0"
   },
   "openapi": "3.0.1",
   "paths": {
@@ -1080,7 +1120,7 @@
         "operationId": "importConfiguration",
         "requestBody": {
           "content": {
-            "application/json": {
+            "multipart/form-data": {
               "schema": {
                 "properties": {
                   "file": {
@@ -1271,21 +1311,22 @@
             "schema": {
               "type": "string"
             }
+          },
+          {
+            "description": "Sorting and page configuration",
+            "in": "query",
+            "name": "pageable",
+            "required": true,
+            "schema": {
+              "$ref": "#/components/schemas/Pageable"
+            }
           }
         ],
         "requestBody": {
           "content": {
             "application/json": {
               "schema": {
-                "properties": {
-                  "filters": {
-                    "$ref": "#/components/schemas/SearchExecutionEntityParameters"
-                  },
-                  "pageable": {
-                    "$ref": "#/components/schemas/Pageable"
-                  }
-                },
-                "type": "object"
+                "$ref": "#/components/schemas/SearchExecutionEntityParameters"
               }
             }
           },

@@ -97,6 +97,20 @@
         },
         "type": "object"
       },
+      "EntityModelSubmittedSearchResponseDto": {
+        "properties": {
+          "content": {
+            "$ref": "#/components/schemas/SubmittedSearchResponseDto"
+          },
+          "links": {
+            "items": {
+              "$ref": "#/components/schemas/Link"
+            },
+            "type": "array"
+          }
+        },
+        "type": "object"
+      },
       "EntityModelVoid": {
         "properties": {
           "content": {
@@ -339,6 +353,26 @@
         },
         "type": "object"
       },
+      "PagedModelEntityModelSubmittedSearchResponseDto": {
+        "properties": {
+          "content": {
+            "items": {
+              "$ref": "#/components/schemas/EntityModelSubmittedSearchResponseDto"
+            },
+            "type": "array"
+          },
+          "links": {
+            "items": {
+              "$ref": "#/components/schemas/Link"
+            },
+            "type": "array"
+          },
+          "page": {
+            "$ref": "#/components/schemas/PageMetadata"
+          }
+        },
+        "type": "object"
+      },
       "ProductFileDto": {
         "description": "Files linked to the product. At least one is required.",
         "minimum": 1,
@@ -537,12 +571,6 @@
           "geometry": {
             "$ref": "#/components/schemas/IGeometry"
           },
-          "id": {
-            "description": "Provider id of the OAIS product to generate.",
-            "maxLength": 255,
-            "minLength": 0,
-            "type": "string"
-          },
           "originUrn": {
             "description": "Id of the product in the original catalog.",
             "maxLength": 255,
@@ -551,6 +579,12 @@
             "type": "string"
           },
           "owner": {
+            "type": "string"
+          },
+          "productId": {
+            "description": "Provider id of the OAIS product to generate.",
+            "maxLength": 255,
+            "minLength": 0,
             "type": "string"
           },
           "properties": {
@@ -598,7 +632,7 @@
           "correlationId",
           "datatype",
           "files",
-          "id"
+          "productId"
         ],
         "type": "object"
       },
@@ -642,6 +676,207 @@
         "required": [
           "correlationId",
           "responseStatus"
+        ],
+        "type": "object"
+      },
+      "SubmittedSearchResponseDto": {
+        "properties": {
+          "correlationId": {
+            "description": "Identifier of the submission request.",
+            "type": "string"
+          },
+          "creationDate": {
+            "description": "Submission request creation date.",
+            "format": "date-time",
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          },
+          "model": {
+            "description": "Model used by the submitted product.",
+            "type": "string"
+          },
+          "owner": {
+            "description": "Request sender.",
+            "type": "string"
+          },
+          "product": {
+            "$ref": "#/components/schemas/SubmissionRequestDto"
+          },
+          "session": {
+            "description": "Session to monitor the submission request.",
+            "type": "string"
+          },
+          "status": {
+            "description": "Progress status of the submission request.",
+            "enum": [
+              "VALIDATED",
+              "GENERATION_PENDING",
+              "GENERATED",
+              "GENERATION_ERROR",
+              "INGESTION_PENDING",
+              "DONE",
+              "INGESTION_ERROR"
+            ],
+            "type": "string"
+          },
+          "statusDate": {
+            "description": "Submission request last update date.",
+            "format": "date-time",
+            "type": "string"
+          },
+          "storePath": {
+            "description": "Product store path.",
+            "properties": {
+              "absolute": {
+                "type": "boolean"
+              },
+              "fileName": {
+                "properties": {
+                  "absolute": {
+                    "type": "boolean"
+                  },
+                  "fileSystem": {
+                    "properties": {
+                      "fileStores": {
+                        "type": "object"
+                      },
+                      "open": {
+                        "type": "boolean"
+                      },
+                      "readOnly": {
+                        "type": "boolean"
+                      },
+                      "rootDirectories": {
+                        "type": "object"
+                      },
+                      "separator": {
+                        "type": "string"
+                      },
+                      "userPrincipalLookupService": {
+                        "type": "object"
+                      }
+                    },
+                    "type": "object"
+                  },
+                  "nameCount": {
+                    "format": "int32",
+                    "type": "integer"
+                  }
+                },
+                "type": "object"
+              },
+              "fileSystem": {
+                "properties": {
+                  "fileStores": {
+                    "type": "object"
+                  },
+                  "open": {
+                    "type": "boolean"
+                  },
+                  "readOnly": {
+                    "type": "boolean"
+                  },
+                  "rootDirectories": {
+                    "type": "object"
+                  },
+                  "separator": {
+                    "type": "string"
+                  },
+                  "userPrincipalLookupService": {
+                    "type": "object"
+                  }
+                },
+                "type": "object"
+              },
+              "nameCount": {
+                "format": "int32",
+                "type": "integer"
+              },
+              "parent": {
+                "properties": {
+                  "absolute": {
+                    "type": "boolean"
+                  },
+                  "fileSystem": {
+                    "properties": {
+                      "fileStores": {
+                        "type": "object"
+                      },
+                      "open": {
+                        "type": "boolean"
+                      },
+                      "readOnly": {
+                        "type": "boolean"
+                      },
+                      "rootDirectories": {
+                        "type": "object"
+                      },
+                      "separator": {
+                        "type": "string"
+                      },
+                      "userPrincipalLookupService": {
+                        "type": "object"
+                      }
+                    },
+                    "type": "object"
+                  },
+                  "nameCount": {
+                    "format": "int32",
+                    "type": "integer"
+                  }
+                },
+                "type": "object"
+              },
+              "root": {
+                "properties": {
+                  "absolute": {
+                    "type": "boolean"
+                  },
+                  "fileSystem": {
+                    "properties": {
+                      "fileStores": {
+                        "type": "object"
+                      },
+                      "open": {
+                        "type": "boolean"
+                      },
+                      "readOnly": {
+                        "type": "boolean"
+                      },
+                      "rootDirectories": {
+                        "type": "object"
+                      },
+                      "separator": {
+                        "type": "string"
+                      },
+                      "userPrincipalLookupService": {
+                        "type": "object"
+                      }
+                    },
+                    "type": "object"
+                  },
+                  "nameCount": {
+                    "format": "int32",
+                    "type": "integer"
+                  }
+                },
+                "type": "object"
+              }
+            },
+            "type": "object"
+          }
+        },
+        "required": [
+          "correlationId",
+          "creationDate",
+          "model",
+          "owner",
+          "session",
+          "status",
+          "statusDate",
+          "storePath"
         ],
         "type": "object"
       },
@@ -760,7 +995,7 @@
       "name": "GPL-3.0"
     },
     "title": "MICROSERVICE LTA MANAGER",
-    "version": "1.12.0"
+    "version": "1.13.0"
   },
   "openapi": "3.0.1",
   "paths": {
@@ -860,7 +1095,7 @@
         "operationId": "importConfiguration",
         "requestBody": {
           "content": {
-            "application/json": {
+            "multipart/form-data": {
               "schema": {
                 "properties": {
                   "file": {
@@ -1130,7 +1365,11 @@
         "responses": {
           "200": {
             "content": {
-              "application/json": {}
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PagedModelEntityModelSubmittedSearchResponseDto"
+                }
+              }
             },
             "description": "Returns submitted requests found."
           },

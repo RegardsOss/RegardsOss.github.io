@@ -320,24 +320,6 @@
         },
         "type": "object"
       },
-      "PagedResourcesAssemblerPluginConfiguration": {
-        "properties": {
-          "forceFirstAndLastRels": {
-            "type": "boolean",
-            "writeOnly": true
-          }
-        },
-        "type": "object"
-      },
-      "PagedResourcesAssemblerRuleDTO": {
-        "properties": {
-          "forceFirstAndLastRels": {
-            "type": "boolean",
-            "writeOnly": true
-          }
-        },
-        "type": "object"
-      },
       "PluginConfiguration": {
         "description": "Recipient to create",
         "properties": {
@@ -540,6 +522,23 @@
         },
         "type": "object"
       },
+      "RecipientDto": {
+        "properties": {
+          "businessId": {
+            "description": "Recipient business identifier",
+            "type": "string"
+          },
+          "description": {
+            "description": "Recipient description",
+            "type": "string"
+          },
+          "recipientLabel": {
+            "description": "Recipient label",
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
       "ResourceAccess": {
         "type": "object"
       },
@@ -633,7 +632,7 @@
       "name": "GPL-3.0"
     },
     "title": "MICROSERVICE NOTIFIER",
-    "version": "1.12.0"
+    "version": "1.13.0"
   },
   "openapi": "3.0.1",
   "paths": {
@@ -733,7 +732,7 @@
         "operationId": "importConfiguration",
         "requestBody": {
           "content": {
-            "application/json": {
+            "multipart/form-data": {
               "schema": {
                 "properties": {
                   "file": {
@@ -1203,6 +1202,7 @@
     },
     "/recipient": {
       "get": {
+        "deprecated": true,
         "description": "List all recipient",
         "operationId": "getRecipients",
         "parameters": [
@@ -1213,14 +1213,6 @@
             "required": true,
             "schema": {
               "$ref": "#/components/schemas/Pageable"
-            }
-          },
-          {
-            "in": "query",
-            "name": "assembler",
-            "required": true,
-            "schema": {
-              "$ref": "#/components/schemas/PagedResourcesAssemblerPluginConfiguration"
             }
           }
         ],
@@ -1236,7 +1228,7 @@
                 }
               }
             },
-            "description": "Recipients"
+            "description": "All recipients"
           }
         },
         "summary": "List all recipient",
@@ -1331,6 +1323,43 @@
         ]
       }
     },
+    "/recipients": {
+      "get": {
+        "description": "List all recipient if missing parameter, or only recipients enabling the direct notification or only them not enabling the direct notification",
+        "operationId": "findRecipients",
+        "parameters": [
+          {
+            "description": "Recipient enable or not the direct notification",
+            "in": "query",
+            "name": "directNotificationEnabled",
+            "required": false,
+            "schema": {
+              "type": "boolean"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "items": {
+                    "$ref": "#/components/schemas/RecipientDto"
+                  },
+                  "type": "array",
+                  "uniqueItems": true
+                }
+              }
+            },
+            "description": "List of recipients"
+          }
+        },
+        "summary": "List all recipient",
+        "tags": [
+          "recipient-dto-controller"
+        ]
+      }
+    },
     "/regards/{tenant}/datasource/status": {
       "get": {
         "operationId": "getDataSourceStatus",
@@ -1403,14 +1432,6 @@
             "required": true,
             "schema": {
               "$ref": "#/components/schemas/Pageable"
-            }
-          },
-          {
-            "in": "query",
-            "name": "assembler",
-            "required": true,
-            "schema": {
-              "$ref": "#/components/schemas/PagedResourcesAssemblerRuleDTO"
             }
           }
         ],

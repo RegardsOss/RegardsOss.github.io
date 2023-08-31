@@ -23,7 +23,7 @@
             "type": "array"
           },
           "id": {
-            "$ref": "#/components/schemas/OaisUniformResourceName"
+            "type": "string"
           },
           "ipType": {
             "enum": [
@@ -39,9 +39,6 @@
           "normalizedGeometry": {
             "$ref": "#/components/schemas/IGeometry"
           },
-          "properties": {
-            "$ref": "#/components/schemas/InformationPackageProperties"
-          },
           "providerId": {
             "type": "string"
           },
@@ -49,7 +46,7 @@
             "type": "string"
           },
           "sipIdUrn": {
-            "$ref": "#/components/schemas/UniformResourceName"
+            "type": "string"
           },
           "submissionEvent": {
             "$ref": "#/components/schemas/Event"
@@ -84,7 +81,7 @@
             "type": "string"
           },
           "aipIdUrn": {
-            "$ref": "#/components/schemas/OaisUniformResourceName"
+            "type": "string"
           },
           "categories": {
             "items": {
@@ -208,28 +205,13 @@
         },
         "type": "object"
       },
-      "AccessRightInformation": {
-        "properties": {
-          "dataRights": {
-            "type": "string"
-          },
-          "licence": {
-            "type": "string"
-          },
-          "publicReleaseDate": {
-            "format": "date-time",
-            "type": "string"
-          }
-        },
-        "required": [
-          "dataRights"
-        ],
-        "type": "object"
-      },
       "ChooseVersioningRequestParameters": {
         "properties": {
           "creationDate": {
             "$ref": "#/components/schemas/DatesRangeRestriction"
+          },
+          "errorTypes": {
+            "$ref": "#/components/schemas/ValuesRestrictionIngestErrorType"
           },
           "newVersioningMode": {
             "enum": [
@@ -262,21 +244,6 @@
             "type": "string"
           }
         },
-        "type": "object"
-      },
-      "ContentInformation": {
-        "properties": {
-          "dataObject": {
-            "$ref": "#/components/schemas/OAISDataObject"
-          },
-          "representationInformation": {
-            "$ref": "#/components/schemas/RepresentationInformation"
-          }
-        },
-        "required": [
-          "dataObject",
-          "representationInformation"
-        ],
         "type": "object"
       },
       "DatesRangeRestriction": {
@@ -472,23 +439,6 @@
         },
         "type": "object"
       },
-      "EnvironmentDescription": {
-        "properties": {
-          "hardwareEnvironment": {
-            "additionalProperties": {
-              "type": "object"
-            },
-            "type": "object"
-          },
-          "softwareEnvironment": {
-            "additionalProperties": {
-              "type": "object"
-            },
-            "type": "object"
-          }
-        },
-        "type": "object"
-      },
       "Event": {
         "properties": {
           "comment": {
@@ -565,29 +515,6 @@
         },
         "type": "object"
       },
-      "InformationPackageProperties": {
-        "properties": {
-          "contentInformations": {
-            "items": {
-              "$ref": "#/components/schemas/ContentInformation"
-            },
-            "type": "array"
-          },
-          "descriptiveInformation": {
-            "additionalProperties": {
-              "type": "object"
-            },
-            "type": "object"
-          },
-          "pdi": {
-            "$ref": "#/components/schemas/PreservationDescriptionInformation"
-          }
-        },
-        "required": [
-          "pdi"
-        ],
-        "type": "object"
-      },
       "IngestMetadataDto": {
         "properties": {
           "categories": {
@@ -622,6 +549,10 @@
               "$ref": "#/components/schemas/StorageMetadata"
             },
             "type": "array"
+          },
+          "submissionDate": {
+            "format": "date-time",
+            "type": "string"
           },
           "versioningMode": {
             "enum": [
@@ -734,38 +665,6 @@
         },
         "type": "object"
       },
-      "MimeType": {
-        "properties": {
-          "charset": {
-            "type": "string"
-          },
-          "concrete": {
-            "type": "boolean"
-          },
-          "parameters": {
-            "additionalProperties": {
-              "type": "string"
-            },
-            "type": "object"
-          },
-          "subtype": {
-            "type": "string"
-          },
-          "subtypeSuffix": {
-            "type": "string"
-          },
-          "type": {
-            "type": "string"
-          },
-          "wildcardSubtype": {
-            "type": "boolean"
-          },
-          "wildcardType": {
-            "type": "boolean"
-          }
-        },
-        "type": "object"
-      },
       "ModuleImportReport": {
         "properties": {
           "importErrors": {
@@ -847,69 +746,6 @@
         },
         "type": "object"
       },
-      "OAISDataObject": {
-        "properties": {
-          "algorithm": {
-            "type": "string"
-          },
-          "checksum": {
-            "type": "string"
-          },
-          "fileSize": {
-            "format": "int64",
-            "type": "integer"
-          },
-          "filename": {
-            "type": "string"
-          },
-          "locations": {
-            "items": {
-              "$ref": "#/components/schemas/OAISDataObjectLocation"
-            },
-            "type": "array",
-            "uniqueItems": true
-          },
-          "regardsDataType": {
-            "enum": [
-              "RAWDATA",
-              "QUICKLOOK_SD",
-              "QUICKLOOK_MD",
-              "QUICKLOOK_HD",
-              "DOCUMENT",
-              "THUMBNAIL",
-              "OTHER",
-              "AIP",
-              "DESCRIPTION"
-            ],
-            "type": "string"
-          }
-        },
-        "required": [
-          "checksum",
-          "filename",
-          "locations",
-          "regardsDataType"
-        ],
-        "type": "object"
-      },
-      "OAISDataObjectLocation": {
-        "properties": {
-          "storage": {
-            "type": "string"
-          },
-          "storePath": {
-            "type": "string"
-          },
-          "url": {
-            "pattern": "\\b[a-zA-Z]+://?[-a-zA-Z0-9+&@#/%'?=~_|!:,.;]*[-a-zA-Z0-9+&@#/%'=~_|]",
-            "type": "string"
-          }
-        },
-        "required": [
-          "url"
-        ],
-        "type": "object"
-      },
       "OAISDeletionPayloadDto": {
         "properties": {
           "aipIds": {
@@ -962,54 +798,6 @@
         },
         "required": [
           "deletionMode"
-        ],
-        "type": "object"
-      },
-      "OaisUniformResourceName": {
-        "properties": {
-          "entityId": {
-            "format": "uuid",
-            "type": "string"
-          },
-          "entityType": {
-            "enum": [
-              "COLLECTION",
-              "DATA",
-              "DATASET"
-            ],
-            "type": "string"
-          },
-          "identifier": {
-            "type": "string"
-          },
-          "last": {
-            "type": "boolean"
-          },
-          "order": {
-            "format": "int64",
-            "type": "integer"
-          },
-          "randomEntityId": {
-            "type": "boolean"
-          },
-          "revision": {
-            "type": "string"
-          },
-          "tenant": {
-            "type": "string"
-          },
-          "version": {
-            "format": "int32",
-            "maximum": 999,
-            "minimum": 1,
-            "type": "integer"
-          }
-        },
-        "required": [
-          "entityId",
-          "entityType",
-          "identifier",
-          "tenant"
         ],
         "type": "object"
       },
@@ -1136,15 +924,6 @@
         "type": "object"
       },
       "PagedResourcesAssemblerIngestProcessingChain": {
-        "properties": {
-          "forceFirstAndLastRels": {
-            "type": "boolean",
-            "writeOnly": true
-          }
-        },
-        "type": "object"
-      },
-      "PagedResourcesAssemblerRequestDto": {
         "properties": {
           "forceFirstAndLastRels": {
             "type": "boolean",
@@ -1363,103 +1142,6 @@
         },
         "type": "object"
       },
-      "PreservationDescriptionInformation": {
-        "properties": {
-          "accessRightInformation": {
-            "$ref": "#/components/schemas/AccessRightInformation"
-          },
-          "contextInformation": {
-            "additionalProperties": {
-              "type": "object"
-            },
-            "type": "object"
-          },
-          "fixityInformation": {
-            "additionalProperties": {
-              "type": "object"
-            },
-            "type": "object"
-          },
-          "provenanceInformation": {
-            "$ref": "#/components/schemas/ProvenanceInformation"
-          },
-          "referenceInformation": {
-            "additionalProperties": {
-              "type": "string"
-            },
-            "type": "object"
-          },
-          "tags": {
-            "items": {
-              "type": "string"
-            },
-            "type": "array"
-          }
-        },
-        "required": [
-          "accessRightInformation",
-          "contextInformation",
-          "fixityInformation",
-          "provenanceInformation",
-          "referenceInformation"
-        ],
-        "type": "object"
-      },
-      "ProvenanceInformation": {
-        "properties": {
-          "additional": {
-            "additionalProperties": {
-              "type": "object"
-            },
-            "type": "object"
-          },
-          "detector": {
-            "type": "string"
-          },
-          "facility": {
-            "type": "string"
-          },
-          "filter": {
-            "type": "string"
-          },
-          "history": {
-            "items": {
-              "$ref": "#/components/schemas/Event"
-            },
-            "type": "array"
-          },
-          "instrument": {
-            "type": "string"
-          },
-          "originUrn": {
-            "type": "string"
-          },
-          "proposal": {
-            "type": "string"
-          }
-        },
-        "required": [
-          "history"
-        ],
-        "type": "object"
-      },
-      "RepresentationInformation": {
-        "properties": {
-          "environmentDescription": {
-            "$ref": "#/components/schemas/EnvironmentDescription"
-          },
-          "semantic": {
-            "$ref": "#/components/schemas/Semantic"
-          },
-          "syntax": {
-            "$ref": "#/components/schemas/Syntax"
-          }
-        },
-        "required": [
-          "syntax"
-        ],
-        "type": "object"
-      },
       "RequestDto": {
         "properties": {
           "creationDate": {
@@ -1467,6 +1149,9 @@
             "type": "string"
           },
           "dtype": {
+            "type": "string"
+          },
+          "errorType": {
             "type": "string"
           },
           "errors": {
@@ -1498,6 +1183,7 @@
               "TO_SCHEDULE",
               "CREATED",
               "WAITING_VERSIONING_MODE",
+              "WAITING_REMOTE_STORAGE",
               "BLOCKED",
               "RUNNING",
               "ERROR",
@@ -1632,9 +1318,6 @@
           "normalizedGeometry": {
             "$ref": "#/components/schemas/IGeometry"
           },
-          "properties": {
-            "$ref": "#/components/schemas/InformationPackageProperties"
-          },
           "ref": {
             "$ref": "#/components/schemas/SIPReference"
           },
@@ -1739,7 +1422,7 @@
             "type": "string"
           },
           "sipIdUrn": {
-            "$ref": "#/components/schemas/OaisUniformResourceName"
+            "type": "string"
           },
           "state": {
             "enum": [
@@ -1846,6 +1529,9 @@
           "creationDate": {
             "$ref": "#/components/schemas/DatesRangeRestriction"
           },
+          "errorTypes": {
+            "$ref": "#/components/schemas/ValuesRestrictionIngestErrorType"
+          },
           "providerIds": {
             "$ref": "#/components/schemas/ValuesRestrictionString"
           },
@@ -1946,17 +1632,6 @@
         ],
         "type": "object"
       },
-      "Semantic": {
-        "properties": {
-          "description": {
-            "type": "string"
-          }
-        },
-        "required": [
-          "description"
-        ],
-        "type": "object"
-      },
       "StorageMetadata": {
         "properties": {
           "pluginBusinessId": {
@@ -2003,79 +1678,6 @@
             "type": "integer"
           }
         },
-        "type": "object"
-      },
-      "Syntax": {
-        "properties": {
-          "description": {
-            "type": "string"
-          },
-          "height": {
-            "format": "double",
-            "type": "number"
-          },
-          "mimeType": {
-            "$ref": "#/components/schemas/MimeType"
-          },
-          "name": {
-            "type": "string"
-          },
-          "width": {
-            "format": "double",
-            "type": "number"
-          }
-        },
-        "required": [
-          "mimeType"
-        ],
-        "type": "object"
-      },
-      "UniformResourceName": {
-        "properties": {
-          "entityId": {
-            "format": "uuid",
-            "type": "string"
-          },
-          "entityType": {
-            "enum": [
-              "COLLECTION",
-              "DATA",
-              "DATASET"
-            ],
-            "type": "string"
-          },
-          "identifier": {
-            "type": "string"
-          },
-          "last": {
-            "type": "boolean"
-          },
-          "order": {
-            "format": "int64",
-            "type": "integer"
-          },
-          "randomEntityId": {
-            "type": "boolean"
-          },
-          "revision": {
-            "type": "string"
-          },
-          "tenant": {
-            "type": "string"
-          },
-          "version": {
-            "format": "int32",
-            "maximum": 999,
-            "minimum": 1,
-            "type": "integer"
-          }
-        },
-        "required": [
-          "entityId",
-          "entityType",
-          "identifier",
-          "tenant"
-        ],
         "type": "object"
       },
       "ValuesRestrictionAIPState": {
@@ -2172,6 +1774,69 @@
         ],
         "type": "object"
       },
+      "ValuesRestrictionIngestErrorType": {
+        "description": "List of request error type keys",
+        "example": "INITIAL|INITIAL_SIP_ALREADY_EXISTS|GENERATION|UPDATE|DELETE",
+        "properties": {
+          "ignoreCase": {
+            "description": "Only available for String resitrctions. Allow if true, to search values ignoring case. Default false",
+            "type": "boolean"
+          },
+          "matchMode": {
+            "description": "Match mode to use, can be STRICT|STARTS_WITH|CONTAINS|ENDS_WITH (default STRICT)",
+            "enum": [
+              "STRICT",
+              "STARTS_WITH",
+              "CONTAINS",
+              "ENDS_WITH"
+            ],
+            "type": "string"
+          },
+          "mode": {
+            "description": "Restriction mode to use",
+            "enum": [
+              "INCLUDE",
+              "EXCLUDE"
+            ],
+            "type": "string"
+          },
+          "values": {
+            "description": "List of accepted or refused values (according to the mode)",
+            "items": {
+              "description": "List of accepted or refused values (according to the mode)",
+              "enum": [
+                "INITIAL",
+                "INITIAL_CHECKSUM",
+                "INITIAL_SIP_ALREADY_EXISTS",
+                "INITIAL_NOT_FIRST_VERSION_IGNORE",
+                "INITIAL_NOT_FIRST_VERSION_MANUAL",
+                "INITIAL_UNKNOWN_VERSIONING",
+                "PREPROCESSING",
+                "VALIDATION",
+                "GENERATION",
+                "METADATA",
+                "TAGGING",
+                "POSTPROCESSING",
+                "FINAL",
+                "UPDATE",
+                "DELETE",
+                "AIP_DUMP",
+                "NOTIFICATION",
+                "UNEXPECTED"
+              ],
+              "type": "string"
+            },
+            "maxItems": 1000,
+            "minItems": 0,
+            "type": "array"
+          }
+        },
+        "required": [
+          "mode",
+          "values"
+        ],
+        "type": "object"
+      },
       "ValuesRestrictionInternalRequestState": {
         "description": "List of internal request states",
         "example": "TO_SCHEDULE|CREATED|WAITING_VERSIONING_MODE|BLOCKED|RUNNING|ERROR|ABORTED|IGNORED",
@@ -2206,6 +1871,7 @@
                 "TO_SCHEDULE",
                 "CREATED",
                 "WAITING_VERSIONING_MODE",
+                "WAITING_REMOTE_STORAGE",
                 "BLOCKED",
                 "RUNNING",
                 "ERROR",
@@ -2381,7 +2047,7 @@
       "name": "GPL-3.0"
     },
     "title": "MICROSERVICE INGEST",
-    "version": "1.12.0"
+    "version": "1.13.0"
   },
   "openapi": "3.0.1",
   "paths": {
@@ -2389,6 +2055,17 @@
       "post": {
         "description": "Return a page of AIPs matching criterias.",
         "operationId": "searchAIPs",
+        "parameters": [
+          {
+            "description": "Sorting and page configuration",
+            "in": "query",
+            "name": "pageable",
+            "required": true,
+            "schema": {
+              "$ref": "#/components/schemas/Pageable"
+            }
+          }
+        ],
         "requestBody": {
           "content": {
             "application/json": {
@@ -2703,7 +2380,7 @@
         "operationId": "importConfiguration",
         "requestBody": {
           "content": {
-            "application/json": {
+            "multipart/form-data": {
               "schema": {
                 "properties": {
                   "file": {
@@ -3252,7 +2929,7 @@
         "operationId": "createByFile",
         "requestBody": {
           "content": {
-            "application/json": {
+            "multipart/form-data": {
               "schema": {
                 "properties": {
                   "file": {
@@ -3461,16 +3138,6 @@
       "post": {
         "description": "Return a page of requests matching criteria",
         "operationId": "searchRequest",
-        "parameters": [
-          {
-            "in": "query",
-            "name": "assembler",
-            "required": true,
-            "schema": {
-              "$ref": "#/components/schemas/PagedResourcesAssemblerRequestDto"
-            }
-          }
-        ],
         "requestBody": {
           "content": {
             "application/json": {
@@ -3776,7 +3443,7 @@
         "operationId": "ingestFile",
         "requestBody": {
           "content": {
-            "application/json": {
+            "multipart/form-data": {
               "schema": {
                 "properties": {
                   "file": {
