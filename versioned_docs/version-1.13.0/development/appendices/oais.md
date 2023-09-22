@@ -28,7 +28,6 @@ Exemple :
     "ingestChain": "DefaultProcessingChain",
     "categories": ["ISS_MISSION1_DATA"],
     "versioningMode": "INC_VERSION",
-    "replaceErrors": false,
     "storages": [
       {
         "pluginBusinessId": "Local",
@@ -95,8 +94,6 @@ Exemple :
     "session": "Monday acquisition",
     "ingestChain": "DefaultProcessingChain",
     "categories": ["ISS_MISSION1_DATA"],
-    "versioningMode": "INC_VERSION",
-    "replaceErrors": false,
     "storages": [
       {
         "pluginBusinessId": "Local",
@@ -118,7 +115,6 @@ Exemple :
 | ingestChain | x | Name of the configured ingest chain. This chain can be configured through administration HMI and contains all the configuration to generate the final product, the AIP, from the provided SIP. | Any chain name configured |
 | categories |  | List of keywords. Thoses keywords can be used lately to select products to add in the metacatalog | any text |
 | versioningMode | x | How to handle new version of same product (same feature id) | IGNORE, INC_VERSION, MANUAL, REPLACE |
-| replaceErrors |  | True to delete previous requests in error state with the same feature id. Default value is false | true, false(default) |
 | storages | x | List of storage configuration that define how to store physical files associated to the provided list of features | - |
 
 
