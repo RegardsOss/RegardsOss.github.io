@@ -7,7 +7,7 @@ slug: /development/appendices/geometry/
 
 ## Products geometry 
 
-REGARDS use GeoJson format for indexed products. Geometry associated to a product is defined in "geomtry" field like here under exemples.
+REGARDS use GeoJson format for indexed products. Geometry associated to a product is defined in "geometry" field like here under exemples.
 
 As REGARDS uses GeoJson standard, geometries need to respect GeoJson format as defined in [RFC 7946](https://datatracker.ietf.org/doc/html/rfc7946#section-3.1.6).
 
