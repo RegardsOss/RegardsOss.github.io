@@ -670,6 +670,11 @@
             "maxLength": 255,
             "type": "string"
           },
+          "downloadUrl": {
+            "description": "downloadUrl of the file represented by this dto.",
+            "maxLength": 255,
+            "type": "string"
+          },
           "filename": {
             "description": "Name of the file represented by this dto.",
             "maxLength": 255,
@@ -692,17 +697,12 @@
             "description": "providerId of the product containing this file.",
             "maxLength": 255,
             "type": "string"
-          },
-          "uri": {
-            "description": "URI of the file represented by this dto.",
-            "maxLength": 255,
-            "type": "string"
           }
         },
         "required": [
+          "downloadUrl",
           "filename",
-          "mimeType",
-          "uri"
+          "mimeType"
         ],
         "type": "object"
       },
@@ -1121,7 +1121,7 @@
       "name": "GPL-3.0"
     },
     "title": "MICROSERVICE ORDER",
-    "version": "1.13.0"
+    "version": "1.13.1"
   },
   "openapi": "3.0.1",
   "paths": {

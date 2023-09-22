@@ -571,12 +571,6 @@
           "geometry": {
             "$ref": "#/components/schemas/IGeometry"
           },
-          "productId": {
-            "description": "Provider id of the OAIS product to generate.",
-            "maxLength": 255,
-            "minLength": 0,
-            "type": "string"
-          },
           "originUrn": {
             "description": "Id of the product in the original catalog.",
             "maxLength": 255,
@@ -1001,7 +995,7 @@
       "name": "GPL-3.0"
     },
     "title": "MICROSERVICE LTA MANAGER",
-    "version": "1.13.0"
+    "version": "1.13.1"
   },
   "openapi": "3.0.1",
   "paths": {

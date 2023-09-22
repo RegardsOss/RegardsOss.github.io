@@ -1008,7 +1008,7 @@
       "name": "GPL-3.0"
     },
     "title": "MICROSERVICE STORAGE",
-    "version": "1.13.0"
+    "version": "1.13.1"
   },
   "openapi": "3.0.1",
   "paths": {

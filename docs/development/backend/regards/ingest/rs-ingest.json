@@ -213,6 +213,9 @@
           "errorTypes": {
             "$ref": "#/components/schemas/ValuesRestrictionIngestErrorType"
           },
+          "lastUpdate": {
+            "$ref": "#/components/schemas/DatesRangeRestriction"
+          },
           "newVersioningMode": {
             "enum": [
               "IGNORE",
@@ -1532,6 +1535,9 @@
           "errorTypes": {
             "$ref": "#/components/schemas/ValuesRestrictionIngestErrorType"
           },
+          "lastUpdate": {
+            "$ref": "#/components/schemas/DatesRangeRestriction"
+          },
           "providerIds": {
             "$ref": "#/components/schemas/ValuesRestrictionString"
           },
@@ -2047,7 +2053,7 @@
       "name": "GPL-3.0"
     },
     "title": "MICROSERVICE INGEST",
-    "version": "1.13.0"
+    "version": "1.13.1"
   },
   "openapi": "3.0.1",
   "paths": {
