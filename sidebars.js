@@ -625,6 +625,7 @@ module.exports = {
         "development/appendices/appendices-oais",
         "development/appendices/appendices-lucene-query",
         "development/appendices/appendices-create-model",
+        "development/appendices/appendices-geometry",
       ],
     },
   ]
