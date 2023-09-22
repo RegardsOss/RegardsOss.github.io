@@ -8,15 +8,8 @@ This guide walks you through the configuration to expose REGARDS through HTTPS.
 
 - If you have a `p12` file, use these commands to generate `crt` and `key` files.
 ```bash
-openssl pkcs12 -in <your domain>.p12 -nocerts -out         <your domain>.key
+openssl pkcs12 -in <your domain>.p12 -nocerts -nodes  -out <your domain>.key
 openssl pkcs12 -in <your domain>.p12 -clcerts -nokeys -out <your domain>.crt 
-```
-- If the `<your domain>.key` file contains `BEGIN ENCRYPTED PRIVATE KEY`, you need to remove the encryption by doing:
-```bash
-# Rename the file
-mv <your domain>.key <your domain>.encrypted.key
-# Remove the encryption by giving your temporary pass phrase
-openssl rsa -in <your domain>.encrypted.key -out <your domain>.key
 ```
 - Create the folder `<inventory>/group_vars/regards_nodes/files/ssl` in your inventory then open this folder using your terminal 
 
