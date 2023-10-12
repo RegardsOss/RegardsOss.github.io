@@ -199,7 +199,7 @@ The `device_postfix` has a default value that depends of the workdir you are con
 |   elasticsearch_logs.backup        | elasticsearch/backup-logs | 
 |    postgresql                      | postgresql/               | 
 |     rabbitmq                       | rabbitmq                  | 
-|     s3_minio                       | s3-minio/                 | 
+|     minio                          | minio/                    | 
 |  regards.processing                | regards/processing        | 
 |  regards.dam                       | regards/storage/dam       | 
 |  regards.workspace                 | regards/workspace         | 
@@ -235,7 +235,7 @@ Most of the time, you want to provide a NFS to REGARDS for all its workdir, but 
 #    data:
 #    backup:
 #  rabbitmq:
-#  s3_minio:
+#  minio:
 #  postgresql:
 ```
 

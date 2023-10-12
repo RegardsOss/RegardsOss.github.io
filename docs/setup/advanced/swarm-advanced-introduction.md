@@ -19,6 +19,7 @@ We assume you have successfully deployed REGARDS using the [Quick setup](/docs/s
 - [Mount volumes, configs...](/docs/setup/swarm/advanced/swarm-mount) allows you to describe volumes, configs and secrets files containers have access to. **Highly recommended**
 - [Network tuning](/docs/setup/swarm/advanced/swarm-networks) allows you to understand and properly configure network properties.
 - [Securise using HTTPS](/docs/setup/swarm/advanced/regards-https) allows you to expose the REGARDS API and HMI through HTTPS. **Highly recommended**
+- [MinIO](/docs/setup/swarm/advanced/minio/) shows you how to deploy a MinIO server for your regards swarm stack.
 
 
 ### Run changes after inventory modification

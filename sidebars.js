@@ -12,6 +12,7 @@ module.exports = {
             "setup/advanced/advanced-introduction",
             "setup/advanced/microservice-setup",
             "setup/advanced/postgres-database",
+            "setup/advanced/minio",
             "setup/advanced/optimizations",
             "setup/advanced/ansible-vault",
             "setup/advanced/swarm-mount",
