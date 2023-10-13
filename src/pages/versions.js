@@ -42,10 +42,10 @@ function Version() {
                 <tr>
                   <th>{currentVersion.label}</th>
                   <td>
-                    <a href={`${currentVersion.path}/user-guide/`}>Documentation</a>
+                    <a href={`${currentVersion.path}/user-guide`}>Documentation</a>
                   </td>
                   <td>
-                    <a href={`release-notes/v${currentVersion.label}/`}>
+                    <a href={`release-notes/v${currentVersion.label}`}>
                       Release Notes
                     </a>
                   </td>
@@ -66,10 +66,10 @@ function Version() {
                   <tr key={version.name}>
                     <th>{version.label}</th>
                     <td>
-                      <a href={`${version.path}/user-guide/`}>Documentation</a>
+                      <a href={`${version.path}/user-guide`}>Documentation</a>
                     </td>
                     <td>
-                      <a href={`release-notes/v${version.label}/`}>
+                      <a href={`release-notes/v${version.label}`}>
                         Release Notes
                       </a>
                     </td>

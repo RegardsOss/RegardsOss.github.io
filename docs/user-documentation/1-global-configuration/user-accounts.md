@@ -8,8 +8,8 @@ Tout utilisateur d'un projet est associé à une instance de REGARDS, ainsi, un 
 Depuis le menu ***Account*** de l'interface d'administration, vous pourrez :
 
 
-- ***<img src="/images/user-documentation/regards-icons/admin/list.png" alt="link" height="25" width="25"/> [Voir la liste des utilisateurs](./#-lister-les-comptes-utilisateurs), [valider](./#-valider-un-compte-utilisateur), [editer](./#-editer-un-compte-utilisateur) et [supprimer](./#-supprimer-un-compte-utilisateur) un compte.***
-- ***<img src="/images/user-documentation/regards-icons/admin/gear-wheel.png" alt="link" height="25" width="25"/>  [Paramétrer les demandes de création de compte](./#-paramétrer-les-demandes-de-création-de-compte).***
+- ***<img src="/images/user-documentation/regards-icons/admin/list.png" alt="link" height="25" width="25"/> [Voir la liste des utilisateurs](#-lister-les-comptes-utilisateurs), [valider](#-valider-un-compte-utilisateur), [editer](#-editer-un-compte-utilisateur) et [supprimer](#-supprimer-un-compte-utilisateur) un compte.***
+- ***<img src="/images/user-documentation/regards-icons/admin/gear-wheel.png" alt="link" height="25" width="25"/>  [Paramétrer les demandes de création de compte](#-paramétrer-les-demandes-de-création-de-compte).***
 
 <div align="center">
   <img src="/images/user-documentation/v1.7/1-global-configuration/accounts-menu.png" alt="interface admin" width="300"/> 
