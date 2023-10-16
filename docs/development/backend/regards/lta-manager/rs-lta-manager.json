@@ -197,39 +197,6 @@
         },
         "type": "object"
       },
-      "MimeType": {
-        "description": "Mimetype of the file.",
-        "properties": {
-          "charset": {
-            "type": "string"
-          },
-          "concrete": {
-            "type": "boolean"
-          },
-          "parameters": {
-            "additionalProperties": {
-              "type": "string"
-            },
-            "type": "object"
-          },
-          "subtype": {
-            "type": "string"
-          },
-          "subtypeSuffix": {
-            "type": "string"
-          },
-          "type": {
-            "type": "string"
-          },
-          "wildcardSubtype": {
-            "type": "boolean"
-          },
-          "wildcardType": {
-            "type": "boolean"
-          }
-        },
-        "type": "object"
-      },
       "ModuleImportReport": {
         "properties": {
           "importErrors": {
@@ -387,7 +354,37 @@
             "type": "string"
           },
           "mimeType": {
-            "$ref": "#/components/schemas/MimeType"
+            "description": "Mimetype of the file.",
+            "properties": {
+              "charset": {
+                "type": "string"
+              },
+              "concrete": {
+                "type": "boolean"
+              },
+              "parameters": {
+                "additionalProperties": {
+                  "type": "string"
+                },
+                "type": "object"
+              },
+              "subtype": {
+                "type": "string"
+              },
+              "subtypeSuffix": {
+                "type": "string"
+              },
+              "type": {
+                "type": "string"
+              },
+              "wildcardSubtype": {
+                "type": "boolean"
+              },
+              "wildcardType": {
+                "type": "boolean"
+              }
+            },
+            "type": "string"
           },
           "type": {
             "description": "Type of the file among RAWDATA, QUICKLOOK(_SD|_MD_|_HD), THUMBNAIL.",
@@ -571,6 +568,15 @@
           "geometry": {
             "$ref": "#/components/schemas/IGeometry"
           },
+          "originRequestAppId": {
+            "description": "Origin request app_id in amqp message (header property of amqp message)",
+            "type": "string"
+          },
+          "originRequestPriority": {
+            "description": "Origin request priority in amqp message (header property of amqp message",
+            "format": "int32",
+            "type": "integer"
+          },
           "originUrn": {
             "description": "Id of the product in the original catalog.",
             "maxLength": 255,
@@ -579,6 +585,7 @@
             "type": "string"
           },
           "owner": {
+            "description": "Owner of submission request",
             "type": "string"
           },
           "productId": {
@@ -657,6 +664,17 @@
             "description": "Identifier of the submitted product.",
             "type": "string"
           },
+          "requestAppId": {
+            "description": "Request application identifier.",
+            "nullable": true,
+            "type": "string"
+          },
+          "requestPriority": {
+            "description": "Request priority.",
+            "format": "int32",
+            "nullable": true,
+            "type": "integer"
+          },
           "responseStatus": {
             "description": "Acceptance status of the submitted product.",
             "enum": [
@@ -689,6 +707,11 @@
             "description": "Submission request creation date.",
             "format": "date-time",
             "type": "string"
+          },
+          "id": {
+            "description": "Request identifier.",
+            "format": "int64",
+            "type": "integer"
           },
           "message": {
             "type": "string"
@@ -749,7 +772,7 @@
                         "type": "boolean"
                       },
                       "rootDirectories": {
-                        "type": "object"
+                        "type": "string"
                       },
                       "separator": {
                         "type": "string"
@@ -765,7 +788,7 @@
                     "type": "integer"
                   }
                 },
-                "type": "object"
+                "type": "string"
               },
               "fileSystem": {
                 "properties": {
@@ -779,7 +802,7 @@
                     "type": "boolean"
                   },
                   "rootDirectories": {
-                    "type": "object"
+                    "type": "string"
                   },
                   "separator": {
                     "type": "string"
@@ -811,7 +834,7 @@
                         "type": "boolean"
                       },
                       "rootDirectories": {
-                        "type": "object"
+                        "type": "string"
                       },
                       "separator": {
                         "type": "string"
@@ -827,7 +850,7 @@
                     "type": "integer"
                   }
                 },
-                "type": "object"
+                "type": "string"
               },
               "root": {
                 "properties": {
@@ -846,7 +869,7 @@
                         "type": "boolean"
                       },
                       "rootDirectories": {
-                        "type": "object"
+                        "type": "string"
                       },
                       "separator": {
                         "type": "string"
@@ -862,15 +885,16 @@
                     "type": "integer"
                   }
                 },
-                "type": "object"
+                "type": "string"
               }
             },
-            "type": "object"
+            "type": "string"
           }
         },
         "required": [
           "correlationId",
           "creationDate",
+          "id",
           "model",
           "owner",
           "session",
@@ -995,7 +1019,7 @@
       "name": "GPL-3.0"
     },
     "title": "MICROSERVICE LTA MANAGER",
-    "version": "1.13.1"
+    "version": "1.14.0"
   },
   "openapi": "3.0.1",
   "paths": {
@@ -1351,6 +1375,17 @@
     "/products/search": {
       "post": {
         "operationId": "findSubmittedRequests",
+        "parameters": [
+          {
+            "description": "Sorting and page configuration",
+            "in": "query",
+            "name": "pageable",
+            "required": true,
+            "schema": {
+              "$ref": "#/components/schemas/Pageable"
+            }
+          }
+        ],
         "requestBody": {
           "content": {
             "application/json": {

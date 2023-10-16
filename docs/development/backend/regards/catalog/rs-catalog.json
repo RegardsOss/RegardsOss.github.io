@@ -2632,7 +2632,7 @@
       "name": "GPL-3.0"
     },
     "title": "MICROSERVICE CATALOG",
-    "version": "1.13.1"
+    "version": "1.14.0"
   },
   "openapi": "3.0.1",
   "paths": {

@@ -47,3 +47,4 @@ importMServiceControllers rs-order               order
 importMServiceControllers rs-processing          processing
 importMServiceControllers rs-storage             storage
 importMServiceControllers rs-worker-manager      worker-manager
+importMServiceControllers rs-delivery            delivery

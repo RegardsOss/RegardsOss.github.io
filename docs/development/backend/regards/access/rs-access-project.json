@@ -553,6 +553,9 @@
           "asString": {
             "type": "string"
           },
+          "empty": {
+            "type": "boolean"
+          },
           "jsonArray": {
             "type": "boolean"
           },
@@ -1795,7 +1798,7 @@
       "name": "GPL-3.0"
     },
     "title": "MICROSERVICE ACCESS",
-    "version": "1.13.1"
+    "version": "1.14.0"
   },
   "openapi": "3.0.1",
   "paths": {

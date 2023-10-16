@@ -443,39 +443,6 @@
         },
         "type": "object"
       },
-      "MimeType": {
-        "description": "MIME type of the file represented by this dto.",
-        "properties": {
-          "charset": {
-            "type": "string"
-          },
-          "concrete": {
-            "type": "boolean"
-          },
-          "parameters": {
-            "additionalProperties": {
-              "type": "string"
-            },
-            "type": "object"
-          },
-          "subtype": {
-            "type": "string"
-          },
-          "subtypeSuffix": {
-            "type": "string"
-          },
-          "type": {
-            "type": "string"
-          },
-          "wildcardSubtype": {
-            "type": "boolean"
-          },
-          "wildcardType": {
-            "type": "boolean"
-          }
-        },
-        "type": "object"
-      },
       "ModuleImportReport": {
         "properties": {
           "importErrors": {
@@ -588,6 +555,10 @@
           "filename": {
             "type": "string"
           },
+          "filesTaskId": {
+            "format": "int64",
+            "type": "integer"
+          },
           "filesize": {
             "format": "int64",
             "type": "integer"
@@ -651,6 +622,10 @@
           },
           "url": {
             "type": "string"
+          },
+          "version": {
+            "format": "int32",
+            "type": "integer"
           }
         },
         "required": [
@@ -691,12 +666,17 @@
             "type": "integer"
           },
           "mimeType": {
-            "$ref": "#/components/schemas/MimeType"
+            "type": "string"
           },
           "productId": {
             "description": "providerId of the product containing this file.",
             "maxLength": 255,
             "type": "string"
+          },
+          "version": {
+            "description": "version of the product.",
+            "format": "int32",
+            "type": "integer"
           }
         },
         "required": [
@@ -753,7 +733,8 @@
               "FAILED",
               "DONE_WITH_WARNING",
               "DONE",
-              "DELETED"
+              "DELETED",
+              "ERROR"
             ],
             "type": "string"
           },
@@ -781,7 +762,7 @@
       "OrderRequestDto": {
         "properties": {
           "correlationId": {
-            "maxLength": 100,
+            "maxLength": 255,
             "minLength": 0,
             "type": "string"
           },
@@ -793,6 +774,10 @@
               "type": "string"
             },
             "type": "array"
+          },
+          "sizeLimitInBytes": {
+            "format": "int64",
+            "type": "integer"
           },
           "user": {
             "maxLength": 128,
@@ -835,6 +820,20 @@
           "downloadLink": {
             "type": "string"
           },
+          "errorType": {
+            "enum": [
+              "INVALID_CONTENT",
+              "FORBIDDEN",
+              "ORDER_LIMIT_REACHED",
+              "EMPTY_ORDER",
+              "INTERNAL_ERROR"
+            ],
+            "type": "string"
+          },
+          "errors": {
+            "format": "int32",
+            "type": "integer"
+          },
           "message": {
             "type": "string"
           },
@@ -851,9 +850,18 @@
               "FAILED"
             ],
             "type": "string"
+          },
+          "subOrderId": {
+            "format": "int64",
+            "type": "integer"
+          },
+          "totalSubOrders": {
+            "format": "int32",
+            "type": "integer"
           }
         },
         "required": [
+          "correlationId",
           "status"
         ],
         "type": "object"
@@ -1087,7 +1095,8 @@
                 "FAILED",
                 "DONE_WITH_WARNING",
                 "DONE",
-                "DELETED"
+                "DELETED",
+                "ERROR"
               ],
               "type": "string"
             },
@@ -1121,7 +1130,7 @@
       "name": "GPL-3.0"
     },
     "title": "MICROSERVICE ORDER",
-    "version": "1.13.1"
+    "version": "1.14.0"
   },
   "openapi": "3.0.1",
   "paths": {
@@ -1583,44 +1592,18 @@
       }
     },
     "/orders/csv": {
-      "get": {
+      "post": {
         "operationId": "generateCsv",
-        "parameters": [
-          {
-            "in": "query",
-            "name": "status",
-            "required": false,
-            "schema": {
-              "enum": [
-                "PENDING",
-                "RUNNING",
-                "PAUSED",
-                "EXPIRED",
-                "FAILED",
-                "DONE_WITH_WARNING",
-                "DONE",
-                "DELETED"
-              ],
-              "type": "string"
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SearchRequestParameters"
+              }
             }
           },
-          {
-            "in": "query",
-            "name": "from",
-            "required": false,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "in": "query",
-            "name": "to",
-            "required": false,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
+          "required": true
+        },
         "responses": {
           "200": {
             "description": "OK"
@@ -1891,6 +1874,84 @@
           }
         },
         "summary": "Get files available in specific order",
+        "tags": [
+          "order-data-file-available-controller"
+        ]
+      }
+    },
+    "/orders/{orderId}/filesTask/{filesTaskId}/files/available": {
+      "get": {
+        "description": "Return files corresponding to the orderId and filesTaskId input, if exists and user has access to it",
+        "operationId": "getAvailableFilesInSuborder",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "orderId",
+            "required": true,
+            "schema": {
+              "format": "int64",
+              "type": "integer"
+            }
+          },
+          {
+            "in": "path",
+            "name": "filesTaskId",
+            "required": true,
+            "schema": {
+              "format": "int64",
+              "type": "integer"
+            }
+          },
+          {
+            "in": "query",
+            "name": "page",
+            "required": true,
+            "schema": {
+              "$ref": "#/components/schemas/Pageable"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/PagedModelEntityModelOrderDataFileDTO"
+                }
+              }
+            },
+            "description": "The suborder has been successfully retrieved."
+          },
+          "204": {
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/PagedModelEntityModelOrderDataFileDTO"
+                }
+              }
+            },
+            "description": "The suborder has been successfully retrieved, but no file is available."
+          },
+          "206": {
+            "content": {
+              "application/json": {}
+            },
+            "description": "The suborder has been successfully retrieved, but is not finished"
+          },
+          "403": {
+            "content": {
+              "application/html": {}
+            },
+            "description": "Suborder is not accessible for the current user."
+          },
+          "404": {
+            "content": {
+              "application/json": {}
+            },
+            "description": "Suborder not found"
+          }
+        },
+        "summary": "Get files available in specific suborder",
         "tags": [
           "order-data-file-available-controller"
         ]

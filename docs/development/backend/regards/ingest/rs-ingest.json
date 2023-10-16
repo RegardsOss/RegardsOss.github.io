@@ -39,6 +39,9 @@
           "normalizedGeometry": {
             "$ref": "#/components/schemas/IGeometry"
           },
+          "properties": {
+            "$ref": "#/components/schemas/InformationPackageProperties"
+          },
           "providerId": {
             "type": "string"
           },
@@ -205,6 +208,24 @@
         },
         "type": "object"
       },
+      "AccessRightInformation": {
+        "properties": {
+          "dataRights": {
+            "type": "string"
+          },
+          "licence": {
+            "type": "string"
+          },
+          "publicReleaseDate": {
+            "format": "date-time",
+            "type": "string"
+          }
+        },
+        "required": [
+          "dataRights"
+        ],
+        "type": "object"
+      },
       "ChooseVersioningRequestParameters": {
         "properties": {
           "creationDate": {
@@ -247,6 +268,21 @@
             "type": "string"
           }
         },
+        "type": "object"
+      },
+      "ContentInformation": {
+        "properties": {
+          "dataObject": {
+            "$ref": "#/components/schemas/OAISDataObject"
+          },
+          "representationInformation": {
+            "$ref": "#/components/schemas/RepresentationInformation"
+          }
+        },
+        "required": [
+          "dataObject",
+          "representationInformation"
+        ],
         "type": "object"
       },
       "DatesRangeRestriction": {
@@ -442,6 +478,23 @@
         },
         "type": "object"
       },
+      "EnvironmentDescription": {
+        "properties": {
+          "hardwareEnvironment": {
+            "additionalProperties": {
+              "type": "object"
+            },
+            "type": "object"
+          },
+          "softwareEnvironment": {
+            "additionalProperties": {
+              "type": "object"
+            },
+            "type": "object"
+          }
+        },
+        "type": "object"
+      },
       "Event": {
         "properties": {
           "comment": {
@@ -518,6 +571,29 @@
         },
         "type": "object"
       },
+      "InformationPackageProperties": {
+        "properties": {
+          "contentInformations": {
+            "items": {
+              "$ref": "#/components/schemas/ContentInformation"
+            },
+            "type": "array"
+          },
+          "descriptiveInformation": {
+            "additionalProperties": {
+              "type": "object"
+            },
+            "type": "object"
+          },
+          "pdi": {
+            "$ref": "#/components/schemas/PreservationDescriptionInformation"
+          }
+        },
+        "required": [
+          "pdi"
+        ],
+        "type": "object"
+      },
       "IngestMetadataDto": {
         "properties": {
           "categories": {
@@ -536,6 +612,9 @@
             "maxLength": 128,
             "minLength": 0,
             "type": "string"
+          },
+          "replaceErrors": {
+            "type": "boolean"
           },
           "session": {
             "maxLength": 128,
@@ -747,6 +826,69 @@
             "$ref": "#/components/schemas/ModuleInformation"
           }
         },
+        "type": "object"
+      },
+      "OAISDataObject": {
+        "properties": {
+          "algorithm": {
+            "type": "string"
+          },
+          "checksum": {
+            "type": "string"
+          },
+          "fileSize": {
+            "format": "int64",
+            "type": "integer"
+          },
+          "filename": {
+            "type": "string"
+          },
+          "locations": {
+            "items": {
+              "$ref": "#/components/schemas/OAISDataObjectLocation"
+            },
+            "type": "array",
+            "uniqueItems": true
+          },
+          "regardsDataType": {
+            "enum": [
+              "RAWDATA",
+              "QUICKLOOK_SD",
+              "QUICKLOOK_MD",
+              "QUICKLOOK_HD",
+              "DOCUMENT",
+              "THUMBNAIL",
+              "OTHER",
+              "AIP",
+              "DESCRIPTION"
+            ],
+            "type": "string"
+          }
+        },
+        "required": [
+          "checksum",
+          "filename",
+          "locations",
+          "regardsDataType"
+        ],
+        "type": "object"
+      },
+      "OAISDataObjectLocation": {
+        "properties": {
+          "storage": {
+            "type": "string"
+          },
+          "storePath": {
+            "type": "string"
+          },
+          "url": {
+            "pattern": "\\b[a-zA-Z1-9]+://?[-a-zA-Z0-9+&@#/%'?=~_|!:,.;]*[-a-zA-Z0-9+&@#/%'=~_|]",
+            "type": "string"
+          }
+        },
+        "required": [
+          "url"
+        ],
         "type": "object"
       },
       "OAISDeletionPayloadDto": {
@@ -1145,6 +1287,103 @@
         },
         "type": "object"
       },
+      "PreservationDescriptionInformation": {
+        "properties": {
+          "accessRightInformation": {
+            "$ref": "#/components/schemas/AccessRightInformation"
+          },
+          "contextInformation": {
+            "additionalProperties": {
+              "type": "object"
+            },
+            "type": "object"
+          },
+          "fixityInformation": {
+            "additionalProperties": {
+              "type": "object"
+            },
+            "type": "object"
+          },
+          "provenanceInformation": {
+            "$ref": "#/components/schemas/ProvenanceInformation"
+          },
+          "referenceInformation": {
+            "additionalProperties": {
+              "type": "string"
+            },
+            "type": "object"
+          },
+          "tags": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          }
+        },
+        "required": [
+          "accessRightInformation",
+          "contextInformation",
+          "fixityInformation",
+          "provenanceInformation",
+          "referenceInformation"
+        ],
+        "type": "object"
+      },
+      "ProvenanceInformation": {
+        "properties": {
+          "additional": {
+            "additionalProperties": {
+              "type": "object"
+            },
+            "type": "object"
+          },
+          "detector": {
+            "type": "string"
+          },
+          "facility": {
+            "type": "string"
+          },
+          "filter": {
+            "type": "string"
+          },
+          "history": {
+            "items": {
+              "$ref": "#/components/schemas/Event"
+            },
+            "type": "array"
+          },
+          "instrument": {
+            "type": "string"
+          },
+          "originUrn": {
+            "type": "string"
+          },
+          "proposal": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "history"
+        ],
+        "type": "object"
+      },
+      "RepresentationInformation": {
+        "properties": {
+          "environmentDescription": {
+            "$ref": "#/components/schemas/EnvironmentDescription"
+          },
+          "semantic": {
+            "$ref": "#/components/schemas/Semantic"
+          },
+          "syntax": {
+            "$ref": "#/components/schemas/Syntax"
+          }
+        },
+        "required": [
+          "syntax"
+        ],
+        "type": "object"
+      },
       "RequestDto": {
         "properties": {
           "creationDate": {
@@ -1320,6 +1559,9 @@
           },
           "normalizedGeometry": {
             "$ref": "#/components/schemas/IGeometry"
+          },
+          "properties": {
+            "$ref": "#/components/schemas/InformationPackageProperties"
           },
           "ref": {
             "$ref": "#/components/schemas/SIPReference"
@@ -1638,6 +1880,17 @@
         ],
         "type": "object"
       },
+      "Semantic": {
+        "properties": {
+          "description": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "description"
+        ],
+        "type": "object"
+      },
       "StorageMetadata": {
         "properties": {
           "pluginBusinessId": {
@@ -1684,6 +1937,31 @@
             "type": "integer"
           }
         },
+        "type": "object"
+      },
+      "Syntax": {
+        "properties": {
+          "description": {
+            "type": "string"
+          },
+          "height": {
+            "format": "double",
+            "type": "number"
+          },
+          "mimeType": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "width": {
+            "format": "double",
+            "type": "number"
+          }
+        },
+        "required": [
+          "mimeType"
+        ],
         "type": "object"
       },
       "ValuesRestrictionAIPState": {
@@ -2053,7 +2331,7 @@
       "name": "GPL-3.0"
     },
     "title": "MICROSERVICE INGEST",
-    "version": "1.13.1"
+    "version": "1.14.0"
   },
   "openapi": "3.0.1",
   "paths": {

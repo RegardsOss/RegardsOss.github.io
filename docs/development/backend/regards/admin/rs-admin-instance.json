@@ -257,7 +257,7 @@
             "type": "string"
           },
           "mimeType": {
-            "$ref": "#/components/schemas/MimeType"
+            "type": "string"
           },
           "sender": {
             "type": "string"
@@ -315,38 +315,6 @@
           "lastUpdate": {
             "format": "date-time",
             "type": "string"
-          }
-        },
-        "type": "object"
-      },
-      "MimeType": {
-        "properties": {
-          "charset": {
-            "type": "string"
-          },
-          "concrete": {
-            "type": "boolean"
-          },
-          "parameters": {
-            "additionalProperties": {
-              "type": "string"
-            },
-            "type": "object"
-          },
-          "subtype": {
-            "type": "string"
-          },
-          "subtypeSuffix": {
-            "type": "string"
-          },
-          "type": {
-            "type": "string"
-          },
-          "wildcardSubtype": {
-            "type": "boolean"
-          },
-          "wildcardType": {
-            "type": "boolean"
           }
         },
         "type": "object"
@@ -513,7 +481,7 @@
             "type": "string"
           },
           "mimeType": {
-            "$ref": "#/components/schemas/MimeType"
+            "type": "string"
           },
           "projectUserRecipients": {
             "items": {
@@ -995,7 +963,7 @@
       "name": "GPL-3.0"
     },
     "title": "MICROSERVICE ADMIN INSTANCE",
-    "version": "1.13.1"
+    "version": "1.14.0"
   },
   "openapi": "3.0.1",
   "paths": {

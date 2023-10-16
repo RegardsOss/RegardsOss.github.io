@@ -228,7 +228,7 @@
             "type": "string"
           },
           "urn": {
-            "$ref": "#/components/schemas/FeatureUniformResourceName"
+            "type": "string"
           }
         },
         "required": [
@@ -318,7 +318,7 @@
         "properties": {
           "featuresUrns": {
             "items": {
-              "$ref": "#/components/schemas/FeatureUniformResourceName"
+              "type": "string"
             },
             "type": "array",
             "uniqueItems": true
@@ -370,7 +370,7 @@
             "type": "string"
           },
           "urn": {
-            "$ref": "#/components/schemas/FeatureUniformResourceName"
+            "type": "string"
           },
           "version": {
             "format": "int32",
@@ -440,7 +440,7 @@
             "type": "integer"
           },
           "mimeType": {
-            "$ref": "#/components/schemas/MimeType"
+            "type": "string"
           }
         },
         "required": [
@@ -564,61 +564,13 @@
             "type": "string"
           },
           "urn": {
-            "$ref": "#/components/schemas/FeatureUniformResourceName"
+            "type": "string"
           }
         },
         "required": [
           "id",
           "registrationDate",
           "state"
-        ],
-        "type": "object"
-      },
-      "FeatureUniformResourceName": {
-        "properties": {
-          "entityId": {
-            "format": "uuid",
-            "type": "string"
-          },
-          "entityType": {
-            "enum": [
-              "COLLECTION",
-              "DATA",
-              "DATASET"
-            ],
-            "type": "string"
-          },
-          "identifier": {
-            "type": "string"
-          },
-          "last": {
-            "type": "boolean"
-          },
-          "order": {
-            "format": "int64",
-            "type": "integer"
-          },
-          "randomEntityId": {
-            "type": "boolean"
-          },
-          "revision": {
-            "type": "string"
-          },
-          "tenant": {
-            "type": "string"
-          },
-          "version": {
-            "format": "int32",
-            "maximum": 999,
-            "minimum": 1,
-            "type": "integer"
-          }
-        },
-        "required": [
-          "entityId",
-          "entityType",
-          "identifier",
-          "tenant"
         ],
         "type": "object"
       },
@@ -754,38 +706,6 @@
           "lastUpdate": {
             "format": "date-time",
             "type": "string"
-          }
-        },
-        "type": "object"
-      },
-      "MimeType": {
-        "properties": {
-          "charset": {
-            "type": "string"
-          },
-          "concrete": {
-            "type": "boolean"
-          },
-          "parameters": {
-            "additionalProperties": {
-              "type": "string"
-            },
-            "type": "object"
-          },
-          "subtype": {
-            "type": "string"
-          },
-          "subtypeSuffix": {
-            "type": "string"
-          },
-          "type": {
-            "type": "string"
-          },
-          "wildcardSubtype": {
-            "type": "boolean"
-          },
-          "wildcardType": {
-            "type": "boolean"
           }
         },
         "type": "object"
@@ -1570,7 +1490,7 @@
       "name": "GPL-3.0"
     },
     "title": "MICROSERVICE FEM",
-    "version": "1.13.1"
+    "version": "1.14.0"
   },
   "openapi": "3.0.1",
   "paths": {
