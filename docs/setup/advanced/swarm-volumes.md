@@ -95,18 +95,18 @@ group_docker_mounts:
         destination: /data/MISSION1
 ```
 
-| Field Name           | Mandatory           | Description |
-| ----------           | -----------         | ----------- |
-| name                 | x                   | Name of the Docker Swarm volume (must be unique) |
-| destination          | x                   | Mount path inside the container |
-| local                |                     | (Default value `false`) - Mount a local path from the server |
-| source               | When `local=true`   | Mount a local path from a host server to the container |
-| nfs                  |                     | Identifier of the NFS server defined in `group_docker_mounts.nfs` |
-| device_postfix       | When `nfs` provided | (Default value is an empty string) A postfix path to add to the `nfs.device_prefix` to obtain the path inside the NFS server. <br/> `final path` = `nfs.device_prefix` + `device_postfix` |
+| Field Name           | Mandatory              | Description |
+| ----------           | -----------            | ----------- |
+| name                 | x                      | Name of the Docker Swarm volume (must be unique) |
+| destination          | x                      | Mount path inside the container |
+| local                |                        | (Default value `false`) - Mount a local path from the server |
+| source               | When `local=true`      | Mount a local path from a host server to the container |
+| nfs                  | When `local` undefined | Identifier of the NFS server defined in `group_docker_mounts.nfs` |
+| device_postfix       | When `nfs` provided    | (Default value is an empty string) A postfix path to add to the `nfs.device_prefix` to obtain the path inside the NFS server. <br/> `final path` = `nfs.device_prefix` + `device_postfix` |
 
 ### Volume definition
 
-Volumes allow you to define Docker Swarm volumes. Unlike the Data inputs configuration, you need to explicitly mount these volumes to services. Volume definitions and Data inputs share the same syntax.  
+Volumes allow you to define Docker Swarm volumes. Unlike the Data inputs configuration, you need to explicitly mount these volumes to services. Volume definitions and Data inputs share the same syntax except there is no `destination` property.  
 
 ```yml
 group_docker_mounts:
@@ -135,8 +135,8 @@ group_docker_mservices:
 
 ### Config and secrets files
 
-Our playbook allows you to transfer a file located inside your inventory into the main Swarm manager host. Then, when your stack boots, the file is read by Swarm into memory and sent over the network to any host running container requiring the Config or Secret file. Again, the main point is to share configs and secret files (see [Encrypt secrets file using Ansible Vault](/docs/setup/swarm/advanced/ansible-vault#encrypt-file)) under source control.  
-When you deploy a new version of a config or secret file, any container link to that file will be recreated with the updated version of the file.
+Our playbook allows you to transfer a file located inside your inventory into the main Swarm manager host. Then, when your stack boots, the file is read by Swarm in memory and sent over the network to any host running container requiring the Config or Secret file. Again, the main point is to share configs and secret files (see [Encrypt secrets file using Ansible Vault](/docs/setup/swarm/advanced/ansible-vault#encrypt-file)) under source control.  
+When you deploy a new version of a config or secret file, any container link to that file will be recreated with the updated version of that file.
 
 :::warning Cons
 The file cannot exceed 500kb  
@@ -215,22 +215,22 @@ Most of the time, you want to provide a NFS to REGARDS for all its workdir, but 
   regards:
     # For DAM documents
     dam:
-      nfs: nfs-swot-reg-qua
+      nfs: nfs-regards-cnes-qua
     storage:
       # For online local storages
       online:
-        nfs: nfs-swot-reg-qua
+        nfs: nfs-regards-cnes-qua
       # For STORAGE cache
       cache:
-        nfs: nfs-swot-reg-qua
+        nfs: nfs-regards-cnes-qua
     # Common microservices workspace directory
     workspace:
-      nfs: nfs-swot-reg-qua
+      nfs: nfs-regards-cnes-qua
     processing: 
-      nfs: nfs-swot-reg-qua
+      nfs: nfs-regards-cnes-qua
     # Microservices plugins directory
     plugins:
-      nfs: nfs-swot-reg-qua
+      nfs: nfs-regards-cnes-qua
 #  elasticsearch:
 #    data:
 #    backup:

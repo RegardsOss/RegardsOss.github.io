@@ -11,6 +11,7 @@ module.exports = {
           items: [
             "setup/advanced/advanced-introduction",
             "setup/advanced/microservice-setup",
+            "setup/advanced/logging-stack",
             "setup/advanced/postgres-database",
             "setup/advanced/minio",
             "setup/advanced/optimizations",
@@ -29,6 +30,7 @@ module.exports = {
             "setup/migration/1.8-to-1.11",
             "setup/migration/1.11-to-1.12",
             "setup/migration/1.12-to-1.13",
+            "setup/migration/1.13-to-1.14",
           ],
         },
       ],

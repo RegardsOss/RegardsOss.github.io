@@ -14,7 +14,7 @@ openssl pkcs12 -in <your domain>.p12 -clcerts -nokeys -out <your domain>.crt
 - Create the folder `<inventory>/group_vars/regards_nodes/files/ssl` in your inventory then open this folder using your terminal 
 
 - Using [Ansible Vault - Encrypt file](ansible-vault.md#encrypt-file), generates an encrypted version of the `<your domain>.key` file
-- Copy the `<your domain>.key` file without any Ansible Vault encryption (it's not a sensitive information)
+- Copy the `<your domain>.crt` file without any Ansible Vault encryption (it's not a sensitive information) to the folder `<inventory>/group_vars/regards_nodes/files/ssl/`
 - Edit your inventory file `inventories/<your inventory>/group_vars/regards_nodes/main.yml` 
 ```yaml
 group_docker_mservices:
