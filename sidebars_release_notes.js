@@ -1,6 +1,7 @@
 module.exports = {
   release_notes: [
     "release-notes-overview",
+    "notes/release-notes-v1.14.0",
     "notes/release-notes-v1.13.0",
     "notes/release-notes-v1.12.0",
     "notes/release-notes-v1.11.0",
