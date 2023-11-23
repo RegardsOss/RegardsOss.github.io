@@ -45,17 +45,20 @@ Exchange to submit Order requests:
     "correlationId": "xxx",
     "queries": [],
     "user" : "",
+    "sizeLimitInBytes": "xx",
     "filters": {
         "dataTypes": [],
         "filenameRegExp" : "",
     }
 }
 ```
+
 | Parameter | Type | Optional | Description |
 | --------- | ---- | :------: | ----------- |
 | correlationId | String | No | The request correlation id. |
 | queries | Lucene strings | No | List of lucene formatted queries to find products to order. |
 | user | String | No | Email of your REGARDS user. |
+| sizeLimitInBytes | Long| Yes | Number to limit the size of the files ordered at once, in bytes. |
 | filters.datatypes | String | Yes | List of REGARDS datatypes to filter files from orderd products. Datatypes can be `RAWDATA` or `QUICKLOOK` |
 | filters.filenameRegExp | String | Yes | Regular expression to filter files by their names from orderd products. |
 

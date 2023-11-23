@@ -56,7 +56,9 @@ REGARDS will publish SubOrder done events on response exchange.
   "orderId": 1234,
   "correlationId": "xxx",
   "message": "A sub-order of user john@cnes.fr is finished and ready to download",
-  "downloadLink": "<host>/api/v1/rs-order/user/orders/1234/download"
+  "downloadLink": "<host>/api/v1/rs-order/user/orders/1234/download",
+  "totalSubOrders": 3, 
+  "subOrderId": 2
 }
 ```
 
@@ -94,6 +96,8 @@ REGARDS will publish a request denied event on response exchange when request is
     "status" : "DENIED",
     "correlationId": "xxx",
     "message" : "deny cause",
+    "errorCode": "INVALID_CONTENT",
+    "errors": 2,
 }
 ```
 
@@ -113,10 +117,11 @@ This error response will be published if at least one file of the order has fail
     "orderId": 1,
     "correlationId": "xxx",
     "message": "Error cause",
+    "errorCode": "INTERNAL_ERROR",
+    "errors": 3,
 }
 ```
 
 :::info How to handle it?
 Retry later with new order request or contact REGARDS administrators.
 :::
-

@@ -532,6 +532,36 @@ module.exports = {
                 "development/backend/regards/lta-manager/backend-lta-manager-api-swagger",
               ],
             },
+            {
+              type: "category",
+              label: "Delivery",
+              items: [
+                "development/backend/regards/delivery/backend-delivery-overview",
+                "development/backend/regards/delivery/backend-delivery-architecture",
+                {
+                  type: "category",
+                  label: "API Guides",
+                  items: [
+                    {
+                      type: "category",
+                      label: "AMQP",
+                      items: [
+                        "development/backend/regards/delivery/api-guides/amqp/backend-amqp-publish-delivery-request",
+                        "development/backend/regards/delivery/api-guides/amqp/backend-amqp-subscribe-to-delivery-response"
+                      ]
+                    },
+                    {
+                      type: "category",
+                      label: "REST",
+                      items: [
+                        "development/backend/regards/delivery/api-guides/rest/backend-rest-configure-settings",
+                        "development/backend/regards/delivery/api-guides/rest/backend-delivery-rest-api"
+                      ]
+                    }
+                  ],
+                }
+              ],
+            },
           ],
         },
       ],
