@@ -33,6 +33,7 @@ module.exports = {
             "setup/migration/1.13-to-1.14",
           ],
         },
+        "setup/cots-version",
       ],
     },
     {
