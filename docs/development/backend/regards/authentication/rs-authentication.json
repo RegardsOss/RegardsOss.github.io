@@ -690,6 +690,12 @@
           "authUrl": {
             "type": "string"
           },
+          "descriptionEn": {
+            "type": "string"
+          },
+          "descriptionFr": {
+            "type": "string"
+          },
           "name": {
             "type": "string"
           },
@@ -702,6 +708,12 @@
       "ServiceProviderPublicDto": {
         "properties": {
           "authUrl": {
+            "type": "string"
+          },
+          "descriptionEn": {
+            "type": "string"
+          },
+          "descriptionFr": {
             "type": "string"
           },
           "name": {
@@ -732,7 +744,7 @@
       "name": "GPL-3.0"
     },
     "title": "MICROSERVICE AUTHENTICATION",
-    "version": "1.14.0"
+    "version": "1.14.1"
   },
   "openapi": "3.0.1",
   "paths": {

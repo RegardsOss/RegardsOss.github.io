@@ -632,7 +632,7 @@
       "name": "GPL-3.0"
     },
     "title": "MICROSERVICE NOTIFIER",
-    "version": "1.14.0"
+    "version": "1.14.1"
   },
   "openapi": "3.0.1",
   "paths": {

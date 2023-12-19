@@ -183,31 +183,22 @@
           "accessGroup": {
             "$ref": "#/components/schemas/AccessGroup"
           },
-          "accessLevel": {
-            "enum": [
-              "NO_ACCESS",
-              "RESTRICTED_ACCESS",
-              "CUSTOM_ACCESS",
-              "FULL_ACCESS"
-            ],
-            "type": "string"
-          },
           "constrained": {
             "$ref": "#/components/schemas/Dataset"
-          },
-          "dataAccessLevel": {
-            "enum": [
-              "NO_ACCESS",
-              "INHERITED_ACCESS",
-              "CUSTOM_ACCESS"
-            ],
-            "type": "string"
           },
           "dataAccessPlugin": {
             "$ref": "#/components/schemas/PluginConfiguration"
           },
           "dataset": {
             "$ref": "#/components/schemas/Dataset"
+          },
+          "fileAccessLevel": {
+            "enum": [
+              "NO_ACCESS",
+              "INHERITED_ACCESS",
+              "CUSTOM_ACCESS"
+            ],
+            "type": "string"
           },
           "id": {
             "format": "int64",
@@ -216,15 +207,24 @@
           "identifiable": {
             "type": "boolean"
           },
+          "metadataAccessLevel": {
+            "enum": [
+              "NO_ACCESS",
+              "RESTRICTED_ACCESS",
+              "CUSTOM_ACCESS",
+              "FULL_ACCESS"
+            ],
+            "type": "string"
+          },
           "qualityFilter": {
             "$ref": "#/components/schemas/QualityFilter"
           }
         },
         "required": [
           "accessGroup",
-          "accessLevel",
-          "dataAccessLevel",
           "dataset",
+          "fileAccessLevel",
+          "metadataAccessLevel",
           "qualityFilter"
         ],
         "type": "object"
@@ -649,6 +649,9 @@
       },
       "DataObjectGroup": {
         "properties": {
+          "dataFileAccess": {
+            "type": "boolean"
+          },
           "dataObjectAccess": {
             "type": "boolean"
           },
@@ -891,6 +894,12 @@
           },
           "crs": {
             "type": "string"
+          },
+          "dataObjectsAccessGranted": {
+            "type": "boolean"
+          },
+          "dataObjectsFilesAccessGranted": {
+            "type": "boolean"
           },
           "entityType": {
             "enum": [
@@ -2578,7 +2587,7 @@
       "name": "GPL-3.0"
     },
     "title": "MICROSERVICE DAM",
-    "version": "1.14.0"
+    "version": "1.14.1"
   },
   "openapi": "3.0.1",
   "paths": {

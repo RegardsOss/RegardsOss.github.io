@@ -476,6 +476,9 @@
       },
       "DataObjectGroup": {
         "properties": {
+          "dataFileAccess": {
+            "type": "boolean"
+          },
           "dataObjectAccess": {
             "type": "boolean"
           },
@@ -628,6 +631,12 @@
           },
           "crs": {
             "type": "string"
+          },
+          "dataObjectsAccessGranted": {
+            "type": "boolean"
+          },
+          "dataObjectsFilesAccessGranted": {
+            "type": "boolean"
           },
           "entityType": {
             "enum": [
@@ -2632,7 +2641,7 @@
       "name": "GPL-3.0"
     },
     "title": "MICROSERVICE CATALOG",
-    "version": "1.14.0"
+    "version": "1.14.1"
   },
   "openapi": "3.0.1",
   "paths": {
