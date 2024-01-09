@@ -20,6 +20,7 @@ We assume you have successfully deployed REGARDS using the [Quick setup](/docs/s
 - [Network tuning](./swarm-networks.md) allows you to understand and properly configure network properties.
 - [Securise using HTTPS](./swarm-regards-https.md) allows you to expose the REGARDS API and HMI through HTTPS. **Highly recommended**
 - [MinIO](./swarm-minio.md) shows you how to deploy a MinIO server for your regards swarm stack.
+- [Web application firewall guide](./firewall-guide.md) lists URLs you should block access to users on untrusted networks.
 
 
 ### Run changes after inventory modification

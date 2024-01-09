@@ -19,6 +19,7 @@ module.exports = {
             "setup/advanced/swarm-mount",
             "setup/advanced/swarm-networks",
             "setup/advanced/regards-https",
+            "setup/advanced/web-application-firewall",
           ],
         },
         "setup/swarm-cli",
