@@ -17,7 +17,7 @@ or a blacklist to restrict access to microservices that are not used by users wh
 | rs-gateway            | Yes                               |                               |               |
 | rs-admin-instance     | Partially                         | Yes                           |               |
 | rs-admin              | Partially                         | Yes                           |               |
-| rs-authentication     | Yes                               | Yes                           |               |
+| rs-authentication     | Yes                               |                               |               |
 | rs-dam                | Partially                         | Yes                           |               |
 | rs-notifier           |                                   | Yes                           |               |
 | rs-fem                |                                   | Yes                           |               |
