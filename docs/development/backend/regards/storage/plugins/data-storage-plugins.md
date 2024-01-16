@@ -13,17 +13,18 @@ This extension point allows to define a new file storage system.
 :::
 
 <b>NOTE : </b> There is two types of storage system in REGARDS :
- - Online : Files are directly accessible. (Synchronous retrieval)
- - Nearline : Files are on a long term archive system and needs times to be extracted. (Asynchronous retrieval)
+
+ * Online : Files are directly accessible. (**Synchronous** retrieval)
+ * Nearline : Files are on a long term archive system and needs times to be extracted. (**Asynchronous** retrieval)
 
 REGARDS provides many implementation of this extension point :
- - [LocalDataStorage](https://github.com/RegardsOss/regards-storage/blob/master/storage/storage-plugin/src/main/java/fr/cnes/regards/modules/storage/plugin/datastorage/local/LocalDataStorage.java) : Locak disk storage system.
+ - [LocalDataStorage](https://github.com/RegardsOss/regards-plugins/blob/master/storage-plugins/local-storage-location/src/main/java/fr/cnes/regards/modules/storage/plugin/local/LocalDataStorage.java) : Local disk storage system.
 
 ## Interfaces
 
-   - [IDataStorage](https://github.com/RegardsOss/regards-storage/blob/master/storage/storage-domain/src/main/java/fr/cnes/regards/modules/storage/domain/plugin/IDataStorage.java) : Main interface
-   - [IOnlineDataStorage](https://github.com/RegardsOss/regards-storage/blob/master/storage/storage-domain/src/main/java/fr/cnes/regards/modules/storage/domain/plugin/IOnlineDataStorage.java) : Interface for `Online` systems.
-   - [INearlineDataStorage](https://github.com/RegardsOss/regards-storage/blob/master/storage/storage-domain/src/main/java/fr/cnes/regards/modules/storage/domain/plugin/INearlineDataStorage.java) : Interface for `Nearline` systems.
+   - [IStorageLocation](https://github.com/RegardsOss/regards-backend/blob/master/rs-storage/storage/storage-domain/src/main/java/fr/cnes/regards/modules/storage/domain/plugin/IStorageLocation.java) : Main interface
+   - [IOnlineStorageLocation](https://github.com/RegardsOss/regards-backend/blob/master/rs-storage/storage/storage-domain/src/main/java/fr/cnes/regards/modules/storage/domain/plugin/IOnlineStorageLocation.java) : Interface for `Online` systems.
+   - [INearlineStorageLocation](https://github.com/RegardsOss/regards-backend/blob/master/rs-storage/storage/storage-domain/src/main/java/fr/cnes/regards/modules/storage/domain/plugin/INearlineStorageLocation.java) : Interface for `Nearline` systems.
 
 
 ## Implementation
