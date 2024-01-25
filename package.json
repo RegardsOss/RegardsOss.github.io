@@ -38,5 +38,9 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "volta": {
+    "node": "16.20.2",
+    "yarn": "3.7.0"
   }
 }
