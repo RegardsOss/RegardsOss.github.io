@@ -25,5 +25,5 @@ slug: /development/backend/services/order/overview/
 
 ## Available APIs
 
- - [Basket](api/basket/) : API to manage user basket (add and remove entities.md)
+ - [Basket](api/basket-api.md) : API to manage user basket (add and remove entities)
  - [Order API](order-api-swagger.mdx) : API to submit, cancel and monitoring user orders.
