@@ -60,7 +60,7 @@ It means to the playbook that the microservice storage will be activate on the n
 There is 3 types of crawler that lets REGARDS populate its meta-catalog :
  - the *internal* [OAIS catalog](../../user-documentation/4_1-ingest/introduction-ingest.md)
  - the *internal* [GeoJSON catalog](../../user-documentation/4_3-fem/introduction-fem.md)
- - or an *external* [datasource](../../user-documentation/5-crawler/configure-datasource.md) (an OpenSearch Web source, an external Database....md)
+ - or an *external* [datasource](../../user-documentation/5-crawler/configure-datasource.md) (an OpenSearch Web source, an external Database....)
 
 All types of crawlers can be active at the same time, but you may not need them on your instance at the same time.
 

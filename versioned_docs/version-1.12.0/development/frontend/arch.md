@@ -13,7 +13,7 @@ The REGARDS frontend contains three differents interfaces:
  - The `User interface`, fully configurable (layout, theme and modules displayed), that lets users browse project content. 
  - The `Administrator interface`, that allows **Instance admin** creating Projects and **Project Admin** configuring them. 
 
-For the `Portal` and `User` interfaces, REGARDS UI defines [Dynamic modules](modules/dynamic-modules.md) to bring UI features that the administrator can control (options, layout, menus....md).
+For the `Portal` and `User` interfaces, REGARDS UI defines [Dynamic modules](modules/dynamic-modules.md) to bring UI features that the administrator can control (options, layout, menus....).
 
 ## Structure
 
