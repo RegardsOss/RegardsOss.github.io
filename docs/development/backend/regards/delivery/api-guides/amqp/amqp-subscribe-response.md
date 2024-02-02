@@ -10,9 +10,12 @@ This section describes how to subscribe to delivery response events with AMQP me
 ## Exchange
 
 Subscribe to the following exchange to receive delivery responses on vhost `regards.multitenant.manager`:  
-`regards.broadcast.fr.cnes.regards.modules.ltamanager.amqp.output.DeliveryResponseDtoEvent`  
-*To listen to delivery requests responses, the REGARDS administrator must create for you a dedicated queue bound to this
-exchange and allow your RabbitMQ user to access to that queue.*
+`regards.broadcast.fr.cnes.regards.modules.ltamanager.amqp.output.DeliveryResponseDtoEvent`
+
+:::info Get delivery requests response
+The REGARDS administrator must create for you a dedicated queue bound to this exchange and allow your RabbitMQ user to
+access to that queue. By doing so, it let you access to messages from that exchange.
+:::
 
 ## AMQP message format
 

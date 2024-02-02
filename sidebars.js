@@ -359,6 +359,55 @@ module.exports = {
             },
             {
               type: "category",
+              label: "Data provider",
+              items: [
+                "development/backend/regards/dataprovider/backend-dataprovider-overview",
+                "development/backend/regards/dataprovider/backend-dataprovider-api-swagger",
+                {
+                  type: "category",
+                  label: "Plugins",
+                  items: [
+                    "development/backend/regards/dataprovider/plugins/backend-dataprovider-post-processing-plugin",
+                    "development/backend/regards/dataprovider/plugins/backend-dataprovider-product-plugin",
+                    "development/backend/regards/dataprovider/plugins/backend-dataprovider-scan-plugin",
+                    "development/backend/regards/dataprovider/plugins/backend-dataprovider-sip-generation-plugin",
+                    "development/backend/regards/dataprovider/plugins/backend-dataprovider-validation-plugin",
+                  ],
+                },
+              ],
+            },
+            {
+              type: "category",
+              label: "Delivery",
+              items: [
+                "development/backend/regards/delivery/backend-delivery-overview",
+                "development/backend/regards/delivery/backend-delivery-architecture",
+                {
+                  type: "category",
+                  label: "API Guides",
+                  items: [
+                    {
+                      type: "category",
+                      label: "AMQP",
+                      items: [
+                        "development/backend/regards/delivery/api-guides/amqp/backend-amqp-publish-delivery-request",
+                        "development/backend/regards/delivery/api-guides/amqp/backend-amqp-subscribe-to-delivery-response"
+                      ]
+                    },
+                    {
+                      type: "category",
+                      label: "REST",
+                      items: [
+                        "development/backend/regards/delivery/api-guides/rest/backend-rest-configure-settings",
+                        "development/backend/regards/delivery/api-guides/rest/backend-delivery-rest-api"
+                      ]
+                    }
+                  ],
+                }
+              ],
+            },
+            {
+              type: "category",
               label: "Feature manager",
               items: [
                 "development/backend/regards/fem/backend-fem-overview",
@@ -383,6 +432,44 @@ module.exports = {
             },
             {
               type: "category",
+              label: "Ingest",
+              items: [
+                "development/backend/regards/ingest/backend-ingest-overview",
+                "development/backend/regards/ingest/backend-ingest-api-swagger",
+                {
+                  type: "category",
+                  label: "Plugins",
+                  items: [
+                    "development/backend/regards/ingest/plugins/backend-ingest-pre-processing-plugins",
+                    "development/backend/regards/ingest/plugins/backend-ingest-validation-plugins",
+                    "development/backend/regards/ingest/plugins/backend-ingest-generation-plugins",
+                    "development/backend/regards/ingest/plugins/backend-ingest-tagging-plugins",
+                    "development/backend/regards/ingest/plugins/backend-ingest-post-processing-plugins",
+                  ],
+                },
+                "development/backend/regards/ingest/events/backend-ingest-events",
+              ],
+            },
+            {
+              type: "category",
+              label: "LTA Manager",
+              items: [
+                "development/backend/regards/lta-manager/backend-lta-manager-overview",
+                {
+                  type: "category",
+                  label: "API Guides",
+                  items: [
+                    "development/backend/regards/lta-manager/api-guides/backend-amqp-submit-product",
+                    "development/backend/regards/lta-manager/api-guides/backend-amqp-get-product-progress",
+                    "development/backend/regards/lta-manager/api-guides/backend-rest-create-product",
+                    "development/backend/regards/lta-manager/api-guides/backend-rest-request-status",
+                  ],
+                },
+                "development/backend/regards/lta-manager/backend-lta-manager-api-swagger",
+              ],
+            },
+            {
+              type: "category",
               label: "Notifier",
               items: [
                 "development/backend/regards/notifier/backend-notifier-overview",
@@ -402,45 +489,6 @@ module.exports = {
                     "development/backend/regards/notifier/plugins/backend-notifier-plugins",
                   ],
                 },
-              ],
-            },
-            {
-              type: "category",
-              label: "Data provider",
-              items: [
-                "development/backend/regards/dataprovider/backend-dataprovider-overview",
-                "development/backend/regards/dataprovider/backend-dataprovider-api-swagger",
-                {
-                  type: "category",
-                  label: "Plugins",
-                  items: [
-                    "development/backend/regards/dataprovider/plugins/backend-dataprovider-post-processing-plugin",
-                    "development/backend/regards/dataprovider/plugins/backend-dataprovider-product-plugin",
-                    "development/backend/regards/dataprovider/plugins/backend-dataprovider-scan-plugin",
-                    "development/backend/regards/dataprovider/plugins/backend-dataprovider-sip-generation-plugin",
-                    "development/backend/regards/dataprovider/plugins/backend-dataprovider-validation-plugin",
-                  ],
-                },
-              ],
-            },
-            {
-              type: "category",
-              label: "Ingest",
-              items: [
-                "development/backend/regards/ingest/backend-ingest-overview",
-                "development/backend/regards/ingest/backend-ingest-api-swagger",
-                {
-                  type: "category",
-                  label: "Plugins",
-                  items: [
-                    "development/backend/regards/ingest/plugins/backend-ingest-pre-processing-plugins",
-                    "development/backend/regards/ingest/plugins/backend-ingest-validation-plugins",
-                    "development/backend/regards/ingest/plugins/backend-ingest-generation-plugins",
-                    "development/backend/regards/ingest/plugins/backend-ingest-tagging-plugins",
-                    "development/backend/regards/ingest/plugins/backend-ingest-post-processing-plugins",
-                  ],
-                },
-                "development/backend/regards/ingest/events/backend-ingest-events",
               ],
             },
             {
@@ -512,54 +560,6 @@ module.exports = {
               items: [
                 "development/backend/regards/worker-manager/backend-worker-manager-overview",
                 "development/backend/regards/worker-manager/backend-worker-manager-api-swagger",
-              ],
-            },
-            {
-              type: "category",
-              label: "LTA Manager",
-              items: [
-                "development/backend/regards/lta-manager/backend-lta-manager-overview",
-                {
-                  type: "category",
-                  label: "API Guides",
-                  items: [
-                    "development/backend/regards/lta-manager/api-guides/backend-amqp-submit-product",
-                    "development/backend/regards/lta-manager/api-guides/backend-amqp-get-product-progress",
-                    "development/backend/regards/lta-manager/api-guides/backend-rest-create-product",
-                    "development/backend/regards/lta-manager/api-guides/backend-rest-request-status",
-                  ],
-                },
-                "development/backend/regards/lta-manager/backend-lta-manager-api-swagger",
-              ],
-            },
-            {
-              type: "category",
-              label: "Delivery",
-              items: [
-                "development/backend/regards/delivery/backend-delivery-overview",
-                "development/backend/regards/delivery/backend-delivery-architecture",
-                {
-                  type: "category",
-                  label: "API Guides",
-                  items: [
-                    {
-                      type: "category",
-                      label: "AMQP",
-                      items: [
-                        "development/backend/regards/delivery/api-guides/amqp/backend-amqp-publish-delivery-request",
-                        "development/backend/regards/delivery/api-guides/amqp/backend-amqp-subscribe-to-delivery-response"
-                      ]
-                    },
-                    {
-                      type: "category",
-                      label: "REST",
-                      items: [
-                        "development/backend/regards/delivery/api-guides/rest/backend-rest-configure-settings",
-                        "development/backend/regards/delivery/api-guides/rest/backend-delivery-rest-api"
-                      ]
-                    }
-                  ],
-                }
               ],
             },
           ],
