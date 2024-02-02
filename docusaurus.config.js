@@ -1,10 +1,10 @@
 // Indicates the version of /docs /releases_notes.. folders
 const currentVersion = "1.14.0";
 // Indicates the version displayed by default while browsing on the website
-// Default value: "default"
+// Default value: "current"
 // You can provide the last version to create a next version unreleased
 // if currentVersion is 1.14.0, you can write here 1.13.0 and 1.14.0 will be unreleased and hide by default
-const stableVersion = "1.13.0";
+const stableVersion = "current";
 
 module.exports = {
   title: "REGARDS",
