@@ -2116,37 +2116,6 @@
         ]
       }
     },
-    "/notifications/{notification_id}/unread": {
-      "put": {
-        "operationId": "setNotificationUnRead",
-        "parameters": [
-          {
-            "in": "path",
-            "name": "notification_id",
-            "required": true,
-            "schema": {
-              "format": "int64",
-              "type": "integer"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/Notification"
-                }
-              }
-            },
-            "description": "OK"
-          }
-        },
-        "tags": [
-          "notification-controller"
-        ]
-      }
-    },
     "/regards/{tenant}/datasource/status": {
       "get": {
         "operationId": "getDataSourceStatus",
