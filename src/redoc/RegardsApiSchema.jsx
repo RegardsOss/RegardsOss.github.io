@@ -8,6 +8,7 @@ import './schema/global';
 import { SchemaDefinition } from 'redoc';
 import { useSpec } from './schema/useSpec';
 import useSpecData from '@theme/useSpecData';
+import "./redoc-schema.css";
 // load style from official component
 
 const RegardsApiSchema = ({ id, showExample, pointer, spec, ...rest }) => {
