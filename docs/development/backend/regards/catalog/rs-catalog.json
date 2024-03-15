@@ -165,10 +165,14 @@
               "INTEGER_ARRAY",
               "DOUBLE_ARRAY",
               "DATE_ARRAY",
+              "INTEGER_RANGE",
               "INTEGER_INTERVAL",
+              "DOUBLE_RANGE",
               "DOUBLE_INTERVAL",
+              "DATE_RANGE",
               "DATE_INTERVAL",
               "LONG",
+              "LONG_RANGE",
               "LONG_INTERVAL",
               "LONG_ARRAY",
               "OBJECT"
@@ -1042,6 +1046,70 @@
         },
         "type": "object"
       },
+      "FileAvailabilityStatusDto": {
+        "description": "list of availability status of files link to the product",
+        "properties": {
+          "available": {
+            "description": "File availability",
+            "type": "boolean"
+          },
+          "checksum": {
+            "type": "string"
+          },
+          "expirate_date": {
+            "description": "Indicate date where the file will be not available anymore.",
+            "format": "date-time",
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "FilesAvailabilityRequestDto": {
+        "properties": {
+          "product_ids": {
+            "description": "list of urn of products",
+            "items": {
+              "description": "list of urn of products",
+              "type": "string"
+            },
+            "type": "array",
+            "uniqueItems": true
+          }
+        },
+        "required": [
+          "product_ids"
+        ],
+        "type": "object"
+      },
+      "FilesAvailabilityResponseDto": {
+        "properties": {
+          "products": {
+            "description": "list of availability status of products",
+            "items": {
+              "$ref": "#/components/schemas/ProductFilesStatusDto"
+            },
+            "type": "array"
+          }
+        },
+        "type": "object"
+      },
+      "FilesRestoreRequestDto": {
+        "properties": {
+          "product_ids": {
+            "description": "List product identifiers(URN) in order to restore their files",
+            "items": {
+              "description": "List product identifiers(URN) in order to restore their files",
+              "type": "string"
+            },
+            "type": "array",
+            "uniqueItems": true
+          }
+        },
+        "required": [
+          "product_ids"
+        ],
+        "type": "object"
+      },
       "FilesSummary": {
         "properties": {
           "filesCount": {
@@ -1195,10 +1263,14 @@
               "INTEGER_ARRAY",
               "DOUBLE_ARRAY",
               "DATE_ARRAY",
+              "INTEGER_RANGE",
               "INTEGER_INTERVAL",
+              "DOUBLE_RANGE",
               "DOUBLE_INTERVAL",
+              "DATE_RANGE",
               "DATE_INTERVAL",
               "LONG",
+              "LONG_RANGE",
               "LONG_INTERVAL",
               "LONG_ARRAY",
               "OBJECT"
@@ -2281,6 +2353,23 @@
         },
         "type": "object"
       },
+      "ProductFilesStatusDto": {
+        "description": "list of availability status of products",
+        "properties": {
+          "files": {
+            "description": "list of availability status of files link to the product",
+            "items": {
+              "$ref": "#/components/schemas/FileAvailabilityStatusDto"
+            },
+            "type": "array"
+          },
+          "id": {
+            "description": "product id",
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
       "QueryObject": {
         "type": "object"
       },
@@ -2566,9 +2655,17 @@
               "BINARY",
               "BINARY_MAP",
               "HISTOGRAM",
-              "HISTOGRAM_MAP"
+              "HISTOGRAM_MAP",
+              "ES_BINARY",
+              "ES_BINARY_MAP",
+              "ES_HISTOGRAM",
+              "ES_HISTOGRAM_MAP"
             ],
             "type": "string"
+          },
+          "timezone": {
+            "format": "int32",
+            "type": "integer"
           },
           "to": {
             "type": "string"
@@ -2641,10 +2738,114 @@
       "name": "GPL-3.0"
     },
     "title": "MICROSERVICE CATALOG",
-    "version": "1.14.1"
+    "version": "1.15.0-SNAPSHOT"
   },
   "openapi": "3.0.1",
   "paths": {
+    "/availability/files": {
+      "post": {
+        "description": "Return a list of availability status of all files of all input products. List of all files must be less than a configured number of elements. Products not found will be excluded of the response.",
+        "operationId": "filesAvailability",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/FilesAvailabilityRequestDto"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/FilesAvailabilityResponseDto"
+                }
+              }
+            },
+            "description": "Availability status well calculated"
+          },
+          "400": {
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/FilesAvailabilityResponseDto"
+                }
+              }
+            },
+            "description": "Too much products or files in input"
+          },
+          "403": {
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/FilesAvailabilityResponseDto"
+                }
+              }
+            },
+            "description": "Forbidden access to endpoint"
+          }
+        },
+        "summary": "Get file availability of all files of all input products",
+        "tags": [
+          "file-availability-controller"
+        ]
+      }
+    },
+    "/availability/files/{productId}": {
+      "get": {
+        "description": "Return a list of availability status of all files of the input product. If the product is not found, the result will be empty.",
+        "operationId": "fileAvailability",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "productId",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProductFilesStatusDto"
+                }
+              }
+            },
+            "description": "Availability status well calculated"
+          },
+          "403": {
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProductFilesStatusDto"
+                }
+              }
+            },
+            "description": "Forbidden access to files, product or endpoint"
+          },
+          "404": {
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProductFilesStatusDto"
+                }
+              }
+            },
+            "description": "Input product not found"
+          }
+        },
+        "summary": "Get file availability of all files of input product",
+        "tags": [
+          "file-availability-controller"
+        ]
+      }
+    },
     "/complex/search": {
       "post": {
         "operationId": "searchDataObjects",
@@ -4912,6 +5113,69 @@
         ]
       }
     },
+    "/restore": {
+      "post": {
+        "description": "Ask the restoration of all files of products thanks to product identifiers (URN). List of all files must be less than a configured number of elements. Products not found will be excluded of the response.",
+        "operationId": "restoreProducts",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/FilesRestoreRequestDto"
+              }
+            }
+          },
+          "description": "Submission request dto to be processed.",
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "The restoration is being realized"
+          },
+          "400": {
+            "description": "Too much products or files in input"
+          },
+          "403": {
+            "description": "Forbidden access to endpoint"
+          }
+        },
+        "summary": "Ask the restoration of all files of products.",
+        "tags": [
+          "file-restore-controller"
+        ]
+      }
+    },
+    "/restore/{product_id}": {
+      "get": {
+        "description": "Ask the restoration of all files of one product thanks to its product identifier (URN).",
+        "operationId": "restoreProduct",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "product_id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The restoration is being realized"
+          },
+          "403": {
+            "description": "Forbidden access to files, product or endpoint"
+          },
+          "404": {
+            "description": "Input product not found"
+          }
+        },
+        "summary": "Ask the restoration of all files of one product.",
+        "tags": [
+          "file-restore-controller"
+        ]
+      }
+    },
     "/security/resources": {
       "get": {
         "operationId": "getAllResources",
@@ -6120,7 +6384,7 @@
   "servers": [
     {
       "description": "Generated server url",
-      "url": "https://regardsoss.github.io/api/v1/rs-catalog"
+      "url": "https://regardsoss.github.io//api/v1/rs-catalog"
     }
   ]
 }

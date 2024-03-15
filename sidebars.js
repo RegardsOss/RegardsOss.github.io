@@ -319,12 +319,13 @@ module.exports = {
               label: "Catalog",
               items: [
                 "development/backend/regards/catalog/backend-catalog-overview",
-                "development/backend/regards/catalog/backend-catalog-api-swagger",
                 {
                   type: "category",
-                  label: "API (legacy)",
+                  label: "API Guides",
                   items: [
-                    "development/backend/regards/catalog/api/backend-catalog-search-api",
+                    "development/backend/regards/catalog/api-guides/backend-catalog-search-api",
+                    "development/backend/regards/catalog/api-guides/backend-catalog-download-product-file-api",
+                    "development/backend/regards/catalog/api-guides/backend-catalog-file-restoration-api",
                   ],
                 },
                 {
@@ -335,7 +336,7 @@ module.exports = {
                     "development/backend/regards/catalog/plugins/backend-catalog-search-engine-plugins",
                   ],
                 },
-                "development/backend/regards/catalog/events/backend-catalog-events",
+                "development/backend/regards/catalog/backend-catalog-api-swagger",
               ],
             },
             {
@@ -541,6 +542,19 @@ module.exports = {
               label: "Storage",
               items: [
                 "development/backend/regards/storage/backend-storage-overview",
+                 {
+                      type: "category",
+                      label: "API Guides",
+                      items: [
+                        {
+                          type: "category",
+                          label: "AMQP",
+                          items: [
+                            "development/backend/regards/storage/api-guides/backend-storage-file-availability-api",
+                          ]
+                        },
+                      ],
+                    },
                 "development/backend/regards/storage/backend-storage-api-swagger",
                 {
                   type: "category",

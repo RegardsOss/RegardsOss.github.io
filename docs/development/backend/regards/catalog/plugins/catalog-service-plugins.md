@@ -54,7 +54,7 @@ Each business service plugin return a stream of typed data in the response heade
 
 ### Apply service on entities from a search query
 
-You can see the [How to build a query](../api/search-api.md) page. The query is provided in the body like :
+You can see the [How to build a query](../api-guides/search-api.md) page. The query is provided in the body like :
 
  ```json
  {

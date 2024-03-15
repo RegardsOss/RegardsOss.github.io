@@ -23,6 +23,6 @@ REGARDS provides many implementation of this extension point :
 
 To learn more about how to create your own plugin see [Plugins](../../../framework/modules/plugins.md)
 
-To lean more about the implemented search engines see [Search API](../api/search-api.md)
+To lean more about the implemented search engines see [Search API](../api-guides/search-api.md)
 
 
