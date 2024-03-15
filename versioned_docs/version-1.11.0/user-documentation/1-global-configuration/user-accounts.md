@@ -34,7 +34,7 @@ Il est également possible de gérer l'affichage des éléments présents dans l
 
 #### <img src="/images/user-documentation/doc-icons/right-arrow.png" alt="arrow" height="12" width="12"/> Valider un compte utilisateur
 
-La validation du compte au niveau instance est configurable depuis la section [Paramétrer les demandes de création de compte](./#-paramétrer-les-demandes-de-création-de-compte) de l'interface administration.
+La validation du compte au niveau instance est configurable depuis la section [Paramétrer les demandes de création de compte](#-paramétrer-les-demandes-de-création-de-compte) de l'interface administration.
 Dans le cas d'une validation manuelle, l'administrateur d'instance doit valider la demande comme présenté dans l'écran ci-dessous.
 
 <div align="center">
