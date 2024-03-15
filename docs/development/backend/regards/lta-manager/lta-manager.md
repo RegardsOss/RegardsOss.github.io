@@ -16,7 +16,7 @@ To do so, RS-LTA-MANAGER provides these functionnalities:
  
 
 ### API Guides
- - Create product [using REST API](api-guides/rest-create-product.md) or [using AMQP API](api-guides/amqp-submit-product.md) shows you how to create a *Long Term Archive request* and sent it to REGARDS.
+ - Create product [using REST API](api-guides/rest-create-product.mdx) or [using AMQP API](api-guides/amqp-submit-product.md) shows you how to create a *Long Term Archive request* and sent it to REGARDS.
  - Get product [status using REST API](api-guides/rest-get-request-status.md) or [progress threw AMQP API](api-guides/amqp-get-product-progress.md) shows you how to retrieve *Long Term Archive request* updates.
 
 ### REST API
