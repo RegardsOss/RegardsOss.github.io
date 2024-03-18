@@ -36,8 +36,8 @@ These two following endpoints shares the same `Request headers` and `Request Bod
 | Product creation request with **replace activated**   | `<HOST>`/api/v1/rs-lta-manager/products/replace | POST | [see REST documentation](../lta-manager-api-swagger.mdx#tag/Create-controller/operation/createSubmissionRequestWithReplace) |
 
 If two products are submitted with the same provider id :
- * if you use a endpoint with **replace deactivated**, a new version is created (V2, V3...)
- * if you use the endpoint with **replace deactivated**, the previous version is replaced
+ * if you use the endpoint with **replace deactivated**, a new version is created (V2, V3...)
+ * if you use the endpoint with **replace activated**, the previous version is replaced
 
 :::note First creation
 If that's the first time you submit a product (no product with same providerId is present on OAIS catalog), both endpoint create a first version of the product.
