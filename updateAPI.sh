@@ -3,8 +3,8 @@
 if [ "$#" != 2 ]; then
    echo "oops $#"
    echo "updateAPI.sh [server] [version]"
-   echo "exemple : ./updateAPI.sh https://regards.cnes.fr 1.6.0"
-   echo "C-S : ./updateAPI.sh http://vm-perf.cloud-espace.si.c-s.fr 1.10.0"
+   echo "exemple : ./updateAPI.sh https://regards.cnes.fr 1.15.0"
+   echo "C-S : ./updateAPI.sh https://validation-regards.cloud-espace.si.c-s.fr 1.15.0"
    exit 1
 fi
 

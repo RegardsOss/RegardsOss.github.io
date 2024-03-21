@@ -10,7 +10,7 @@ rules:
 theme:
   # See https://redocly.com/docs/api-reference-docs/configuration/functionality/
   openapi:
-    hideHostname: true,
+    hideHostname: true
     showSecuritySchemeType: false
     noAutoAuth: true
     menuToggle: false
