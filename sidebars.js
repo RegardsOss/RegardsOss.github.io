@@ -553,6 +553,7 @@ module.exports = {
                     "development/backend/regards/order/api-guides/backend-create-order-rest",
                     "development/backend/regards/order/api-guides/backend-get-order-status-rest",
                     "development/backend/regards/order/api-guides/backend-order-download-ordered-files",
+                    "development/backend/regards/order/api-guides/fill-basket-from-file",
                   ],
                 },
                 "development/backend/regards/order/backend-order-api-swagger",

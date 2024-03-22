@@ -1553,9 +1553,100 @@
                 }
               }
             },
-            "description": "OK"
+            "description": "Product correctly added"
+          },
+          "204": {
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/EntityModelBasketDto"
+                }
+              }
+            },
+            "description": "Zero product has been added"
+          },
+          "409": {
+            "content": {
+              "application/json": {}
+            },
+            "description": "Number of selected products in the basket exceeds the maximum number allowed"
+          },
+          "422": {
+            "content": {
+              "application/json": {}
+            },
+            "description": "Error while elastic searching"
           }
         },
+        "summary": "Add a selection to the basket of current user",
+        "tags": [
+          "basket-controller"
+        ]
+      }
+    },
+    "/order/basket/selection/upload": {
+      "post": {
+        "description": "Add a selection to the basket of current user from a file, which contains a product identifier per line.",
+        "operationId": "addSelectionFromFile",
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "properties": {
+                  "file": {
+                    "format": "binary",
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "file"
+                ],
+                "type": "object"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/EntityModelBasketDto"
+                }
+              }
+            },
+            "description": "Product correctly added"
+          },
+          "204": {
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/EntityModelBasketDto"
+                }
+              }
+            },
+            "description": "Zero product has been added"
+          },
+          "409": {
+            "content": {
+              "application/json": {}
+            },
+            "description": "Number of selected products in the basket exceeds the maximum number allowed"
+          },
+          "413": {
+            "content": {
+              "application/json": {}
+            },
+            "description": "Too many products in payload"
+          },
+          "422": {
+            "content": {
+              "application/json": {}
+            },
+            "description": "Error while elastic searching"
+          }
+        },
+        "summary": "Add a selection to the basket of current user from a file",
         "tags": [
           "basket-controller"
         ]
@@ -2456,7 +2547,15 @@
         ],
         "responses": {
           "200": {
-            "description": "OK"
+            "content": {
+              "application/octet-stream": {
+                "schema": {
+                  "format": "binary",
+                  "type": "string"
+                }
+              }
+            },
+            "description": "Download done"
           }
         },
         "tags": [
