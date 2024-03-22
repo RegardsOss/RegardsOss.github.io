@@ -131,8 +131,8 @@ Submission requests have to be published to REGARDS Rabbitmq exchange:
 
 If two products are submitted with the same provider id :
 
-* if you `replaceMode=false`, a new version is created (V2, V3...)
-* if you `replaceMode=true`, the previous version is replaced
+* if you specify `replaceMode=false`, a new version is created (V2, V3...)
+* if you specify `replaceMode=true`, the previous version is replaced
 
 :::note First creation
 If that's the first time you submit a product (no product with same providerId is present on OAIS catalog), both
