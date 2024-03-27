@@ -338,6 +338,22 @@
         "type": "object"
       },
       "FeatureDisseminationInfoDto": {
+        "properties": {
+          "ackDate": {
+            "format": "date-time",
+            "type": "string"
+          },
+          "blocking": {
+            "type": "boolean"
+          },
+          "label": {
+            "type": "string"
+          },
+          "requestDate": {
+            "format": "date-time",
+            "type": "string"
+          }
+        },
         "type": "object"
       },
       "FeatureEntityDto": {
@@ -1224,10 +1240,15 @@
       },
       "SearchFeatureSimpleEntityParameters": {
         "properties": {
-          "disseminationPending": {
-            "description": "Filter on dissemination pending",
-            "example": false,
-            "type": "boolean"
+          "disseminationStatus": {
+            "description": "Filter on dissemination status",
+            "enum": [
+              "NONE",
+              "PENDING",
+              "DONE"
+            ],
+            "example": "NONE|PENDING|DONE",
+            "type": "string"
           },
           "featureIds": {
             "$ref": "#/components/schemas/ValuesRestrictionLong"
@@ -1498,7 +1519,7 @@
       "name": "GPL-3.0"
     },
     "title": "MICROSERVICE FEM",
-    "version": "1.14.1"
+    "version": "1.15.0"
   },
   "openapi": "3.0.1",
   "paths": {

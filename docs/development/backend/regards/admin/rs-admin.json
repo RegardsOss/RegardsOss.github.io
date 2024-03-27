@@ -68,7 +68,7 @@
         "type": "object"
       },
       "DatesRangeRestriction": {
-        "description": "Filter on last connection date",
+        "description": "Filter on notification date",
         "properties": {
           "after": {
             "description": "Keep entities having date greater than",
@@ -131,20 +131,6 @@
         },
         "type": "object"
       },
-      "EntityModelINotificationWithoutMessage": {
-        "properties": {
-          "content": {
-            "$ref": "#/components/schemas/INotificationWithoutMessage"
-          },
-          "links": {
-            "items": {
-              "$ref": "#/components/schemas/Link"
-            },
-            "type": "array"
-          }
-        },
-        "type": "object"
-      },
       "EntityModelLicenseDTO": {
         "properties": {
           "content": {
@@ -180,6 +166,20 @@
         "properties": {
           "content": {
             "$ref": "#/components/schemas/MetaData"
+          },
+          "links": {
+            "items": {
+              "$ref": "#/components/schemas/Link"
+            },
+            "type": "array"
+          }
+        },
+        "type": "object"
+      },
+      "EntityModelNotificationLight": {
+        "properties": {
+          "content": {
+            "$ref": "#/components/schemas/NotificationLight"
           },
           "links": {
             "items": {
@@ -284,44 +284,6 @@
               "type": "object"
             },
             "type": "object"
-          }
-        },
-        "type": "object"
-      },
-      "INotificationWithoutMessage": {
-        "properties": {
-          "date": {
-            "format": "date-time",
-            "type": "string"
-          },
-          "id": {
-            "format": "int64",
-            "type": "integer"
-          },
-          "level": {
-            "enum": [
-              "INFO",
-              "WARNING",
-              "ERROR",
-              "FATAL"
-            ],
-            "type": "string"
-          },
-          "mimeType": {
-            "type": "string"
-          },
-          "sender": {
-            "type": "string"
-          },
-          "status": {
-            "enum": [
-              "READ",
-              "UNREAD"
-            ],
-            "type": "string"
-          },
-          "title": {
-            "type": "string"
           }
         },
         "type": "object"
@@ -616,6 +578,68 @@
         },
         "type": "object"
       },
+      "NotificationLight": {
+        "properties": {
+          "date": {
+            "format": "date-time",
+            "type": "string"
+          },
+          "id": {
+            "format": "int64",
+            "type": "integer"
+          },
+          "identifiable": {
+            "type": "boolean"
+          },
+          "level": {
+            "enum": [
+              "INFO",
+              "WARNING",
+              "ERROR",
+              "FATAL"
+            ],
+            "type": "string"
+          },
+          "mimeType": {
+            "type": "string"
+          },
+          "projectUserRecipients": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "uniqueItems": true
+          },
+          "roleRecipients": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "uniqueItems": true
+          },
+          "sender": {
+            "type": "string"
+          },
+          "status": {
+            "enum": [
+              "READ",
+              "UNREAD"
+            ],
+            "type": "string"
+          },
+          "title": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "level",
+          "projectUserRecipients",
+          "roleRecipients",
+          "sender",
+          "status"
+        ],
+        "type": "object"
+      },
       "NotificationSettings": {
         "properties": {
           "days": {
@@ -731,11 +755,11 @@
         },
         "type": "object"
       },
-      "PagedModelEntityModelINotificationWithoutMessage": {
+      "PagedModelEntityModelNotificationLight": {
         "properties": {
           "content": {
             "items": {
-              "$ref": "#/components/schemas/EntityModelINotificationWithoutMessage"
+              "$ref": "#/components/schemas/EntityModelNotificationLight"
             },
             "type": "array"
           },
@@ -1067,6 +1091,26 @@
         },
         "type": "object"
       },
+      "SearchNotificationParameters": {
+        "properties": {
+          "dates": {
+            "$ref": "#/components/schemas/DatesRangeRestriction"
+          },
+          "ids": {
+            "$ref": "#/components/schemas/ValuesRestrictionLong"
+          },
+          "levels": {
+            "$ref": "#/components/schemas/ValuesRestrictionNotificationLevel"
+          },
+          "senders": {
+            "$ref": "#/components/schemas/ValuesRestrictionString"
+          },
+          "status": {
+            "$ref": "#/components/schemas/ValuesRestrictionNotificationStatus"
+          }
+        },
+        "type": "object"
+      },
       "SearchProjectUserParameters": {
         "properties": {
           "accessGroups": {
@@ -1284,8 +1328,145 @@
         },
         "type": "object"
       },
+      "ValuesRestrictionLong": {
+        "description": "Filter on notification id",
+        "properties": {
+          "ignoreCase": {
+            "description": "Only available for String resitrctions. Allow if true, to search values ignoring case. Default false",
+            "type": "boolean"
+          },
+          "matchMode": {
+            "description": "Match mode to use, can be STRICT|STARTS_WITH|CONTAINS|ENDS_WITH (default STRICT)",
+            "enum": [
+              "STRICT",
+              "STARTS_WITH",
+              "CONTAINS",
+              "ENDS_WITH"
+            ],
+            "type": "string"
+          },
+          "mode": {
+            "description": "Restriction mode to use",
+            "enum": [
+              "INCLUDE",
+              "EXCLUDE"
+            ],
+            "type": "string"
+          },
+          "values": {
+            "description": "List of accepted or refused values (according to the mode)",
+            "items": {
+              "description": "List of accepted or refused values (according to the mode)",
+              "format": "int64",
+              "type": "integer"
+            },
+            "maxItems": 1000,
+            "minItems": 0,
+            "type": "array"
+          }
+        },
+        "required": [
+          "mode",
+          "values"
+        ],
+        "type": "object"
+      },
+      "ValuesRestrictionNotificationLevel": {
+        "description": "Filter on notification level",
+        "properties": {
+          "ignoreCase": {
+            "description": "Only available for String resitrctions. Allow if true, to search values ignoring case. Default false",
+            "type": "boolean"
+          },
+          "matchMode": {
+            "description": "Match mode to use, can be STRICT|STARTS_WITH|CONTAINS|ENDS_WITH (default STRICT)",
+            "enum": [
+              "STRICT",
+              "STARTS_WITH",
+              "CONTAINS",
+              "ENDS_WITH"
+            ],
+            "type": "string"
+          },
+          "mode": {
+            "description": "Restriction mode to use",
+            "enum": [
+              "INCLUDE",
+              "EXCLUDE"
+            ],
+            "type": "string"
+          },
+          "values": {
+            "description": "List of accepted or refused values (according to the mode)",
+            "items": {
+              "description": "List of accepted or refused values (according to the mode)",
+              "enum": [
+                "INFO",
+                "WARNING",
+                "ERROR",
+                "FATAL"
+              ],
+              "type": "string"
+            },
+            "maxItems": 1000,
+            "minItems": 0,
+            "type": "array"
+          }
+        },
+        "required": [
+          "mode",
+          "values"
+        ],
+        "type": "object"
+      },
+      "ValuesRestrictionNotificationStatus": {
+        "description": "Filter on notification status",
+        "properties": {
+          "ignoreCase": {
+            "description": "Only available for String resitrctions. Allow if true, to search values ignoring case. Default false",
+            "type": "boolean"
+          },
+          "matchMode": {
+            "description": "Match mode to use, can be STRICT|STARTS_WITH|CONTAINS|ENDS_WITH (default STRICT)",
+            "enum": [
+              "STRICT",
+              "STARTS_WITH",
+              "CONTAINS",
+              "ENDS_WITH"
+            ],
+            "type": "string"
+          },
+          "mode": {
+            "description": "Restriction mode to use",
+            "enum": [
+              "INCLUDE",
+              "EXCLUDE"
+            ],
+            "type": "string"
+          },
+          "values": {
+            "description": "List of accepted or refused values (according to the mode)",
+            "items": {
+              "description": "List of accepted or refused values (according to the mode)",
+              "enum": [
+                "READ",
+                "UNREAD"
+              ],
+              "type": "string"
+            },
+            "maxItems": 1000,
+            "minItems": 0,
+            "type": "array"
+          }
+        },
+        "required": [
+          "mode",
+          "values"
+        ],
+        "type": "object"
+      },
       "ValuesRestrictionString": {
-        "description": "Filter on access groups",
+        "description": "Filter on notification sender",
         "properties": {
           "ignoreCase": {
             "description": "Only available for String resitrctions. Allow if true, to search values ignoring case. Default false",
@@ -1395,7 +1576,7 @@
       "name": "GPL-3.0"
     },
     "title": "MICROSERVICE ADMIN",
-    "version": "1.14.1"
+    "version": "1.15.0"
   },
   "openapi": "3.0.1",
   "paths": {
@@ -1856,36 +2037,36 @@
       }
     },
     "/notifications": {
-      "get": {
+      "post": {
         "operationId": "retrieveNotifications",
         "parameters": [
           {
+            "description": "Sorting and page configuration",
             "in": "query",
-            "name": "state",
-            "required": false,
-            "schema": {
-              "enum": [
-                "READ",
-                "UNREAD"
-              ],
-              "type": "string"
-            }
-          },
-          {
-            "in": "query",
-            "name": "page",
+            "name": "pageable",
             "required": true,
             "schema": {
               "$ref": "#/components/schemas/Pageable"
             }
           }
         ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SearchNotificationParameters"
+              }
+            }
+          },
+          "description": "Set of search criteria.",
+          "required": true
+        },
         "responses": {
           "200": {
             "content": {
               "*/*": {
                 "schema": {
-                  "$ref": "#/components/schemas/PagedModelEntityModelINotificationWithoutMessage"
+                  "$ref": "#/components/schemas/PagedModelEntityModelNotificationLight"
                 }
               }
             },
@@ -1895,7 +2076,9 @@
         "tags": [
           "notification-controller"
         ]
-      },
+      }
+    },
+    "/notifications/create": {
       "post": {
         "operationId": "createNotification",
         "requestBody": {
@@ -1925,40 +2108,39 @@
         ]
       }
     },
-    "/notifications/all/read": {
-      "put": {
-        "operationId": "markAllNotificationAsRead",
-        "responses": {
-          "200": {
-            "description": "OK"
-          }
-        },
-        "tags": [
-          "notification-controller"
-        ]
-      }
-    },
-    "/notifications/all/unread": {
-      "put": {
-        "operationId": "markAllNotificationAsUnread",
-        "responses": {
-          "200": {
-            "description": "OK"
-          }
-        },
-        "tags": [
-          "notification-controller"
-        ]
-      }
-    },
-    "/notifications/read/delete": {
+    "/notifications/delete": {
       "delete": {
-        "operationId": "deleteNotification_1",
+        "description": "Find and delete notifications from criteria defined in request body.",
+        "operationId": "deleteNotifications",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SearchNotificationParameters"
+              }
+            }
+          },
+          "description": "Set of search criteria.",
+          "required": true
+        },
         "responses": {
-          "200": {
-            "description": "OK"
+          "204": {
+            "description": "The notification deletion has been taken into account."
+          },
+          "403": {
+            "content": {
+              "application/html": {}
+            },
+            "description": "The endpoint is not accessible for the user."
+          },
+          "422": {
+            "content": {
+              "application/json": {}
+            },
+            "description": "The notification criteria dto syntax is incorrect."
           }
         },
+        "summary": "Delete a selection of notifications.",
         "tags": [
           "notification-controller"
         ]

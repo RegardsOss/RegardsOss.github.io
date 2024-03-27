@@ -1,7 +1,22 @@
 {
   "components": {
     "schemas": {
-      "AIP": {
+      "AIPDisseminationRequestDto": {
+        "properties": {
+          "filters": {
+            "$ref": "#/components/schemas/SearchAIPsParameters"
+          },
+          "recipients": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "uniqueItems": true
+          }
+        },
+        "type": "object"
+      },
+      "AIPDto": {
         "properties": {
           "bbox": {
             "items": {
@@ -18,7 +33,7 @@
           },
           "history": {
             "items": {
-              "$ref": "#/components/schemas/Event"
+              "$ref": "#/components/schemas/EventDto"
             },
             "type": "array"
           },
@@ -34,7 +49,7 @@
             "type": "string"
           },
           "lastEvent": {
-            "$ref": "#/components/schemas/Event"
+            "$ref": "#/components/schemas/EventDto"
           },
           "normalizedGeometry": {
             "$ref": "#/components/schemas/IGeometry"
@@ -52,13 +67,7 @@
             "type": "string"
           },
           "submissionEvent": {
-            "$ref": "#/components/schemas/Event"
-          },
-          "tags": {
-            "items": {
-              "type": "string"
-            },
-            "type": "array"
+            "$ref": "#/components/schemas/EventDto"
           },
           "type": {
             "type": "string"
@@ -78,7 +87,7 @@
       "AIPEntityLight": {
         "properties": {
           "aip": {
-            "$ref": "#/components/schemas/AIP"
+            "$ref": "#/components/schemas/AIPDto"
           },
           "aipId": {
             "type": "string"
@@ -95,6 +104,20 @@
           },
           "creationDate": {
             "format": "date-time",
+            "type": "string"
+          },
+          "disseminationInfos": {
+            "items": {
+              "$ref": "#/components/schemas/DisseminationInfo"
+            },
+            "type": "array"
+          },
+          "disseminationStatus": {
+            "enum": [
+              "NONE",
+              "PENDING",
+              "DONE"
+            ],
             "type": "string"
           },
           "id": {
@@ -161,6 +184,7 @@
           "aip",
           "aipId",
           "creationDate",
+          "disseminationStatus",
           "lastUpdate",
           "providerId",
           "session",
@@ -204,11 +228,17 @@
               "type": "string"
             },
             "type": "array"
+          },
+          "updateDisseminationInfo": {
+            "items": {
+              "$ref": "#/components/schemas/DisseminationInfo"
+            },
+            "type": "array"
           }
         },
         "type": "object"
       },
-      "AccessRightInformation": {
+      "AccessRightInformationDto": {
         "properties": {
           "dataRights": {
             "type": "string"
@@ -270,13 +300,13 @@
         },
         "type": "object"
       },
-      "ContentInformation": {
+      "ContentInformationDto": {
         "properties": {
           "dataObject": {
-            "$ref": "#/components/schemas/OAISDataObject"
+            "$ref": "#/components/schemas/OAISDataObjectDto"
           },
           "representationInformation": {
-            "$ref": "#/components/schemas/RepresentationInformation"
+            "$ref": "#/components/schemas/RepresentationInformationDto"
           }
         },
         "required": [
@@ -286,7 +316,7 @@
         "type": "object"
       },
       "DatesRangeRestriction": {
-        "description": "Filter on range of date for last update",
+        "description": "Filter on range of date for creation date",
         "properties": {
           "after": {
             "description": "Keep entities having date greater than",
@@ -296,6 +326,22 @@
           "before": {
             "description": "Keep entities having date less than",
             "format": "date-time",
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "DisseminationInfo": {
+        "properties": {
+          "ackDate": {
+            "format": "date-time",
+            "type": "string"
+          },
+          "date": {
+            "format": "date-time",
+            "type": "string"
+          },
+          "label": {
             "type": "string"
           }
         },
@@ -478,7 +524,7 @@
         },
         "type": "object"
       },
-      "EnvironmentDescription": {
+      "EnvironmentDescriptionDto": {
         "properties": {
           "hardwareEnvironment": {
             "additionalProperties": {
@@ -495,7 +541,7 @@
         },
         "type": "object"
       },
-      "Event": {
+      "EventDto": {
         "properties": {
           "comment": {
             "type": "string"
@@ -575,7 +621,7 @@
         "properties": {
           "contentInformations": {
             "items": {
-              "$ref": "#/components/schemas/ContentInformation"
+              "$ref": "#/components/schemas/ContentInformationDto"
             },
             "type": "array"
           },
@@ -586,7 +632,7 @@
             "type": "object"
           },
           "pdi": {
-            "$ref": "#/components/schemas/PreservationDescriptionInformation"
+            "$ref": "#/components/schemas/PreservationDescriptionInformationDto"
           }
         },
         "required": [
@@ -604,8 +650,6 @@
             "uniqueItems": true
           },
           "ingestChain": {
-            "maxLength": 100,
-            "minLength": 0,
             "type": "string"
           },
           "model": {
@@ -617,18 +661,14 @@
             "type": "boolean"
           },
           "session": {
-            "maxLength": 128,
-            "minLength": 0,
             "type": "string"
           },
           "sessionOwner": {
-            "maxLength": 128,
-            "minLength": 0,
             "type": "string"
           },
           "storages": {
             "items": {
-              "$ref": "#/components/schemas/StorageMetadata"
+              "$ref": "#/components/schemas/StorageDto"
             },
             "type": "array"
           },
@@ -646,14 +686,6 @@
             "type": "string"
           }
         },
-        "required": [
-          "categories",
-          "ingestChain",
-          "session",
-          "sessionOwner",
-          "storages",
-          "versioningMode"
-        ],
         "type": "object"
       },
       "IngestProcessingChain": {
@@ -828,7 +860,7 @@
         },
         "type": "object"
       },
-      "OAISDataObject": {
+      "OAISDataObjectDto": {
         "properties": {
           "algorithm": {
             "type": "string"
@@ -845,7 +877,7 @@
           },
           "locations": {
             "items": {
-              "$ref": "#/components/schemas/OAISDataObjectLocation"
+              "$ref": "#/components/schemas/OAISDataObjectLocationDto"
             },
             "type": "array",
             "uniqueItems": true
@@ -873,7 +905,7 @@
         ],
         "type": "object"
       },
-      "OAISDataObjectLocation": {
+      "OAISDataObjectLocationDto": {
         "properties": {
           "storage": {
             "type": "string"
@@ -905,12 +937,18 @@
           "categories": {
             "$ref": "#/components/schemas/ValuesRestrictionString"
           },
+          "creationDate": {
+            "$ref": "#/components/schemas/DatesRangeRestriction"
+          },
           "deletionMode": {
             "enum": [
               "BY_STATE",
               "IRREVOCABLY"
             ],
             "type": "string"
+          },
+          "disseminationStatus": {
+            "$ref": "#/components/schemas/ValuesRestrictionDisseminationStatus"
           },
           "last": {
             "description": "Filter on last",
@@ -1287,10 +1325,10 @@
         },
         "type": "object"
       },
-      "PreservationDescriptionInformation": {
+      "PreservationDescriptionInformationDto": {
         "properties": {
           "accessRightInformation": {
-            "$ref": "#/components/schemas/AccessRightInformation"
+            "$ref": "#/components/schemas/AccessRightInformationDto"
           },
           "contextInformation": {
             "additionalProperties": {
@@ -1305,19 +1343,13 @@
             "type": "object"
           },
           "provenanceInformation": {
-            "$ref": "#/components/schemas/ProvenanceInformation"
+            "$ref": "#/components/schemas/ProvenanceInformationDto"
           },
           "referenceInformation": {
             "additionalProperties": {
               "type": "string"
             },
             "type": "object"
-          },
-          "tags": {
-            "items": {
-              "type": "string"
-            },
-            "type": "array"
           }
         },
         "required": [
@@ -1329,13 +1361,17 @@
         ],
         "type": "object"
       },
-      "ProvenanceInformation": {
+      "ProvenanceInformationDto": {
         "properties": {
           "additional": {
             "additionalProperties": {
               "type": "object"
             },
             "type": "object"
+          },
+          "additionalOriginUrn": {
+            "type": "string",
+            "writeOnly": true
           },
           "detector": {
             "type": "string"
@@ -1348,7 +1384,7 @@
           },
           "history": {
             "items": {
-              "$ref": "#/components/schemas/Event"
+              "$ref": "#/components/schemas/EventDto"
             },
             "type": "array"
           },
@@ -1367,16 +1403,16 @@
         ],
         "type": "object"
       },
-      "RepresentationInformation": {
+      "RepresentationInformationDto": {
         "properties": {
           "environmentDescription": {
-            "$ref": "#/components/schemas/EnvironmentDescription"
+            "$ref": "#/components/schemas/EnvironmentDescriptionDto"
           },
           "semantic": {
-            "$ref": "#/components/schemas/Semantic"
+            "$ref": "#/components/schemas/SemanticDto"
           },
           "syntax": {
-            "$ref": "#/components/schemas/Syntax"
+            "$ref": "#/components/schemas/SyntaxDto"
           }
         },
         "required": [
@@ -1426,6 +1462,7 @@
               "CREATED",
               "WAITING_VERSIONING_MODE",
               "WAITING_REMOTE_STORAGE",
+              "WAITING_NOTIFIER_DISSEMINATION_RESPONSE",
               "BLOCKED",
               "RUNNING",
               "ERROR",
@@ -1522,7 +1559,38 @@
         },
         "type": "object"
       },
-      "SIP": {
+      "SIPCollection": {
+        "properties": {
+          "bbox": {
+            "items": {
+              "format": "double",
+              "type": "number"
+            },
+            "type": "array"
+          },
+          "crs": {
+            "type": "string"
+          },
+          "features": {
+            "items": {
+              "$ref": "#/components/schemas/SIPDto"
+            },
+            "type": "array"
+          },
+          "metadata": {
+            "$ref": "#/components/schemas/IngestMetadataDto"
+          },
+          "type": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "metadata",
+          "type"
+        ],
+        "type": "object"
+      },
+      "SIPDto": {
         "properties": {
           "bbox": {
             "items": {
@@ -1539,7 +1607,7 @@
           },
           "history": {
             "items": {
-              "$ref": "#/components/schemas/Event"
+              "$ref": "#/components/schemas/EventDto"
             },
             "type": "array"
           },
@@ -1555,7 +1623,7 @@
             "type": "string"
           },
           "lastEvent": {
-            "$ref": "#/components/schemas/Event"
+            "$ref": "#/components/schemas/EventDto"
           },
           "normalizedGeometry": {
             "$ref": "#/components/schemas/IGeometry"
@@ -1567,52 +1635,11 @@
             "$ref": "#/components/schemas/SIPReference"
           },
           "submissionEvent": {
-            "$ref": "#/components/schemas/Event"
-          },
-          "tags": {
-            "items": {
-              "type": "string"
-            },
-            "type": "array"
-          },
-          "type": {
-            "type": "string"
+            "$ref": "#/components/schemas/EventDto"
           }
         },
         "required": [
-          "ipType",
-          "type"
-        ],
-        "type": "object"
-      },
-      "SIPCollection": {
-        "properties": {
-          "bbox": {
-            "items": {
-              "format": "double",
-              "type": "number"
-            },
-            "type": "array"
-          },
-          "crs": {
-            "type": "string"
-          },
-          "features": {
-            "items": {
-              "$ref": "#/components/schemas/SIP"
-            },
-            "type": "array"
-          },
-          "metadata": {
-            "$ref": "#/components/schemas/IngestMetadataDto"
-          },
-          "type": {
-            "type": "string"
-          }
-        },
-        "required": [
-          "metadata",
-          "type"
+          "ipType"
         ],
         "type": "object"
       },
@@ -1661,7 +1688,7 @@
             "type": "string"
           },
           "sip": {
-            "$ref": "#/components/schemas/SIP"
+            "$ref": "#/components/schemas/SIPDto"
           },
           "sipId": {
             "type": "string"
@@ -1737,6 +1764,12 @@
           },
           "categories": {
             "$ref": "#/components/schemas/ValuesRestrictionString"
+          },
+          "creationDate": {
+            "$ref": "#/components/schemas/DatesRangeRestriction"
+          },
+          "disseminationStatus": {
+            "$ref": "#/components/schemas/ValuesRestrictionDisseminationStatus"
           },
           "last": {
             "description": "Filter on last",
@@ -1880,7 +1913,7 @@
         ],
         "type": "object"
       },
-      "Semantic": {
+      "SemanticDto": {
         "properties": {
           "description": {
             "type": "string"
@@ -1891,7 +1924,7 @@
         ],
         "type": "object"
       },
-      "StorageMetadata": {
+      "StorageDto": {
         "properties": {
           "pluginBusinessId": {
             "type": "string"
@@ -1939,7 +1972,7 @@
         },
         "type": "object"
       },
-      "Syntax": {
+      "SyntaxDto": {
         "properties": {
           "description": {
             "type": "string"
@@ -1997,6 +2030,53 @@
                 "GENERATED",
                 "STORED",
                 "DELETED"
+              ],
+              "type": "string"
+            },
+            "maxItems": 1000,
+            "minItems": 0,
+            "type": "array"
+          }
+        },
+        "required": [
+          "mode",
+          "values"
+        ],
+        "type": "object"
+      },
+      "ValuesRestrictionDisseminationStatus": {
+        "description": "Filter on status of the dissemination",
+        "properties": {
+          "ignoreCase": {
+            "description": "Only available for String resitrctions. Allow if true, to search values ignoring case. Default false",
+            "type": "boolean"
+          },
+          "matchMode": {
+            "description": "Match mode to use, can be STRICT|STARTS_WITH|CONTAINS|ENDS_WITH (default STRICT)",
+            "enum": [
+              "STRICT",
+              "STARTS_WITH",
+              "CONTAINS",
+              "ENDS_WITH"
+            ],
+            "type": "string"
+          },
+          "mode": {
+            "description": "Restriction mode to use",
+            "enum": [
+              "INCLUDE",
+              "EXCLUDE"
+            ],
+            "type": "string"
+          },
+          "values": {
+            "description": "List of accepted or refused values (according to the mode)",
+            "items": {
+              "description": "List of accepted or refused values (according to the mode)",
+              "enum": [
+                "NONE",
+                "PENDING",
+                "DONE"
               ],
               "type": "string"
             },
@@ -2106,6 +2186,7 @@
                 "DELETE",
                 "AIP_DUMP",
                 "NOTIFICATION",
+                "DISSEMINATION",
                 "UNEXPECTED"
               ],
               "type": "string"
@@ -2156,6 +2237,7 @@
                 "CREATED",
                 "WAITING_VERSIONING_MODE",
                 "WAITING_REMOTE_STORAGE",
+                "WAITING_NOTIFIER_DISSEMINATION_RESPONSE",
                 "BLOCKED",
                 "RUNNING",
                 "ERROR",
@@ -2331,7 +2413,7 @@
       "name": "GPL-3.0"
     },
     "title": "MICROSERVICE INGEST",
-    "version": "1.14.1"
+    "version": "1.15.0"
   },
   "openapi": "3.0.1",
   "paths": {
@@ -2430,6 +2512,31 @@
             "description": "OK"
           }
         },
+        "tags": [
+          "aip-controller"
+        ]
+      }
+    },
+    "/aips/dissemination": {
+      "post": {
+        "operationId": "createDisseminationRequest",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AIPDisseminationRequestDto"
+              }
+            }
+          },
+          "description": "Set of search criterias.",
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        },
+        "summary": "Create dissemination creator job",
         "tags": [
           "aip-controller"
         ]
