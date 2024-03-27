@@ -77,4 +77,4 @@ le REGARDS où il sera pris en compte par le catalogue émetteur de la notificat
 Votre application externe doit être capable d'envoyer un message d'acquittement sur l'interface AMQP de REGARDS.
 
 Le message à envoyer, ainsi que les informations à utiliser sont définies dans le
-guide [Publish OAIS acknowledge request event](/docs/development/backend/services/ingest/amqp/publish-acknowledge-event)
+guide [Publish OAIS acknowledge request event](../../development/backend/regards/ingest/amqp/ingest-amqp-publish-ack.md)
