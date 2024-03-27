@@ -31,9 +31,13 @@ Cet onglet permet de déposer vos SIPs au format OAIS.
 
 ### <img src="/images/user-documentation/regards-icons/admin/monitor.png" alt="monitor" height="30" width="30"/> Show products
 
-Voyez cette page comme un outil de gestion de base de données simplifié. Vous avez la possibilité d'effectuer des opérations de base sur les produits (accès, modification, suppression), de voir les traitements associés et de filtrer les produits en fonctions de divers paramètres. Pour en savoir plus :
+Voyez cette page comme un outil de gestion de base de données simplifié.  
+Vous avez la possibilité d'effectuer des opérations de base sur les produits (accès, modification, suppression) et de filtrer les produits en fonctions de divers paramètres.  
+Cette page vous permet également de voir les traitements associés aux produits (création, stockage, suppression...) ou de notifier ces produits à des systèmes externes.  
+Pour en savoir plus :
 
-[Learn how to configure an manage products](manage-products.md)
+ - [Learn how to configure and manage products](manage-products.md)
+ - [Learn how to disseminate OAIS products](oais-dissemination.md)
 
 ---
 

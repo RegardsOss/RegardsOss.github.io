@@ -5,21 +5,28 @@ sidebar_label: Overview
 slug: /development/backend/services/notifier/overview/
 ---
 
-## Overview
-
-`Notifier` reponsabilities:
-
+`Notifier` responsibilities:
 *   Receive JSON notification,
 *   Dispatch them to various recipients according to matching rules.
 
+## Plugins configuration
 
-## Available APIs
+* [Notifier plugins overview](plugins/notifier-intro-plugins.md) shows you how to configure Notifier. **Highly recommended**
+* [Rule matchers guide](plugins/rule-matcher-plugins.md)
+* [Recipient senders guide](plugins/recipient-sender-plugins.md)
 
-* [Configuration API](api/notifier-configuration-api.md)
-* [Notifier API](notifier-api-swagger.mdx)
+### API Guides
 
-## Available Plugins
+- [Publish a notification request](./api-guides/amqp/amqp-publish-request.md) shows you how to create a *Notification 
+  request* and sent it to Notifier
 
-* [Rule matchers](plugins/notifier-plugins.md#rule-matcher-plugins)
-* [Recipient senders](plugins/notifier-plugins.md#recipient-sender-plugins)
+### REST API
 
+- The [microservice REST API](./api-guides/rest/rs-notifier-api-swagger.mdx) auto generated using OpenAPI.
+- The [import plugin configuration REST API](./api-guides/rest/rest-import-plugins-conf.md) to configure notifier 
+  plugins.
+
+### Architecture
+
+**To learn more about how the microservice is designed**, refer to the following
+documentation [notifier architecture](./architecture.md).

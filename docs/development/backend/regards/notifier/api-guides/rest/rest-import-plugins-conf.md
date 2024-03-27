@@ -1,8 +1,8 @@
 ---
-id: backend-notifier-configuration-api
-title: Notifier configuration
-sidebar_label: Notifier configuration
-slug: /development/backend/services/notifier/api/configuration/
+id: backend-rest-import-notifier-plugin-configuration
+title: Import Notifier plugin configurations
+sidebar_label: Import plugin conf
+slug: /development/backend/notifier/guides/rest/import-plugin-configuration
 ---
 
 In order to make the configuration simple and easily adjustable, we use the import/export REST API of the microservice.
@@ -44,9 +44,11 @@ Import your configuration file in multipart request using name `file`.
 Configuration parameters :
 
 - `resetBeforeImport`: You can configure to delete all previous configuration before import new one.
-- `RuleMatcher`: Configuration of rules based on [plugins](../plugins/notifier-plugins.md#rule-matcher-plugins). Rules are used to define if a notification should be sent to associated RecipientSenders
-- `RecipientSender`: Configuration of notification senders based on [plugins](../plugins/notifier-plugins.md#recipient-sender-plugins). Senders are used to define how to send notification to recipients.
-- `Rule/RecipientSenders assocation` : Configuration to associates one RuleMatcher to one or many RecipientSenders
+- `RuleMatcher`: Configuration of rules based on [plugins](../../plugins/rule-matcher-plugins.md). 
+  Rules are used to define if a notification should be sent to associated RecipientSenders
+- `RecipientSender`: Configuration of notification senders based on [plugins](../../plugins/recipient-sender-plugins.md). 
+  Senders are used to define how to send notification to recipients.
+- `Rule/RecipientSenders assocation` : Configuration to associates one RuleMatcher with one or many RecipientSenders
 
 ```json
 {
@@ -151,7 +153,11 @@ Add the here under part in the configuration property of the import configuratio
                 "type": "STRING",
                 "value": "L0A_LR_Packet"
               },
-              { "name": "attributeToSeek", "type": "STRING", "value": "type" }
+              {
+                "name": "attributeToSeek", 
+                "type": "STRING",
+                "value": "type"
+              }
             ]
           }
         },

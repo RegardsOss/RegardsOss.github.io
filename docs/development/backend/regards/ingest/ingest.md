@@ -26,4 +26,5 @@ slug: /development/backend/services/ingest/overview/
 
 ## Bus message events
 
- * [Events](events/events.md)
+* [Publish acknowledge](./amqp/ingest-amqp-publish-ack.md)
+* [Publish product](./amqp/ingest-amqp-publish-product.mdx)

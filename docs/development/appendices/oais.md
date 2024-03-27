@@ -293,16 +293,22 @@ NOTE : To reference an online file accessible through HTTP protocol, you have ha
   "contextInformation": {
     "tags": ["KEYWORD"]
   },
-  "provenanceInformation": { "history": [] },
+  "provenanceInformation": {
+    "history": [],
+    "additional": {
+      "urn":""
+    }
+  },
   "accessRightInformation": {}
 },
 ```
 
-| Property | Mandatory    | Description | Possible values |
-| :-------- | :---------: | :----------- | :---------------: |
-| tags |  | keywords to add to each feature | any text |
-| provenanceInformation |  | Description of the origine and history of the feature |
-| accessRightInformation |  | Description of the feature access rights |
+| Property                             | Mandatory | Description                                                         | Possible values |
+|:-------------------------------------|:---------:|:--------------------------------------------------------------------|:---------------:|
+| tags                                 |           | keywords to add to each feature                                     |    any text     |
+| provenanceInformation                |           | Description of the origin and history of the feature.               |                 |
+| provenanceInformation.additional.urn |           | Original urn of the product, in case of dissemination for instance. |    Valid urn    |
+| accessRightInformation               |           | Description of the feature access rights                            |                 |
 
 
 #### REGARDS Data types

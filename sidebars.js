@@ -92,6 +92,7 @@ module.exports = {
         "user-documentation/project-configuration/project-configuration-user-interface",
         "user-documentation/project-configuration/project-configuration-microservices",
         "user-documentation/project-configuration/project-configuration-storages",
+        "user-documentation/project-configuration/notifier-configuration",
       ],
     },
 
@@ -103,7 +104,6 @@ module.exports = {
         "user-documentation/data-organization/data-organization-model-configuration",
         "user-documentation/data-organization/data-organization-collections-datasets",
         "user-documentation/data-organization/data-organization-data-access-rights",
-
       ],
     },
     {
@@ -121,6 +121,7 @@ module.exports = {
             "user-documentation/4_2-dataprovider/scanned-files-manage-acquisition-chains",
             "user-documentation/4_1-ingest/oais-files-manage-products",
             "user-documentation/4_1-ingest/oais-files-settings",
+            "user-documentation/4_1-ingest/oais-dissemination",
           ],
         },
         {
@@ -412,23 +413,33 @@ module.exports = {
               label: "Feature manager",
               items: [
                 "development/backend/regards/fem/backend-fem-overview",
-                "development/backend/regards/fem/backend-fem-api-swagger",
-                {
-                  type: "category",
-                  label: "API (legacy)",
-                  items: [
-                    "development/backend/regards/fem/api/backend-fem-configuration-api",
-                    "development/backend/regards/fem/api/backend-fem-rest-api",
-                    "development/backend/regards/fem/api/backend-fem-amqp-api",
-                  ],
-                },
-                {
-                  type: "category",
-                  label: "Plugins",
-                  items: [
-                    "development/backend/regards/fem/plugins/backend-fem-feature-factory-plugins",
-                  ],
-                },
+                "development/backend/regards/fem/backend-fem-architecture",
+                 {
+                   type: "category",
+                   label: "API Guides",
+                   items: [
+                     {
+                       type: "category",
+                       label: "AMQP",
+                       items: [
+                         "development/backend/regards/fem/api-guides/amqp/backend-amqp-publish-acknowledge-request",
+                         "development/backend/regards/fem/api-guides/amqp/backend-amqp-publish-create-request",
+                         "development/backend/regards/fem/api-guides/amqp/backend-amqp-publish-deletion-request",
+                         "development/backend/regards/fem/api-guides/amqp/backend-amqp-publish-patch-request",
+                         "development/backend/regards/fem/api-guides/amqp/backend-amqp-subscribe-to-requests-response"
+                       ]
+                     },
+                     {
+                       type: "category",
+                       label: "REST",
+                       items: [
+                         "development/backend/regards/fem/api-guides/rest/backend-rest-create-product",
+                         "development/backend/regards/fem/api-guides/rest/backend-rest-patch-product",
+                         "development/backend/regards/fem/api-guides/rest/backend-fem-rest-api"
+                       ]
+                     }
+                   ],
+                 }
               ],
             },
             {
@@ -436,7 +447,6 @@ module.exports = {
               label: "Ingest",
               items: [
                 "development/backend/regards/ingest/backend-ingest-overview",
-                "development/backend/regards/ingest/backend-ingest-api-swagger",
                 {
                   type: "category",
                   label: "Plugins",
@@ -448,7 +458,27 @@ module.exports = {
                     "development/backend/regards/ingest/plugins/backend-ingest-post-processing-plugins",
                   ],
                 },
-                "development/backend/regards/ingest/events/backend-ingest-events",
+                {
+                  type: "category",
+                  label: "API Guides",
+                  items: [
+                        {
+                        type: "category",
+                        label: "AMQP",
+                        items: [
+                          "development/backend/regards/ingest/amqp/backend-amqp-publish-product",
+                          "development/backend/regards/ingest/amqp/backend-amqp-publish-ack",
+                        ],
+                    },
+                    {
+                      type: "category",
+                      label: "REST",
+                      items: [
+                        "development/backend/regards/ingest/backend-ingest-api-swagger",
+                      ],
+                    },
+                  ],
+                },
               ],
             },
             {
@@ -474,20 +504,35 @@ module.exports = {
               label: "Notifier",
               items: [
                 "development/backend/regards/notifier/backend-notifier-overview",
-                "development/backend/regards/notifier/backend-notifier-api-swagger",
+                "development/backend/regards/notifier/backend-notifier-architecture",
                 {
                   type: "category",
-                  label: "API (legacy)",
+                  label: "API Guides",
                   items: [
-                    "development/backend/regards/notifier/api/backend-notifier-api",
-                    "development/backend/regards/notifier/api/backend-notifier-configuration-api",
+                    {
+                      type: "category",
+                      label: "AMQP",
+                      items: [
+                        "development/backend/regards/notifier/api-guides/amqp/backend-amqp-publish-notifier-request"
+                      ]
+                    },
+                    {
+                      type: "category",
+                      label: "REST",
+                      items: [
+                        "development/backend/regards/notifier/api-guides/rest/backend-rest-import-notifier-plugin-configuration",
+                        "development/backend/regards/notifier/api-guides/rest/backend-notifier-rest-api"
+                      ]
+                    }
                   ],
                 },
                 {
                   type: "category",
-                  label: "Plugins",
+                  label: "Plugins guides",
                   items: [
-                    "development/backend/regards/notifier/plugins/backend-notifier-plugins",
+                    "development/backend/regards/notifier/plugins/backend-notifier-plugins-intro",
+                    "development/backend/regards/notifier/plugins/recipient-sender-notifier-plugins",
+                    "development/backend/regards/notifier/plugins/rule-matcher-notifier-plugins",
                   ],
                 },
               ],
