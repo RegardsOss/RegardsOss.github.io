@@ -94,6 +94,56 @@ For working with tenant messages or events :
 
 For working with instance messages or events, you have to use `IInstancePoller`, `IInstanceSubscriber` and `IInstancePublisher`.
 
+To listen to AMQP events :
+
+* `IHandler` interface to listen to single events.
+* `IBatchHandler` interface to listen to batch of events.
+
+## DLX / DLQ
+
+In the AMQP usage implemented by REGARDS, a dead-letter queue is a special queue that contains **valid messages** that could not be
+processed due to unexpected temporary errors (e.g. database not available). Messages from this queue can be later moved back
+to their origin queues to be processed again.
+
+There is one global DLQ named `regards.DLQ` and dedicated DLQs directly linked to specific queues. By default, all queues are linked
+to dedicated DLQs.
+
+## Retry functionality
+
+The REGARDS AMQP framework provides the possibility to implement an automatic retry of valid batch messages that could
+not be processed successfully. If the retry is enabled in the message batch handler and a temporary unexpected error
+occurs (e.g. the database is not accessible temporarily) the messages will be sent back to their origin queue after several
+attempts spaced out over time. If the number of attempts is exhausted, the message will be rejected to its
+corresponding dead-letter queue (DLQ).
+
+:::info
+For the moment, the retry feature can only be activated on `IBatchHandler` implementations.
+:::
+
+#### Architecture
+
+When a message is retried, it is sent to the global `retry-exchange` of type `x-delayed-message-exchange` (refer to
+[rabbitmq-delayed-message-exchange plugin documentation](https://github.com/rabbitmq/rabbitmq-delayed-message-exchange)) that
+will retain it in its local database during a configurable delay. After that period, the message is sent back to its
+origin queue with the corresponding routing key.
+
+The number of retries and delays are configurable through the `regards.amqp.retry.delayAttempts` property, which is a
+list of
+`java.time.Duration`. The default value of the property is `regards.amqp.retry.delayAttempts=5s,30s,2m,10m`. Between each attempts, the `RetryBatchMessageHandler` service will
+determine if the maximum number of attempts is reached by retrieving the `x-retries` header and compare it to the
+size of the property mentioned. If the maximum is not reached, the message will be published again to the
+`retry-exchange` with a delay that corresponds to its current retry number. If the maximum is reached, the message
+will be published to the DLQ, it can be the global DLQ or a dedicated DLQ, depending on the value of
+`IBatchHandler#isDedicatedDLQEnabled()` configured in the message handler.
+
+![amqp architecture](/schemas/framework/amqp/amqp_routing_architecture.png)
+
+:::danger
+Make sure only **one transaction** is used when the retry option is enabled. In fact, all the
+messages of the batch will be retried as it is not possible to know which message has failed. Multiple transactions may
+lead to unpredictable behaviours because the same message would be processed several times in case of retry.
+:::
+
 ## How to
 
 AMQP starter runs in a multitenant context so it relies on multitenant tenant resolution :
@@ -234,6 +284,47 @@ public void simplePollMessage() {
   // Do something with the message
 }
 ```
+
+### How to validate a message
+
+The `IBatchHandler` interface provides a method named `validate()` to validate incoming messages individually. To use it, 
+override the method and return the object `Errors` from the spring framework. 
+
+If there are no errors, the message is considered as valid and continues its workflow. Otherwise, the message is 
+denied and can eventually lead to the publishing of response messages if implementations of the methods 
+`buildDeniedResponseForNotConvertedMessage` or `buildDeniedResponseForInvalidMessage` are provided.
+
+### How to change the DLQ queue link
+
+By default, all queues are linked to dedicated DLQs. To disable this feature, override the isDedicatedDLQEnabled() method available
+from the `IBatchHandler` interface and set the return value to false.
+
+:::danger
+You will have to migrate the targetted queue if you change its DLQ queue link.
+:::
+
+### How to use the retry functionality
+
+#### Implementation
+
+To activate the retry system, you just have to override the `isRetryEnabled` method available from IHandler interface
+and return `true`.
+The failed messages will then be automatically handled in `RetryBatchMessageHandler`.
+
+To customize the number of retries and the delay between them, add the property
+`regards.amqp.retry.delayAttempts` in your spring boot configuration. It consists of a list of
+`java.time.Duration`. For example, if you want to retry failed messages three times maximum with one minute between each
+attempts define the property as following `regards.amqp.retry.delayAttempts=1m,2m,3m`.
+
+Refer to the [Retry functionality section](#retry-functionality) to have more information on the retry system.
+
+:::info
+For the moment, the retry feature can only be activated on BatchHandler listeners.
+:::
+
+:::danger
+As explained in the [Retry functionality section](#retry-functionality), make sure to use only **one transaction** when the retry option is enabled.
+:::
 
 ### Transaction
 
