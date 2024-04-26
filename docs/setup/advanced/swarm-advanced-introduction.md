@@ -13,6 +13,7 @@ We assume you have successfully deployed REGARDS using the [Quick setup](/docs/s
 ### Guides
 
 - [Deploy required microservices](./swarm-microservice-setup.md) introduces you the REGARDS microservices and the way to enable them depending on your needs.
+- [Logging stack guide](./firewall-guide.md) shows you how to activate the monitoring stack for logs and metrics. **Highly recommended**
 - [Postgres Database](./swarm-database.md) shows you how to connect microservices to external databases. **Highly recommended**
 - [Microservices optimizations](./swarm-optimizations.md) provides you all the possible inventory configurations to optimize microservices.
 - [Ansible Vault](./ansible-vault.md) allows you to crypt passwords inside your inventory and commit them on Git safely. **Highly recommended**
