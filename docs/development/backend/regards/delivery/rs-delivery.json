@@ -294,7 +294,7 @@
       "name": "GPL-3.0"
     },
     "title": "MICROSERVICE DELIVERY",
-    "version": "1.15.0"
+    "version": "1.15.2"
   },
   "openapi": "3.0.1",
   "paths": {

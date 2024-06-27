@@ -607,7 +607,8 @@
               "MAP",
               "COLLECTION",
               "POJO",
-              "PLUGIN"
+              "PLUGIN",
+              "REGARDS_ENTITY_MODEL"
             ],
             "type": "string"
           },
@@ -1283,7 +1284,8 @@
                 "MAP",
                 "COLLECTION",
                 "POJO",
-                "PLUGIN"
+                "PLUGIN",
+                "REGARDS_ENTITY_MODEL"
               ],
               "type": "string"
             },
@@ -1312,7 +1314,8 @@
               "MAP",
               "COLLECTION",
               "POJO",
-              "PLUGIN"
+              "PLUGIN",
+              "REGARDS_ENTITY_MODEL"
             ],
             "type": "string"
           },
@@ -1462,7 +1465,7 @@
               "CREATED",
               "WAITING_VERSIONING_MODE",
               "WAITING_REMOTE_STORAGE",
-              "WAITING_NOTIFIER_DISSEMINATION_RESPONSE",
+              "WAITING_NOTIFIER_RESPONSE",
               "BLOCKED",
               "RUNNING",
               "ERROR",
@@ -2237,7 +2240,7 @@
                 "CREATED",
                 "WAITING_VERSIONING_MODE",
                 "WAITING_REMOTE_STORAGE",
-                "WAITING_NOTIFIER_DISSEMINATION_RESPONSE",
+                "WAITING_NOTIFIER_RESPONSE",
                 "BLOCKED",
                 "RUNNING",
                 "ERROR",
@@ -2413,7 +2416,7 @@
       "name": "GPL-3.0"
     },
     "title": "MICROSERVICE INGEST",
-    "version": "1.15.0"
+    "version": "1.15.2"
   },
   "openapi": "3.0.1",
   "paths": {

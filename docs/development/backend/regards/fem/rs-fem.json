@@ -283,9 +283,9 @@
           },
           "priority": {
             "enum": [
-              "HIGH",
+              "LOW",
               "NORMAL",
-              "LOW"
+              "HIGH"
             ],
             "type": "string"
           },
@@ -328,9 +328,9 @@
           },
           "priority": {
             "enum": [
-              "HIGH",
+              "LOW",
               "NORMAL",
-              "LOW"
+              "HIGH"
             ],
             "type": "string"
           }
@@ -507,9 +507,9 @@
           },
           "priority": {
             "enum": [
-              "HIGH",
+              "LOW",
               "NORMAL",
-              "LOW"
+              "HIGH"
             ],
             "type": "string"
           },
@@ -574,10 +574,7 @@
               "REMOTE_STORAGE_REQUESTED",
               "LOCAL_TO_BE_NOTIFIED",
               "REMOTE_NOTIFICATION_REQUESTED",
-              "REMOTE_NOTIFICATION_SUCCESS",
               "REMOTE_NOTIFICATION_ERROR",
-              "REMOTE_CREATION_REQUESTED",
-              "REMOTE_CREATION_ERROR",
               "REMOTE_STORAGE_ERROR",
               "WAITING_BLOCKING_DISSEMINATION"
             ],
@@ -679,7 +676,8 @@
               "MAP",
               "COLLECTION",
               "POJO",
-              "PLUGIN"
+              "PLUGIN",
+              "REGARDS_ENTITY_MODEL"
             ],
             "type": "string"
           },
@@ -1043,7 +1041,8 @@
                 "MAP",
                 "COLLECTION",
                 "POJO",
-                "PLUGIN"
+                "PLUGIN",
+                "REGARDS_ENTITY_MODEL"
               ],
               "type": "string"
             },
@@ -1072,7 +1071,8 @@
               "MAP",
               "COLLECTION",
               "POJO",
-              "PLUGIN"
+              "PLUGIN",
+              "REGARDS_ENTITY_MODEL"
             ],
             "type": "string"
           },
@@ -1346,10 +1346,7 @@
                 "REMOTE_STORAGE_REQUESTED",
                 "LOCAL_TO_BE_NOTIFIED",
                 "REMOTE_NOTIFICATION_REQUESTED",
-                "REMOTE_NOTIFICATION_SUCCESS",
                 "REMOTE_NOTIFICATION_ERROR",
-                "REMOTE_CREATION_REQUESTED",
-                "REMOTE_CREATION_ERROR",
                 "REMOTE_STORAGE_ERROR",
                 "WAITING_BLOCKING_DISSEMINATION"
               ],
@@ -1519,7 +1516,7 @@
       "name": "GPL-3.0"
     },
     "title": "MICROSERVICE FEM",
-    "version": "1.15.0"
+    "version": "1.15.2"
   },
   "openapi": "3.0.1",
   "paths": {
@@ -2543,6 +2540,78 @@
         "summary": "Get feature requests",
         "tags": [
           "feature-request-controller"
+        ]
+      }
+    },
+    "/requests/{type}/abort": {
+      "post": {
+        "description": "Abort feature requests by selection. Synchronous process, so the number of request handled is limited. Information about number of requests handled is returned in the response.)",
+        "operationId": "abortRequests",
+        "parameters": [
+          {
+            "description": "Type of requests to abort.",
+            "in": "path",
+            "name": "type",
+            "required": true,
+            "schema": {
+              "enum": [
+                "COPY",
+                "UPDATE",
+                "NOTIFICATION",
+                "CREATION",
+                "DELETION",
+                "SAVE_METADATA"
+              ],
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SearchFeatureRequestParameters"
+              }
+            }
+          },
+          "description": "Set of search criteria.",
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RequestHandledResponse"
+                }
+              }
+            },
+            "description": "Abort feature requests by selection"
+          },
+          "403": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RequestHandledResponse"
+                }
+              }
+            },
+            "description": "The endpoint is not accessible for the user."
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RequestHandledResponse"
+                }
+              }
+            },
+            "description": "The request selection syntax is incorrect."
+          }
+        },
+        "summary": "Abort feature requests by selection",
+        "tags": [
+          "feature-request-abort-controller"
         ]
       }
     },
