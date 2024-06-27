@@ -22,9 +22,11 @@ jobs:
         with:
           node-version: 20
           cache: yarn
+      - name: Set yarn version to 3.7.0
+        run: yarn set version 3.7.0
+      - name: Update yarn
+        run: yarn install
 
-      - name: upgrade yarn
-        run: npm install yarn -g
       - name: Show yarn version
         run: yarn --version
 
