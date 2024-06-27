@@ -23,6 +23,11 @@ jobs:
           node-version: 20
           cache: yarn
 
+      - name: Setup Latest Yarn
+        uses: threeal/setup-yarn-action@v2.0.0
+        with:
+          version: latest
+
       - name: Install dependencies
         run: yarn install --immutable
       - name: Build website
