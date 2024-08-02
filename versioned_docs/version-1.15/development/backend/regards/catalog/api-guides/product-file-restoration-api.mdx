@@ -1,0 +1,143 @@
+---
+id: backend-catalog-file-restoration-api
+title: Product file restoration API
+sidebar_label: Product file restoration API
+slug: /development/backend/services/catalog/file-restoration-api/
+---
+import RegardsApiSchema from '/src/redoc/RegardsApiSchema';
+import Spec from '../rs-catalog.json';
+
+_This page assumes you know how [to authenticate](../../authentication/api-guides/get-token-curl.md) your REST API
+requests_
+
+A product stored on REGARDS is either immediately downloadable, or stored on a nearline storage (like AWS Glacier),
+requiring the following action to become downloadable.
+
+This guide introduce you **2 endpoints** to make available nearline products in order to download product files
+synchronously :
+
+- [Check product availability endpoint](#check-product-availability-endpoint) gives you the status of the file, which indicates if the
+  file can be immediately downloaded
+- [Product restoration endpoint](#product-restoration-endpoint) makes nearline product files available to download
+
+## Usecase example
+
+Here is an example of product file you need to restore in order be able to download it.  
+The product is not a reference (`reference=false`) and not online (`online=false`).
+
+```json title="Some nearline product file - using standard lucene search engine"
+{
+  "id": "URN:FEATURE:DATA:tenant:50fe35a3-e085-3eb1-bb61-86ab3fdeb7dd:V3",
+  "providerId": "DATA-06-20220613-2390",
+  "entityType": "DATA",
+  ...,
+  "files": {
+    "RAWDATA": [
+      {
+        "dataType": "RAWDATA",
+        "reference": false,
+        "uri": "https://regards.host.com/api/v1/rs-catalog/downloads/URN:FEATURE:DATA:tenant:50fe35a3-e085-3eb1-bb61-86ab3fdeb7dd:V3/files/BF39BC048B52618838529D9D98043190",
+        "mimeType": "application/xml",
+        "online": false,
+        "checksum": "BF39BC048B52618838529D9D98043190",
+        "digestAlgorithm": "MD5",
+        "filesize": 190,
+        "filename": "iso.xml",
+        "types": []
+      },
+      {
+        ... 
+      }
+    ]
+  }
+}
+```
+
+:::info Product URN
+The value of the attribute `id` is an URN used to by Check product availability and Product restoration endpoints
+:::
+
+## Check product availability endpoint
+
+There is one endpoint for [check availability of single product](../catalog-api-swagger.mdx#tag/file-availability-controller/operation/fileAvailability)
+and another endpoint for [check availability of multiple products](../catalog-api-swagger.mdx##tag/file-availability-controller/operation/filesAvailability).
+Following example shows response of multiple product endpoint.
+
+This endpoint checks for every file of product(s) if the file is available.
+
+Here is the response format, with an example.
+
+<RegardsApiSchema spec={Spec} pointer="#/components/schemas/FilesAvailabilityResponseDto"/>
+
+```json title="Check availability response: a file to restore"
+{
+  "products": [
+    {
+      "files": [
+        {
+          "available": false,
+          "checksum": "BF39BC048B52618838529D9D98043190",
+          "expiration_date": "2020-12-31T00:00:00Z"
+        }
+      ],
+      "id": "URN:FEATURE:DATA:tenant:50fe35a3-e085-3eb1-bb61-86ab3fdeb7dd:V3"
+    }
+  ]
+}
+```
+
+The attribute `available` value can be:
+
+* `true` - it means product file can be direct downloaded
+* `false` - it means product file must be [restored](#3-restore-product) to be downloadable.
+
+A file available can have an `expiration_date`, meaning that file will be not available after this date. It must
+be [restored](#3-restore-product) again to be downloadable again.
+Expiration date not indicated means REGARDS doesn't know when the file will be unavailable.
+
+:::info
+If some product file is missing from the response, it means you don't have access to product file, such product does not
+exist
+or some internal error occurred.  
+In that case, you have to contact REGARDS administrators.
+:::
+
+:::danger Number of product limitations
+In order to avoid flooding the storage, checking availability is limited to a certain number by API call, [configurable
+in catalog microservice configuration](../catalog-api-swagger.mdx#tag/file-availability-controller/operation/filesAvailability).
+:::
+
+## Product restoration endpoint
+
+### Endpoint usage
+
+Make product files with `available=false` restored. It has is no effect on file stored in an online storage
+or `available=true`.
+
+There is one endpoint for [single product restoration](../catalog-api-swagger.mdx#tag/file-restore-controller/operation/restoreProducts) and
+another endpoint for [multiple product restorations](../catalog-api-swagger.mdx#tag/file-restore-controller/operation/restoreProduct).  
+These endpoints perform the action asynchronously, so they just return a code `200`.  
+Once the restoration is done, a new call to the
+endpoint [Check product availability endpoint](#check-product-availability-endpoint) will now mark the file as
+available (`available=true`)
+
+:::info
+By doing so, restoration ask storage microservice to make available these files.  
+After restoration, these files will be available for a configured time in hours.  
+Number of hours is configurable in catalog microservice.
+:::
+
+:::danger Restored product files remains nearline
+After restoration, the product file will still be displayed in the catalog search as offline (`online=false`).  
+:::
+
+:::note Note that:
+Logged user must have access right to this/these products
+:::
+
+### AMQP result
+
+Once the file is restored, you can
+be [notified about product restoration using an AMQP message](../../storage/api-guides/file-availability.md#file-available-amqp-message)
+
+This message indicate if the restoration has been done successfully. If so, file is now available and ready to download.
