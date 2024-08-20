@@ -47,7 +47,7 @@ Choisissez les colonnes que vous souhaitez afficher une appuyant sur le bouton <
 
 Il se peut que les onglets suivants apparaissent selon la configuration de vos modules d'interface :
 
-- <img src="/images/user-documentation/regards-icons/user/cart.png" alt="cart" height="25" width="25"/> pour ajouter des données au panier afin de les <a href="../order/introduction">commander</a>
+- <img src="/images/user-documentation/regards-icons/user/cart.png" alt="cart" height="25" width="25"/> pour ajouter des données au panier afin de les <a href="../order-data/introduction">commander</a>
 - <img src="/images/user-documentation/regards-icons/admin/gear-wheel.png" alt="gear-wheel" height="25" width="25"/> pour appliquer des services <a href="../data-services/processing-services">processing</a> ou de <a href="../data-services/ui-services">visualisation</a> aux données
 
 ## <img src="/images/user-documentation/doc-icons/right-arrow.png" alt="arrow" height="12" width="12"/> Utiliser la vue carte

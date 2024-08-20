@@ -1,7 +1,7 @@
 ---
 id: order-processing
 title: Add data processing
-slug: /user-guide/order/processing/
+slug: /user-guide/order-data/processing/
 ---
 
 *Ajoutez des traitements lors de la commande données.*
@@ -37,25 +37,21 @@ Une fois la configuration du module terminée, cliquez sur le bouton ***Create**
 
 Accédez à l'interface user depuis l'adresse `http://<regards host>/user/<project>`. Vous devriez déjà avoir créé les modules ***order-history*** et ***order-cart*** et savoir comment commander des données, si ce n'est pas le cas, cliquez sur la page suivante [Configure order modules](manage-orders.md).
 
-Ajoutez des données au panier depuis le catalogue de données. Avant de commander, vous pouvez ajouter des plugins de traitements à toutes les données contenues dans un jeu en cliquant sur le bouton ***+ Process***.
+Ajoutez des données au panier depuis le catalogue de données. Avant de commander, vous pouvez ajouter des plugins de traitements à toutes les données contenues dans un jeu en cliquant sur le bouton ***Add*** de la colonne ***Processing***.
 
-<div align="center">
-   <img src="/images/user-documentation/v1.4/8-order-data/processing/processing-apply.png" alt="processing apply" width="800"/> 
- </div>
+![](./sources/processing-apply.png)
  
  Retournez ensuite dans l'interface d'administration, et depuis le menu <b><i><i>Commands</i></i></b> et la carte <b><i><i>Processing</i></i></b> cliquez sur le bouton <img src="/images/user-documentation/regards-icons/admin/monitor.png" alt="monitor" height="25" width="25"/> <b><i><i>Monitor ongoing processing</i></i></b>.
- 
-<div align="center">
-   <img src="/images/user-documentation/v1.4/8-order-data/processing/processing-monitor.png" alt="processing monitor" width="800"/> 
- </div>
+
+![](./sources/processing-monitor.png)
  
 Depuis cette page, vous aurez une vision globale de tous les traitements effectués dans votre projet. Il peut y en avoir énormément au sein de votre projet, les filtres vous aideront à retrouver des traitements particuliers soit par :
 
 - ***Processing***, le type de traitement appliqué aux données
 - ***User***, l'adresse mail de l'utilisateur ayant utilisé le plugin de traitement
 - ***From*** / ***To***, période de temps
-- ***Status***, l'état dans lequel se trouve le traitement. Par défaut tous les états sont cochés, décochez-les en cliquant simplement sur l'intitulé qui ne vous intéresse pas.
+- ***Status***, l'état dans lequel se trouve le traitement.
 
-Appuyez sur ***Apply filters*** ou ***Clear filters*** pour utiliser les filtres.
+Les filtres s'appliquent automatique après changement. Appuyez sur ***Clear*** pour supprimer tous les filtres.
 
 Vous avez également à votre disposition un bouton ***Refresh*** pour actualiser l'état des traitements.

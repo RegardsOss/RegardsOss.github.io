@@ -194,6 +194,7 @@ module.exports = {
       items: [
         "user-documentation/order-data/order-introduction",
         "user-documentation/order-data/order-manage-orders",
+        "user-documentation/order-data/file-filters",
         "user-documentation/order-data/order-processing",
         "user-documentation/order-data/order-monitor-orders",
         "user-documentation/order-data/order-settings",
