@@ -416,32 +416,32 @@ module.exports = {
               items: [
                 "development/backend/regards/fem/backend-fem-overview",
                 "development/backend/regards/fem/backend-fem-architecture",
-                 {
-                   type: "category",
-                   label: "API Guides",
-                   items: [
-                     {
-                       type: "category",
-                       label: "AMQP",
-                       items: [
-                         "development/backend/regards/fem/api-guides/amqp/backend-amqp-publish-acknowledge-request",
-                         "development/backend/regards/fem/api-guides/amqp/backend-amqp-publish-create-request",
-                         "development/backend/regards/fem/api-guides/amqp/backend-amqp-publish-deletion-request",
-                         "development/backend/regards/fem/api-guides/amqp/backend-amqp-publish-patch-request",
-                         "development/backend/regards/fem/api-guides/amqp/backend-amqp-subscribe-to-requests-response"
-                       ]
-                     },
-                     {
-                       type: "category",
-                       label: "REST",
-                       items: [
-                         "development/backend/regards/fem/api-guides/rest/backend-rest-create-product",
-                         "development/backend/regards/fem/api-guides/rest/backend-rest-patch-product",
-                         "development/backend/regards/fem/api-guides/rest/backend-fem-rest-api"
-                       ]
-                     }
-                   ],
-                 }
+                {
+                  type: "category",
+                  label: "API Guides",
+                  items: [
+                    {
+                      type: "category",
+                      label: "AMQP",
+                      items: [
+                        "development/backend/regards/fem/api-guides/amqp/backend-amqp-publish-acknowledge-request",
+                        "development/backend/regards/fem/api-guides/amqp/backend-amqp-publish-create-request",
+                        "development/backend/regards/fem/api-guides/amqp/backend-amqp-publish-deletion-request",
+                        "development/backend/regards/fem/api-guides/amqp/backend-amqp-publish-patch-request",
+                        "development/backend/regards/fem/api-guides/amqp/backend-amqp-subscribe-to-requests-response"
+                      ]
+                    },
+                    {
+                      type: "category",
+                      label: "REST",
+                      items: [
+                        "development/backend/regards/fem/api-guides/rest/backend-rest-create-product",
+                        "development/backend/regards/fem/api-guides/rest/backend-rest-patch-product",
+                        "development/backend/regards/fem/api-guides/rest/backend-fem-rest-api"
+                      ]
+                    }
+                  ],
+                }
               ],
             },
             {
@@ -464,13 +464,13 @@ module.exports = {
                   type: "category",
                   label: "API Guides",
                   items: [
-                        {
-                        type: "category",
-                        label: "AMQP",
-                        items: [
-                          "development/backend/regards/ingest/amqp/backend-amqp-publish-product",
-                          "development/backend/regards/ingest/amqp/backend-amqp-publish-ack",
-                        ],
+                    {
+                      type: "category",
+                      label: "AMQP",
+                      items: [
+                        "development/backend/regards/ingest/amqp/backend-amqp-publish-product",
+                        "development/backend/regards/ingest/amqp/backend-amqp-publish-ack",
+                      ],
                     },
                     {
                       type: "category",
@@ -590,19 +590,19 @@ module.exports = {
               label: "Storage",
               items: [
                 "development/backend/regards/storage/backend-storage-overview",
-                 {
+                {
+                  type: "category",
+                  label: "API Guides",
+                  items: [
+                    {
                       type: "category",
-                      label: "API Guides",
+                      label: "AMQP",
                       items: [
-                        {
-                          type: "category",
-                          label: "AMQP",
-                          items: [
-                            "development/backend/regards/storage/api-guides/backend-storage-file-availability-api",
-                          ]
-                        },
-                      ],
+                        "development/backend/regards/storage/api-guides/backend-storage-file-availability-api",
+                      ]
                     },
+                  ],
+                },
                 "development/backend/regards/storage/backend-storage-api-swagger",
                 {
                   type: "category",

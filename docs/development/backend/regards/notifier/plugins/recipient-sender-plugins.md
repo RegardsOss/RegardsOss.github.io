@@ -132,6 +132,12 @@ This plugin is designed to send acknowledge messages to OAIS catalog and FEM cat
 You need to define either properties to send to FEM catalog either properties to send to OAIS catalog
 :::
 
+Configuration parameters, common to GeoJSON FEM catalog or OAIS catalog usage, are:
+
+| Name        | Type   | Default Value | Optional | Description                                                                         |
+|-------------|--------|---------------|:--------:|-------------------------------------------------------------------------------------|
+| senderLabel | String |               |          | Acknowledge sender label. Used by destination system to identify the current system |
+
 #### GeoJSON FEM catalog usage
 
 This plugin let you override following configuration:
@@ -176,6 +182,11 @@ This plugin let you override following configuration:
         "name": "directNotificationEnabled",
         "type": "BOOLEAN",
         "value": "{true or false}"
+      },
+      {
+        "name": "senderLabel",
+        "type": "STRING",
+        "value": "{name of current platform used on destination system to acknowledge the dissemination}"
       },
       {
         "name": "featureDisseminationExchange",
@@ -236,6 +247,11 @@ This plugin let you override following configuration:
         "name": "directNotificationEnabled",
         "type": "BOOLEAN",
         "value": "{true or false}"
+      },
+      {
+        "name": "senderLabel",
+        "type": "STRING",
+        "value": "{name of current platform used on destination system to acknowledge the dissemination}"
       },
       {
         "name": "aipDisseminationExchange",
