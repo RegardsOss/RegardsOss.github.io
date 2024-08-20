@@ -2,16 +2,19 @@
 id: postgres-database
 title: Posgres database
 slug: /setup/swarm/advanced/postgres-database/
+sidebar_position: 4
 ---
 
 Supported Postgres version: 11  
-Posgis extension: Facultative 
+Posgis extension: Facultative
 
-Edit your inventory file `inventories/<your inventory>/group_vars/regards_nodes/main.yml` 
+Edit your inventory file `inventories/<your inventory>/group_vars/regards_nodes/main.yml`
+
 - add connection information
+
 ```yaml
 group_config_mservices:
-  [...]
+  [ ... ]
   postgres:
     instance:
       host: database-inst.cnes.fr
@@ -26,39 +29,46 @@ group_config_mservices:
       password: <some password>
       db: <first project database name>
 ```
+
 - remove the Postgres service that was deployed inside `group_docker_cots`
+
 ```yaml
 # Before
 group_docker_cots:
   postgres:
     tag: "{{ group_docker_tags.cots }}"
-    [...]
+    [ ... ]
 
 # After
 group_docker_cots:
 ```
-- if you do not have Postgis on your `database-inst.cnes.fr` database, edit the `access_instance` service to indicate there is no Postgis available:
+
+- if you do not have Postgis on your `database-inst.cnes.fr` database, edit the `access_instance` service to indicate
+  there is no Postgis available:
+
 ```yaml
 # Before
 group_docker_mservices:
   access_instance:
     tag: "{{ group_docker_tags.back }}"
-    [...]
+    [ ... ]
 
 # After
 group_docker_mservices:
   access_instance:
     tag: "{{ group_docker_tags.back }}"
     postgis: false
-    [...]
+    [ ... ]
 ```
+
 - update the phppgadmin service that was deployed inside `group_docker_cots`
-  - either remove this component, as we did for postgres
-  - or edit it like this, to be able to use phppgadmin on your mutualized Postgres: 
+    - either remove this component, as we did for postgres
+    - or edit it like this, to be able to use phppgadmin on your mutualized Postgres:
+
 ```yaml
   phppgadmin:
-    [...]
-    db: 
+    [ ... ]
+    db:
       - name: DB Instance
         host: database-inst.cnes.fr
         port: 5432

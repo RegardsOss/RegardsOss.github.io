@@ -2,6 +2,7 @@
 id: web-application-firewall
 title: Web Application Firewall
 slug: /setup/swarm/advanced/web-application-firewall/
+sidebar_position: 12
 ---
 
 ### Microservices

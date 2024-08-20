@@ -5,7 +5,6 @@ sidebar_label: Administration
 slug: /setup/swarm/cli/
 ---
 
-
 ## REGARDS stack Administration tools
 
 Connect to the master node of your stack, and open the REGARDS working directory.  
@@ -27,11 +26,14 @@ cd /opt/regards/regards/cli
 Let's look at these scripts :
 
 - `exec.sh`: let you go inside a running container. For advanced debugging.
-- `logs.sh`: let you display container logs from a running container. Once the stack is running fine, you should prefer to use Kibana to see logs
+- `logs.sh`: let you display container logs from a running container. Once the stack is running fine, you should prefer
+  to use Kibana to see logs
 - `reboot.sh`: let you reboot a container
 - `status.sh`: display the status of your stack (running container, how many containers are missing, history)
-- `deploy.sh`: boot or update the stack using stack files. It checks for updated images on the Docker registry, and track updates on files available on the master node.
-- `update.sh`: let you fetch an updated docker image and reboot only that single container. For advanced usage, you should prefer `deploy.sh`.
+- `deploy.sh`: boot or update the stack using stack files. It checks for updated images on the Docker registry, and
+  track updates on files available on the master node.
+- `update.sh`: let you fetch an updated docker image and reboot only that single container. For advanced usage, you
+  should prefer `deploy.sh`.
 - `shutdown.sh` : let you completly shutdown the regards swarm stack.
 - `health.sh` : let you retrieve microservices global heathness for a specific tenant.
 
@@ -68,15 +70,21 @@ jd..    regards-cnes_rs-front.1                            myregistry/rs-front:V
 y4..    regards-cnes_rs-admin-instance.1                   myregistry/rs-administration-instance:V1.1.0  regards-cnes-d13.myorganisation.com      Running 23 hours ago
 ```
 
-In the history, there is no container starting again and again every minutes. That's what we're expecting in a production environment.  
-Moreover, we display the number of running containers and the number of expected ones. In this exemple everything is fine (`[RUNNING]	25/25`).
-The current state of these containers is also important. You need to wait 5 to 15 minutes to see if containers succeed to boot, some containers are waiting to others so they usually crash in that short period if there is some files unwritable, COTS not accessible...
+In the history, there is no container starting again and again every minutes. That's what we're expecting in a
+production environment.  
+Moreover, we display the number of running containers and the number of expected ones. In this exemple everything is
+fine (`[RUNNING]    25/25`).
+The current state of these containers is also important. You need to wait 5 to 15 minutes to see if containers succeed
+to boot, some containers are waiting to others so they usually crash in that short period if there is some files
+unwritable, COTS not accessible...
 
 :::info
-The number of running services depends of your inventory. You may see less actives services than this exemple, but the `[RUNNING]	X/X` must equals 100%.
+The number of running services depends of your inventory. You may see less actives services than this exemple, but
+the `[RUNNING]    X/X` must equals 100%.
 :::
 
-You can run the script `health.sh` to check the healthness returned by each microservice of the stack, for a specfic tenant.
+You can run the script `health.sh` to check the healthness returned by each microservice of the stack, for a specfic
+tenant.
 
 ```bash
 ./health.sh demo

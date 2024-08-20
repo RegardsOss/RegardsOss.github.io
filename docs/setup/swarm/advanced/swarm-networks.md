@@ -2,6 +2,7 @@
 id: swarm-networks
 title: Networks
 slug: /setup/swarm/advanced/swarm-networks
+sidebar_position: 10
 ---
 
 This guide allows you to tune SWARM networks thanks to your inventory.
