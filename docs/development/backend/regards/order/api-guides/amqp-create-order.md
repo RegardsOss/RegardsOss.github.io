@@ -62,7 +62,7 @@ Exchange to submit Order requests:
 | filters.datatypes | String | Yes | List of REGARDS datatypes to filter files from orderd products. Datatypes can be `RAWDATA` or `QUICKLOOK` |
 | filters.filenameRegExp | String | Yes | Regular expression to filter files by their names from orderd products. |
 
-`NOTE`: Here is the link to the [REGARDS Lucene format](../../../../appendices/create-lucene-query.md)
+`NOTE`: Here is the link to the [REGARDS Lucene format](../../../../appendices/02-create-lucene-query.md)
 
 `NOTE`: A REGARDS user is mandatory to order products. Your user must be activated and remaining download quota must allow you to order.
 

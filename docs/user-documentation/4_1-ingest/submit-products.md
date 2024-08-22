@@ -11,7 +11,7 @@ slug: /user-guide/import-data/oais-files/submit-products/
 ## <img src="/images/user-documentation/doc-icons/right-arrow.png" alt="arrow" height="12" width="12"/> Pré-requis
 
 Vous devez importer des fichiers avec un format spécifique pour qu'ils puissent être interprétés et traités par REGARDS.
-Pour construire votre fichier, lisez la page [REGARDS OAIS implementation](../../development/appendices/oais.md).
+Pour construire votre fichier, lisez la page [REGARDS OAIS implementation](../../development/appendices/01-oais.md).
 
 Un fichier de dépôt est composé de deux parties principales :
 

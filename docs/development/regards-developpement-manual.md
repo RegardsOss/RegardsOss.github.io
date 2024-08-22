@@ -1,49 +1,39 @@
 ---
 id: development-manual
-title: Development manual
+title: REGARDS Developer Documentation
+sidebar_label: Overview
 slug: /development/
 ---
 
-## Development contexts
+**Welcome to the REGARDS Developer Documentation !**
 
-### Backend
+You will find relevant information to help you **to interact or develop on the REGARDS system**:
 
-REGARDS allows developers to extends the REGARDS backend functionnalities by creating their own :
-
-- [Microservice](backend/framework/dev-microservice.md) : In order to add new functionalities to REGARDS system throught new REST endpoints
-- [Microservice plugin](backend/framework/modules/plugins.md) : In order to extend microservices functionalities throught defined extension points for each REGARDS Microservice
-
-**Requirements :** You need a development environment with :
-
-- Maven v3.8.4+
-- JDK Eclipse Temurin v17.0.3+
-- Git client
-
-### Frontend
-
-REGARDS allows developers to extends REGARDS Frontend functionnalities by creating their own :
-
-- [UI service plugin](frontend/plugins/plugin-services.md) : In order to add new functionalities availables from the consultables data id the project user HMI.
-- [UI search criterion widget](frontend/plugins/plugin-criteria.md) : In order to add new criterion types in REGARDS search forms.
-- [UI Module plugin](frontend/plugins/plugins.md) : In order to add a totaly new bundle of functionalities
-
-**Requirements :** You need a development environment with :
-
--	node v8.10+
--	npm v16+ (npm i -g npm to upgrade)
-- Git client
-
-## Create a new microservice
-
-Refer to [develop a new microservice](backend/framework/dev-microservice.md) page to create your own microservice.
-
-## Create a new Microservice plugin
-
-Refer to the following pages to develop your own plugins.
-
-- [Backend plugins](backend/framework/modules/plugins.md)
-- [Frontend plugins](frontend/plugins/plugins.md)
-
-## Contribute to REGARDS
-
-You can share your REGARDS developments to the REGARDS community by sending a pull request on our github with your package. Your request will be checked as soon as possible by our maintenance team.
+- [Concepts](./concepts/01-overview.md) is the place to go if you are new to REGARDS, it introduces the **philosophy**
+  of
+  the REGARDS system design. **Highly recommended**
+- [Functional overview](./functional-overview/01-overview.md) let you understand the architecture of the REGARDS
+  software in terms of **group of functionalities**. **Highly recommended**
+- [REGARDS Services](./services/overview.md) contains all microservice documentation of the REGARDS system :
+  presentation,
+  architecture, REST & AMQP API, examples...
+    - [Access project](./backend/regards/access/access.md)
+    - [Access instance](./backend/regards/access/access.md)
+    - [Admin project](./backend/regards/admin/admin.md)
+    - [Admin instance](./backend/regards/admin-instance/overview.md)
+    - [Authentication](./backend/regards/authentication/authentication.md)
+    - [Catalog](./backend/regards/catalog/catalog.md)
+    - [Data management](./backend/regards/dam/dam.md)
+    - [Data provider](./backend/regards/dataprovider/dataprovider.md)
+    - [Delivery](./backend/regards/delivery/delivery.md)
+    - [Feature manager](./backend/regards/fem/fem.md)
+    - [Gateway](./backend/regards/gateway/overview.md)
+    - [Ingest](./backend/regards/ingest/ingest.md)
+    - [LTA Manager](./backend/regards/lta-manager/lta-manager.md)
+    - [Notifier](./backend/regards/notifier/notifier.md)
+    - [Order](./backend/regards/order/order.md)
+    - [Processing](./backend/regards/processing/processing.md)
+    - [Registry](./backend/regards/registry/overview.md)
+    - [Storage](./backend/regards/storage/storage.md)
+    - [Worker Manager](./backend/regards/worker-manager/storage.md)
+- [Web HMI](./frontend/arch.md) introduces you the architecture and design of the REGARDS interface.

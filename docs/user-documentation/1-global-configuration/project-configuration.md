@@ -35,7 +35,7 @@ Vous serez redirigé vers l'écran de création d'un nouveau projet, remplissez 
 - ***Geometries Coordinate reference system***, le système de référence utilisé pour la gestion des données géo-référencées du projet.
 - ***Handle polar cap polygons***, ajoute une transformation sur les données géo-référencées passant par les pôles. Attention, le format des géométries des données référencés doivent ***toutes*** respecter la règle de la main droite pour les cercles extérieurs.
 
-For further information about geometry in REGARDS see [REGARDS geometry appendice](../../development/appendices/geometry.md)
+For further information about geometry in REGARDS see [REGARDS geometry appendice](../../development/appendices/04-geometry.md)
 
 :::caution
 Attention, l'adresse d'accès publique configurée sera utilisée par le système pour générer les adresses d'accès aux données (téléchargements compris).

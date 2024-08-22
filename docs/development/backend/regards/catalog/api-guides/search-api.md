@@ -61,7 +61,7 @@ curl -G 'http://<host>/api/v1//rs-catalog/engines/legacy/dataobjects/search' \
 
 ### Using Lucene standard query parser
 
-See [Create a Lucene standard query parser](../../../../appendices/create-lucene-query.md).
+See [Create a Lucene standard query parser](../../../../appendices/02-create-lucene-query.md).
 
 ## Open Search API
 

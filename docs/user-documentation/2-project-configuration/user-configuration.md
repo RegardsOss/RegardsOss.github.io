@@ -21,7 +21,7 @@ _L'onglet ***User Interface*** vous permettra de configurer une grande variété
 L'écran **_User interface settings_** est principalement découpé en trois parties :
 
 - **_Data presentation_**
-  - En naviguant dans le catalogue, vous remarquerez que chaque donnée peut être, si vous le souhaitez, associée à une quicklook ou à d'un groupe de quicklooks. Une quicklook est une petite image décrivant la donnée, elle peut par exemple offrir un aperçu de la zone géographique concernée. Lorsque vous précisez **_primary_**, la première quicklook sera sélectionnée pour l'affichage de l'aperçu. Pour comprendre comment associer une quicklook à une donnée, lisez la rubrique dataObject dans la page [REGARDS OAIS implementation](../../development/appendices/oais.md)
+  - En naviguant dans le catalogue, vous remarquerez que chaque donnée peut être, si vous le souhaitez, associée à une quicklook ou à d'un groupe de quicklooks. Une quicklook est une petite image décrivant la donnée, elle peut par exemple offrir un aperçu de la zone géographique concernée. Lorsque vous précisez **_primary_**, la première quicklook sera sélectionnée pour l'affichage de l'aperçu. Pour comprendre comment associer une quicklook à une donnée, lisez la rubrique dataObject dans la page [REGARDS OAIS implementation](../../development/appendices/01-oais.md)
   - Cochez la case **_Show products version_** si vous souhaitez afficher le numéro de version dans le nom de la donnée lorsque vous accéderez à sa description
 - **_Quota warning_**
   - **_Low quota warning_** est un seuil de téléchargements restants en dessous duquel une alerte s'affichera sous votre **_Login_** de l'interface utilisateur.

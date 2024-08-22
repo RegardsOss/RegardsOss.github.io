@@ -67,7 +67,7 @@ Configuration parameters are:
 | metadata_rule | String | Lucene expression to seek inside the metadata of the input |
 
 :::info Lucene queries
-You can check the [Lucene guide](../../../../appendices/create-lucene-query.md) to create your lucene query
+You can check the [Lucene guide](../../../../appendices/02-create-lucene-query.md) to create your lucene query
 :::
 
 ```json title='Lucene Rule matcher plugin configuration example'

@@ -1,0 +1,31 @@
+---
+id: product-restitution-services
+title: Product Restitution services
+sidebar_label: Product Restitution services
+slug: /development/functional-overview/microservices-restitution/
+---
+
+
+Products restitution Services are a set of **facultative REGARDS services** that allows user to ask for products files
+availability to be able to download them.
+
+:::info Cold storages files
+Restitution services are mandatory for products with files stored on **Cold storages**. This kind of storage implies
+that
+all the data are not available for download at any time. Users need to request files for availability first.
+:::info
+
+To allow users to order products from your catalog, you need to add microservices :
+
+- [rs-order](../backend/regards/order/order.md) : Manage users orders.
+- **Optional** [rs-delivery](../backend/regards/delivery/delivery.md) : Deliver ordered products files.
+- **Optional** [rs-processing](../backend/regards/processing/processing.md) : Manage pre-processing of ordered products
+  files.
+
+The following schema explains the interactions between microservices to handle an order with optional delivery and/or
+processing.
+
+To learn more about **rs-order** service architectures and API,
+see [Order service documentation](../backend/regards/order/order.md)
+
+![](img/order_workflow.png)

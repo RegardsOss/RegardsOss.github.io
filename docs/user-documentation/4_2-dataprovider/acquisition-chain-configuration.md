@@ -112,7 +112,7 @@ REGARDS fournit des plugins de validation et de génération de SIPs par défaut
 La génération d'un SIP s'effectue en quatre étapes principales Chacune de ces étapes dépend de plugins effectuant des actions différentes :
 
 1. ***Data validation plugin*** *[Obligatoire]* utilisé pour valider vos données d'entrées. Sélectionnez celui correspondant à vos besoins en lisant la description de chaque plugin.
-2. ***Product generation plugin*** *[Obligatoire]* sert à la génération des SIPs à partir des ***Files*** configurés. REGARDS fournit un plugin par défaut ***Default product plugin***, qui créé des SIPs avec une structure de base précisée dans le [document suivant](../../development/appendices/oais.md).
+2. ***Product generation plugin*** *[Obligatoire]* sert à la génération des SIPs à partir des ***Files*** configurés. REGARDS fournit un plugin par défaut ***Default product plugin***, qui créé des SIPs avec une structure de base précisée dans le [document suivant](../../development/appendices/01-oais.md).
 3. ***Metadata generation plugin*** *[Obligatoire]* complète les SIPs avec des métadonnées liés aux fichiers scannés. Le plugin *Default Product Plugin\_ recherche des informations de base sur les fichiers comme la taille, le nom, la date de création, etc. Vous pouvez, si besoin, développer votre propre plugin afin qu'il recherche des valeurs spécifiques contenues dans les fichiers.
 4. ***Post treatment plugin*** *[Optionnelle]* il est possible d'effectuer un post-traitement suite à la génération de vos SIPs.
 
