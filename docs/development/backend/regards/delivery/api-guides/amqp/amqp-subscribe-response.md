@@ -7,6 +7,8 @@ slug: /development/backend/services/delivery/guides/amqp/subscribe-to-delivery-r
 
 This section describes how to subscribe to delivery response events with AMQP message.
 
+To learn more about global description of REGARDS AMQP api see [Regards AMQP API](/docs/development/backend/architecture/concepts/amqp-api.md) FIXME TODO link
+
 ## Exchange
 
 Subscribe to the following exchange to receive delivery responses on vhost `regards.multitenant.manager`:  

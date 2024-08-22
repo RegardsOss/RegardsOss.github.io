@@ -7,6 +7,8 @@ slug: /development/backend/services/delivery/guides/amqp/publish-a-delivery-requ
 
 This section describes how to publish a new delivery request event to REGARDS with AMQP message.
 
+To learn more about global description of REGARDS AMQP api see [Regards AMQP API](/docs/development/backend/architecture/concepts/amqp-api.md)
+
 ## Exchange
 
 Delivery requests have to be published to REGARDS RabbitMQ exchange on vhost 'regards.multitenant.manager':  

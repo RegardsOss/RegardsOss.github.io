@@ -1,11 +1,11 @@
 ---
 id: backend-delivery-architecture
-title: RS-DELIVERY architecture
-sidebar_label: Architecture
+title: RS-DELIVERY Conception
+sidebar_label: Conception
 slug: /development/backend/services/delivery/architecture/
 ---
 
-Basically, rs-delivery is a microservice that interacts with REGARDS' core functionalities to make files available for download in a configurable S3 server.
+Basically, rs-delivery is a microservice that interacts with REGARDS core functionalities to make files available for download in a configurable S3 server.
 The following sequence diagram presents the main interactions when a delivery request is sent.
 
 ![delivery_sequence_diagram](src/delivery_sequence_diagram.png)
