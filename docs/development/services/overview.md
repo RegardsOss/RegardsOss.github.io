@@ -15,7 +15,7 @@ This section provides documentation about REGARDS microservices :
 - [Catalog](../backend/regards/catalog/catalog.md)
 - [Data management](../backend/regards/dam/dam.md)
 - [Data provider](../backend/regards/dataprovider/dataprovider.md)
-- [Delivery](../backend/regards/delivery/delivery.md)
+- [Delivery](delivery/delivery-overview.md)
 - [Feature manager](../backend/regards/fem/fem.md)
 - [Gateway](../backend/regards/gateway/overview.md)
 - [Ingest](../backend/regards/ingest/ingest.md)

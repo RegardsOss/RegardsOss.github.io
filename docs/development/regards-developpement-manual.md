@@ -25,7 +25,7 @@ You will find relevant information to help you **to interact or develop on the R
     - [Catalog](./backend/regards/catalog/catalog.md)
     - [Data management](./backend/regards/dam/dam.md)
     - [Data provider](./backend/regards/dataprovider/dataprovider.md)
-    - [Delivery](./backend/regards/delivery/delivery.md)
+    - [Delivery](services/delivery/delivery-overview.md)
     - [Feature manager](./backend/regards/fem/fem.md)
     - [Gateway](./backend/regards/gateway/overview.md)
     - [Ingest](./backend/regards/ingest/ingest.md)

@@ -7,7 +7,7 @@ slug: /development/backend/services/delivery/guides/amqp/subscribe-to-delivery-r
 
 This section describes how to subscribe to delivery response events with AMQP message.
 
-To learn more about global description of REGARDS AMQP api see [Regards AMQP API](/docs/development/backend/architecture/concepts/amqp-api.md) FIXME TODO link
+To learn more about global description of REGARDS AMQP api see [Regards AMQP API](../../../../concepts/06-amqp-api.md)
 
 ## Exchange
 
@@ -100,7 +100,7 @@ REGARDS publishes a denied notification when the request is not valid.
 A request can be invalid, if the delivery request is not well-formed.
 
 :::info How to handle it?
-See the [request format](./amqp-publish-request.md), fix your payload and submit a new request.
+See the [request format](amqp-publish-request.md), fix your payload and submit a new request.
 :::
 
 ### ERROR body

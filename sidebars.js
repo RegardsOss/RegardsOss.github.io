@@ -395,27 +395,27 @@ module.exports = {
             // RS-DELIVERY
             {
               "Delivery": [
-                "development/backend/regards/delivery/backend-delivery-overview",
-                "development/backend/regards/delivery/backend-delivery-architecture",
+                "development/services/delivery/backend-delivery-overview",
+                "development/services/delivery/backend-delivery-architecture",
                 {
                   "API Guides": [
                     {
                       "AMQP": [
-                        "development/backend/regards/delivery/api-guides/amqp/backend-amqp-publish-delivery-request",
-                        "development/backend/regards/delivery/api-guides/amqp/backend-amqp-subscribe-to-delivery-response"
+                        "development/services/delivery/api-guides/amqp/backend-amqp-publish-delivery-request",
+                        "development/services/delivery/api-guides/amqp/backend-amqp-subscribe-to-delivery-response"
                       ]
                     },
                     {
                       "REST": [
-                        "development/backend/regards/delivery/api-guides/rest/backend-delivery-rest-api"
+                        "development/services/delivery/api-guides/rest/backend-delivery-rest-api"
                       ]
                     }
                   ],
                 },
                 {
                   "Configuration": [
-                    "development/backend/regards/delivery/configuration/backend-delivery-import-export",
-                    "development/backend/regards/delivery/configuration/backend-delivery-static-configuration",
+                    "development/services/delivery/configuration/backend-delivery-import-export",
+                    "development/services/delivery/configuration/backend-delivery-static-configuration",
                   ]
                 }
               ],

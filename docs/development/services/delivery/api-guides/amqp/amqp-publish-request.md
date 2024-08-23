@@ -7,7 +7,7 @@ slug: /development/backend/services/delivery/guides/amqp/publish-a-delivery-requ
 
 This section describes how to publish a new delivery request event to REGARDS with AMQP message.
 
-To learn more about global description of REGARDS AMQP api see [Regards AMQP API](/docs/development/backend/architecture/concepts/amqp-api.md)
+To learn more about global description of REGARDS AMQP api see [Regards AMQP API](../../../../concepts/06-amqp-api.md)
 
 ## Exchange
 
@@ -60,7 +60,7 @@ Delivery requests have to be published to REGARDS RabbitMQ exchange on vhost 're
 |------------------------|----------------|:--------:|-------------------------------------------------------------------------------------------------------------------------------------------------|
 | correlationId          | String         |    No    | Unique identifier to track the request.                                                                                                         |
 | targetDelivery         | String         |   Yes    | Name of the S3 configuration to use. For now, provide the default value `regards-s3-minio`.                                                     |
-| queries                | Lucene strings |    No    | List of lucene formatted queries to find products to order. (refer to [lucene documentation](../../../../../appendices/02-create-lucene-query.md)) |
+| queries                | Lucene strings |    No    | List of lucene formatted queries to find products to order. (refer to [lucene documentation](../../../../appendices/02-create-lucene-query.md)) |
 | user                   | String         |    No    | Email of your REGARDS user.                                                                                                                     |
 | filters.datatypes      | String         |   Yes    | List of REGARDS datatypes to filter files from ordered products. Datatypes can be either `RAWDATA` or `QUICKLOOK`.                              |
 | filters.filenameRegExp | String         |   Yes    | Regular expression to filter files by their names from ordered products.                                                                        |
