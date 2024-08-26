@@ -14,27 +14,7 @@ Regards Microservices can use Vertical scalability by :
 - scaling up the number of **Jobs** executed in parallel (one Job = one Thread).
 - scaling up the number of database pool connection authorised
 
-Regards Jobs system is configurable on each Regards microservice by setting the **Jobs pool size**. If you want each
-instance of one microservice to be able to process more Jobs, you can raise this parameter in relation with the
-microservice resources and server resources.
-
-To make the fullest use of the **Jobs system**, each process request received by a Regards microservice is handled with
-the same algorithm:
-
-1. A process request is received ([AMQP API](./06-amqp-api.md) or [REST API](./05-rest-api.md))
-2. Request format and consistency is validated
-3. The valid requests are saved in microservice database with a **Granted state**.
-4. A scheduler check for requests in **Granted state**.
-5. The scheduler create one or many **Jobs** with associated requests, save **Jobs** in database and update requests
-   with **Scheduled** state. The **number of requests per jobs** is a configurable parameter in most of the
-   microservices.
-6. Job is executed by the **Job Service**.
-7. Requests are updated to **Success** or **Error** status.
-
 ![](requests_to_job_workflow.png)
-
-To learn more about **Job system** and its usage in Regards Microservice,
-see [Module Jobs](../backend/framework/modules/jobs.md)
 
 ## Horizontal scalability
 
