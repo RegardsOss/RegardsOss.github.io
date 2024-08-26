@@ -7,7 +7,8 @@ slug: /development/backend/services/delivery/overview/
 
 
 The rs-delivery microservice allows users to order products and retrieve these ordered files on a provided storage
-location.
+location. It is a part of
+the [Functional overview - Product Restitution services](../../functional-overview/05-product-restitution-services.md)
 
 To achieve this task, this service:
 
@@ -37,6 +38,7 @@ You can learn how the service works with the [conception section](./develiry-con
 ### How to use
 
 You can learn how to **operate** with the microservice thanks to **API Guides** :
+
 - [Publish a delivery request](api-guides/amqp/amqp-publish-request.md) shows you how to create a *Delivery request*
   and sent it to REGARDS.
 - [Monitor a delivery request](api-guides/amqp/amqp-subscribe-response.md)  shows you how to retrieve *Delivery
@@ -53,4 +55,5 @@ see [Import/export configuration section](./configuration/delivery-import-export
 
 ## How to access source code
 
-Microservice source code is available on [GitHub](https://github.com/RegardsOss/regards-backend/tree/master/rs-delivery).
+Microservice source code is available
+on [GitHub](https://github.com/RegardsOss/regards-backend/tree/master/rs-delivery).

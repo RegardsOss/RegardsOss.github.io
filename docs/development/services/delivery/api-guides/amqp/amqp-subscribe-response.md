@@ -5,42 +5,63 @@ sidebar_label: Subscribe to responses
 slug: /development/backend/services/delivery/guides/amqp/subscribe-to-delivery-responses
 ---
 
+## Introduction
+
 This section describes how to subscribe to delivery response events with AMQP message.
 
-To learn more about global description of REGARDS AMQP api see [Regards AMQP API](../../../../concepts/06-amqp-api.md)
+## AMQP API
 
-## Exchange
+### How to
+
+The [Regards AMQP API concept](../../../../concepts/06-amqp-api.md) describe how AMQP interfaces must be handled to
+submit events or to subscribe to events.
+
+### Exchange
 
 Subscribe to the following exchange to receive delivery responses on vhost `regards.multitenant.manager`:  
 `regards.broadcast.fr.cnes.regards.modules.ltamanager.amqp.output.DeliveryResponseDtoEvent`
 
-:::info Get delivery requests response
-The REGARDS administrator must create for you a dedicated queue bound to this exchange and allow your RabbitMQ user to
-access to that queue. By doing so, it let you access to messages from that exchange.
-:::
+### Queue
 
-## AMQP message format
+To subscribe to those messages, firs you have to create you own queue bind to this exchange.
+To learn how to subscribe to theses messages with a custom queue
+see [Regards AMQP API](../../../../concepts/06-amqp-api.md).
+### Message format
 
-### Headers
+#### Properties
 
-Headers are the same for all type of responses.
+| Parameter        | Type    | Description                                                          |
+|------------------|---------|----------------------------------------------------------------------|
+| app_id           | String  | Standard RabbitMQ property to track message origin.                  |
+| priority         | Integer | Standard RabbitMQ property to sort messages by priority order.       |
+| content_encoding | String  | Standard RabbitMQ property for the encoding type of the message      |
+| content_type     | String  | Standard RabbitMQ property for the MIME Type of the message sent     |
+| delivery_mode    | Integer | Standard RabbitMQ property for the delivery mode (persistent or not) |
 
-```json
+#### Headers
+
+| Parameter      | Type   | Description                                                    |
+|----------------|--------|----------------------------------------------------------------|
+| regards.tenant | String | Tenant name depends on REGARDS instance project configuration. |
+| regards.type   | String | Type of content of the message                                 |
+
+```json title="Example of the properties and headers of an Ingest request event message"
 {
-  "app_id": "xxx",
-  "timestamp": "xxx",
-  "correlation_id": "xxx",
-  "priority": xxx,
+  "app_id": "{ID of app}",
+  "priority": 1,
   "delivery_mode": 2,
   "content_encoding": "UTF-8",
   "content_type": "application/json",
-  "headers": {
-    "regards.tenant": "xxx"
-  }
+  "headers": [
+    {
+      "regards.tenant": "REGARDS",
+      "regards.type": "fr.cnes.regards.modules.delivery.amqp.output.DeliveryResponseDtoEvent"
+    }
+  ]
 }
 ```
 
-### GRANTED body
+#### GRANTED body
 
 REGARDS publishes a granted notification when the delivery request is valid and ready to be processed.
 
@@ -56,7 +77,7 @@ REGARDS publishes a granted notification when the delivery request is valid and 
 | correlationId | String |    No    | Request identifier.     |
 | status        | String |    No    | The request is granted. |
 
-### DONE body
+#### DONE body
 
 REGARDS publishes a done notification when the delivery has been processed successfully, i.e, the zip with files ordered
 has been uploaded to the S3 server.
@@ -77,7 +98,7 @@ has been uploaded to the S3 server.
 | url           | String |    No    | S3 formatted zip location (s3://bucket/correlationId/zipName.zip). |
 | md5           | String |    No    | Zip checksum in MD5 format.                                        |
 
-### DENIED body
+#### DENIED body
 
 REGARDS publishes a denied notification when the request is not valid.
 
@@ -103,7 +124,7 @@ A request can be invalid, if the delivery request is not well-formed.
 See the [request format](amqp-publish-request.md), fix your payload and submit a new request.
 :::
 
-### ERROR body
+#### ERROR body
 
 After request has been granted by REGARDS, internal errors may occur. In such case, an error response will be published
 on the response exchange.

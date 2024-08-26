@@ -5,25 +5,35 @@ sidebar_label: Publish a request
 slug: /development/backend/services/delivery/guides/amqp/publish-a-delivery-request
 ---
 
+## Introduction
+
 This section describes how to publish a new delivery request event to REGARDS with AMQP message.
 
-To learn more about global description of REGARDS AMQP api see [Regards AMQP API](../../../../concepts/06-amqp-api.md)
+## AMQP API
 
-## Exchange
+### How to
 
-Delivery requests have to be published to REGARDS RabbitMQ exchange on vhost 'regards.multitenant.manager':  
-`regards.broadcast.fr.cnes.regards.modules.delivery.amqp.input.DeliveryRequestDtoEvent`
+The [Regards AMQP API concept](../../../../concepts/06-amqp-api.md) describe how AMQP interfaces must be handled to
+submit events or to subscribe to events.
 
-## AMQP message format
+### Exchange
 
-### Properties
+Delivery requests have to be published to REGARDS Rabbitmq exchange:
+
+| Exchange                                                                                | Virtual host                   |
+|-----------------------------------------------------------------------------------------|--------------------------------|
+| `regards.broadcast.fr.cnes.regards.modules.delivery.amqp.input.DeliveryRequestDtoEvent` | `regards.multitenant.manager`	 |
+
+### Request content
+
+#### Properties
 
 | Parameter | Type   | Optional | Description                                                    |
 |-----------|--------|:--------:|----------------------------------------------------------------|
 | app_id    | String |   Yes    | Standard RabbitMQ property to track message origin.            |
 | priority  | String |   Yes    | Standard RabbitMQ property to sort messages by priority order. |
 
-### Headers
+#### Headers
 
 ```json
 "regards.tenant": "tenant"
@@ -35,7 +45,7 @@ Delivery requests have to be published to REGARDS RabbitMQ exchange on vhost 're
 | regards.tenant        | String |    No    | Tenant name depends on REGARDS instance project configuration. |
 | regards.request.owner | String |    No    | Name of the request provider.                                  |
 
-### Body
+#### Body
 
 ```json
 {

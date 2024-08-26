@@ -208,6 +208,33 @@ module.exports = {
       label: "Services",
       items: [
         "development/services/services-overview",
+        {
+          "Delivery": [
+            "development/services/delivery/backend-delivery-overview",
+            "development/services/delivery/backend-delivery-architecture",
+            {
+              "API Guides": [
+                {
+                  "AMQP": [
+                    "development/services/delivery/api-guides/amqp/backend-amqp-publish-delivery-request",
+                    "development/services/delivery/api-guides/amqp/backend-amqp-subscribe-to-delivery-response"
+                  ]
+                },
+                {
+                  "REST": [
+                    "development/services/delivery/api-guides/rest/backend-delivery-rest-api"
+                  ]
+                }
+              ],
+            },
+            {
+              "Configuration": [
+                "development/services/delivery/configuration/backend-delivery-import-export",
+                "development/services/delivery/configuration/backend-delivery-static-configuration",
+              ]
+            }
+          ],
+        },
       ],
     },
     {
@@ -390,34 +417,6 @@ module.exports = {
                     "development/backend/regards/dataprovider/plugins/backend-dataprovider-validation-plugin",
                   ],
                 },
-              ],
-            },
-            // RS-DELIVERY
-            {
-              "Delivery": [
-                "development/services/delivery/backend-delivery-overview",
-                "development/services/delivery/backend-delivery-architecture",
-                {
-                  "API Guides": [
-                    {
-                      "AMQP": [
-                        "development/services/delivery/api-guides/amqp/backend-amqp-publish-delivery-request",
-                        "development/services/delivery/api-guides/amqp/backend-amqp-subscribe-to-delivery-response"
-                      ]
-                    },
-                    {
-                      "REST": [
-                        "development/services/delivery/api-guides/rest/backend-delivery-rest-api"
-                      ]
-                    }
-                  ],
-                },
-                {
-                  "Configuration": [
-                    "development/services/delivery/configuration/backend-delivery-import-export",
-                    "development/services/delivery/configuration/backend-delivery-static-configuration",
-                  ]
-                }
               ],
             },
             {
