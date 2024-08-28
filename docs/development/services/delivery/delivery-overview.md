@@ -2,6 +2,7 @@
 id: backend-delivery-overview
 title: RS-DELIVERY microservice
 sidebar_label: Overview
+sidebar_position: 1
 slug: /development/backend/services/delivery/overview/
 ---
 

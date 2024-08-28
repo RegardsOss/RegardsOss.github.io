@@ -2,6 +2,7 @@
 id: backend-delivery-architecture
 title: RS-DELIVERY Conception
 sidebar_label: How it works
+sidebar_position: 2
 slug: /development/backend/services/delivery/architecture/
 ---
 

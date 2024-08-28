@@ -47,6 +47,17 @@ Delivery requests have to be published to REGARDS Rabbitmq exchange:
 
 #### Body
 
+| Parameter              | Type           | Optional | Description                                                                                                                                     |
+|------------------------|----------------|:--------:|-------------------------------------------------------------------------------------------------------------------------------------------------|
+| correlationId          | String         |    No    | Unique identifier to track the request.                                                                                                         |
+| targetDelivery         | String         |   Yes    | Name of the S3 configuration to use. For now, provide the default value `regards-s3-minio`.                                                     |
+| queries                | Lucene strings |    No    | List of lucene formatted queries to find products to order. (refer to [lucene documentation](../../../../appendices/02-create-lucene-query.md)) |
+| user                   | String         |    No    | Email of your REGARDS user.                                                                                                                     |
+| filters.datatypes      | String         |   Yes    | List of REGARDS datatypes to filter files from ordered products. Datatypes can be either `RAWDATA` or `QUICKLOOK`.                              |
+| filters.filenameRegExp | String         |   Yes    | Regular expression to filter files by their names from ordered products.                                                                        |
+
+Example : 
+
 ```json
 {
   "correlationId": "xxxxxx",
@@ -66,11 +77,10 @@ Delivery requests have to be published to REGARDS Rabbitmq exchange:
 }
 ```
 
-| Parameter              | Type           | Optional | Description                                                                                                                                     |
-|------------------------|----------------|:--------:|-------------------------------------------------------------------------------------------------------------------------------------------------|
-| correlationId          | String         |    No    | Unique identifier to track the request.                                                                                                         |
-| targetDelivery         | String         |   Yes    | Name of the S3 configuration to use. For now, provide the default value `regards-s3-minio`.                                                     |
-| queries                | Lucene strings |    No    | List of lucene formatted queries to find products to order. (refer to [lucene documentation](../../../../appendices/02-create-lucene-query.md)) |
-| user                   | String         |    No    | Email of your REGARDS user.                                                                                                                     |
-| filters.datatypes      | String         |   Yes    | List of REGARDS datatypes to filter files from ordered products. Datatypes can be either `RAWDATA` or `QUICKLOOK`.                              |
-| filters.filenameRegExp | String         |   Yes    | Regular expression to filter files by their names from ordered products.                                                                        |
+:::caution queries format
+Queries parameter is a list of String formatted [lucene query](../../../../appendices/02-create-lucene-query.md).
+To be accurate, you have to ensure that requested parameters are existing REGARDS attributes. Attributes are composed 
+of **Standard attributes** and **Models attributes**. In the given example, the queried attribute **providerId** is a 
+standard attribute always available for search.  
+To learn more about Queryable attributes see [Data management documentation](../../../../backend/regards/dam/dam.md).
+:::
