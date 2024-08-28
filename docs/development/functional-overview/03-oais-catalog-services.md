@@ -14,7 +14,7 @@ This data source is recommended for long-term archive catalog with a lot of meta
 
 To allow administrators to manage OAIS products, you need to add these microservices :
 
-- [rs-ingest](../backend/regards/ingest/ingest.md) : Manage OAIS formated products data source
+- [rs-ingest](../services/ingest/overview.md) : Manage OAIS formated products data source
 - [rs-storage](../backend/regards/storage/storage.md) : Manage files references and stored files
 - **Optional** [rs-data-provider](../backend/regards/dataprovider/dataprovider.md) : Scan files on file system and send
   OAIS
@@ -29,12 +29,12 @@ To allow administrators to manage OAIS products, you need to add these microserv
   Submission Information Package requests to OAIS catalog (rs-ingest).
 
 Thanks to rs-ingest microservice, administrator can manage a new data source with OAIS formated products. To learn more
-about **rs-ingest** microservice see [Ingest architecture](../backend/regards/ingest/ingest.md).
+about **rs-ingest** microservice see [Ingest architecture](../services/ingest/overview.md).
 
 This data
 source [can be used as one of the data sources crawled by the data management service](02-meta-catalog-services.md)
 thanks to official
-DataManagement Regards plugin [OAIS Data Source Plugin](../backend/regards/ingest/plugins/plugins.md).
+DataManagement Regards plugin [OAIS Data Source Plugin](../services/ingest/plugins/overview.md).
 
 The schema here under explain the microservices interaction to fulfill the OAIS products data source with **rs-ingest**
 microservice.

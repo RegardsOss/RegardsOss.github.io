@@ -1,0 +1,384 @@
+---
+title: Search for products
+sidebar_label: Search products
+slug: /development/backend/services/ingest/api-guides/rest/retrieve-aips
+sidebar_position: 2
+---
+import RegardsApiSchema from '/src/redoc/RegardsApiSchema';
+import Spec from './rs-ingest.json';
+
+## Introduction
+
+This section describes how to search for AIPs in the **rs-ingest** catalog.
+
+:::caution
+Search for AIPs is an administrator way to consult OAIS catalog.
+Users should always consult regards products with the [Catalog service](../../../../backend/regards/catalog/catalog.md)
+:::
+
+## REST API
+
+### How to
+
+The [Regards REST API concept](../../../../concepts/05-rest-api.md) describes how REST interfaces must be handled to
+submit requests.
+
+### Endpoint
+
+| Endpoint                                                           | Verb |
+|--------------------------------------------------------------------|------|
+| [/aips](./api-swagger.mdx#tag/aip-controller/operation/searchAIPs) | POST |
+
+### Request body format
+
+<RegardsApiSchema spec={Spec} pointer="#/components/schemas/SearchAIPsParameters" />
+
+Example :
+
+```json
+{
+  "lastUpdate": {
+    "after": "2024-08-05T00:00:00.000Z",
+    "before": null
+  },
+  "aipIpTypes": {
+    "values": [
+      "DATA"
+    ],
+    "mode": "INCLUDE",
+    "ignoreCase": true,
+    "matchMode": "STRICT"
+  },
+  "aipStates": {
+    "values": [
+      "STORED"
+    ],
+    "mode": "INCLUDE",
+    "ignoreCase": true,
+    "matchMode": "STRICT"
+  },
+  "storages": {
+    "values": [
+      "Local"
+    ],
+    "mode": "INCLUDE",
+    "ignoreCase": true,
+    "matchMode": "STRICT"
+  },
+  "last": "true",
+  "disseminationStatus": {
+    "values": [
+      "DONE"
+    ],
+    "mode": "INCLUDE",
+    "ignoreCase": true,
+    "matchMode": "STRICT"
+  },
+  "sessionOwner": "source example"
+}
+```
+
+### Response format
+
+| Name     | Description                                            |
+|----------|--------------------------------------------------------|
+| metadata | section containing information about result pagination |
+| content  | section containing all results aips                    |
+| links    | section containing pagination links                    |
+
+**Metadata section**
+
+<RegardsApiSchema spec={Spec} pointer="#/components/schemas/PageMetadata" />
+
+**Content section**
+
+List of AIP entities.
+
+<RegardsApiSchema spec={Spec} pointer="#/components/schemas/AIPEntityLight" />
+
+**Links section**
+
+| Name | Description |
+|------|-------------|
+| rel  | link type   |
+| href | uri link    |
+
+```json title="Example of search API result"
+{
+  "metadata": {
+    "size": 2,
+    "totalElements": 4,
+    "totalPages": 2,
+    "number": 0
+  },
+  "content": [
+    {
+      "content": {
+        "id": 177,
+        "aipId": "URN:AIP:DATA:validation:098f6bcd-4621-3373-8ade-4e832627b4f6:V2",
+        "state": "STORED",
+        "aip": {
+          "providerId": "test",
+          "sipId": "URN:SIP:DATA:validation:098f6bcd-4621-3373-8ade-4e832627b4f6:V2",
+          "version": 2,
+          "ipType": "DATA",
+          "id": "URN:AIP:DATA:validation:098f6bcd-4621-3373-8ade-4e832627b4f6:V2",
+          "geometry": null,
+          "normalizedGeometry": null,
+          "properties": {
+            "contentInformations": [
+              {
+                "representationInformation": {
+                  "syntax": {
+                    "mimeType": "text/html"
+                  }
+                },
+                "dataObject": {
+                  "regardsDataType": "RAWDATA",
+                  "locations": [
+                    {
+                      "storage": "Local",
+                      "url": "file:/storages/validation/local/zips/regards_2024-06-14T10:55:42.015227496Z.zip",
+                      "storePath": ""
+                    }
+                  ],
+                  "filename": "test.html",
+                  "algorithm": "MD5",
+                  "checksum": "145ff4e2fb057359fe66bd398aef3f9b",
+                  "fileSize": 16
+                }
+              }
+            ],
+            "pdi": {
+              "contextInformation": {
+                "tags": [
+                  "TAG-TEST"
+                ]
+              },
+              "referenceInformation": {},
+              "provenanceInformation": {
+                "history": [
+                  {
+                    "comment": "Product SIP generation",
+                    "date": "2024-06-14T10:38:06.058258Z"
+                  },
+                  {
+                    "type": "SUBMISSION",
+                    "comment": "AIP created from SIP test(version 2).",
+                    "date": "2024-06-14T10:38:08.017291Z"
+                  },
+                  {
+                    "type": "STORAGE",
+                    "comment": "Data file test.html stored on Local at file:/storages/validation/local/zips/regards_2024-06-14T10:55:42.015227496Z.zip.",
+                    "date": "2024-06-14T10:57:09.427018Z"
+                  }
+                ],
+                "additional": {}
+              },
+              "fixityInformation": {},
+              "accessRightInformation": {}
+            },
+            "descriptiveInformation": {}
+          },
+          "type": "Feature"
+        },
+        "storages": [
+          "Local"
+        ],
+        "last": true,
+        "disseminationStatus": "NONE",
+        "sessionOwner": "test",
+        "session": "2024-06-14T10:38:04.403052525Z",
+        "categories": [],
+        "providerId": "test",
+        "version": 2,
+        "tags": [
+          "TAG-TEST"
+        ],
+        "creationDate": "2024-06-14T10:38:08.05868Z",
+        "lastUpdate": "2024-06-14T11:03:09.826293Z",
+        "ipType": "DATA"
+      },
+      "links": [
+        {
+          "rel": "notify",
+          "href": "https://validation-regards.cloud-espace.si.c-s.fr/api/v1/rs-ingest/aips/dissemination"
+        }
+      ]
+    },
+    {
+      "content": {
+        "id": 473,
+        "aipId": "URN:AIP:DATA:validation:385878a2-3c3e-30a8-8a30-0c0932b0fa90:V1",
+        "state": "STORED",
+        "aip": {
+          "providerId": "DATA-01-Estonia-20201201-2390",
+          "sipId": "URN:SIP:DATA:validation:385878a2-3c3e-30a8-8a30-0c0932b0fa90:V1",
+          "version": 1,
+          "ipType": "DATA",
+          "id": "URN:AIP:DATA:validation:385878a2-3c3e-30a8-8a30-0c0932b0fa90:V1",
+          "geometry": null,
+          "normalizedGeometry": null,
+          "properties": {
+            "contentInformations": [
+              {
+                "representationInformation": {
+                  "syntax": {
+                    "mimeType": "application/octet-stream",
+                    "name": "application"
+                  }
+                },
+                "dataObject": {
+                  "regardsDataType": "RAWDATA",
+                  "locations": [
+                    {
+                      "storage": "Local",
+                      "url": "file:/storages/validation/local/zips/regards_2024-06-14T16:49:40.847213953Z.zip"
+                    }
+                  ],
+                  "filename": "Estonia.dat",
+                  "algorithm": "MD5",
+                  "checksum": "69c395a9da2cc61d1d60a12f0dbcd4eb",
+                  "fileSize": 13
+                }
+              },
+              {
+                "representationInformation": {
+                  "syntax": {
+                    "mimeType": "image/png",
+                    "name": "application",
+                    "height": 253.0,
+                    "width": 400.0
+                  }
+                },
+                "dataObject": {
+                  "regardsDataType": "THUMBNAIL",
+                  "locations": [
+                    {
+                      "storage": "Local",
+                      "url": "file:/storages/validation/local/zips/regards_2024-06-14T16:49:40.847213953Z.zip"
+                    }
+                  ],
+                  "filename": "Estonia.png",
+                  "algorithm": "MD5",
+                  "checksum": "5fb0e5e18da9fccf5619f0cf46ff1449",
+                  "fileSize": 313
+                }
+              },
+              {
+                "representationInformation": {
+                  "syntax": {
+                    "mimeType": "image/jpg",
+                    "name": "application",
+                    "height": 335.0,
+                    "width": 512.0
+                  }
+                },
+                "dataObject": {
+                  "regardsDataType": "QUICKLOOK_SD",
+                  "locations": [
+                    {
+                      "storage": "Local",
+                      "url": "file:/storages/validation/local/f4/12/81/d9/f41281d9956b843775d09a6189783a93"
+                    }
+                  ],
+                  "filename": "Estonia.jpg",
+                  "algorithm": "MD5",
+                  "checksum": "f41281d9956b843775d09a6189783a93",
+                  "fileSize": 58641
+                }
+              }
+            ],
+            "pdi": {
+              "contextInformation": {
+                "tags": [
+                  "DATA-01"
+                ]
+              },
+              "referenceInformation": {},
+              "provenanceInformation": {
+                "history": [
+                  {
+                    "type": "SUBMISSION",
+                    "comment": "AIP created from SIP DATA-01-Estonia-20201201-2390(version 1).",
+                    "date": "2024-06-17T16:00:33.176376Z"
+                  },
+                  {
+                    "type": "STORAGE",
+                    "comment": "Data file Estonia.dat stored on Local at file:/storages/validation/local/zips/regards_2024-06-14T16:49:40.847213953Z.zip.",
+                    "date": "2024-06-17T16:00:42.79856Z"
+                  },
+                  {
+                    "type": "STORAGE",
+                    "comment": "Data file Estonia.png stored on Local at file:/storages/validation/local/zips/regards_2024-06-14T16:49:40.847213953Z.zip.",
+                    "date": "2024-06-17T16:00:44.190814Z"
+                  },
+                  {
+                    "type": "STORAGE",
+                    "comment": "Data file Estonia.jpg stored on Local at file:/storages/validation/local/f4/12/81/d9/f41281d9956b843775d09a6189783a93.",
+                    "date": "2024-06-17T16:00:43.694395Z"
+                  }
+                ],
+                "additional": {}
+              },
+              "fixityInformation": {},
+              "accessRightInformation": {}
+            },
+            "descriptiveInformation": {
+              "creationdate": "2020-12-01T11:01:00Z",
+              "code": "EST",
+              "label": "Estonia"
+            }
+          },
+          "type": "Feature"
+        },
+        "storages": [
+          "Local"
+        ],
+        "last": true,
+        "disseminationStatus": "NONE",
+        "sessionOwner": "validation-2390",
+        "session": "Initialisation données hétérogènes",
+        "categories": [
+          "2390-LOCAL",
+          "COUNTRY"
+        ],
+        "providerId": "DATA-01-Estonia-20201201-2390",
+        "version": 1,
+        "tags": [
+          "DATA-01"
+        ],
+        "creationDate": "2024-06-17T16:00:33.188971Z",
+        "lastUpdate": "2024-06-17T16:00:47.277058Z",
+        "ipType": "DATA"
+      },
+      "links": [
+        {
+          "rel": "notify",
+          "href": "https://validation-regards.cloud-espace.si.c-s.fr/api/v1/rs-ingest/aips/dissemination"
+        }
+      ]
+    }
+  ],
+  "links": [
+    {
+      "rel": "first",
+      "href": "https://validation-regards.cloud-espace.si.c-s.fr/api/v1/rs-ingest/aips?page\u003d0\u0026size\u003d20\u0026sort\u003did,asc"
+    },
+    {
+      "rel": "self",
+      "href": "https://validation-regards.cloud-espace.si.c-s.fr/api/v1/rs-ingest/aips?page\u003d0\u0026size\u003d20\u0026sort\u003did,asc"
+    },
+    {
+      "rel": "next",
+      "href": "https://validation-regards.cloud-espace.si.c-s.fr/api/v1/rs-ingest/aips?page\u003d1\u0026size\u003d20\u0026sort\u003did,asc"
+    },
+    {
+      "rel": "last",
+      "href": "https://validation-regards.cloud-espace.si.c-s.fr/api/v1/rs-ingest/aips?page\u003d2\u0026size\u003d20\u0026sort\u003did,asc"
+    }
+  ]
+}
+```
+
+

@@ -57,7 +57,7 @@ Every guides provides:
   see [Subscribe to Regards system events](#subscribe-to-regards-published-events).
 
 For example, here
-is [the guide to publish OAIS product to the OAIS service](../backend/regards/ingest/amqp/ingest-amqp-publish-product.mdx).
+is [the guide to publish OAIS product to the OAIS service](../services/ingest/api-guides/amqp/ingest-amqp-publish-product.mdx).
 
 ### Publish message to REGARDS
 

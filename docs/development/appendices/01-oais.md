@@ -7,14 +7,17 @@ slug: /development/appendices/oais/
 
 ## Overview
 
-REGARDS allows to populate its [OAIS catalog](../functional-overview/03-oais-catalog-services.md) with products by following
+REGARDS allows to populate its [OAIS catalog](../functional-overview/03-oais-catalog-services.md) with products by
+following
 the [OAIS recommendation](https://public.ccsds.org/Pubs/650x0m2%28F%29.pdf).
 
 :::info
 This section define the global format of OAIS products.
 :::
 
-To learn more about how to populate Regards catalog with OAIS products, see [REST API Guide](../backend/regards/ingest/amqp/ingest-amqp-publish-product.mdx) or [AMQP API Guide](../backend/regards/ingest/amqp/ingest-amqp-publish-product.mdx)
+To learn more about how to populate Regards catalog with OAIS products,
+see [REST API Guide](../services/ingest/api-guides/rest/submit-sip.mdx)
+or [AMQP API Guide](../services/ingest/api-guides/amqp/ingest-amqp-publish-product.mdx)
 
 ## OAIS Product format
 
@@ -26,55 +29,67 @@ Example :
 
 ```json
 {
-      "type": "Feature",
-      "id": "regards-2296-data-1",
-      "ipType": "DATA",
-      "geometry": {
-        "crs" : "WGS84",
-        "type" : "Point",
-        "coordinates": [30, 10]
-      },
-      "properties": {
-        "contentInformations": [
-          {
-            "dataObject": {
-               "regardsDataType": "RAWDATA",
-               "filename": "regards-2296-data-1.dat",
-               "locations": [
-                 {
-                   "url": "file:///regards-input/validation/data/2296/regards-2296-data-1.dat"
-                 }
-                ],
-                "checksum": "9a964ed3be0e2e2786d82ace9d971e90",
-                "algorithm": "MD5"
-            },
-            "representationInformation": {
-              "syntax": {
-                "name": "TEXT",
-                "mimeType": "text/plain"
-              }
+  "type": "Feature",
+  "id": "regards-2296-data-1",
+  "ipType": "DATA",
+  "geometry": {
+    "crs": "WGS84",
+    "type": "Point",
+    "coordinates": [
+      30,
+      10
+    ]
+  },
+  "properties": {
+    "contentInformations": [
+      {
+        "dataObject": {
+          "regardsDataType": "RAWDATA",
+          "filename": "regards-2296-data-1.dat",
+          "locations": [
+            {
+              "url": "file:///regards-input/validation/data/2296/regards-2296-data-1.dat"
             }
-          }
-        ],
-        "pdi": {
-          "contextInformation": {
-             "tags": ["KEYWORD"]
-          },
-          "provenanceInformation": { "history": [] },
-          "accessRightInformation": {}
+          ],
+          "checksum": "9a964ed3be0e2e2786d82ace9d971e90",
+          "algorithm": "MD5"
         },
-        "descriptiveInformation": {
-          "property1": 11056,
-          "date": "2018-01-20T17:22:48Z",
-          "property2": 35.56598,
-          "property3": ["type_01", "type_02"],
-          "property4": "REGARDS demo",
-          "property5": [ 10, 20 ]
+        "representationInformation": {
+          "syntax": {
+            "name": "TEXT",
+            "mimeType": "text/plain"
+          }
         }
       }
+    ],
+    "pdi": {
+      "contextInformation": {
+        "tags": [
+          "KEYWORD"
+        ]
+      },
+      "provenanceInformation": {
+        "history": []
+      },
+      "accessRightInformation": {}
+    },
+    "descriptiveInformation": {
+      "property1": 11056,
+      "date": "2018-01-20T17:22:48Z",
+      "property2": 35.56598,
+      "property3": [
+        "type_01",
+        "type_02"
+      ],
+      "property4": "REGARDS demo",
+      "property5": [
+        10,
+        20
+      ]
     }
+  }
+}
 ```
-
 
 | Property               | Mandatory | Description                                                                                                                                                                        |                                      Possible values                                      |
 |:-----------------------|:---------:|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-----------------------------------------------------------------------------------------:|
@@ -92,17 +107,17 @@ Example :
 
 ```json
 {
-    "dataObject": {
-        "regardsDataType": "RAWDATA",
-        "filename": "regards-2296-data-1.dat",
-        "locations": [
-            {
-            "url": "file:///regards-input/validation/data/2296/regards-2296-data-1.dat"
-            }
-        ],
-        "checksum": "9a964ed3be0e2e2786d82ace9d971e90",
-        "algorithm": "MD5"
-    }
+  "dataObject": {
+    "regardsDataType": "RAWDATA",
+    "filename": "regards-2296-data-1.dat",
+    "locations": [
+      {
+        "url": "file:///regards-input/validation/data/2296/regards-2296-data-1.dat"
+      }
+    ],
+    "checksum": "9a964ed3be0e2e2786d82ace9d971e90",
+    "algorithm": "MD5"
+  }
 }
 ```
 
@@ -119,15 +134,15 @@ Example :
 
 ```json
 {
-    "locations": [
-        {
-          "url": "file:///regards/demo/data-1.dat"
-        },
-        {
-            "storage": "FTP Server",
-            "url": "ftp:/172.125.10.1/regards/demo/ftp/data-1.dat"
-        }
-    ]
+  "locations": [
+    {
+      "url": "file:///regards/demo/data-1.dat"
+    },
+    {
+      "storage": "FTP Server",
+      "url": "ftp:/172.125.10.1/regards/demo/ftp/data-1.dat"
+    }
+  ]
 }
 ```
 
@@ -147,12 +162,12 @@ provided by REGARDS meta-catalog will be the original provided url.
 
 ```json
 {
-    "locations": [
-        {
-            "storage": "web",
-            "url": "https://regardsoss.github.io/appendices/oais"
-        }
-    ]
+  "locations": [
+    {
+      "storage": "web",
+      "url": "https://regardsoss.github.io/appendices/oais"
+    }
+  ]
 }
 ``` 
 
@@ -160,13 +175,13 @@ provided by REGARDS meta-catalog will be the original provided url.
 
 ```json
 {
-    "representationInformation": {
-        "semantic": {},
-        "syntax": {
-            "name": "TEXT",
-            "mimeType": "text/plain"
-        }
+  "representationInformation": {
+    "semantic": {},
+    "syntax": {
+      "name": "TEXT",
+      "mimeType": "text/plain"
     }
+  }
 }
 ```
 
@@ -182,19 +197,21 @@ provided by REGARDS meta-catalog will be the original provided url.
 
 ```json
 {
-    "pdi": {
-        "contextInformation": {
-            "tags": ["KEYWORD"]
-        },
-        "provenanceInformation": {
-            "history": [],
-            "additional": {
-                "urn": ""
-            }
-        },
-        "accessRightInformation": {
-        }
+  "pdi": {
+    "contextInformation": {
+      "tags": [
+        "KEYWORD"
+      ]
+    },
+    "provenanceInformation": {
+      "history": [],
+      "additional": {
+        "urn": ""
+      }
+    },
+    "accessRightInformation": {
     }
+  }
 }
 ```
 

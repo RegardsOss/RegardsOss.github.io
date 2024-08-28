@@ -1,13 +1,30 @@
 ---
-id: backend-amqp-publish-ack
-title: Publish acknowledge event
-sidebar_label: Publish acknowledge
-slug: /development/backend/services/ingest/amqp/publish-acknowledge-event
+title: Acknowledge product dissemination
+sidebar_label: Acknowledge product
+slug: /development/backend/services/ingest/api-guides/amqp/ingest-amqp-publish-ack
+sidebar_position: 2
 ---
 
-This section describes how to submit acknowledge dissemination of OAIS product thanks to AMQPS interface.
+## Introduction
 
-## Exchange
+As described in the [service conception of `rs-ingest` microservice](../../conception.md#notifications), the system
+send notification events to external systems when a product status changes.  
+This guide describe how an external system can send an acknowledgment to `rs-ingest` to inform it that the AIP
+dissemination has been successfully handled.
+
+:::caution
+There is no way for an external system to inform the rs-ingest service that the AIP dissemination has not been
+successfully handled yet.
+:::
+
+## AMQP API
+
+### How to
+
+The [Regards AMQP API concept](../../../../concepts/06-amqp-api.md) describe how AMQP interfaces must be handled to
+submit events or to subscribe to events.
+
+### Exchange
 
 Submission requests have to be published to REGARDS Rabbitmq exchange:
 
@@ -15,9 +32,9 @@ Submission requests have to be published to REGARDS Rabbitmq exchange:
 |--------------------------------------------------------------------------------------------|--------------------------------|
 | `regards.broadcast.fr.cnes.regards.modules.ingest.dto.request.event.DisseminationAckEvent` | `regards.multitenant.manager`	 |
 
-## Request format
+### Request content
 
-### Properties
+#### Properties
 
 | Parameter        | Type    | Description                                                          |
 |------------------|---------|----------------------------------------------------------------------|
@@ -27,7 +44,7 @@ Submission requests have to be published to REGARDS Rabbitmq exchange:
 | content_type     | String  | Standard RabbitMQ property for the MIME Type of the message sent     |
 | delivery_mode    | Integer | Standard RabbitMQ property for the delivery mode (persistent or not) |
 
-### Headers
+#### Headers
 
 | Parameter      | Type   | Description                                                    |
 |----------------|--------|----------------------------------------------------------------|
@@ -50,7 +67,7 @@ Submission requests have to be published to REGARDS Rabbitmq exchange:
 }
 ```
 
-### Body
+#### Body
 
 ```json
 {

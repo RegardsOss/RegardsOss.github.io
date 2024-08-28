@@ -1,6 +1,6 @@
 ---
 id: concepts-requests-jobs
-title: REGARDS Requests and Jobs processing
+title: Requests and Jobs processing
 sidebar_label: Requests & Jobs
 slug: /development/concepts/requests-jobs/
 ---

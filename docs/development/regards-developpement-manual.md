@@ -28,7 +28,8 @@ You will find relevant information to help you **to interact or develop on the R
     - [Delivery](services/delivery/delivery-overview.md)
     - [Feature manager](./backend/regards/fem/fem.md)
     - [Gateway](./backend/regards/gateway/overview.md)
-    - [Ingest](./backend/regards/ingest/ingest.md)
+    - [Ingest](services/ingest/overview.md) : **Ingest** or **rs-ingest** microservice manage the
+      Regards [OAIS](appendices/01-oais.md) catalog.
     - [LTA Manager](./backend/regards/lta-manager/lta-manager.md)
     - [Notifier](./backend/regards/notifier/notifier.md)
     - [Order](./backend/regards/order/order.md)
