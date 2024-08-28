@@ -1,14 +1,18 @@
 ---
 id: backend-delivery-import-export
-title: Delivery Import/Export settings
-sidebar_label: Delivery Import/Export
+title: Configuration Importation/Exportation
+sidebar_label: Importation/Exportation
 slug: /development/backend/services/delivery/configuration
 ---
 
 ## Request
 
-To configure delivery settings, send a `PUT` request on update operation of dynamic-tenant-setting-controller (
-see [rest api documentation](../api-guides/rest/rs-delivery-api-swagger.mdx#tag/module-manager-controller/operation/importConfiguration)) for each setting that needs to be set.
+To configure delivery settings, send a `POST` request on update operation of dynamic-tenant-setting-controller (
+see [rest api documentation](../api-guides/rest/rs-delivery-api-swagger.mdx#tag/module-manager-controller/operation/importConfiguration))
+for each setting that needs to be set. The configuration is stored in database for each tenant or project.
+
+This configuration can also be imported or exported
+through [administrator HMI](../../../../user-documentation/2-project-configuration/microservices.md).
 
 ## Body
 
