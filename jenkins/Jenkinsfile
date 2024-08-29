@@ -1,0 +1,87 @@
+#!/usr/bin/env groovy
+
+/**
+ * Copyright 2017-2023 CNES - CENTRE NATIONAL d'ETUDES SPATIALES
+ *
+ * This file is part of REGARDS.
+ *
+ * REGARDS is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * REGARDS is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with REGARDS. If not, see <http://www.gnu.org/licenses/>.
+ **/
+
+/**
+ * Declaratve Jenkinsfile. The language is Groovy.
+ * Contains the definition of a Jenkins Pipeline, is checked into source control
+ * and is expected to be the reference.
+ * To fully support multibranch builds without issues, we are using docker-compose to setup cots for each build.
+ *
+ * @author Léo Mieulet
+ * @see https://jenkins.io/doc/book/pipeline/jenkinsfile/
+ */
+pipeline {
+    options {
+        buildDiscarder(logRotator(numToKeepStr: '5', artifactNumToKeepStr: '2'))
+        parallelsAlwaysFailFast()
+    }
+    agent { label 'unix-integration' }
+
+    stages {
+        stage('Preparation') {
+            steps {
+                echo "Jenkins node name = ${env.NODE_NAME}"
+                echo "Current workspace = ${env.WORKSPACE}"
+                sh 'docker pull  172.26.46.158/regards-doc-jenkins:latest'
+            }
+        }
+        stage('Set yarn version') {
+            steps {
+                sh 'docker run --rm -i --tmpfs /tmp:exec \
+                    -v ${WORKSPACE}/:/app_to_build \
+                    172.26.46.158/regards-doc-jenkins:latest yarn set version 3.7.0'
+            }
+        }
+        stage('Install dependencies') {
+            steps {
+                sh 'docker run --rm -i --tmpfs /tmp:exec \
+                    -v ${WORKSPACE}/:/app_to_build \
+                     172.26.46.158/regards-doc-jenkins:latest yarn install'
+            }
+        }
+        stage('Build documentation') {
+            steps {
+                sh 'docker run --rm -i --tmpfs /tmp:exec \
+                    -v ${WORKSPACE}/:/app_to_build \
+                     172.26.46.158/regards-doc-jenkins:latest yarn build'
+            }
+        }
+
+        stage('Build & Deploy Docker image') {
+            steps {
+                    // Create the output folder jenkins/nginx/dist/, clean it if already existing, then
+                    // copy the bundle inside the folder where front container is created
+                    sh 'mkdir -p jenkins/nginx/dist/ && rm -rf jenkins/nginx/dist/* && cp -R ./build/* jenkins/nginx/dist/'
+                    // build image from nginx, tag with version/branch, then push
+                    sh 'cd jenkins/nginx && ./buildTagAndPush.sh'
+            }
+        }
+    }
+    post {
+        cleanup {
+            echo 'POST-CLEANUP-TASK -- Rewrire owner and access rights, to avoid future build having files issues'
+            sh 'chown -R jenkins:jenkins .'
+            sh 'chmod -R u+rwx .'
+            sh 'chmod -R g+rwx .'
+        }
+    }
+}
+
