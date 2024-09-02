@@ -36,7 +36,7 @@ source [can be used as one of the data sources crawled by the data management se
 thanks to official
 DataManagement Regards plugin [OAIS Data Source Plugin](../services/ingest/plugins/overview.md).
 
-The schema here under explain the microservices interaction to fulfill the OAIS products data source with **rs-ingest**
+The diagram below explains the microservices interaction to fulfill the OAIS products data source with **rs-ingest**
 microservice.
 
 ![](img/ingest_workflow.png)

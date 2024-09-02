@@ -36,7 +36,7 @@ In some cases, you may want to process products before their submission to **rs-
 to do this is to add **rs-worker-manager** microservice and a **worker of your own** to process products before sending
 them to **rs-fem** microservice.
 
-The schema here under explain the microservices interaction to fulfill the GeoJson products data source with **rs-fem**
+The diagram below explains the microservices interaction to fulfill the GeoJson products data source with **rs-fem**
 and **rs-worker-manager** microservices.
 
 ![](img/fem_workflow_advanced.png)

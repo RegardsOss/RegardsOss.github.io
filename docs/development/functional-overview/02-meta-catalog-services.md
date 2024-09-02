@@ -55,6 +55,6 @@ microservice can be used to consult products metadata and to download [products]
 To learn more about catalog service and its multiple search engines like **STAC** or **OpenSearch**,
 see [**Catalog**](../backend/regards/catalog/catalog.md).
 
-The here under diagram explain the interactions between microservices for this purpose:
+The diagram below explains the interactions between microservices for this purpose:
 
 ![](img/consult-meta-catalog.png)
