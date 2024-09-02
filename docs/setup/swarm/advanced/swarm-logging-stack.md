@@ -14,7 +14,7 @@ Add following services inside your inventory file `group_vars/regards_nodes/main
 ```yaml
 # COTS
 group_docker_cots:
-  [ ... ]
+  [...]
   elasticsearch_exporter:
     tag: "{{ group_docker_tags.cots }}"
   node_exporter:
@@ -44,14 +44,14 @@ local disk: `Loki` and `Prometheus`.
 
 ```yaml
 group_docker_cots:
-  [ ... ]
+  [...]
   prometheus:
-    [ ... ]
+    [...]
     node_label_placement_constraint:
       key: type
       value: logging
   loki:
-    [ ... ]
+    [...]
     node_label_placement_constraint:
       key: type
       value: logging
@@ -85,7 +85,7 @@ them to Grafana:
 ```yaml
 group_docker_stack_domain: my-regards.cnes.fr
 group_docker_cots:
-  [ ... ]
+  [...]
   grafana:
     host: "{{ group_docker_stack_domain }}"
     ssl:
@@ -104,7 +104,7 @@ Elasticsearch server. You need to list indexes like this:
 
 ```yaml
 group_docker_cots:
-  [ ... ]
+  [...]
   grafana:
     datasources:
       regards_cots:
@@ -121,7 +121,7 @@ If you use a mutualised Postgres, you can configure how Grafana connects to each
 
 ```yaml
 group_docker_cots:
-  [ ... ]
+  [...]
   grafana:
     datasources:
       custom:
@@ -132,7 +132,7 @@ group_docker_cots:
             password: <Database password - use Ansible Vault!>
             databases:
               - <database name>
-          [ ... ]
+          [...]
 ```
 
 That's it!

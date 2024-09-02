@@ -51,7 +51,7 @@ group_docker_mounts:
     - name: minio-nfs
       config:
         [ ... nfs configuration ]
-  [ ... ]
+  [...]
   minio:
     - nfs: minio-nfs
       destination: /data-01
@@ -77,10 +77,10 @@ With these nodes, cluster url will be : `regards-cnes-0{1...4}.host.com/data-01`
 ```yaml
 group_docker_cots:
   minio:
-    [ ... ]
+    [...]
     global_service: true
     cluster_url: regards-cnes-0{1...4}.host.com/data-01
-    [ ... ]
+    [...]
 ```
 
 | Properties     | Description                                                                                       | default |
@@ -111,12 +111,12 @@ For example:
 ```yaml
 group_docker_cots:
   minio:
-    [ ... ]
+    [...]
     ssl_internal:
       ca: minio-nodes.ca.crt
       crt: minio-nodes.crt
       key: minio-nodes.key
-    [ ... ]
+    [...]
 ```
 
 ## Multi-drive deployment
@@ -129,7 +129,7 @@ To do so, edit your inventory file `inventories/<your inventory>/group_vars/rega
 
 ```yaml
 group_docker_mounts:
-  [ ... ]
+  [...]
   minio:
     - local: true
       source: /mnt/minio-drive-1
@@ -146,9 +146,9 @@ Then, you need to adapt the `cluster_url` provided to MinIO like this:
 ```yaml
 group_docker_cots:
   minio:
-    [ ... ]
+    [...]
     cluster_url: regards-cnes-0{1...4}.host.com/data-0{1...2}
-    [ ... ]
+    [...]
 ```
 
 MinIO will understand there is 4 nodes and 2 drives with such URL.

@@ -92,7 +92,7 @@ It allows REGARDS to access to your data.
 
 ```yml
 group_docker_mounts:
-  [ ... ]
+  [...]
   regards:
     data_inputs:
       - name: local-input-datastore
@@ -122,7 +122,7 @@ property.
 
 ```yml
 group_docker_mounts:
-  [ ... ]
+  [...]
   volumes:
     - name: front-public-volume
       nfs: nfs-regards-qua
@@ -141,7 +141,7 @@ inputs are automatically attached to dataprovider, fem, ingest and storage servi
 ```yml
 group_docker_mservices:
   front:
-    [ ... ]
+    [...]
     volumes:
       - source: front-public-volume
         destination: /var/www/public/
@@ -190,7 +190,7 @@ definition
 ```yml
 group_docker_mservices:
   front:
-    [ ... ]
+    [...]
     configs:
       - source: my-background.jpg
         destination: /var/www/background/my-background.jpg

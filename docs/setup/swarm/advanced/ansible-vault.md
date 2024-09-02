@@ -33,7 +33,7 @@ Save the value into your inventory. Let's say that was the Postgres instance pas
 
 ```yaml
 group_config_mservices:
-  [ ... ]
+  [...]
   postgres:
     instance:
       host: database-inst.cnes.fr

@@ -14,7 +14,7 @@ Edit your inventory file `inventories/<your inventory>/group_vars/regards_nodes/
 
 ```yaml
 group_config_mservices:
-  [ ... ]
+  [...]
   postgres:
     instance:
       host: database-inst.cnes.fr
@@ -37,7 +37,7 @@ group_config_mservices:
 group_docker_cots:
   postgres:
     tag: "{{ group_docker_tags.cots }}"
-    [ ... ]
+    [...]
 
 # After
 group_docker_cots:
@@ -51,14 +51,14 @@ group_docker_cots:
 group_docker_mservices:
   access_instance:
     tag: "{{ group_docker_tags.back }}"
-    [ ... ]
+    [...]
 
 # After
 group_docker_mservices:
   access_instance:
     tag: "{{ group_docker_tags.back }}"
     postgis: false
-    [ ... ]
+    [...]
 ```
 
 - update the phppgadmin service that was deployed inside `group_docker_cots`
@@ -67,7 +67,7 @@ group_docker_mservices:
 
 ```yaml
   phppgadmin:
-    [ ... ]
+    [...]
     db:
       - name: DB Instance
         host: database-inst.cnes.fr

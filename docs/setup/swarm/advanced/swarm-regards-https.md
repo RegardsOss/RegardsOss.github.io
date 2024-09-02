@@ -25,7 +25,7 @@ openssl pkcs12 -in <your domain>.p12 -clcerts -nokeys -out <your domain>.crt
 
 ```yaml
 group_docker_mservices:
-  [ ... ]
+  [...]
   front:
     protocol: https
     host: <your domain>
