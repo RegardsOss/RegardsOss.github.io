@@ -33,10 +33,10 @@ you don't have it yet:
 group_docker_mounts:
   # Define NFS configurations used by REGARDS volumes
   nfs: [ ]
-  # Allow some files inside <inventory>/group_vars/regards_nodes/files/... to be attached 
+  # Allow some files inside <inventory>/static/... to be attached 
   # to frontend / workers containers as Secret file (read only) 
   secrets: [ ]
-  # Allow some files inside <inventory>/group_vars/regards_nodes/files/... to be attached 
+  # Allow some files inside <inventory>/static/... to be attached 
   # to frontend / workers containers as Config file (read only) 
   configs: [ ]
   volumes: [ ]
@@ -172,14 +172,14 @@ group_docker_mounts:
   secrets:
     - file: some_secret.key
       path: private/folder/
-      # Files location is ..regards_nodes/files/private/folder/some_secret.key
+      # Files location is <inventory>/static/private/folder/some_secret.key
   configs:
     - file: attributeOrder.properties
       path: config-extraction
-      # Files location is ..regards_nodes/files/config-extraction/attributeOrder.properties
+      # Files location is <inventory>/static/config-extraction/attributeOrder.properties
     - file: my-background.jpg
       path: www
-      # Files location is ..regards_nodes/files/www/my-background.jpg
+      # Files location is <inventory>/static/www/my-background.jpg
 ```
 
 ### Mount configs and secrets to services

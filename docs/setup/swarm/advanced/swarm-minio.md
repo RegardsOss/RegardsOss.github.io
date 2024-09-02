@@ -105,7 +105,7 @@ For example:
 ./certgen-linux-amd64 -host 'regards-cnes-01.host.com,regards-cnes-02.host.com,regards-cnes-03.host.com,regards-cnes-04.host.com' -duration 8760h0m0s
 ```
 
-- put these files inside folder `<inventory>/group_vars/regards_nodes/files/ssl/`
+- put these files inside folder `<inventory>/static/ssl/`
 - edit MinIO configuration like this:
 
 ```yaml
