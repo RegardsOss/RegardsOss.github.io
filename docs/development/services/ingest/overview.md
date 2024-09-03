@@ -69,7 +69,7 @@ see [Import/export configuration section](./configuration/import-export.md).
 
 ## How to access through UI
 
-You can follow the **User manuel** to learn about the administrator HMI related functionalities :
+You can follow the **User manuel** to learn about the administrator UI related functionalities :
 
 - [How to configure **Ingest chains**](../../../user-documentation/4_1-ingest/ingestion-chain-configuration.md).
 - [How to configure global settings](../../../user-documentation/4_1-ingest/settings-ingest.md)

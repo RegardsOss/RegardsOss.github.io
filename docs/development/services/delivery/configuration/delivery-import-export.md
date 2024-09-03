@@ -12,7 +12,7 @@ see [rest api documentation](../api-guides/rest/rs-delivery-api-swagger.mdx#tag/
 for each setting that needs to be set. The configuration is stored in database for each tenant or project.
 
 This configuration can also be imported or exported
-through [administrator HMI](../../../../user-documentation/2-project-configuration/microservices.md).
+through [administrator UI](../../../../user-documentation/2-project-configuration/microservices.md).
 
 ## Body
 

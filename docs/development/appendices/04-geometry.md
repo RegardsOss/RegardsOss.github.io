@@ -123,5 +123,5 @@ For each projet of a REGARDS instance, administrator can configure how geometry 
 - handle polar cap polygons : If true, polygons are transformed using a spherical projection and then polygons should
   respect the previous second rule defined (distance between too consecutive points).
 
-Those two parameters are configurable through admin instance HMI
+Those two parameters are configurable through admin instance UI
 during [project configuration](../../user-documentation/1-global-configuration/project-configuration.md).

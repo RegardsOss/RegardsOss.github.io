@@ -37,4 +37,4 @@ You will find relevant information to help you **to interact or develop on the R
     - [Registry](./backend/regards/registry/overview.md)
     - [Storage](./backend/regards/storage/storage.md)
     - [Worker Manager](./backend/regards/worker-manager/storage.md)
-- [Web HMI](./frontend/arch.md) introduces you the architecture and design of the REGARDS interface.
+- [Web UI](./frontend/arch.md) introduces you the architecture and design of the REGARDS interface.

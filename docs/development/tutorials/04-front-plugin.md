@@ -1,14 +1,14 @@
 ---
 id: development-manual
-title: Develop HMI plugin
-sidebar_label: How to create an HMI plugin
+title: Develop UI plugin
+sidebar_label: How to create a UI plugin
 slug: /development/tutorials/frontend/overview
 ---
 
 REGARDS allows developers to extend REGARDS Frontend functionalities by creating their own :
 
 - [UI service plugin](../frontend/plugins/plugin-services.md) : In order to add new functionalities available from the
-  consultables data in the project user HMI.
+  consultables data in the project user UI.
 - [UI search criterion widget](../frontend/plugins/plugin-criteria.md) : In order to add new criterion types in REGARDS
   search forms.
 

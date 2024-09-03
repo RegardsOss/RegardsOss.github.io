@@ -127,7 +127,7 @@ The `value` contains information about the settings with the parameters listed b
 |---------------|--------------------|:--------------:|-------------------------------------------------------------------------------------------------------------------|
 | pluginId      | String             |       No       | Plugin unique identifier                                                                                          |
 | businessId    | String             |      Yes       | Configuration unique identifier                                                                                   |
-| label         | String             |      Yes       | Configuration label (displayed in admin HMI)                                                                      |
+| label         | String             |      Yes       | Configuration label (displayed in admin UI)                                                                       |
 | version       | String             |       No       | Configuration version                                                                                             |
 | priorityOrder | Integer            |      Yes       | Priority of the configuration. <br/>Can be used by service if there are more than one configuration for a plugin. |
 | active        | Boolean            |      Yes       | True to activate the configuration. <br/>If false, service will not be allowed to use this configuration.         |

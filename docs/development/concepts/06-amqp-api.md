@@ -84,7 +84,7 @@ the service will send those events then subscribe to this exchange by :
 - Creating a **custom queue** for your purpose
 - **Bind** your custom queue to the related exchange
 
-To do so, you can manually create your queue and bind it to the exchange through RabbitMQ administrator HMI or you can
+To do so, you can manually create your queue and bind it to the exchange through RabbitMQ administrator UI or you can
 use your Regards instance deployment inventory. To learn more about RabbitMQ additional queues and exchanges
 configuration see [RabbitQ advanced setup](../../setup/swarm/advanced/swarm-rabbitmq.md)
 

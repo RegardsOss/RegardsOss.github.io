@@ -14,5 +14,5 @@ Checkout [the following tutorial on how to develop REGARDS plugins and microserv
 
 ## How to create frontend plugins
 
-- [REGARDS HMI plugin developement](./04-front-plugin.md) shows how to create a new HMI plugin
+- [REGARDS UI plugin development](./04-front-plugin.md) shows how to create a new UI plugin
 - Checkout [the following tutorial on how to develop frontend plugins](/docs/regards-frontend-tutorial.odp)

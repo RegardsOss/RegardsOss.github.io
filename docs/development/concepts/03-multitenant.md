@@ -25,7 +25,7 @@ Instance microservices are:
   instance and to centralize all shared accounts between projets.
 - [rs-access-instance](../backend/regards/access-instance/overview.md) : Microservice to configure instance
   administration
-  web HMI.
+  web UI.
 
 To learn more about Regards multitenant implementation in microservices
 see [Multitenant Regards Starter](../backend/framework/starters/multitenant-starter.md)
