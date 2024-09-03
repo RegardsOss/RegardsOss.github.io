@@ -1,6 +1,6 @@
 {
   "name": "regardsoss.github.io",
-  "version": "0.0.0",
+  "version": "1.16.1",
   "private": true,
   "scripts": {
     "docusaurus": "docusaurus",
