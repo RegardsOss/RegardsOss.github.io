@@ -20,7 +20,8 @@ This section provides documentation about REGARDS microservices :
 - [Gateway](../backend/regards/gateway/overview.md)
 - [Ingest](ingest/overview.md) : **Ingest** or **rs-ingest** microservice manage the
   Regards [OAIS](../appendices/01-oais.md) catalog.
-- [LTA Manager](../backend/regards/lta-manager/lta-manager.md)
+- [LTA Manager](lta-manager/lta-manager.md) : **Lta manager** or **rs-lta-manager** microservice manage the products archival requests. 
+  It is a simplified way to add products in the OAIS catalog.
 - [Notifier](../backend/regards/notifier/notifier.md)
 - [Order](../backend/regards/order/order.md)
 - [Processing](../backend/regards/processing/processing.md)

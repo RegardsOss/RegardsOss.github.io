@@ -1,8 +1,9 @@
 ---
 id: backend-rest-request-status
 title: Get request status REST
-sidebar_label: Get request status REST
+sidebar_label: Get request status
 slug: /development/backend/services/lta-manager/guides/get-request-status-rest
+sidebar_position: 2
 ---
 
 *This page assumes you know how to [authenticate](/docs/development/backend/services/authentication/api-guides/retrieve-token-rest/) your REST API requests *

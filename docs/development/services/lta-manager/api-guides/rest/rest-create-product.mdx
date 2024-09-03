@@ -1,12 +1,13 @@
 ---
 id: backend-rest-create-product
 title: Create product REST
-sidebar_label: Create product REST
+sidebar_label: Create product
 slug: /development/backend/services/lta-manager/guides/create-product-rest
+sidebar_position: 1
 ---
 
 import RegardsApiSchema from '/src/redoc/RegardsApiSchema';
-import Spec from '../rs-lta-manager.json';
+import Spec from '../../rs-lta-manager.json';
 
 *This page assumes you know how
 to [authenticate](/docs/development/backend/services/authentication/api-guides/retrieve-token-rest/) your REST API
@@ -24,7 +25,7 @@ For a REGARDS client using REST interface, the main steps are:
 2. Send your product archive request containing product information to RS-LTA-MANAGER microservice
 3. Retrieve information about your request status from RS-LTA-MANAGER microservice.
 
-![sequence](./archive-request-nominal-rest.png)
+![sequence](../../src/archive-request-nominal-rest.png)
 
 ## Submit Product creation request
 
@@ -32,8 +33,8 @@ These two following endpoints shares the same `Request headers` and `Request Bod
 
 | description                                           | url                                             | verb | documentation                                                                                                               |
 |-------------------------------------------------------|-------------------------------------------------|------|-----------------------------------------------------------------------------------------------------------------------------|
-| Product creation request with **replace deactivated** | `<HOST>`/api/v1/rs-lta-manager/products         | POST | [see REST documentation](../lta-manager-api-swagger.mdx#tag/Create-controller/operation/createSubmissionRequest)            |
-| Product creation request with **replace activated**   | `<HOST>`/api/v1/rs-lta-manager/products/replace | POST | [see REST documentation](../lta-manager-api-swagger.mdx#tag/Create-controller/operation/createSubmissionRequestWithReplace) |
+| Product creation request with **replace deactivated** | `<HOST>`/api/v1/rs-lta-manager/products         | POST | [see REST documentation](./lta-manager-api-swagger.mdx#tag/Create-controller/operation/createSubmissionRequest)            |
+| Product creation request with **replace activated**   | `<HOST>`/api/v1/rs-lta-manager/products/replace | POST | [see REST documentation](./lta-manager-api-swagger.mdx#tag/Create-controller/operation/createSubmissionRequestWithReplace) |
 
 If two products are submitted with the same provider id :
  * if you use the endpoint with **replace deactivated**, a new version is created (V2, V3...)
@@ -58,11 +59,11 @@ If that's the first time you submit a product (no product with same providerId i
 
 :::info
 If your product creation request contains an error and you have a new payload to send, you can replace the previous
-request using [the product replace endpoint](../lta-manager-api-swagger.mdx#tag/Create-controller/operation/createSubmissionRequestWithReplace)
+request using [the product replace endpoint](./lta-manager-api-swagger.mdx#tag/Create-controller/operation/createSubmissionRequestWithReplace)
 :::
 
 :::info Difference with AMQP interface
-On [AMQP interface](amqp-submit-product.md), there is an additional `owner` parameter. When you use the REST API, the
+On [AMQP interface](../amqp/amqp-submit-product.md), there is an additional `owner` parameter. When you use the REST API, the
 product owner is
 automatically set to the logged-in user who sent the submission request.
 :::
