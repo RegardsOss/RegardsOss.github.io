@@ -51,6 +51,7 @@ Submission requests have to be published to REGARDS Rabbitmq exchange:
 
 | Parameter        | Type    | Description                                                          |
 |------------------|---------|----------------------------------------------------------------------|
+| app_id           | String  | Standard RabbitMQ property to track message origin.                  |
 | priority         | Integer | Standard RabbitMQ property to sort messages by priority order.       |
 | content_encoding | String  | Standard RabbitMQ property for the encoding type of the message      |
 | content_type     | String  | Standard RabbitMQ property for the MIME Type of the message sent     |
