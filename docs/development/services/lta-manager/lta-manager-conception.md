@@ -48,7 +48,7 @@ All Data Types must be configured on the service in order to define for each one
 ## Versioning
 
 Versioning of products is the same as describe in the [rs-ingest documentation](../ingest/conception.md#versioning).
-Nevertheless, only two versioning methods are available with `LTA Manager`, **REPLACE** and **INV_VERSION**.
+Nevertheless, only two versioning methods are available with `LTA Manager`, **REPLACE** and **INC_VERSION**.
 
 When you submit a creation request you can provide a parameter to choose the versioning mode. Please refer to
 the [AMQP Guide](./api-guides/amqp/amqp-submit-product.md) and
