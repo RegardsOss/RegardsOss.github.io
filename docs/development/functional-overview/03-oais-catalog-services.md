@@ -16,7 +16,7 @@ To allow administrators to manage OAIS products, you need to add these microserv
 
 - [rs-ingest](../services/ingest/overview.md) : Manage OAIS formated products data source
 - [rs-storage](../backend/regards/storage/storage.md) : Manage files references and stored files
-- **Optional** [rs-data-provider](../backend/regards/dataprovider/dataprovider.md) : Scan files on file system and send
+- **Optional** [rs-data-provider](/docs/development/services/dataprovider/dataprovider-overview.md) : Scan files on file system and send
   OAIS
   Submission Information Package requests to OAIS catalog (rs-ingest).
 - **Optional** [rs-notifier](../backend/regards/notifier/notifier.md) : Highly configurable notification system. Can be

@@ -14,7 +14,8 @@ This section provides documentation about REGARDS microservices :
 - [Authentication](../backend/regards/authentication/authentication.md)
 - [Catalog](../backend/regards/catalog/catalog.md)
 - [Data management](../backend/regards/dam/dam.md)
-- [Data provider](../backend/regards/dataprovider/dataprovider.md)
+- [Data provider](dataprovider/dataprovider-overview.md) : **Data provider** or **rs-data-provider** microservice is used to detect files on disk,
+  create products in SIP format from these files and finally send these SIPs to the rs-ingest service.
 - [Delivery](delivery/delivery-overview.md)
 - [Feature manager](../backend/regards/fem/fem.md)
 - [Gateway](../backend/regards/gateway/overview.md)
