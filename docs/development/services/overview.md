@@ -11,7 +11,8 @@ This section provides documentation about REGARDS microservices :
 - [Access instance](../backend/regards/access/access.md)
 - [Admin project](../backend/regards/admin/admin.md)
 - [Admin instance](../backend/regards/admin-instance/overview.md)
-- [Authentication](../backend/regards/authentication/authentication.md)
+- [Authentication](authentication/authentication-overview.md) : **Authentication** or **rs-authentication** microservice manage
+  [project or tenant](../concepts/03-multitenant.md) users authentication.
 - [Catalog](../backend/regards/catalog/catalog.md)
 - [Data management](../backend/regards/dam/dam.md)
 - [Data provider](dataprovider/dataprovider-overview.md) : **Data provider** or **rs-data-provider** microservice is used to detect files on disk,

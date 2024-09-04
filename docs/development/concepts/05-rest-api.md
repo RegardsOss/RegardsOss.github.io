@@ -33,9 +33,9 @@ curl https://<public host>:<public port>/<microservice>/api/v1/<endpoint> -H 'Au
 ```
 
 :::info
-See [Authentication Guide](../backend/regards/authentication/api-guides/get-token-curl.md) to learn how to retrieve a
+See [Authentication Guide](../services/authentication/api-guides/rest/authent-oauth2.mdx) to learn how to retrieve a
 token from Regards authentication service **rs-authentication**.  
-To learn more about additional authentication systems, see [authentication plugins](../backend/regards/authentication/contributor-guides/authentication-plugins.md).
+To learn more about additional authentication systems, see [authentication plugins](../services/authentication/plugins/authentication-plugins.md).
 :::
 
 - For public endpoints access (no authentication needed), you have to provide the REGARDS project in the request thanks to the parameter `scope` to perform a request with no registered user.

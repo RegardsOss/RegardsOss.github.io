@@ -3,15 +3,15 @@
     "schemas": {
       "Authentication": {
         "properties": {
-          "accessToken": {
+          "access_token": {
+            "type": "string"
+          },
+          "email": {
             "type": "string"
           },
           "expiresIn": {
             "format": "int64",
             "type": "integer"
-          },
-          "jti": {
-            "type": "string"
           },
           "project": {
             "type": "string"
@@ -28,45 +28,10 @@
           "sub": {
             "type": "string"
           },
-          "tokenType": {
+          "tenant": {
             "type": "string"
-          }
-        },
-        "type": "object"
-      },
-      "DefaultOAuth2AccessToken": {
-        "properties": {
-          "additionalInformation": {
-            "additionalProperties": {
-              "type": "object"
-            },
-            "type": "object"
-          },
-          "expiration": {
-            "format": "date-time",
-            "type": "string"
-          },
-          "expired": {
-            "type": "boolean"
-          },
-          "expiresIn": {
-            "format": "int32",
-            "type": "integer"
-          },
-          "refreshToken": {
-            "type": "string"
-          },
-          "scope": {
-            "items": {
-              "type": "string"
-            },
-            "type": "array",
-            "uniqueItems": true
           },
           "tokenType": {
-            "type": "string"
-          },
-          "value": {
             "type": "string"
           }
         },
@@ -340,6 +305,14 @@
           },
           "moduleInformation": {
             "$ref": "#/components/schemas/ModuleInformation"
+          }
+        },
+        "type": "object"
+      },
+      "OpenIdAuthenticationParams": {
+        "properties": {
+          "code": {
+            "type": "string"
           }
         },
         "type": "object"
@@ -685,9 +658,6 @@
         },
         "type": "object"
       },
-      "ServiceProviderAuthenticationParams": {
-        "type": "object"
-      },
       "ServiceProviderDto": {
         "properties": {
           "authUrl": {
@@ -727,6 +697,23 @@
           }
         },
         "type": "object"
+      },
+      "UserAuthentication": {
+        "properties": {
+          "grant_type": {
+            "type": "string"
+          },
+          "password": {
+            "type": "string"
+          },
+          "scope": {
+            "type": "string"
+          },
+          "username": {
+            "type": "string"
+          }
+        },
+        "type": "object"
       }
     },
     "securitySchemes": {
@@ -734,7 +721,7 @@
         "flows": {
           "password": {
             "scopes": {},
-            "tokenUrl": "https://regardsoss.github.io/api/v1/rs-authentication/oauth/token"
+            "tokenUrl": "https://regardsoss.github.io/:443/api/v1/rs-authentication/oauth/token"
           }
         },
         "type": "oauth2"
@@ -747,7 +734,7 @@
       "name": "GPL-3.0"
     },
     "title": "MICROSERVICE AUTHENTICATION",
-    "version": "1.15.2"
+    "version": "1.15.0-SNAPSHOT"
   },
   "openapi": "3.0.1",
   "paths": {
@@ -769,13 +756,20 @@
             "content": {
               "*/*": {
                 "schema": {
-                  "$ref": "#/components/schemas/DefaultOAuth2AccessToken"
+                  "$ref": "#/components/schemas/Authentication"
                 }
               }
             },
-            "description": "OK"
+            "description": "Role switched successfully."
+          },
+          "403": {
+            "content": {
+              "application/html": {}
+            },
+            "description": "The endpoint is not accessible for the user."
           }
         },
+        "summary": "Switch current user role.",
         "tags": [
           "borrow-role-controller"
         ]
@@ -994,6 +988,47 @@
         },
         "tags": [
           "module-manager-controller"
+        ]
+      }
+    },
+    "/oauth/token": {
+      "post": {
+        "operationId": "postAccessToken",
+        "requestBody": {
+          "content": {
+            "*/*": {
+              "schema": {
+                "$ref": "#/components/schemas/UserAuthentication"
+              }
+            }
+          },
+          "description": "Authentication credentials."
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/Authentication"
+                }
+              }
+            },
+            "description": "Authentication granted."
+          },
+          "400": {
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/Authentication"
+                }
+              }
+            },
+            "description": "Authentication denied."
+          }
+        },
+        "summary": "Oauth2 authentication endpoint.",
+        "tags": [
+          "token-controller"
         ]
       }
     },
@@ -1361,7 +1396,7 @@
         "responses": {
           "200": {
             "content": {
-              "application/json;charset=UTF-8": {
+              "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/GenericResponseBody"
                 }
@@ -1391,7 +1426,7 @@
         "responses": {
           "200": {
             "content": {
-              "application/json;charset=UTF-8": {
+              "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/GenericResponseBody"
                 }
@@ -1433,6 +1468,7 @@
         "operationId": "getServiceProviders",
         "parameters": [
           {
+            "description": "Sorting and page configuration",
             "in": "query",
             "name": "pageable",
             "required": true,
@@ -1450,9 +1486,16 @@
                 }
               }
             },
-            "description": "OK"
+            "description": "Successful response."
+          },
+          "403": {
+            "content": {
+              "application/html": {}
+            },
+            "description": "The endpoint is not accessible for the user."
           }
         },
+        "summary": "Retrieves the list of service providers.",
         "tags": [
           "service-provider-controller"
         ]
@@ -1467,10 +1510,11 @@
               }
             }
           },
+          "description": "New service provider to create.",
           "required": true
         },
         "responses": {
-          "200": {
+          "201": {
             "content": {
               "*/*": {
                 "schema": {
@@ -1478,9 +1522,16 @@
                 }
               }
             },
-            "description": "OK"
+            "description": "Service provider successfully created."
+          },
+          "403": {
+            "content": {
+              "application/html": {}
+            },
+            "description": "The endpoint is not accessible for the user."
           }
         },
+        "summary": "Creates a new service provider.",
         "tags": [
           "service-provider-controller"
         ]
@@ -1491,6 +1542,7 @@
         "operationId": "getServiceProvidersPublic",
         "parameters": [
           {
+            "description": "Sorting and page configuration",
             "in": "query",
             "name": "pageable",
             "required": true,
@@ -1508,9 +1560,16 @@
                 }
               }
             },
-            "description": "OK"
+            "description": "Successful response."
+          },
+          "403": {
+            "content": {
+              "application/html": {}
+            },
+            "description": "The endpoint is not accessible for the user."
           }
         },
+        "summary": "Retrieves the list of service providers without associated plugin configuration.",
         "tags": [
           "service-provider-public-controller"
         ]
@@ -1538,9 +1597,16 @@
                 }
               }
             },
-            "description": "OK"
+            "description": "Successful response."
+          },
+          "403": {
+            "content": {
+              "application/html": {}
+            },
+            "description": "The endpoint is not accessible for the user."
           }
         },
+        "summary": "Retrieves an existing service provider without associated plugin configuration.",
         "tags": [
           "service-provider-public-controller"
         ]
@@ -1551,6 +1617,7 @@
         "operationId": "verifyAndAuthenticate",
         "parameters": [
           {
+            "description": "External token from service provider to authenticate with.",
             "in": "query",
             "name": "externalToken",
             "required": true,
@@ -1568,9 +1635,36 @@
                 }
               }
             },
-            "description": "OK"
+            "description": "Logout success."
+          },
+          "401": {
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/Authentication"
+                }
+              }
+            },
+            "description": "Authentication unauthorized."
+          },
+          "403": {
+            "content": {
+              "application/html": {}
+            },
+            "description": "The endpoint is not accessible for the user."
+          },
+          "404": {
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/Authentication"
+                }
+              }
+            },
+            "description": "Service provider does not exists."
           }
         },
+        "summary": "Verify and authenticate token through service providers.",
         "tags": [
           "service-provider-controller"
         ]
@@ -1590,10 +1684,20 @@
           }
         ],
         "responses": {
-          "200": {
-            "description": "OK"
+          "204": {
+            "description": "Service provider successfully deleted."
+          },
+          "403": {
+            "content": {
+              "application/html": {}
+            },
+            "description": "The endpoint is not accessible for the user."
+          },
+          "404": {
+            "description": "Service provider does not exists."
           }
         },
+        "summary": "Deletes an existing service provider.",
         "tags": [
           "service-provider-controller"
         ]
@@ -1611,7 +1715,7 @@
           }
         ],
         "responses": {
-          "200": {
+          "201": {
             "content": {
               "*/*": {
                 "schema": {
@@ -1619,9 +1723,26 @@
                 }
               }
             },
-            "description": "OK"
+            "description": "Service provider successfully retrieved."
+          },
+          "403": {
+            "content": {
+              "application/html": {}
+            },
+            "description": "The endpoint is not accessible for the user."
+          },
+          "404": {
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/EntityModelServiceProviderDto"
+                }
+              }
+            },
+            "description": "Service provider does not exists."
           }
         },
+        "summary": "Retrieves an existing service provider.",
         "tags": [
           "service-provider-controller"
         ]
@@ -1646,10 +1767,11 @@
               }
             }
           },
+          "description": "New service provider to update.",
           "required": true
         },
         "responses": {
-          "200": {
+          "201": {
             "content": {
               "*/*": {
                 "schema": {
@@ -1657,9 +1779,26 @@
                 }
               }
             },
-            "description": "OK"
+            "description": "Service provider successfully updated."
+          },
+          "403": {
+            "content": {
+              "application/html": {}
+            },
+            "description": "The endpoint is not accessible for the user."
+          },
+          "404": {
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/EntityModelServiceProviderDto"
+                }
+              }
+            },
+            "description": "Service provider does not exists."
           }
         },
+        "summary": "Updates an existing service provider.",
         "tags": [
           "service-provider-controller"
         ]
@@ -1682,10 +1821,11 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/ServiceProviderAuthenticationParams"
+                "$ref": "#/components/schemas/OpenIdAuthenticationParams"
               }
             }
           },
+          "description": "Authentication credentials.",
           "required": true
         },
         "responses": {
@@ -1697,9 +1837,36 @@
                 }
               }
             },
-            "description": "OK"
+            "description": "Authentication success."
+          },
+          "401": {
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/Authentication"
+                }
+              }
+            },
+            "description": "Authentication unauthorized."
+          },
+          "403": {
+            "content": {
+              "application/html": {}
+            },
+            "description": "The endpoint is not accessible for the user."
+          },
+          "404": {
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/Authentication"
+                }
+              }
+            },
+            "description": "Service provider does not exists."
           }
         },
+        "summary": "Authenticate with the given service provider.",
         "tags": [
           "service-provider-controller"
         ]
@@ -1720,9 +1887,19 @@
         ],
         "responses": {
           "200": {
-            "description": "OK"
+            "description": "Logout success."
+          },
+          "403": {
+            "content": {
+              "application/html": {}
+            },
+            "description": "The endpoint is not accessible for the user."
+          },
+          "404": {
+            "description": "Service provider does not exists."
           }
         },
+        "summary": "Logout with the given service provider.",
         "tags": [
           "service-provider-controller"
         ]
@@ -1750,7 +1927,7 @@
   "servers": [
     {
       "description": "Generated server url",
-      "url": "https://regardsoss.github.io/api/v1/rs-authentication"
+      "url": "https://regardsoss.github.io//api/v1/rs-authentication"
     }
   ]
 }

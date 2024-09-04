@@ -4,7 +4,7 @@ title: Fill basket from file
 sidebar_label: Fill basket from file
 slug: /development/backend/services/order/guides/fill-basket-from-file
 ---
-_This page assumes you know how [to authenticate](../../authentication/api-guides/get-token-curl.md) your REST API
+_This page assumes you know how [to authenticate](../../../../services/authentication/api-guides/rest/authentication-api-swagger.mdx) your REST API
 requests._
 
 This guide describes how add some products inside a basket, from a file submitted by REST API.

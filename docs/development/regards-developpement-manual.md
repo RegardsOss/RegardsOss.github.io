@@ -21,7 +21,8 @@ You will find relevant information to help you **to interact or develop on the R
     - [Access instance](./backend/regards/access/access.md)
     - [Admin project](./backend/regards/admin/admin.md)
     - [Admin instance](./backend/regards/admin-instance/overview.md)
-    - [Authentication](./backend/regards/authentication/authentication.md)
+    - [Authentication](services/authentication/authentication-overview.md) : **Authentication** or **rs-authentication** microservice manage 
+      [project or tenant](./concepts/03-multitenant.md) users authentication.
     - [Catalog](./backend/regards/catalog/catalog.md)
     - [Data management](./backend/regards/dam/dam.md)
     - [Data provider](./services/dataprovider/dataprovider-overview.md) : **Data provider** or **rs-data-provider** microservice is used to detect files on disk, 
