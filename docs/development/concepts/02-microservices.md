@@ -40,7 +40,7 @@ Non fonctionnal microservices are listed here under. Those mandatory microservic
 stack architecture.
 
 - [rs-registry](../backend/regards/registry/overview.md) : Microservices registry.
-- [rs-config](../backend/regards/config/overview.md)   : Microservices centralized configuration provider.
+- [rs-config](../services/config/overview.md)   : Microservices centralized configuration provider.
 - [rs-gateway](../backend/regards/gateway/overview.md)  : Microservices main access point
 
 1. At startup each REGARDS microservices retrieve their configuration from **rs-config** microservice.
