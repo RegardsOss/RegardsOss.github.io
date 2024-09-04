@@ -16,9 +16,11 @@ Microservices `rs-access-instance` and `rs-access-project` store the configurati
 
 REGARDS defines currently the following dynamic modules:
 - [Authentication](authentication.md)
+- [Description](description.md)
 - [Embedded HTML](embedded-html.md)
 - [License](licenses.md)
 - [Menu](menu.md)
+- [News](news.md)
 - [Order Cart](order-cart.md)
 - [Order History](order-history.md)
 - [Project About Page](project-about-page.md)
@@ -26,7 +28,6 @@ REGARDS defines currently the following dynamic modules:
 - Search Form
 - [Search Graph](search-graph.md)  
 - [Search Results](search-results.md)
-- [Storage Monitoring](storage-monitoring.md)
 
 
 ## Module structure

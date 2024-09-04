@@ -83,9 +83,9 @@ library  `@regardsoss/form-utils` provides the following render components types
 - RenderPageableAutoCompleteField : Render a field to configure a single value with auto completion by fetching pageable server endpoint
 - RenderRadio: Render a choice field as radio
 - RenderSelectField: Render a choice field as list input
-- RenderSlider: Render a number field as slider
 - RenderTextField: Render a string field as input
 - RenderToggle: Render a boolean field as simple label toggle
+- RenderFieldArray: Render an array of field
 
 
 Those components can be imported from `@regardsoss/form-utils`, like shown below: 

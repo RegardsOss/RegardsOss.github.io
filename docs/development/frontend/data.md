@@ -90,6 +90,7 @@ export const ORDER_FILE_STATUS_ENUM = {
   ONLINE: 'ONLINE',
   DOWNLOADED: 'DOWNLOADED',
   DOWNLOAD_ERROR: 'DOWNLOAD_ERROR',
+  PROCESSING_ERROR: 'PROCESSING_ERROR',
   ERROR: 'ERROR',
 }
 
@@ -114,6 +115,7 @@ export const OrderFile = PropTypes.shape({
   id: PropTypes.number.isRequired,
   orderId: PropTypes.number.isRequired,
   state: PropTypes.oneOf(OrderDomain.ORDER_FILE_STATUS),
+  source: PropTypes.string,
   ...dataFileFields,
 })
 

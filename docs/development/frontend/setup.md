@@ -29,7 +29,7 @@ cd regards-frontend/webapp
 Then install all dependencies, and produce all required webpack DLL:
 
 ```sh
-npm install
+yarn install
 ```
 
 *Please note that, after a new GIT branch checkout and when installed Node version is greater than 8, it may be required to delete all package-lock.json in project. It can be done using the following commands:*
@@ -44,8 +44,8 @@ This two commands will generate the entire webapp for production environement wi
 The result is in the `dist/prod` directory. You can ignore this step if you want to produce a production build.
 
 ```sh
-npm run build:production
-npm run build:plugins
+yarn build:production
+yarn build:plugins
 ```
 
 **Congratulation**, you're now ready to launch the application !
@@ -57,7 +57,7 @@ However, you need to override the REGARDS gateway address by replacing `http://1
 of your local REGARDS gateway instance in the `/webapp/webpack.dev.preprod.config.js` file. Then you can launch :
 
 ```sh
-npm run start:withpreprod
+yarn start:withpreprod
 ```
 
 Optionally, you may also build the plugins, using the following command in webapp folder:
@@ -77,7 +77,7 @@ Notes:
 The following command runs the app tests and create reports in `webapp/reports/mocha/` folder:
 
 ```sh
-npm test
+yarn test
 ```
 
 ### Run test coverage
@@ -85,7 +85,7 @@ npm test
 The following command runs application coverage (lcov, xunit) and reports in `webapp/reports/coverage/` folder:
 
 ```sh
-npm run test:coverage
+yarn test:coverage
 ```
 
 ### Lint
@@ -93,7 +93,7 @@ npm run test:coverage
 The following command lint the REGARDS frontend application code and fixes automatically all formatting problems.
 
 ```sh
-npm run lint:fix
+yarn lint:fix
 ```
 
 The developers should always run that comment before committing code files.

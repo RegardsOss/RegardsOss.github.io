@@ -659,8 +659,7 @@ module.exports = {
                 "development/frontend/modules/frontend-packages-lazy-modules-project-about-page",
                 "development/frontend/modules/frontend-packages-lazy-modules-project-list",
                 "development/frontend/modules/frontend-packages-lazy-modules-search-graph",
-                "development/frontend/modules/frontend-packages-lazy-modules-search-results",
-                "development/frontend/modules/frontend-packages-lazy-modules-storage-monitoring"
+                "development/frontend/modules/frontend-packages-lazy-modules-search-results"
               ]
             }
           ],

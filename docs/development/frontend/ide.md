@@ -33,7 +33,7 @@ When VSCode is installed, we recommand adding it the following extensions using 
 * React Standard Style code snippets: Provides snippets to write react code faster
 * Todo Tree: Shows project TODO and FIXME comments
 
-Note: to use material icon theme, open VSCode menu file/preferences/icon theme.
+Note: to use material icon theme, open VSCode menu file/preferences/theme/file icon theme.
 
 ### Project configuration
 
@@ -220,7 +220,7 @@ VS code project configuration must be placed in a `.vscode` folder, in `rs-front
 
 ### Shortcut configuration
 
-To configure the VSCode shortcuts, open menu `file/preferences/shortcut`. Then click on `keybindings.json` link to import the shortcut below, if they match your needs:
+To configure the VSCode shortcuts, open menu `file/preferences/keyboard shortcuts`. Then click on `Open keyboard shortcut` and paste the shortcut below, if they match your needs:
 
 ```json
 [
@@ -675,7 +675,7 @@ To configure the VSCode shortcuts, open menu `file/preferences/shortcut`. Then c
 
 ### Templates configuration
 
-To configure templates in VSCode, you have to open menu `file/preferences/user code templates` then type `Javascript` or `Javascript react` to edit the corresponding JSON templates file. For REGARDS we defined the following code templates. You may paste the code in corresponding VSCode templates files.
+To configure templates in VSCode, you have to open menu `file/preferences/configure snippets` then type `Javascript` or `Javascriptreact` to edit the corresponding JSON templates file. For REGARDS we defined the following code templates. You may paste the code in corresponding VSCode templates files.
 
 ### Javacript templates
 ```json
@@ -718,7 +718,7 @@ To configure templates in VSCode, you have to open menu `file/preferences/user c
     "prefix": "license",
     "body": [
       "/**",
-      " * Copyright 2017-2018 CNES - CENTRE NATIONAL d'ETUDES SPATIALES",
+      " * Copyright 2017-2024 CNES - CENTRE NATIONAL d'ETUDES SPATIALES",
       " *",
       " * This file is part of REGARDS.",
       " *",
@@ -750,7 +750,7 @@ To configure templates in VSCode, you have to open menu `file/preferences/user c
     "prefix": "client",
     "body": [
       "/**",
-      " * Copyright 2017-2018 CNES - CENTRE NATIONAL d'ETUDES SPATIALES",
+      " * Copyright 2017-2024 CNES - CENTRE NATIONAL d'ETUDES SPATIALES",
       " *",
       " * This file is part of REGARDS.",
       " *",
@@ -786,7 +786,7 @@ To configure templates in VSCode, you have to open menu `file/preferences/user c
     "prefix": "test-redux-entity",
     "body": [
       "/**",
-      " * Copyright 2017-2018 CNES - CENTRE NATIONAL d'ETUDES SPATIALES",
+      " * Copyright 2017-2024 CNES - CENTRE NATIONAL d'ETUDES SPATIALES",
       " *",
       " * This file is part of REGARDS.",
       " *",
@@ -880,7 +880,7 @@ To configure templates in VSCode, you have to open menu `file/preferences/user c
     "prefix": "license",
     "body": [
       "/**",
-      " * Copyright 2017-2018 CNES - CENTRE NATIONAL d'ETUDES SPATIALES",
+      " * Copyright 2017-2024 CNES - CENTRE NATIONAL d'ETUDES SPATIALES",
       " *",
       " * This file is part of REGARDS.",
       " *",
@@ -982,7 +982,7 @@ To configure templates in VSCode, you have to open menu `file/preferences/user c
     "prefix": "react-component",
     "body": [
       "/**",
-      " * Copyright 2017-2018 CNES - CENTRE NATIONAL d'ETUDES SPATIALES",
+      " * Copyright 2017-2024 CNES - CENTRE NATIONAL d'ETUDES SPATIALES",
       " *",
       " * This file is part of REGARDS.",
       " *",
@@ -1025,7 +1025,7 @@ To configure templates in VSCode, you have to open menu `file/preferences/user c
     "prefix": "react-container",
     "body": [
       "/**",
-      " * Copyright 2017-2018 CNES - CENTRE NATIONAL d'ETUDES SPATIALES",
+      " * Copyright 2017-2024 CNES - CENTRE NATIONAL d'ETUDES SPATIALES",
       " *",
       " * This file is part of REGARDS.",
       " *",
@@ -1117,7 +1117,7 @@ To configure templates in VSCode, you have to open menu `file/preferences/user c
     "prefix": "test-react-component",
     "body": [
       "/**",
-      " * Copyright 2017-2018 CNES - CENTRE NATIONAL d'ETUDES SPATIALES",
+      " * Copyright 2017-2024 CNES - CENTRE NATIONAL d'ETUDES SPATIALES",
       " *",
       " * This file is part of REGARDS.",
       " *",
@@ -1168,7 +1168,7 @@ To configure templates in VSCode, you have to open menu `file/preferences/user c
     "prefix": "test-react-container",
     "body": [
       "/**",
-      " * Copyright 2017-2018 CNES - CENTRE NATIONAL d'ETUDES SPATIALES",
+      " * Copyright 2017-2024 CNES - CENTRE NATIONAL d'ETUDES SPATIALES",
       " *",
       " * This file is part of REGARDS.",
       " *",
@@ -1260,7 +1260,7 @@ To create or import a code template, right click anywhere in project tree to ope
 ```javascript
 
 /**
- * Copyright 2017-2018 CNES - CENTRE NATIONAL d'ETUDES SPATIALES
+ * Copyright 2017-2024 CNES - CENTRE NATIONAL d'ETUDES SPATIALES
  *
  * This file is part of REGARDS.
  *
@@ -1321,7 +1321,7 @@ export default ${NAME}
 ```javascript
 
 /**
- * Copyright 2017-2018 CNES - CENTRE NATIONAL d'ETUDES SPATIALES
+ * Copyright 2017-2024 CNES - CENTRE NATIONAL d'ETUDES SPATIALES
  *
  * This file is part of REGARDS.
  *
@@ -1401,7 +1401,7 @@ describe('[${MODULE_NAME}] Testing ${NAME}', () => {
 ```javascript
 
 /**
- * Copyright 2017-2018 CNES - CENTRE NATIONAL d'ETUDES SPATIALES
+ * Copyright 2017-2024 CNES - CENTRE NATIONAL d'ETUDES SPATIALES
  *
  * This file is part of REGARDS.
  *
@@ -1453,7 +1453,7 @@ describe('[${MODULE_NAME}] Testing i18n', () => {
 ```javascript
 
 /**
- * Copyright 2017-2018 CNES - CENTRE NATIONAL d'ETUDES SPATIALES
+ * Copyright 2017-2024 CNES - CENTRE NATIONAL d'ETUDES SPATIALES
  *
  * This file is part of REGARDS.
  *

@@ -1,14 +1,15 @@
 ---
-id: frontend-packages-lazy-modules-storage-monitoring
-title: Frontend - Dynamic module Storage monitoring
-sidebar_label: Storage monitoring
-slug: /development/frontend/packages/lazy-modules/storage-monitoring/
+id: frontend-packages-lazy-modules-description
+title: Frontend - Dynamic module Description
+sidebar_label: Description
+slug: /development/frontend/packages/lazy-modules/description/
 ---
+
 
 
 ## Description
 
-This module is a dynamic configurable module for the configurable REGARDS user interfaces. It displays AIP storage devices capacity and remaining space. It is also used internally to show AIP storage devices capacity in project administration interface.
+This module is a dynamic configurable module to be used in REGARDS user interfaces. It enable to show data objects description
   
 ## Module structure
 ```
@@ -18,7 +19,7 @@ This module is a dynamic configurable module for the configurable REGARDS user i
  |   ├── clients         : Define all backend clients needed to request/send information  
  |   ├── components      : React component to display panels  
  |   ├── containers      : React-Redux logic to handle module functions  
- |   ├── i18n            : Messages and labels internationalization  
+ |   ├── i18n            : Messages and labels internationalization    
  |   ├── styles          : Panels styles (inline css objects)  
  |   ├── main.js         : Module exported index  
  |   ├── reducer.js      : Redux reducers  
@@ -37,7 +38,7 @@ Dynamic modules are only displayed when the interface route is /modules/:module_
 ## Exposed functions
 
 This module as a dynamic configurable module exposes its own:
-  - moduleContainer  : Main module React component used to display this module,
+  - userContainer    : Main module React component used to display the description of an object
   - adminContainer   : Main module React component used to display the administration panel of this module,
   - reducer          : To configure the general Redux Store.
   - styles           : Styles of the module

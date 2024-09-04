@@ -68,65 +68,73 @@ This folder contains business related modules, shared accross many REGARDS modul
 
 1. `admin-data-entities-attributes-management`:
     Shared React component to handle entities attributes configuration
+1. `admin-error-user-config-module`: Shared React component to validate modules configuration
 1. `attributes-common`: Shared React components to configure and display attributes values
 1. `endpoints-common`: Shared data fetcher and storage for endpoint access rights
 1. `entities-common`: Shared React components for entities related UI services (like displaying entity detail)
 1. `global-system-error`: Shared React components to display errors in REGARDS interfaces
-1. `project-handler`: Shared react High Order Component to fetch and publish in Redux store (see later sections) the current project
+1. `microservice-plugin-configurator`: Shared React component to configure a REGARDS backedn microservice plugin
+1. `order-common`: Shared React components to display orders in REGARDS
+1. `project-handler`: Shared React High Order Component to fetch and publish in Redux store (see later sections) the current project
+1. `toponym-common`: Shared React components to work with toponyms
 1. `user-metadata-common`: Shared project user metadata definition and edition React components
 
 ## Business modules
 
 This folder contains all applications modules that are not *dynamic* - ie that cannot be configured and set up in user nor in portal applications. Therefore it contains application starters (admin, user, portal) plus all administration interface modules.
 
-_Note: The administration application is structured in a thematic tree, like seen in the tree below. Each module at a given tree level imports and setupq the modules below (reducers, routers,...)_
+_Note: The administration application is structured in a thematic tree, like seen in the tree below. Each module at a given tree level imports and setup the modules below (reducers, routers,...)_
 
 ```
 ├── portal                                              # Portal app starter
 ├── user                                                # User app starter
-└── admin                                               # Admin app starter
-    ├── admin-board-collections                         # Data (rs-dam tenant)
-        ├── admin-data-collection-management            # Collection 
-        └── admin-data-dataset-management               # Dataset 
-    ├── admin-board-models                              # Modelisation (rs-dam tenant)
-        ├── admin-data-attributemodel-management        # Attribute model
-        ├── admin-data-fragment-management              # Fragment 
-        ├── admin-data-model-management                 # Model 
-        ├── admin-data-attribute-plugins-management
-        └── admin-data-modelattribute-management        # Model attribute association
-    ├── admin-board-acquisition                         # Acquisition
-        ├── admin-data-datasource-management            # Datasource 
-        ├── admin-ingest-processing-chain-management
-        ├── admin-ingest-sip-management
-        ├── admin-document-management
-        ├── admin-data-provider-management
-        ├── admin-data-connection-management            # Connection 
-        └── admin-storage-management
-    ├── admin-microservice-management                   # Java Plugins and microservice lifecycle
-    ├── admin-project-management                        # Project (rs-admin instance)
-    ├── admin-board-account                             # Account (rs-admin instance)
-        └── admin-account-management                   
-    ├── admin-ui-management                             # User interface (rs-access-*)
-        ├── admin-ui-module-management                  # UI Modules configuration
-        ├── admin-ui-plugin-management                  # UI Plugin
-        ├── admin-ui-layout-management                  # UI Layout
-        ├── admin-ui-service-management                 # UI Plugin services
-        └── admin-ui-theme-management                   # UI Theme
-    ├── admin-user-management                           # User configuration (rs-admin tenant)
-        ├── admin-user-projectuser-management           # Project User 
-        ├── admin-user-role-management                  # Role
-        ├── admin-user-authentication-plugins-management 
-        ├── admin-order-management 
-        └── admin-user-role-resource-access-management  # REST resource authorisation per role
-    └── admin-board-dataaccess                    # Data access rights (rs-dam tenant)
-        ├── admin-accessright-accessgroup-management    # Data access groups
-        ├── admin-dataaccess-searchengines-management
-        ├── admin-dataaccess-services-management
-        └── admin-accessright-dataaccess-management     # Data access rights per group 
-
-
-
-
+├── authenticate                                        # Authenticate app starter
+├── admin                                               # Admin app starter
+├── admin-accessright-accessgroup-management            # Data access groups
+├── admin-accessright-dataaccess-management             # Data access rights per group
+├── admin-account-management                            # Account (rs-admin instance)
+├── admin-board-account                                 # Account (rs-admin instance)
+├── admin-board-acquisition                             # Acquisition
+├── admin-board-collections                             # Data (rs-dam tenant)
+├── admin-board-commands                                # Commands
+├── admin-board-dataaccess                              # Data access rights (rs-dam tenant)
+├── admin-board-models                                  # Modelisation (rs-dam tenant)
+├── admin-dashboard-management                          # Dashboard
+├── admin-data-attribute-plugins-management
+├── admin-data-attributemodel-management                # Attribute model
+├── admin-data-collection-management                    # Collection 
+├── admin-data-connection-management                    # Connection 
+├── admin-data-dataset-management                       # Dataset
+├── admin-data-datasource-management                    # Datasource 
+├── admin-data-fragment-management                      # Fragment
+├── admin-data-model-management                         # Model
+├── admin-data-modelattribute-management                # Model attribute association
+├── admin-data-provider-management
+├── admin-dataaccess-searchengines-management
+├── admin-dataaccess-services-management
+├── admin-datapreparation-management
+├── admin-delivery-management
+├── admin-feature-management
+├── admin-ingest-processing-chain-management
+├── admin-lta-management
+├── admin-microservice-management                       # Java Plugins and microservice lifecycle
+├── admin-oais-management
+├── admin-order-management
+├── admin-processing-management
+├── admin-project-management                            # Project (rs-admin instance)
+├── admin-storage-management
+├── admin-ui-layout-management                          # UI Layout
+├── admin-ui-management                                 # User interface (rs-access-*)
+├── admin-ui-module-management                          # UI Modules configuration
+├── admin-ui-plugin-management                          # UI Plugin
+├── admin-ui-service-management                         # UI Plugin services
+├── admin-ui-settings-management
+├── admin-ui-theme-management                           # UI Theme
+├── admin-user-authentication-plugins-management 
+├── admin-user-management                               # User configuration (rs-admin tenant)
+├── admin-user-projectuser-management                   # Project User 
+├── admin-user-role-management                          # Role
+├── admin-user-role-resource-access-management          # REST resource authorisation per role
 ```
 
 ## Eslint configuration module
@@ -163,6 +171,7 @@ This folder holds modules, one by folder, providing high level tools and compone
 
 1. `adapters`: Provides enriched components from external librairies - adds headless render or default styles to a component for instance
 1. `authentication-utils`: Interact with the API to authenticate users. Provides some helpers to authenticate the user, get authentication state, and so on. Also manages 'external authentication parameters' used, for instance, by the mail link sent when creating a new account email
+1. `cesium-adapter`: Provides components and tools to handle Cesium js library
 1. `display-control`: Provides ready to use React components to show/hide a component depending on a logic - show loading when fetching, hide a button when user has not sufficient rights, and so on...
 1. `file-utils`: Provides ready to use React components to manage files.
 1. `form-utils`: Provides ready to use internationalized React components and various tools to manage and update [Redux forms](http://redux-form.com)
@@ -175,8 +184,10 @@ This folder holds modules, one by folder, providing high level tools and compone
 1. `plugins`: Provides components and tools to show plugins in REGARDS interfaces. Note that this modules is only related with "UI plugins"; "Backend plugins" are not handled here
 1. `plugins-api`: Provides tools to implement new UI plugins in REGARDS.
 1. `redux`: Provides tools to connect with application Redux store
+1. `scroll`: Provides tools to handle scrolling.
 1. `store-utils`: Provides redux generic actions, reducers and selectors to make [Redux API middleware](https://www.npmjs.com/package/redux-api-middleware) use easier with REGARDS backend. Also provides some other standard redux models for REGARDS, like partitions storage model
-1. `test-helpers`: Provides test  tools for react components headless tests.
+1. `test-helpers`: Provides test tools for react components headless tests.
     _Note: this modules is only provided for test, it should never be bundled with the core application. Therefore the developer must not use it outside test code_
 1. `theme`: Provide tools and components to manage REGARDS components theme. Note: it relies on [Material UI theme](http://www.material-ui.com/#/customization/themes) system
 1. `theme-ui`: Provides theme graphic interactors to select / display current theme state in application
+1. `units`: Provides tools to handle units conversion.

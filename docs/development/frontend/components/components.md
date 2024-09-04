@@ -14,8 +14,10 @@ The module `@regardsoss/components` provides a set of React components to displa
  - content : Components related with specific or loadable content (HTML,JSON, Markdown, ...)
  - date : Components to display and pick dates
  - dialogs: Components to display dialog windows
+ - dragndrop: Components to manage drag and drop
  - error: Error related components
  - feedback: Feedback related components
+ - fields : Some fields
  - gallery : Components to display images into a gallery allowing an infinite list (pageable system with backend)
  - help: Help related component
  - links : Links and breadcrumb related components
@@ -24,6 +26,9 @@ The module `@regardsoss/components` provides a set of React components to displa
  - module : Modules related components. It contains specifically the **DynamicModulePane**, used to display common dynamic modules main pane (provides collapse, title, icons, loading ...)
  - picture : Picture and picture resolution related components
  - plugin : Plugins related components
+ - react-error-boundary : Component to display error messages
+ - settings : Components to manage settings
+ - split : Resizer style to be used with react-split-pane
  - table: Table related components, allowing for infinite list, column selection, sorting...
  - titles: Title related components
  - transitions: Transitions related components and helpers
