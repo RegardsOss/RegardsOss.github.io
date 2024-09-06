@@ -1,0 +1,309 @@
+---
+title: STAC search API
+sidebar_label: STAC search API
+slug: /development/backend/services/catalog/api-guides/rest/stac-search-api
+sidebar_position: 3
+---
+import RegardsApiSchema from '/src/redoc/RegardsApiSchema';
+import Spec from './rs-catalog.json';
+
+## Introduction
+
+This section describes how to search products from REGARDS meta catalog with STAC API.
+
+:::caution
+This API requires the [stac plugin](../../plugins/overview.md) to be installed and configured on your REGARDS instance.
+:::
+
+## REST API
+
+### How to
+
+The [Regards REST API concept](../../../../concepts/05-rest-api.md) describes how REST interfaces must be handled to
+submit requests.
+
+### Endpoints
+
+| description                              | url                                                               | verb | documentation                                                                                |
+|------------------------------------------|-------------------------------------------------------------------|------|----------------------------------------------------------------------------------------------|
+| Entry point to browse with STAC browser  | /api/v1/rs-catalog/stac                                           | GET  | [see REST documentation](./api-swagger#tag/core-controller/operation/root)                   |
+| Get the feature collections              | /api/v1/rs-catalog/stac/collections                               | GET  | [see REST documentation](./api-swagger#tag/ogc-features-controller/operation/collections)    |
+| Get a collection by its ID               | /api/v1/rs-catalog/stac/collections/{collectionId}                | GET  | [see REST documentation](./api-swagger#tag/ogc-features-controller/operation/collection)     |
+| Get the features of a collection         | /api/v1/rs-catalog/stac/collections/{collectionId}/items          | GET  | [see REST documentation](./api-swagger#tag/ogc-features-controller/operation/features)       |
+| Get a feature by its ID                  | /api/v1/rs-catalog/stac/collections/{collectionId}/items/{itemId} | GET  | [see REST documentation](./api-swagger#tag/ogc-features-controller/operation/feature)        |
+| Search feature with simple filtering     | /api/v1/rs-catalog/stac/search                                    | GET  | [see REST documentation](./api-swagger#tag/item-search-controller/operation/simple)          |
+| Search feature with complex filtering    | /api/v1/rs-catalog/stac/search                                    | POST | [see REST documentation](./api-swagger#tag/item-search-controller/operation/complex)         |
+| Search collection with simple filtering  | /api/v1/rs-catalog/stac/collections/search                        | GET  | [see REST documentation](./api-swagger#tag/collection-search-controller/operation/simple_1)  |
+| Search collection with complex filtering | /api/v1/rs-catalog/stac/collections/search                        | POST | [see REST documentation](./api-swagger#tag/collection-search-controller/operation/complex_1) |
+
+### Request body for STAC Item search
+
+<RegardsApiSchema spec={Spec} pointer="#/components/schemas/ItemSearchBody"/>
+
+Example :
+
+```json
+{
+  "bbox": {
+    "maxX": 0.1,
+    "maxY": 0.1,
+    "minX": 0.1,
+    "minY": 0.1
+  },
+  "collections": {
+    "async": true,
+    "distinct": true,
+    "empty": true,
+    "lazy": true,
+    "memoized": true,
+    "orNull": "string",
+    "ordered": true,
+    "sequential": true,
+    "singleValued": true,
+    "traversableAgain": true
+  },
+  "datetime": {
+    "from": "2019-08-24T14:15:22Z",
+    "singleDate": true,
+    "to": "2019-08-24T14:15:22Z"
+  },
+  "fields": {
+    "excludes": {
+      "async": true,
+      "distinct": true,
+      "empty": true,
+      "lazy": true,
+      "memoized": true,
+      "orNull": "string",
+      "ordered": true,
+      "sequential": true,
+      "singleValued": true,
+      "traversableAgain": true
+    },
+    "includes": {
+      "async": true,
+      "distinct": true,
+      "empty": true,
+      "lazy": true,
+      "memoized": true,
+      "orNull": "string",
+      "ordered": true,
+      "sequential": true,
+      "singleValued": true,
+      "traversableAgain": true
+    }
+  },
+  "ids": {
+    "async": true,
+    "distinct": true,
+    "empty": true,
+    "lazy": true,
+    "memoized": true,
+    "orNull": "string",
+    "ordered": true,
+    "sequential": true,
+    "singleValued": true,
+    "traversableAgain": true
+  },
+  "intersects": {
+    "crs": "string",
+    "type": "string"
+  },
+  "limit": 0,
+  "page": 0,
+  "query": {
+    "async": true,
+    "distinct": true,
+    "empty": true,
+    "lazy": true,
+    "memoized": true,
+    "orNull": {
+      "_1": "string",
+      "_2": {}
+    },
+    "ordered": true,
+    "sequential": true,
+    "singleValued": true,
+    "traversableAgain": true
+  },
+  "sortBy": {
+    "async": true,
+    "distinct": true,
+    "empty": true,
+    "lazy": true,
+    "memoized": true,
+    "orNull": {
+      "direction": "ASC",
+      "field": "string"
+    },
+    "ordered": true,
+    "sequential": true,
+    "singleValued": true,
+    "traversableAgain": true
+  }
+}
+```
+
+### Request body for STAC Collection search
+
+<RegardsApiSchema spec={Spec} pointer="#/components/schemas/CollectionSearchBody"/>
+
+Example:
+
+```json
+{
+  "bbox": {
+    "maxX": 0.1,
+    "maxY": 0.1,
+    "minX": 0.1,
+    "minY": 0.1
+  },
+  "collections": {
+    "async": true,
+    "distinct": true,
+    "empty": true,
+    "lazy": true,
+    "memoized": true,
+    "orNull": "string",
+    "ordered": true,
+    "sequential": true,
+    "singleValued": true,
+    "traversableAgain": true
+  },
+  "datetime": {
+    "from": "2019-08-24T14:15:22Z",
+    "singleDate": true,
+    "to": "2019-08-24T14:15:22Z"
+  },
+  "fields": {
+    "excludes": {
+      "async": true,
+      "distinct": true,
+      "empty": true,
+      "lazy": true,
+      "memoized": true,
+      "orNull": "string",
+      "ordered": true,
+      "sequential": true,
+      "singleValued": true,
+      "traversableAgain": true
+    },
+    "includes": {
+      "async": true,
+      "distinct": true,
+      "empty": true,
+      "lazy": true,
+      "memoized": true,
+      "orNull": "string",
+      "ordered": true,
+      "sequential": true,
+      "singleValued": true,
+      "traversableAgain": true
+    }
+  },
+  "ids": {
+    "async": true,
+    "distinct": true,
+    "empty": true,
+    "lazy": true,
+    "memoized": true,
+    "orNull": "string",
+    "ordered": true,
+    "sequential": true,
+    "singleValued": true,
+    "traversableAgain": true
+  },
+  "intersects": {
+    "crs": "string",
+    "type": "string"
+  },
+  "item": {
+    "bbox": {
+      "maxX": 0.1,
+      "maxY": 0.1,
+      "minX": 0.1,
+      "minY": 0.1
+    },
+    "collections": {
+      "async": true,
+      "distinct": true,
+      "empty": true,
+      "lazy": true,
+      "memoized": true,
+      "orNull": "string",
+      "ordered": true,
+      "sequential": true,
+      "singleValued": true,
+      "traversableAgain": true
+    },
+    "datetime": {
+      "from": "2019-08-24T14:15:22Z",
+      "singleDate": true,
+      "to": "2019-08-24T14:15:22Z"
+    },
+    "ids": {
+      "async": true,
+      "distinct": true,
+      "empty": true,
+      "lazy": true,
+      "memoized": true,
+      "orNull": "string",
+      "ordered": true,
+      "sequential": true,
+      "singleValued": true,
+      "traversableAgain": true
+    },
+    "intersects": {
+      "crs": "string",
+      "type": "string"
+    },
+    "query": {
+      "async": true,
+      "distinct": true,
+      "empty": true,
+      "lazy": true,
+      "memoized": true,
+      "orNull": {
+        "_1": "string",
+        "_2": {}
+      },
+      "ordered": true,
+      "sequential": true,
+      "singleValued": true,
+      "traversableAgain": true
+    }
+  },
+  "limit": 0,
+  "page": 0,
+  "query": {
+    "async": true,
+    "distinct": true,
+    "empty": true,
+    "lazy": true,
+    "memoized": true,
+    "orNull": {
+      "_1": "string",
+      "_2": {}
+    },
+    "ordered": true,
+    "sequential": true,
+    "singleValued": true,
+    "traversableAgain": true
+  },
+  "sortBy": {
+    "async": true,
+    "distinct": true,
+    "empty": true,
+    "lazy": true,
+    "memoized": true,
+    "orNull": {
+      "direction": "ASC",
+      "field": "string"
+    },
+    "ordered": true,
+    "sequential": true,
+    "singleValued": true,
+    "traversableAgain": true
+  }
+}
+```

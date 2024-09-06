@@ -21,7 +21,8 @@ You will find relevant information to help you **to interact or develop on the R
     - [Admin instance](./backend/regards/admin-instance/overview.md)
     - [Authentication](services/authentication/authentication-overview.md) : **Authentication** or **rs-authentication** microservice manage 
       [project or tenant](./concepts/03-multitenant.md) users authentication.
-    - [Catalog](./backend/regards/catalog/catalog.md)
+    - [Catalog](services/catalog/overview.md): **Catalog** or **rs-catalog** microservice is used to consult 
+      products in the Regards meta-catalogue
     - [Data management](./backend/regards/dam/dam.md)
     - [Data provider](./services/dataprovider/dataprovider-overview.md) : **Data provider** or **rs-data-provider** microservice is used to detect files on disk, 
       create products in SIP format from these files and finally send these SIPs to the rs-ingest service.

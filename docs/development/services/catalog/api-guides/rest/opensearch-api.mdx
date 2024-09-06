@@ -1,0 +1,114 @@
+---
+title: Opensearch search API
+sidebar_label: Opensearch API
+slug: /development/backend/services/catalog/api-guides/rest/opensearch-api
+sidebar_position: 2
+---
+import RegardsApiSchema from '/src/redoc/RegardsApiSchema';
+import Spec from './rs-catalog.json';
+
+
+## Introduction
+
+This section describes how to search products from REGARDS meta catalog with **OpenSearch API**.
+
+**Open Search** API with parameter, time and geo extensions returning standard ATOM response or GeoJSON feature
+collection and exposing an Open Search description.
+
+:::caution
+Open search engine is not available by default and has to be configured.
+:::
+
+## REST API
+
+### How to
+
+The [Regards REST API concept](../../../../concepts/05-rest-api.md) describes how REST interfaces must be handled to
+submit requests.
+
+### Endpoints
+
+Opensearch configuration is accessible form the Administration Interface.
+
+This configration is divided in 3 parts
+
+1. `Link opensearch engine to catalog data`. You can associate the opensearch engine to all the REGARDS catalog or
+   associate it to one specific dataset.
+2. `Configure opensearch responses headers`.
+3. `Configure opensearch parameters`. Here you can define specific opensearch parameters.
+
+### General
+
+By default, all REGARDS parameters are defined by without any needed configuration. Configure one or many of the regards
+parameters allow to define the generation of possible values in opensearch descriptor file.
+
+### Time extension configuration
+
+To be able to use the opensearch time extension you have to configure the opensearch engine to define the two standard
+parameters "start" and "end".  
+To do so, follow the here under example :
+
+- <b>Define [time.start] parameter</b>GET  |
+
+```
+  Alias : timeStart
+  Name : start
+  Namespace : time
+  full json path of associated REGARDS attribute : properties.date
+```
+
+- <b>Define [time.end] parameter</b>
+
+```
+  Alias : timeEnd
+  Name : end
+  Namespace : time
+  full json path of associated REGARDS attribute : properties.date
+```
+
+:::info
+`properties.date` must be replaced by the date attribute to use in the configured REGARDS catalog.
+:::
+
+### Configure possible values of attributes in opensearch descriptor
+
+To do so, you have to configure the parameters to enable the `possible value generation` and the `value number limit`.
+
+```
+  Name : parameter1
+  Namespace : regards
+  Enable generation of possible values : true
+  Limit number of possible values : 100
+  full json path of associated REGARDS attribute : properties.parameter1
+```
+
+### Request example
+
+With the given below time extension configuration you can request the opensearch engine with the here under request :
+
+  ```sh
+  curl 'http://<host>/api/v1/rs-catalog/engines/opensearch/entities/search?timeStart=2010-05-23T08:16:36.921Z&timeEnd=2022-05-23T08:16:36.921Z&properties.parameter1=value1'
+  ```
+
+### Endpoints
+
+| description                                                       | url                                                                                              | verb |
+|-------------------------------------------------------------------|--------------------------------------------------------------------------------------------------|------|
+| Search collections                                                | /api/v1/rs-catalog/engines/opensearch/collections/search                                         | GET  |
+| Open Search description for collections                           | /api/v1/rs-catalog/engines/opensearch/collections/search/opensearchdescription.xml               | GET  |
+| Get a single entity from its Unique Resource Name                 | /api/v1/rs-catalog/engines/opensearch/collections/{urn}                                          | GET  |
+| Search documents                                                  | /api/v1/rs-catalog/engines/opensearch/documents/search                                           | GET  |
+| Open Search description for documents                             | /api/v1/rs-catalog/engines/opensearch/documents/search/opensearchdescription.xml                 | GET  |
+| Get a single document from its Unique Resource Name               | /api/v1/rs-catalog/engines/opensearch/documents/{urn}                                            | GET  |
+| Search datasets                                                   | /api/v1/rs-catalog/engines/opensearch/datasets/search                                            | GET  |
+| Open Search description for datasets                              | /api/v1/rs-catalog/engines/opensearch/datasets/search/opensearchdescription.xml                  | GET  |
+| Get a single dataset from its Unique Resource Name                | /api/v1/rs-catalog/engines/opensearch/datasets/{urn}                                             | GET  |
+| Search data objects                                               | /api/v1/rs-catalog/engines/opensearch/dataobjects/search                                         | GET  |
+| Open Search description for data objects                          | /api/v1/rs-catalog/engines/opensearch/dataobjects/search/opensearchdescription.xml               | GET  |
+| Get a single data object from its Unique Resource Name            | /api/v1/rs-catalog/engines/opensearch/dataobjects/{urn}                                          | GET  |
+| Search data objects in the specified dataset                      | /api/v1/rs-catalog/engines/opensearch/atasets/{urn}/dataobjects/search                           | GET  |
+| Open Search description for all data objects in specified dataset | /api/v1/rs-catalog/engines/opensearch/atasets/{urn}/dataobjects/search/opensearchdescription.xml | GET  |
+
+### Open Search Query parameters
+
+* Use open search description to discover search queries.

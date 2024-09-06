@@ -1,0 +1,148 @@
+---
+title: REGARDS complex search API
+sidebar_label: Complex search
+slug: /development/backend/services/catalog/api-guides/rest/complex-search-api/
+sidebar_position: 4
+---
+
+import RegardsApiSchema from "/src/redoc/RegardsApiSchema";
+import Spec from "./rs-catalog.json";
+
+_This page assumes you know how [to authenticate](../../../../services/authentication/api-guides/rest/authent-oauth2.mdx)  your REST API
+requests_
+
+## Introduction
+
+This section describes how to:
+
+- do complex search searches on the catalog with multiple search requests.
+- request the attributes of the data objects recovered from a given request.
+- get a summary for a given dataset
+
+The complex search handles the different available search engines, which must be precised in the `engineType` parameter.
+
+## REST API
+
+### How to
+
+The [Regards REST API concept](../../../../concepts/05-rest-api.md) describes how REST interfaces must be handled to
+submit requests.
+
+## Multiple search requests
+
+### Endpoint
+
+| Endpoint                                                                                                     | Verb |
+| ------------------------------------------------------------------------------------------------------------ | ---- |
+| [/api/v1/rs-catalog/complex/search](./api-swagger#tag/complex-search-controller/operation/searchDataObjects) | POST |
+
+### Request body format
+
+<RegardsApiSchema
+  spec={Spec}
+  pointer="#/components/schemas/ComplexSearchRequest"
+/>
+
+Example :
+
+```json
+{
+  "dataTypes": ["RAWDATA"],
+  "page": 0,
+  "requests": [
+    {
+      "datasetUrn": "string",
+      "engineType": "string",
+      "entityIdsToExclude": ["string"],
+      "entityIdsToInclude": ["string"],
+      "searchDateLimit": "2019-08-24T14:15:22Z",
+      "searchParameters": {
+        "all": {
+          "property1": "string",
+          "property2": "string"
+        },
+        "empty": true,
+        "property1": ["string"],
+        "property2": ["string"]
+      }
+    }
+  ],
+  "size": 0
+}
+```
+
+## Search attributes
+
+### Endpoint
+
+| Endpoint                                                                                                                                      | Verb |
+| --------------------------------------------------------------------------------------------------------------------------------------------- | ---- |
+| [/api/v1/rs-catalog/complex/search/dataobjects/attributes](./api-swagger#tag/complex-search-controller/operation/searchDataobjectsAttributes) | POST |
+
+### Request body format
+
+<RegardsApiSchema spec={Spec} pointer="#/components/schemas/SearchRequest" />
+
+Example :
+
+```json
+{
+  "datasetUrn": "string",
+  "engineType": "string",
+  "entityIdsToExclude": ["string"],
+  "entityIdsToInclude": ["string"],
+  "searchDateLimit": "2019-08-24T14:15:22Z",
+  "searchParameters": {
+    "all": {
+      "property1": "string",
+      "property2": "string"
+    },
+    "empty": true,
+    "property1": ["string"],
+    "property2": ["string"]
+  }
+}
+```
+
+## Compute Datasets Summary
+
+### Endpoint
+
+| Endpoint                                                                                                                  | Verb |
+| ------------------------------------------------------------------------------------------------------------------------- | ---- |
+| [/api/v1/rs-catalog/complex/search/summary](./api-swagger#tag/complex-search-controller/operation/computeDatasetsSummary) | POST |
+
+### Request body format
+
+<RegardsApiSchema
+  spec={Spec}
+  pointer="#/components/schemas/ComplexSearchRequest"
+/>
+
+Example :
+
+```json
+{
+  "dataTypes": ["RAWDATA"],
+  "page": 0,
+  "requests": [
+    {
+      "datasetUrn": "string",
+      "engineType": "string",
+      "entityIdsToExclude": ["string"],
+      "entityIdsToInclude": ["string"],
+      "searchDateLimit": "2019-08-24T14:15:22Z",
+      "searchParameters": {
+        "all": {
+          "property1": "string",
+          "property2": "string"
+        },
+        "empty": true,
+        "property1": ["string"],
+        "property2": ["string"]
+      }
+    }
+  ],
+  "size": 0
+}
+```

@@ -18,7 +18,7 @@ To do so, REGARDS provides following services :
 - [rs-authentication](../../development/services/authentication/authentication-overview.md) : Manage REGARDS authentication system(s)
 - [rs-dam](../../development/backend/regards/dam/dam.md)            : Populate the REGARDS [meta-catalog](../concepts/02-meta-catalog.md) from existing data 
   source(s), manage **Data models** and compute access rights.
-- [rs-catalog](../../development/backend/regards/catalog/catalog.md)        : Consult, search and access REGARDS [meta-catalog](../concepts/02-meta-catalog.md)
+- [rs-catalog](../../development/services/catalog/overview.md)        : Consult, search and access REGARDS [meta-catalog](../concepts/02-meta-catalog.md)
 
 ## Populate meta-catalog
 
@@ -50,10 +50,10 @@ see [rs-dam microservice documentation](../../development/backend/regards/dam/da
 
 ## Consult meta-catalog
 
-Once the **Elasticsearch index** is populated, [**Catalog**](../../development/backend/regards/catalog/catalog.md) 
+Once the **Elasticsearch index** is populated, [**Catalog**](../../development/services/catalog/overview.md) 
 microservice can be used to consult products metadata and to download [products](../concepts/01-products.md) files.  
 To learn more about catalog service and its multiple search engines like **STAC** or **OpenSearch**,
-see [**Catalog**](../../development/backend/regards/catalog/catalog.md).
+see [**Catalog**](../../development/services/catalog/overview.md).
 
 The diagram below explains the interactions between microservices for this purpose:
 
