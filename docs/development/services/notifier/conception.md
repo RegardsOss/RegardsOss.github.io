@@ -172,7 +172,7 @@ of a new product and whose is_valid property is equal to true.
 
 **Question**: Which notifications do I want to forward to my recipient?  
 **Response** : GeoJson (or rs-fem) product notification. Format of these notifications is defined in the
-[Feature Manager documentation](../../backend/regards/fem/architecture.md).
+[Feature Manager documentation](../fem/conception.md).
 
 **Question**: Is there a rules plugin that allows me to select these notifications?  
 **Response** : Yes, the [lucene plugin](./plugins/rule-matcher-plugins.md#lucene-rule-matcher)

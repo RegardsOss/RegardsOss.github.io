@@ -21,7 +21,7 @@ Pour créer des features, il existe deux types de services proposés par le feat
 
 ### Par le service feature
 
-Pour envoyer des features dans REGARDS, suivez le tutoriel [Feature Manager AMQP API](../../development/backend/regards/fem/api-guides/amqp/amqp-publish-create-product-request.md).
+Pour envoyer des features dans REGARDS, suivez le tutoriel [Feature Manager AMQP API](../../development/services/fem/api-guides/amqp/amqp-publish-create-product-request.md).
 Il vous expliquera comment :
 
 - Créer des fichiers afin de stocker des features dans REGARDS. Ceux-ci sont composés de trois parties principales :
@@ -88,7 +88,7 @@ Vous pouvez filtrer les features ou les requêtes selon les critères suivants :
 Vous pouvez ***notifier*** ou ***supprimer*** une sélection de features. A noter que la notification est une étape déjà intégrée au workflow de traitement d'une requête de feature, cette action vous permettra donc d'en lancer une nouvelle si nécessaire. 
 
 :::info 
-La modification d'une feature uniquement se fait uniquement par requête, pour cela référez-vous au tutoriel [Publish a patch request event AMQP API](../../development/backend/regards/fem/api-guides/amqp/amqp-publish-patch-product-request.md)
+La modification d'une feature uniquement se fait uniquement par requête, pour cela référez-vous au tutoriel [Publish a patch request event AMQP API](../../development/services/fem/api-guides/amqp/amqp-publish-patch-product-request.md)
 ::: 
 
 Vous pouvez également consulter, supprimer ou notifier une feature individuellement.

@@ -86,7 +86,13 @@ the service will send those events then subscribe to this exchange by :
 
 To do so, you can manually create your queue and bind it to the exchange through RabbitMQ administrator UI or you can
 use your Regards instance deployment inventory. To learn more about RabbitMQ additional queues and exchanges
-configuration see [RabbitQ advanced setup](../../setup/swarm/advanced/swarm-rabbitmq.md)
+configuration see [RabbitQ advanced setup](../../setup/swarm/advanced/swarm-rabbitmq.md).
+
+:::caution
+With the **regards.multitenant.manager** virtual host, events will be sent by REGARDS for all tenants (or projects) 
+of your REGARDS instance. So the receiver may have to filter them according to the tenant he wishes to manage by checking
+the **regards.tenant** parameter in the message headers.
+:::
 
 ### REGARDS published event exemple
 

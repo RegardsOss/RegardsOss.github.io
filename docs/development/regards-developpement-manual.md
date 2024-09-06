@@ -28,7 +28,8 @@ You will find relevant information to help you **to interact or develop on the R
     - [Data provider](./services/dataprovider/dataprovider-overview.md) : **Data provider** or **rs-data-provider** microservice is used to detect files on disk, 
       create products in SIP format from these files and finally send these SIPs to the rs-ingest service.
     - [Delivery](services/delivery/delivery-overview.md)
-    - [Feature manager](./backend/regards/fem/fem.md)
+    - [Feature manager (rs-fem)](services/fem/overview.md) : **Feature manager** or **rs-fem** microservice is used to 
+      manage products in GeoJson format
     - [Gateway](./backend/regards/gateway/overview.md)
     - [Ingest](services/ingest/overview.md) : **Ingest** or **rs-ingest** microservice manage the
       Regards [OAIS](appendices/01-oais.md) catalog.

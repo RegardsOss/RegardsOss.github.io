@@ -12,10 +12,10 @@ All REGARDS microservices provide a **REST API**.
 On each REGARDS microservice, the documentation provides :
 
 - **API specifications** generated with [Swagger](https://swagger.io/). For
-  exemple, [here is the FEM microservice API specification](../backend/regards/fem/api-guides/rest/rs-fem-api-swagger.mdx)
+  exemple, [here is the FEM microservice API specification](../services/fem/api-guides/rest/rs-fem-api-swagger.mdx)
 - Guides for main interfaces with detailed exemple of requests and responses to help you to interact with REGARDS
   endpoints. For
-  exemple, [here is the FEM guide to create a product](../backend/regards/fem/api-guides/rest/rest-create-product.md)
+  exemple, [here is the FEM guide to create a product](../backend/services/fem/guides/rest/create-product)
 
 ## Authentification
 
