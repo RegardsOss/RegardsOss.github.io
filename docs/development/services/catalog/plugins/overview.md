@@ -10,7 +10,17 @@ There are two extension points in the rs-catalog service for using plugins :
 - Search engines
 - Catalog services
 
+:::info developers advice
+If you want to create your own implementation of one of these extension points, you need to extend the specific
+interface indicated.
+:::
+
 ## Search engines
+
+
+All the following plugins implements
+the [ISearchEngine interface](https://github.com/RegardsOss/regards-backend/blob/master/rs-catalog/search/search-domain/src/main/java/fr/cnes/regards/modules/search/domain/plugin/ISearchEngine.java)
+
 
 | Plugin image                                      | Plugin name | Description                                           | 
 |---------------------------------------------------|-------------|-------------------------------------------------------|
@@ -19,6 +29,10 @@ There are two extension points in the rs-catalog service for using plugins :
 | rs-stac-plugin                                    | stac        | STAC engine                                           |
 
 ## Catalog services
+
+All the following plugins implements
+the [IEntitiesServicePlugin interface](https://github.com/RegardsOss/regards-backend/blob/master/rs-catalog/catalog-services/catalog-services-domain/src/main/java/fr/cnes/regards/modules/catalog/services/domain/plugins/IEntitiesServicePlugin.java)
+and/or [ISingleEntityServicePlugin interface](https://github.com/RegardsOss/regards-backend/blob/master/rs-catalog/catalog-services/catalog-services-domain/src/main/java/fr/cnes/regards/modules/catalog/services/domain/plugins/ISingleEntityServicePlugin.java)
 
 | Plugin image                 | Plugin name     | Description                                                                                                                   | 
 |------------------------------|-----------------|-------------------------------------------------------------------------------------------------------------------------------|

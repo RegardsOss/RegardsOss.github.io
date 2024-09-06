@@ -17,6 +17,14 @@ Here is the list of documented plugins:
 - [Worker Manager Sender](#worker-manager-sender)
 - [Dissemination ACK Sender](#dissemination-ack-sender)
 
+All the plugins implements
+the [IRecipientNotifier interface](https://github.com/RegardsOss/regards-backend/blob/master/rs-notifier/notifier/notifier-domain/src/main/java/fr/cnes/regards/modules/notifier/domain/plugin/IRecipientNotifier.java).
+
+:::info developers advice
+If you want to create your own implementation of one of these extension points, you need to extend the specific
+interface indicated.
+:::
+
 ## Common Sender configuration
 
 :::info Abstract class extension

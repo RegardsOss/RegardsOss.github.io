@@ -15,6 +15,14 @@ Here is the list of documented plugins:
 - [Lucene Rule Matcher](#lucene-rule-matcher) allows sending a notification if its content or its metadata match 
   given Lucene expressions
 
+All the plugins implements
+the [IRuleMatcher interface](https://github.com/RegardsOss/regards-backend/blob/master/rs-notifier/notifier/notifier-domain/src/main/java/fr/cnes/regards/modules/notifier/domain/plugin/IRuleMatcher.java).
+
+:::info developers advice
+If you want to create your own implementation of one of these extension points, you need to extend the specific
+interface indicated.
+:::
+
 ### Default Rule Matcher
 
 This rule matcher allows to check into notification content if a json property matches given specific value. If so, the
