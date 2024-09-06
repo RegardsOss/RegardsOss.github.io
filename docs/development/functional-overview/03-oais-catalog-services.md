@@ -19,7 +19,7 @@ To allow administrators to manage OAIS products, you need to add these microserv
 - **Optional** [rs-data-provider](/docs/development/services/dataprovider/dataprovider-overview.md) : Scan files on file system and send
   OAIS
   Submission Information Package requests to OAIS catalog (rs-ingest).
-- **Optional** [rs-notifier](../backend/regards/notifier/notifier.md) : Highly configurable notification system. Can be
+- **Optional** [rs-notifier](../services/notifier/overview.md) : Highly configurable notification system. Can be
   used to inform external and internal components when an OAIS product is created or deleted.
 - **Optional** [rs-lta-manager](../services/lta-manager/lta-manager.md) : Long term Archive system. Simplified
   interface to add products into the OAIS catalog (rs-ingest). Requires rs-worker-manager microservice.

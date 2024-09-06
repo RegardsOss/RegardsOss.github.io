@@ -15,9 +15,6 @@ Here is the list of documented plugins:
 - [Lucene Rule Matcher](#lucene-rule-matcher) allows sending a notification if its content or its metadata match 
   given Lucene expressions
 
-_To import your plugin configurations to Notifier, you
-need [update microservice configuration using REST API](../api-guides/rest/rest-import-plugins-conf.md)_
-
 ### Default Rule Matcher
 
 This rule matcher allows to check into notification content if a json property matches given specific value. If so, the
@@ -43,13 +40,12 @@ Configuration parameters are:
       {
         "name": "attributeToSeek",
         "type": "STRING",
-        "value": "{value to match}"
+        "value": "session"
       },
       {
         "name": "attributeValueToSeek",
         "type": "STRING",
-        "value": "{attribute to search for}"
-      }
+        "value": "REGARDS-NOTIF-AIP"
     ]
   }
 }
@@ -67,7 +63,7 @@ Configuration parameters are:
 | metadata_rule | String | Lucene expression to seek inside the metadata of the input |
 
 :::info Lucene queries
-You can check the [Lucene guide](../../../../appendices/02-create-lucene-query.md) to create your lucene query
+You can check the [Lucene guide](../../../../appendices/lucene-query) to create your lucene query
 :::
 
 ```json title='Lucene Rule matcher plugin configuration example'
@@ -84,12 +80,12 @@ You can check the [Lucene guide](../../../../appendices/02-create-lucene-query.m
       {
         "name": "payload_rule",
         "type": "STRING",
-        "value": "{lucene rule}"
+        "value": "properties.is_valid: true
       },
       {
         "name": "metadata_rule",
         "type": "STRING",
-        "value": "{lucene rule}"
+        "value": "action: CREATED"
       }
     ]
   }

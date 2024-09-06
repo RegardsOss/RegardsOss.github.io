@@ -12,7 +12,7 @@ Le service de Notification, apporté par `Notifier`, permet de :
 *   Recevoir des produits GeoJSON ou OAIS
 *   Les envoyer à différents destinataires suivant différentes règles.
 
-Le fonctionnement du service de notification est détaillé [dans cette page](../../development/backend/regards/notifier/notifier.md).
+Le fonctionnement du service de notification est détaillé [dans cette page](../../development/services/notifier/overview.md).
 ## Configuration
 
 Pour configurer le fonctionnement de Notifier, vous pouvez accéder depuis la page d'administration projet, dans l'onglet **Microservices**.
@@ -25,7 +25,7 @@ La configuration d'un service peut-être
 téléchargée et importée depuis l'écran accessible en cliquant sur l'icône <Icon path={mdiSwapVertical} size={1.3} />
 du service concerné.
 
-Vous pouvez consulter le guide sur [la configuration des différents types de plugins](../../development/backend/regards/notifier/plugins/notifier-intro-plugins.md)
+Vous pouvez consulter le guide sur [la configuration des différents types de plugins](../../development/services/notifier/plugins/notifier-intro-plugins.md)
 
 ## Diffusion OAIS
 

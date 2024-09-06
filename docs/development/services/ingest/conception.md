@@ -143,6 +143,8 @@ send a new request instead of retrying the existing one, use the `replaceErrors`
 
 ## Products dissemination
 
+### How to ?
+
 If the `rs-ingest` microservice is configured to notify external components, each created/modified/deleted AIPs are sent
 to the `rs-notifier` microservice to notify external components.
 
@@ -151,7 +153,7 @@ To notify external systems, you need to :
 - Activate notification of products in `rs-ingest` microservice configuration. To do so,
   see [Ingest Configuration](../../../user-documentation/4_1-ingest/settings-ingest.md)
 - Configure `rs-notifier` to set the wanted destination of the notifications. To learn how to use `rs-notifier`
-  microservice see [Notification service](../../backend/regards/notifier/notifier.md)
+  microservice see [Notification service](../../services/notifier/overview.md)
 
 Nevertheless, if automatic notification is not activated, or if you want to **re-notify** some AIP, you can manually
 notify the selected AIPs using the admin UI. To do so, see [AIP Dissemination](../../..
@@ -168,6 +170,114 @@ updated by the `rs-ingest` microservice with :
   configured in the `rs-notifier` service for each recipient.
 
 With those information, Regards administrators can view all recipients of AIPs notifications using the administrator UI.
+
+### Products notification format
+
+All notifications of products in the OAIS catalog are sent to the `Notifier` microservice using the same formalism
+indicated below and in accordance with the format expected by the Notify service.
+
+:::caution
+The notification format is **very important** to understand
+[how to configure the notifier microservice](../notifier/conception.md#configure-dispatching-rules) to dispatch the
+products to the configured recipients.
+:::
+
+| Parameter                   | Type           | Description                                                                                                                                                                                                               |
+|-----------------------------|----------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| metadata                    | `Object`       | Metadata about the product notification                            <br/>                                                                                                                                                  |
+| metadata.action             | `String`       | Type of product notification. Possible values are : <br/>**INGEST**: New product created.<br/>**OAIS_DELETION**: Product deleted.<br/>**UPDATE** : Product updated.<br/>**AIP_DISSEMINATION**: Product manually notified. |
+| metadata.sessionOwner       | `String`       | Owner of the product.                                                                                                                                                                                                     |
+| metadata.sessionOwner       | `String`       | Session in which the product has been created.                                                                                                                                                                            |
+| payload                     | `Object`       | The product to broadcast                                                                                                                                                                                                  |
+| payload.id                  | `Number`       | The internal Regards database product identifier                                                                                                                                                                          |
+| payload.aipId               | `String`       | The unique identifier of the product in URN format.                                                                                                                                                                       |
+| payload.state               | `String`       | Product state as described in the [Ingest chain section](./conception.md#ingest-chain)                                                                                                                                    |
+| payload.storages            | `List<String>` | Storage locations of the product files. They correspond to storage spaces configured on the storage service.                                                                                                              |
+| payload.last                | `Boolean`      | Is the product the latest version?                                                                                                                                                                                        |
+| payload.disseminationStatus | `String`       | Product notification status. Possible values are :<br/>**NONE**<br/>**PENDING**<br/>**DONE**.                                                                                                                             |
+| payload.sessionOwner        | `String`       | Session owner of the product                                                                                                                                                                                              |
+| payload.session             | `String`       | Session name in which the product has been created.                                                                                                                                                                       |
+| payload.categories          | `List<String>` | List of optional categories of the product.                                                                                                                                                                               |
+| payload.tags                | `List<String>` | List of optional categories of the product.                                                                                                                                                                               |
+| payload.creationDate        | `DATE_ISO8601` | Creation date of the product.                                                                                                                                                                                             |
+| payload.lastUpdate          | `DATE_ISO8601` | Last update date of the product.                                                                                                                                                                                          |
+| payload.aip                 | AIP            | AIP as describe in [OAIS appendice](../../../appendices/oais)                                                                                                                                                             |
+
+```json title="Notification example"
+{
+  "metadata": {
+    "action": "INGEST",
+    "session": "Test owner",
+    "sessionOwner": "Session of 2024-06-14"
+  },
+  "payload": {
+    "id": 177,
+    "aipId": "URN:AIP:DATA:validation:098f6bcd-4621-3373-8ade-4e832627b4f6:V1",
+    "state": "STORED",
+    "storages": [
+      "Local"
+    ],
+    "last": true,
+    "disseminationStatus": "NONE",
+    "sessionOwner": "Test owner",
+    "session": "Session of 2024-06-14",
+    "categories": [],
+    "tags": [
+      "TAG_001"
+    ],
+    "creationDate": "2024-06-14T10:38:08.05868Z",
+    "lastUpdate": "2024-06-14T11:03:09.826293Z",
+    "aip": {
+      "type": "Feature",
+      "id": "URN:AIP:DATA:validation:098f6bcd-4621-3373-8ade-4e832627b4f6:V1",
+      "sipId": "URN:SIP:DATA:validation:098f6bcd-4621-3373-8ade-4e832627b4f6:V1",
+      "providerId": "Product001",
+      "version": 1,
+      "ipType": "DATA",
+      "geometry": {},
+      "properties": {
+        "contentInformations": [
+          {
+            "dataObject": {
+              "regardsDataType": "RAWDATA",
+              "filename": "regards-2296-data-1.dat",
+              "locations": [
+                {
+                  "storage:": "Local",
+                  "url": "file:///regards-input/validation/data/2296/regards-2296-data-1.dat"
+                }
+              ],
+              "checksum": "9a964ed3be0e2e2786d82ace9d971e90",
+              "algorithm": "MD5"
+            },
+            "representationInformation": {
+              "syntax": {
+                "name": "TEXT",
+                "mimeType": "text/plain"
+              }
+            }
+          }
+        ],
+        "pdi": {
+          "contextInformation": {
+            "tags": [
+              "TAG_001"
+            ]
+          },
+          "provenanceInformation": {
+            "history": []
+          },
+          "accessRightInformation": {}
+        },
+        "descriptiveInformation": {
+          "property1": 11056,
+          "date": "2018-01-20T17:22:48Z"
+        }
+      }
+    }
+  }
+}
+```
 
 ## Products dissemination acknowledge
 

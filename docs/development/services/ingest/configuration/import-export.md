@@ -21,12 +21,12 @@ through [administrator UI](../../../../user-documentation/2-project-configuratio
 
 ## Configurable parameters
 
-| Name                  | Type    | Default value                                                                                  | Description                                                                                                                                                          |
-|-----------------------|---------|------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| active_notifications  | Boolean | True                                                                             <br/>         | Enable or disable notifications sent to [notifier microservice](../../../backend/regards/notifier/notifier.md) after each action on a product CREATION, DELETION, .. |
-| sip_body_time_to_live | Integer | 7                                                                                              | After this amount of days all SIP in database are cleared. This is done to lower the volume the database size.                                                       |
-| dump_parameters       | Object  | {<br/>"isActiveModule":true,<br/>"cronTrigger":"0 0 0 1-7 * SUN",<br/>"dumpLocation":""<br/>}" | Dump parameters.                                                                                                                                                     |
-| last_dump_req_date    | Date    |                                                                                                | Date of the last dump of AIP done                                                                                                                                    
+| Name                  | Type    | Default value                                                                                  | Description                                                                                                                                            |
+|-----------------------|---------|------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------|
+| active_notifications  | Boolean | True                                                                             <br/>         | Enable or disable notifications sent to [notifier microservice](../../../services/notifier/overview.md) after each action on a product CREATION, DELETION, .. |
+| sip_body_time_to_live | Integer | 7                                                                                              | After this amount of days all SIP in database are cleared. This is done to lower the volume the database size.                                         |
+| dump_parameters       | Object  | {<br/>"isActiveModule":true,<br/>"cronTrigger":"0 0 0 1-7 * SUN",<br/>"dumpLocation":""<br/>}" | Dump parameters.                                                                                                                                       |
+| last_dump_req_date    | Date    |                                                                                                | Date of the last dump of AIP done                                                                                                                      
 
 ## Ingest chains
 

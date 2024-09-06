@@ -18,7 +18,7 @@ Ce service permet via un ensemble de plugins de définir :
 - Les règles de diffusion des messages aux différents destinataires
 
 Pour comprendre ce fonctionnement en détail, vous pouvez vous référer à
-la [description du service notifier](../../development/backend/regards/notifier/notifier.md).
+la [description du service notifier](../../development/services/notifier/overview.md).
 
 ## Acquittement des produits
 
@@ -33,7 +33,7 @@ Il faut différencier deux cas pour configurer l'acquittement :
 Dans ce cas, l'acquittement peut être mis en place à l'aide du plugin spécifique `DisseminationAckSender` dans la
 configuration du service de notification.
 La configuration de ce plugin est spécifiée dans le guide des
-[Recipient sender plugins](../../development/backend/regards/notifier/plugins/recipient-sender-plugins.md#dissemination-ack-sender)
+[Recipient sender plugins](../../development/services/notifier/plugins/recipient-sender-plugins.md#dissemination-ack-sender)
 
 :::danger Utilisez les bons paramètres
 Dans le plugin, les deux paramètres à remplir pour l'acquittement de features sont `featureDisseminationExchange` et

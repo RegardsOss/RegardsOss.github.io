@@ -16,7 +16,7 @@ To allow administrators to manage standard GeoJson products, you need to add mic
 
 - [rs-fem](../backend/regards/fem/fem.md) : Feature Manager. Manage standard GeoJson formated products data source
 - [rs-storage](../backend/regards/storage/storage.md) : Manage files references and stored files
-- **Optional** [rs-notifier](../backend/regards/notifier/notifier.md) : Highly configurable notification system. Can be
+- **Optional** [rs-notifier](../services/notifier/overview.md) : Highly configurable notification system. Can be
   used to inform external and internal components when a GeoJSON product is created, updated or deleted.
 
 Thanks to rs-fem microservice, administrator can manage a new **data source** with standard GeoJson formated products.

@@ -17,9 +17,6 @@ Here is the list of documented plugins:
 - [Worker Manager Sender](#worker-manager-sender)
 - [Dissemination ACK Sender](#dissemination-ack-sender)
 
-_To import your plugin configurations to Notifier, you
-need [update microservice configuration using REST API](../api-guides/rest/rest-import-plugins-conf.md)_
-
 ## Common Sender configuration
 
 :::info Abstract class extension
@@ -29,6 +26,12 @@ abstract class.
 This abstraction above plugins implementation provides a common configuration to manage a plugin that sends event to
 RabbitMQ exchange.
 :::
+
+:::info
+AMQP senders will create the queue and exchange on RabbitMQ **on the first message posted on the exchange**.  
+If you want the exchange and queue to exist before that, you need to explicitly create it on RabbitMQ threw  the RabbitMQ admin interface or inside your playbook inventory.
+:::
+
 
 Configuration parameters are:
 
@@ -118,11 +121,221 @@ This plugin let you override following configuration:
 
 ### LTA Request Sender
 
-_There is no public documentation yet_
+This plugin is designed to submit received features to the `LTA manager` service.
+
+This plugin received a list of features as an input and then send a
+[submission request](../../lta-manager/guides/create-product-rest#request-body/)
+to the `LTA manager` through AMQP.
+
+this plugin let you override the following configuration :
+
+| Name               | Type    | Optional | Description                                                                                                                                                                                                                                                               |
+|--------------------|---------|:--------:|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| dataType           | string  |    N     | Product datatype of the generated DTOs                                                                                                                                                                                                                                    |
+| sessionNamePattern | string  |    Y     | Pattern to name the session on the dashboard. A regular <br/>expression can be used, in the following way `{<jsonPathToAccessProductType>}-#day(.*)` where the parameter <jsonPathToAccessProductType\> has to be replaced with the json path to access the product type. |
+| recipientTenant    | string  |    Y     | Value of the recipient tenant if this one is different from the one sending the message.                                                                                                                                                                                  |
+| replaceMode        | boolean |    N     | If `true`, the request is replaced if it already exists                                                                                                                                                                                                                   |
+
+```json title="LtaRequestSender example"
+{
+  "key": "fr.cnes.regards.framework.modules.plugins.domain.PluginConfiguration",
+  "value": {
+    "pluginId": "WorkerManagerSender",
+    "label": "{label}",
+    "businessId": "{uniqueIdentifier}",
+    "version": "1.0.0",
+    "priorityOrder": 0,
+    "active": true,
+    "parameters": [
+      {
+        "name": "exchange",
+        "type": "STRING",
+        "value": "{exchange name to use}"
+      },
+      {
+        "name": "queueName",
+        "type": "STRING",
+        "value": "{queue name to use}"
+      },
+      {
+        "name": "dataType",
+        "type": "STRING",
+        "value": "{product datatype}"
+      },
+      {
+        "name": "sessionNamePattern",
+        "type": "STRING",
+        "value": "{properties.type}-#day-example"
+      },
+      {
+        "name": "recipientTenant",
+        "type": "STRING",
+        "value": "{recipient tenant}"
+      },
+      {
+        "name": "replaceMode",
+        "type": "STRING",
+        "value": "{true or false}"
+      }
+    ]
+  }
+}
+```
 
 ### Worker Manager Sender
 
-_There is no public documentation yet_
+This plugin is designed to send processing requests to the `worker manager` service.
+
+This plugin let you override the following configuration :
+
+| Name               | Type   | Optional | Description                                                                                                                                                                                                                                                                                                                                                                             |
+|--------------------|--------|:--------:|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| sessionNamePattern | string |    Y     | Pattern to name the session on the dashboard. A regular <br/>expression can be used, in the following way `{<jsonPathToAccessProductType>}-#day(.*)` where the parameter <jsonPathToAccessProductType\> has to be replaced with the json path to access to the product type.<br /> If the session pattern is not provided, session information are retrieved from the request metadata. |
+| contentType        | string |    N     | Type of the processing that will be used by the Worker Manager to send this request to the right Worker type.                                                                                                                                                                                                                                                                           |
+| recipientTenant    | string |    Y     | Value of the recipient tenant if this one is different from the one sending the message. If not provided, the current tenant is used.                                                                                                                                                                                                                                                   |
+
+```json title="WorkerManagerSender example"
+{
+  "key": "fr.cnes.regards.framework.modules.plugins.domain.PluginConfiguration",
+  "value": {
+    "pluginId": "WorkerManagerSender",
+    "label": "{label}",
+    "businessId": "{uniqueIdentifier}",
+    "version": "1.0.0",
+    "priorityOrder": 0,
+    "active": true,
+    "parameters": [
+      {
+        "name": "exchange",
+        "type": "STRING",
+        "value": "{exchange name to use}"
+      },
+      {
+        "name": "queueName",
+        "type": "STRING",
+        "value": "{queue name to use}"
+      },
+      {
+        "name": "contentType",
+        "type": "STRING",
+        "value": "{processed product type}"
+      },
+      {
+        "name": "sessionNamePattern",
+        "type": "STRING",
+        "value": "{properties.type}-#day-example"
+      },
+      {
+        "name": "recipientTenant",
+        "type": "STRING",
+        "value": "{recipient tenant}"
+      }
+    ]
+  }
+}
+```
+
+Here is an example that send a product to the WorkerManager on the same instance as the FEM:
+
+- No acknowledge required
+- No direct notification allowed
+
+```json title="Send notification to WorkerManager"
+{
+  "key": "fr.cnes.regards.framework.modules.plugins.domain.PluginConfiguration",
+  "value": {
+    "pluginId": "WorkerManagerSender",
+    "label": "{label}",
+    "businessId": "{uniqueIdentifier}",
+    "version": "1.0.0",
+    "priorityOrder": 0,
+    "active": true,
+    "parameters": [
+      {
+        "name": "exchange",
+        "type": "STRING",
+        "value": "regards.broadcast.fr.cnes.regards.modules.workermanager.dto.events.in.RequestEvent"
+      },
+      {
+        "name": "contentType",
+        "type": "STRING",
+        "value": "<content type defined in the worker manager>"
+      },
+      {
+        "name": "recipientLabel",
+        "type": "STRING",
+        "value": "<label of the process done by the worker>",
+        "dynamic": false
+      }
+    ]
+  }
+}
+```
+
+
+Here is an example that send a product to the WorkerManager on the same instance as the FEM:
+
+- Send notification to the exchange used by the Worker Manager
+- `ackRequired` is defined to `true`, so the worker will acknowledge the dissemination. Moreover, `blockingRequired` is
+  defined to `true`, which means the notification should prevent the emitter to allow product modification or deletion
+- Administrators can send any product to this worker threw HMI, as `directNotificationEnabled` is true and an
+  HMI `description` is provided
+
+```json title="Send notification to WorkerManager with acknowledge required, direct notification allowed"
+{
+  "key": "fr.cnes.regards.framework.modules.plugins.domain.PluginConfiguration",
+  "value": {
+    "pluginId": "WorkerManagerSender",
+    "label": "{label}",
+    "businessId": "{uniqueIdentifier}",
+    "version": "1.0.0",
+    "priorityOrder": 0,
+    "active": true,
+    "parameters": [
+      {
+        "name": "exchange",
+        "type": "STRING",
+        "value": "regards.broadcast.fr.cnes.regards.modules.workermanager.dto.events.in.RequestEvent"
+      },
+      {
+        "name": "contentType",
+        "type": "STRING",
+        "value": "<content type defined in the worker manager>"
+      },
+      {
+        "name": "blockingRequired",
+        "type": "BOOLEAN",
+        "value": true,
+        "dynamic": false
+      },
+      {
+        "name": "description",
+        "type": "STRING",
+        "value": "Send notification to <do something using a worker>",
+        "dynamic": false
+      },
+      {
+        "name": "directNotificationEnabled",
+        "type": "BOOLEAN",
+        "value": true,
+        "dynamic": false
+      },
+      {
+        "name": "recipientLabel",
+        "type": "STRING",
+        "value": "<label of the process done by the worker>",
+        "dynamic": false
+      },
+      {
+        "name": "ackRequired",
+        "type": "BOOLEAN",
+        "value": true,
+        "dynamic": false
+      }
+    ]
+  }
+}
+```
 
 ### Dissemination ACK Sender
 
@@ -154,7 +367,7 @@ This plugin let you override following configuration:
     "pluginId": "DisseminationAckSender",
     "label": "{label}",
     "businessId": "{uniqueIdentifier}",
-    "version": "1.0.0",
+    "version": "2.0.0",
     "priorityOrder": 0,
     "active": true,
     "parameters": [
@@ -219,7 +432,7 @@ This plugin let you override following configuration:
     "pluginId": "DisseminationAckSender",
     "label": "{label}",
     "businessId": "{uniqueIdentifier}",
-    "version": "1.0.0",
+    "version": "2.0.0",
     "priorityOrder": 0,
     "active": true,
     "parameters": [

@@ -34,7 +34,8 @@ You will find relevant information to help you **to interact or develop on the R
       Regards [OAIS](appendices/01-oais.md) catalog.
     - [LTA Manager](services/lta-manager/lta-manager.md) : **Lta manager** or **rs-lta-manager** microservice manage the products archival requests.
       It is a simplified way to add products in the OAIS catalog.
-    - [Notifier](./backend/regards/notifier/notifier.md)
+    - [Notifier](services/notifier/overview.md): **Notifier** or **rs-notifier** microservice is used to broadcast messages from
+      notifications received, such as products managed by REGARDS internal catalogs, to different recipients according to broadcast rules.
     - [Order](./backend/regards/order/order.md)
     - [Processing](./backend/regards/processing/processing.md)
     - [Registry](./backend/regards/registry/overview.md)

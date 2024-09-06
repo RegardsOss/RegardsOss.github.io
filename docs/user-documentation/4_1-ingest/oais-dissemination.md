@@ -44,7 +44,7 @@ Une boîte de dialogue s'ouvre alors, au sein de laquelle il faut sélectionner 
 Ces destinataires correspondent aux différents paramètres **recipientLabel** qui ont été configurés 
 dans les plugins du service de notification, à condition que le paramètre **directNotificationEnabled** de ces 
 plugins est bien à **true**.
-Pour rappel, la configuration des plugins de notification est décrite [dans cette page](../../development/backend/regards/notifier/plugins/notifier-intro-plugins.md)
+Pour rappel, la configuration des plugins de notification est décrite [dans cette page](../../development/services/notifier/plugins/notifier-intro-plugins.md)
 
 Après validation, les messages AMQP contenant les produits à diffusés sont envoyés aux destinataires choisis. L'étape suivante consiste en la réception des messages d'acquittements de cette diffusion de produits.
 
@@ -62,7 +62,7 @@ Il faut différencier deux cas pour configurer l'acquittement :
 Dans ce cas, l'acquittement peut être mis en place à l'aide du plugin spécifique `DisseminationAckSender` dans la
 configuration du service de notification.
 La configuration de ce plugin est spécifiée dans le guide des
-[Recipient sender plugins](../../development/backend/regards/notifier/plugins/recipient-sender-plugins.md#dissemination-ack-sender)
+[Recipient sender plugins](../../development/services/notifier/plugins/recipient-sender-plugins.md#dissemination-ack-sender)
 
 :::danger Utilisez les bons paramètres
 Dans le plugin, les deux paramètres à remplir pour l'acquittement de produits OAIS sont `aipDisseminationExchange` et

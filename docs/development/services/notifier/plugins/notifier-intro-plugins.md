@@ -5,7 +5,8 @@ sidebar_label: Overview
 slug: /development/backend/services/notifier/plugins/intro
 ---
 
-This section introduces you how to configure Notifier to send messages depending on the product content.
+This section introduces you how to configure the `Notifier` microservice to send messages depending on the product 
+content.
 
 - [Recipient sender plugins](#recipient-sender-plugins) generates the payload to send and send it
 - [Recipients / Rules association](#recipients--rules-association) allows to link a matcher rule to a Recipient sender
@@ -69,9 +70,4 @@ Rule matcher plugins can be associated to `0 to N` Recipient sender plugins
 A recipient sender plugins can be configured to accept direct notifications. By doing so, the message won't be 
 tested against Rule matcher plugins.
 :::
-
-
-
-## Apply configuration
-To import your plugin configurations to Notifier, you need [import module configuration REST API](../api-guides/rest/rest-import-plugins-conf.md)
 
