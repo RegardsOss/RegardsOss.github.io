@@ -32,7 +32,7 @@ the [worker-manager service](../../backend/regards/worker-manager/rs-worker-mana
 | [Vertical scalability](../../concepts/07-scalability.md#vertical-scalability)     | Yes           | Uses Jobs system                                |
 | [Horizontal scalability](../../concepts/07-scalability.md#horizontal-scalability) | Yes           | Service can be deployed with multiple instances |
 
-You can learn how the service works with the [conception overview](./lta-manager-conception.md).
+You can learn how the service works with the [How it works section](./lta-manager-conception.md).
 
 ### How to use
 

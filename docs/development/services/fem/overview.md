@@ -28,7 +28,7 @@ in [Functional overview - Meta catalog Services](../../../overview/functional-ov
 | [Vertical scalability](../../../concepts/scalability#vertical-scalability)        | Yes           | Uses Jobs system                                | 
 | [Horizontal scalability](../../concepts/07-scalability.md#horizontal-scalability) | Yes           | Service can be deployed with multiple instances |
 
-You can learn how the service works with the [conception section](./conception.md).
+You can learn how the service works with the [How it works section](./conception.md).
 
 ### How to use
 

@@ -27,7 +27,7 @@ This service is part of the functional group
 | [Vertical scalability](../../concepts/07-scalability.md#vertical-scalability)     | Yes           | Uses Jobs system                                    | 
 | [Horizontal scalability](../../concepts/07-scalability.md#horizontal-scalability) | No            | Service can not be deployed with multiple instances |
 
-You can learn how the service works with the [conception overview](./dataprovider-conception.md).
+You can learn how the service works with the [How it works section](./dataprovider-conception.md).
 
 ## How to use
 
