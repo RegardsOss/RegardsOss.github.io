@@ -2,6 +2,7 @@
 id: backend-processing-batch-api
 title: REGARDS Processing Batch API
 sidebar_label: Batch
+sidebar_position: 1
 slug: /development/backend/services/processing/api/batch/
 ---
 

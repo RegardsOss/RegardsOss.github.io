@@ -2,6 +2,7 @@
 id: backend-processing-process-api
 title: REGARDS Processing Process API
 sidebar_label: Process
+sidebar_position: 3
 slug: /development/backend/services/processing/api/process/
 ---
 

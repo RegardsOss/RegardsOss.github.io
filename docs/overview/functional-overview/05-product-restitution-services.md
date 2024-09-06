@@ -19,7 +19,7 @@ To allow users to order products from your catalog, you need to add microservice
 
 - [rs-order](../../development/backend/regards/order/order.md) : Manage users orders.
 - **Optional** [rs-delivery](../../development/services/delivery/delivery-overview.md) : Deliver ordered products files.
-- **Optional** [rs-processing](../../development/backend/regards/processing/processing.md) : Manage pre-processing of ordered products
+- **Optional** [rs-processing](../../development/services/processing/overview.md) : Manage pre-processing of ordered products
   files.
 
 The following schema explains the interactions between microservices to handle an order with optional delivery and/or

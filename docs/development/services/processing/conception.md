@@ -1,15 +1,10 @@
 ---
-id: backend-processing-overview
+id: backend-processing-conception
 title: REGARDS processing microservice
-sidebar_label: Overview
-slug: /development/backend/services/processing/overview/
+sidebar_label: How it works
+sidebar_position: 2
+slug: /development/backend/services/processing/conception/
 ---
-
-## Overview
-
-The main reason for `Processing` is to apply treatments to ordered data files,
-before they are served to the end user. However, this microservice has been 
-designed to be able to do more.
 
 ## Processing architecture
 
@@ -483,88 +478,3 @@ By setting the `regards.jobs.pool.size` property, we can limit the number
 of jobs running in parallel, and thus the number of process executions. This limits
 the overall number of jobs, however, and thus does not permit to limit the number
 of executions *per process*.
-
-
-## Configuration
-
-The `Processing` service can be specifically configured with the following properties:
-
-+ `regards.processing.sharedStorage.basePath`:
-  
-   Path to a shared storage for processes which need it to store output files.
-   
-   A process may be programmed to create output files anywhere accessible by an URL,
-   but the `Processing` service provides as a convenience a shared storage accessible 
-   to all REGARDS modules needing to access output files, as a mount point in the 
-   file system. This way, output files can be passed as `file` protocol URLs.
-   
-+ `regards.processing.executionWorkdir.basePath`:
-  
-   Path to a file system directory where a folder is created for each execution.
-   
-   For processes which may use them, as a convenience, the `Processing` service
-   provides utilities to create execution work directories. These execution workdirs
-   are created as file system children of this parameter's value.
-   
-+ `regards.processing.r2dbc.host`:
-  
-   Host to connect to the database.
-   
-+ `regards.processing.r2dbc.port`:
-  
-   Port to connect to the database.
-   
-+ `regards.processing.r2dbc.username`:
-  
-   Username to connect to the database.
-   
-+ `regards.processing.r2dbc.password`:
-  
-   Password to connect to the database.
-   
-+ `regards.processing.r2dbc.dbname`:
-  
-   Name of the database to connect to.
-   
-+ `regards.processing.r2dbc.schema`:
-  
-   Schema of the database to connect to.
-   
-+ `regards.processing.outputfiles.cleanup.cron`:
-  
-   Cron expression to look for downloaded output files and delete them.
-
-   Output files saved in the storage are cleaned up regularly.
-   This cron expression defines how often.
-   
-+ `regards.processing.executions.timedout.cleanup.cron`:
-  
-   Cron expression to look for timed out executions.
-   
-   When an execution is created, we use the duration forecast
-   of its parent process to determine an expected runtime duration.
-   This time is multiplied by two and saved in base.
-   At every trigger of this cron expression, we look for executions
-   that are still running after this saved duration, and declare
-   them as timed out. This puts them in a final state and notifies
-   the user of the time out. Users may choose to retry.
-   
-+ `regards.processing.cleanup.batch.age.ms`:
-  
-   Minimum for old terminated batches selected for suppression.
-   
-   Old batches, for which all executions are in a final state, are
-   regularly cleaned up. This property say how much time after the last
-   execution's last update a batch is considered too old and
-   is selected for deletion.
-
-+ `regards.processing.cleanup.batch.rate.ms`:
-
-   How often we look for old batches to delete them.
-
-## Available APIs
-
-- [Process](api/process-api.md) : API to list/find existing processes
-- [Batch](api/batch-api.md) : API to create batches
-- [Monitoring](api/monitoring-api.md) : API to monitor existing executions
-- [Rights Plugin Configurations](plugins/rights-plugin-configuration-api.md) : API to manage processes as plugins
