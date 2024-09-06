@@ -37,9 +37,7 @@ You will find relevant information to help you **to interact or develop on the R
       notifications received, such as products managed by REGARDS internal catalogs, to different recipients according to broadcast rules.
     - [Order](./backend/regards/order/order.md)
     - [Processing](services/processing/overview.md): **Processing** or **rs-processing** microservice, driven by order 
-      microservice,
-      is used to transform ordered products files.
-    - [Registry](./backend/regards/registry/overview.md)
+      microservice registry and the load balancing.
     - [Storage](./backend/regards/storage/storage.md)
     - [Worker Manager](./backend/regards/worker-manager/storage.md)
 - [Web UI](./frontend/arch.md) introduces you the architecture and design of the REGARDS interface.

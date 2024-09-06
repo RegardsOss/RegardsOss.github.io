@@ -22,15 +22,15 @@ This section provides documentation about REGARDS microservices :
   products 
   in GeoJson format
 - [Gateway](../backend/regards/gateway/overview.md)
-- [Ingest](ingest/overview.md) : **Ingest** or **rs-ingest** microservice manage the
+- [Ingest](ingest/overview.md) : **Ingest** or **rs-ingest** microservice manages the
   Regards [OAIS](../appendices/01-oais.md) catalog.
-- [LTA Manager](lta-manager/lta-manager.md) : **Lta manager** or **rs-lta-manager** microservice manage the products archival requests. 
+- [LTA Manager](lta-manager/lta-manager.md) : **Lta manager** or **rs-lta-manager** microservice manages the 
+  products archival requests. 
   It is a simplified way to add products in the OAIS catalog.
 - [Notifier](notifier/overview.md): **Notifier** or **rs-notifier** microservice is used to broadcast messages from 
   notifications received, such as products managed by REGARDS internal catalogs, to different recipients according to broadcast rules.
 - [Order](../backend/regards/order/order.md)
 - [Processing](processing/overview.md): **Processing** or **rs-processing** microservice, driven by order microservice, 
-  is used to transform ordered products files.
-- [Registry](../backend/regards/registry/overview.md)
+- [Registry](registry/overview.md): **Registry** or **rs-registry** microservice manages the 
 - [Storage](../backend/regards/storage/storage.md)
 - [Worker Manager](../backend/regards/worker-manager/storage.md)
