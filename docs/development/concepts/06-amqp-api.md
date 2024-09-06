@@ -126,7 +126,7 @@ on [RabbitMQ documentation](https://www.rabbitmq.com/docs/publishers#message-pro
 ## More
 
 To learn more on how REGARDS microservice manages their **exchanges** and **queues**,
-see [Regards AMQP Starter](../backend/framework/starters/amqp-starter.md).
+see [Regards AMQP Starter](../framework/starters/amqp-starter.md).
 
 To learn how to interface your application with RabbitMQ server
 see [RabbitMQ tutorials](https://www.rabbitmq.com/tutorials).

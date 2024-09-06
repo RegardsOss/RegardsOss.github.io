@@ -2,6 +2,7 @@
 id: backend-framework-getting-started
 title: Getting started with REGARDS framework
 sidebar_label: Getting started
+sidebar_position: 1
 slug: /development/backend/framework/getting-started/
 ---
 
@@ -40,10 +41,10 @@ All dependencies are expressed in term of **Maven dependencies**.
 
 ## Starters
 
-REGARDS framework provides [building blocks (aka starters)](starters.md) to ease modules and microservices development.
+REGARDS framework provides [building blocks (aka starters)](starters/starters.md) to ease modules and microservices development.
 
-Go to the [dedicated section](starters.md) to learn more.
+Go to the [dedicated section](starters/starters.md) to learn more.
 
 ## Modules
 
-REGARDS framework provides common modules to manage [jobs](./modules/jobs.md), [plugins](./modules/plugins.md), [templates](./modules/templates.md) and [workspace](./modules/workspace.md).
+REGARDS framework provides common modules to manage [jobs](modules/jobs.md), [plugins](modules/plugins.md), templates and workspaces.

@@ -1,6 +1,8 @@
 ---
 layout: classic-docs
-title: Microservice security initialization
+title: Security
+sidebar_label: Security
+sidebar_position: 5
 short-title: Security
 ---
 

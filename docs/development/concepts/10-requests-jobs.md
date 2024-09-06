@@ -36,4 +36,4 @@ the same algorithm:
 7. Requests are updated to **Success** or **Error** status.
 
 To learn more about **Job system** and its usage in Regards Microservice,
-see [Module Jobs](../backend/framework/modules/jobs.md)
+see [Module Jobs](../framework/modules/jobs.md)

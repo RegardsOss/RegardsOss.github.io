@@ -23,11 +23,11 @@ Add starter dependency to your POM (version depends on the BOM)
 Dependencies :
 
 * [Microservice starter](microservice-starter.md)
-  * [Multitenant starter](./multitenant-starter.md)
+  * [Multitenant starter](multitenant-starter.md)
 * [Module starter](module-starter.md)
 * [GSON starter](gson-starter.md)
 * [Security starter](security-starter.md)
-  * [Multitenant starter](./multitenant-starter.md)
+  * [Multitenant starter](multitenant-starter.md)
   * [Authentication starter](authentication-starter.md)
   * [AMQP starter](amqp-starter.md)
 * [Swagger starter](swagger-starter.md)

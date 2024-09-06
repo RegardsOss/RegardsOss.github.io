@@ -1,7 +1,8 @@
 ---
 id: backend-framework-modules-plugins
-title: Plugins introduction
-sidebar_label: Plugins introduction
+title: Plugins
+sidebar_label: Plugins
+sidebar_position: 4
 slug: /development/backend/framework/modules/plugins/
 ---
 
@@ -27,8 +28,6 @@ Properties :
 # Fallback to fr.cnes.regards if not specified
 regards.plugins.packages-to-scan=
 ```
-
-vregards.plugins.packages-to-scan
 
 ## Autoconfiguration
 

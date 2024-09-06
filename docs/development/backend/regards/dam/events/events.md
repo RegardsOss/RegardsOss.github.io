@@ -7,7 +7,7 @@ slug: /development/backend/services/dam/events/
 
 
 :::info
-To know more about bus message mechanism look at [AMQP starter](../../../framework/starters/amqp-starter.md)
+To know more about bus message mechanism look at [AMQP starter](../../../../framework/starters/amqp-starter.md)
 :::
 
  | Event    | Target   | Mode    | Description     |

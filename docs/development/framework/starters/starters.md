@@ -15,7 +15,7 @@ See latest [Spring documentation](https://docs.spring.io/spring-boot/docs/curren
 
 ### Multitenancy
 
-* [Multitenant starter](./starters/multitenant-starter.md)
+* [Multitenant starter](multitenant-starter.md)
 
 :::danger
 Most REGARDS starters are designed to handle multitenancy and depends on this base starter.
@@ -23,20 +23,20 @@ Most REGARDS starters are designed to handle multitenancy and depends on this ba
 
 ### Authentication and authorization
 
-* [Authentication starter](./starters/authentication-starter.md)
-* [Security starter](./starters/security-starter.md)
+* [Authentication starter](authentication-starter.md)
+* [Security starter](security-starter.md)
 
 ### Microservice communications
 
-* [AMQP starter](./starters/amqp-starter.md)
-* [Cloud starter](./starters/cloud-starter.md)
-* [Feign starter](./starters/feign-starter.md)
+* [AMQP starter](amqp-starter.md)
+* [Cloud starter](cloud-starter.md)
+* [Feign starter](feign-starter.md)
 
 ### Microservice
 
-* [Microservice starter](./starters/microservice-starter.md)
-* [Microservice core starter](./starters/microservice-core-starter.md)
-* [Module starter](./starters/module-starter.md)
+* [Microservice starter](microservice-starter.md)
+* [Microservice core starter](microservice-core-starter.md)
+* [Module starter](module-starter.md)
 
 :::note
 Microservice logger artifact just centralizes logback default configuration.
@@ -49,17 +49,17 @@ Microservice logger artifact just centralizes logback default configuration.
 
 ### Business starters
 
-* [GeoJSON starter](./starters/geojson-starter.md)
-* [OAIS starter](./starters/oais-starter.md)
+* [GeoJSON starter](geojson-starter.md)
+* [OAIS starter](oais-starter.md)
 
 ### JPA starters
 
-* [JPA instance starter](./starters/jpa-instance-starter.md)
-* [JPA multitenant starter](./starters/jpa-multitenant-starter.md)
+* [JPA instance starter](jpa-instance-starter.md)
+* [JPA multitenant starter](jpa-multitenant-starter.md)
 
 ### Tools
 
-* [GSON starter](./starters/gson-starter.md)
-* [HATEOAS starter](./starters/hateoas-starter.md)
-* [Swagger starter](./starters/swagger-starter.md)
-* [Encryption](./starters/encryption-starter.md)
+* [GSON starter](gson-starter.md)
+* [HATEOAS starter](hateoas-starter.md)
+* [Swagger starter](swagger-starter.md)
+* [Encryption](encryption-starter.md)

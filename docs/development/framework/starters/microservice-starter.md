@@ -31,7 +31,7 @@ Business dependency
 
 Dependencies :
 
-* [Multitenant starter](./multitenant-starter.md)
+* [Multitenant starter](multitenant-starter.md)
 * [Module starter](module-starter.md) business package
 
 Properties :

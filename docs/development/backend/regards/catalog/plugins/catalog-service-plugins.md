@@ -90,7 +90,7 @@ For a search query application you can also execlude some entites from the searc
 
 ## Implementation
 
-To learn more about how to create your own plugin see [Plugins](../../../framework/modules/plugins.md).
+To learn more about how to create your own plugin see [Plugins](../../../../framework/modules/plugins.md).
 
 You can implements two type of catalog services following the here under exemples :  
 

@@ -22,7 +22,7 @@ Add starter dependency to your POM (version depends on the REGARDS BOM)
 
 Dependency :
 
-* [Multitenant starter](./multitenant-starter.md)
+* [Multitenant starter](multitenant-starter.md)
 * [GSON starter](gson-starter.md)
 * Security utils to manage Json Web Tokens
 

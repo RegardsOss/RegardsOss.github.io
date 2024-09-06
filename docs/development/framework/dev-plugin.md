@@ -2,6 +2,7 @@
 id: backend-framework-dev-plugin
 title: Develop a plugin
 sidebar_label: How to create a plugin
+sidebar_position: 5
 slug: /development/backend/framework/dev-plugin/
 ---
 

@@ -2,6 +2,7 @@
 id: backend-framework-dev-microservice
 title: Develop a new microservice
 sidebar_label: How to create a microservice
+sidebar_position: 4
 slug: /development/backend/framework/dev-microservice/
 ---
 

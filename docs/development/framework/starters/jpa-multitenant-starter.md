@@ -17,7 +17,7 @@ Add starter dependency to your POM (version depends on the REGARDS BOM)
 ```
 
 Dependency :
-- [Multitenant starter](./multitenant-starter.md)
+- [Multitenant starter](multitenant-starter.md)
 - [AMQP starter](amqp-starter.md)
 
 ```properties
@@ -50,7 +50,7 @@ Following endpoints are supplied to monitor datasources :
 
 JPA repositories have no specifities in your source code. Starter purpose is only to route request to the right datasource.
 
-To do so, multitenant router use `IRuntimeTenantResolver` from [Multitenant starter](./multitenant-starter.md) transparently.
+To do so, multitenant router use `IRuntimeTenantResolver` from [Multitenant starter](multitenant-starter.md) transparently.
 
 ## 3.2. How to avoid transaction manager conflict
 

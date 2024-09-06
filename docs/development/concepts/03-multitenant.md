@@ -28,5 +28,5 @@ Instance microservices are:
   web UI.
 
 To learn more about Regards multitenant implementation in microservices
-see [Multitenant Regards Starter](../backend/framework/starters/multitenant-starter.md)
-and [JPA Multitenant starter](../backend/framework/starters/jpa-multitenant-starter.md).
+see [Multitenant Regards Starter](../framework/starters/multitenant-starter.md)
+and [JPA Multitenant starter](../framework/starters/jpa-multitenant-starter.md).

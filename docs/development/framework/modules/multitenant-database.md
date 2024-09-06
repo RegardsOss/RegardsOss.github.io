@@ -1,6 +1,8 @@
 ---
 layout: classic-docs
-title: Microservice multitenant database
+title: Multitenant
+sidebar_label: Multitenant
+sidebar_position: 3
 short-title: Multitenant Database
 ---
 

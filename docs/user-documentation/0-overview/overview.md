@@ -166,7 +166,7 @@ REGARDS (**_RE_**nouvellement des outils **_G_**énériques d'**_A_**ccès et d'
 1. [Monitorer l'archive scientifique interne et le catalogue](../9-monitoring/monitor-session.md)
 
 :::info
-Pour en savoir plus sur le développement de plugins [Backend](../../development/backend/framework/modules/plugins.md) ou [Frontend](../../development/frontend/plugins/plugins.md).
+Pour en savoir plus sur le développement de plugins [Backend](../../development/framework/modules/plugins.md) ou [Frontend](../../development/frontend/plugins/plugins.md).
 :::
 
 **_Mot-clés_** : catalogue de données, métadonnées, données, modèles de données, différentes sources de données, protocole de recherche standardisé, gestion des accès.
