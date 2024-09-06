@@ -5,7 +5,7 @@ sidebar_label: Get request status REST
 slug: /development/backend/services/lta-manager/guides/get-request-status-rest
 ---
 
-*This page assumes you know how to [authenticate](/docs/development/backend/services/authentication/api-guides/retrieve-token-rest/) your REST API requests *
+*This page assumes you know how to [authenticate](../../authentication/api-guides/get-token-curl.md) your REST API requests *
 
 ### Request 
 

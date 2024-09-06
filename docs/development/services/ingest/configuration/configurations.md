@@ -18,7 +18,7 @@ Static configuration for `Ingest` service is :
 
 :::info
 Some of these properties are customizable in ansible
-inventory. [see installation guide](/docs/next/setup/swarm/advanced/optimizations#dataprovider-optimization) FIXME TODO
+inventory. [see installation guide](../../../../setup/swarm/advanced/swarm-optimizations.md#dataprovider-optimization).
 link
 
 To make missing properties customizable, you have to update regards ansible playbook : the regards-mconfig role.

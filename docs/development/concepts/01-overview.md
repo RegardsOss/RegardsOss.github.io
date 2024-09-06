@@ -15,7 +15,6 @@ on the REGARDS system.
   of REGARDS.
 - [Multitenant architecture](./03-multitenant.md) introduces you to one of the core features of REGARDS: multi-tenant
   management.
-- [Products](./04-products.md) introduces you to the concept of a REGARDS product.
 - [Microservices REST API](./05-rest-api.md) shows you how to interact with the REST API.
 - [Microservices AMQP API](./06-amqp-api.md) shows you how to interact with the AMQP API.
 - [Microservices Scalability](./07-scalability.md) introduces you to the concept of REGARDS scalability, and how REGARDS

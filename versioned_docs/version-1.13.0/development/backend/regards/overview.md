@@ -17,7 +17,7 @@ You can request without authentication by adding the REGARDS project in the requ
 curl http://localhost:<microservice port>/<endpoint>?scope=<project>
 ```
 
-Or you can authenticate to access admin endpoints first. To do so, use the [authentication API](authentication/api-guides/get-token-curl.md) to get a verified REGARDS token and then add the token to the request headers.
+Or you can authenticate to access admin endpoints first. To do so, use the [authentication API](./authentication/api-guides/get-token-curl.md) to get a verified REGARDS token and then add the token to the request headers.
 
 ```bash
 curl http://localhost:<microservice port>/<endpoint> -H 'Authorization: bearer <token>'

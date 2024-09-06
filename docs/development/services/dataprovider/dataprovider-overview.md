@@ -11,13 +11,13 @@ The **Data provider** or **rs-data-provider** service is used to detect files on
 from these files and finally send these SIPs to the [rs-ingest microservice](../ingest/overview.md).
 
 This service is part of the functional group
-[OAIS Catalog services](../../functional-overview/03-oais-catalog-services.md).
+[OAIS Catalog services](../../../overview/functional-overview/03-oais-catalog-services.md).
 
 `Dataprovider` responsibilities:
 
 * Data discovery through a data driven mechanism,
 * Products creation (which means group of consistent files, for more details,
-  see [product page](/docs/development/concepts/04-products.md)),
+  see [product page](../../../overview/concepts/01-products.md)),
 * Metadata generation,
 * Transform products to SIPs and send them to [rs-ingest microservice](../ingest/overview.md).
 

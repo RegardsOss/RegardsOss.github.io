@@ -7,7 +7,7 @@ slug: /development/appendices/oais/
 
 ## Overview
 
-REGARDS allows to populate its [OAIS catalog](../functional-overview/03-oais-catalog-services.md) with products by
+REGARDS allows to populate its [OAIS catalog](../../overview/functional-overview/03-oais-catalog-services.md) with products by
 following
 the [OAIS recommendation](https://public.ccsds.org/Pubs/650x0m2%28F%29.pdf).
 

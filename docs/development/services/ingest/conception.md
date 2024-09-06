@@ -7,7 +7,7 @@ sidebar_position: 2
 
 ## Introduction
 
-[Products](../../concepts/04-products.md) creation requests can be submitted with **SIP** formated requests
+[Products](../../../overview/concepts/01-products.md) creation requests can be submitted with **SIP** formated requests
 through [AMQP API](api-guides/amqp/ingest-amqp-publish-product.mdx) or [REST API](api-guides/rest/submit-sip.mdx)
 to `rs-ingest` microservice.
 

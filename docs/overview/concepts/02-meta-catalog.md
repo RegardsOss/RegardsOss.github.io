@@ -8,7 +8,7 @@ slug: /development/concepts/meta-catalog/
 ### Meta catalog
 
 REGARDS **Meta catalog** is the result of the **standardization** of multiples source catalogs
-of [products](./04-products.md)
+of [products](./01-products.md)
 in a single catalog.
 
 In all REGARDS documentation, we will talk about :
@@ -22,7 +22,7 @@ read [Functional Overview - Meta catalog services](../functional-overview/02-met
 ### Model
 
 The notion of **Model** is a key notion and defines the list of metadata for a group of
-valid [products](./04-products.md). It is used to standardize products.
+valid [products](./01-products.md). It is used to standardize products.
 
 :::info
 REGARDS **Meta catalog** can contain products with different **Models**.
@@ -30,7 +30,7 @@ REGARDS **Meta catalog** can contain products with different **Models**.
 
 ### Data source
 
-[Products](./04-products.md) of each crawled data source are transformed by REGARDS to match a **Model**
+[Products](./01-products.md) of each crawled data source are transformed by REGARDS to match a **Model**
 before being inserted in the final catalog called **Meta catalog**.
 
 Every **Data source** is associated to a **Model** to ensure every product is valid and contains associated

@@ -12,8 +12,6 @@ You will find relevant information to help you **to interact or develop on the R
 - [Concepts](./concepts/01-overview.md) is the place to go if you are new to REGARDS, it introduces the **philosophy**
   of
   the REGARDS system design. **Highly recommended**
-- [Functional overview](./functional-overview/01-overview.md) let you understand the architecture of the REGARDS
-  software in terms of **group of functionalities**. **Highly recommended**
 - [REGARDS Services](./services/overview.md) contains all microservice documentation of the REGARDS system :
   presentation,
   architecture, REST & AMQP API, examples...

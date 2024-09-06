@@ -4,7 +4,7 @@ const currentVersion = "1.16";
 // Default value: "current"
 // You can provide the last version to create a next version unreleased
 // if currentVersion is 1.14.0, you can write here 1.13.0 and 1.14.0 will be unreleased and hide by default
-const stableVersion = "1.15";
+const stableVersion = "current";
 
 module.exports = {
   title: "REGARDS",
@@ -44,8 +44,8 @@ module.exports = {
       items: [
         {
           type: 'doc',
-          docId: 'setup/swarm-quick-setup',
-          label: 'Install',
+          docId: 'overview/functional-overview/functional-overview',
+          label: 'Overview',
           position: 'left',
         },
         {
@@ -53,6 +53,12 @@ module.exports = {
           docId: 'user-documentation/overview/overview',
           label: "Manual",
           position: "left",
+        },
+        {
+          type: 'doc',
+          docId: 'setup/swarm/swarm-quick-setup',
+          label: 'Install',
+          position: 'left',
         },
         {
           type: 'doc',
@@ -117,11 +123,7 @@ module.exports = {
               href: "/docs/setup/",
             },
             {
-              label: "Backend",
-              href: "/docs/development/backend/architecture/concepts/",
-            },
-            {
-              label: "Frontend",
+              label: "Web UI",
               href: "/docs/development/frontend/introduction/setup/",
             },
           ],

@@ -5,19 +5,20 @@ slug: /development/backend/services/ingest/overview/
 sidebar_position: 1
 ---
 
-**Ingest** (or **rs-ingest**) microservice is the service that manage OAIS [products](../../concepts/04-products.md). It
+**Ingest** (or **rs-ingest**) microservice is the service that manage
+OAIS [products](../../../overview/concepts/01-products.md). It
 is the main service of
-the [set of OAIS Services (Functional overview)](../../functional-overview/03-oais-catalog-services.md).   
+the [set of OAIS Services (Functional overview)](../../../overview/functional-overview/03-oais-catalog-services.md).   
 It is one of the many data sources that can be
 crawled by **rs-dam** microservice to populate
-the [meta-catalog](../../functional-overview/02-meta-catalog-services.md).
+the [meta-catalog](../../../overview/functional-overview/02-meta-catalog-services.md).
 
 This microservice is designed to comply with
 the [CCSDS OAIS recommendation](https://public.ccsds.org/Pubs/650x0m2%28F%29.pdf).
 
 In this recommendation :
 
-- [Products](../../concepts/04-products.md) are submitted with **SIP** (Submission Information Package).
+- [Products](../../../overview/concepts/01-products.md) are submitted with **SIP** (Submission Information Package).
 - SIP are converted into **AIP**  (Archival Information Package) thanks to a **Ingest chain**.
 - Files are stored in one or many locations (functionality delegated
   to [rs-storage microservice](../../backend/regards/storage/storage.md))

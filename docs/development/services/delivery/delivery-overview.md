@@ -9,7 +9,7 @@ slug: /development/backend/services/delivery/overview/
 
 The rs-delivery microservice allows users to order products and retrieve these ordered files on a provided storage
 location. It is a part of
-the [Functional overview - Product Restitution services](../../functional-overview/05-product-restitution-services.md)
+the [Functional overview - Product Restitution services](../../../overview/functional-overview/05-product-restitution-services.md)
 
 To achieve this task, this service:
 

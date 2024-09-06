@@ -8,10 +8,10 @@ sidebar_position: 2
 
 :::note
 This guide talks about Product in the Dataprovider point of
-view. [Ingest product](/docs/development/concepts/04-products.md) is the real product at Regards point of view.
+view. [Ingest product](../../../overview/concepts/01-products.md) is the real product at Regards point of view.
 :::
 
-Dataprovider is used to acquire some [products](/docs/development/concepts/04-products.md) from scanning folders,
+Dataprovider is used to acquire some [products](../../../overview/concepts/01-products.md) from scanning folders,
 through acquisition chains.
 Chains are configured to generate products with one or multiple scanned files.
 
@@ -55,7 +55,7 @@ All valid files go to the next step.
 
 ## Product creation step
 
-Files are wrapped inside [product](../../concepts/04-products.md).
+Files are wrapped inside [product](../../../overview/concepts/01-products.md).
 Depending on the configuration, multiple files can be linked to a single product. In configuration, you can indicate
 that some files are optionals.
 
@@ -98,10 +98,10 @@ in the acquisition chain on the `Data provider` microservice.
 
 ## Ingest step
 
-The [Ingest microservice](/docs/development/services/ingest/overview.md) treats each product and sends an acknowledgement by AMQP
-message, which indicates if a [Regards product](/docs/development/concepts/04-products.md) is correctly ingested or not.
+The [Ingest microservice](../ingest/overview.md) treats each product and sends an acknowledgement by AMQP
+message, which indicates if a [Regards product](../../../overview/concepts/01-products.md) is correctly ingested or not.
 
-You can find [here the Sip ingestion AMQP API](/docs/development/services/ingest/api-guides/amqp/ingest-amqp-publish-product.mdx)
+You can find [here the Sip ingestion AMQP API](../ingest/api-guides/amqp/ingest-amqp-publish-product.mdx).
 
 Dataprovider catches these amqp message and updates the Dataprovider product state.
 

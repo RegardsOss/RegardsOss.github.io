@@ -9,8 +9,8 @@ sidebar_position: 1
 **Notifier** (or **rs-notifier**) is the microservice responsible for broadcasting messages to configured recipients.
 
 This microservice is an integral part of the functional groups
-[OAIS catalog services](../../functional-overview/03-oais-catalog-services.md) and
-[GeoJson catalog service](../../functional-overview/04-geojson-catalog-services.md). In these two functional groups,
+[OAIS catalog services](../../../overview/functional-overview/03-oais-catalog-services.md) and
+[GeoJson catalog service](../../../overview/functional-overview/04-geojson-catalog-services.md). In these two functional groups,
 the notifier microservice is used to distribute catalog products to internal or external components.
 
 When a JSON notification is received, the message is dispatched to configured recipients according to matching rules

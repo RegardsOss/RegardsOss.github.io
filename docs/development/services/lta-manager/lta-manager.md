@@ -10,7 +10,7 @@ interoperability between external applications and REGARDS OAIS catalog.
 It provides a single service that let you create product and check creation progress and errors.
 
 It is an optional service of
-the [OAIS Services (Functional overview)](../../functional-overview/03-oais-catalog-services.md).
+the [OAIS Services (Functional overview)](../../../overview/functional-overview/03-oais-catalog-services.md).
 
 To do so, `LTA Manager` or `rs-lta-manager` provides these functionalities:
 

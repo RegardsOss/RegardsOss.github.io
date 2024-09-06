@@ -99,7 +99,7 @@ Mainly, there is two ways to handle versioning in **rs-fem** service :
 
 ### Creation
 
-When you ask the `rs-fem` microservice to create a new [product](../../concepts/04-products.md),
+When you ask the `rs-fem` microservice to create a new [product](../../../overview/concepts/01-products.md),
 you can choose between two methods to handle associated files:
 
 - **Storage** : You want Regards system to move associated files to one or many configured storage locations.

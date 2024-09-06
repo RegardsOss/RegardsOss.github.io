@@ -5,7 +5,7 @@ sidebar_label: Create product REST
 slug: /development/backend/services/lta-manager/guides/create-product-rest
 ---
 
-*This page assumes you know how to [authenticate](/docs/development/backend/services/authentication/api-guides/retrieve-token-rest/) your REST API requests *
+*This page assumes you know how to [authenticate](../../authentication/api-guides/get-token-curl.md) your REST API requests *
 
 This section describes how to submit a new product to the Long Term Archive service using the REST interfaces.
 
@@ -13,7 +13,7 @@ This section describes how to submit a new product to the Long Term Archive serv
 
 The diagram below explains the global processing of a new product submission request by REGARDS system.  
 For a REGARDS client using REST interface, the main steps are:
-1. Authenticate to REGARDS in order to retrieve a valid token. See the [authenticate guide](/docs/development/backend/services/authentication/api-guides/retrieve-token-rest/).
+1. Authenticate to REGARDS in order to retrieve a valid token. See the [authenticate guide](../../authentication/api-guides/get-token-curl.md).
 1. Send your product archive request containing product information to RS-LTA-MANAGER microservice
 1. Ask information about your request status from RS-LTA-MANAGER microservice.
 

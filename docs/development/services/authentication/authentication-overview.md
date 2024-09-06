@@ -6,7 +6,7 @@ sidebar_position: 1
 ---
 
 This microservice is a mandatory microservice of the REGARDS architecture and is an integral part of
-the [main functional group](../../functional-overview/02-meta-catalog-services.md).
+the [main functional group](../../../overview/functional-overview/02-meta-catalog-services.md).
 
 The RS-AUTHENTICATION multi-tenant microservice allows users to authenticate.
 To do so, RS-AUTHENTICATION provides these functionalities:

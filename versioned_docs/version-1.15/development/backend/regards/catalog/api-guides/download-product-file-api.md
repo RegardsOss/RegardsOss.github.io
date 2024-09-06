@@ -4,7 +4,7 @@ title: Download product file API
 sidebar_label: Download product file API
 slug: /development/backend/services/catalog/download-product-file-api/
 ---
-_This page assumes you know how [to authenticate](../../authentication/api-guides/get-token-curl.md) your REST API
+_This page assumes you know how [to authenticate](./../../authentication/api-guides/get-token-curl.md) your REST API
 requests_
 
 This section introduces you the API provided by REGARDS to download product files.

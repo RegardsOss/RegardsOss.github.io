@@ -5,7 +5,7 @@ sidebar_label: Get Order status REST
 slug: /development/backend/services/order/guides/get-order-status-rest
 ---
 
-*This page assumes you know how to [authenticate](/docs/development/backend/services/authentication/api-guides/retrieve-token-rest/) your REST API requests *
+*This page assumes you know how to [authenticate](../../../../services/authentication/api-guides/rest/authent-oauth2.mdx) your REST API requests *
 
 This guide explains how to retrieve the **order status and available files links** to download them.
 

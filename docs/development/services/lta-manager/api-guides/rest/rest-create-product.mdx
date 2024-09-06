@@ -10,7 +10,7 @@ import RegardsApiSchema from '/src/redoc/RegardsApiSchema';
 import Spec from '../../rs-lta-manager.json';
 
 *This page assumes you know how
-to [authenticate](/docs/development/backend/services/authentication/api-guides/retrieve-token-rest/) your REST API
+to [authenticate](../../../../services/authentication/api-guides/rest/authent-oauth2.mdx) your REST API
 requests *
 
 This section describes how to submit a new product to the Long Term Archive service using the REST interfaces.
@@ -21,7 +21,7 @@ The diagram below explains the global processing of a new product submission req
 For a REGARDS client using REST interface, the main steps are:
 
 1. Authenticate to REGARDS in order to retrieve a valid token. See
-   the [authenticate guide](/docs/development/backend/services/authentication/api-guides/retrieve-token-rest/).
+   the [authenticate guide](../../../../services/authentication/api-guides/rest/authent-oauth2.mdx).
 2. Send your product archive request containing product information to RS-LTA-MANAGER microservice
 3. Retrieve information about your request status from RS-LTA-MANAGER microservice.
 

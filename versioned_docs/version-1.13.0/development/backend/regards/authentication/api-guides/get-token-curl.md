@@ -2,7 +2,7 @@
 id: backend-authentication-token-curl
 title: Retrieve token REST
 sidebar_label: Retrieve token REST
-slug: /development/backend/services/authentication/api-guides/retrieve-token-rest/
+slug: /development/backend/services/authentication/api-guides/retrieve-token-rest
 ---
 
 ## Retrieve a token

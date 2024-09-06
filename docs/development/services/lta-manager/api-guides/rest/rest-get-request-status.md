@@ -6,7 +6,7 @@ slug: /development/backend/services/lta-manager/guides/get-request-status-rest
 sidebar_position: 2
 ---
 
-*This page assumes you know how to [authenticate](/docs/development/backend/services/authentication/api-guides/retrieve-token-rest/) your REST API requests *
+*This page assumes you know how to [authenticate](../../../../services/authentication/api-guides/rest/authent-oauth2.mdx) your REST API requests *
 
 ### Request 
 

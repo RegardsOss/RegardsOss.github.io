@@ -54,8 +54,8 @@ comply with the specific format indicated below.
 | Payload  | Object | Content of the notification to be distributed.             | True      |
 
 For example, you can find the format of the notifications sent by the `FeatureManager` and `Ingest` microservices as 
-part of the respective functional groups [GeoJson catalog services](../../functional-overview/04-geojson-catalog-services.md) 
-and [OAIS Catalog services](../../functional-overview/03-oais-catalog-services.md) in the documentation for each of the 
+part of the respective functional groups [GeoJson catalog services](../../../overview/functional-overview/04-geojson-catalog-services.md) 
+and [OAIS Catalog services](../../../overview/functional-overview/03-oais-catalog-services.md) in the documentation for each of the 
 two services:
  - [Products notification format sent by Feature manager service]
  - [Products notification format sent by Ingest service](../ingest/conception.md#products-notification-format)

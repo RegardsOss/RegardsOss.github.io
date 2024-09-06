@@ -14,27 +14,27 @@ This data source is recommended for long-term archive catalog with a lot of meta
 
 To allow administrators to manage OAIS products, you need to add these microservices :
 
-- [rs-ingest](../services/ingest/overview.md) : Manage OAIS formated products data source
-- [rs-storage](../backend/regards/storage/storage.md) : Manage files references and stored files
+- [rs-ingest](../../development/services/ingest/overview.md) : Manage OAIS formated products data source
+- [rs-storage](../../development/backend/regards/storage/storage.md) : Manage files references and stored files
 - **Optional** [rs-data-provider](/docs/development/services/dataprovider/dataprovider-overview.md) : Scan files on file system and send
   OAIS
   Submission Information Package requests to OAIS catalog (rs-ingest).
-- **Optional** [rs-notifier](../services/notifier/overview.md) : Highly configurable notification system. Can be
+- **Optional** [rs-notifier](../../development/services/notifier/overview.md) : Highly configurable notification system. Can be
   used to inform external and internal components when an OAIS product is created or deleted.
-- **Optional** [rs-lta-manager](../services/lta-manager/lta-manager.md) : Long term Archive system. Simplified
+- **Optional** [rs-lta-manager](../../development/services/lta-manager/lta-manager.md) : Long term Archive system. Simplified
   interface to add products into the OAIS catalog (rs-ingest). Requires rs-worker-manager microservice.
-- **Optional** [rs-worker-manager](../backend/regards/worker-manager/storage.md) : Manager to handle
-  regards [workers](../concepts/08-workers.md).
+- **Optional** [rs-worker-manager](../../development/backend/regards/worker-manager/storage.md) : Manager to handle
+  regards [workers](../../development/concepts/08-workers.md).
   To use **rs-lta-manager**, worker manager is mandatory with a worker that receives simplified products format and send
   Submission Information Package requests to OAIS catalog (rs-ingest).
 
 Thanks to rs-ingest microservice, administrator can manage a new data source with OAIS formated products. To learn more
-about **rs-ingest** microservice see [Ingest architecture](../services/ingest/overview.md).
+about **rs-ingest** microservice see [Ingest architecture](../../development/services/ingest/overview.md).
 
 This data
-source [can be used as one of the data sources crawled by the data management service](02-meta-catalog-services.md)
+source [can be used as one of the data sources crawled by the data management service](./02-meta-catalog-services.md)
 thanks to official
-DataManagement Regards plugin [OAIS Data Source Plugin](../services/ingest/plugins/overview.md).
+DataManagement Regards plugin [OAIS Data Source Plugin](../../development/services/ingest/plugins/overview.md).
 
 The diagram below explains the microservices interaction to fulfill the OAIS products data source with **rs-ingest**
 microservice.

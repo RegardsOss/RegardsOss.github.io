@@ -19,7 +19,8 @@ The product will then be transformed into a SIP and sent to the `rs-ingest` serv
 dedicated [worker](../../concepts/08-workers.md).
 
 To learn how to submit product creation request to the `LTA Manager` microservice, please refer to
-the [AMQP API Guide](./api-guides/amqp/amqp-submit-product.md) and [REST API Guide](./api-guides/rest/rest-create-product.mdx).
+the [AMQP API Guide](./api-guides/amqp/amqp-submit-product.md)
+and [REST API Guide](./api-guides/rest/rest-create-product.mdx).
 
 LTA request are stored in database, and status requests can be followed from admin UI (Admin/LTA Manager).
 
@@ -36,13 +37,14 @@ The `lta-sip-generation-worker` will not be explained in this documentation sect
 
 ## Data types
 
-Every [product](../../concepts/04-products.md) submitted to the `LTA Manager` microservice must define a **Data Type**.
+Every [product](../../../overview/concepts/01-products.md) submitted to the `LTA Manager` microservice must define a *
+*Data Type**.
 
 The Data Type concept is the main concept enabling the microservice to know how to process the product creation request.
 
 All Data Types must be configured on the service in order to define for each one :
 
-- The [data model](../../concepts/09-meta-catalog.md) used to validate the product
+- The [data model](../../../overview/concepts/02-meta-catalog.md) used to validate the product
 - The sub-directory for storing the files associated with the product in the long-term archive.
 
 ## Versioning
