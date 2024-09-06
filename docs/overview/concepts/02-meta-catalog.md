@@ -47,12 +47,10 @@ Let's take an example
 ```json {5} title="Data source 1 products example"
 {
   "label": "my product from source 1",
-[
-  ..
-]
-"properties": {
-"creation_date": "2024-01-01"
-},
+  ...
+  "properties": {
+    "creation_date": "2024-01-01"
+  }
 }
 ```
 
@@ -64,8 +62,8 @@ Let's take an example
 ```
 
 In this example, you can define a **Model** to standardize products coming from these two different datasource,
-which use 2 different products format, to make products sharing the same standard Model. To do so, you can take these two
-metadata attributes, `date` and `properties.creation_date`, to set them in the same attribut in REGARDS 
+which use 2 different products formats, to make products sharing the same standard Model. To do so, you can take these
+two metadata attributes, `date` and `properties.creation_date`, to set them in the same attribut in REGARDS
 **Meta catalog**.  
 With those two attributes indexed with the same attribute in the resulting meta catalog,
 you can search for both products with the same search criteria. 

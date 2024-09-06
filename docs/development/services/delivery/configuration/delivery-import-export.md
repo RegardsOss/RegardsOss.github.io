@@ -1,20 +1,25 @@
 ---
-id: backend-delivery-import-export
 title: Configuration Importation/Exportation
 sidebar_label: Importation/Exportation
-slug: /development/backend/services/delivery/configuration
+slug: /development/backend/services/delivery/configuration/import-export
+sidebar_position: 1
 ---
 
-## Request
 
-To configure delivery settings, send a `POST` request on update operation of dynamic-tenant-setting-controller (
-see [rest api documentation](../api-guides/rest/rs-delivery-api-swagger.mdx#tag/module-manager-controller/operation/importConfiguration))
-for each setting that needs to be set. The configuration is stored in database for each tenant or project.
+Microservices settings regroup a set of settings that are specific by [tenant](../../../concepts/03-multitenant.md)
+and stored in the microservice database.
+
+## Import/Export API
+
+To configure some microservice settings for a specific tenant, you need to follow the [generic Import/Export service
+configuration guide](../../common/import-export-configuration.md), it will help you understand the expected JSON
+file payload that you can send to the
+[import configuration endpoint](../api-guides/rest/rs-delivery-api-swagger.mdx#tag/module-manager-controller/operation/importConfiguration).
 
 This configuration can also be imported or exported
 through [administrator UI](../../../../user-documentation/2-project-configuration/microservices.md).
 
-## Body
+## Configurable parameters
 
 | Name                   | Type   | Default value                                                                                                                  | Description                                                                                                                                                                                                       |
 |------------------------|--------|--------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -23,6 +28,8 @@ through [administrator UI](../../../../user-documentation/2-project-configuratio
 | build_bucket           | String | default-build-bucket                                                                                                           | Temporary bucket on which available files will be transferred before building final zips.  (Not used for now)                                                                                                     |
 | delivery_bucket        | String | default-delivery-bucket                                                                                                        | Bucket on which the ZIP archives will be dropped once orders have been completed. It has to be overridden to provide your own delivery bucket.                                                                    |
 | order_size_limit_bytes | Long   | 5368709120 (5Go)                                                                                                               | Maximum size in octets allowed for a delivery order. This value should not be greater than a suborder size in `rs-order` microservice (FIXME TODO link) as delivery does not allow order with multiple suborders. |
+
+## Example
 
 ```json title='rs-delivery configuration file example'
 {

@@ -1,8 +1,8 @@
 ---
-id: backend-amqp-publish-delivery-request
 title: Publish a delivery request event
 sidebar_label: Publish a request
-slug: /development/backend/services/delivery/guides/amqp/publish-a-delivery-request
+slug: /development/backend/services/delivery/api-guides/amqp/publish-a-delivery-request
+sidebar_position: 1
 ---
 
 ## Introduction

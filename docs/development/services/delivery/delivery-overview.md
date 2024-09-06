@@ -1,5 +1,4 @@
 ---
-id: backend-delivery-overview
 title: RS-DELIVERY microservice
 sidebar_label: Overview
 sidebar_position: 1
@@ -26,7 +25,8 @@ For now, the rs-delivery microservice can only :
 
 - deliver **zip files** to a **S3-compatible storage server**.
 - order products within a **single suborder**. Suborder limit size can be configured on **rs-order microservice**.
-  :::
+
+:::
 
 | Concept                                                                           | Compatibility | Description                                     |
 |-----------------------------------------------------------------------------------|---------------|-------------------------------------------------|
@@ -34,9 +34,9 @@ For now, the rs-delivery microservice can only :
 | [Vertical scalability](../../concepts/07-scalability.md#vertical-scalability)     | Yes           | Uses Jobs system                                | 
 | [Horizontal scalability](../../concepts/07-scalability.md#horizontal-scalability) | Yes           | Service can be deployed with multiple instances |
 
-You can learn how the service works with the [conception section](./develiry-conception.md).
+You can learn how the service works with the [How it works section](./develiry-conception.md).
 
-### How to use
+## How to use
 
 You can learn how to **operate** with the microservice thanks to **API Guides** :
 

@@ -1,34 +1,36 @@
 ---
-id: backend-amqp-subscribe-to-delivery-response
 title: Monitor a delivery request progress
 sidebar_label: Subscribe to responses
-slug: /development/backend/services/delivery/guides/amqp/subscribe-to-delivery-responses
+slug: /development/backend/services/delivery/api-guides/amqp/subscribe-to-delivery-responses
+sidebar_position: 2
 ---
 
 ## Introduction
 
-This section describes how to subscribe to delivery response events with AMQP message.
+This section describes how to subscribe to events sent by rs-delivery microservice about submitted delivery requests as
+described in [Publish a delivery request event](amqp-publish-request.md).
 
-## AMQP API
-
-### How to
+## Regards AMQP api
 
 The [Regards AMQP API concept](../../../../concepts/06-amqp-api.md) describe how AMQP interfaces must be handled to
 submit events or to subscribe to events.
 
-### Exchange
+## Exchange
 
-Subscribe to the following exchange to receive delivery responses on vhost `regards.multitenant.manager`:  
-`regards.broadcast.fr.cnes.regards.modules.ltamanager.amqp.output.DeliveryResponseDtoEvent`
+Delivery requests responses from REGARDS are sent to exchange :
 
-### Queue
+| Exchange                                                                                    | Virtual host                   |
+|---------------------------------------------------------------------------------------------|--------------------------------|
+| `regards.broadcast.fr.cnes.regards.modules.ltamanager.amqp.output.DeliveryResponseDtoEvent` | `regards.multitenant.manager`	 |
 
-To subscribe to those messages, firs you have to create you own queue bind to this exchange.
-To learn how to subscribe to theses messages with a custom queue
-see [Regards AMQP API](../../../../concepts/06-amqp-api.md).
-### Message format
+## Queue
 
-#### Properties
+Every consumer of this
+exchange [must create its own queue bound to this exchange](../../../../concepts/06-amqp-api.md#subscribe-to-regards-published-events).
+
+## Message format
+
+### Properties
 
 | Parameter        | Type    | Description                                                          |
 |------------------|---------|----------------------------------------------------------------------|
@@ -38,7 +40,7 @@ see [Regards AMQP API](../../../../concepts/06-amqp-api.md).
 | content_type     | String  | Standard RabbitMQ property for the MIME Type of the message sent     |
 | delivery_mode    | Integer | Standard RabbitMQ property for the delivery mode (persistent or not) |
 
-#### Headers
+### Headers
 
 | Parameter      | Type   | Description                                                    |
 |----------------|--------|----------------------------------------------------------------|

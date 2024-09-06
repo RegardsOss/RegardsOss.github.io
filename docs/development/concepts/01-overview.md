@@ -22,3 +22,5 @@ on the REGARDS system.
   large volume of requests using Jobs.
 - [REGARDS Workers](./08-workers.md) introduces you the concept of REGARDS Workers to handle large volume of requests
   efficiently.
+- [Requests & Jobs processing](./10-requests-jobs.md) introduces you the REGARDS Jobs System and how process requests
+  are handled.
