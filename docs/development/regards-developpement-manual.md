@@ -28,8 +28,7 @@ You will find relevant information to help you **to interact or develop on the R
       create products in SIP format from these files and finally send these SIPs to the rs-ingest service.
     - [Delivery](services/delivery/delivery-overview.md)
     - [Feature manager (rs-fem)](services/fem/overview.md) : **Feature manager** or **rs-fem** microservice is used to 
-      manage products in GeoJson format
-    - [Gateway](./backend/regards/gateway/overview.md)
+    - [Gateway](./services/gateway/gateway.md)
     - [Ingest](services/ingest/overview.md) : **Ingest** or **rs-ingest** microservice manage the
       Regards [OAIS](appendices/01-oais.md) catalog.
     - [LTA Manager](services/lta-manager/lta-manager.md) : **Lta manager** or **rs-lta-manager** microservice manage the products archival requests.

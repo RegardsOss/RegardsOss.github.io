@@ -22,8 +22,8 @@ This section provides documentation about REGARDS microservices :
 - [Feature manager (rs-fem)](fem/overview.md) : **Feature manager** or **rs-fem** microservice is used to manage 
   products 
   in GeoJson format
-- [Gateway](../backend/regards/gateway/overview.md)
-- [Ingest](ingest/overview.md) : **Ingest** or **rs-ingest** microservice manages the
+- [Gateway](gateway/gateway.md)
+- [Ingest](ingest/overview.md) : **Ingest** or **rs-ingest** microservice manage the
   Regards [OAIS](../appendices/01-oais.md) catalog.
 - [LTA Manager](lta-manager/lta-manager.md) : **Lta manager** or **rs-lta-manager** microservice manages the 
   products archival requests. 

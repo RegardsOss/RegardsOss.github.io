@@ -41,7 +41,7 @@ stack architecture.
 
 - [rs-registry](../services/registry/overview.md) : Microservices registry.
 - [rs-config](../services/config/overview.md)   : Microservices centralized configuration provider.
-- [rs-gateway](../backend/regards/gateway/overview.md)  : Microservices main access point
+- [rs-gateway](../services/gateway/gateway.md)  : Microservices main access point
 
 1. At startup each REGARDS microservices retrieve their configuration from **rs-config** microservice.
 2. Once they have successfully booted, REGARDS microservices register to **rs-registry** microservice.
