@@ -25,7 +25,7 @@ To lean more about **rs-fem** microservice, see [Feature Manager service documen
 This data
 source [can be used as one of the data sources crawled by the data management service](02-meta-catalog-services.md)
 thanks to official
-DataManagement Regards plugin [FEM Data Source Plugin](../../development/backend/regards/dam/plugins/data-source-plugins.md).
+DataManagement Regards plugin [FEM Data Source Plugin](../../development/services/dam/plugins/overview.md#data-source-plugins).
 
 The schema here under explain the microservices interaction to fulfill the GeoJson products data source with **rs-fem**
 microservice.
