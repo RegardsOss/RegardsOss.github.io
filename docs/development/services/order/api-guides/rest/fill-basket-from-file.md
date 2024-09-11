@@ -4,7 +4,7 @@ title: Fill basket from file
 sidebar_label: Fill basket from file
 slug: /development/backend/services/order/guides/fill-basket-from-file
 ---
-_This page assumes you know how [to authenticate](../../../../services/authentication/api-guides/rest/authentication-api-swagger.mdx) your REST API
+_This page assumes you know how [to authenticate](../../../authentication/api-guides/rest/authentication-api-swagger.mdx) your REST API
 requests._
 
 This guide describes how add some products inside a basket, from a file submitted by REST API.
@@ -13,7 +13,7 @@ This guide describes how add some products inside a basket, from a file submitte
 This feature is accessible at user-registered level, or any role with more privileges.
 :::
 
-You can see [API documentation here](../order-api-swagger.mdx#tag/basket-controller/operation/addSelectionFromFile)
+You can see [API documentation here](order-api-swagger.mdx#tag/basket-controller/operation/addSelectionFromFile)
 
 ## Concept
 
@@ -61,5 +61,5 @@ exist, it will be created.
 :::info Note that
 * Product ids not found, not accessible, or not visible are ignored and are not added to basket.
 * If no product are returned, the endpoint return http code 204 (No Content), and nothing is added to basket.
-* Potential errors are specified in [API documentation](../order-api-swagger.mdx#tag/basket-controller/operation/addSelectionFromFile)
+* Potential errors are specified in [API documentation](order-api-swagger.mdx#tag/basket-controller/operation/addSelectionFromFile)
 :::

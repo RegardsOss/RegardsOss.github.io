@@ -6,7 +6,7 @@ slug: /development/backend/services/order/guides/download-ordered-files
 ---
 
 *This page assumes you know how
-to [authenticate](../../../../services/authentication/api-guides/rest/authent-oauth2.mdx)
+to [authenticate](../../../authentication/api-guides/rest/authent-oauth2.mdx)
 your REST API requests *
 
 Once your order request is processed, you can download the order result as a zip archive file using the here-under
@@ -25,7 +25,7 @@ endpoint.
 | Parameter | Type   | Optional | Description                                                                                               |
 |-----------|--------|:--------:|-----------------------------------------------------------------------------------------------------------|
 | `orderId` | Int    |    No    | Order identifier                                                                                          |
-| `token`   | String |    No    | [Authentication token](../../../../services/authentication/api-guides/rest/authent-oauth2.mdx) |
+| `token`   | String |    No    | [Authentication token](../../../authentication/api-guides/rest/authent-oauth2.mdx) |
 
 The downloaded file is named `order_<orderId>_<date>.zip`.  
 Example: `order_1_2023-01-24T09_21_50.727542704Z.zip`

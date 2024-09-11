@@ -27,7 +27,7 @@ REGARDS checks the conformity of the message received:
 
 ## Monitor the request progress
 
-Internally, the request is then forwarded to [rs-order microservice](../../backend/regards/order/order.md) to be
+Internally, the request is then forwarded to [rs-order microservice](../order/overview) to be
 processed.
 
 Files requested are retrieved and made available locally by rs-order. An event is then sent from rs-order to rs-delivery

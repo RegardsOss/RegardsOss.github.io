@@ -33,7 +33,7 @@ This section provides documentation about REGARDS microservices :
 - [Notifier](notifier/overview.md): **Notifier** or **rs-notifier** microservice is used to broadcast messages from
   notifications received, such as products managed by REGARDS internal catalogs, to different recipients according to
   broadcast rules.
-- [Order](../backend/regards/order/order.md)
+- [Order](order/overview.md): **Order** or **rs-order** microservice manage users product orders.
 - [Processing](processing/overview.md): **Processing** or **rs-processing** microservice, driven by order microservice,
 - [Registry](registry/overview.md): **Registry** or **rs-registry** microservice manages the microservices registry of
   the global [microservice architecture](../concepts/02-microservices.md).

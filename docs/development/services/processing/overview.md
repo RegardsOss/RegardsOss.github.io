@@ -9,7 +9,7 @@ slug: /development/backend/services/processing/overview/
 ## Overview
 
 The main objective of the `Processing` microservice is to apply treatments to ordered data files,
-before they are served to the end user. This service is driven by [Order](../../backend/regards/order/order.md) 
+before they are served to the end user. This service is driven by [Order](../order/overview) 
 microservice as describe in [Functional overview - Product Restitution services](../../../overview/functional-overview/05-product-restitution-services.md)
 
 This service runs as follows:

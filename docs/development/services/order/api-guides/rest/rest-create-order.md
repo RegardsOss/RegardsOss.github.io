@@ -5,7 +5,7 @@ sidebar_label: Create Order REST
 slug: /development/backend/services/order/guides/create-order-rest
 ---
 
-*This page assumes you know how to [authenticate](../../../../services/authentication/api-guides/rest/authent-oauth2.mdx) your REST API requests *
+*This page assumes you know how to [authenticate](../../../authentication/api-guides/rest/authent-oauth2.mdx) your REST API requests *
 
 This section describes how to order one or many products from the order service through REST interfaces.
 
@@ -14,13 +14,13 @@ This section describes how to order one or many products from the order service 
 The diagram below explains the global processing of an Order request by REGARDS system.  
 For a REGARDS client using REST interface, the main steps are:
 1. Authenticate to REGARDS in order to retrieve a valid token. See the 
-   [authenticate guide](../../../../services/authentication/api-guides/rest/authent-oauth2.mdx).
+   [authenticate guide](../../../authentication/api-guides/rest/authent-oauth2.mdx).
 1. Send an order request to REGARDS.
 1. Retrieve order status and available files.
 1. When one or many files are available(s), you can download them. 
 1. Repeat again until end of order : retrieve order status, download available files...
 
-![sequence](./restore-request-nominal-rest.png)
+![sequence](../../src/restore-request-nominal-rest.png)
 
 
 ## Submit Order request

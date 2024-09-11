@@ -5,6 +5,10 @@ sidebar_label: Overview
 slug: /development/backend/services/storage/overview/
 ---
 
+The RS-STORAGE microservice is an integral part of the functional groups [OAIS Services (Functional overview)](../../../overview/functional-overview/03-oais-catalog-services.md),
+[GeoJson services (Functional overview)](../../../overview/functional-overview/04-geojson-catalog-services.md) and 
+[Restitution services](../../../overview/functional-overview/05-product-restitution-services.md).
+
 | Concept                                                                           | Compatibility | Description                                         |
 |-----------------------------------------------------------------------------------|---------------|-----------------------------------------------------|
 | [Multitenant](../../concepts/03-multitenant.md)                                   | Yes           | Can handle multiple tenants/projects                | 

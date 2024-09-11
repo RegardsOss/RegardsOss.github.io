@@ -18,7 +18,7 @@ For a REGARDS client using message queuing, the main steps are :
    - `GRANTED` -> `SUBORDER_DONE` (occurs 1 to many times) -> `DONE`
 1. Download order archive everytime you receive a `SUBORDER_DONE` or `DONE` message. `SUBORDER_DONE` and `DONE` contains the URL to the [Download ordered files](./download-ordered-files) REST API to download all available files related to an order.
 
-![sequence](./restitution-sequence-3.0.png)
+![sequence](../../src/restitution-sequence-3.0.png)
 
 ## Submit Order request
 

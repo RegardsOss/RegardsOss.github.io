@@ -41,7 +41,7 @@ You will find relevant information to help you **to interact or develop on the R
     - [Notifier](services/notifier/overview.md): **Notifier** or **rs-notifier** microservice is used to broadcast
       messages from notifications received, such as products managed by REGARDS internal catalogs, to different
       recipients according to broadcast rules.
-    - [Order](./backend/regards/order/order.md)
+    - [Order](services/order/overview.md):  **Order** or **rs-order** microservice manage users product orders.
     - [Processing](services/processing/overview.md): **Processing** or **rs-processing** microservice, driven by order
       microservice registry and the load balancing.
     - [Registry](services/registry/overview.md): **Registry** or **rs-registry** microservice manages the microservices

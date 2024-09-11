@@ -13,7 +13,7 @@ the [Functional overview - Product Restitution services](../../../overview/funct
 To achieve this task, this service:
 
 - makes requested products available by making an order on
-  the [rs-order microservice](../../backend/regards/order/order.md),
+  the [rs-order microservice](../order/overview),
 - downloads these products and saves them on the provided storage location,
 - notifies the delivery request progress via AMQP protocol.
 
