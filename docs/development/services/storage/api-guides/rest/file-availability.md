@@ -1,7 +1,7 @@
 ---
 id: backend-storage-file-availability-api
 title: File availability guide
-sidebar_label: File availability API
+sidebar_label: File availability
 slug: /development/backend/services/storage/file-availability-api
 ---
 

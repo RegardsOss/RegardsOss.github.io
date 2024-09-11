@@ -11,27 +11,32 @@ This section provides documentation about REGARDS microservices :
 - [Access instance](../backend/regards/access/access.md)
 - [Admin project](../backend/regards/admin/admin.md)
 - [Admin instance](../backend/regards/admin-instance/overview.md)
-- [Authentication](authentication/authentication-overview.md) : **Authentication** or **rs-authentication** microservice manage
-  [project or tenant](../concepts/03-multitenant.md) users authentication.
-- [Catalog](catalog/overview.md): **Catalog** or **rs-catalog** microservice is used to consult products in the Regards 
+- [Authentication](authentication/authentication-overview.md) : **Authentication** or **rs-authentication** microservice
+  manage [project or tenant](../concepts/03-multitenant.md) users authentication.
+- [Catalog](catalog/overview.md): **Catalog** or **rs-catalog** microservice is used to consult products in the Regards
   meta-catalogue
-- [Data management (rs-dam)](./dam/overview.md): **Data management** or **rs-dam** microservice mainly handle meta catalog population.
-- [Data provider](dataprovider/dataprovider-overview.md) : **Data provider** or **rs-data-provider** microservice is used to detect files on disk,
-  create products in SIP format from these files and finally send these SIPs to the rs-ingest service.
-- [Delivery](delivery/delivery-overview.md)
-- [Feature manager (rs-fem)](fem/overview.md) : **Feature manager** or **rs-fem** microservice is used to manage 
-  products 
-  in GeoJson format
-- [Gateway](gateway/gateway.md)
+- [Data management (rs-dam)](./dam/overview.md): **Data management** or **rs-dam** microservice mainly handle meta
+  catalog population.
+- [Data provider](dataprovider/dataprovider-overview.md) : **Data provider** or **rs-data-provider** microservice is
+  used to detect files on disk, create products in SIP format from these files and finally send these SIPs to the
+  rs-ingest service.
+- [Delivery](delivery/delivery-overview.md): **Delivery** or **rs-delivery** microservice manage products orders
+  delivery to configured locations.
+- [Feature manager (rs-fem)](fem/overview.md) : **Feature manager** or **rs-fem** microservice is used to manage
+  products in GeoJson format
+- [Gateway](gateway/gateway.md): **Gateway** or **rs-gateway** manage the front proxy for the
+  global [microservice architecture](../concepts/02-microservices.md).
 - [Ingest](ingest/overview.md) : **Ingest** or **rs-ingest** microservice manage the
   Regards [OAIS](../appendices/01-oais.md) catalog.
-- [LTA Manager](lta-manager/lta-manager.md) : **Lta manager** or **rs-lta-manager** microservice manages the 
-  products archival requests. 
-  It is a simplified way to add products in the OAIS catalog.
-- [Notifier](notifier/overview.md): **Notifier** or **rs-notifier** microservice is used to broadcast messages from 
-  notifications received, such as products managed by REGARDS internal catalogs, to different recipients according to broadcast rules.
+- [LTA Manager](lta-manager/lta-manager.md) : **Lta manager** or **rs-lta-manager** microservice manages the
+  products archival requests. It is a simplified way to add products in the OAIS catalog.
+- [Notifier](notifier/overview.md): **Notifier** or **rs-notifier** microservice is used to broadcast messages from
+  notifications received, such as products managed by REGARDS internal catalogs, to different recipients according to
+  broadcast rules.
 - [Order](../backend/regards/order/order.md)
-- [Processing](processing/overview.md): **Processing** or **rs-processing** microservice, driven by order microservice, 
-- [Registry](registry/overview.md): **Registry** or **rs-registry** microservice manages the 
-- [Storage](../backend/regards/storage/storage.md)
+- [Processing](processing/overview.md): **Processing** or **rs-processing** microservice, driven by order microservice,
+- [Registry](registry/overview.md): **Registry** or **rs-registry** microservice manages the microservices registry of
+  the global [microservice architecture](../concepts/02-microservices.md).
+- [Storage](storage/overview.md): **Storage** or **rs-storage** microservice manages the storage, the deletion and the
+  download of files associated to products of **OAIS catalog rs-ingest** and **GeoJson catalog rs-fem**.
 - [Worker Manager](../backend/regards/worker-manager/storage.md)

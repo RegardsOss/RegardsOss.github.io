@@ -15,7 +15,7 @@ This data source is recommended for catalog with large volume of products and hi
 To allow administrators to manage standard GeoJson products, you need to add microservices :
 
 - [rs-fem](../../development/services/fem/overview.md) : Feature Manager. Manage standard GeoJson formated products data source
-- [rs-storage](../../development/backend/regards/storage/storage.md) : Manage files references and stored files
+- [rs-storage](../../development/services/storage/overview.md) : Manage files references and stored files
 - **Optional** [rs-notifier](../../development/services/notifier/overview.md) : Highly configurable notification system. Can be
   used to inform external and internal components when a GeoJSON product is created, updated or deleted.
 

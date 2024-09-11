@@ -18,7 +18,7 @@ in [Functional overview - Meta catalog Services](../../../overview/functional-ov
 `Feature Manager` or `rs-fem` responsibilities:
 
 * Create, update, patch or delete products in GeoJson format,
-* Submit files to [rs-storage](../../backend/regards/storage/storage.md) microservice to be stored on one or many storage locations
+* Submit files to [rs-storage](../storage/overview) microservice to be stored on one or many storage locations
 * Handle GeoJson products versioning
 * Notify events on GeoJSON products to subscribers
 

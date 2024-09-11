@@ -15,7 +15,7 @@ This data source is recommended for long-term archive catalog with a lot of meta
 To allow administrators to manage OAIS products, you need to add these microservices :
 
 - [rs-ingest](../../development/services/ingest/overview.md) : Manage OAIS formated products data source
-- [rs-storage](../../development/backend/regards/storage/storage.md) : Manage files references and stored files
+- [rs-storage](../../development/services/storage/overview.md) : Manage files references and stored files
 - **Optional** [rs-data-provider](/docs/development/services/dataprovider/dataprovider-overview.md) : Scan files on file system and send
   OAIS
   Submission Information Package requests to OAIS catalog (rs-ingest).

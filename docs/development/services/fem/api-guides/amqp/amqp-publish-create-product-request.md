@@ -104,7 +104,7 @@ storage locations. See [How it works section](../../conception.md) for more info
 
 This feature creation request contains **one product** with only **one file** that will be stored on a **Local**
 Regards data storage. That means that the Regards system and more
-precisely the [rs-storage microservice](../../../../backend/regards/storage/storage.md)
+precisely the [rs-storage microservice](../../../storage/overview)
 **must be able to access this file** in order to copy it to the destination storage. Storage locations are configured in
 the **storage microservice**.
 
@@ -185,7 +185,7 @@ As the storage location of the file is provided, **S3Server** Regards system wil
 references its given location. Nevertheless, **with this system you must provide** :
 
 - **Storage** location name : Should be an existing storage location defined
-  on [rs-storage microservice](../../../../backend/regards/storage/storage.md). If not, the file will be considered as
+  on [rs-storage microservice](../../../storage/overview). If not, the file will be considered as
   **Offline** and will not be accessible for download.
 - **File size in bytes** : Regards will not access the file by itself so the information must be provided.
 

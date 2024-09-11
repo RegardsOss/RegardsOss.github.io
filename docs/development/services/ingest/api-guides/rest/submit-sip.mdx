@@ -67,7 +67,7 @@ In the following example, only one SIP **RawProduct_001** is submitted.
 
 This product contains only one file located on file system at **/products/2024/data_file.raw** that will be stored one
 **Local** Regards data storage. That means that the Regards system and more
-precisely [rs-storage microservice](../../../../backend/regards/storage/storage.md) **must be able to access this file**
+precisely [rs-storage microservice](../../../storage/overview.md) **must be able to access this file**
 to copy it to the
 destination storage. Storage locations are configured in **storage microservice**.
 
@@ -153,7 +153,7 @@ S3Server`), Regards system will not try to store the file but only
 reference its given location. Nevertheless, **with this system you must provide** :
 
 - **Storage** location name : Should be an existing storage location defined
-  on [rs-storage microservice](../../../../backend/regards/storage/storage.md). If not, the file will be considered as
+  on [rs-storage microservice](../../../storage/overview.md). If not, the file will be considered as
   **Offline** and will not be accessible for download.
 - **File size in bytes** : Regards will not access the file by itself so the information must be provided.
 

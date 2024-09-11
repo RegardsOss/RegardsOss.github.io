@@ -5,8 +5,6 @@ slug: /development/services/dam/plugins/overview
 sidebar_position: 1
 ---
 
-TODO intro
-
 ## Data source plugins
 
 All the following plugins implements

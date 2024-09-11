@@ -21,7 +21,7 @@ In this recommendation :
 - [Products](../../../overview/concepts/01-products.md) are submitted with **SIP** (Submission Information Package).
 - SIP are converted into **AIP**  (Archival Information Package) thanks to a **Ingest chain**.
 - Files are stored in one or many locations (functionality delegated
-  to [rs-storage microservice](../../backend/regards/storage/storage.md))
+  to [rs-storage microservice](../storage/overview))
 - AIP are updated with files locations and preservation additional information.
 
 The REGARDS implementation of the OAIS **SIP** format is describe in the
@@ -31,9 +31,9 @@ appendix [Regards OAIS](../../appendices/01-oais.md).
 
 * Ingest SIP,
 * Transform SIP to AIP, with metadata enhancement thanks to an **Ingest chain**.
-* Submit files to [rs-storage](../../backend/regards/storage/storage.md) microservice to be stored in one or several
+* Submit files to [rs-storage](../storage/overview) microservice to be stored in one or several
   storage locations
-* Listen for [rs-storage](../../backend/regards/storage/storage.md) responses and update AIP with new files information
+* Listen for [rs-storage](../storage/overview) responses and update AIP with new files information
 * Delete AIP
 * Handle SIP and AIP versioning
 * Notify events on AIP products to subscribers
