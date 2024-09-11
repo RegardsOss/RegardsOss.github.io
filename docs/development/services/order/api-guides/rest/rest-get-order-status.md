@@ -1,7 +1,8 @@
 ---
 id: backend-get-order-status-rest
-title: Get Order status REST
-sidebar_label: Get Order status REST
+title: Get Order status
+sidebar_label: Get Order status
+sidebar_position: 3
 slug: /development/backend/services/order/guides/get-order-status-rest
 ---
 

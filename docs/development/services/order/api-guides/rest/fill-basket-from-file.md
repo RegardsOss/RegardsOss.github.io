@@ -2,6 +2,7 @@
 id: fill-basket-from-file
 title: Fill basket from file
 sidebar_label: Fill basket from file
+sidebar_position: 2
 slug: /development/backend/services/order/guides/fill-basket-from-file
 ---
 _This page assumes you know how [to authenticate](../../../authentication/api-guides/rest/authentication-api-swagger.mdx) your REST API

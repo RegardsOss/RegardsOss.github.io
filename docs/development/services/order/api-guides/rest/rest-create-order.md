@@ -1,7 +1,8 @@
 ---
 id: backend-create-order-rest
-title: Create Order REST
-sidebar_label: Create Order REST
+title: Create Order
+sidebar_label: Create Order
+sidebar_position: 1
 slug: /development/backend/services/order/guides/create-order-rest
 ---
 

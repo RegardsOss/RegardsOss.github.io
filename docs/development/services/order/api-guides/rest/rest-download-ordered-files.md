@@ -1,7 +1,8 @@
 ---
 id: backend-order-download-ordered-files
-title: Download ordered files inside archive
-sidebar_label: Download ordered files inside archive
+title: Download ordered files
+sidebar_label: Download ordered files
+sidebar_position: 4
 slug: /development/backend/services/order/guides/download-ordered-files
 ---
 

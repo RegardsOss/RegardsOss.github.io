@@ -1,7 +1,8 @@
 ---
 id: backend-get-order-progress-amqp
-title: Get Order progress AMQP
-sidebar_label: Get Order progress AMQP
+title: Get Order progress
+sidebar_label: Get Order progress
+sidebar_position: 2
 slug: /development/backend/services/order/guides/get-order-progress-amqp
 ---
 

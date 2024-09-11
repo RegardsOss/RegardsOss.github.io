@@ -1,7 +1,8 @@
 ---
 id: backend-create-order-amqp
-title: Create Order AMQP
-sidebar_label: Create Order AMQP
+title: Create Order
+sidebar_label: Create Order
+sidebar_position: 1
 slug: /development/backend/services/order/guides/create-order-amqp
 ---
 
