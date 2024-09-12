@@ -42,6 +42,14 @@ See more about these networks on the Docker documentation:
 
 :::
 
+:::note Network overlaps
+When network address ranges are misconfigured and overlap, docker logs this message 
+(seen when running status.sh in cli folder or during Docker's daemon boot) :
+```ERROR: Pool overlaps with other one on this address space```
+
+Solution: reconfigure yours networks to prevent them to overlap 
+:::
+
 #### REGARDS network
 
 By default, *demo inventories* defines an internal microservice communication network with the following value :
