@@ -3,6 +3,7 @@ id: recipient-sender-notifier-plugins
 title: Recipient sender plugins
 sidebar_label: Recipient sender plugins
 slug: /development/backend/services/notifier/plugins/recipient-sender
+sidebar_position: 3
 ---
 
 This guide introduces you how to configure Recipient sender plugins.  
@@ -37,7 +38,7 @@ RabbitMQ exchange.
 
 :::info
 AMQP senders will create the queue and exchange on RabbitMQ **on the first message posted on the exchange**.  
-If you want the exchange and queue to exist before that, you need to explicitly create it on RabbitMQ threw  the RabbitMQ admin interface or inside your playbook inventory.
+If you want the exchange and queue to exist before that, you need to explicitly create it on RabbitMQ through the RabbitMQ admin interface or inside your playbook inventory.
 :::
 
 
@@ -131,11 +132,15 @@ This plugin let you override following configuration:
 
 This plugin is designed to submit received features to the `LTA manager` service.
 
-This plugin received a list of features as an input and then send a
-[submission request](../../lta-manager/guides/create-product-rest#request-body/)
+This plugin received a GeoJSON feature as an input and then send
+[submission request](../../lta-manager/api-guides/amqp/amqp-submit-product.md)
 to the `LTA manager` through AMQP.
 
-this plugin let you override the following configuration :
+:::warning
+This plugin only supports GeoJSON products as input
+:::
+
+This plugin lets you override the following configuration :
 
 | Name               | Type    | Optional | Description                                                                                                                                                                                                                                                               |
 |--------------------|---------|:--------:|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -148,7 +153,7 @@ this plugin let you override the following configuration :
 {
   "key": "fr.cnes.regards.framework.modules.plugins.domain.PluginConfiguration",
   "value": {
-    "pluginId": "WorkerManagerSender",
+    "pluginId": "LtaRequestSender",
     "label": "{label}",
     "businessId": "{uniqueIdentifier}",
     "version": "1.0.0",
@@ -184,6 +189,18 @@ this plugin let you override the following configuration :
         "name": "replaceMode",
         "type": "STRING",
         "value": "{true or false}"
+      },
+      {
+        "name": "dataType",
+        "type": "STRING",
+        "value": "{datatype value}",
+        "dynamic": false
+      },
+      {
+        "name": "recipientLabel",
+        "type": "STRING",
+        "value": "{identifier of the recipient}",
+        "dynamic": false
       }
     ]
   }
@@ -286,7 +303,7 @@ Here is an example that send a product to the WorkerManager on the same instance
 - Send notification to the exchange used by the Worker Manager
 - `ackRequired` is defined to `true`, so the worker will acknowledge the dissemination. Moreover, `blockingRequired` is
   defined to `true`, which means the notification should prevent the emitter to allow product modification or deletion
-- Administrators can send any product to this worker threw HMI, as `directNotificationEnabled` is true and an
+- Administrators can send any product to this worker through HMI, as `directNotificationEnabled` is true and an
   HMI `description` is provided
 
 ```json title="Send notification to WorkerManager with acknowledge required, direct notification allowed"

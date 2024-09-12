@@ -5,6 +5,11 @@ slug: /development/services/dam/plugins/overview
 sidebar_position: 1
 ---
 
+:::info developers advice
+If you want to create your own implementation of one of these extension points, you need to extend the specific
+interface indicated.
+:::
+
 ## Data source plugins
 
 All the following plugins implements
@@ -12,7 +17,7 @@ the [IDataSourcePlugin interface](https://github.com/RegardsOss/regards-backend/
 
 | Plugin image                                                                                                                     | Plugin name                        | Description                                                                | 
 |----------------------------------------------------------------------------------------------------------------------------------|------------------------------------|----------------------------------------------------------------------------|
-| [rs-aip-data-source-plugin](https://github.com/orgs/RegardsOss/packages/container/package/rs-aip-datasource-plugin)              | aip-storage-datasource             | Plugin to crawl products from `rs-ingest` microservice.                    |
+| [rs-aip-data-source-plugin](https://github.com/orgs/RegardsOss/packages/container/package/rs-aip-datasource-plugin)              | aip-datasource                     | Plugin to crawl products from `rs-ingest` microservice.                    |
 | [rs-feature-datasource-plugin](https://github.com/orgs/RegardsOss/packages/container/package/rs-feature-datasource-plugin)       | feature-datasource                 | Plugin to crawl products from `rs-fem` microservice.                       |
 | [rs-postgresql-datasource-plugin](https://github.com/orgs/RegardsOss/packages/container/package/rs-postgresql-datasource-plugin) | postgresql-datasource-single-table | Plugin to crawl products from a **single table** of a `postgres database`. |
 | [rs-postgresql-datasource-plugin](https://github.com/orgs/RegardsOss/packages/container/package/rs-postgresql-datasource-plugin) | postgresql-datasource              | Plugin to crawl products from **many tables** of a `postgres database`.    |

@@ -22,95 +22,53 @@ Docker swarm installation of REGARDS is available for CentOS, Ubuntu, Debian and
 
 1. Install Ansible version `2.9.27` at
    least [docs.ansible.com](https://docs.ansible.com/ansible/latest/installation_guide/installation_distros.html)
-1. Download [regards-docker playbooks](https://codeload.github.com/RegardsOss/regards-docker/zip/refs/heads/master).
-1. Your user is sudoer. Note that all command on this tutorial shall not be runned with root user.
+1. Clone [regards-docker playbooks](https://github.com/RegardsOss/regards-docker).
+1. Your user is sudoer. Note that all command on this tutorial shall not be run with root user.
 
 ## Create your inventory
 
-### Create your hosts file
+### Initialize your inventory
 
-Once you download and extract the `regards-docker-master`, you need to create an inventory that saves the configuration
-of your setup. Create a folder inside the `regards-docker-master/inventories/`, using by example a subset of the server
+Once you have clone the `regards-docker`, you need to create an inventory that saves the configuration
+of your setup. Create a folder inside the `regards-docker/inventories/`, using by example a subset of the server
 hostname you want to install REGARDS on.
 
 Let's suppose we want to create an inventory on a computer named `regards-cnes.host.com` :
 
 ```bash
-mkdir regards-docker-master/inventories/regards-cnes
-cd regards-docker-master/inventories/regards-cnes
+mkdir regards-docker/inventories/regards-cnes
+cd regards-docker/inventories/regards-cnes
 ```
 
-Let's create an `hosts` file that defines nodes that will be used during this deployment.
+Then, you need to initialise the inventory content using one of the available example inventories.  
+Use one of these command, depending on the type of deployment and the number of products / load / ... :
 
 ```bash
-cat >> hosts << FIN_CAT
-[regards_nodes]
-[1] Keep next line if you run Ansible on the server where REGARDS will be installed. Do not edit ansible_host value.
-regards-master ansible_host='{{ global_stack.master_node_host_name }}' ansible_connection=local
-[2] Keep next line if you don't run Ansible on the server where REGARDS will be installed. Do not edit ansible_host value.
-regards-master ansible_host='{{ global_stack.master_node_host_name }}' ansible_user=XXX ansible_password=XXX
-[3] Keep next lines if you have more than 1 server.
-regards-slave-1 ansible_host=host-server2 ansible_user=XXX ansible_password=XXX
-regards-slave-2 ansible_host=host-server3 ansible_user=XXX ansible_password=XXX
-[4] You can omit ansible_user=XXX and ansible_password=XXX" if you don't need user/password to log on that node
-
-
-[master]
-regards-master
-
-[slaves]
-[5] Removes the next line if you have only one server, or adapt
-regards-slave-[1:2]
-
-[docker_nodes]
-regards-master
-[6] Removes the next line if you have only one server, or adapt
-regards-slave-[1:2]
-
-[swarm_manager]
-regards-master
-
-[swarm_workers]
-[7] Removes the next line if you have only one server, or adapt
-regards-slave-[1:2]
-FIN_CAT
-```
-
-| Variable           | Description                                           |
-|:-------------------|:------------------------------------------------------|
-| `ansible_host`     | hostname of the server                                |
-| `ansible_user`     | user login to log on by ssh to configure & install    |
-| `ansible_password` | user password to log on by ssh to configure & install |
-
-Remove all lines begining with `[1-7]` and make appropriate changes following your needs. You have two examples provided
-inside regards-docker-master: `inventories/demo/hosts` and `inventories/multihosts/hosts`.
-
-### Create your group_vars folder
-
-Now you've configured where you want to install REGARDS, you need to configure what and how you want to install, using a
-folder named `group_vars` inside your inventory.
-
-#### Copy an existing group_vars folder
-
-First, you need to initialise the `group_vars` folder using one of these commands, depending of the number of servers
-you have :
-
-```bash
-# cd regards-docker-master/inventories/regards-cnes
 # Install REGARDS on one server - using demo inventory
-cp -R ../../demo/group_vars ./
+# Not recommended
+cp -R ../../demo/* ./
 
 # Install REGARDS on one server when you don't want any security activated. 
 # In that case, you need to setup SWARM by YOURSELF, as this is trivial and documented out there
 # Use it when you install REGARDS on your own developper PC and not a distant server.
-cp -R ../../demo-insecure/group_vars ./
+# Not recommended
+cp -R ../../demo-insecure/* ./
 
-# Install REGARDS on several servers - using multihosts inventory
-cp -R ../../multihosts/group_vars ./
+# Install REGARDS on several servers - for testing purpose
+cp -R ../../demo-multihosts/* ./
+
+# Install REGARDS on serveral servers - this instance won't have a lot of load
+cp -R ../../demo-standard/* ./
+
+# Install REGARDS on serveral servers - this instance will be onload (lot of products / files / ...)
+cp -R ../../demo-performance/* ./
 ```
 
-Following chapter explains how to adapt these configurations to your needs, dependending the inventory you chose. You
-can find [here](advanced/01-advanced-introduction.md) the full list of possibilities that our playbook offers.
+### Initialize the host file
+
+Now you need to configure where you want to install REGARDS by editing the `host` file.
+
+#### Customise inventory properties
 
 #### Customise a demo's based inventory
 
@@ -137,7 +95,7 @@ Edit the file `regards-cnes/group_vars/all/main.yml` with :
 | `global_stack.docker.network_interface` | Name of the network interface used to access to your server. For local installation you can use the `ifconfig` unix command to find it |
 | `global_regards.your_user`              | The name of your user. All REGARDS process and created files will be owned by your linux user                                          |
 | `global_regards.your_user_id`           | The id related to your user. Runs the command `id` to get that value                                                                   |
-| `global_regards.version`                | Version of REGARDS to install                                                                                                          
+| `global_regards.version`                | Version of REGARDS to install                                                                                                          |
 | `global_regards.project_name`           | Name of the first project created on REGARDS automagically                                                                             |
 
 #### Customise a multihosts's based inventory
@@ -155,8 +113,16 @@ Edit the file `regards-cnes/group_vars/all/main.yml` with :
 
 :::caution
 In multi nodes deployment mode, the `global_stack.workdir` value have to be the same accessible directory on each
-nodes (e.g. NFS mount).
+node (e.g. NFS mount).
 :::
+
+#### Customise a standard based inventory
+
+_Not yet released._
+
+#### Customise a performance based inventory
+
+_Not yet released._
 
 ## Install the stack
 
@@ -175,14 +141,15 @@ If it returns `v2.x`, you need to :
 - edit the file `inventories/<inventory name>/docker_nodes/main.yml` and edit the value used on `python_version`. Set
   that value to `python_version: 2`.
 - if `ansible-playbook` does not work, you can try to use `ansible-playbook-2.7` instead.
-  :::
+
+:::
 
 ### Ansible CLI overview
 
 Let's see how you can use Ansible playbook CLI.
 
 ```bash
-# cd regards-docker-master/
+# cd regards-docker/
 ansible-playbook -i inventories/<inventory name> <playbook file>.yml <additional parameters>
 ```
 
@@ -212,7 +179,7 @@ execution. What really matters is `failed=0` in the recap.
 Let's see how to do a secure installation:
 
 ```bash
-# cd regards-docker-master/
+# cd regards-docker/
 ansible-playbook -i inventories/<inventory name> setup-vm.yml <additional parameters>
 
 
@@ -221,7 +188,7 @@ ansible-playbook -i inventories/<inventory name> setup-vm.yml <additional parame
 With an example :
 
 ```bash
-# cd regards-docker-master/
+# cd regards-docker/
 > ansible-playbook -i inventories/regards-cnes setup-vm.yml --ask-become-pass
 [..]
 PLAY RECAP *******************************************************************************************************
@@ -250,7 +217,7 @@ the [official guide](https://docs.github.com/en/packages/working-with-a-github-p
 execute the following two commands:
 
 ```
-# Connect threw SSH to your master node and use the token to login in to Github 
+# Connect through SSH to your master node and use the token to login in to Github 
 export CR_PAT=<your token access>
 echo $CR_PAT | docker login ghcr.io --password-stdin -u <your username>
 ```
@@ -263,7 +230,7 @@ private Docker registry.
 ### REGARDS install
 
 ```bash
-# cd regards-docker-master/
+# cd regards-docker/
 ansible-playbook -i inventories/<inventory name> regards.yml <additional parameters>
 ```
 
@@ -312,7 +279,7 @@ You can monitor and administrate the deployed stack thanks to cli commands as ex
 
 ### Quick setup conclusion
 
-Still there ? Congratulations, you've just finished the first step of the install!
+Still there ? Congratulations, you've just finished the first step of the installation!
 
 Several web interfaces are accessible on your server now :
 

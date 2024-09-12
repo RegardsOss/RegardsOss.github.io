@@ -44,19 +44,49 @@ If you uncomment a microservice, like so:
 
 ```yml
 # Stack
-#  fem:
-#    tag: "{{ group_docker_tags.back }}"
-storage:
-  tag: "{{ group_docker_tags.back }}"
-#  order:
-#    tag: "{{ group_docker_tags.back }}"
+group_docker_mservices:
+  #  fem:
+  #    tag: "{{ group_docker_tags.back }}"
+  storage:
+    tag: "{{ group_docker_tags.back }}"
+  #  order:
+  #    tag: "{{ group_docker_tags.back }}"
 ```
 
-It means to the playbook that the microservice storage will be activate on the next deployment.
+It means to the playbook that the microservice storage will be activated on the next deployment.
+
+### Plugins
+
+There is a section in your inventory that lists all plugins that will be available for
+microservices: `group_docker_plugins`.
+
+If you want to add [the `aip-datasource` plugin](../../../development/services/dam/plugins/overview.md) to allow the
+microservice DataManagement to crawl OAIS products, you need to add the image plugin in the `group_docker_plugins`
+property:
+
+```yml
+# Plugins
+group_docker_plugins:
+  - image: rs-aip-datasource-plugin
+    tag: "{{ group_docker_tags.plugins }}"
+```
+
+:::info
+
+The documentation of every microservice list all OSS plugins and their image name.  
+Here is some examples:
+
+- [rs-dam or DataManagement plugins](../../../development/services/dam/plugins/overview.md)
+- [rs-notifier plugins](../../../development/services/notifier/plugins/overview.md)
+- [rs-ingest plugins](../../../development/services/ingest/plugins/overview.md)
+- [rs-catalog plugins](../../../development/services/catalog/plugins/overview.md)
+- ...
+
+:::
 
 ### Internal catalogs
 
-There is 3 types of crawler that lets REGARDS populate its meta-catalog :
+There is 3 types of crawler that lets REGARDS to populate its meta-catalog :
 
 - the *internal* [OAIS catalog](../../../user-documentation/4_1-ingest/introduction-ingest.md)
 - the *internal* [GeoJSON catalog](../../../user-documentation/4_3-fem/introduction-fem.md)

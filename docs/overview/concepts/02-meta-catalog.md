@@ -1,5 +1,4 @@
 ---
-id: concepts-meta-catalog
 title: REGARDS Meta catalog
 sidebar_label: Meta catalog
 slug: /development/concepts/meta-catalog/

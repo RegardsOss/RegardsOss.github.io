@@ -34,12 +34,15 @@ the [ISipValidation interface](https://github.com/RegardsOss/regards-backend/blo
 
 ## SIP Pre processing plugins
 
-No plugin available yet.
-
 All the following plugins implements
 the [ISipPreprocessing interface](https://github.com/RegardsOss/regards-backend/blob/master/rs-ingest/ingest/ingest-domain/src/main/java/fr/cnes/regards/modules/ingest/domain/plugin/ISipPreprocessing.java).
 
+No plugin available yet.
+
 ## AIP Metadata generation
+
+All the following plugins implements
+the [IAipGeneration interface](https://github.com/RegardsOss/regards-backend/blob/master/rs-ingest/ingest/ingest-domain/src/main/java/fr/cnes/regards/modules/ingest/domain/plugin/IAipGeneration.java).
 
 | Plugin image                                                                                                                                                     | Plugin name                                 | Description                                                                                      |
 |------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------|--------------------------------------------------------------------------------------------------|
@@ -47,32 +50,28 @@ the [ISipPreprocessing interface](https://github.com/RegardsOss/regards-backend/
 | [**rs-enhanced-descriptive-aip-generation-plugin**](https://github.com/orgs/RegardsOss/packages/container/package/rs-enhanced-descriptive-aip-generation-plugin) | StringEnhancedDescriptiveAipGeneration      | Add given key/value metadata (wih string value) to every AIP on descriptiveInformation section   |
 | Not yet published                                                                                                                                                | StringArrayEnhancedDescriptiveAipGeneration | Add given key/values metadata (wih string values) to every AIP on descriptiveInformation section |
 
-All the following plugins implements
-the [IAipGeneration interface](https://github.com/RegardsOss/regards-backend/blob/master/rs-ingest/ingest/ingest-domain/src/main/java/fr/cnes/regards/modules/ingest/domain/plugin/IAipGeneration.java).
-
 ## AIP Storage metadata generation
+
+All the following plugins implements
+the [IAIPStorageMetadataUpdate interface](https://github.com/RegardsOss/regards-backend/blob/master/rs-ingest/ingest/ingest-domain/src/main/java/fr/cnes/regards/modules/ingest/domain/plugin/IAIPStorageMetadataUpdate.java).
 
 | Plugin image                                      | Plugin name            | Description                                                                              | 
 |---------------------------------------------------|------------------------|------------------------------------------------------------------------------------------|
 | **Already** provided <br/>inside the microservice | VirtualStorageLocation | Transforms a configured virtual storage location into one or many real storage locations |
 
-All the following plugins implements
-the [IAIPStorageMetadataUpdate interface](https://github.com/RegardsOss/regards-backend/blob/master/rs-ingest/ingest/ingest-domain/src/main/java/fr/cnes/regards/modules/ingest/domain/plugin/IAIPStorageMetadataUpdate.java).
-
 ## AIP Tagging
+
+All the following plugins implements
+the [IAipTagging interface](https://github.com/RegardsOss/regards-backend/blob/master/rs-ingest/ingest/ingest-domain/src/main/java/fr/cnes/regards/modules/ingest/domain/plugin/IAipTagging.java).
 
 | Plugin image                                      | Plugin name       | Description                           | 
 |---------------------------------------------------|-------------------|---------------------------------------|
 | **Already** provided <br/>inside the microservice | DefaultAIPTagging | Adds configured tags to every new AIP |
 
-All the following plugins implements
-the [IAipTagging interface](https://github.com/RegardsOss/regards-backend/blob/master/rs-ingest/ingest/ingest-domain/src/main/java/fr/cnes/regards/modules/ingest/domain/plugin/IAipTagging.java).
-
 ## SIP Post processing plugins
-
-| Plugin image      | Plugin name                  | Description                                                     | 
-|-------------------|------------------------------|-----------------------------------------------------------------|
-| Not yet published | SendDeleteFilesWorkerRequest | Send an AMQP request to worker manager with all SIP input files |
 
 All the following plugins implements
 the [ISipPostprocessing interface](https://github.com/RegardsOss/regards-backend/blob/master/rs-ingest/ingest/ingest-domain/src/main/java/fr/cnes/regards/modules/ingest/domain/plugin/ISipPostprocessing.java).
+| Plugin image      | Plugin name                  | Description                                                     | 
+|-------------------|------------------------------|-----------------------------------------------------------------|
+| Not yet published | SendDeleteFilesWorkerRequest | Send an AMQP request to worker manager with all SIP input files |

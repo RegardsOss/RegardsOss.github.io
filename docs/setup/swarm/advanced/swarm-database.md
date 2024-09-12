@@ -8,13 +8,42 @@ sidebar_position: 4
 Supported Postgres version: 11  
 Posgis extension: Facultative
 
+### Configure phppgadmin
+
+#### Use internal postgres
+
+_No yet documented_
+
+#### Use external postgres
+
+Edit your inventory file `inventories/<your inventory>/group_vars/regards_nodes/main.yml`
+
+```yaml
+  phppgadmin:
+    [ ... ]
+    db:
+      - name: DB Instance
+        host: database-inst.cnes.fr
+        port: 5432
+        defaultdb: <instance database name>
+        theme: cappuccino
+      - name: DB Project
+        host: database-first-project.cnes.fr
+        port: 5432
+        defaultdb: <first project database name>
+        theme: cappuccino
+    setting_main_theme: cappuccino
+```
+
+### Use external postgres
+
 Edit your inventory file `inventories/<your inventory>/group_vars/regards_nodes/main.yml`
 
 - add connection information
 
 ```yaml
 group_config_mservices:
-  [...]
+  [ ... ]
   postgres:
     instance:
       host: database-inst.cnes.fr
@@ -37,7 +66,7 @@ group_config_mservices:
 group_docker_cots:
   postgres:
     tag: "{{ group_docker_tags.cots }}"
-    [...]
+    [ ... ]
 
 # After
 group_docker_cots:
@@ -51,33 +80,12 @@ group_docker_cots:
 group_docker_mservices:
   access_instance:
     tag: "{{ group_docker_tags.back }}"
-    [...]
+    [ ... ]
 
 # After
 group_docker_mservices:
   access_instance:
     tag: "{{ group_docker_tags.back }}"
     postgis: false
-    [...]
-```
-
-- update the phppgadmin service that was deployed inside `group_docker_cots`
-    - either remove this component, as we did for postgres
-    - or edit it like this, to be able to use phppgadmin on your mutualized Postgres:
-
-```yaml
-  phppgadmin:
-    [...]
-    db:
-      - name: DB Instance
-        host: database-inst.cnes.fr
-        port: 5432
-        defaultdb: <instance database name>
-        theme: cappuccino
-      - name: DB Project
-        host: database-first-project.cnes.fr
-        port: 5432
-        defaultdb: <first project database name>
-        theme: cappuccino
-    setting_main_theme: cappuccino
+    [ ... ]
 ```

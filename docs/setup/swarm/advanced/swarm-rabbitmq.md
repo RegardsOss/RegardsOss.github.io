@@ -96,7 +96,7 @@ group_docker_cots:
 
 ### With TLS
 
-On REGARDS Swarm deployment, it's the rs-front service that provides the RabbitMQ Admin UI threw TLS.
+On REGARDS Swarm deployment, it's the rs-front service that provides the RabbitMQ Admin UI through TLS.
 
 ```yaml
 group_docker_mservices:
@@ -106,7 +106,7 @@ group_docker_mservices:
 
 group_docker_cots:
   rabbitmq:
-  # rabbitmq admin HMI is open threw rs-front, no property used here
+  # rabbitmq admin HMI is open through rs-front, no property used here
 ```
 
 ## Configure admin

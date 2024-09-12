@@ -3,6 +3,7 @@ id: rule-matcher-notifier-plugins
 title: Rule matcher plugins
 sidebar_label: Rule matcher plugins
 slug: /development/backend/services/notifier/plugins/rule-matcher
+sidebar_position: 4
 ---
 
 This guide introduces you how to configure Rule matcher plugins.  
@@ -26,7 +27,7 @@ interface indicated.
 ### Default Rule Matcher
 
 This rule matcher allows to check into notification content if a json property matches given specific value. If so, the
-notification is sent to associated Recipient sender plugin(s).  
+notification is sent to associated [Recipient sender plugin(s)](recipient-sender-plugins.md).  
 Configuration parameters are:
 
 | Name                 | Type   | Description                                                |
@@ -62,7 +63,7 @@ Configuration parameters are:
 ### Lucene Rule Matcher
 
 This rule matcher allows to check if notification content or metadata matches given lucene expression. If so,
-the notification is sent to associated Recipient sender plugin(s).
+the notification is sent to associated [Recipient sender plugin(s)](recipient-sender-plugins.md).
 Configuration parameters are:
 
 | Name          | Type   | Description                                                |

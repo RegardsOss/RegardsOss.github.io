@@ -1,5 +1,4 @@
 ---
-id: product-restitution-services
 title: Product Restitution services
 sidebar_label: Product Restitution services
 slug: /development/functional-overview/microservices-restitution/
@@ -15,7 +14,7 @@ that
 all the data are not available for download at any time. Users need to request files for availability first.
 :::info
 
-To allow users to order products from your catalog, you need to add microservices :
+To allow users to order products from your catalog, you need to use these microservices :
 
 - [rs-order](../../development/services/order/overview.md) : Manage users orders.
 - **Optional** [rs-delivery](../../development/services/delivery/delivery-overview.md) : Deliver ordered products files.

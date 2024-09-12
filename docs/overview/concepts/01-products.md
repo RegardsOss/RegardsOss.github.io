@@ -1,5 +1,4 @@
 ---
-id: concepts-products
 title: What is a Product ?
 sidebar_label: Products
 slug: /development/concepts/products/

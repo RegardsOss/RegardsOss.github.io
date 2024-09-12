@@ -12,7 +12,7 @@ is mandatory.
 
 :::info Docker deployment
 When you deploy REGARDS using Docker SWARM, we also deploy an NGinx reverse proxy in front of the gateway: **rs-front**.
-So all requests go threw the rs-front service, then threw the Gateway service and finally hits the requested service.
+So all requests go through the rs-front service, then through the Gateway service and finally hits the requested service.
 :::
 
 `rs-gateway` responsibilities :

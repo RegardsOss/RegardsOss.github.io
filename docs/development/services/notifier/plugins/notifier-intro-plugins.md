@@ -3,6 +3,7 @@ id: backend-notifier-plugins-intro
 title: Notifier plugins overview
 sidebar_label: Overview
 slug: /development/backend/services/notifier/plugins/intro
+sidebar_position: 1
 ---
 
 This section introduces you how to configure the `Notifier` microservice to send messages depending on the product 
@@ -23,7 +24,7 @@ Sender plugins are used to define:
 * Can be directly notified
 
 [Check Recipient sender plugins guide](./recipient-sender-plugins.md) to see available implementation and their
-configuration of this kind of plugins.
+configuration of this kind of plugin.
 
 ## Recipients / Rules association
 
@@ -55,7 +56,7 @@ You can associate one rule matcher plugin to many recipient sender plugins.
 Rules matcher plugins are used to define if a product should be sent according to product content and metadata.
 
 [Check Rule matcher plugins guide](./rule-matcher-plugins.md) to see available implementation and 
-configuration of this kind of plugins.
+configuration of this kind of plugin.
 
 :::info What's next?
 If the rule matcher plugin accepts the product to notification, it will send it to each **Recipient sender plugin**
