@@ -8,7 +8,8 @@ slug: /development/services/overview/
 This section provides documentation about REGARDS microservices :
 
 - [Access project](../services/access-project/overview.md) : **Access project** (or **rs-access-project**) microservice is used as a **backend for frontend**. This service is used by the Web UI to retrieve its configuration and to aggregate some microservices information.
-- [Access instance](../backend/regards/access-instance/overview.md)
+- [Access instance](./access-instance/overview.md) : **Access instance** (or **rs-access-instance**) microservice has
+  been designed as a front-end to access the various generalist services made available by Regards.
 - [Admin project](../backend/regards/admin/admin.md)
 - [Admin instance](../backend/regards/admin-instance/overview.md)
 - [Authentication](authentication/authentication-overview.md) : **Authentication** or **rs-authentication** microservice
