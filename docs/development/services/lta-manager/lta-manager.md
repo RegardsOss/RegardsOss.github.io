@@ -23,7 +23,7 @@ To do so, `LTA Manager` or `rs-lta-manager` provides these functionalities:
 :::info Mandatory
 `LTA Manager` or `rs-lta-manager` need a worker to transform LTA request to SIP.
 This worker must be deployed and registered in
-the [worker-manager service](../../backend/regards/worker-manager/rs-worker-manager.json).
+the [rs-worker-manager microservice](../../services/worker-manager/overview.md).
 :::
 
 | Concept                                                                           | Compatibility | Description                                     |
@@ -46,7 +46,6 @@ You can learn how to **operate** with the microservice thanks to **API Guides** 
   Archive request* updates.
 - Browse all [REST API available endpoints](api-guides/rest/lta-manager-api-swagger.mdx).
 
-
 ## How to configure
 
 To learn how the microservice is configured with **static parameters from properties files**
@@ -57,6 +56,7 @@ see [Import/export configuration section](./configuration/lta-manager-import-exp
 
 ## How to access source code
 
-Microservice source code is available on [GitHub](https://github.com/RegardsOss/regards-backend/tree/master/rs-lta-manager).
+Microservice source code is available
+on [GitHub](https://github.com/RegardsOss/regards-backend/tree/master/rs-lta-manager).
 
  

@@ -60,7 +60,7 @@ This design uses:
 - [rs-storage](../../development/services/storage/overview.md)
 - A worker that retrieves an input payload (customizable) and send
   GeoJSON product creation request to the Feature-Manager (rs-fem)
-    - Guide to create your own [Worker](../../development/backend/regards/worker-manager/storage.md)
+    - Guide to create your own [Worker](../../development/services/worker-manager/overview.md)
     - Guide to send product submission MQ message to **rs-fem** from your worker,
       see [AMQP Submit product API Guide](../../development/services/fem/api-guides/amqp/amqp-publish-create-product-request.md).
 - **Optional** [rs-notifier](../../development/services/notifier/overview.md)

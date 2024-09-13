@@ -28,7 +28,8 @@ You will find relevant information to help you **to interact or develop on the R
     - [Data provider](./services/dataprovider/dataprovider-overview.md) : **Data provider** or **rs-data-provider**
       microservice is used to detect files on disk, create products in SIP format from these files and finally send
       these SIPs to the rs-ingest service.
-    - [Delivery](./services/delivery/delivery-overview.md): **Delivery** or **rs-delivery** microservice manage products orders
+    - [Delivery](./services/delivery/delivery-overview.md): **Delivery** or **rs-delivery** microservice manage products
+      orders
       delivery to configured locations.
     - [Feature manager (rs-fem)](services/fem/overview.md) : **Feature manager** or **rs-fem** microservice is used to
     - [Gateway](./services/gateway/gateway.md): **Gateway** or **rs-gateway** manage the front proxy for the
@@ -50,5 +51,7 @@ You will find relevant information to help you **to interact or develop on the R
     - [Storage](services/storage/overview.md): **Storage** or **rs-storage** microservice manages the storage, the
       deletion and the download of files associated to products of **OAIS catalog rs-ingest** and **GeoJson catalog
       rs-fem**.
-    - [Worker Manager](./backend/regards/worker-manager/storage.md)
+    - [Worker Manager](services/worker-manager/overview.md): **Worker Manager** or **rs-worker-manager** microservice is
+      designed to act as an entry point for all processing requests dedicated to
+      all [workers](../development/concepts/08-workers.md) on the system
 - [Web UI](./frontend/arch.md) introduces you the architecture and design of the REGARDS interface.

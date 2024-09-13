@@ -39,4 +39,6 @@ This section provides documentation about REGARDS microservices :
   the global [microservice architecture](../concepts/02-microservices.md).
 - [Storage](storage/overview.md): **Storage** or **rs-storage** microservice manages the storage, the deletion and the
   download of files associated to products of **OAIS catalog rs-ingest** and **GeoJson catalog rs-fem**.
-- [Worker Manager](../backend/regards/worker-manager/storage.md)
+- [Worker Manager](worker-manager/overview.md): **Worker Manager** or **rs-worker-manager** microservice is
+  designed to act as an entry point for all processing requests dedicated to
+  all [workers](../../development/concepts/08-workers.md) on the system

@@ -34,7 +34,7 @@ To create products on the OAIS catalog, you can use these microservices :
 - **Optional** [rs-lta-manager](../../development/services/lta-manager/lta-manager.md) : Long term Archive system.
   Simplified
   interface to add products into the OAIS catalog (rs-ingest). Requires rs-worker-manager microservice.
-- **Optional** [rs-worker-manager](../../development/backend/regards/worker-manager/storage.md) : Manager to handle
+- **Optional** [rs-worker-manager](../../development/services/worker-manager/overview.md) : Manager to handle
   regards [workers](../../development/concepts/08-workers.md).
   To use **rs-lta-manager**, worker manager is mandatory with a worker that receives simplified products format and send
   Submission Information Package requests to OAIS catalog (rs-ingest).
@@ -87,7 +87,7 @@ This design uses:
 - [rs-ingest](../../development/services/ingest/overview.md)
 - [rs-storage](../../development/services/storage/overview.md)
 - [rs-lta-manager](../../development/services/lta-manager/lta-manager.md)
-- [rs-worker-manager](../../development/backend/regards/worker-manager/storage.md)
+- [rs-worker-manager](../../development/services/worker-manager/overview.md)
 - Some worker that receives simplified products format and send
   Submission Information Package requests to OAIS catalog (rs-ingest)
 - **Optional** [rs-notifier](../../development/services/notifier/overview.md)
