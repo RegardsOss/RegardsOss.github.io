@@ -24,7 +24,7 @@ Requests must be published to the REGARDS RabbitMQ exchange:
 
 | Exchange (type fanout)                                              | Virtual host                   |
 |---------------------------------------------------------------------|--------------------------------|
-| `fr.cnes.regards.modules.workermanager.amqp.events.in.RequestEvent` | `regards.multitenant.manager`	 |
+| `regards.broadcast.fr.cnes.regards.modules.workermanager.amqp.events.in.RequestEvent` | `regards.multitenant.manager`	 |
 
 ### Request content
 

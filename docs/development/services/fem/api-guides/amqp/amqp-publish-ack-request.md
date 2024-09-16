@@ -15,16 +15,17 @@ Product acknowledgement by an external supplier is carried out as part of
 A recipient of a product broadcast by the `rs-fem` service can provide an acknowledgement information.
 This guide explains how to send this acknowledgement to the `rs-fem` service.
 
-This acknowledgement method is not the only way to acknowledge a product. 
-It is also possible to acknowledge the distribution of a product with a [product update request](./amqp-publish-patch-product-request.md).
+This acknowledgement method is not the only way to acknowledge a product.
+It is also possible to acknowledge the distribution of a product with
+a [product update request](./amqp-publish-patch-product-request.md).
 
 ## Exchange
 
 Acknowledge requests have to be published to this REGARDS RabbitMQ exchange:
 
-| Exchange                                                             | Virtual host                   |
-|----------------------------------------------------------------------|--------------------------------|
-| `fr.cnes.regards.modules.feature.dto.event.in.DisseminationAckEvent` | `regards.multitenant.manager`	 |
+| Exchange                                                                               | Virtual host                   |
+|----------------------------------------------------------------------------------------|--------------------------------|
+| `regards.broadcast.fr.cnes.regards.modules.feature.dto.event.in.DisseminationAckEvent` | `regards.multitenant.manager`	 |
 
 ## AMQP message format
 
@@ -62,5 +63,6 @@ Acknowledge requests have to be published to this REGARDS RabbitMQ exchange:
 | recipientLabel | String | Name of the recipient      | True      |
 
 :::caution
-The name of the recipient or **recipientLabel** must be the same as the recipient name configured in rs-notifier service.
+The name of the recipient or **recipientLabel** must be the same as the recipient name configured in rs-notifier
+service.
 :::
