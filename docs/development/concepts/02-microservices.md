@@ -53,5 +53,5 @@ Regards Microservice core architecture provides two types of API :
 - `REST API` : You can submit REST HTTP Requests to Regards microservices through **rs-gateway** microservice.
 - `AMQP API` : You can submit and subscribe to the Regards Message Broker : **RabbitMQ**.
 
-Both API types will be described for each microservice with API Guides under [Services](../backend/regards/overview.md)
+Both API types will be described for each microservice with API Guides under [Services](../services/overview.md)
 section of this documentation.

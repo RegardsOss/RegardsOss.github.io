@@ -27,7 +27,7 @@ This module can be used by other Regards microservices via an HTTP client.
 
 Initially, the client microservice sends a request to send an email including data such as the
 from, to, cc, subject, and text fields. This request is stored in the database and a scheduler processes these requests
-over time in order to send an email to the recipient.
+over time in order to email the recipient.
 
 If the sending of an asynchronous email fails, it will be repeated with 9 attempts. The time between
 the attempts is configurable. By default, attempts are made quickly at the beginning, then spaced out more and more.

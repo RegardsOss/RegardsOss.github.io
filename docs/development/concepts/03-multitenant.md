@@ -21,7 +21,7 @@ Any service suffixed with **-instance** is not a multitenant service.
 
 Instance microservices are:
 
-- [rs-admin-instance](../backend/regards/admin-instance/overview.md) : Microservice to manage all the projects of the
+- [rs-admin-instance](../services/admin-instance/overview.md) : Microservice to manage all the projects of the
   instance and to centralize all shared accounts between projets.
 - [rs-access-instance](../services/access-instance/overview.md) : Microservice to configure instance
   administration

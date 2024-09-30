@@ -11,7 +11,7 @@ Meta-Catalog services are a set of **mandatory REGARDS services** that allows to
 
 To do so, REGARDS provides following services :
 
-- [rs-admin-instance](../../development/backend/regards/admin-instance/overview.md) :
+- [rs-admin-instance](../../development/services/admin-instance/overview.md) :
   this [instance service](../../development/concepts/03-multitenant.md) manages projects and shared user accounts.
 - [rs-admin](../../development/services/admin/overview.md) : Manage project users and roles
 - [rs-authentication](../../development/services/authentication/authentication-overview.md) : Manage REGARDS

@@ -20,12 +20,12 @@ You will find relevant information to help you **to interact or develop on the R
       configuration and to aggregate some microservices information.
     - [Access instance](./services/access-instance/overview.md) : **Access instance** or **rs-access-instance**
       microservice manage the configuration of instance UI such as the portal and administration.
-    - [Admin project](services/admin-project/overview.md) : **Admin project** or **rs-admin** manages project
+    - [Admin project](./services/admin/overview.md) : **Admin project** or **rs-admin** manages project
       users and roles
-    - [Admin instance](services/admin-instance/overview.md) : : **Admin instance** or **rs-admin-instance** microservice
-      has been designed to centralize processes for the administration of Regards for all projets.
-    - [Authentication](services/authentication/authentication-overview.md) : **Authentication** or **rs-authentication**
-      microservice manage [project or tenant](./concepts/03-multitenant.md) users authentication.
+    - [Admin instance](./services/admin-instance/overview.md) : : **Admin instance** or **rs-admin-instance**
+      microservice has been designed to centralize processes for the administration of Regards for all projets.
+    - [Authentication](./services/authentication/authentication-overview.md) : **Authentication** or
+      **rs-authentication** microservice manage [project or tenant](./concepts/03-multitenant.md) users authentication.
     - [Catalog](services/catalog/overview.md): **Catalog** or **rs-catalog** microservice is used to consult
       products in the Regards meta-catalogue
     - [Data management (rs-dam)](./services/overview.md): **Data management** or **rs-dam** microservice mainly handle
@@ -34,29 +34,27 @@ You will find relevant information to help you **to interact or develop on the R
       microservice is used to detect files on disk, create products in SIP format from these files and finally send
       these SIPs to the rs-ingest service.
     - [Delivery](./services/delivery/delivery-overview.md): **Delivery** or **rs-delivery** microservice manage products
-      orders
-      delivery to configured locations.
-    - [Feature manager (rs-fem)](services/fem/overview.md) : **Feature manager** or **rs-fem** microservice is used to
+      orders delivery to configured locations.
+    - [Feature manager (rs-fem)](./services/fem/overview.md) : **Feature manager** or **rs-fem** microservice is used to
     - [Gateway](./services/gateway/gateway.md): **Gateway** or **rs-gateway** manage the front proxy for the
       global [microservice architecture](./concepts/02-microservices.md).
-    - [Ingest](services/ingest/overview.md) : **Ingest** or **rs-ingest** microservice manage the
+    - [Ingest](./services/ingest/overview.md) : **Ingest** or **rs-ingest** microservice manage the
       Regards [OAIS](appendices/01-oais.md) catalog.
-    - [LTA Manager](services/lta-manager/lta-manager.md) : **Lta manager** or **rs-lta-manager** microservice manage the
-      products archival requests.
+    - [LTA Manager](./services/lta-manager/lta-manager.md) : **Lta manager** or **rs-lta-manager** microservice manage
+      the products archival requests.  
       It is a simplified way to add products in the OAIS catalog.
-    - [Notifier](services/notifier/overview.md): **Notifier** or **rs-notifier** microservice is used to broadcast
+    - [Notifier](./services/notifier/overview.md): **Notifier** or **rs-notifier** microservice is used to broadcast
       messages from notifications received, such as products managed by REGARDS internal catalogs, to different
       recipients according to broadcast rules.
-    - [Order](services/order/overview.md):  **Order** or **rs-order** microservice manage users product orders.
-    - [Processing](services/processing/overview.md): **Processing** or **rs-processing** microservice, driven by order
+    - [Order](./services/order/overview.md):  **Order** or **rs-order** microservice manage users product orders.
+    - [Processing](./services/processing/overview.md): **Processing** or **rs-processing** microservice, driven by order
       microservice registry and the load balancing.
-    - [Registry](services/registry/overview.md): **Registry** or **rs-registry** microservice manages the microservices
-      registry of
-      the global [microservice architecture](./concepts/02-microservices.md).
-    - [Storage](services/storage/overview.md): **Storage** or **rs-storage** microservice manages the storage, the
+    - [Registry](./services/registry/overview.md): **Registry** or **rs-registry** microservice manages the
+      microservices registry of the global [microservice architecture](./concepts/02-microservices.md).
+    - [Storage](./services/storage/overview.md): **Storage** or **rs-storage** microservice manages the storage, the
       deletion and the download of files associated to products of **OAIS catalog rs-ingest** and **GeoJson catalog
       rs-fem**.
-    - [Worker Manager](services/worker-manager/overview.md): **Worker Manager** or **rs-worker-manager** microservice is
-      designed to act as an entry point for all processing requests dedicated to
+    - [Worker Manager](./services/worker-manager/overview.md): **Worker Manager** or **rs-worker-manager** microservice
+      is designed to act as an entry point for all processing requests dedicated to
       all [workers](../development/concepts/08-workers.md) on the system
 - [Web UI](./frontend/arch.md) introduces you the architecture and design of the REGARDS interface.
