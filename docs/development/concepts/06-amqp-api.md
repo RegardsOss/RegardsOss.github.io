@@ -35,9 +35,9 @@ To subscribe or to submit messages, you need to know :
 By default, Regards defines two main **Virtual Hosts** on its RabbitMQ server :
 
 - `regards.instance.manager` is dedicated to [instance microservices](03-multitenant.md) (like
-  [rs-admin-instance](../backend/regards/admin-instance/overview.md)).
+  [rs-admin-instance](../services/admin-instance/overview.md)).
 - `regards.multitenant.manager` is dedicated to all tenants and used by [project microservices](03-multitenant.md) (like
-  [rs-admin](../backend/regards/admin/admin.md)). This is the **main virtual host** that should be used by external
+  [rs-admin](../services/admin/overview.md)). This is the **main virtual host** that should be used by external
   systems and applications.
 
 :::info
@@ -89,8 +89,9 @@ use your Regards instance deployment inventory. To learn more about RabbitMQ add
 configuration see [RabbitQ advanced setup](../../setup/swarm/advanced/swarm-rabbitmq.md).
 
 :::caution
-With the **regards.multitenant.manager** virtual host, events will be sent by REGARDS for all tenants (or projects) 
-of your REGARDS instance. So the receiver may have to filter them according to the tenant he wishes to manage by checking
+With the **regards.multitenant.manager** virtual host, events will be sent by REGARDS for all tenants (or projects)
+of your REGARDS instance. So the receiver may have to filter them according to the tenant he wishes to manage by
+checking
 the **regards.tenant** parameter in the message headers.
 :::
 

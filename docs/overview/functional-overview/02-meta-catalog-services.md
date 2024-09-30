@@ -13,9 +13,11 @@ To do so, REGARDS provides following services :
 
 - [rs-admin-instance](../../development/backend/regards/admin-instance/overview.md) :
   this [instance service](../../development/concepts/03-multitenant.md) manages projects and shared user accounts.
-- [rs-admin](../../development/backend/regards/admin/admin.md)          : Manage project users and roles
-- [rs-authentication](../../development/services/authentication/authentication-overview.md) : Manage REGARDS authentication system(s)
-- [rs-dam](../../development/services/dam/overview.md)            : Populate the REGARDS [meta-catalog](../concepts/02-meta-catalog.md) from existing data 
+- [rs-admin](../../development/services/admin/overview.md) : Manage project users and roles
+- [rs-authentication](../../development/services/authentication/authentication-overview.md) : Manage REGARDS
+  authentication system(s)
+- [rs-dam](../../development/services/dam/overview.md) : Populate the
+  REGARDS [meta-catalog](../concepts/02-meta-catalog.md) from existing data
   source(s), manage **Data models** and compute access rights.
 - [rs-catalog](../../development/services/catalog/overview.md)        : Consult, search and access
   REGARDS [meta-catalog](../concepts/02-meta-catalog.md)

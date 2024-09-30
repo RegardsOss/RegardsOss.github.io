@@ -15,12 +15,13 @@ You will find relevant information to help you **to interact or develop on the R
 - [REGARDS Services](./services/overview.md) contains all microservice documentation of the REGARDS system :
   presentation,
   architecture, REST & AMQP API, examples...
-    - [Access project](./services/access-project/overview.md) : **Access project** (or **rs-access-project**)
+    - [Access project](./services/access-project/overview.md) : **Access project** or **rs-access-project**
       microservice is used as a **backend for frontend**. This service is used by the Web UI to retrieve its
       configuration and to aggregate some microservices information.
-    - [Access instance](./services/access-instance/overview.md) : **Access instance** (or **rs-access-instance**)
+    - [Access instance](./services/access-instance/overview.md) : **Access instance** or **rs-access-instance**
       microservice manage the configuration of instance UI such as the portal and administration.
-    - [Admin project](./backend/regards/admin/admin.md)
+    - [Admin project](services/admin-project/overview.md) : **Admin project** or **rs-admin** manages project
+      users and roles
     - [Admin instance](services/admin-instance/overview.md) : : **Admin instance** or **rs-admin-instance** microservice
       has been designed to centralize processes for the administration of Regards for all projets.
     - [Authentication](services/authentication/authentication-overview.md) : **Authentication** or **rs-authentication**
