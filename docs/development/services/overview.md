@@ -7,11 +7,14 @@ slug: /development/services/overview/
 
 This section provides documentation about REGARDS microservices :
 
-- [Access project](../services/access-project/overview.md) : **Access project** (or **rs-access-project**) microservice is used as a **backend for frontend**. This service is used by the Web UI to retrieve its configuration and to aggregate some microservices information.
+- [Access project](../services/access-project/overview.md) : **Access project** (or **rs-access-project**) microservice
+  is used as a **backend for frontend**. This service is used by the Web UI to retrieve its configuration and to
+  aggregate some microservices information.
 - [Access instance](./access-instance/overview.md) : **Access instance** (or **rs-access-instance**) microservice has
   been designed as a front-end to access the various generalist services made available by Regards.
 - [Admin project](../backend/regards/admin/admin.md)
-- [Admin instance](../backend/regards/admin-instance/overview.md)
+- [Admin instance](admin-instance/overview.md) : **Admin instance** or **rs-admin-instance** microservice has been
+  designed to centralize processes for the administration of Regards for all projets.
 - [Authentication](authentication/authentication-overview.md) : **Authentication** or **rs-authentication** microservice
   manage [project or tenant](../concepts/03-multitenant.md) users authentication.
 - [Catalog](catalog/overview.md): **Catalog** or **rs-catalog** microservice is used to consult products in the Regards

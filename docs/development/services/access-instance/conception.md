@@ -7,7 +7,7 @@ sidebar_position: 2
 
 ## Introduction
 
-The `rs-access-instance` microservice is composed of 2 distinct modules in order to configure instance administration
+The `rs-access-instance` microservice is composed of two distinct modules in order to configure instance administration
 web UI.
 
 ## Module : uiconfiguration
