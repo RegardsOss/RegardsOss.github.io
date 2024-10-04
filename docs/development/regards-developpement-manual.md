@@ -36,6 +36,7 @@ You will find relevant information to help you **to interact or develop on the R
     - [Delivery](./services/delivery/delivery-overview.md): **Delivery** or **rs-delivery** microservice manage products
       orders delivery to configured locations.
     - [Feature manager (rs-fem)](./services/fem/overview.md) : **Feature manager** or **rs-fem** microservice is used to
+      manage products in GeoJson format
     - [Gateway](./services/gateway/gateway.md): **Gateway** or **rs-gateway** manage the front proxy for the
       global [microservice architecture](./concepts/02-microservices.md).
     - [Ingest](./services/ingest/overview.md) : **Ingest** or **rs-ingest** microservice manage the
@@ -48,7 +49,7 @@ You will find relevant information to help you **to interact or develop on the R
       recipients according to broadcast rules.
     - [Order](./services/order/overview.md):  **Order** or **rs-order** microservice manage users product orders.
     - [Processing](./services/processing/overview.md): **Processing** or **rs-processing** microservice, driven by order
-      microservice registry and the load balancing.
+      microservice.
     - [Registry](./services/registry/overview.md): **Registry** or **rs-registry** microservice manages the
       microservices registry of the global [microservice architecture](./concepts/02-microservices.md).
     - [Storage](./services/storage/overview.md): **Storage** or **rs-storage** microservice manages the storage, the
@@ -56,5 +57,5 @@ You will find relevant information to help you **to interact or develop on the R
       rs-fem**.
     - [Worker Manager](./services/worker-manager/overview.md): **Worker Manager** or **rs-worker-manager** microservice
       is designed to act as an entry point for all processing requests dedicated to
-      all [workers](../development/concepts/08-workers.md) on the system
+      all [workers](./concepts/08-workers.md) on the system
 - [Web UI](./frontend/arch.md) introduces you the architecture and design of the REGARDS interface.
