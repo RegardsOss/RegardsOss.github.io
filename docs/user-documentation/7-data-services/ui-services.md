@@ -11,7 +11,7 @@ slug: /user-guide/data-services/ui-services/
 
 ---
 
-## <img src="/images/user-documentation/doc-icons/right-arrow.png" alt="arrow" height="12" width="12"/> Configuration des services IHM
+## Configuration des services IHM
 
 La liste des services IHM est configurable dans la partie administration de votre projet, depuis le menu ***User Interface*** et la carte ***Services configuration***.
 
@@ -43,7 +43,7 @@ Chaque bloc représente un type de service. L'écran accessible depuis le bouton
 
 Vous aurez la possibilité d'activer ou non une configuration du service, et de l'associer ou non à tous les jeux de données existant de votre projet. Vous pouvez également activer ce plugin pour un ou plusieurs jeux de données directement depuis le jeu de données, pour cela suivez l'étape 5 de la section [création d'un jeu de données](../3-data-organization/dataset-collection.md).
 
-## <img src="/images/user-documentation/doc-icons/right-arrow.png" alt="arrow" height="12" width="12"/> Application des services IHM
+## Application des services IHM
 
 Les services IHM sont applicables sur les données du catalogue accessible depuis `http://<regards host>/user/<project>`.
 

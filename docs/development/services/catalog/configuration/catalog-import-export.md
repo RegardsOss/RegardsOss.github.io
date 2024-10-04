@@ -23,11 +23,11 @@ This plugin let you override the following configuration :
 | Name                      | Type                            | Optional | Description                              |
 |---------------------------|---------------------------------|----------|------------------------------------------|
 | engineConfiguration       | `EngineConfiguration`           | N        | Configuration for the search engine      |
-| timeExtension             | {"activated": boolean}          | N        | Open search time extension               |
-| regardsExtension          | {"activated": boolean}          | N        | Open search REGARDS extension            |
-| mediaExtension            | {"activated": boolean}          | N        | Open search media extension              |
-| earthObservationExtension | {"activated": boolean}          | N        | Open search Earth Observation extension  |
-| parametersConfiguration   | List<`ParameterConfiguration`\> | Y        | Configuration for Open search parameters |
+| timeExtension             | `{"activated": boolean}`        | N        | Open search time extension               |
+| regardsExtension          | `{"activated": boolean}`        | N        | Open search REGARDS extension            |
+| mediaExtension            | `{"activated": boolean}`        | N        | Open search media extension              |
+| earthObservationExtension | `{"activated": boolean}`        | N        | Open search Earth Observation extension  |
+| parametersConfiguration   | `List<ParameterConfiguration\>` | Y        | Configuration for Open search parameters |
 
 With `EngineConfiguration` containing the following parameters:
 
@@ -145,8 +145,8 @@ This plugin let you override the following configuration :
 | stac-api-datetime-property             | `StacDatetimePropertyConfiguration` | N        | Configuration for the datetime property, corresponding to the 'temporal' aspect of the STAC specifications |
 | stac-api-links-property                | `StacSourcePropertyConfiguration`   | Y        | STAC links property                                                                                        |
 | stac-api-assets-property               | `StacSourcePropertyConfiguration`   | Y        | STAC assets property                                                                                       |
-| stac-properties                        | List<`StacPropertyConfiguration`\>  | Y        | List of STAC properties to be mapped to product properties                                                 |
-| stac-collection-dataset-properties     | List<`CollectionConfiguration`\>    | N        | Configuration for Open search parameters                                                                   |
+| stac-properties                        | `List<StacPropertyConfiguration\>`  | Y        | List of STAC properties to be mapped to product properties                                                 |
+| stac-collection-dataset-properties     | `List<CollectionConfiguration\>`    | N        | Configuration for Open search parameters                                                                   |
 | eodag-properties                       | `EODAGConfiguration`                | Y        | EODAG configuration to be injected in python script template                                               |
 | histogram-property-path                | string                              | Y        | Fully qualified property path from data model                           <br/>                              |
 
@@ -179,19 +179,19 @@ With `CollectionConfiguration` containing the following parameters:
 
 | Name        | Type                           | Optional | Description                                                    |
 |-------------|--------------------------------|----------|----------------------------------------------------------------|
-| datasetUrns | List<string\>                  | Y        | URN of the datasets concerned by this collection configuration |
+| datasetUrns | `List<string\>`                | Y        | URN of the datasets concerned by this collection configuration |
 | license     | string                         | Y        | License this collection is running under                       |
-| keywords    | List<string\>                  | Y        | Keywords this collection corresponds to                        |
-| providers   | List<`ProviderConfiguration`\> | Y        | Providers for dataset URN                                      |
+| keywords    | `List<string\>`                | Y        | Keywords this collection corresponds to                        |
+| providers   | `List<ProviderConfiguration\>` | Y        | Providers for dataset URN                                      |
 
 With `ProviderConfiguration` containing the following parameters:
 
-| Name                | Type          | Optional | Description                                                                                                                     |
-|---------------------|---------------|----------|---------------------------------------------------------------------------------------------------------------------------------|
-| providerName        | string        | Y        | Name of the institution which provides this collection                                                                          |
-| providerDescription | string        | Y        | Description of the institution which provides this collection                                                                   |
-| providerUrl         | string        | Y        | URL to the institution which provides this collectio                                                                            |
-| providerRoles       | List<string/> | Y        | Roles of the institution which provides this collection among the following values: 'LICENSOR', 'PRODUCER', 'PROCESSOR', 'HOST' |
+| Name                | Type            | Optional | Description                                                                                                                     |
+|---------------------|-----------------|----------|---------------------------------------------------------------------------------------------------------------------------------|
+| providerName        | string          | Y        | Name of the institution which provides this collection                                                                          |
+| providerDescription | string          | Y        | Description of the institution which provides this collection                                                                   |
+| providerUrl         | string          | Y        | URL to the institution which provides this collectio                                                                            |
+| providerRoles       | `List<string/>` | Y        | Roles of the institution which provides this collection among the following values: 'LICENSOR', 'PRODUCER', 'PROCESSOR', 'HOST' |
 
 With `EODAGConfiguration` containing the following parameters:
 
@@ -293,9 +293,9 @@ With `EODAGConfiguration` containing the following parameters:
 
 ### Export CSV plugin configuration
 
-| Name                        | Type          | Default Value | Description                                                                                |
-|-----------------------------|---------------|---------------|--------------------------------------------------------------------------------------------|
-| dynamicCsvFilename          | String        |               | Name of the exported CSV file. If absent, name is csv_export_<current_date>.csv by default |
-| maxDataObjectsToExport      | integer       | `10000`       | Maximum number of exportable products in the csv                                           |
-| basicPropertiesToExclude    | List<String\> |               | Basic properties to exclude from the csv file                                              |
-| dynamicPropertiesToRetrieve | List<String\> |               | Json paths to retrieve dynamic properties from the selected data                           |
+| Name                        | Type            | Default Value | Description                                                                                  |
+|-----------------------------|-----------------|---------------|----------------------------------------------------------------------------------------------|
+| dynamicCsvFilename          | String          |               | Name of the exported CSV file. If absent, name is `csv_export_<current_date>.csv` by default |
+| maxDataObjectsToExport      | integer         | `10000`       | Maximum number of exportable products in the csv                                             |
+| basicPropertiesToExclude    | `List<String\>` |               | Basic properties to exclude from the csv file                                                |
+| dynamicPropertiesToRetrieve | `List<String\>` |               | Json paths to retrieve dynamic properties from the selected data                             |

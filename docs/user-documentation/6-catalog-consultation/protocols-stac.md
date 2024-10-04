@@ -6,7 +6,7 @@ slug: /user-guide/catalog/protocols/stac
 
 *Dans cette page, vous apprendrez à ajouter à REGARDS le protocole de recherche standardisé STAC.*
 
-## <img src="/images/user-documentation/doc-icons/right-arrow.png" alt="arrow" height="12" width="12"/> STAC
+## STAC
 
 ### Description
 
@@ -87,7 +87,7 @@ L'administrateur peut spécifier pour chaque paramètre STAC:
 - ***STAC dynamic collection level*** *[Optionnel, defaut -1]*, le niveau au sein des collection dynamiques  - cf [Niveau des collections dynamiques](#niveau-dans-larbre-des-collections-dynamiques)
 - ***STAC dynamic collection format*** *[Optionnel]*, le format à utiliser au sein des collection dynamiques - cf [Format des valeurs proposées dans les collections dynamiques](#format-des-valeurs-proposées-dans-les-collections-dynamiques)
 - ***Enclosing object name (i.e. namespace) for current property*** *[Optionnel]*, pour définir un objet enfermant la propriété courrante
-- ***STAC property name (Expected format : {extension:}name)*** *[Obligatoire]*, le nom de l'attribut STAC exposé, contenant optionnellement l'extension
+- ***STAC property name (Expected format : `{extension:}name`)*** *[Obligatoire]*, le nom de l'attribut STAC exposé, contenant optionnellement l'extension
 - ***Name or URL of the STAC extension*** *[Optionnel]*, si la propriété `STAC` n'est pas définie dans le standard, le nom ou lien vers de cette extension
 - ***STAC property type*** *[Optionnel, défaut à 'STRING']*, avec une des valeurs suivantes : 'DATETIME', 'URL', 'STRING', 'ANGLE', 'LENGTH', 'PERCENTAGE', 'NUMBER', 'BOOLEAN', 'JSON_OBJECT'
 - ***Format for the STAC value***, si une transformation entre la valeur REGARDS et la valeur STAC est nécessaire - cf [Format d'un attribut STAC](#format-dun-attribut-stac). Peut prendre la valeur ``

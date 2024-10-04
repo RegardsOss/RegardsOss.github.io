@@ -12,7 +12,7 @@ _L'onglet ***User Interface*** vous permettra de configurer une grande variété
 
 ---
 
-### <img src="/images/user-documentation/doc-icons/right-arrow.png" alt="arrow" height="12" width="12"/> UI settings
+### UI settings
 
 <div align="center">
   <img src="/images/user-documentation/v1.4/2-project-configuration/user-interface/ui-settings/configure-ui-settings.png" alt="ui settings" width="800"/> 
@@ -29,7 +29,7 @@ L'écran **_User interface settings_** est principalement découpé en trois par
 - **_Data and documents models_**
   - dans la partie de gauche, les jeux de données de type **_Data_** de votre projet sont listés. Faites les basculer de gauche à droite, à l'aide des flèches, si vous voulez que REGARDS les considèrent comme des documents.
 
-### <img src="/images/user-documentation/doc-icons/right-arrow.png" alt="arrow" height="12" width="12"/> Theme configuration
+### Theme configuration
 
 Il existe cinq thèmes de base dans REGARDS vous permettant de modifier la couleur, l'aspect de l'interface et de ses composants ainsi que l'image de fond.
 Que ce soit dans la partie d'administration ou utilisateur, changer le thème en appuyant sur le bouton en forme de <img src="/images/user-documentation/regards-icons/admin/palette.png" alt="palette" height="25" width="25"/> palette.
@@ -46,7 +46,7 @@ Pour ajouter un nouveau thème, cliquez sur le bouton **_Add a new theme_**, don
   <img src="/images/user-documentation/v1.4/2-project-configuration/user-interface/themes/add-theme.png" alt="add theme" width="800"/> 
 </div>
 
-### <img src="/images/user-documentation/doc-icons/right-arrow.png" alt="arrow" height="12" width="12"/> UI modules
+### UI modules
 
 L'interface utilisateur est basée sur l'utilisation de modules que ce soit pour consulter et gérer vos données, commander des données ou spécifier la disposition des éléments.
 
@@ -155,7 +155,7 @@ Vous pouvez par exemple afficher la documentation REGARDS dans l'interface utili
 Le site en question doit explicitement autoriser l'ouverture de ses ressources à des utilisateurs extérieurs (CORS) car votre utilisateur va accéder à cette ressource en utilisant un autre nom de domaine que celui qui héberge la ressource en question.
 :::
 
-### <img src="/images/user-documentation/doc-icons/right-arrow.png" alt="arrow" height="12" width="12"/> Plugins configuration
+### Plugins configuration
 
 Il existe deux types de plugins utilisés par l'interface utilisateur.
 

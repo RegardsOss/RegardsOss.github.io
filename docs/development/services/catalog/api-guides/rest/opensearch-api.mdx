@@ -7,7 +7,6 @@ sidebar_position: 2
 import RegardsApiSchema from '/src/redoc/RegardsApiSchema';
 import Spec from './rs-catalog.json';
 
-
 ## Introduction
 
 This section describes how to search products from REGARDS meta catalog with **OpenSearch API**.
@@ -86,28 +85,28 @@ To do so, you have to configure the parameters to enable the `possible value gen
 
 With the given below time extension configuration you can request the opensearch engine with the here under request :
 
-  ```sh
-  curl 'http://<host>/api/v1/rs-catalog/engines/opensearch/entities/search?timeStart=2010-05-23T08:16:36.921Z&timeEnd=2022-05-23T08:16:36.921Z&properties.parameter1=value1'
-  ```
+```sh
+curl 'http://<host>/api/v1/rs-catalog/engines/opensearch/entities/search?timeStart=2010-05-23T08:16:36.921Z&timeEnd=2022-05-23T08:16:36.921Z&properties.parameter1=value1'
+```
 
 ### Endpoints
 
-| description                                                       | url                                                                                              | verb |
-|-------------------------------------------------------------------|--------------------------------------------------------------------------------------------------|------|
-| Search collections                                                | /api/v1/rs-catalog/engines/opensearch/collections/search                                         | GET  |
-| Open Search description for collections                           | /api/v1/rs-catalog/engines/opensearch/collections/search/opensearchdescription.xml               | GET  |
-| Get a single entity from its Unique Resource Name                 | /api/v1/rs-catalog/engines/opensearch/collections/{urn}                                          | GET  |
-| Search documents                                                  | /api/v1/rs-catalog/engines/opensearch/documents/search                                           | GET  |
-| Open Search description for documents                             | /api/v1/rs-catalog/engines/opensearch/documents/search/opensearchdescription.xml                 | GET  |
-| Get a single document from its Unique Resource Name               | /api/v1/rs-catalog/engines/opensearch/documents/{urn}                                            | GET  |
-| Search datasets                                                   | /api/v1/rs-catalog/engines/opensearch/datasets/search                                            | GET  |
-| Open Search description for datasets                              | /api/v1/rs-catalog/engines/opensearch/datasets/search/opensearchdescription.xml                  | GET  |
-| Get a single dataset from its Unique Resource Name                | /api/v1/rs-catalog/engines/opensearch/datasets/{urn}                                             | GET  |
-| Search data objects                                               | /api/v1/rs-catalog/engines/opensearch/dataobjects/search                                         | GET  |
-| Open Search description for data objects                          | /api/v1/rs-catalog/engines/opensearch/dataobjects/search/opensearchdescription.xml               | GET  |
-| Get a single data object from its Unique Resource Name            | /api/v1/rs-catalog/engines/opensearch/dataobjects/{urn}                                          | GET  |
-| Search data objects in the specified dataset                      | /api/v1/rs-catalog/engines/opensearch/atasets/{urn}/dataobjects/search                           | GET  |
-| Open Search description for all data objects in specified dataset | /api/v1/rs-catalog/engines/opensearch/atasets/{urn}/dataobjects/search/opensearchdescription.xml | GET  |
+| description                                                       | url                                                                                                 | verb |
+|-------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------|------|
+| Search collections                                                | `/api/v1/rs-catalog/engines/opensearch/collections/search`                                          | GET  |
+| Open Search description for collections                           | `/api/v1/rs-catalog/engines/opensearch/collections/search/opensearchdescription.xml`                | GET  |
+| Get a single entity from its Unique Resource Name                 | `/api/v1/rs-catalog/engines/opensearch/collections/{urn}`                                           | GET  |
+| Search documents                                                  | `/api/v1/rs-catalog/engines/opensearch/documents/search`                                            | GET  |
+| Open Search description for documents                             | `/api/v1/rs-catalog/engines/opensearch/documents/search/opensearchdescription.xml`                  | GET  |
+| Get a single document from its Unique Resource Name               | `/api/v1/rs-catalog/engines/opensearch/documents/{urn}`                                             | GET  |
+| Search datasets                                                   | `/api/v1/rs-catalog/engines/opensearch/datasets/search`                                             | GET  |
+| Open Search description for datasets                              | `/api/v1/rs-catalog/engines/opensearch/datasets/search/opensearchdescription.xml`                   | GET  |
+| Get a single dataset from its Unique Resource Name                | `/api/v1/rs-catalog/engines/opensearch/datasets/{urn}`                                              | GET  |
+| Search data objects                                               | `/api/v1/rs-catalog/engines/opensearch/dataobjects/search`                                          | GET  |
+| Open Search description for data objects                          | `/api/v1/rs-catalog/engines/opensearch/dataobjects/search/opensearchdescription.xml`                | GET  |
+| Get a single data object from its Unique Resource Name            | `/api/v1/rs-catalog/engines/opensearch/dataobjects/{urn}`                                           | GET  |
+| Search data objects in the specified dataset                      | `/api/v1/rs-catalog/engines/opensearch/datasets/{urn}/dataobjects/search`                           | GET  |
+| Open Search description for all data objects in specified dataset | `/api/v1/rs-catalog/engines/opensearch/datasets/{urn}/dataobjects/search/opensearchdescription.xml` | GET  |
 
 ### Open Search Query parameters
 

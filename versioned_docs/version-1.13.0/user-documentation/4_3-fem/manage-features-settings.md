@@ -8,7 +8,7 @@ _Vous avez la possibilité de configurer les paramètres de FEM. Ces paramètres
 
 ---
 
-## <img src="/images/user-documentation/doc-icons/right-arrow.png" alt="arrow" height="12" width="12"/> Les paramètres
+## Les paramètres
 
 Les paramètres disponibles sont les suivants :
 

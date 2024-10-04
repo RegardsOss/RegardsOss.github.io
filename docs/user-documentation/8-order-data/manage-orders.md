@@ -17,7 +17,7 @@ Pour pouvoir commander des données, vous aurez besoin de configurer deux types 
   éventuellement décider de leur appliquer des traitements.
 - ***order-history***, pour retrouver l'état d'avancement de la commande et l'historique de vos commandes
 
-## <img src="/images/user-documentation/doc-icons/right-arrow.png" alt="arrow" height="12" width="12"/> Configurer les modules de type
+## Configurer les modules de type
 
 ***order***
 
@@ -68,7 +68,7 @@ Créer le module ***order-cart***
   cart <img src="/images/user-documentation/regards-icons/user/cart.png" alt="cart" height="25" width="25"/>
 - Cliquez sur le bouton ***Update module***
 
-## <img src="/images/user-documentation/doc-icons/right-arrow.png" alt="arrow" height="12" width="12"/> Commander des données
+## Commander des données
 
 Accédez à l'interface user depuis l'adresse `http://<regards host>/user/<project>`, les modules ***order-history*** et
 ***order-cart*** sont à présent disponibles. Commandez les données depuis un module de type

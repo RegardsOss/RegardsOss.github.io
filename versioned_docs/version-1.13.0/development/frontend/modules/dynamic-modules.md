@@ -83,7 +83,7 @@ When process is over, the complete structure of a module is iniatialized with so
 
 **Important :**  
 Modules are not working as independent plugins into REGARDS yet. So to be able to use a new module into the REGARDS frontend, you have to : 
- - Add your module to the list of dependencies into the main "webapp/package.json" : "@regardsoss-modules/{new module name}": "{module version}"
+ - Add your module to the list of dependencies into the main "webapp/package.json" : `"@regardsoss-modules/{new module name}": "{module version}"`
  - Add your module to the enumeration of available modules in @regardoss/modules/modulesManager (ModulesManager.js) in one of the following enumerations:
    - VisibleModuleTypes: Modules that project administrator can instantiate
    - HiddenModuleTypes: Modules that project administrator cannot instantiate (authentication for instance, as it is automatically added into the REGARDS interfaces)

@@ -22,7 +22,7 @@ Starter autoconfigures an **IResourceService** that helps to expose HATEAOS link
 
 # 3\. How to
 
-If your controller manages a single POJO, implements **IResourceController <T\>**.
+If your controller manages a single POJO, implements `IResourceController <T\>`.
 
 In its **toResource** method, define all links using an autowired **IResourceService** regardless security authorization. Only authorized links will be really exposed.
 

@@ -12,7 +12,7 @@ _Gérez les utilisateurs du projet depuis le menu ***Users*** de l'administratio
 
 ---
 
-### <img src="/images/user-documentation/doc-icons/right-arrow.png" alt="arrow" height="12" width="12"/> Configurer la validation des comptes utilisateur
+### Configurer la validation des comptes utilisateur
 
 Si vous êtes administrateur du projet, vous pouvez paramétrer le type de validation utilisé lors de la création de compte par des utilisateurs en cliquant sur le bouton <img src="/images/user-documentation/regards-icons/admin/gear-wheel.png" alt="settings" height="25" width="25"/> **_Settings_** accessible depuis la carte **_Users_** du menu **_Users_**.
 
@@ -38,7 +38,7 @@ Appuyez ensuite sur le bouton **_Confirm_** pour valider la configuration.
 Ce système de validation est également mis en place au niveau des [comptes utilisateurs d'instance](../1-global-configuration/user-accounts.md). Il peut donc y avoir deux validations nécessaires, une niveau instance et une niveau projet.
 :::
 
-### <img src="/images/user-documentation/doc-icons/right-arrow.png" alt="arrow" height="12" width="12"/> Création de comptes
+### Création de comptes
 
 #### Création de compte par un utilisateur
 
@@ -74,7 +74,7 @@ Remplissez les champs suivants :
 
 Dans la partie Groups, associez l'utilisateur à des groupes d'accès aux données en appuyant sur le bouton **_Add_**. Pour en savoir plus, reportez-vous à la page [Configure data access rights](../3-data-organization/data-access-rights.md)
 
-### <img src="/images/user-documentation/doc-icons/right-arrow.png" alt="arrow" height="12" width="12"/> Gestion des utilisateurs
+### Gestion des utilisateurs
 
 #### Configuration des utilisateurs
 

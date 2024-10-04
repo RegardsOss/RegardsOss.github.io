@@ -6,14 +6,14 @@ sidebar_position: 3
 slug: /development/backend/services/processing/api/process/
 ---
 
-#### GET /process
+#### GET `/process`
 
 Find all processes / plugin configurations.
 
 ##### Responses
 
 | Code | Description      |
-| ---- | ---------------- |
+|------|------------------|
 | 200  | default response |
 | 500  | default response |
 
@@ -30,25 +30,27 @@ Sample 200 response body:
       "additionalProp2": {},
       "additionalProp3": {}
     },
-    "params": [{}]
+    "params": [
+      {}
+    ]
   }
 ]
 ```
 
-#### GET /process/{processBusinessId}
+#### GET `/process/{processBusinessId}`
 
 Find a process / plugin configuration by its business UUID.
 
 ##### Parameters
 
 | Name              | Located in | Description                                     | Required | Schema        |
-| ----------------- | ---------- | ----------------------------------------------- | -------- | ------------- |
+|-------------------|------------|-------------------------------------------------|----------|---------------|
 | processBusinessId | path       | The process / plugin configuration business ID. | Yes      | string (uuid) |
 
 ##### Responses
 
 | Code | Description      |
-| ---- | ---------------- |
+|------|------------------|
 | 200  | default response |
 | 500  | default response |
 
@@ -64,6 +66,8 @@ Sample 200 response body:
     "additionalProp2": {},
     "additionalProp3": {}
   },
-  "params": [{}]
+  "params": [
+    {}
+  ]
 }
 ```

@@ -63,23 +63,23 @@ The plugin service life cycle is compound of the following steps:
 First of all, the plugin-info.json file field **"type"** should indicate **"SERVICE"**, to ensure it is considered as a service, and not as a criterion.
 
 Then, the plugin must indicate its **application mode** (one entity and / or many entities), the **entity types** he expects to work with and its configuration (static and dynamic, see previous sections for more detail). Therefore, the **"conf"** field, in **plugin-info.json** file,  contains the following specific fields:
-* `"applicationModes"`: *{array}* a required array that can contain one or both the following values:
+* `"applicationModes"`: `{array}` a required array that can contain one or both the following values:
   * **"ONE"**: the service applies to one entity
   * **"MANY"**: the service applies to many entities
-* `"entityTypes"`: *{array}* a required array that can contain some or all the following values:
+* `"entityTypes"`: `{array}` a required array that can contain some or all the following values:
   * **"DATA"**: The service works with data objects
   * **"COLLECTION"**: The service works with collections, *not supported yet*
   * **"DATASET"**: The service works with datasets, *not supported yet*
-* `"showButtonsBar"`: *{boolean}* When true, service launcher button bar is displayed below the service, after configuration, allowing the user to step back to runtime configuration anb close the service. When false, button bar is hidden and the service should handle closing by itself.
-* `static`: *{object}* an optional object of parameters defining the static configuration layer. Each parameter in that object will be defined as following:
+* `"showButtonsBar"`: `{boolean}` When true, service launcher button bar is displayed below the service, after configuration, allowing the user to step back to runtime configuration anb close the service. When false, button bar is hidden and the service should handle closing by itself.
+* `static`: `{object}` an optional object of parameters defining the static configuration layer. Each parameter in that object will be defined as following:
   * `{object key}`: property key, as it will be used by the plugin at runtime. It is also used as label in the administrator configuration form
-  * `type` : *{string}* It determines the type that will actually be received at runtime by the plugin. One of **"bool"**, **"char"**, **"date"**, **"float"**, **"int"**, **"string"** types. 
-  * `required`: *{boolean}* When true, null or undefined values will be forbidden for the property.
-* `dynamic`: *{object}* an optional object of parameters defining the dynamic configuration layer.
+  * `type` : `{string}` It determines the type that will actually be received at runtime by the plugin. One of **"bool"**, **"char"**, **"date"**, **"float"**, **"int"**, **"string"** types. 
+  * `required`: `{boolean}` When true, null or undefined values will be forbidden for the property.
+* `dynamic`: `{object}` an optional object of parameters defining the dynamic configuration layer.
   * `{object key}`: property key, as it will be used by the plugin at runtime.
-  * `type` : *{string}* working like corresponding element in **static** field
-  * `required` : *{boolean}* working like corresponding element in **static** field
-  * `label`: *{string}* Parameter label, that will be shown to user when filling dynamic configuration form
+  * `type` : `{string}` working like corresponding element in **static** field
+  * `required` : `{boolean}` working like corresponding element in **static** field
+  * `label`: `{string}` Parameter label, that will be shown to user when filling dynamic configuration form
 
 *Note that administrator is allowed setting a default value for all dynamic parameters. That value will be used, when provided, as initial parameter value, but the user will still be allowed modifying it*
 
@@ -163,8 +163,8 @@ Finally, please note that a plugin **will never receive a target that does not m
 
 When launched, the service plugin main component receives the property `configuration`. That object represents the runtime configuration.
 It has the following fields:
-* `static`: *{object}* This field contains the static configuration layer map, filled by administrator. The keys in map are *parameter names* and the values are those entered by the administrator, matching type specified in plugin-info.json. Every parameter that was marked as `required` is granted here to be defined (never null nor undefined). Other ones should be checked before using.
-* `dynamic`: *{object}* This field contains the dynamic configuration layer map, filled by user. It works exactly the same than static field. 
+* `static`: `{object}` This field contains the static configuration layer map, filled by administrator. The keys in map are *parameter names* and the values are those entered by the administrator, matching type specified in plugin-info.json. Every parameter that was marked as `required` is granted here to be defined (never null nor undefined). Other ones should be checked before using.
+* `dynamic`: `{object}` This field contains the dynamic configuration layer map, filled by user. It works exactly the same than static field. 
 
 ### onClose property
 

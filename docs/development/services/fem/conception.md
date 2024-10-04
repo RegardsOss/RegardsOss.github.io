@@ -60,7 +60,7 @@ To understand versioning, you must be familiar with the two different identifier
 - **U**niform **R**esource **N**ame (or `urn`) : Is the **unique identifier** of a feature.
 
 The `rs-fem` representation of URN is
-URN:**FEATURE**:**<type\>**:**<tenant\>**:**<uuid\>**:V**<version\>** with :
+URN:**FEATURE**:`<type\>`:`<tenant\>`:`<uuid\>`:V`<version\>` with :
 
 - **type** : `DATA`, `DATASET` or `COLLECTION`
 - **tenant**: [tenant or project](../../concepts/03-multitenant.md) in which the product is created.

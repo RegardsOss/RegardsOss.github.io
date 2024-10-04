@@ -19,7 +19,7 @@ Dans le menu latéral, cliquez sur **Add data** et observez la carte **Product M
 
 _Pour configurer les chaînes d'acquisition, allez dans le menu ***Add data***, dans la carte ***Data acquisition*** et cliquez sur le bouton <img src="/images/user-documentation/regards-icons/admin/configure.png" alt="configure" height="25" width="25"/> ***Acquisition chains***._
 
-## <img src="/images/user-documentation/doc-icons/right-arrow.png" alt="arrow" height="12" width="12"/> Créer une chaîne d'acquisition
+## Créer une chaîne d'acquisition
 
 <div align="center">
     <img src="/images/user-documentation/v1.4/4_2-dataprovider/acquisition-add-chain.png" alt="add chain" width="800"/> 
@@ -126,7 +126,7 @@ Vous pourrez ensuite suivre ce processus en cliquant sur le bouton <img src="/im
 
 ---
 
-## <img src="/images/user-documentation/doc-icons/right-arrow.png" alt="arrow" height="12" width="12"/> Gérer les chaînes d'acquisition
+## Gérer les chaînes d'acquisition
 
 > Plusieurs actions vous permettent de gérer les chaînes d'acquisition.
 

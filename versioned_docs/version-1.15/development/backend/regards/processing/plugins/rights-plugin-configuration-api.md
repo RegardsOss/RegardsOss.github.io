@@ -302,7 +302,7 @@ Sample 500 response body:
 }
 ```
 
-## GET /processplugins/config/{processBusinessId}
+## GET /processplugins/config/`{processBusinessId}`
 
 Access to a process / plugin configuration from its business UUID.
 
@@ -415,7 +415,7 @@ Sample 500 response body:
 }
 ```
 
-## PUT /processplugins/config/{processBusinessId}
+## PUT /processplugins/config/`{processBusinessId}`
 
 Update a process / plugin configuration for the given business ID.
 
@@ -527,7 +527,7 @@ Sample 500 response body:
 }
 ```
 
-## DELETE /processplugins/config/{processBusinessId}
+## DELETE /processplugins/config/`{processBusinessId}`
 
 Delete a process / plugin configuration given from its business ID.
 
@@ -560,7 +560,7 @@ Sample 500 response body:
 }
 ```
 
-## PUT /processplugins/config/{processBusinessId}?userRole={role}
+## PUT /processplugins/config/`{processBusinessId}`?userRole=`{role}`
 ### Parameters
 
 | Name | Located in | Description | Required | Schema |
@@ -639,7 +639,7 @@ Sample 500 response body:
 }
 ```
 
-## GET /processplugins/linkprocessdataset/{datasetIpId}
+## GET /processplugins/linkprocessdataset/`{datasetIpId}`
 
 Find processes attached to the given dataset.
 
@@ -677,7 +677,7 @@ Sample 500 response body:
 }
 ```
 
-## PUT /processplugins/linkprocessdataset/{datasetIpId}
+## PUT /processplugins/linkprocessdataset/`{datasetIpId}`
 
 Attach the given dataset (as a URL path param) to all the given processes 
 (as a list of process business IDs in the request body).

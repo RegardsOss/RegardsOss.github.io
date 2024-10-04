@@ -6,7 +6,7 @@ slug: /user-guide/catalog/protocols/opensearch
 
 *Dans cette page, vous apprendrez à ajouter à REGARDS le protocole de recherche standardisé OpenSearch.*
 
-## <img src="/images/user-documentation/doc-icons/right-arrow.png" alt="arrow" height="12" width="12"/> Opensearch
+## Opensearch
 
 ### Description
 

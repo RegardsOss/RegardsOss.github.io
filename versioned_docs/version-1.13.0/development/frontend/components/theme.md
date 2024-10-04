@@ -95,7 +95,7 @@ export default theme => ({ // MUI theme is provided as function parameter, to ac
 })
 ```
 
-When dealing with styles, we also declare frequently an index.js file, that only exports the style builder function in an object like { style: styleBuilderFunction }. That makes it easier to instantiate context later on.
+When dealing with styles, we also declare frequently an index.js file, that only exports the style builder function in an object like `{ style: styleBuilderFunction }`. That makes it easier to instantiate context later on.
 
 ```js
 // content of index.js

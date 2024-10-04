@@ -14,7 +14,7 @@ This guide explains how to retrieve the **order status and available files links
 
 | description | url | verb | 
 | ----------- | --- | ---- |
-| Retrieve order status and available files to download using order identifier | `<HOST>`/api/v1/rs-order/user/orders/{orderId}/files/available?page=0&size=50 | GET |
+| Retrieve order status and available files to download using order identifier | `<HOST>`/api/v1/rs-order/user/orders/`{orderId}`/files/available?page=0&size=50 | GET |
 
 
  | Parameter | Type | Optional | Description |
@@ -80,6 +80,6 @@ The [Download ordered files inside archive](./download-ordered-files) is another
 ### cURL example
 
 ```bash
-curl -v "<HOST>/api/v1/rs-order/orders/{orderId}/files/available" \
+curl -v "<HOST>/api/v1/rs-order/orders/`{orderId}`/files/available" \
   -H "Authorization: Bearer <token>"
 ```

@@ -67,7 +67,7 @@ That property, when true, indicates that the new context and parent context shou
 
 `I18nProvider` component provides internationalization context to its React children as demonstrated in example below.
 It defines the following properties:
- * **messages** : an object, where first level key is locale (like 'en' or 'fr') and second level key are messages keys. Most of the time, we import directly the messages folder index.js file, as it exports {en:enMessage, fr:frMessages}, which matches expected shape.
+ * **messages** : an object, where first level key is locale (like 'en' or 'fr') and second level key are messages keys. Most of the time, we import directly the messages folder index.js file, as it exports `{en:enMessage, fr:frMessages}`, which matches expected shape.
  * **stackCallingContext**: an optional boolean, false by default. See note in parent section for more detail.
  
 Example :
@@ -134,7 +134,7 @@ The instruction `import messages from '../i18n` corresponds to messages files im
 ### I18n messages files
 
 As explained in the previous sections, the `I18nProvider` component or `withI18n` method expects to receive an object that maps a list of locales onto a list of messages. For each locale object, keys will be the message key and value the internationalized message.
-In REGARDS, by design, each locale messages dictionnary is defined in a file named `messages.{LOCALE}.i18n.js`, where {LOCALE} is locale shorthand ('en', 'fr').
+In REGARDS, by design, each locale messages dictionnary is defined in a file named `messages.{LOCALE}.i18n.js`, where `{LOCALE}` is locale shorthand ('en', 'fr').
 
 The example below illustrates a messages.en.i18n.js file content:
 ```javascript

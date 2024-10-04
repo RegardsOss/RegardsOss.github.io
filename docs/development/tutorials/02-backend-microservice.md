@@ -28,7 +28,7 @@ Each microservice offers the features :
 - REST Resources authorization access by user ROLES
 - Access to the Cloud Eureka Registry client to communicate with others microservices
 - Access to the Cloud Config Server to centralize configurations properties
-- Swagger Interface : <http://address:port/swagger-ui.html>
+- Swagger Interface : `http://address:port/swagger-ui.html`
 
 ## Create your first microservice
 

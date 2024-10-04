@@ -11,7 +11,7 @@ slug: /user-guide/data-services/processing-services/
 
 ---
 
-## <img src="/images/user-documentation/doc-icons/right-arrow.png" alt="arrow" height="12" width="12"/> Configuration des services de traitement de données
+## Configuration des services de traitement de données
 
 La liste des services de traitement est configurable dans la partie administration de votre projet, depuis le menu ***Catalog Access*** et la carte ***Services***.
 
@@ -30,7 +30,7 @@ Configurez-le selon votre utilisation :
 
 Une fois la configuration terminée, appuyez sur le bouton ***Add*** et retrouvez-le dans la liste des services applicables dans le catalogue. Vérifiez qu'il soit dans l'état actif.
 
-## <img src="/images/user-documentation/doc-icons/right-arrow.png" alt="arrow" height="12" width="12"/> Application des services de traitement de données
+## Application des services de traitement de données
 
 Les services de traitements sont applicables sur les données du catalogue accessible depuis `http://<regards host>/user/<project>`.
 

@@ -8,7 +8,7 @@ _Pour configurer les chaînes d'ingestion, allez dans le menu ***Add data***, da
 
 ---
 
-## <img src="/images/user-documentation/doc-icons/right-arrow.png" alt="arrow" height="12" width="12"/> Créer une chaîne d'ingestion
+## Créer une chaîne d'ingestion
 
 <div align="center">
     <img src="/images/user-documentation/v1.4/4_1-ingest/ingest-add-chain.png" alt="add chain" width="800"/> 
@@ -49,7 +49,7 @@ Complétez les champs suivants :
 - Vérifiez la création de votre chaîne dans la liste
 - Vous pouvez désormais ***[soumettre des SIPs](submit-products.md)*** avec la chaîne que vous venez de créer.
 
-## <img src="/images/user-documentation/doc-icons/right-arrow.png" alt="arrow" height="12" width="12"/> Gérer les chaînes d'ingestion
+## Gérer les chaînes d'ingestion
 
 Plusieurs actions vous permettent de gérer les chaînes d'ingestion :
 

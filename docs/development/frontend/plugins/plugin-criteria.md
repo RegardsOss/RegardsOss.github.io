@@ -34,10 +34,10 @@ First of all, the plugin-info.json file field **"type"** should indicate **"CRIT
 
 Then, the plugin indicates a list of attributes he intends to use for building request parameters, and their type restrictions, in **"conf"."attributes"** field. Please note that the field is mandatory, but can be left empty:
 
-- `attributes`: _{array}_ An array of attributes definitions, that indicates the number and type of attributes that should be provided to the criterion, when adding the criterion into a search form. Each array element defines the following fields:
-  - `name`: _{string}_ The name used in code to refer to that attribute. For instance, if an attribute is named `myAttribute`, it will be possible to access it, in the main criterion component, with the property `this.props.attributes.myAttribute`.
-  - `description`: _{string}_ Description displayed to the administrator when he selects **actual attribute** for this abstract attribute, at plugin configuration time.
-  - `attributeType`: _{array}_ Accepted types for that attribute. Possible attributes types, from JAVA class **fr.cnes.regards.modules.models.domain.attributes.AttributeType**, are [`"STRING"`, `"INTEGER"`, `"DOUBLE"`, `"DATE_ISO8601"`, `"URL"`, `"BOOLEAN"`, `"STRING_ARRAY"`, `"INTEGER_ARRAY"`, `"DOUBLE_ARRAY"`, `"DATE_ARRAY"`, `"INTEGER_INTERVAL"`, `"DOUBLE_INTERVAL"`, `"DATE_INTERVAL"`, `"LONG"`, `"LONG_INTERVAL"`, `"LONG_ARRAY"`]
+- `attributes`: `{array}` An array of attributes definitions, that indicates the number and type of attributes that should be provided to the criterion, when adding the criterion into a search form. Each array element defines the following fields:
+  - `name`: `{string}` The name used in code to refer to that attribute. For instance, if an attribute is named `myAttribute`, it will be possible to access it, in the main criterion component, with the property `this.props.attributes.myAttribute`.
+  - `description`: `{string}` Description displayed to the administrator when he selects **actual attribute** for this abstract attribute, at plugin configuration time.
+  - `attributeType`: `{array}` Accepted types for that attribute. Possible attributes types, from JAVA class **fr.cnes.regards.modules.models.domain.attributes.AttributeType**, are [`"STRING"`, `"INTEGER"`, `"DOUBLE"`, `"DATE_ISO8601"`, `"URL"`, `"BOOLEAN"`, `"STRING_ARRAY"`, `"INTEGER_ARRAY"`, `"DOUBLE_ARRAY"`, `"DATE_ARRAY"`, `"INTEGER_INTERVAL"`, `"DOUBLE_INTERVAL"`, `"DATE_INTERVAL"`, `"LONG"`, `"LONG_INTERVAL"`, `"LONG_ARRAY"`]
 
 The following example illustrates a criterion that uses 3 attributes, first one being a date attribute, second one a string attribute and last one a number attribute.
 
@@ -105,24 +105,24 @@ Those properties, excepted pluginInstanceId which is a common plugin property, a
 
 **For each attribute specified in plugin-info.json**, the attributes object will hold an **AttributeModelWithBounds** with [attribute.name] key. That object contains the following fields (the shape can be found in web_modules/utils/plugins/src/shapes/AttributeModelWithBounds.js):
 
-- `jsonPath`: _{string}_ Attribute path, to be used within OpenSearch requests
-- `label`: _{string}_ Attribute label
-- `description`: _{string}_ Attribute description
-- `boundsInformation`: _{object}_ Current context's bounds information for range attributes (date or numbers), compound of fields:
-  - `exists`: _{boolean}_ True when the attribute is a range type attribute DATE_ISO8601, INTEGER, DOUBLE or LONG
-  - `loading`: _{boolean}_ True when bounds are currently loading
-  - `error`: _{boolean}_ True when bounds loading finished in error
-  - `lowerBound`: _{number}_ Resolved lower attribute value, in current form context, when bounds exist, loading finished, there were no error while loading them and attribute has values in current search context
-  - `upperBound`: _{number}_ Resolved upper attribute value (works as lowerBound field)
-- `type`: _{string}_ Attribute type (as specified in plugin-info.json, from **fr.cnes.regards.modules.models.domain.attributes.AttributeType**)
-- `unit`: _{string}_ Unit if any (only for number type attributes)
-- `precision`: _{number}_ Precision if any (only for floating number types attributes)
-- `arraysize`: _{number}_ Array size if any (only for array type attributes)
-- `optional`: _{boolean}_ True when that attribute, in a given data object, can be omitted
-- `defaultValue`: _{string}_ Default value if any
-- `fragment`: _{object}_ Attribute fragment, holding id, name and description fields
-- `name`: _{string}_ Attribute name
-- `id`: _{number}_ Attribute database id
+- `jsonPath`: `{string}` Attribute path, to be used within OpenSearch requests
+- `label`: `{string}` Attribute label
+- `description`: `{string}` Attribute description
+- `boundsInformation`: `{object}` Current context's bounds information for range attributes (date or numbers), compound of fields:
+  - `exists`: `{boolean}` True when the attribute is a range type attribute DATE_ISO8601, INTEGER, DOUBLE or LONG
+  - `loading`: `{boolean}` True when bounds are currently loading
+  - `error`: `{boolean}` True when bounds loading finished in error
+  - `lowerBound`: `{number}` Resolved lower attribute value, in current form context, when bounds exist, loading finished, there were no error while loading them and attribute has values in current search context
+  - `upperBound`: `{number}` Resolved upper attribute value (works as lowerBound field)
+- `type`: `{string}` Attribute type (as specified in plugin-info.json, from **fr.cnes.regards.modules.models.domain.attributes.AttributeType**)
+- `unit`: `{string}` Unit if any (only for number type attributes)
+- `precision`: `{number}` Precision if any (only for floating number types attributes)
+- `arraysize`: `{number}` Array size if any (only for array type attributes)
+- `optional`: `{boolean}` True when that attribute, in a given data object, can be omitted
+- `defaultValue`: `{string}` Default value if any
+- `fragment`: `{object}` Attribute fragment, holding id, name and description fields
+- `name`: `{string}` Attribute name
+- `id`: `{number}` Attribute database id
 
 ### searchContext property
 

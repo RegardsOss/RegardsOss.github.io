@@ -18,7 +18,7 @@ Depuis le menu ***Account*** de l'interface d'administration, vous pourrez :
 
 ---
 
-### <img src="/images/user-documentation/doc-icons/right-arrow.png" alt="arrow" height="12" width="12"/> Lister les comptes utilisateurs
+### Lister les comptes utilisateurs
 
 Cet écran présente la liste des comptes utilisateurs. Il est possible de voir le nombre de compte en attente d'acceptation au dessus du tableau. L'icone sert à filtrer le tableau pour ne voir que ces comptes.
 
@@ -32,7 +32,7 @@ Il est également possible de gérer l'affichage des éléments présents dans l
   <img src="/images/user-documentation/v1.7/1-global-configuration/account-filters.png" alt="account validation" width="800"/> 
 </div>
 
-#### <img src="/images/user-documentation/doc-icons/right-arrow.png" alt="arrow" height="12" width="12"/> Valider un compte utilisateur
+#### Valider un compte utilisateur
 
 La validation du compte au niveau instance est configurable depuis la section [Paramétrer les demandes de création de compte](#-paramétrer-les-demandes-de-création-de-compte) de l'interface administration.
 Dans le cas d'une validation manuelle, l'administrateur d'instance doit valider la demande comme présenté dans l'écran ci-dessous.
@@ -46,7 +46,7 @@ Dans le cas d'une validation manuelle, l'administrateur d'instance doit valider 
 
 
 
-#### <img src="/images/user-documentation/doc-icons/right-arrow.png" alt="arrow" height="12" width="12"/> Editer un compte utilisateur
+#### Editer un compte utilisateur
 
 Il est possible d'éditer un compte, pour cela, utiliser l'icone présentée dans l'écran ci-dessous
 
@@ -54,7 +54,7 @@ Il est possible d'éditer un compte, pour cela, utiliser l'icone présentée dan
   <img src="/images/user-documentation/v1.7/1-global-configuration/account-edition.png" alt="account validation" width="800"/> 
 </div>
 
-#### <img src="/images/user-documentation/doc-icons/right-arrow.png" alt="arrow" height="12" width="12"/> Supprimer un compte utilisateur
+#### Supprimer un compte utilisateur
 
 Vous pouvez supprimer un compte que si celui-ci n'est associé à aucun utilisateur projet. Dans ce cas, l'icône de suppression est accessible apparaît sur pour le compte concerné.
 
@@ -64,7 +64,7 @@ Vous pouvez supprimer un compte que si celui-ci n'est associé à aucun utilisat
 
 ---
 
-### <img src="/images/user-documentation/doc-icons/right-arrow.png" alt="arrow" height="12" width="12"/> Paramétrer les demandes de création de compte
+### Paramétrer les demandes de création de compte
 
 Lorsqu'un utilisateur demande la création d'un nouveau compte, il est possible de configurer le système pour demander deux niveaux d'acceptation de la demande :
 

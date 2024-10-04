@@ -20,7 +20,7 @@ Dans la partie suivante, vous apprendrez à créer et gérer un modèle de donn�
 
 ---
 
-## <img src="/images/user-documentation/doc-icons/right-arrow.png" alt="arrow" height="12" width="12"/> Créer un modèle
+## Créer un modèle
 
 Depuis **_Data models_** et la carte **_Models_** cliquez sur le bouton <img src="/images/user-documentation/regards-icons/admin/add.png" alt="add" height="25" width="25"/> **_Add_** .
 
@@ -113,7 +113,7 @@ Si votre modèle est de type **_Dataset_**, vous pourrez ajouter un plugin de ca
 
 Une fois l'ensemble des éléments ajoutés à votre modèle, il sera prêt à être utilisé.
 
-## <img src="/images/user-documentation/doc-icons/right-arrow.png" alt="arrow" height="12" width="12"/> Gérer les modèles de données
+## Gérer les modèles de données
 
 Pour gérer les modèles de données, appuyez sur le bouton <img src="/images/user-documentation/regards-icons/admin/list.png" alt="list" height="25" width="25"/> de la carte **_Models_**.
 

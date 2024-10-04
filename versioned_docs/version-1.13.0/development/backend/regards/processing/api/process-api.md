@@ -34,7 +34,7 @@ Sample 200 response body:
 ]
 ```
 
-#### GET /process/{processBusinessId}
+#### GET /process/`{processBusinessId}`
 
 Find a process / plugin configuration by its business UUID.
 

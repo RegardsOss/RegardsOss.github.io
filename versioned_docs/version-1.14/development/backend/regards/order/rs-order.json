@@ -1762,7 +1762,7 @@
         ]
       }
     },
-    "/orders/{orderId}/dataset/{datasetId}/files": {
+    "/orders/`{orderId}`/dataset/{datasetId}/files": {
       "get": {
         "operationId": "findFiles",
         "parameters": [
@@ -1810,7 +1810,7 @@
         ]
       }
     },
-    "/orders/{orderId}/files/available": {
+    "/orders/`{orderId}`/files/available": {
       "get": {
         "description": "Return files corresponding to the orderId input, if exists and user has access to it",
         "operationId": "getAvailableFilesOf",
@@ -1879,7 +1879,7 @@
         ]
       }
     },
-    "/orders/{orderId}/filesTask/{filesTaskId}/files/available": {
+    "/orders/`{orderId}`/filesTask/{filesTaskId}/files/available": {
       "get": {
         "description": "Return files corresponding to the orderId and filesTaskId input, if exists and user has access to it",
         "operationId": "getAvailableFilesInSuborder",
@@ -2301,7 +2301,7 @@
         ]
       }
     },
-    "/user/orders/pause/{orderId}": {
+    "/user/orders/pause/`{orderId}`": {
       "put": {
         "operationId": "pauseOrder",
         "parameters": [
@@ -2325,7 +2325,7 @@
         ]
       }
     },
-    "/user/orders/remove/{orderId}": {
+    "/user/orders/remove/`{orderId}`": {
       "delete": {
         "operationId": "removeOrder",
         "parameters": [
@@ -2349,7 +2349,7 @@
         ]
       }
     },
-    "/user/orders/resume/{orderId}": {
+    "/user/orders/resume/`{orderId}`": {
       "put": {
         "operationId": "resumeOrder",
         "parameters": [
@@ -2373,7 +2373,7 @@
         ]
       }
     },
-    "/user/orders/{orderId}": {
+    "/user/orders/`{orderId}`": {
       "delete": {
         "operationId": "deleteOrder",
         "parameters": [
@@ -2440,7 +2440,7 @@
         ]
       }
     },
-    "/user/orders/{orderId}/download": {
+    "/user/orders/`{orderId}`/download": {
       "get": {
         "operationId": "downloadAllAvailableFiles",
         "parameters": [
@@ -2464,7 +2464,7 @@
         ]
       }
     },
-    "/user/orders/{orderId}/metalink/download": {
+    "/user/orders/`{orderId}`/metalink/download": {
       "get": {
         "operationId": "downloadMetalinkFile",
         "parameters": [
@@ -2488,7 +2488,7 @@
         ]
       }
     },
-    "/user/orders/{orderId}/restart": {
+    "/user/orders/`{orderId}`/restart": {
       "post": {
         "operationId": "restartOrder",
         "parameters": [
@@ -2529,7 +2529,7 @@
         ]
       }
     },
-    "/user/orders/{orderId}/retry": {
+    "/user/orders/`{orderId}`/retry": {
       "put": {
         "operationId": "retryOrder",
         "parameters": [

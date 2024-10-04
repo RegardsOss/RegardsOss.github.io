@@ -36,7 +36,7 @@ slug: /development/backend/services/processing/api/open/
 | 200 | default response |
 | 500 | default response |
 
-### /processplugins/config/{processBusinessId}
+### /processplugins/config/`{processBusinessId}`
 
 #### GET
 ##### Parameters
@@ -80,7 +80,7 @@ slug: /development/backend/services/processing/api/open/
 | 200 | default response |
 | 500 | default response |
 
-### /processplugins/config/{processBusinessId}/userRole
+### /processplugins/config/`{processBusinessId}`/userRole
 
 #### PUT
 ##### Parameters
@@ -107,7 +107,7 @@ slug: /development/backend/services/processing/api/open/
 | 200 | default response |
 | 500 | default response |
 
-### /processplugins/linkprocessdataset/{datasetIpId}
+### /processplugins/linkprocessdataset/`{datasetIpId}`
 
 #### GET
 ##### Parameters
@@ -191,7 +191,7 @@ slug: /development/backend/services/processing/api/open/
 | 200 | default response |
 | 500 | default response |
 
-### /process/{processBusinessId}
+### /process/`{processBusinessId}`
 
 #### GET
 ##### Parameters

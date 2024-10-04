@@ -26,9 +26,9 @@ as described in [this section](../../../../concepts/05-rest-api.md#access-micros
 
 ### Endpoint
 
-| Endpoint                                             | Verb |
-|------------------------------------------------------|------|
-| /<microservice-name\>/production/regards-oss-backend | GET  |
+| Endpoint                                                | Verb |
+|---------------------------------------------------------|------|
+| `/<microservice-name\>/production/regards-oss-backend`  | GET  |
 
 ```bash title='Example of retrieving the configuration from the rs-fem microservice'
 curl http://<server name>:<rs-config port>/rs-fem/production/regards-oss-backend'

@@ -12,11 +12,11 @@ _Contrôlez l'accès aux [Jeux de données](dataset-collection.md) REGARDS au tr
 
 ---
 
-## <img src="/images/user-documentation/doc-icons/right-arrow.png" alt="arrow" height="12" width="12"/> Ajouter un groupe de données
+## Ajouter un groupe de données
 
 Pour ajouter un groupe, cliquez sur le bouton **_Add_** de la carte **_Access group_**. Nommez le groupe utilisateur et cochez la case **_Automatically link this group to all users and visitors_** si vous souhaitez que tous les utilisateurs, quelque soit leur rôle, appartiennent à ce groupe.
 
-## <img src="/images/user-documentation/doc-icons/right-arrow.png" alt="arrow" height="12" width="12"/> Configurer les groupes de données
+## Configurer les groupes de données
 
 Pour voir l'ensemble des groupes utilisateur du projet, cliquez sur le bouton **_List_** de la carte **_Access group_**. Pour chacun d'eux, vous pouvez éditer les droits d'accès à l'ensemble des jeux de données du projet en appuyant sur le bouton <img src="/images/user-documentation/regards-icons/admin/link.png" alt="link" height="25" width="25"/> **_Edit access rights_**.
 
@@ -41,6 +41,6 @@ Lors de l'édition des droits d'accès d'un groupe de données vous devez saisir
 
 Cliquez ensuite sur le bouton **_Save_** et répétez cette opération autant de fois que nécessaire pour autoriser l'accès à un jeu de donnée. Une fois votre groupe configuré, et dans le cas où les utilisateurs ne sont pas automatiquement liés à ce groupe, vous devrez les associer manuellement.
 
-## <img src="/images/user-documentation/doc-icons/right-arrow.png" alt="arrow" height="12" width="12"/> Associer un utilisateur à un groupe de données
+## Associer un utilisateur à un groupe de données
 
 Dans la liste **_Users_** accessible depuis la carte **_Users_**, cliquez sur le bouton <img src="/images/user-documentation/regards-icons/admin/list.png" alt="list" height="25" width="25"/> **_List_**. Editez un utilisateur en appuyant sur le bouton <img src="/images/user-documentation/regards-icons/admin/edit.png" alt="edit" height="25" width="25"/> **_Edit_** et associez-le à un groupe de données dans la partie **_Groups_**.

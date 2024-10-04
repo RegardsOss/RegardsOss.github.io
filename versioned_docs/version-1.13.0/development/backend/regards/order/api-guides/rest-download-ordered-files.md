@@ -11,7 +11,7 @@ Once your order request is processed, you can download the order result as a zip
 
 | description | url | verb | 
 | ----------- | --- | ---- |
-| Download all available files from provided order ID | `<HOST>`/api/v1/rs-order/user/orders/{orderId}/download | GET |
+| Download all available files from provided order ID | `<HOST>`/api/v1/rs-order/user/orders/`{orderId}`/download | GET |
 `Request headers` :
 ```json
 "Authorization: Bearer <token>"

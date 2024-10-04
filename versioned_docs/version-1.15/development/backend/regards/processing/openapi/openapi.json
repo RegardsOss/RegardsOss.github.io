@@ -106,7 +106,7 @@
         }
       }
     },
-    "/processplugins/config/{processBusinessId}": {
+    "/processplugins/config/`{processBusinessId}`": {
       "get": {
         "tags": [
           "process-plugin-config-controller"
@@ -228,7 +228,7 @@
         }
       }
     },
-    "/processplugins/config/{processBusinessId}/userRole": {
+    "/processplugins/config/`{processBusinessId}`/userRole": {
       "put": {
         "tags": [
           "process-plugin-config-controller"
@@ -316,7 +316,7 @@
         }
       }
     },
-    "/processplugins/linkprocessdataset/{datasetIpId}": {
+    "/processplugins/linkprocessdataset/`{datasetIpId}`": {
       "get": {
         "tags": [
           "process-plugin-dataset-controller"
@@ -633,7 +633,7 @@
         }
       }
     },
-    "/process/{processBusinessId}": {
+    "/process/`{processBusinessId}`": {
       "get": {
         "tags": [
           "p-process-controller"

@@ -1421,7 +1421,7 @@
         ]
       }
     },
-    "/products/{correlationId}/info": {
+    "/products/`{correlationId}`/info": {
       "get": {
         "operationId": "getSubmissionRequestStatus",
         "parameters": [

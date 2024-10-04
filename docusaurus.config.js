@@ -13,6 +13,8 @@ module.exports = {
   baseUrl: "/",
   trailingSlash: false,
   onBrokenLinks: "throw",
+  // cannot be used with redocusaurus yet: https://github.com/rohit-gohri/redocusaurus/issues/321
+  onBrokenAnchors: "ignore",
   onBrokenMarkdownLinks: "warn",
   favicon: "img/logos/regards-png/regards-favicon.png",
   organizationName: "RegardsOss",

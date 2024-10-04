@@ -9,7 +9,7 @@ L'écran de configuration des aspirations de données (accessible depuis la cart
 
 ---
 
-## <img src="/images/user-documentation/doc-icons/right-arrow.png" alt="arrow" height="12" width="12"/> Créer les sources d'aspiration
+## Créer les sources d'aspiration
 
 Vous pouvez ajouter deux types de sources de données selon vos besoins.
 
@@ -22,7 +22,7 @@ Vous pouvez ajouter deux types de sources de données selon vos besoins.
 
 ---
 
-## <img src="/images/user-documentation/doc-icons/right-arrow.png" alt="arrow" height="12" width="12"/> Gérer les sources d'aspiration
+## Gérer les sources d'aspiration
 
 <div align="center">
   <img src="/images/user-documentation/v1.4/5-crawler/crawler-datasources.png" alt="datasources" width="800"/> 

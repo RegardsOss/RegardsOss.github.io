@@ -11,7 +11,7 @@ slug: /development/backend/services/lta-manager/guides/get-request-status-rest
 
 | description | url | verb |
 | ----------- | --- | ---- |
-| Product creation request info | `<HOST>`/api/v1/rs-lta-manager/products/{correlationId}/info | GET |
+| Product creation request info | `<HOST>`/api/v1/rs-lta-manager/products/`{correlationId}`/info | GET |
 
 `Request headers`
 ```json

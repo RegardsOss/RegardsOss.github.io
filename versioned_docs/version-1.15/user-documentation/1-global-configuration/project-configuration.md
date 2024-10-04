@@ -16,7 +16,7 @@ Un projet REGARDS peut avoir autant de modèles de données et le catalogue peut
 
 ---
 
-## <img src="/images/user-documentation/doc-icons/right-arrow.png" alt="arrow" height="12" width="12"/> Créer un nouveau projet
+## Créer un nouveau projet
 
 Pour commencer à utiliser REGARDS, créez et configurez votre premier projet. Depuis l'interface d'administration de l'instance du système REGARDS, sélectionnez le menu ***Projects*** et cliquez sur le bouton ***Add*** en bas à droite.
 
@@ -71,7 +71,7 @@ Dans le cas contraire, vous pouvez retourner sur la page listant les projets pou
 Par défaut tous les services REGARDS utiliseront la même base de données en créant un schéma dédié. Si vous voulez configurer une base de données dédiée à chaque service, il vous faut pour cela décocher la case ***Use this configuration for all microservices of the project*** en bas du formulaire de configuration.
 :::
 
-## <img src="/images/user-documentation/doc-icons/right-arrow.png" alt="arrow" height="12" width="12"/> Supprimer un projet
+## Supprimer un projet
 
 Depuis l'interface d'administration de REGARDS, vous avez la possibilité de désactiver un projet avec le bouton <img src="/images/user-documentation/regards-icons/admin/delete.png" alt="deactivated" height="25" width="25"/>***Remove*** .
 
@@ -85,7 +85,7 @@ Le projet ne sera plus accessible depuis les diverses interfaces et le système 
 Attention : Cette action est **irréversible**. Toutefois, vous pouvez recréer un nouveau projet associé à la même base de données pour récupérer les informations qu'elle contenait.
 :::
 
-## <img src="/images/user-documentation/doc-icons/right-arrow.png" alt="arrow" height="12" width="12"/> Modifier la licence d'un projet
+## Modifier la licence d'un projet
 
 La license de votre projet est un document configuré lors de la création du projet. Elle devra être acceptée par tous les utilisateurs se connectant aux interfaces web. Il est possible au cours de la vie du projet de modifier cette license. Dans ce cas, vous pouvez imposer aux utilisateurs de votre projet, d'accepter de nouveau la license lors de leur prochaine connexion.
 

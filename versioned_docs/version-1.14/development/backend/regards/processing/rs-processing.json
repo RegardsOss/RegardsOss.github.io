@@ -1850,7 +1850,7 @@
         ]
       }
     },
-    "/process/{processBusinessId}": {
+    "/process/`{processBusinessId}`": {
       "get": {
         "operationId": "findByUuid",
         "parameters": [
@@ -1977,7 +1977,7 @@
         ]
       }
     },
-    "/processplugins/config/{processBusinessId}": {
+    "/processplugins/config/`{processBusinessId}`": {
       "delete": {
         "operationId": "delete",
         "parameters": [
@@ -2099,7 +2099,7 @@
         ]
       }
     },
-    "/processplugins/config/{processBusinessId}/userRole": {
+    "/processplugins/config/`{processBusinessId}`/userRole": {
       "put": {
         "operationId": "attachRoleToProcess",
         "parameters": [
@@ -2187,7 +2187,7 @@
         ]
       }
     },
-    "/processplugins/linkprocessdataset/{datasetIpId}": {
+    "/processplugins/linkprocessdataset/`{datasetIpId}`": {
       "get": {
         "operationId": "findProcessesByDataset",
         "parameters": [

@@ -8,7 +8,7 @@ slug: /user-guide/order-data/file-filters/
 
 ---
 
-## <img src="/images/user-documentation/doc-icons/right-arrow.png" alt="arrow" height="12" width="12"/> Les filtres sur les fichiers d'une commande
+## Les filtres sur les fichiers d'une commande
 
 Avant de passer commande vous avez la possibilité d'ajouter des critères de sélection sur les fichiers de votre
 commande. Pour ce faire cliquez sur le bouton ***Add*** de la colonne ***Active filters***

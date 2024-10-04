@@ -24,17 +24,17 @@ submit requests.
 
 ### Endpoints
 
-| description                              | url                                                               | verb | documentation                                                                                |
-|------------------------------------------|-------------------------------------------------------------------|------|----------------------------------------------------------------------------------------------|
-| Entry point to browse with STAC browser  | /api/v1/rs-catalog/stac                                           | GET  | [see REST documentation](./api-swagger#tag/core-controller/operation/root)                   |
-| Get the feature collections              | /api/v1/rs-catalog/stac/collections                               | GET  | [see REST documentation](./api-swagger#tag/ogc-features-controller/operation/collections)    |
-| Get a collection by its ID               | /api/v1/rs-catalog/stac/collections/{collectionId}                | GET  | [see REST documentation](./api-swagger#tag/ogc-features-controller/operation/collection)     |
-| Get the features of a collection         | /api/v1/rs-catalog/stac/collections/{collectionId}/items          | GET  | [see REST documentation](./api-swagger#tag/ogc-features-controller/operation/features)       |
-| Get a feature by its ID                  | /api/v1/rs-catalog/stac/collections/{collectionId}/items/{itemId} | GET  | [see REST documentation](./api-swagger#tag/ogc-features-controller/operation/feature)        |
-| Search feature with simple filtering     | /api/v1/rs-catalog/stac/search                                    | GET  | [see REST documentation](./api-swagger#tag/item-search-controller/operation/simple)          |
-| Search feature with complex filtering    | /api/v1/rs-catalog/stac/search                                    | POST | [see REST documentation](./api-swagger#tag/item-search-controller/operation/complex)         |
-| Search collection with simple filtering  | /api/v1/rs-catalog/stac/collections/search                        | GET  | [see REST documentation](./api-swagger#tag/collection-search-controller/operation/simple_1)  |
-| Search collection with complex filtering | /api/v1/rs-catalog/stac/collections/search                        | POST | [see REST documentation](./api-swagger#tag/collection-search-controller/operation/complex_1) |
+| description                              | url                                                                 | verb | documentation                                                                                |
+|------------------------------------------|---------------------------------------------------------------------|------|----------------------------------------------------------------------------------------------|
+| Entry point to browse with STAC browser  | `/api/v1/rs-catalog/stac`                                           | GET  | [see REST documentation](./api-swagger#tag/core-controller/operation/root)                   |
+| Get the feature collections              | `/api/v1/rs-catalog/stac/collections`                               | GET  | [see REST documentation](./api-swagger#tag/ogc-features-controller/operation/collections)    |
+| Get a collection by its ID               | `/api/v1/rs-catalog/stac/collections/{collectionId}`                | GET  | [see REST documentation](./api-swagger#tag/ogc-features-controller/operation/collection)     |
+| Get the features of a collection         | `/api/v1/rs-catalog/stac/collections/{collectionId}/items`          | GET  | [see REST documentation](./api-swagger#tag/ogc-features-controller/operation/features)       |
+| Get a feature by its ID                  | `/api/v1/rs-catalog/stac/collections/{collectionId}/items/{itemId}` | GET  | [see REST documentation](./api-swagger#tag/ogc-features-controller/operation/feature)        |
+| Search feature with simple filtering     | `/api/v1/rs-catalog/stac/search`                                    | GET  | [see REST documentation](./api-swagger#tag/item-search-controller/operation/simple)          |
+| Search feature with complex filtering    | `/api/v1/rs-catalog/stac/search`                                    | POST | [see REST documentation](./api-swagger#tag/item-search-controller/operation/complex)         |
+| Search collection with simple filtering  | `/api/v1/rs-catalog/stac/collections/search`                        | GET  | [see REST documentation](./api-swagger#tag/collection-search-controller/operation/simple_1)  |
+| Search collection with complex filtering | `/api/v1/rs-catalog/stac/collections/search`                        | POST | [see REST documentation](./api-swagger#tag/collection-search-controller/operation/complex_1) |
 
 ### Request body for STAC Item search
 

@@ -18,7 +18,7 @@ Actuellement, il n'existe pas de plugins de traitement de données métier dans 
 
 Dans l'exemple suivant, vous serez en mesure d'ajouter un plugin de traitement de données et de l'appliquer lors d'une commande.
 
-## <img src="/images/user-documentation/doc-icons/right-arrow.png" alt="arrow" height="12" width="12"/> Ajouter des plugins de traitement
+## Ajouter des plugins de traitement
 
 Depuis la carte ***Processing***, cliquez sur le bouton <img src="/images/user-documentation/regards-icons/admin/add.png" alt="add" height="25" width="25"/> ***Create a processing configuration*** .
 
@@ -33,7 +33,7 @@ Une fois la configuration du module terminée, cliquez sur le bouton ***Create**
 </div>
 
  
-## <img src="/images/user-documentation/doc-icons/right-arrow.png" alt="arrow" height="12" width="12"/> Appliquer des plugins de traitement
+## Appliquer des plugins de traitement
 
 Accédez à l'interface user depuis l'adresse `http://<regards host>/user/<project>`. Vous devriez déjà avoir créé les modules ***order-history*** et ***order-cart*** et savoir comment commander des données, si ce n'est pas le cas, cliquez sur la page suivante [Configure order modules](manage-orders.md).
 

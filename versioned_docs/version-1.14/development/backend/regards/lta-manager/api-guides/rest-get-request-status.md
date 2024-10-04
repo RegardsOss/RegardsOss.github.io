@@ -5,13 +5,13 @@ sidebar_label: Get request status REST
 slug: /development/backend/services/lta-manager/guides/get-request-status-rest
 ---
 
-*This page assumes you know how to [authenticate](../../authentication/api-guides/get-token-curl.md/) your REST API requests *
+*This page assumes you know how to [authenticate](../../authentication/api-guides/get-token-curl.md) your REST API requests *
 
 ### Request 
 
 | description | url | verb |
 | ----------- | --- | ---- |
-| Product creation request info | `<HOST>`/api/v1/rs-lta-manager/products/{correlationId}/info | GET |
+| Product creation request info | `<HOST>`/api/v1/rs-lta-manager/products/`{correlationId}`/info | GET |
 
 `Request headers`
 ```json

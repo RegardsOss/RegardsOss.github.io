@@ -6,23 +6,22 @@ sidebar_position: 4
 slug: /development/backend/services/processing/api/plugins/
 ---
 
-
 ## GET /processplugins/config
 
 Allows to list existing plugin configurations corresponding to defined processes.
 
 ### Parameters
 
-| Name | Located in | Description | Required | Schema |
-| ---- | ---------- | ----------- | -------- | ---- |
-| processNameLike | query | A regexp matching the process names / plugin configuration labels to return | No | string |
+| Name            | Located in | Description                                                                 | Required | Schema |
+|-----------------|------------|-----------------------------------------------------------------------------|----------|--------|
+| processNameLike | query      | A regexp matching the process names / plugin configuration labels to return | No       | string |
 
 ### Responses
 
-| Code | Description |
-| ---- | ----------- |
-| 200 | default response |
-| 500 | default response |
+| Code | Description      |
+|------|------------------|
+| 200  | default response |
+| 500  | default response |
 
 Sample 200 response body:
 
@@ -119,17 +118,20 @@ Sample 500 response body:
 }
 ```
 
-## POST /processplugins/config
+## POST `/processplugins/config`
 
 Allows to create a new process / plugin configuration.
 
 ### Request
 
 #### Parameters
+
 Not applicable.
 
 #### Body
+
 Sample body:
+
 ```json
 {
   "pluginConfiguration": {
@@ -200,13 +202,13 @@ Sample body:
   }
 }
 ```
+
 ### Responses
 
-| Code | Description |
-| ---- | ----------- |
-| 200 | default response |
-| 500 | default response |
-
+| Code | Description      |
+|------|------------------|
+| 200  | default response |
+| 500  | default response |
 
 Sample 200 response body:
 
@@ -303,23 +305,22 @@ Sample 500 response body:
 }
 ```
 
-## GET /processplugins/config/{processBusinessId}
+## GET `/processplugins/config/{processBusinessId}`
 
 Access to a process / plugin configuration from its business UUID.
 
 ### Parameters
 
-| Name | Located in | Description | Required | Schema |
-| ---- | ---------- | ----------- | -------- | ---- |
-| processBusinessId | path | The plugin business ID | Yes | string (uuid) |
+| Name              | Located in | Description            | Required | Schema        |
+|-------------------|------------|------------------------|----------|---------------|
+| processBusinessId | path       | The plugin business ID | Yes      | string (uuid) |
 
 ### Responses
 
-| Code | Description |
-| ---- | ----------- |
-| 200 | default response |
-| 500 | default response |
-
+| Code | Description      |
+|------|------------------|
+| 200  | default response |
+| 500  | default response |
 
 Sample 200 response body:
 
@@ -416,22 +417,22 @@ Sample 500 response body:
 }
 ```
 
-## PUT /processplugins/config/{processBusinessId}
+## PUT `/processplugins/config/{processBusinessId}`
 
 Update a process / plugin configuration for the given business ID.
 
 ### Parameters
 
-| Name | Located in | Description | Required | Schema |
-| ---- | ---------- | ----------- | -------- | ---- |
-| processBusinessId | path | The process / plugin configuration business ID | Yes | string (uuid) |
+| Name              | Located in | Description                                    | Required | Schema        |
+|-------------------|------------|------------------------------------------------|----------|---------------|
+| processBusinessId | path       | The process / plugin configuration business ID | Yes      | string (uuid) |
 
 ### Responses
 
-| Code | Description |
-| ---- | ----------- |
-| 200 | default response |
-| 500 | default response |
+| Code | Description      |
+|------|------------------|
+| 200  | default response |
+| 500  | default response |
 
 Sample 200 response body:
 
@@ -528,23 +529,22 @@ Sample 500 response body:
 }
 ```
 
-## DELETE /processplugins/config/{processBusinessId}
+## DELETE `/processplugins/config/{processBusinessId}`
 
 Delete a process / plugin configuration given from its business ID.
 
 ### Parameters
 
-| Name | Located in | Description | Required | Schema |
-| ---- | ---------- | ----------- | -------- | ---- |
-| processBusinessId | path | The process / plugin configuration business ID | Yes | string (uuid) |
+| Name              | Located in | Description                                    | Required | Schema        |
+|-------------------|------------|------------------------------------------------|----------|---------------|
+| processBusinessId | path       | The process / plugin configuration business ID | Yes      | string (uuid) |
 
 ### Responses
 
-| Code | Description |
-| ---- | ----------- |
-| 200 | default response |
-| 500 | default response |
-
+| Code | Description      |
+|------|------------------|
+| 200  | default response |
+| 500  | default response |
 
 Sample 200 response body:
 
@@ -561,20 +561,21 @@ Sample 500 response body:
 }
 ```
 
-## PUT /processplugins/config/{processBusinessId}?userRole={role}
+## PUT `/processplugins/config/{processBusinessId}?userRole={role}`
+
 ### Parameters
 
-| Name | Located in | Description | Required | Schema |
-| ---- | ---------- | ----------- | -------- | ---- |
-| processBusinessId | path | The process / plugin configuration business ID | Yes | string (uuid) |
-| userRole | query | The new minimal user role for this process / plugin configuration | Yes | string |
+| Name              | Located in | Description                                                       | Required | Schema        |
+|-------------------|------------|-------------------------------------------------------------------|----------|---------------|
+| processBusinessId | path       | The process / plugin configuration business ID                    | Yes      | string (uuid) |
+| userRole          | query      | The new minimal user role for this process / plugin configuration | Yes      | string        |
 
 ### Responses
 
-| Code | Description |
-| ---- | ----------- |
-| 200 | default response |
-| 500 | default response |
+| Code | Description      |
+|------|------------------|
+| 200  | default response |
+| 500  | default response |
 
 Sample 200 response body:
 
@@ -612,12 +613,12 @@ Sample body:
 
 ### Responses
 
-| Code | Description |
-| ---- | ----------- |
-| 200 | default response |
-| 500 | default response |
+| Code | Description      |
+|------|------------------|
+| 200  | default response |
+| 500  | default response |
 
-Sample 200 response body: 
+Sample 200 response body:
 
 ```json
 {
@@ -640,24 +641,24 @@ Sample 500 response body:
 }
 ```
 
-## GET /processplugins/linkprocessdataset/{datasetIpId}
+## GET `/processplugins/linkprocessdataset/{datasetIpId}`
 
 Find processes attached to the given dataset.
 
 ### Parameters
 
-| Name | Located in | Description | Required | Schema |
-| ---- | ---------- | ----------- | -------- | ---- |
-| datasetIpId | path | The dataset identifier (URN) | Yes | string |
+| Name        | Located in | Description                  | Required | Schema |
+|-------------|------------|------------------------------|----------|--------|
+| datasetIpId | path       | The dataset identifier (URN) | Yes      | string |
 
 ### Responses
 
-| Code | Description |
-| ---- | ----------- |
-| 200 | default response |
-| 500 | default response |
+| Code | Description      |
+|------|------------------|
+| 200  | default response |
+| 500  | default response |
 
-Sample 200 response body: 
+Sample 200 response body:
 
 ```json
 [
@@ -678,18 +679,18 @@ Sample 500 response body:
 }
 ```
 
-## PUT /processplugins/linkprocessdataset/{datasetIpId}
+## PUT `/processplugins/linkprocessdataset/{datasetIpId}`
 
-Attach the given dataset (as a URL path param) to all the given processes 
+Attach the given dataset (as a URL path param) to all the given processes
 (as a list of process business IDs in the request body).
 
 ### Request
 
 #### Parameters
 
-| Name | Located in | Description | Required | Schema |
-| ---- | ---------- | ----------- | -------- | ---- |
-| datasetIpId | path | The dataset ID (URN) | Yes | string |
+| Name        | Located in | Description          | Required | Schema |
+|-------------|------------|----------------------|----------|--------|
+| datasetIpId | path       | The dataset ID (URN) | Yes      | string |
 
 #### Body
 
@@ -704,12 +705,12 @@ Sample body:
 
 ### Responses
 
-| Code | Description |
-| ---- | ----------- |
-| 200 | default response |
-| 500 | default response |
+| Code | Description      |
+|------|------------------|
+| 200  | default response |
+| 500  | default response |
 
-Sample 200 response body: 
+Sample 200 response body:
 
 ```json
 ```
@@ -724,16 +725,16 @@ Sample 500 response body:
 }
 ```
 
-## GET /processplugins/metadata
+## GET `/processplugins/metadata`
 
 Get the list of process plugins found on the classpath.
 
 ### Responses
 
-| Code | Description |
-| ---- | ----------- |
-| 200 | default response |
-| 500 | default response |
+| Code | Description      |
+|------|------------------|
+| 200  | default response |
+| 500  | default response |
 
 Sample 200 response body:
 

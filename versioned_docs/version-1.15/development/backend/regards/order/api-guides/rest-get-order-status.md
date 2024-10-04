@@ -5,7 +5,7 @@ sidebar_label: Get Order status REST
 slug: /development/backend/services/order/guides/get-order-status-rest
 ---
 
-*This page assumes you know how to [authenticate](../../authentication/api-guides/get-token-curl.md/) your REST API requests *
+*This page assumes you know how to [authenticate](../../authentication/api-guides/get-token-curl.md) your REST API requests *
 
 This guide explains how to retrieve the **order status and available files links** to download them.
 
@@ -14,7 +14,7 @@ This guide explains how to retrieve the **order status and available files links
 
 | description | url | verb | 
 | ----------- | --- | ---- |
-| Retrieve order status and available files to download using order identifier | `<HOST>`/api/v1/rs-order/user/orders/{orderId}/files/available?page=0&size=50 | GET |
+| Retrieve order status and available files to download using order identifier | `<HOST>`/api/v1/rs-order/user/orders/`{orderId}`/files/available?page=0&size=50 | GET |
 
 
  | Parameter | Type | Optional | Description |
@@ -80,6 +80,6 @@ The [Download ordered files inside archive](./download-ordered-files) is another
 ### cURL example
 
 ```bash
-curl -v "<HOST>/api/v1/rs-order/orders/{orderId}/files/available" \
+curl -v "<HOST>/api/v1/rs-order/orders/`{orderId}`/files/available" \
   -H "Authorization: Bearer <token>"
 ```

@@ -20,27 +20,26 @@ submit requests.
 
 ### Endpoints
 
-| description                                            | url                                                                 | verb |
-|--------------------------------------------------------|---------------------------------------------------------------------|------|
-| Search entities                                        | /api/v1/rs-catalog/engines/legacy/entities/search                   | GET  |
-| Get a single entity from its Unique Resource Name      | /api/v1/rs-catalog/engines/legacy/entities/{urn}                    | GET  |
-| Search collections                                     | /api/v1/rs-catalog/engines/legacy/collections/search                | GET  |
-| Get a single collection from its Unique Resource Name  | /api/v1/rs-catalog/engines/legacy/collections/{urn}                 | GET  |
-| Search documents                                       | /api/v1/rs-catalog/engines/legacy/documents/search                  | GET  |
-| Get a single document from its Unique Resource Name    | /api/v1/rs-catalog/engines/legacy/documents/{urn}                   | GET  |
-| Search datasets                                        | /api/v1/rs-catalog/engines/legacy/datasets/search                   | GET  |
-| Get a single dataset from its Unique Resource Name     | /api/v1/rs-catalog/engines/legacy/datasets/{urn}                    | GET  |
-| Search data objects                                    | /api/v1/rs-catalog/engines/legacy/dataobjects/search                | GET  |
-| Get a single data object from its Unique Resource Name | /api/v1/rs-catalog/engines/legacy/dataobjects/{urn}                 | GET  |
-| Search data objects returning datasets                 | /api/v1/rs-catalog/engines/legacy/dataobjects/datasets/search       | GET  |
-| Search data objects in the specified dataset           | /api/v1/rs-catalog/engines/legacy/datasets/{urn}/dataobjects/search | GET  |
-
+| description                                            | url                                                                   | verb |
+|--------------------------------------------------------|-----------------------------------------------------------------------|------|
+| Search entities                                        | `/api/v1/rs-catalog/engines/legacy/entities/search`                   | GET  |
+| Get a single entity from its Unique Resource Name      | `/api/v1/rs-catalog/engines/legacy/entities/{urn}`                    | GET  |
+| Search collections                                     | `/api/v1/rs-catalog/engines/legacy/collections/search`                | GET  |
+| Get a single collection from its Unique Resource Name  | `/api/v1/rs-catalog/engines/legacy/collections/{urn}`                 | GET  |
+| Search documents                                       | `/api/v1/rs-catalog/engines/legacy/documents/search`                  | GET  |
+| Get a single document from its Unique Resource Name    | `/api/v1/rs-catalog/engines/legacy/documents/{urn}`                   | GET  |
+| Search datasets                                        | `/api/v1/rs-catalog/engines/legacy/datasets/search`                   | GET  |
+| Get a single dataset from its Unique Resource Name     | `/api/v1/rs-catalog/engines/legacy/datasets/{urn}`                    | GET  |
+| Search data objects                                    | `/api/v1/rs-catalog/engines/legacy/dataobjects/search`                | GET  |
+| Get a single data object from its Unique Resource Name | `/api/v1/rs-catalog/engines/legacy/dataobjects/{urn}`                 | GET  |
+| Search data objects returning datasets                 | `/api/v1/rs-catalog/engines/legacy/dataobjects/datasets/search`       | GET  |
+| Search data objects in the specified dataset           | `/api/v1/rs-catalog/engines/legacy/datasets/{urn}/dataobjects/search` | GET  |
 
 ### Query parameters
 
 | value    | description                                                                                                                                                                                                                            |
 |----------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `q`      | The search query in [lucene query format](../../../../appendices/02-create-lucene-query.md) for example `altitude:[1000 TO 2000] OR name:sensor-*`                                                                                                                                                            |
+| `q`      | The search query in [lucene query format](../../../../appendices/02-create-lucene-query.md) for example `altitude:[1000 TO 2000] OR name:sensor-*`                                                                                     |
 | `facets` | The array of attribute names                                                                                                                                                                                                           |
 | `page`   | Page you want to retrieve, 0 indexed and default to 0                                                                                                                                                                                  |
 | `size`   | Size of the page you want to retrieve, defaults to 20                                                                                                                                                                                  |
@@ -59,5 +58,6 @@ curl -G 'http://<host>/api/v1//rs-catalog/engines/legacy/dataobjects/search' \
 
 ### Query parameter
 
-The query parameter is a String containing search criteria on attributs models formated with [lucene format](../../../../appendices/02-create-lucene-query.md).
+The query parameter is a String containing search criteria on attributs models formated
+with [lucene format](../../../../appendices/02-create-lucene-query.md).
 To know the list of queryable attributs refer to the associated Data Model in **rs-dam** microservice.

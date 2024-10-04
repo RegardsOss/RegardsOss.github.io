@@ -6,15 +6,17 @@ slug: /development/backend/services/lta-manager/guides/get-request-status-rest
 sidebar_position: 2
 ---
 
-*This page assumes you know how to [authenticate](../../../../services/authentication/api-guides/rest/authent-oauth2.mdx) your REST API requests *
+*This page assumes you know how
+to [authenticate](../../../../services/authentication/api-guides/rest/authent-oauth2.mdx) your REST API requests *
 
-### Request 
+### Request
 
-| description | url | verb |
-| ----------- | --- | ---- |
-| Product creation request info | `<HOST>`/api/v1/rs-lta-manager/products/{correlationId}/info | GET |
+| description                   | url                                                          | verb |
+|-------------------------------|--------------------------------------------------------------|------|
+| Product creation request info | `<HOST>/api/v1/rs-lta-manager/products/{correlationId}/info` | GET  |
 
 `Request headers`
+
 ```json
 {
   "Content-Type": "application/json",
@@ -24,10 +26,10 @@ sidebar_position: 2
 
 ### Response
 
-| Http status | description |
-| ----------- | ------------ |
+| Http status | description                          |
+|-------------|--------------------------------------|
 | 200         | Your request is successfully created |
-| 403         | Access denied |
+| 403         | Access denied                        |
 
 ```json
 {
@@ -44,20 +46,21 @@ sidebar_position: 2
 }
 ```
 
-| Parameter | Type | Optional | Description |
-| --------- | ---- | :--------: | ----------- |
-| correlationId | String | No | Request identifier |
-| productId | String | No | Id of the product to create |
-| status | String | No | Status of the request. More details below.|
-| expires | String Date ISO 8601| No |  Request expiration date. Format yyyy-MM-dd'T'HH:mm:ss.SSSZ |
-| session | String | No | Request session name |
-| message | String | Yes | Information message about your request |
+| Parameter     | Type                 | Optional | Description                                                |
+|---------------|----------------------|:--------:|------------------------------------------------------------|
+| correlationId | String               |    No    | Request identifier                                         |
+| productId     | String               |    No    | Id of the product to create                                |
+| status        | String               |    No    | Status of the request. More details below.                 |
+| expires       | String Date ISO 8601 |    No    | Request expiration date. Format yyyy-MM-dd'T'HH:mm:ss.SSSZ |
+| session       | String               |    No    | Request session name                                       |
+| message       | String               |   Yes    | Information message about your request                     |
 
- `status` : can be :
-  - `VALIDATED` : Your request is valid and will be processed soon.
-  - `GENERATION_PENDING` : Your request is processing.
-  - `GENERATED`: Your request is processing.
-  - `INGESTION_PENDING`: Your request is processing.
-  - `DONE`: Your request is successfully done.
-  - `GENERATION_ERROR` : Your request is terminated in error during OAIS product generation.
-  - `INGESTION_ERROR` : Your request is terminated in error during OAIS product ingestion.
+`status` : can be :
+
+- `VALIDATED` : Your request is valid and will be processed soon.
+- `GENERATION_PENDING` : Your request is processing.
+- `GENERATED`: Your request is processing.
+- `INGESTION_PENDING`: Your request is processing.
+- `DONE`: Your request is successfully done.
+- `GENERATION_ERROR` : Your request is terminated in error during OAIS product generation.
+- `INGESTION_ERROR` : Your request is terminated in error during OAIS product ingestion.

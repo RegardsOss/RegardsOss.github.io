@@ -82,7 +82,7 @@ to download.
 
 | Endpoint                                                                                                     | Verb |
 |--------------------------------------------------------------------------------------------------------------|------|
-| [/downloads/{aip_id}/files/{checksum}](./api-swagger#tag/catalog-download-controller/operation/downloadFile) | GET  |
+| [`/downloads/{aip_id}/files/{checksum}`](./api-swagger#tag/catalog-download-controller/operation/downloadFile) | GET  |
 
 Download is possible only if:
 

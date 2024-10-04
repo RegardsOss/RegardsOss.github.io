@@ -8,7 +8,7 @@ slug: /user-guide/catalog/use/
 
 ---
 
-## <img src="/images/user-documentation/doc-icons/right-arrow.png" alt="arrow" height="12" width="12"/> Explorer le catalogue
+## Explorer le catalogue
 
 :::info
 L'ensemble du catalogue est configurable. Pour savoir en savoir plus, référez-vous à la page [Configure the catalog](catalog-configuration.md).
@@ -50,7 +50,7 @@ Il se peut que les onglets suivants apparaissent selon la configuration de vos m
 - <img src="/images/user-documentation/regards-icons/user/cart.png" alt="cart" height="25" width="25"/> pour ajouter des données au panier afin de les <a href="../order-data/introduction">commander</a>
 - <img src="/images/user-documentation/regards-icons/admin/gear-wheel.png" alt="gear-wheel" height="25" width="25"/> pour appliquer des services <a href="../data-services/processing-services">processing</a> ou de <a href="../data-services/ui-services">visualisation</a> aux données
 
-## <img src="/images/user-documentation/doc-icons/right-arrow.png" alt="arrow" height="12" width="12"/> Utiliser la vue carte
+## Utiliser la vue carte
 
 Si vous avez configuré un module de type ***search-results*** disposant de cartes, vous verrez apparaître cette vue <img src="/images/user-documentation/regards-icons/user/map.png" alt="map" height="25" width="25"/> ***Display results over map***.
 

@@ -18,11 +18,11 @@ Vous pouvez accéder à la configuration de ces systèmes d'authentication depui
 
 ---
 
-## <img src="/images/user-documentation/doc-icons/right-arrow.png" alt="arrow" height="12" width="12"/> Utilisation de comptes utilisateur internes 
+## Utilisation de comptes utilisateur internes 
 
 Pour ce système d'authentification, vous n'avez aucune configuration spécifique à réaliser. Dans ce cas les utilisateurs seront créés dans la base de données interne à REGARDS et leurs informations d'authentification seront conservées criptées en base de données.
 
-## <img src="/images/user-documentation/doc-icons/right-arrow.png" alt="arrow" height="12" width="12"/> Utilisation de comptes utilisateur externes
+## Utilisation de comptes utilisateur externes
 
 REGARDS permet la connexion d'utilisateurs depuis un système extérieur. Il ne gérera ainsi pas les comptes en interne.
 

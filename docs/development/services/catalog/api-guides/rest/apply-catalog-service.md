@@ -18,9 +18,9 @@ submit requests.
 
 ### Endpoint
 
-| Endpoint                                               | Verb |
-|--------------------------------------------------------|------|
-| [/{pluginBusinessId}/apply](./catalog-api-swagger.mdx) | POST |
+| Endpoint                                                 | Verb |
+|----------------------------------------------------------|------|
+| [`/{pluginBusinessId}/apply`](./catalog-api-swagger.mdx) | POST |
 
 ### Request body format
 

@@ -18,7 +18,7 @@ slug: /user-guide/data-organization/collections-datasets/
 
 ---
 
-## <img src="/images/user-documentation/doc-icons/right-arrow.png" alt="arrow" height="12" width="12"/> Créer une collection
+## Créer une collection
 
 Avant de créer une collection, vous devez avoir créé un [modèle de données](models.md) de type ***Collection***.
 
@@ -68,7 +68,7 @@ Une fois que vous avez terminé, appuyez sur le bouton ***Save*** vous serez aut
 
 ---
 
-## <img src="/images/user-documentation/doc-icons/right-arrow.png" alt="arrow" height="12" width="12"/> Créer un jeu de données
+## Créer un jeu de données
 
 Avant de construire un jeu de données, vous devez avoir :
 

@@ -21,7 +21,7 @@ Each microservice offers the features :
 - REST Resources authorization access by user ROLES
 - Access to the Cloud Eureka Registry client to communicate with others microservices
 - Access to the Cloud Config Server to centralize configurations properties
-- Swagger Interface : <http://address:port/swagger-ui.html>
+- Swagger Interface : `http://address:port/swagger-ui.html`
 
 ## Create your first microservice
 
@@ -148,7 +148,7 @@ curl http://localhost:8999/api/greeting/ -H "Authorization: Bearer <user_acces_t
 curl http://localhost:8999/api/me/ -H "Authorization: Bearer <admin_acces_token>"
 ```
 
-**Swagger UI access :** <http://localhost:8999/swagger-ui.html>
+**Swagger UI access :** `http://localhost:8999/swagger-ui.html`
 
 **NOTE** : To add new REST resource follow example on file
 

@@ -5,13 +5,13 @@ sidebar_label: Download ordered files inside archive
 slug: /development/backend/services/order/guides/download-ordered-files
 ---
 
-*This page assumes you know how to [authenticate](../../authentication/api-guides/get-token-curl.md/) your REST API requests *
+*This page assumes you know how to [authenticate](../../authentication/api-guides/get-token-curl.md) your REST API requests *
 
 Once your order request is processed, you can download the order result as a zip archive file using the here-under endpoint.  
 
 | description | url | verb | 
 | ----------- | --- | ---- |
-| Download all available files from provided order ID | `<HOST>`/api/v1/rs-order/user/orders/{orderId}/download | GET |
+| Download all available files from provided order ID | `<HOST>`/api/v1/rs-order/user/orders/`{orderId}`/download | GET |
 `Request headers` :
 ```json
 "Authorization: Bearer <token>"
@@ -20,7 +20,7 @@ Once your order request is processed, you can download the order result as a zip
 | Parameter | Type | Optional | Description |
 | --------- | ---- | :--------: | ----------- |
 | `orderId` | Int | No | Order identifier |
-| `token` | String | No | [Authentication token](../../authentication/api-guides/get-token-curl.md/) |
+| `token` | String | No | [Authentication token](../../authentication/api-guides/get-token-curl.md) |
 
 
 The downloaded file is named `order_<orderId>_<date>.zip`.  

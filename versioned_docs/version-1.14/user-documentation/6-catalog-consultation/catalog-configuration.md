@@ -11,7 +11,7 @@ slug: /user-guide/catalog/configuration/
 
 ---
 
-## <img src="/images/user-documentation/doc-icons/right-arrow.png" alt="arrow" height="12" width="12"/> Explorer le catalogue par défaut ***search-results***
+## Explorer le catalogue par défaut ***search-results***
 
 Il existe un catalogue par défaut permettant de faire des recherches sur vos données. Il est visible depuis l'interface ***user*** et configurable depuis l'interface ***admin***. La section ci-dessous décrit ce module vous permettant par la suite de l'adapter à vos besoins ou en créer d'autres de même type.
 
@@ -177,7 +177,7 @@ L'utilisation des cartes est décrite ci-dessous.
 
 ---
 
-## <img src="/images/user-documentation/doc-icons/right-arrow.png" alt="arrow" height="12" width="12"/> Ajouter des cartes à un module ***search-results***
+## Ajouter des cartes à un module ***search-results***
 
 Allez dans la page ***UI modules*** accessible depuis ***User Interface***, ***UI modules*** et le bouton <img src="/images/user-documentation/regards-icons/admin/list.png" alt="list" height="25" width="25"/> ***List***.
 
@@ -239,7 +239,7 @@ Cliquez alternativement sur l'icône ***3D mode*** et ***2D mode*** pour voir le
 
 ---
 
-## <img src="/images/user-documentation/doc-icons/right-arrow.png" alt="arrow" height="12" width="12"/> Configurer le module par défaut ***description***
+## Configurer le module par défaut ***description***
 
 Vous remarquerez que pour chaque donnée du catalogue, il y a un bouton d'information. En cliquant dessus, vous serez redirigé vers une page de description de la donnée. Les informations que contiennent cette page sont configurables depuis le module ***Entities description*** proposé par défaut. Il ne peut n'y en avoir qu'un seul.
 

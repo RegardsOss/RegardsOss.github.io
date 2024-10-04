@@ -8,7 +8,7 @@ _La gestion des produits est accessible depuis le menu ***Add data***, puis la c
 
 ---
 
-## <img src="/images/user-documentation/doc-icons/right-arrow.png" alt="arrow" height="12" width="12"/> Les outils de recherche
+## Les outils de recherche
 
 Le système d'archivage peut potentiellement stocker des millions de produits, les outils de tri et de filtrage dynamiques vous aideront dans l'exploration des données.
 
@@ -37,7 +37,7 @@ Vous pouvez également utiliser les tris sur les produits ou les traitements.
 
 ---
 
-## <img src="/images/user-documentation/doc-icons/right-arrow.png" alt="arrow" height="12" width="12"/> Les actions
+## Les actions
 
 Vous pouvez effectuer des actions sur les produits ou les traitements.
 
