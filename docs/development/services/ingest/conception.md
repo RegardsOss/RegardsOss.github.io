@@ -100,11 +100,13 @@ Attributes of the data model are validated with **case sensitiveness** on attrib
 SIP (and associated AIP) versioning is handled by the `rs-ingest` microservice. To do so, the SIP (and AIP)
 **providerId**
 is used. When a SIP is submitted with a providerId that already exists the service will try to handle versioning with
-three possible methods **REPLACE**, **INC_VERSION** or **MANUAL**. The versioning method is provided in request
+four possible methods **IGNORE**, **REPLACE**, **INC_VERSION** or **MANUAL**. The versioning method is provided in 
+request
 **metadata.versioningMode** section.
 
-These three methods of versioning are :
+These four methods of versioning are :
 
+- **IGNORE** : The ingest request is simply ignored, nothing more is being done.
 - **INC_VERSION** : The new SIP and AIP are created with an incremented version.
 - **REPLACE** : The new SIP and AIP are created with an incremented version. And when new AIP is fully created and
   stored,
