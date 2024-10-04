@@ -17,7 +17,7 @@ function importMServiceControllers
 {   
   microservice=$1
   folder_name=$2
-  dest=./docs/development/backend/regards/$folder_name/$microservice.json
+  dest=./docs/development/services/$folder_name/api-guides/rest/$microservice.json
   echo "Fetching ${server}/api/v1/$microservice/v3/api-docs"
   curl -s -S -f -X GET -k ${server}/api/v1/$microservice/v3/api-docs --output $dest || printf >&2 "[\033[31mFailed\033[m] $microservice api doc generation failed\n"
   
@@ -27,14 +27,14 @@ function importMServiceControllers
   sed -i s@https://regardsoss.github.io/\:443/@https://regardsoss.github.io/@g $dest
   sed -i s@https://regardsoss.github.io//@https://regardsoss.github.io/@g $dest
   sed -i -E "s@\"scopes\"\:\{\".*\"}@\"scopes\"\:\{}@g" $dest
-  jq -S . ./docs/development/backend/regards/$folder_name/$microservice.json > ./docs/development/backend/regards/$folder_name/$microservice.json.formated
-  mv ./docs/development/backend/regards/$folder_name/$microservice.json.formated  ./docs/development/backend/regards/$folder_name/$microservice.json
+  jq -S . ./docs/development/services/$folder_name/api-guides/rest/$microservice.json > ./docs/development/services/$folder_name/api-guides/rest/$microservice.json.formated
+  mv ./docs/development/services/$folder_name/api-guides/rest/$microservice.json.formated  ./docs/development/services/$folder_name/api-guides/rest/$microservice.json
 }
 
-importMServiceControllers rs-access-instance     access
-importMServiceControllers rs-access-project      access
+importMServiceControllers rs-access-instance     access-instance
+importMServiceControllers rs-access-project      access-project
 importMServiceControllers rs-admin               admin
-importMServiceControllers rs-admin-instance      admin
+importMServiceControllers rs-admin-instance      admin-instance
 importMServiceControllers rs-authentication      authentication
 importMServiceControllers rs-catalog             catalog
 importMServiceControllers rs-dam                 dam

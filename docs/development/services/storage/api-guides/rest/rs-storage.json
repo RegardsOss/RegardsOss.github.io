@@ -206,8 +206,8 @@
           "checksum": {
             "type": "string"
           },
-          "expirate_date": {
-            "description": "Indicate date where the file will be not available anymore.",
+          "expiration_date": {
+            "description": "Indicate date when the file will be not available anymore.",
             "format": "date-time",
             "type": "string"
           }
@@ -360,6 +360,9 @@
           "owner": {
             "type": "string"
           },
+          "reference": {
+            "type": "boolean"
+          },
           "session": {
             "type": "string"
           },
@@ -376,6 +379,15 @@
             "type": "string"
           }
         },
+        "required": [
+          "algorithm",
+          "checksum",
+          "fileName",
+          "mimeType",
+          "originUrl",
+          "owner",
+          "storage"
+        ],
         "type": "object"
       },
       "FilesAvailabilityRequestDto": {
@@ -1058,7 +1070,7 @@
       "name": "GPL-3.0"
     },
     "title": "MICROSERVICE STORAGE",
-    "version": "1.15.2"
+    "version": "1.16.1"
   },
   "openapi": "3.0.1",
   "paths": {
@@ -2064,7 +2076,7 @@
         "responses": {
           "200": {
             "content": {
-              "application/json;charset=UTF-8": {
+              "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/GenericResponseBody"
                 }
@@ -2094,7 +2106,7 @@
         "responses": {
           "200": {
             "content": {
-              "application/json;charset=UTF-8": {
+              "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/GenericResponseBody"
                 }

@@ -38,21 +38,21 @@ RabbitMQ exchange.
 
 :::info
 AMQP senders will create the queue and exchange on RabbitMQ **on the first message posted on the exchange**.  
-If you want the exchange and queue to exist before that, you need to explicitly create it on RabbitMQ through the RabbitMQ admin interface or inside your playbook inventory.
+If you want the exchange and queue to exist before that, you need to explicitly create it on RabbitMQ through the
+RabbitMQ admin interface or inside your playbook inventory.
 :::
-
 
 Configuration parameters are:
 
-| Name                      | Type    | Default Value | Optional | Description                                                                                                                                                                                                                              |
-|---------------------------|---------|---------------|:--------:|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| recipientLabel            | String  |               |    Y     | External service identifier we want to notify the products to - this information is sent back to the emitter that contacted Notifier<br /> When not specified, the emitter wont know what's the recipient label that received its events |
-| description               | String  |               |    Y     | Recipient plugin description displayed in the REGARDS HMI                                                                                                                                                                                |
-| exchange                  | String  |               |          | RabbitMQ exchange name to publish message to                                                                                                                                                                                             |
-| queueName                 | String  |               |    Y     | RabbitMQ queue name to initialize                                                                                                                                                                                                        |
-| queueDeadLetterRoutingKey | String  |               |    Y     | RabbitMQ dead letter routing key on the queue                                                                                                                                                                                            |
-| directNotificationEnabled | boolean | `false`       |    Y     | When `true`, indicates this plugin can be used to send to the recipient directly without checking product content against Rule matcher plugins                                                                                           |
-| blockingRequired          | boolean | `false`       |    Y     | When `true`, the sender will be informed that the notified resource must be blocked until the sender receives acknowledge from the recipient. Only then, the notified resource can be unlocked.                                          |
+| Name                      | Type    | Default Value                              | Optional | Description                                                                                                                                                                                                                              |
+|---------------------------|---------|--------------------------------------------|:--------:|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| recipientLabel            | String  |                                            |    Y     | External service identifier we want to notify the products to - this information is sent back to the emitter that contacted Notifier<br /> When not specified, the emitter wont know what's the recipient label that received its events |
+| description               | String  |                                            |    Y     | Recipient plugin description displayed in the REGARDS HMI                                                                                                                                                                                |
+| exchange                  | String  |                                            |          | RabbitMQ exchange name to publish message to                                                                                                                                                                                             |
+| queueName                 | String  |                                            |    Y     | RabbitMQ queue name to initialize                                                                                                                                                                                                        |
+| queueDeadLetterRoutingKey | String  | `regards.DLQ` if queue needs to be created |    Y     | RabbitMQ dead letter routing key on the queue                                                                                                                                                                                            |
+| directNotificationEnabled | boolean | `false`                                    |    Y     | When `true`, indicates this plugin can be used to send to the recipient directly without checking product content against Rule matcher plugins                                                                                           |
+| blockingRequired          | boolean | `false`                                    |    Y     | When `true`, the sender will be informed that the notified resource must be blocked until the sender receives acknowledge from the recipient. Only then, the notified resource can be unlocked.                                          |
 
 :::info Why providing RabbitMQ Queue and DLX?
 This plugin creates a queue linked to the exchange, to ensure no message will be lost before the subscriber creates
@@ -297,7 +297,6 @@ Here is an example that send a product to the WorkerManager on the same instance
 }
 ```
 
-
 Here is an example that send a product to the WorkerManager on the same instance as the FEM:
 
 - Send notification to the exchange used by the Worker Manager
@@ -367,23 +366,31 @@ Here is an example that send a product to the WorkerManager on the same instance
 This plugin is designed to send acknowledge messages to OAIS catalog and FEM catalog.
 
 :::danger
+This plugin does not inherit from
+the [AbstractRabbitMQSender](https://github.com/RegardsOss/regards-plugins/blob/master/notifier-plugins/common-plugins/src/main/java/fr/cnes/regards/common/notifier/plugins/AbstractRabbitMQSender.java),
+so [Common Sender config](#common-sender-configuration) parameters are not available.
+:::
+
+:::danger
 You need to define either properties to send to FEM catalog either properties to send to OAIS catalog
 :::
 
 Configuration parameters, common to GeoJSON FEM catalog or OAIS catalog usage, are:
 
-| Name        | Type   | Default Value | Optional | Description                                                                         |
-|-------------|--------|---------------|:--------:|-------------------------------------------------------------------------------------|
-| senderLabel | String |               |          | Acknowledge sender label. Used by destination system to identify the current system |
+| Name           | Type   | Default Value | Optional | Description                                                                                                                                                                                                                              |
+|----------------|--------|---------------|:--------:|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| senderLabel    | String |               |          | Acknowledge sender label. Used by destination system to identify the current system                                                                                                                                                      |
+| recipientLabel | String |               |          | External service identifier we want to notify the products to - this information is sent back to the emitter that contacted Notifier<br /> When not specified, the emitter wont know what's the recipient label that received its events |
 
 #### GeoJSON FEM catalog usage
 
 This plugin let you override following configuration:
 
-| Name                          | Type   | Optional | Description                                                                                                    |
-|-------------------------------|--------|:--------:|----------------------------------------------------------------------------------------------------------------|
-| featureDisseminationExchange  | string |    Y     | Name of the AMQP exchange to store messages before shovel. <br /> **Only use when handling GeoJSON products.** |
-| featureDisseminationQueueName | string |    Y     | Name of the AMQP queue to store messages before shovel. <br /> **Only use when handling GeoJSON products.**    |
+| Name                                | Type    | Optional | Description                                                                                                                                                   |
+|-------------------------------------|---------|:--------:|---------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| featureDisseminationExchange        | string  |    Y     | Name of the AMQP exchange to store messages before shovel. <br /> **Only use when handling GeoJSON products.**                                                |
+| featureDisseminationQueueName       | string  |    Y     | Name of the AMQP queue to store messages before shovel. <br /> **Only use when handling GeoJSON products.**                                                   |
+| featureDisseminationUseDedicatedDlq | boolean |    Y     | When true, uses the `featureDisseminationQueueName` value and adds `.DLQ` at the end to use it as the DLQ name. When false (default value), use `regards.DLQ` |
 
 ```json title="FEM catalog DisseminationAckSender example"
 {
@@ -445,10 +452,11 @@ This plugin let you override following configuration:
 
 This plugin let you override following configuration:
 
-| Name                      | Type   | Optional | Description                                                                                              |
-|---------------------------|--------|:--------:|----------------------------------------------------------------------------------------------------------|
-| aipDisseminationExchange  | string |    Y     | Name of the exchange to store messages before shovel. <br /> **Only use when handling OAIS products.**   |
-| aipDisseminationQueueName | string |    Y     | Name of the AMQP queue to store messages before shovel. <br /> **Only use when handling OAIS products.** |
+| Name                      | Type    | Optional | Description                                                                                                                                               |
+|---------------------------|---------|:--------:|-----------------------------------------------------------------------------------------------------------------------------------------------------------|
+| aipDisseminationExchange  | string  |    Y     | Name of the exchange to store messages before shovel. <br /> **Only use when handling OAIS products.**                                                    |
+| aipDisseminationQueueName | string  |    Y     | Name of the AMQP queue to store messages before shovel. <br /> **Only use when handling OAIS products.**                                                  |
+| aipQueueDedicatedDlq      | boolean |    Y     | When true, uses the `aipDisseminationQueueName` value and adds `.DLQ` at the end to use it as the DLQ name. When false (default value), use `regards.DLQ` |
 
 ```json title="Example de configuration de plugin pour acquitter une diffusion de produits OAIS"
 {
@@ -505,3 +513,17 @@ This plugin let you override following configuration:
   }
 }
 ```
+
+## Common issue
+
+### Error while sending notification to receiver
+
+If the RabbitMQ sender plugin fails to send the notification with the error
+
+```
+Error while sending notification to receiver:
+inequivalent arg 'x-dead-letter-routing-key' for queue 'xxxx' in vhost 'regards.multitenant.manager': received 'yyyy' but ...
+```
+
+It means that your Notifier configuration is wrong and does not match with the real queue. Check your queue and
+specifically the DLX and DLK attributes and use these values inside the Notifier configuration. 

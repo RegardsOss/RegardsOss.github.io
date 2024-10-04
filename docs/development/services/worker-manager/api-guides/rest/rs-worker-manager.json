@@ -315,7 +315,6 @@
         "type": "object"
       },
       "Pageable": {
-        "description": "Sorting and page configuration",
         "properties": {
           "page": {
             "format": "int32",
@@ -613,7 +612,7 @@
       "name": "GPL-3.0"
     },
     "title": "MICROSERVICE WORKER MANAGER",
-    "version": "1.15.2"
+    "version": "1.16.1"
   },
   "openapi": "3.0.1",
   "paths": {
@@ -849,7 +848,7 @@
         "responses": {
           "200": {
             "content": {
-              "application/json;charset=UTF-8": {
+              "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/GenericResponseBody"
                 }
@@ -879,7 +878,7 @@
         "responses": {
           "200": {
             "content": {
-              "application/json;charset=UTF-8": {
+              "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/GenericResponseBody"
                 }
@@ -897,19 +896,22 @@
       "post": {
         "description": "Retrieve Requests matching given filters.",
         "operationId": "retrieveLightRequestList",
+        "parameters": [
+          {
+            "description": "Sorting and page configuration",
+            "in": "query",
+            "name": "pageable",
+            "required": true,
+            "schema": {
+              "$ref": "#/components/schemas/Pageable"
+            }
+          }
+        ],
         "requestBody": {
           "content": {
             "application/json": {
               "schema": {
-                "properties": {
-                  "filters": {
-                    "$ref": "#/components/schemas/SearchRequestParameters"
-                  },
-                  "pageable": {
-                    "$ref": "#/components/schemas/Pageable"
-                  }
-                },
-                "type": "object"
+                "$ref": "#/components/schemas/SearchRequestParameters"
               }
             }
           },
@@ -1207,14 +1209,6 @@
     {
       "description": "Generated server url",
       "url": "https://regardsoss.github.io/api/v1/rs-worker-manager"
-    }
-  ],
-  "tags": [
-    {
-      "name": "Request controller"
-    },
-    {
-      "name": "Worker manager"
     }
   ]
 }

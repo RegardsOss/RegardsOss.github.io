@@ -640,12 +640,13 @@
       "name": "GPL-3.0"
     },
     "title": "MICROSERVICE ACCESS INSTANCE",
-    "version": "1.15.2"
+    "version": "1.16.1"
   },
   "openapi": "3.0.1",
   "paths": {
     "/applications/{applicationId}/modules": {
       "get": {
+        "description": "Retrieve UI modules for a given application.",
         "operationId": "retrieveModules",
         "parameters": [
           {
@@ -690,14 +691,16 @@
                 }
               }
             },
-            "description": "OK"
+            "description": "Returns UI modules"
           }
         },
+        "summary": "Retrieve UI modules",
         "tags": [
-          "module-controller"
+          "IHM Module controller"
         ]
       },
       "post": {
+        "description": "Save a new UI module for a given application",
         "operationId": "saveModule",
         "parameters": [
           {
@@ -728,16 +731,18 @@
                 }
               }
             },
-            "description": "OK"
+            "description": "Returns the saved module"
           }
         },
+        "summary": "Register an UI module",
         "tags": [
-          "module-controller"
+          "IHM Module controller"
         ]
       }
     },
     "/applications/{applicationId}/modules/{moduleId}": {
       "delete": {
+        "description": "Delete an UI module by its identifier for a given application",
         "operationId": "deleteModule",
         "parameters": [
           {
@@ -767,14 +772,16 @@
                 }
               }
             },
-            "description": "OK"
+            "description": "Returns the status"
           }
         },
+        "summary": "Delete an UI module",
         "tags": [
-          "module-controller"
+          "IHM Module controller"
         ]
       },
       "get": {
+        "description": "Retrieve an UI module for a given application.",
         "operationId": "retrieveModule",
         "parameters": [
           {
@@ -804,14 +811,16 @@
                 }
               }
             },
-            "description": "OK"
+            "description": "Returns the IHM module"
           }
         },
+        "summary": "Retrieve IHM module",
         "tags": [
-          "module-controller"
+          "IHM Module controller"
         ]
       },
       "put": {
+        "description": "Update an UI module by its identifier for a given application",
         "operationId": "updateModule",
         "parameters": [
           {
@@ -851,16 +860,18 @@
                 }
               }
             },
-            "description": "OK"
+            "description": "Returns the updated UI module"
           }
         },
+        "summary": "Update a UI module",
         "tags": [
-          "module-controller"
+          "IHM Module controller"
         ]
       }
     },
     "/configuration/{applicationId}": {
       "get": {
+        "description": "Retrieve the UI configuration for the given application identifier",
         "operationId": "retrieveConfiguration",
         "parameters": [
           {
@@ -881,14 +892,16 @@
                 }
               }
             },
-            "description": "OK"
+            "description": "Returns the UI configuration"
           }
         },
+        "summary": "Get the UI configuration",
         "tags": [
-          "ui-configuration-controller"
+          "UI configuration controller"
         ]
       },
       "post": {
+        "description": "Add a new UI configuration",
         "operationId": "addConfiguration",
         "parameters": [
           {
@@ -919,14 +932,16 @@
                 }
               }
             },
-            "description": "OK"
+            "description": "Returns the created UI configuration"
           }
         },
+        "summary": "Register a new UI configuration",
         "tags": [
-          "ui-configuration-controller"
+          "UI configuration controller"
         ]
       },
       "put": {
+        "description": "Update an UI configuration",
         "operationId": "updateConfiguration",
         "parameters": [
           {
@@ -957,11 +972,12 @@
                 }
               }
             },
-            "description": "OK"
+            "description": "Returns the updated UI configuration"
           }
         },
+        "summary": "Update an UI configuration",
         "tags": [
-          "ui-configuration-controller"
+          "UI configuration controller"
         ]
       }
     },
@@ -997,7 +1013,7 @@
           }
         ],
         "responses": {
-          "201": {
+          "200": {
             "content": {
               "*/*": {
                 "schema": {
@@ -1052,7 +1068,7 @@
           "required": true
         },
         "responses": {
-          "201": {
+          "200": {
             "content": {
               "*/*": {
                 "schema": {
@@ -1097,7 +1113,7 @@
           }
         ],
         "responses": {
-          "201": {
+          "200": {
             "content": {
               "*/*": {
                 "schema": {
@@ -1145,7 +1161,7 @@
           "required": true
         },
         "responses": {
-          "201": {
+          "200": {
             "content": {
               "*/*": {
                 "schema": {
@@ -1170,6 +1186,7 @@
     },
     "/layouts/{applicationId}": {
       "get": {
+        "description": "Retrieve UI layout configuration for the given application identifier",
         "operationId": "retrieveUILayout",
         "parameters": [
           {
@@ -1190,14 +1207,16 @@
                 }
               }
             },
-            "description": "OK"
+            "description": "Returns the UI layout configuration"
           }
         },
+        "summary": "Get an UI layout configuration",
         "tags": [
-          "ui-layout-controller"
+          "UI layout controller"
         ]
       },
       "put": {
+        "description": "Update the UI layout configuration for the given application identifier",
         "operationId": "updateUILayout",
         "parameters": [
           {
@@ -1228,11 +1247,12 @@
                 }
               }
             },
-            "description": "OK"
+            "description": "Returns the updated UI layout configuration"
           }
         },
+        "summary": "Update an UI layout configuration",
         "tags": [
-          "ui-layout-controller"
+          "UI layout controller"
         ]
       }
     },
@@ -1516,10 +1536,11 @@
         },
         "summary": "Get HMI themes",
         "tags": [
-          "theme-controller"
+          "Theme controller"
         ]
       },
       "post": {
+        "description": "Save a new UI theme",
         "operationId": "saveTheme",
         "requestBody": {
           "content": {
@@ -1540,16 +1561,18 @@
                 }
               }
             },
-            "description": "OK"
+            "description": "Return the new UI theme"
           }
         },
+        "summary": "Register UI theme",
         "tags": [
-          "theme-controller"
+          "Theme controller"
         ]
       }
     },
     "/themes/{themeId}": {
       "delete": {
+        "description": "Delete an UI theme by its identifier",
         "operationId": "deleteTheme",
         "parameters": [
           {
@@ -1571,14 +1594,16 @@
                 }
               }
             },
-            "description": "OK"
+            "description": "Return the status"
           }
         },
+        "summary": "Delete UI theme",
         "tags": [
-          "theme-controller"
+          "Theme controller"
         ]
       },
       "get": {
+        "description": "Retrieve an UI theme by its identifier",
         "operationId": "retrieveTheme",
         "parameters": [
           {
@@ -1600,14 +1625,16 @@
                 }
               }
             },
-            "description": "OK"
+            "description": "Returns the UI theme"
           }
         },
+        "summary": "Get an UI theme",
         "tags": [
-          "theme-controller"
+          "Theme controller"
         ]
       },
       "put": {
+        "description": "Update an UI theme",
         "operationId": "updateTheme",
         "parameters": [
           {
@@ -1639,16 +1666,18 @@
                 }
               }
             },
-            "description": "OK"
+            "description": "Return the updated UI theme"
           }
         },
+        "summary": "Update UI theme",
         "tags": [
-          "theme-controller"
+          "Theme controller"
         ]
       }
     },
     "/toponyms": {
       "get": {
+        "description": "Retrieve a page containing all toponyms",
         "operationId": "find",
         "parameters": [
           {
@@ -1669,14 +1698,16 @@
                 }
               }
             },
-            "description": "OK"
+            "description": "Returns all toponyms with pagination"
           }
         },
+        "summary": "Get all toponyms",
         "tags": [
-          "toponyms-controller"
+          "Toponyms controller"
         ]
       },
       "post": {
+        "description": "Add a not visible toponym.",
         "operationId": "createNotVisibleToponym",
         "requestBody": {
           "content": {
@@ -1689,7 +1720,7 @@
           "required": true
         },
         "responses": {
-          "200": {
+          "201": {
             "content": {
               "application/json": {
                 "schema": {
@@ -1697,16 +1728,18 @@
                 }
               }
             },
-            "description": "OK"
+            "description": "Returns the created toponym"
           }
         },
+        "summary": "Register a toponym",
         "tags": [
-          "toponyms-controller"
+          "Toponyms controller"
         ]
       }
     },
     "/toponyms/search": {
       "get": {
+        "description": "Search for toponyms. Geometries are not retrieved and list content is limited to 100 entities.",
         "operationId": "search",
         "parameters": [
           {
@@ -1739,16 +1772,18 @@
                 }
               }
             },
-            "description": "OK"
+            "description": "Returns the list of toponyms with pagination"
           }
         },
+        "summary": "Search toponyms",
         "tags": [
-          "toponyms-controller"
+          "Toponyms controller"
         ]
       }
     },
     "/toponyms/{businessId}": {
       "get": {
+        "description": "Retrieve one toponym by its identifier",
         "operationId": "get",
         "parameters": [
           {
@@ -1777,11 +1812,12 @@
                 }
               }
             },
-            "description": "OK"
+            "description": "Returns the toponym"
           }
         },
+        "summary": "Get toponym",
         "tags": [
-          "toponyms-controller"
+          "Toponyms controller"
         ]
       }
     }
@@ -1795,11 +1831,6 @@
     {
       "description": "Generated server url",
       "url": "https://regardsoss.github.io/api/v1/rs-access-instance"
-    }
-  ],
-  "tags": [
-    {
-      "name": "Search history controller"
     }
   ]
 }

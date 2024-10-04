@@ -13,6 +13,12 @@ microservice as described in the [publish guide](./amqp-publish-request.md).
 Requests and responses are linked with a correlation identifier : **requestId** that is provided in submission
 requests and added in service responses.
 
+:::danger RabbitMQ timeout
+Keep in mind the default RabbitMQ timeout is configured to **30 mins**. If your worker can take more than 30min to
+process a request (or a bulk), you
+should [override the RabbitMQ consumer timeout](../../../../../setup/swarm/advanced/swarm-rabbitmq.md#consumer-timeout).
+:::
+
 ## Regards AMQP api
 
 The [Regards AMQP API concept](../../../../concepts/06-amqp-api.md) describe how AMQP interfaces must be handled to
@@ -32,6 +38,12 @@ The exchange name is built for each worker with the worker type parameter.
 
 Every consumer of this
 exchange [must create its own queue bound to this exchange](../../../../concepts/06-amqp-api.md#subscribe-to-regards-published-events).
+
+:::danger Worker context
+In the context of Workers, all workers of the same type should **share the same queue**, as the goal is to have **a
+single queue** that stores all the messages.  
+Workers can then pull from this queue to retrieve the requests that need to be processed.
+:::
 
 ## AMQP message format
 

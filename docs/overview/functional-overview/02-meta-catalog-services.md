@@ -19,7 +19,7 @@ To do so, REGARDS provides following services :
 - [rs-dam](../../development/services/dam/overview.md) : Populate the
   REGARDS [meta-catalog](../concepts/02-meta-catalog.md) from existing data
   source(s), manage **Data models** and compute access rights.
-- [rs-catalog](../../development/services/catalog/overview.md)        : Consult, search and access
+- [rs-catalog](../../development/services/catalog/overview.md): Consult, search and access
   REGARDS [meta-catalog](../concepts/02-meta-catalog.md)
 
 ## Populate meta-catalog
@@ -35,12 +35,12 @@ thanks to **data model(s)** and **datasets** and protected using **users access 
 **Data sources** is a key concept to understand in Regards [Meta Catalog](../concepts/02-meta-catalog.md).
 You can connect any compatible data source but Regards provides two data source(s) of his
 own : [OAIS Data source](03-oais-catalog-services.md) and [GeoJson Data source](04-geojson-catalog-services.md).
-:::info
+:::
 
 :::info Data models
 **Data models** are the definition of the metadata of your products.  
 Each Regards project can define as many data model(s) as needed.
-:::info
+:::
 
 ![](img/populate-catalog.png)
 

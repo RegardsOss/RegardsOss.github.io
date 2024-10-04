@@ -49,6 +49,11 @@
             },
             "type": "array"
           },
+          "id": {
+            "description": "Provider identifier for the submitted product.",
+            "example": "RawProduct_001",
+            "type": "string"
+          },
           "ipType": {
             "description": "Information package type.",
             "enum": [
@@ -71,6 +76,12 @@
             "type": "string"
           },
           "type": {
+            "description": "Type of the feature entity.",
+            "enum": [
+              "Feature",
+              "FeatureCollection"
+            ],
+            "example": "Feature",
             "type": "string"
           },
           "version": {
@@ -675,34 +686,39 @@
       "IngestMetadataDto": {
         "properties": {
           "categories": {
-            "description": "List of categories to add to generated AIP or empty.",
             "items": {
-              "description": "List of categories to add to generated AIP or empty.",
+              "description": "Category to add to generated AIP or empty.",
+              "example": "January-2024",
               "type": "string"
             },
             "type": "array",
             "uniqueItems": true
           },
           "ingestChain": {
-            "description": "Plugins chain used to process SIP.",
+            "description": "Ingest chain label to be used to process SIPs.",
+            "example": "DefaultIngestChain",
             "type": "string"
           },
           "model": {
             "description": "Name of the data model from rs-dam service to validate SIP. If null no validation is done.",
+            "example": "DataModel01",
             "maxLength": 128,
             "minLength": 0,
             "type": "string"
           },
           "replaceErrors": {
             "description": "Replace error requests with same providerId.",
+            "example": false,
             "type": "boolean"
           },
           "session": {
             "description": "Name of the sip submission session.",
+            "example": "Submissions of 2024-08-01",
             "type": "string"
           },
           "sessionOwner": {
             "description": "Name of the sip submission session owner.",
+            "example": "Jean",
             "type": "string"
           },
           "storages": {
@@ -726,7 +742,6 @@
               "MANUAL",
               "REPLACE"
             ],
-            "example": "INC_VERSION",
             "type": "string"
           }
         },
@@ -928,6 +943,7 @@
           },
           "filename": {
             "description": "File name.",
+            "example": "data_file.raw",
             "type": "string"
           },
           "locations": {
@@ -968,6 +984,7 @@
           "storage": {
             "description": "Storage location name or null if file is not stored yet.",
             "example": "Local",
+            "nullable": true,
             "type": "string"
           },
           "storePath": {
@@ -1549,26 +1566,45 @@
         "properties": {
           "denied": {
             "additionalProperties": {
+              "description": "Map of key/value where key is the SIP providerId and value is deny reason message.",
+              "example": "{\"providerId_001\":\"SIP malformed\"}",
               "type": "string"
+            },
+            "description": "Map of key/value where key is the SIP providerId and value is deny reason message.",
+            "example": {
+              "providerId_001": "SIP malformed"
             },
             "type": "object"
           },
           "granted": {
             "additionalProperties": {
+              "description": "Map of key/value where key is the SIP generated URN and value is the request correlation id.",
+              "example": "{\"URN:SIP:DATA:xxxxxxx:V1\":\"119\",\"URN:SIP:DATA:yyyyyyyy:V1\":\"120\"}",
               "type": "string"
+            },
+            "description": "Map of key/value where key is the SIP generated URN and value is the request correlation id.",
+            "example": {
+              "URN:SIP:DATA:xxxxxxx:V1": "119",
+              "URN:SIP:DATA:yyyyyyyy:V1": "120"
             },
             "type": "object"
           },
           "messages": {
+            "description": "Global status message.",
             "items": {
+              "description": "Global status message.",
               "type": "string"
             },
             "type": "array"
           },
           "session": {
+            "description": "Session of the submission requests",
+            "example": "Products of January 2024",
             "type": "string"
           },
           "sessionOwner": {
+            "description": "Owner of the submission requests session",
+            "example": "Jean",
             "type": "string"
           }
         },
@@ -1663,6 +1699,12 @@
             "$ref": "#/components/schemas/IngestMetadataDto"
           },
           "type": {
+            "description": "Type of the feature entity.",
+            "enum": [
+              "Feature",
+              "FeatureCollection"
+            ],
+            "example": "Feature",
             "type": "string"
           }
         },
@@ -1705,6 +1747,11 @@
               "$ref": "#/components/schemas/EventDto"
             },
             "type": "array"
+          },
+          "id": {
+            "description": "Provider identifier for the submitted product.",
+            "example": "RawProduct_001",
+            "type": "string"
           },
           "ipType": {
             "description": "Information package type.",
@@ -2017,20 +2064,20 @@
         "description": "Storage locations where to store files from contentInformation.",
         "properties": {
           "pluginBusinessId": {
-            "description": "Name of this storage location configuration from storage microservice.",
+            "description": "Identifier of this storage location configuration from storage microservice.",
+            "example": "Local",
             "type": "string"
           },
           "size": {
             "$ref": "#/components/schemas/StorageSize"
           },
           "storePath": {
-            "description": "Path where to store file(s) on this storage location.",
+            "description": "Sub-path where to store file(s) on this storage location.",
             "type": "string"
           },
           "targetTypes": {
-            "description": "List of files type to store on this storage location or empty to store all data types on this storage location.",
             "items": {
-              "description": "List of files type to store on this storage location or empty to store all data types on this storage location.",
+              "description": "File type to store on this storage location or empty to store all data types on this storage location.",
               "enum": [
                 "RAWDATA",
                 "QUICKLOOK_SD",
@@ -2044,8 +2091,7 @@
               ],
               "type": "string"
             },
-            "type": "array",
-            "uniqueItems": true
+            "type": "array"
           }
         },
         "required": [
@@ -2054,7 +2100,7 @@
         "type": "object"
       },
       "StorageSize": {
-        "description": "Constraint on files size to store in this storage location.",
+        "description": "Constraint on files size to store in this storage location (minimal value, maximum value).",
         "properties": {
           "max": {
             "description": "Maximal file size in bytes to store files in this storage location.",
@@ -2074,10 +2120,12 @@
         "properties": {
           "description": {
             "description": "Short description of file syntax",
+            "example": "Scientific raw data",
             "type": "string"
           },
           "height": {
             "description": "File height in pixels if file is an image",
+            "example": 180,
             "format": "double",
             "type": "number"
           },
@@ -2090,6 +2138,7 @@
           },
           "width": {
             "description": "File width in pixels if file is an image",
+            "example": 180,
             "format": "double",
             "type": "number"
           }
@@ -2515,7 +2564,7 @@
       "name": "GPL-3.0"
     },
     "title": "MICROSERVICE INGEST",
-    "version": "1.16.0"
+    "version": "1.16.1"
   },
   "openapi": "3.0.1",
   "paths": {

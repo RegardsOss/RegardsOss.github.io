@@ -1516,7 +1516,7 @@
       "name": "GPL-3.0"
     },
     "title": "MICROSERVICE FEM",
-    "version": "1.15.2"
+    "version": "1.16.1"
   },
   "openapi": "3.0.1",
   "paths": {
@@ -2334,7 +2334,7 @@
         "responses": {
           "200": {
             "content": {
-              "application/json;charset=UTF-8": {
+              "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/GenericResponseBody"
                 }
@@ -2364,7 +2364,7 @@
         "responses": {
           "200": {
             "content": {
-              "application/json;charset=UTF-8": {
+              "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/GenericResponseBody"
                 }

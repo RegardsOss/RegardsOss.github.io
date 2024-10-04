@@ -1056,8 +1056,8 @@
           "checksum": {
             "type": "string"
           },
-          "expirate_date": {
-            "description": "Indicate date where the file will be not available anymore.",
+          "expiration_date": {
+            "description": "Indicate date when the file will be not available anymore.",
             "format": "date-time",
             "type": "string"
           }
@@ -2662,13 +2662,16 @@
               "ES_BINARY",
               "ES_BINARY_MAP",
               "ES_HISTOGRAM",
-              "ES_HISTOGRAM_MAP"
+              "ES_HISTOGRAM_MAP",
+              "ES_PARALLEL_BINARY",
+              "ES_PARALLEL_BINARY_MAP",
+              "ES_PARALLEL_HISTOGRAM",
+              "ES_PARALLEL_HISTOGRAM_MAP"
             ],
             "type": "string"
           },
           "timezone": {
-            "format": "int32",
-            "type": "integer"
+            "type": "string"
           },
           "to": {
             "type": "string"
@@ -2741,7 +2744,7 @@
       "name": "GPL-3.0"
     },
     "title": "MICROSERVICE CATALOG",
-    "version": "1.15.2"
+    "version": "1.16.1"
   },
   "openapi": "3.0.1",
   "paths": {
@@ -5072,7 +5075,7 @@
         "responses": {
           "200": {
             "content": {
-              "application/json;charset=UTF-8": {
+              "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/GenericResponseBody"
                 }
@@ -5102,7 +5105,7 @@
         "responses": {
           "200": {
             "content": {
-              "application/json;charset=UTF-8": {
+              "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/GenericResponseBody"
                 }
@@ -5380,7 +5383,7 @@
             "name": "bbox",
             "required": false,
             "schema": {
-              "$ref": "#/components/schemas/BBox"
+              "type": "string"
             }
           },
           {
@@ -5436,7 +5439,7 @@
             "name": "item_bbox",
             "required": false,
             "schema": {
-              "$ref": "#/components/schemas/BBox"
+              "type": "string"
             }
           },
           {
@@ -5675,7 +5678,7 @@
             "name": "bbox",
             "required": false,
             "schema": {
-              "$ref": "#/components/schemas/BBox"
+              "type": "string"
             }
           },
           {
@@ -6190,7 +6193,7 @@
             "name": "bbox",
             "required": false,
             "schema": {
-              "$ref": "#/components/schemas/BBox"
+              "type": "string"
             }
           },
           {

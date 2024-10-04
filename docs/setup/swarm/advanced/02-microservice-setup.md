@@ -55,34 +55,13 @@ group_docker_mservices:
 
 It means to the playbook that the microservice storage will be activated on the next deployment.
 
-### Plugins
+### Active Plugins
 
-There is a section in your inventory that lists all plugins that will be available for
-microservices: `group_docker_plugins`.
+Here is the [documentation to add a plugin](swarm-plugin.md).
 
-If you want to add [the `aip-datasource` plugin](../../../development/services/dam/plugins/overview.md) to allow the
-microservice DataManagement to crawl OAIS products, you need to add the image plugin in the `group_docker_plugins`
-property:
+### Active Workers
 
-```yml
-# Plugins
-group_docker_plugins:
-  - image: rs-aip-datasource-plugin
-    tag: "{{ group_docker_tags.plugins }}"
-```
-
-:::info
-
-The documentation of every microservice list all OSS plugins and their image name.  
-Here is some examples:
-
-- [rs-dam or DataManagement plugins](../../../development/services/dam/plugins/overview.md)
-- [rs-notifier plugins](../../../development/services/notifier/plugins/overview.md)
-- [rs-ingest plugins](../../../development/services/ingest/plugins/overview.md)
-- [rs-catalog plugins](../../../development/services/catalog/plugins/overview.md)
-- ...
-
-:::
+Here is the [documentation to add a worker](swarm-worker.md).
 
 ### Internal catalogs
 
@@ -282,7 +261,7 @@ This microservice requires : `Order`
 Once you have edited your inventory, you must execute the following command to update the stack:
 
 ```bash
-# cd regards-docker-master/
+# cd regards-docker/
 ansible-playbook -i inventories/<inventory name> regards.yml <additional parameters>
 ```
 

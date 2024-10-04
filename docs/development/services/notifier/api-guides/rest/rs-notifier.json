@@ -635,7 +635,7 @@
       "name": "GPL-3.0"
     },
     "title": "MICROSERVICE NOTIFIER",
-    "version": "1.15.2"
+    "version": "1.16.1"
   },
   "openapi": "3.0.1",
   "paths": {
@@ -1304,17 +1304,7 @@
       "delete": {
         "description": "Delete a recipient",
         "operationId": "deleteRecipient",
-        "parameters": [
-          {
-            "description": "Recipient to delete id",
-            "in": "path",
-            "name": "businessId",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
+        "parameters": [],
         "responses": {
           "200": {
             "description": "OK"
@@ -1379,7 +1369,7 @@
         "responses": {
           "200": {
             "content": {
-              "application/json;charset=UTF-8": {
+              "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/GenericResponseBody"
                 }
@@ -1409,7 +1399,7 @@
         "responses": {
           "200": {
             "content": {
-              "application/json;charset=UTF-8": {
+              "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/GenericResponseBody"
                 }

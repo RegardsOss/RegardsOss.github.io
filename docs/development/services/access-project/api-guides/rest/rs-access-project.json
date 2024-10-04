@@ -1854,12 +1854,13 @@
       "name": "GPL-3.0"
     },
     "title": "MICROSERVICE ACCESS",
-    "version": "1.15.2"
+    "version": "1.16.1"
   },
   "openapi": "3.0.1",
   "paths": {
     "/accesses": {
       "post": {
+        "description": "Request a new access, i.e. the creation of a new project user",
         "operationId": "requestAccess",
         "requestBody": {
           "content": {
@@ -1872,17 +1873,19 @@
           "required": true
         },
         "responses": {
-          "200": {
-            "description": "OK"
+          "201": {
+            "description": "Returns the status"
           }
         },
+        "summary": "Request a new access",
         "tags": [
-          "registration-controller"
+          "Registration controller"
         ]
       }
     },
     "/accesses/external": {
       "post": {
+        "description": "Request a new access, i.e. create a new project user with external authentication system",
         "operationId": "requestExternalAccess",
         "requestBody": {
           "content": {
@@ -1895,22 +1898,24 @@
           "required": true
         },
         "responses": {
-          "200": {
-            "description": "OK"
+          "201": {
+            "description": "Returns the status"
           }
         },
+        "summary": "Request a new access",
         "tags": [
-          "registration-controller"
+          "Registration controller"
         ]
       }
     },
     "/accesses/settings": {
       "get": {
+        "description": "Retrieves the settings managing the access requests",
         "operationId": "retrieveAccessSettings",
         "responses": {
           "200": {
             "content": {
-              "*/*": {
+              "application/json": {
                 "schema": {
                   "items": {
                     "$ref": "#/components/schemas/EntityModelDynamicTenantSettingDtoObject"
@@ -1919,16 +1924,18 @@
                 }
               }
             },
-            "description": "OK"
+            "description": "Returns the settings managing the access requests"
           }
         },
+        "summary": "Retrieves the settings",
         "tags": [
-          "access-settings-controller"
+          "Access settings controller"
         ]
       }
     },
     "/accesses/settings/{name}": {
       "put": {
+        "description": "Update the setting managing the access requests",
         "operationId": "updateAccessSettings",
         "parameters": [
           {
@@ -1953,22 +1960,24 @@
         "responses": {
           "200": {
             "content": {
-              "*/*": {
+              "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/EntityModelDynamicTenantSettingDtoObject"
                 }
               }
             },
-            "description": "OK"
+            "description": "Returns the setting managing the access requests"
           }
         },
+        "summary": "Update the settings",
         "tags": [
-          "access-settings-controller"
+          "Access settings controller"
         ]
       }
     },
     "/accesses/verifyEmail/{token}": {
       "get": {
+        "description": "Confirm the registration by email with the given token",
         "operationId": "verifyEmail",
         "parameters": [
           {
@@ -1985,8 +1994,9 @@
             "description": "OK"
           }
         },
+        "summary": "Confirm the registration",
         "tags": [
-          "registration-controller"
+          "Registration controller"
         ]
       }
     },
@@ -2010,12 +2020,13 @@
           }
         },
         "tags": [
-          "registration-controller"
+          "Registration controller"
         ]
       }
     },
     "/accesses/{access_id}/accept": {
       "put": {
+        "description": "Accept the access request with the given access identifier",
         "operationId": "acceptAccessRequest",
         "parameters": [
           {
@@ -2033,13 +2044,15 @@
             "description": "OK"
           }
         },
+        "summary": "Accept the access request",
         "tags": [
-          "registration-controller"
+          "Registration controller"
         ]
       }
     },
     "/accesses/{access_id}/active": {
       "put": {
+        "description": "Activate an inactive user with the given access identifier",
         "operationId": "activeAccess",
         "parameters": [
           {
@@ -2057,13 +2070,15 @@
             "description": "OK"
           }
         },
+        "summary": "Activate an inactive user",
         "tags": [
-          "registration-controller"
+          "Registration controller"
         ]
       }
     },
     "/accesses/{access_id}/deny": {
       "put": {
+        "description": "Deny the access request with the given access identifier",
         "operationId": "denyAccessRequest",
         "parameters": [
           {
@@ -2081,13 +2096,15 @@
             "description": "OK"
           }
         },
+        "summary": "Deny the access request",
         "tags": [
-          "registration-controller"
+          "Registration controller"
         ]
       }
     },
     "/accesses/{access_id}/inactive": {
       "put": {
+        "description": "Deactivate access for the given project user",
         "operationId": "inactiveAccess",
         "parameters": [
           {
@@ -2105,13 +2122,15 @@
             "description": "OK"
           }
         },
+        "summary": "Deactivate an active user",
         "tags": [
-          "registration-controller"
+          "Registration controller"
         ]
       }
     },
     "/applications/{applicationId}/modules": {
       "get": {
+        "description": "Retrieve UI modules for a given application.",
         "operationId": "retrieveModules",
         "parameters": [
           {
@@ -2156,14 +2175,16 @@
                 }
               }
             },
-            "description": "OK"
+            "description": "Returns UI modules"
           }
         },
+        "summary": "Retrieve UI modules",
         "tags": [
-          "module-controller"
+          "IHM Module controller"
         ]
       },
       "post": {
+        "description": "Save a new UI module for a given application",
         "operationId": "saveModule",
         "parameters": [
           {
@@ -2194,16 +2215,18 @@
                 }
               }
             },
-            "description": "OK"
+            "description": "Returns the saved module"
           }
         },
+        "summary": "Register an UI module",
         "tags": [
-          "module-controller"
+          "IHM Module controller"
         ]
       }
     },
     "/applications/{applicationId}/modules/{moduleId}": {
       "delete": {
+        "description": "Delete an UI module by its identifier for a given application",
         "operationId": "deleteModule",
         "parameters": [
           {
@@ -2233,14 +2256,16 @@
                 }
               }
             },
-            "description": "OK"
+            "description": "Returns the status"
           }
         },
+        "summary": "Delete an UI module",
         "tags": [
-          "module-controller"
+          "IHM Module controller"
         ]
       },
       "get": {
+        "description": "Retrieve an UI module for a given application.",
         "operationId": "retrieveModule",
         "parameters": [
           {
@@ -2270,14 +2295,16 @@
                 }
               }
             },
-            "description": "OK"
+            "description": "Returns the IHM module"
           }
         },
+        "summary": "Retrieve IHM module",
         "tags": [
-          "module-controller"
+          "IHM Module controller"
         ]
       },
       "put": {
+        "description": "Update an UI module by its identifier for a given application",
         "operationId": "updateModule",
         "parameters": [
           {
@@ -2317,11 +2344,12 @@
                 }
               }
             },
-            "description": "OK"
+            "description": "Returns the updated UI module"
           }
         },
+        "summary": "Update a UI module",
         "tags": [
-          "module-controller"
+          "IHM Module controller"
         ]
       }
     },
@@ -2340,6 +2368,7 @@
     },
     "/collections/search": {
       "get": {
+        "description": "Perform an OpenSearch request on collections. Injects applicable UI Services and Catalog Services.",
         "operationId": "searchCollections",
         "parameters": [
           {
@@ -2360,16 +2389,18 @@
                 }
               }
             },
-            "description": "OK"
+            "description": "Data in JSON format"
           }
         },
+        "summary": "Search collections from catalogue",
         "tags": [
-          "access-search-controller"
+          "Access search controller"
         ]
       }
     },
     "/configuration/{applicationId}": {
       "get": {
+        "description": "Retrieve the UI configuration for the given application identifier",
         "operationId": "retrieveConfiguration",
         "parameters": [
           {
@@ -2390,14 +2421,16 @@
                 }
               }
             },
-            "description": "OK"
+            "description": "Returns the UI configuration"
           }
         },
+        "summary": "Get the UI configuration",
         "tags": [
-          "ui-configuration-controller"
+          "UI configuration controller"
         ]
       },
       "post": {
+        "description": "Add a new UI configuration",
         "operationId": "addConfiguration",
         "parameters": [
           {
@@ -2428,14 +2461,16 @@
                 }
               }
             },
-            "description": "OK"
+            "description": "Returns the created UI configuration"
           }
         },
+        "summary": "Register a new UI configuration",
         "tags": [
-          "ui-configuration-controller"
+          "UI configuration controller"
         ]
       },
       "put": {
+        "description": "Update an UI configuration",
         "operationId": "updateConfiguration",
         "parameters": [
           {
@@ -2466,16 +2501,18 @@
                 }
               }
             },
-            "description": "OK"
+            "description": "Returns the updated UI configuration"
           }
         },
+        "summary": "Update an UI configuration",
         "tags": [
-          "ui-configuration-controller"
+          "UI configuration controller"
         ]
       }
     },
     "/dataobjects/datasets/search": {
       "get": {
+        "description": "Perform an joined OpenSearch request. The search will be performed on dataobjects attributes, but will return the associated datasets. Injects applicable UI Services and Catalog Services.",
         "operationId": "searchDataobjectsReturnDatasets",
         "parameters": [
           {
@@ -2496,16 +2533,18 @@
                 }
               }
             },
-            "description": "OK"
+            "description": "Data in JSON format"
           }
         },
+        "summary": "Search for catalogue datasets using data objects criteria",
         "tags": [
-          "access-search-controller"
+          "Access search controller"
         ]
       }
     },
     "/dataobjects/search": {
       "get": {
+        "description": "Perform an OpenSearch request on dataobjects. Only return required facets. Injects applicable UI Services and Catalog Services.",
         "operationId": "searchDataobjects",
         "parameters": [
           {
@@ -2526,16 +2565,18 @@
                 }
               }
             },
-            "description": "OK"
+            "description": "Data in JSON format"
           }
         },
+        "summary": "Search products from catalogue",
         "tags": [
-          "access-search-controller"
+          "Access search controller"
         ]
       }
     },
     "/datasets/search": {
       "get": {
+        "description": "Perform an OpenSearch request on datasets. Injects applicable UI Services and Catalog Services.",
         "operationId": "searchDatasets",
         "parameters": [
           {
@@ -2556,11 +2597,12 @@
                 }
               }
             },
-            "description": "OK"
+            "description": "Data in JSON format"
           }
         },
+        "summary": "Search datasets from catalogue",
         "tags": [
-          "access-search-controller"
+          "Access search controller"
         ]
       }
     },
@@ -2596,7 +2638,7 @@
           }
         ],
         "responses": {
-          "201": {
+          "200": {
             "content": {
               "*/*": {
                 "schema": {
@@ -2651,7 +2693,7 @@
           "required": true
         },
         "responses": {
-          "201": {
+          "200": {
             "content": {
               "*/*": {
                 "schema": {
@@ -2696,7 +2738,7 @@
           }
         ],
         "responses": {
-          "201": {
+          "200": {
             "content": {
               "*/*": {
                 "schema": {
@@ -2744,7 +2786,7 @@
           "required": true
         },
         "responses": {
-          "201": {
+          "200": {
             "content": {
               "*/*": {
                 "schema": {
@@ -2769,6 +2811,7 @@
     },
     "/layouts/{applicationId}": {
       "get": {
+        "description": "Retrieve UI layout configuration for the given application identifier",
         "operationId": "retrieveUILayout",
         "parameters": [
           {
@@ -2789,14 +2832,16 @@
                 }
               }
             },
-            "description": "OK"
+            "description": "Returns the UI layout configuration"
           }
         },
+        "summary": "Get an UI layout configuration",
         "tags": [
-          "ui-layout-controller"
+          "UI layout controller"
         ]
       },
       "put": {
+        "description": "Update the UI layout configuration for the given application identifier",
         "operationId": "updateUILayout",
         "parameters": [
           {
@@ -2827,11 +2872,12 @@
                 }
               }
             },
-            "description": "OK"
+            "description": "Returns the updated UI layout configuration"
           }
         },
+        "summary": "Update an UI layout configuration",
         "tags": [
-          "ui-layout-controller"
+          "UI layout controller"
         ]
       }
     },
@@ -3135,7 +3181,7 @@
           }
         },
         "tags": [
-          "storage-download-quota-controller"
+          "Storage download quota controller"
         ]
       }
     },
@@ -3155,7 +3201,7 @@
           }
         },
         "tags": [
-          "storage-download-quota-controller"
+          "Storage download quota controller"
         ]
       }
     },
@@ -3185,7 +3231,7 @@
           }
         },
         "tags": [
-          "storage-download-quota-controller"
+          "Storage download quota controller"
         ]
       },
       "put": {
@@ -3223,7 +3269,7 @@
           }
         },
         "tags": [
-          "storage-download-quota-controller"
+          "Storage download quota controller"
         ]
       }
     },
@@ -3260,7 +3306,7 @@
         },
         "summary": "List all recipient",
         "tags": [
-          "recipient-dto-controller"
+          "Recipient controller"
         ]
       }
     },
@@ -3280,7 +3326,7 @@
         "responses": {
           "200": {
             "content": {
-              "application/json;charset=UTF-8": {
+              "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/GenericResponseBody"
                 }
@@ -3310,7 +3356,7 @@
         "responses": {
           "200": {
             "content": {
-              "application/json;charset=UTF-8": {
+              "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/GenericResponseBody"
                 }
@@ -3326,6 +3372,7 @@
     },
     "/search": {
       "get": {
+        "description": "Perform an OpenSearch request on all indexed data, regardless of the type. The return objects can be any mix of collection, dataset, dataobject and document. Injects applicable UI Services and Catalog Services.",
         "operationId": "searchAll",
         "responses": {
           "200": {
@@ -3336,11 +3383,12 @@
                 }
               }
             },
-            "description": "OK"
+            "description": "Data in JSON format"
           }
         },
+        "summary": "Search products, datasets and collections from catalogue",
         "tags": [
-          "access-search-controller"
+          "Access search controller"
         ]
       }
     },
@@ -3492,10 +3540,11 @@
         },
         "summary": "Get HMI themes",
         "tags": [
-          "theme-controller"
+          "Theme controller"
         ]
       },
       "post": {
+        "description": "Save a new UI theme",
         "operationId": "saveTheme",
         "requestBody": {
           "content": {
@@ -3516,16 +3565,18 @@
                 }
               }
             },
-            "description": "OK"
+            "description": "Return the new UI theme"
           }
         },
+        "summary": "Register UI theme",
         "tags": [
-          "theme-controller"
+          "Theme controller"
         ]
       }
     },
     "/themes/{themeId}": {
       "delete": {
+        "description": "Delete an UI theme by its identifier",
         "operationId": "deleteTheme",
         "parameters": [
           {
@@ -3547,14 +3598,16 @@
                 }
               }
             },
-            "description": "OK"
+            "description": "Return the status"
           }
         },
+        "summary": "Delete UI theme",
         "tags": [
-          "theme-controller"
+          "Theme controller"
         ]
       },
       "get": {
+        "description": "Retrieve an UI theme by its identifier",
         "operationId": "retrieveTheme",
         "parameters": [
           {
@@ -3576,14 +3629,16 @@
                 }
               }
             },
-            "description": "OK"
+            "description": "Returns the UI theme"
           }
         },
+        "summary": "Get an UI theme",
         "tags": [
-          "theme-controller"
+          "Theme controller"
         ]
       },
       "put": {
+        "description": "Update an UI theme",
         "operationId": "updateTheme",
         "parameters": [
           {
@@ -3615,16 +3670,18 @@
                 }
               }
             },
-            "description": "OK"
+            "description": "Return the updated UI theme"
           }
         },
+        "summary": "Update UI theme",
         "tags": [
-          "theme-controller"
+          "Theme controller"
         ]
       }
     },
     "/toponyms": {
       "post": {
+        "description": "Endpoint to add a not visible toponym.",
         "operationId": "createNotVisibleToponym",
         "requestBody": {
           "content": {
@@ -3645,16 +3702,18 @@
                 }
               }
             },
-            "description": "OK"
+            "description": "Returns the created toponym"
           }
         },
+        "summary": "Register a toponym",
         "tags": [
-          "toponyms-controller"
+          "Toponyms controller"
         ]
       }
     },
     "/toponyms/search": {
       "get": {
+        "description": "Search for toponyms. Geometries are not retrieved and list content is limited to 100 entities.",
         "operationId": "search",
         "parameters": [
           {
@@ -3686,16 +3745,18 @@
                 }
               }
             },
-            "description": "OK"
+            "description": "Returns the list of toponyms"
           }
         },
+        "summary": "Search toponyms",
         "tags": [
-          "toponyms-controller"
+          "Toponyms controller"
         ]
       }
     },
     "/toponyms/{businessId}": {
       "get": {
+        "description": "Retrieve one toponym by its identifier",
         "operationId": "get",
         "parameters": [
           {
@@ -3724,11 +3785,12 @@
                 }
               }
             },
-            "description": "OK"
+            "description": "Returns the toponym"
           }
         },
+        "summary": "Get toponym",
         "tags": [
-          "toponyms-controller"
+          "Toponyms controller"
         ]
       }
     },
@@ -4145,6 +4207,7 @@
     },
     "/users": {
       "post": {
+        "description": "Create a project user by bypassing the registration process (Administrator feature)",
         "operationId": "createUser",
         "requestBody": {
           "content": {
@@ -4159,22 +4222,24 @@
         "responses": {
           "200": {
             "content": {
-              "*/*": {
+              "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/EntityModelProjectUserReadDto"
                 }
               }
             },
-            "description": "OK"
+            "description": "Returns the created project user"
           }
         },
+        "summary": "Create a project user",
         "tags": [
-          "project-users-controller"
+          "Project users controller"
         ]
       }
     },
     "/users/email/{email}/verification/resend": {
       "get": {
+        "description": "Send a new verification email for a user creation",
         "operationId": "sendVerificationEmail",
         "parameters": [
           {
@@ -4191,13 +4256,15 @@
             "description": "OK"
           }
         },
+        "summary": "Valid a user creation",
         "tags": [
-          "project-users-controller"
+          "Project users controller"
         ]
       }
     },
     "/users/email/{user_email}": {
       "get": {
+        "description": "Retrieve the project user metadata by its emaila",
         "operationId": "retrieveProjectUserByEmail",
         "parameters": [
           {
@@ -4212,22 +4279,24 @@
         "responses": {
           "200": {
             "content": {
-              "*/*": {
+              "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/EntityModelProjectUserReadDto"
                 }
               }
             },
-            "description": "OK"
+            "description": "Returns the project user"
           }
         },
+        "summary": "Get the project user",
         "tags": [
-          "project-users-controller"
+          "Project users controller"
         ]
       }
     },
     "/users/email/{user_email}/admin": {
       "get": {
+        "description": "Check if the user with the given email has administrator role",
         "operationId": "isAdmin",
         "parameters": [
           {
@@ -4242,40 +4311,44 @@
         "responses": {
           "200": {
             "content": {
-              "*/*": {
+              "application/json": {
                 "schema": {
                   "type": "boolean"
                 }
               }
             },
-            "description": "OK"
+            "description": "True if the user has an administrator role, false otherwise"
           }
         },
+        "summary": "Check the role of user",
         "tags": [
-          "project-users-controller"
+          "Project users controller"
         ]
       }
     },
     "/users/myuser": {
       "get": {
+        "description": "Retrieve the current authenticated project user metadata",
         "operationId": "retrieveCurrentProjectUser",
         "responses": {
           "200": {
             "content": {
-              "*/*": {
+              "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/EntityModelProjectUserReadDto"
                 }
               }
             },
-            "description": "OK"
+            "description": "Returns the current authenticated project user"
           }
         },
+        "summary": "Get the current project user metadata",
         "tags": [
-          "project-users-controller"
+          "Project users controller"
         ]
       },
       "put": {
+        "description": "Update the currently authenticated project user",
         "operationId": "updateCurrentProjectUser",
         "requestBody": {
           "content": {
@@ -4290,22 +4363,24 @@
         "responses": {
           "200": {
             "content": {
-              "*/*": {
+              "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/EntityModelProjectUserReadDto"
                 }
               }
             },
-            "description": "OK"
+            "description": "Returns the currently authenticated project user"
           }
         },
+        "summary": "Update the current project user",
         "tags": [
-          "project-users-controller"
+          "Project users controller"
         ]
       }
     },
     "/users/pendingaccesses": {
       "get": {
+        "description": "Retrieve a page containing a list of users with a pending access request",
         "operationId": "retrieveAccessRequestList",
         "parameters": [
           {
@@ -4320,22 +4395,24 @@
         "responses": {
           "200": {
             "content": {
-              "*/*": {
+              "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/PagedModelEntityModelProjectUserReadDto"
                 }
               }
             },
-            "description": "OK"
+            "description": "All users of the project with a pending access request were retrieved."
           }
         },
+        "summary": "Get a list of users",
         "tags": [
-          "project-users-controller"
+          "Project users controller"
         ]
       }
     },
     "/users/roles": {
       "get": {
+        "description": "Retrieve a page containing the list of project users with the specified role name or a parent role",
         "operationId": "retrieveRoleProjectUsersList",
         "parameters": [
           {
@@ -4358,22 +4435,24 @@
         "responses": {
           "200": {
             "content": {
-              "*/*": {
+              "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/PagedModelEntityModelProjectUserReadDto"
                 }
               }
             },
-            "description": "OK"
+            "description": "Returns the list of project users"
           }
         },
+        "summary": "Get the list of project users",
         "tags": [
-          "project-users-controller"
+          "Project users controller"
         ]
       }
     },
     "/users/roles/{role_id}": {
       "get": {
+        "description": "Retrieve a page of project users with the specified role identifier or a parent role",
         "operationId": "retrieveRoleProjectUserList",
         "parameters": [
           {
@@ -4397,17 +4476,18 @@
         "responses": {
           "200": {
             "content": {
-              "*/*": {
+              "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/PagedModelEntityModelProjectUserReadDto"
                 }
               }
             },
-            "description": "OK"
+            "description": "Returns the list of project users with the specified role or a parent role"
           }
         },
+        "summary": "Get the list of project users",
         "tags": [
-          "project-users-controller"
+          "Project users controller"
         ]
       }
     },
@@ -4440,7 +4520,7 @@
         "responses": {
           "200": {
             "content": {
-              "*/*": {
+              "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/PagedModelEntityModelProjectUserReadDto"
                 }
@@ -4451,7 +4531,7 @@
         },
         "summary": "Get users of the project",
         "tags": [
-          "project-users-controller"
+          "Project users controller"
         ]
       }
     },
@@ -4474,7 +4554,7 @@
           }
         },
         "tags": [
-          "user-resource-controller"
+          "User resource controller"
         ]
       },
       "get": {
@@ -4513,7 +4593,7 @@
           }
         },
         "tags": [
-          "user-resource-controller"
+          "User resource controller"
         ]
       },
       "put": {
@@ -4547,12 +4627,13 @@
           }
         },
         "tags": [
-          "user-resource-controller"
+          "User resource controller"
         ]
       }
     },
     "/users/{user_id}": {
       "delete": {
+        "description": "Delete the project user with the given identifier",
         "operationId": "removeProjectUser",
         "parameters": [
           {
@@ -4570,11 +4651,13 @@
             "description": "OK"
           }
         },
+        "summary": "Delete the project user",
         "tags": [
-          "project-users-controller"
+          "Project users controller"
         ]
       },
       "get": {
+        "description": "Retrieve the project user metadata by its identifier",
         "operationId": "retrieveProjectUser",
         "parameters": [
           {
@@ -4590,20 +4673,22 @@
         "responses": {
           "200": {
             "content": {
-              "*/*": {
+              "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/EntityModelProjectUserReadDto"
                 }
               }
             },
-            "description": "OK"
+            "description": "The user metadata were retrieved."
           }
         },
+        "summary": "Get a project user",
         "tags": [
-          "project-users-controller"
+          "Project users controller"
         ]
       },
       "put": {
+        "description": "Update the project user with the given identifier",
         "operationId": "updateProjectUser",
         "parameters": [
           {
@@ -4629,17 +4714,18 @@
         "responses": {
           "200": {
             "content": {
-              "*/*": {
+              "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/EntityModelProjectUserReadDto"
                 }
               }
             },
-            "description": "OK"
+            "description": "Return the updated project user"
           }
         },
+        "summary": "Update the project user",
         "tags": [
-          "project-users-controller"
+          "Project users controller"
         ]
       }
     }
@@ -4653,11 +4739,6 @@
     {
       "description": "Generated server url",
       "url": "https://regardsoss.github.io/api/v1/rs-access-project"
-    }
-  ],
-  "tags": [
-    {
-      "name": "Search history controller"
     }
   ]
 }

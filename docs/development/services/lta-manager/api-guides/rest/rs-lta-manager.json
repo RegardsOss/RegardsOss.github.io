@@ -141,6 +141,33 @@
       },
       "IGeometry": {
         "description": "Product geometry in GeoJSON RFC 7946 Format.",
+        "example": {
+          "coordinates": [
+            [
+              [
+                51.57951867046327,
+                24.245497137951105
+              ],
+              [
+                51.757440626844186,
+                24.29407298430547
+              ],
+              [
+                51.79438927593287,
+                24.019826158132506
+              ],
+              [
+                52.57708051942561,
+                24.177439276622707
+              ],
+              [
+                53.404006788960146,
+                24.15131684009917
+              ]
+            ]
+          ],
+          "type": "Polygon"
+        },
         "nullable": true,
         "properties": {
           "crs": {
@@ -346,15 +373,18 @@
         "properties": {
           "checksumMd5": {
             "description": "Checksum of the file in md5 format.",
+            "example": "d326ed75d1e9c1109a9dbabf114f6b61",
             "pattern": "^[a-fA-F0-9]{32}$",
             "type": "string"
           },
           "filename": {
             "description": "Name of the file.",
+            "example": "thumbnail.png",
             "type": "string"
           },
           "mimeType": {
             "description": "Mimetype of the file.",
+            "example": "image/png",
             "properties": {
               "charset": {
                 "type": "string"
@@ -400,17 +430,21 @@
               "AIP",
               "DESCRIPTION"
             ],
+            "example": "THUMBNAIL",
             "type": "string"
           },
           "url": {
             "description": "Location of the file. Only http(s) or file protocols are accepted.",
+            "example": "file:/input/file-lta-100.png",
             "type": "string"
           }
         },
         "required": [
+          "checksumMd5",
           "filename",
           "mimeType",
-          "type"
+          "type",
+          "url"
         ],
         "type": "object"
       },
@@ -547,12 +581,14 @@
         "properties": {
           "correlationId": {
             "description": "Identifier to track this request during the entire workflow. It must be unique.",
+            "example": "lta-product-100-000001",
             "maxLength": 255,
             "minLength": 0,
             "type": "string"
           },
           "datatype": {
             "description": "Product datatype. Must be present in the lta-manager configuration.",
+            "example": "configured-datatype",
             "maxLength": 255,
             "minLength": 0,
             "type": "string"
@@ -568,28 +604,17 @@
           "geometry": {
             "$ref": "#/components/schemas/IGeometry"
           },
-          "originRequestAppId": {
-            "description": "Origin request app_id in amqp message (header property of amqp message)",
-            "type": "string"
-          },
-          "originRequestPriority": {
-            "description": "Origin request priority in amqp message (header property of amqp message",
-            "format": "int32",
-            "type": "integer"
-          },
           "originUrn": {
             "description": "Id of the product in the original catalog.",
+            "example": "origin-lta-product-id",
             "maxLength": 255,
             "minLength": 0,
             "nullable": true,
             "type": "string"
           },
-          "owner": {
-            "description": "Owner of submission request",
-            "type": "string"
-          },
           "productId": {
             "description": "Provider id of the OAIS product to generate.",
+            "example": "lta-product-100",
             "maxLength": 255,
             "minLength": 0,
             "type": "string"
@@ -597,27 +622,34 @@
           "properties": {
             "additionalProperties": {
               "description": "Map of key/value properties.",
+              "example": {
+                "creation_date": "2023-05-01T00:00:00Z",
+                "geolocalized": "invalidValueType",
+                "name": "lta-product-100"
+              },
               "nullable": true,
               "type": "object"
             },
             "description": "Map of key/value properties.",
+            "example": {
+              "creation_date": "2023-05-01T00:00:00Z",
+              "geolocalized": "invalidValueType",
+              "name": "lta-product-100"
+            },
             "nullable": true,
             "type": "object"
           },
-          "replaceMode": {
-            "default": false,
-            "description": "If true, overrides the product if it already exists.",
-            "type": "boolean"
-          },
           "session": {
             "description": "Session to monitor the generation of the product. If not provided, a default session will be used.",
+            "example": "lta-session-name",
             "maxLength": 128,
             "minLength": 0,
             "nullable": true,
             "type": "string"
           },
           "storePath": {
-            "description": "Path to store the product. If null, the storePath will be built from the lta-manager configuration.",
+            "description": "Path to manually define the destination location for files on archival system. If null, the storePath will be built from the lta-manager configuration.",
+            "example": "/2024/1/15/lta-product-100",
             "maxLength": 255,
             "minLength": 0,
             "nullable": true,
@@ -626,8 +658,13 @@
           },
           "tags": {
             "description": "List of string tags.",
+            "example": [
+              "lta",
+              "amqp"
+            ],
             "items": {
               "description": "List of string tags.",
+              "example": "[\"lta\",\"amqp\"]",
               "nullable": true,
               "type": "string"
             },
@@ -647,33 +684,26 @@
         "properties": {
           "correlationId": {
             "description": "Identifier to track the request through the workflow.",
+            "example": "lta-product-100-000001",
             "type": "string"
           },
           "expires": {
             "description": "Expiration date of the created request.",
+            "example": "2025-05-01T00:00:00Z",
             "format": "date-time",
             "nullable": true,
             "type": "string"
           },
           "message": {
             "description": "Possible error message.",
+            "example": "An error occurred while ...",
             "nullable": true,
             "type": "string"
           },
           "productId": {
             "description": "Identifier of the submitted product.",
+            "example": "lta-product-100",
             "type": "string"
-          },
-          "requestAppId": {
-            "description": "Request application identifier.",
-            "nullable": true,
-            "type": "string"
-          },
-          "requestPriority": {
-            "description": "Request priority.",
-            "format": "int32",
-            "nullable": true,
-            "type": "integer"
           },
           "responseStatus": {
             "description": "Acceptance status of the submitted product.",
@@ -683,10 +713,12 @@
               "SUCCESS",
               "ERROR"
             ],
+            "example": "GRANTED",
             "type": "string"
           },
           "session": {
             "description": "Session to monitor the created submission request.",
+            "example": "LTA-session",
             "nullable": true,
             "type": "string"
           }
@@ -1019,7 +1051,7 @@
       "name": "GPL-3.0"
     },
     "title": "MICROSERVICE LTA MANAGER",
-    "version": "1.15.2"
+    "version": "1.16.1"
   },
   "openapi": "3.0.1",
   "paths": {
@@ -1481,7 +1513,7 @@
         "responses": {
           "200": {
             "content": {
-              "application/json;charset=UTF-8": {
+              "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/GenericResponseBody"
                 }
@@ -1511,7 +1543,7 @@
         "responses": {
           "200": {
             "content": {
-              "application/json;charset=UTF-8": {
+              "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/GenericResponseBody"
                 }
@@ -1766,20 +1798,6 @@
     {
       "description": "Generated server url",
       "url": "https://regardsoss.github.io/api/v1/rs-lta-manager"
-    }
-  ],
-  "tags": [
-    {
-      "name": "Create controller"
-    },
-    {
-      "name": "Search controller"
-    },
-    {
-      "name": "Deletion controller"
-    },
-    {
-      "name": "Session controller"
     }
   ]
 }

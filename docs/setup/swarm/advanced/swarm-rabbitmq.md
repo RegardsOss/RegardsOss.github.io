@@ -189,6 +189,13 @@ Our playbook provides three different properties to automatically create RabbitM
 ```yaml
 group_docker_cots:
   rabbitmq:
+    additional_exchanges:
+      - name: exemple.exchange
+        vhost: regards.multitenant.manager
+        # type can be Direct / Fanout / Topic
+        type: fanout
+        durable: true
+        internal: false
     additional_queues:
       - name: exemple.queue
         vhost: regards.multitenant.manager
@@ -198,18 +205,23 @@ group_docker_cots:
           x-dead-letter-exchange: regards.DLX
           x-dead-letter-routing-key: regards.DLQ
           x-max-priority: 255
-    additional_exchanges:
-      - name: exemple.exchange
-        vhost: regards.multitenant.manager
-        type: topic
-        durable: true
-        internal: false
     additional_bindings:
       - source: exemple.exchange
         vhost: regards.multitenant.manager
         destination: exemple.queue
         destination_type: queue
         routing_key: 'exemple'
+```
+
+### Consumer timeout
+
+Our playbook provides following configuration to override default consumer timeout, which is by default `30 min`.
+
+```yaml
+group_docker_cots:
+  rabbitmq:
+    consumer_timeout_in_ms: 3600000
+    # set to 1h
 ```
 
 ### Mutualised RabbitMQ

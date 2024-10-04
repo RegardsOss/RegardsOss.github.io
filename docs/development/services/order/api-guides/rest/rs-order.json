@@ -10,7 +10,7 @@
             "type": "string"
           },
           "fileSelectionDescription": {
-            "$ref": "#/components/schemas/FileSelectionDescriptionDTO"
+            "$ref": "#/components/schemas/FileSelectionDescriptionDto"
           },
           "filesCount": {
             "format": "int64",
@@ -36,7 +36,7 @@
             "type": "integer"
           },
           "processDatasetDescription": {
-            "$ref": "#/components/schemas/ProcessDatasetDescription"
+            "$ref": "#/components/schemas/ProcessDatasetDescriptionDto"
           },
           "quota": {
             "format": "int64",
@@ -155,7 +155,7 @@
             "type": "string"
           },
           "fileSelectionDescription": {
-            "$ref": "#/components/schemas/FileSelectionDescription"
+            "$ref": "#/components/schemas/FileSelectionDescriptionDto"
           },
           "filesCount": {
             "format": "int64",
@@ -174,7 +174,7 @@
             "type": "integer"
           },
           "processDatasetDescription": {
-            "$ref": "#/components/schemas/ProcessDatasetDescription"
+            "$ref": "#/components/schemas/ProcessDatasetDescriptionDto"
           },
           "processingService": {
             "type": "string"
@@ -347,26 +347,7 @@
         },
         "type": "object"
       },
-      "FileSelectionDescription": {
-        "properties": {
-          "fileNamePattern": {
-            "type": "string"
-          },
-          "fileTypes": {
-            "items": {
-              "enum": [
-                "RAWDATA",
-                "QUICKLOOK"
-              ],
-              "type": "string"
-            },
-            "type": "array",
-            "uniqueItems": true
-          }
-        },
-        "type": "object"
-      },
-      "FileSelectionDescriptionDTO": {
+      "FileSelectionDescriptionDto": {
         "properties": {
           "fileNamePattern": {
             "type": "string"
@@ -968,7 +949,7 @@
         },
         "type": "object"
       },
-      "ProcessDatasetDescription": {
+      "ProcessDatasetDescriptionDto": {
         "properties": {
           "parameters": {
             "additionalProperties": {
@@ -1130,7 +1111,7 @@
       "name": "GPL-3.0"
     },
     "title": "MICROSERVICE ORDER",
-    "version": "1.15.2"
+    "version": "1.16.1"
   },
   "openapi": "3.0.1",
   "paths": {
@@ -1430,7 +1411,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/FileSelectionDescriptionDTO"
+                "$ref": "#/components/schemas/FileSelectionDescriptionDto"
               }
             }
           }
@@ -1470,7 +1451,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/ProcessDatasetDescription"
+                "$ref": "#/components/schemas/ProcessDatasetDescriptionDto"
               }
             }
           }
@@ -1818,19 +1799,21 @@
     "/orders/search": {
       "post": {
         "operationId": "findAllAdmin",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "pageRequest",
+            "required": true,
+            "schema": {
+              "$ref": "#/components/schemas/Pageable"
+            }
+          }
+        ],
         "requestBody": {
           "content": {
             "application/json": {
               "schema": {
-                "properties": {
-                  "filters": {
-                    "$ref": "#/components/schemas/SearchRequestParameters"
-                  },
-                  "pageRequest": {
-                    "$ref": "#/components/schemas/Pageable"
-                  }
-                },
-                "type": "object"
+                "$ref": "#/components/schemas/SearchRequestParameters"
               }
             }
           },
@@ -2064,7 +2047,7 @@
         "responses": {
           "200": {
             "content": {
-              "application/json;charset=UTF-8": {
+              "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/GenericResponseBody"
                 }
@@ -2094,7 +2077,7 @@
         "responses": {
           "200": {
             "content": {
-              "application/json;charset=UTF-8": {
+              "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/GenericResponseBody"
                 }

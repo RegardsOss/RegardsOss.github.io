@@ -12,7 +12,7 @@ availability to be able to download them.
 Restitution services are mandatory for products with files stored on **Cold storages**. This kind of storage implies
 that
 all the data are not available for download at any time. Users need to request files for availability first.
-:::info
+:::
 
 To allow users to order products from your catalog, you need to use these microservices :
 

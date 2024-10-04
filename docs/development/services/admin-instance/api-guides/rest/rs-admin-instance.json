@@ -1202,7 +1202,7 @@
       "name": "GPL-3.0"
     },
     "title": "MICROSERVICE ADMIN INSTANCE",
-    "version": "1.15.2"
+    "version": "1.16.1"
   },
   "openapi": "3.0.1",
   "paths": {
@@ -2993,11 +2993,6 @@
     {
       "description": "Generated server url",
       "url": "https://regardsoss.github.io/api/v1/rs-admin-instance"
-    }
-  ],
-  "tags": [
-    {
-      "name": "Email request controller"
     }
   ]
 }
