@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="generator" content="Docusaurus v3.5.2">
 <title data-rh="true">REGARDS services overview | REGARDS</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:url" content="https://RegardsOss.github.io/docs/development/services/overview"><meta data-rh="true" property="og:locale" content="en"><meta data-rh="true" name="docusaurus_locale" content="en"><meta data-rh="true" name="docsearch:language" content="en"><meta data-rh="true" name="docusaurus_version" content="current"><meta data-rh="true" name="docusaurus_tag" content="docs-default-current"><meta data-rh="true" name="docsearch:version" content="current"><meta data-rh="true" name="docsearch:docusaurus_tag" content="docs-default-current"><meta data-rh="true" property="og:title" content="REGARDS services overview | REGARDS"><meta data-rh="true" name="description" content="This section provides documentation about REGARDS microservices :"><meta data-rh="true" property="og:description" content="This section provides documentation about REGARDS microservices :"><link data-rh="true" rel="icon" href="/img/logos/regards-png/regards-favicon.png"><link data-rh="true" rel="canonical" href="https://RegardsOss.github.io/docs/development/services/overview"><link data-rh="true" rel="alternate" href="https://RegardsOss.github.io/docs/development/services/overview" hreflang="en"><link data-rh="true" rel="alternate" href="https://RegardsOss.github.io/docs/development/services/overview" hreflang="x-default"><link data-rh="true" rel="preconnect" href="https://BP0ACDVAUR-dsn.algolia.net" crossorigin="anonymous"><link rel="search" type="application/opensearchdescription+xml" title="REGARDS" href="/opensearch.xml"><link rel="stylesheet" href="/assets/css/styles.cf04207a.css">
-<script src="/assets/js/runtime~main.5ec8bc18.js" defer="defer"></script>
+<script src="/assets/js/runtime~main.8aa7a8af.js" defer="defer"></script>
 <script src="/assets/js/main.9d49d856.js" defer="defer"></script>
 </head>
 <body class="navigation-with-keyboard">
@@ -13,18 +13,18 @@
 <li><a href="/docs/development/services/access-project/overview">Access project</a> : <strong>Access project</strong> or <strong>rs-access-project</strong> microservice is
 used as a <strong>backend for frontend</strong>. This service is used by the Web UI to retrieve its configuration and to aggregate
 some microservices information.</li>
-<li><a href="/docs/development/services/access-instance/overview">Access instance</a> : <strong>Access instance</strong> or <strong>rs-access-instance</strong> microservice has
-been designed as a front-end to access the various generalist services made available by Regards.</li>
-<li><a href="/docs/development/services/admin/overview">Admin project (rs-admin)</a> : <strong>Admin project</strong> or <strong>rs-admin</strong> manages project users and
-roles</li>
-<li><a href="/docs/development/services/admin-instance/overview">Admin instance</a> : <strong>Admin instance</strong> or <strong>rs-admin-instance</strong> microservice has been
+<li><a href="/docs/development/services/access-instance/overview">Access instance</a> : <strong>Access instance</strong> or <strong>rs-access-instance</strong>  microservice manage
+the configuration of instance UI such as the portal and administration.</li>
+<li><a href="/docs/development/services/admin/overview">Admin project</a> : <strong>Admin project</strong> or <strong>rs-admin</strong> manages project
+users and roles</li>
+<li><a href="/docs/development/services/admin-instance/overview">Admin instance</a> : : <strong>Admin instance</strong> or <strong>rs-admin-instance</strong> microservice has been
 designed to centralize processes for the administration of Regards for all projets.</li>
-<li><a href="/docs/development/backend/services/authentication/overview">Authentication</a> : <strong>Authentication</strong> or <strong>rs-authentication</strong> microservice
-manage <a href="/docs/development/concepts/multitenant">project or tenant</a> users authentication.</li>
-<li><a href="/docs/development/backend/services/catalog/overview">Catalog</a>: <strong>Catalog</strong> or <strong>rs-catalog</strong> microservice is used to consult products in the Regards
-meta-catalogue</li>
-<li><a href="/docs/development/services/dam/overview">Data management (rs-dam)</a>: <strong>Data management</strong> or <strong>rs-dam</strong> microservice mainly handle meta
-catalog population.</li>
+<li><a href="/docs/development/backend/services/authentication/overview">Authentication</a> : <strong>Authentication</strong> or
+<strong>rs-authentication</strong> microservice manage <a href="/docs/development/concepts/multitenant">project or tenant</a> users authentication.</li>
+<li><a href="/docs/development/backend/services/catalog/overview">Catalog</a>: <strong>Catalog</strong> or <strong>rs-catalog</strong> microservice is used to consult products in the
+Regards meta-catalogue</li>
+<li><a href="/docs/development/services/overview">Data management (rs-dam)</a>: <strong>Data management</strong> or <strong>rs-dam</strong> microservice mainly handle meta catalog
+population.</li>
 <li><a href="/docs/development/backend/services/dataprovider/overview">Data provider</a> : <strong>Data provider</strong> or <strong>rs-data-provider</strong> microservice is
 used to detect files on disk, create products in SIP format from these files and finally send these SIPs to the
 rs-ingest service.</li>
@@ -36,19 +36,21 @@ products in GeoJson format</li>
 global <a href="/docs/development/concepts/microservices">microservice architecture</a>.</li>
 <li><a href="/docs/development/backend/services/ingest/overview">Ingest</a> : <strong>Ingest</strong> or <strong>rs-ingest</strong> microservice manage the
 Regards <a href="/docs/development/appendices/oais">OAIS</a> catalog.</li>
-<li><a href="/docs/development/backend/services/lta-manager/overview">LTA Manager</a> : <strong>Lta manager</strong> or <strong>rs-lta-manager</strong> microservice manages the
-products archival requests. It is a simplified way to add products in the OAIS catalog.</li>
+<li><a href="/docs/development/backend/services/lta-manager/overview">LTA Manager</a> : <strong>Lta manager</strong> or <strong>rs-lta-manager</strong> microservice manage the products
+archival requests.<br>
+<!-- -->It is a simplified way to add products in the OAIS catalog.</li>
 <li><a href="/docs/development/backend/services/notifier/overview">Notifier</a>: <strong>Notifier</strong> or <strong>rs-notifier</strong> microservice is used to broadcast messages from
-notifications received, such as products managed by REGARDS internal catalogs, to different recipients according to
-broadcast rules.</li>
-<li><a href="/docs/development/backend/services/order/overview">Order</a>: <strong>Order</strong> or <strong>rs-order</strong> microservice manage users product orders.</li>
-<li><a href="/docs/development/backend/services/processing/overview">Processing</a>: <strong>Processing</strong> or <strong>rs-processing</strong> microservice, driven by order microservice,</li>
+notifications received, such as products managed by REGARDS internal catalogs, to different
+recipients according to broadcast rules.</li>
+<li><a href="/docs/development/backend/services/order/overview">Order</a>:  <strong>Order</strong> or <strong>rs-order</strong> microservice manage users product orders.</li>
+<li><a href="/docs/development/backend/services/processing/overview">Processing</a>: <strong>Processing</strong> or <strong>rs-processing</strong> microservice, driven by order
+microservice.</li>
 <li><a href="/docs/development/backend/services/registry/overview">Registry</a>: <strong>Registry</strong> or <strong>rs-registry</strong> microservice manages the microservices registry of
 the global <a href="/docs/development/concepts/microservices">microservice architecture</a>.</li>
 <li><a href="/docs/development/backend/services/storage/overview">Storage</a>: <strong>Storage</strong> or <strong>rs-storage</strong> microservice manages the storage, the deletion and the
 download of files associated to products of <strong>OAIS catalog rs-ingest</strong> and <strong>GeoJson catalog rs-fem</strong>.</li>
-<li><a href="/docs/development/services/worker-manager/overview">Worker Manager</a>: <strong>Worker Manager</strong> or <strong>rs-worker-manager</strong> microservice is
-designed to act as an entry point for all processing requests dedicated to
+<li><a href="/docs/development/services/worker-manager/overview">Worker Manager</a>: <strong>Worker Manager</strong> or <strong>rs-worker-manager</strong> microservice is designed
+to act as an entry point for all processing requests dedicated to
 all <a href="/docs/development/concepts/workers">workers</a> on the system</li>
 </ul></div><footer class="theme-doc-footer docusaurus-mt-lg"><div class="row margin-top--sm theme-doc-footer-edit-meta-row"><div class="col"><a href="https://github.com/RegardsOss/RegardsOss.github.io/edit/master/docs/development/services/overview.md" target="_blank" rel="noopener noreferrer" class="theme-edit-this-page"><svg fill="currentColor" height="20" width="20" viewBox="0 0 40 40" class="iconEdit_Z9Sw" aria-hidden="true"><g><path d="m34.5 11.7l-3 3.1-6.3-6.3 3.1-3q0.5-0.5 1.2-0.5t1.1 0.5l3.9 3.9q0.5 0.4 0.5 1.1t-0.5 1.2z m-29.5 17.1l18.4-18.5 6.3 6.3-18.4 18.4h-6.3v-6.2z"></path></g></svg>Edit this page</a></div><div class="col lastUpdated_JAkA"></div></div></footer></article><nav class="pagination-nav docusaurus-mt-lg" aria-label="Docs pages"><a class="pagination-nav__link pagination-nav__link--prev" href="/docs/development/concepts/requests-jobs"><div class="pagination-nav__sublabel">Previous</div><div class="pagination-nav__label">Requests &amp; Jobs</div></a><a class="pagination-nav__link pagination-nav__link--next" href="/docs/development/services/common/common-import-export-configuration"><div class="pagination-nav__sublabel">Next</div><div class="pagination-nav__label">Services configuration</div></a></nav></div></div></div></div></main></div></div></div><footer class="footer footer--dark"><div class="container_grid_bQnQ"><div class="col_1_KTIr"><p><strong>A framework and a set of plugins to build scientific archives.</strong></p><p>REGARDS is an Open Source data valorization product, highly flexible to various themes, modular, efficient, long-lasting, evolutionary and scalable, aims at providing services to Mission Centers and laboratories, and is able to deal with huge amount of data. <br>Our goal is to allow a strong commitment from user community in the development of modules and plugins.</p><p><strong>We welcome <a href="https://github.com/RegardsOss/RegardsOss.github.io/blob/master/CONTRIBUTING.md">your contributions</a> to make these documents better.</strong></p><div><img src="/img/logos/courbe-institutionnelle-signature_y110-inverser.png"></div></div><div class="col_2_Jonb"><h4 class="footer__title">Users</h4><ul class="footer__items"><li class="footer__item"><a class="footer__link-item" href="/docs/user-guide">Manual</a></li></ul></div><div class="col_2_Jonb"><h4 class="footer__title">Developpers</h4><ul class="footer__items"><li class="footer__item"><a href="/docs/setup" class="footer__link-item" target="_blank" rel="noopener noreferrer">Install</a></li><li class="footer__item"><a href="/docs/development/frontend/introduction/setup" class="footer__link-item" target="_blank" rel="noopener noreferrer">Web UI</a></li></ul></div><div class="col_2_Jonb"><h4 class="footer__title">More</h4><ul class="footer__items"><li class="footer__item"><a href="https://github.com/RegardsOss/" target="_blank" rel="noopener noreferrer" class="footer__link-item">GitHub</a></li></ul></div></div><div class="footer__bottom text--center"><div class="footer__copyright">Copyright © 2024 REGARDS, OSS. Built with Docusaurus.</div></div></footer></div>
 </body>
