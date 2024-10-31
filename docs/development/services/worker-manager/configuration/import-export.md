@@ -34,18 +34,20 @@ through the [administrator UI](../../../../user-documentation/2-project-configur
 | workerType        | String         | Worker type (maximum length 128: [a-zA-Z0-9-_.]*) |
 | contentTypeInputs | List of String | List of content type in worker input              |
 | contentTypeOutput | String         | Content type in worker output                     |
+| keepErrors        | boolean        | Default true. If false, delete requests if worker response is in error. This option is useful if you don't want to allow error requests to be restarted from the workermanager.  |
 
 This worker configuration is used in `rs-worker-manager` to determine which content type is accepted by the worker. This
 content type output is useful in workflow case.
 
 ### Configuration for workflow of worker :
 
-| Name         | Type   | Description                                       |
-|--------------|--------|---------------------------------------------------|
-| workflowType | String | Workflow type (maximum length 256)                |
-| steps        | -      | List of steps for a workflow                      |
-| stepNumber   | Digit  | Step number in workflow (unique)                  |
-| workerType   | String | Worker type (maximum length 128: [a-zA-Z0-9-_.]*) |
+| Name         | Type    | Description                                       |
+|--------------|---------|---------------------------------------------------|
+| workflowType | String  | Workflow type (maximum length 256)                |
+| steps        | -       | List of steps for a workflow                      |
+| stepNumber   | Digit   | Step number in workflow (unique)                  |
+| workerType   | String  | Worker type (maximum length 128: [a-zA-Z0-9-_.]*) |
+| keepErrors   | boolean | Default true. If false, delete requests if worklow response is in error. This option is useful if you don't want to allow error requests to be restarted from the workermanager.   |
 
 This configuration indicate the different steps of the workflow and their order.
 The parameter **contentTypeOutput** must be a valid with the parameter **contentTypeInput** defined in the worker by

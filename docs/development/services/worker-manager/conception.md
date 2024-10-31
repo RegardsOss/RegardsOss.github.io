@@ -96,5 +96,9 @@ Some of the `rs-worker-manager` response statements will be produced directly by
   worker becomes available.
 
 
+## Worker Manager error handling
+
+The service allows you to define for each worker or workflow by configuration whether error requests should be kept or not. This setting ensures that errors are not kept on workers that administrators do not want to be able to restart.
+
 
 
