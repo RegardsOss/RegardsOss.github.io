@@ -49,13 +49,13 @@ group_config_mservices:
       host: database-inst.cnes.fr
       port: 5432
       user: <some user>
-      password: <some password>
+      password: "{{ regards_vault.group_config_mservices.postgres.instance.password }}"
       db: <instance database name>
     init_project:
       host: database-first-project.cnes.fr
       port: 5432
       user: <some user>
-      password: <some password>
+      password: "{{ regards_vault.group_config_mservices.init_project.instance.password }}"
       db: <first project database name>
 ```
 

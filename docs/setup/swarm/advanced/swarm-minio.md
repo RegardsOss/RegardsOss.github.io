@@ -25,7 +25,7 @@ group_docker_cots:
       key: "{{ group_docker_stack_domain }}.key"
     region: fr-regards-1
     key: xxxxxxxx
-    secret: xxxxxxxx
+    secret: "{{ regards_vault.group_docker_cots.minio.regards.secret }}"
 ```
 
 | Properties | Description                                                                               | default      |
@@ -35,7 +35,7 @@ group_docker_cots:
 | ssl        | Optional. To configure TLS certificates for MinIO when accessing through public host name |              |
 | region     | global region of the MinIO server                                                         | fr-regards-1 |
 | key        | root admin user login                                                                     | regards      |
-| secret     | root admin user password                                                                  | regardspwd   |
+| secret     | root admin user password. Must be store inside [a Vault file](./ansible-vault.md)         | regardspwd   |
 
 ## Single node deployment
 

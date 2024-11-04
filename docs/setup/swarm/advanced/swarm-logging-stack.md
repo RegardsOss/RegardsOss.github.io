@@ -129,7 +129,7 @@ group_docker_cots:
           - name: BD Project <project name>
             url: <database URL>:<database port>
             user: <database user>
-            password: <Database password - use Ansible Vault!>
+            password: "{{ regards_vault.group_docker_cots.grafana.datasources.custom.postgres.<project name>.password }}"
             databases:
               - <database name>
           [...]

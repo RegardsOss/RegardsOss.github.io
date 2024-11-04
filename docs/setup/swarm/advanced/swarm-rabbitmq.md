@@ -117,14 +117,13 @@ group_docker_cots:
     # Administrator user name for RabbitMQ Server
     user: my-admin
     # Administrator user password for RabbitMQ Server 
-    password: XXXXX
+    # password is saved inside the Vault file
+    password: "{{ regards_vault.group_docker_cots.rabbitmq.regards.password }}"
 
 group_config_mservices:
   amqp:
-    # Administrator user name for RabbitMQ Server
-    user: my-admin
-    # Administrator user password for RabbitMQ Server 
-    password: XXXXX
+    user: "{{ group_docker_cots.rabbitmq.user }}"
+    password: "{{ group_docker_cots.rabbitmq.password }}"
 ```
 
 :::note
