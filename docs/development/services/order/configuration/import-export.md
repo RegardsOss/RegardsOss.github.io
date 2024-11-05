@@ -11,27 +11,13 @@ and stored in the microservice database.
 
 ## Import/Export API
 
-To configure some microservice settings for a specific tenant, you need to follow the [generic Import/Export service
-configuration guide](../../common/import-export-configuration.md), it will help you understand the expected JSON
-file payload that you can send to the
-[import configuration endpoint](../api-guides/rest/order-api-swagger.mdx#tag/module-manager-controller/operation/importConfiguration).
-
-This configuration can also be imported or exported
-through [administrator UI](../../../../user-documentation/2-project-configuration/microservices.md).
+The import export is not possible for the order microservice.
 
 ## Configurable parameters
 
-| Name                  | Type    | Default value                                                                                  | Description                                                                                                                                            |
-|-----------------------|---------|------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Name                             | Type                                                                       | Default value                                              | Description                                          |
+| -------------------------------- | -------------------------------------------------------------------------- | ---------------------------------------------------------- | ---------------------------------------------------- |
+| expiration_max_duration_in_hours | integer                                                                    | 168 (7 jours)                                              | Order expiration duration maximal (in hours)         |
+| app_sub_order_duration           | integer                                                                    | 2                                                          | Sub order duration for applicative orders (in hours) |
+| user_order_parameters            | object `{"subOrderDuration":"integer",` `"delayBeforeEmailNotification":"integer"}` | `{"subOrderDuration":"240",` `"delayBeforeEmailNotification":"72"}` | Parameters for User order (in hours)                 | 
 
-Not yet release !                                                                                                                       
-
-## Example
-
-```json title='rs-order configuration file example'
-{
-  "microservice": "rs-order",
-  "modules": [
-  ]
-}
-```

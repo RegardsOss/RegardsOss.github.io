@@ -19,10 +19,14 @@ To do so, RS-ORDER provides these functionalities:
 - process ordered files - your ordered files can be reprocessed before you download them
 
 :::info Max order size
-There is no limit on the number of files or even on the size of the files users can order.  
-Nevertheless, if the order is too big, it will be devided in many groups of files we name **SubOrders**.  
-In that case, user has to retrieve available files from the finished SubOrder, before the next one can be processed by
-the system.
+There is no limit on the number of files or the size of the files that users can order. However, if the order is too
+large, it will be divided into multiple groups of files, which we call **Suborders**. In this case, the user must
+retrieve the available files from the completed Suborder before the next one can be processed by the system.
+:::
+
+:::note Users quotas
+Users are subject to download quotas : max quota and rate quota. You can find more explanation of these quotas
+in [the user parameters configuration](../../../user-documentation/2-project-configuration/users.md)
 :::
 
 | Concept                                                                           | Compatibility | Description                                         |
@@ -35,13 +39,13 @@ You can learn how the service works with the [How it works section](conception.m
 
 ## How to use
 
-You can learn how to **operate** with the microservice thanks to **API Guides** :
+You can learn how to **operate** with the microservice thanks to the **API Guides** :
 
 - Create Order [using REST API](api-guides/rest/rest-create-order.md)
-  or [using AMQP API](api-guides/amqp/amqp-create-order.md) shows you how to create a basket selection and create the
+  or [using AMQP API](api-guides/amqp/amqp-create-order.md) show you how to create a basket selection and create the
   order in a single request. **Recommended for interoperability since v1.12**
 - Get Order [status using REST API](api-guides/rest/rest-get-order-status.md)
-  or [progress threw AMQP API](api-guides/amqp/amqp-get-order-progress.md) shows you how to create a basket selection
+  or [progress threw AMQP API](api-guides/amqp/amqp-get-order-progress.md) show you how to create a basket selection
   and create the order in a single request. **Recommended for interoperability since v1.12**
 - [Download ordered files using REST API](api-guides/rest/rest-download-ordered-files.md)
 - **Browse** all [REST API available endpoints](api-guides/rest/order-api-swagger.mdx).
