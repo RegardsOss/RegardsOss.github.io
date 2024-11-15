@@ -53,7 +53,7 @@ of an ingest chain with all the associated plugins.
 | version       | String  | Plugin configuration compatible version                                       |
 | priorityOrder | Integer | plugin configuration priority.                                                |
 | active        | Boolean | Enable or disable plugin configuration                                        |
-| parameters    | Object  | Json format of the plugin configuration parameters (specific for each plugin) | 
+| parameters    | Object  | Json format of the plugin configuration parameters (specific for each plugin) |
 
 ## Example
 

@@ -10,11 +10,14 @@ This configuration is common to all tenant.
 
 Static configuration for `rs-dam` service is :
 
-Not released yet.
-
+| Name                              | Type | Default Value | Description                                                                                                                                                            |
+|-----------------------------------|------|---------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| regards.access.rights.update.cron | cron | `0 0 1 ? * *` | Periodicity of scheduler to handle dynamic modification of access rights between dataset and group of users thanks to dynamic plugins(`IDataObjectAccessFilterPlugin`) |
 
 :::info
-Some of these properties are customizable in ansible inventory. [see installation guide](../../../../setup/swarm/advanced/swarm-optimizations.md)
+Some of these properties are customizable in ansible
+inventory. [see installation guide](../../../../setup/swarm/advanced/swarm-optimizations.md#dataprovider-optimization).
+link
 
 To make missing properties customizable, you have to update regards ansible playbook : the regards-mconfig role.
 :::

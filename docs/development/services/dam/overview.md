@@ -6,16 +6,17 @@ sidebar_position: 1
 slug: /development/services/dam/overview/
 ---
 
-The **Data management or rs-dam** microservice is the main service used in
+The **Data management** or **rs-dam** microservice is the main service used in
 the [Functional overview - Meta catalog services](../../../overview/functional-overview/02-meta-catalog-services.md).
 
 This microservice purpose is to :
- - Manage [Data sources and Data models](../../../overview/concepts/02-meta-catalog.md).
- - Manage [products](../../../overview/concepts/01-products.md) access rights for users.
- - Populate [meta catalog](../../../overview/concepts/02-meta-catalog.md) with products crawled form data sources.
+
+- Manage [Data sources and Data models](../../../overview/concepts/02-meta-catalog.md).
+- Manage [products](../../../overview/concepts/01-products.md) access rights for users.
+- Populate [meta catalog](../../../overview/concepts/02-meta-catalog.md) with products crawled form data sources.
 
 :::info
-To populate the meta catalog **rs-dam** microservice insert items in a  highly performant index **Elasticsearch**.
+To populate the meta catalog, the **rs-dam** microservice inserts items in a highly performant **Elasticsearch** index.
 The meta catalog is the **Elasticsearch index**.
 :::
 

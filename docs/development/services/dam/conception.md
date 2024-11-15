@@ -1,6 +1,5 @@
 ---
-id: backend-dam-conception
-title: REGARDS data management microservice
+title: How it works
 sidebar_label: How it works
 sidebar_position: 2
 slug: /development/services/dam/conception/
@@ -9,220 +8,258 @@ slug: /development/services/dam/conception/
 ## Introduction
 
 The main purpose of **Data manager** or **rs-dam** microservice is to populate
-the Regards [meta-catalog](../../../overview/concepts/02-meta-catalog.md).
+the Regards [meta-catalog](../../../overview/concepts/02-meta-catalog.md). The microservice is composed of several
+modules : `crawler` module, `dam` module(_main core_), `indexer` module, `model` module and `opensearch` module.
 
-To do so, this service uses :
+To do so, this microservice uses :
 
-- Data sources to retrieve products from many catalogs
-- Data models to transform and standardize crawled products before adding them into the meta catalog
-- Data access rights to calculate access rights of each product in the meta catalog
+- Data sources to retrieve products from several catalogs. Data sources are configured through an UI or XML file (AIP,
+  GeoJSON, external database: [REGARDS UI](../../../user-documentation/5-crawler/introduction-crawler.md)).
+- Data models to transform and standardize crawled products before adding them into the meta catalog, represented by the
+  Elasticsearch index.
+- Data access rights to calculate access rights of each product in the meta catalog. Access rights concern the
+  permissions granted to a group of users for accessing a set of products that constitute a dataset (
+  see [REGARDS UI](../../../user-documentation/3-data-organization/data-access-rights.md)).
+
+This microservice is required to expose products managed by the OAIS Products Manager (`rs-ingest` microservice), the
+GeoJson Products Manager (`rs-fem` microservice), or products accessible from an external database or a web service.
+
+Each Elasticsearch index stores products for each project or tenant created in the REGARDS application.
 
 ![](./src/dam.svg)
 
 ## Meta catalog population
 
-For each configured datasource, the plugin do the same work :
+A scheduler is launched to iterate through each configured datasource, and `Data Management` performs the following
+tasks:
 
-1. Step 1 : Retrieve new products from catalog
-2. Step 2 : Transform data source specific product format to REGARDS standard format.
-3. Step 3 : Insert or update new products in Elasticsearch index
-4. Step 4 : Update products allowed access groups
+1. **Retrieve new products from the catalog**: Using an implementation of the `IDataSourcePlugin` interface, the system
+   retrieves new products and transforms the datasource-specific product format into the REGARDS standard format.
+
+2. **Insert or update products in the Elasticsearch index**: New or updated products are inserted into or modified
+   within the appropriate Elasticsearch index.
+
+3. **Update access groups for products**: If needed, access groups are updated for products using an implementation of
+   the `IDataObjectAccessFilterPlugin` interface to apply any necessary product filtering.
+
+4. **Compute calculated attributes**: If the data model contains calculated attributes, these are computed using an
+   implementation of the `IComputedAttribute` interface.
+
+:::info
+Products aspiration is sequential, one data source after another.
+:::
+Crawling is performed sequentially. The execution frequency is configurable by the user (
+see [Monitoring UI](../../../user-documentation/5-crawler/monitor-crawling.md)). The system determines the next
+datasource to be ingested by REGARDS.
 
 ### Retrieve new products from data sources
 
-Not released yet.
+To manage different data sources, an extension point (see the implementation of the **IDataSourcePlugin** interface) is
+used to handle the specific requirements for loading products in the REGARDS format :
 
-### Insert
+- Products: A **DATA** Entity, as defined by a model in REGARDS
+- A set of products: A **DATASET** Entity, as defined by a model in REGARDS
 
-Not released yet.
+The following types of crawlers are available:
 
-### Access rights calculation
+- **AIP Crawlers**: These crawlers allow crawling of SIPs from the `rs-ingest` microservice. Incremental ingestion uses
+  the last data update.
+- **Feature Crawlers**: These crawlers allow crawling of features from the `rs-frm` microservice. Incremental ingestion
+  uses the last data update.
+- **Database Crawlers**: These crawlers allow crawling of data from an external database, with the following modes:
+    - Non-incremental ingestion (not recommended)
+    - Incremental ingestion based on the last data update
+    - Incremental ingestion based on the data identifier
 
-Dynamic plugins are made to re-calculate access rights every day. 
-Non dynamic plugins access rights calculation are made when :
-- There is a data modification (dataset update, add or remove data, ...)
+The user selects the incremental ingestion mode during datasource creation.
+
+- **Web Source crawlers** allows to crawl data from an OpenSearch Web Source: incremental aspiration bas on the data
+  last update date.
+
+The configuration of the extension point plugin can be used to define, as needed, the type of ingestion, the data source
+refresh rate (in seconds), and the overlap duration (in seconds) to prevent data loss.
+
+Next, a mapping must be created between the datasource products and the REGARDS model data before indexing the products.
+
+:::info
+Configuration options are available for various connectors used with the crawler's external database (
+see [UI](../../../user-documentation/5-crawler/configure-database.md)). The PostgreSQL connector is available as:
+`postgresql-db-connection (1.0-SNAPSHOT)`.
+
+:::
+
+### Insert or Update new products in meta catalog
+
+**Dataset** and **Data** entities are stored in a different Elasticsearch index for each project/tenant in
+REGARDS application. There is only one index for each tenant.
+
+The **Data** entities are never stored in the REGARDS database.
+The **Dataset** entities are stored in the REGARDS database with the following information :
+
+- creation date and update date,
+- Identifier of the Uniform Resource Name (example: URN:AIP:**DATASET**:validation:
+  39c574a0-2ad6-4f47-9f4a-251d494892b1:V1)
+- model of the products in this dataset
+- Identifier of the dataset model
+- Identifier of the plugin used to load products from a data source
+- sub-setting criterion setting on a Dataset for Elasticsearch
+
+### Access rights calculation for dataset
+
+:::note
+Acces rights are defined for each dataset and group of users as follows :
+
+- Dataset and Data access
+- Dataset access
+- Full access to dataset, but partial access to Data (filtered by dynamic plugins)
+- No access
+
+:::
+
+Any change in access rights between a group of users and a dataset has an impact on the meta
+catalog stored in Elasticsearch. Access rights are indicated in each dataset and products.
+
+Access rights calculation are made when :
+
+- There is a data modification (dataset update, add or remove data object, ...)
 - There is a user group modification
 
-The periodicity of re-calculation of dynamic plugins is by default set to once a day but it is configurable in the
-microservice properties with the properties `regards.access.rights.update.cron`. The value is a standard cron format.
+Dynamic plugins (see extension point with `IDataObjectAccessFilterPlugins` interface) are made to re-calculate access
+rights every day. Access rights will be applied to data filtered by the OpenSearch query.
+The periodicity of re-calculation of dynamic plugins is set to once a day by default, but it is configurable in the
+microservice properties with the properties `regards.access.rights.update.cron`. The value is in standard cron format.
 
 ## Elasticsearch index representation
 
-Not released yet.
+The following tables show the structure of stocked entity in Elasticsearch index of REGARDS.
 
-## Geometries
+#### Entity for DATA type
 
-REGARDS supports geospatial search on Earth, Mars and celestial dome.
+| Nom                        | Type                              | Description                                                                                                               |
+|----------------------------|-----------------------------------|---------------------------------------------------------------------------------------------------------------------------|
+| type                       | text                              | Entity type: DATA                                                                                                         |                                                                                                                 |
+| creationDate               | Date (format: date_optional_time) | Creation date of entity                                                                                                   |
+| lastUpdate                 | Date (format: date_optional_time) | Update date of entity                                                                                                     | |
+| dataSourceId               | long                              | Data source identifier                                                                                                    |
+| datasetModelNames          | text                              | List of dataset model names                                                                                               |
+| groups                     | text                              | List of group names for access right                                                                                      |
+| id                         | long                              | Entity technical identifier for database                                                                                  |
+| internal                   | boolean                           | true if a entity of DATA type is internal(created from AIP) or false, external (created from external database)           |
+| ipId                       | text                              | Identifier of Uniform Resource Name type (format: URN:StringId:DATA:tenant:UUID(entityId):Vversion[,order][:REVrevision]) |
+| metadata                   | Object(see details below)         | Information about a group access to a specific dataset for data objects                                                   |
+| model                      | Object                            | Entity model                                                                                                              |
+| model.description          | text                              | Model description                                                                                                         |
+| _model.id_                 | long                              | Model technical identifier for database                                                                                   |
+| _model.name_               | text                              | Model name (identical with model property of feature)                                                                     |
+| _model.type_               | text                              | Model type : DATA                                                                                                         |
+| newPoint                   | geo_point                         | Bounding box north west point                                                                                             |
+| setPoint                   | geo_point                         | Bounding box south east point                                                                                             |
+| openSearchSubsettingClause | text                              | Representation of the above subsetting clause as an OpenSearch string request                                             | 
+| tags                       | text                              | List of tags (included related dataset)                                                                                   |
+| wgs84                      | geo_shape                         | Geometry projection on WGS84 crs                                                                                          |
+| feature                    | Object(see details below)         | Raw entity feature                                                                                                        |
 
-GeoJson format is internally used both by REGARDS and by ElasticSearch.
+Metadata for **DATA** type of entity
 
-By now, some restrictions exist concerning applied geometries, search capabilities and geospatial projections.
+| Name                            | Type    | Description                                           |
+|---------------------------------|---------|-------------------------------------------------------|
+| groups                          | Map     | Map of group names with access right for dataset      |
+| groups.\<name\>.dataset         | text    | Identifier of Uniform Resource Name type for dataset  |
+| groups.\<name\>.dataAccessRight | boolean | true if access right for the dataset; otherwise false |
+| modelNames                      | Map     | Map of model names with dataset URN                   |
+| modelNames.\<name\>.\<URN\>     | text    | Identifier of Uniform Resource Name type for dataset  |
 
-Everything has been done to make use of API as easy as possible but it is necessary to fully understand underlying
-mechanisms of both data storage and searching to avoid border cases drawbacks.
+Feature for **DATA** type of entity
 
-## REGARDS Search capabilities
+| Name                             | Type    | Description                                                                                                                            |
+|----------------------------------|---------|----------------------------------------------------------------------------------------------------------------------------------------|
+| sessionOwner                     | text    | Session owner                                                                                                                          |
+| Session                          | text    | Session name                                                                                                                           |
+| virtualId                        | text    | Virtual identifier of URN type in order to indicate if this is the last version (format: URN:StringId:DATA:tenant:UUID(entityId):LAST) |
+| providerId                       | text    | Provider identifier                                                                                                                    |
+| entityType                       | text    | Entity type : DATA                                                                                                                     |
+| label                            | text    | Entity label (sometimes identical provider identifier property)                                                                        |
+| model                            | text    | Model name of entity (identical with name property of model)                                                                           |
+| files                            | Object  | Product-related entity files (example: thumbnail, quicklook, rawdata...)                                                               |
+| tags                             | text    | List of tags (included dataset identifier)                                                                                             |
+| last                             | boolean | true if this the last version; otherwise false                                                                                         |
+| version                          | text    | Entity version                                                                                                                         |
+| id                               | text    | Identifier of Uniform Resource Name type (identical with IpId property)                                                                |
+| geometry                         | Object  | Information package geometry in GeoJSON RFC 7946 Format                                                                                |
+| _geometry.coordinates_           | double  | Geometry coordinates                                                                                                                   |
+| _geometry.type_                  | text    | Geometry type (Point, MultiPoint, LineString, Polygon, MultiPolygon...)                                                                |
+| _geometry.bbox_                  | array   | Geometry bounding box. List of points coordinates [xmin, ymin, xmax, ymax] in Double type.                                             |
+| _geometry.crs_                   | text    | Coordinate reference system. If not specified, WGS84 is considered as the default CRS                                                  |
+| normalizedGeometry               | Object  | Geometry but normalized to be used on a cylindrical project                                                                            |
+| _normalizedGeometry.coordinates_ | doi     | Normalized geometry coordinates                                                                                                        |
+| _normalizedGeometry.type_        | text    | Normalized geometry type (Point, MultiPoint, LineString, Polygon, MultiPolygon...)                                                     |
+| _normalizedGeometry.bbox_        | array   | Geometry bounding box. List of points coordinates [xmin, ymin, xmax, ymax] in Double type.                                             |
+| _normalizedGeometry.crs_         | text    | Coordinate reference system. If not specified, WGS84 is considered as the default CRS                                                  |
+| type                             | text    | Feature                                                                                                                                |
+| crs                              | text    | Coordinate Reference System (default value: WGS84)                                                                                     |
+| properties                       | Object  | DATA model attributes                                                                                                                  |
 
-By now, REGARDS must be able to search geometric features into or accross a specified circle and a convex polygon on
-Earth, Mars and for astronomic perfect sphere.
+#### Entity for DATASET type
 
-## Spatial Projection
+| Nom                               | Type                              | Description                                                                                                                  |
+|-----------------------------------|-----------------------------------|------------------------------------------------------------------------------------------------------------------------------|
+| type                              | text                              | Entity type: DATASET                                                                                                         |                                                                                                                 |
+| creationDate                      | Date (format: date_optional_time) | Creation date of entity                                                                                                      |
+| lastUpdate                        | Date (format: date_optional_time) | Update date of entity                                                                                                        |
+| dataModel                         | text                              | Model of Data type for entities included in this dataset                                                                     |
+| dataSourceId                      | long                              | Data source identifier                                                                                                       | |
+| groups                            | text                              | List of group names for access right                                                                                         |
+| id                                | long                              | Entity technical identifier for database                                                                                     |
+| internal                          | boolean                           | true if a entity of DATA type is internal(created from AIP) or false, external (created from external database)              |
+| ipId                              | text                              | Identifier of Uniform Resource Name type (format: URN:StringId:DATASET:tenant:UUID(entityId):Vversion[,order][:REVrevision]) |
+| metadata                          | Object(see details below)         | Information about a group access to a specific dataset for data objects                                                      |
+| model                             | Object                            | Entity model                                                                                                                 |
+| _model.description_               | text                              | Model description                                                                                                            |
+| _model.id_                        | long                              | Model technical identifier for database                                                                                      |
+| _model.name_                      | text                              | Model name (identical with model property of feature)                                                                        |
+| _model.type_                      | text                              | Model type : DATASET                                                                                                         |
+| newPoint                          | geo_point                         | Bounding box north west point                                                                                                |
+| setPoint                          | geo_point                         | Bounding box south east point                                                                                                |
+| openSearchSubsettingClause        | text                              | Representation of the above subsetting clause as an OpenSearch string request                                                |
+| plgConfDataSource                 | Object                            | Plugin configuration for the extension point (IDataSourcePlugin interface)                                                   |
+| _plgConfDataSource.active_        | boolean                           | Active or not the plugin                                                                                                     |
+| _plgConfDataSource.businessId_    | text                              | Plugin business identifier                                                                                                   |
+| _plgConfDataSource.label_         | text                              | Plugin label                                                                                                                 |
+| _plgConfDataSource.parameters_    | nested                            | Configuration parameters of the plugin                                                                                       |
+| _plgConfDataSource.pluginId_      | text                              | Plugin identifier                                                                                                            |
+| _plgConfDataSource.priorityOrder_ | long                              | Priority order of the plugin.                                                                                                |
+| _plgConfDataSource.version_       | text                              | Plugin version                                                                                                               |
+| tags                              | text                              | List of tags                                                                                                                 |
+| wgs84                             | geo_shape                         | Geometry projection on WGS84 crs                                                                                             |
+| feature                           | Object(see details below)         | Raw entity feature                                                                                                           |  
 
-REGARDS takes advantage of Elasticsearch powerful geometry search but this has a cost: Elasticsearch only uses WGS84
-coordinate system, ie classic Earth cylindric projection (in particular used by GPS) where Earth is assimilated to an
-ellipsoid flattened on poles. This means that for Mars and astronomic search, it is necessary to transform input point
-coordinates into WGS84 equivalent coordinates to permit use of Elasticsearch geometric search so each geometry feature
-is both saved as is (with its specified crs) and saved transformed into WGS84 crs.
+Metadata for **DATASET** type of entity
 
-It is advisable that aim of REGARDS is to search intersections between geometries, not compute distances or areas for
-example which is fully compatible with projections transformations.
+| Name                                                                  | Type    | Description                                                                 |
+|-----------------------------------------------------------------------|---------|-----------------------------------------------------------------------------|
+| dataObjectsGroups                                                     | Map     | Map of group names with access right for dataset                            |
+| dataObjectsGroups.\<name\>.groupName                                  | text    | Group name                                                                  |
+| dataObjectsGroups.\<name\>.dataFileAccess                             | boolean | true if access right for files of product; otherwise false                  |
+| dataObjectsGroups.\<name\>.dataObjectAccess                           | boolean | true if access right for objects of products; otherwise false               |
+| dataObjectsGroups.\<name\>.dataAccess                                 | boolean | true if access right for data of products; otherwise false                  |
+| dataObjectsGroups.\<name\>.metaDataObjectAccessFilterPluginBusinessId | String  | Plugin identifier for the extension point :  IDataObjectAccessFilterPlugins |
 
-### Mars
+Feature for **DATASET** type of entities
 
-Mars is also an ellipsoid flattened on poles with a slightly flattening difference and an approximate half radius.
-Concerning polygon search it is enough to transform searching polygon into WGS84 crs and do the search with that
-geometry. For circle search, it is more complex:
-
-- because of flattening difference between Earth an Mars, a circle on Mars is not a circle on Earth except if center is
-  a pole or on equator,
-- thanks to ellipsoid symmetry and using Geotools API, it is easy to find upper and lower circle points on projected
-  circle,
-- with these two points, an inner circle and outer circle can be used: all geometries into inner circle can be taken,
-  all geometries out of outer circle can be evicted
-- for all geometries between inner and outer circles, minimum distance from circle center is directly computed with
-  Geotools using input Mars coordinates to determine if geometries can be taken or not.
-- **minimum distance computation from a point (circle center) and a polygon is done by computing distance between all
-  edges of polygon lines and nine more points on all these lines** (this provides an acceptable approximation and
-  knowing that, it is easy to increase precision by adding polygon points).
-
-### Astro
-
-Astronomic data are saved taking into account right ascension as a longitude and declination as a latitude, all in
-degrees. These geometries are then projected into a perfect sphere with medium earth radius (also known as authalic
-sphere).  
-Same algorithm as Mars one is then used.  
-The only difference is that to specify a circle for circle search, **half-angle of the cone in degrees** is specified in
-place of the radius.
-
-## GeoJSON format
-
-Geometry objects are described internally with GeoJSON format following RFC 7946 (https://tools.ietf.org/html/rfc7946).
-This specification permits to defines following geometry objects:
-
-- Point
-- MultiPoint
-- LineString
-- MultiLinesString
-- Polygon
-- MultiPolygon
-
-Please, refer directly to given link for more precisions.  
-It is advisable to carefully read and understand:
-
-- Polygon build especially linear ring right hand rule concept.
-- Antimeridian Cutting.
-
-**Note:** by now, concerning polygons, only convex ones without holes are taken into account by REGARDS.
-
-## Geometry normalization
-
-Despite RFC 7946, not all applications completely follows it especially when antimeridian line is crossed. It is the
-case of Elasticsearch.
-Furthermore, WGS84 is not designated to function with poles because it is a cylindrical projection.  
-Even RFC 7946 lets some shadow zones, in this case REGARDS had made a choice for taking into account some cases
-explained lower.  
-To counter all these drawbacks and make a consistent implementation, REGARDS provides a normalization for all geometries
-to manage a larger part of borderline problems.
-
-### Coordinate Ranges
-
-- Coordinates (longitude and latitude) are explained into **degrees**.
-- Latitude is expressed from **-90°** to **+90°**.
-- Longitude is expressed from **-180°** (included) to **+180°** (excluded) but exceptionally a negative longitude could
-  be expressed from **+180°** (included) to **+360°** (excluded) as discussed lower.
-- As WGS84 is a cylindrical projection, poles - which are simple points with latitude **90°** or **-90°** without taking
-  into account longitude value - are *transformed* into lines with longitude varying from **-180°** to **+180°** (or *
-  *360°** in some cases), this permits to deal with convex polygon around poles (see lower).
-
-### Bounding box
-
-A Bounding box (aka Bbox) is not a geometry object but is used as a search criterion parameter (opensearch norm).  
-A bounding box is always expressed with 4 values: southwest corner longitude, southwest corner latitude, northeast
-corner longitude, northeast corner latitude.  
-RFC 7946 says that the latitude of the northeast corner is always greater than the latitude of the southwest corner
-except when bounding boxes crosses the antimeridian. This means that  
-`"bbox": [177.0, -20.0, -178.0, -16.0]`  
-should cover 5 degrees of longitude.
-Unfortunately, Elasticsearch is not able to take this into consideration, so in this case, the Bbox criterion is
-replaced by:  
-`"bbox": [177.0, -20.0, 180.0, -16.0] OR "bbox": [-180.0, -20.0, -178.0, -16.0]`
-
-### LineString and MultiLineString
-
-Elasticsearch forgets to be clever when taken into account line strings this means for a string crossing antimeridian,
-it does not use shortest path and always use the path crossing 0-longitude meridian.  
-LineString normalization consists to first determine if strings cross antimeridian (**as a simplification, algorithm
-only check longitudes distances to 0-meridian line and antimeridian, as if string edges where projected on equator, and
-then chooses short path between both edges**) and if so, transforms LineString into MultiLineString cutting input
-LineString at antimeridian.  
-For example:  
-`LINE_STRING((100, 50), (-100, 0))`  
-is transformed into  
-`MULTI_LINE_STRING(`  
-&nbsp;&nbsp;`LINE_STRING((100, 50), (180, 25)),`  
-&nbsp;&nbsp;`LINE_STRING((-180, 25), (-100, 0))`  
-`)`  
-Of course, MultiLineString LineStrings components are all normalized and aggregated to produce normalized
-MultiLineString.
-
-### Polygon and MultiPolygon
-
-Polygons are the most complex geometries to normalize because of varieties (convex, concave, around poles) and
-difficulty to properly be analysed, don't forget that a geo polygon is a polygon on a sphere not just on a plane.  
-**First, note that by now, only *simple* polygons are taken into account, ie convex and without holes**. However it is
-possible to ingest complex Polygons or MultiPolygons but no normalization is applied.
-
-#### Linear ring
-
-Following RFC 7946, a polygon is composed of several linear rings. First one is the exterior ring, others are holes into
-exterior ring. A linear ring is a closed LineString with four or more positions, first and last ones must be the same.
-
-It is **mandatory** to describe a polygon following right **hand rule** so exterior ring is described counterclockwise
-and holes clockwise. Don't forget that polygons belong to a sphere, this means that every polygon has a complementary
-polygon and the only way to discriminate them is to follow this rule.
-
-For example:  
-`POLYGON(((0, 80), (90, 80), (-90, 80), (0, 80)))`  
-is a cap around North pole else  
-`POLYGON(((0, 80), (-90, 80), (90, 80), (0, 80)))`  
-is a (huge) cap around South pole.
-
-#### Normalization algorithm
-
-- First, some polygons may have a large amplitude exceeding 180° or 270°. Most of frameworks or software are not able to
-  manage correctly such polygons because shortest distance between two point when crossing anti meridian is not well
-  managed. To avoid this, first step of normalization is to use the fact that Elasticsearch is able to manage longitudes
-  between -180° and 180° but also longitudes from 180° to 360° (excluded). Despite a path between 170° and -170° is not
-  considered as going through antimeridian, same path between 170° and 190° is considered as going through antimeridian.
-  Algorithm then analyzes each polygon linear strings and eventualy modifies longitudes following shortest path (same
-  computation as LineString one).  
-  **=> This means that it's a good thing to start a large amplitude polygon with its westmost point as first element.**
-
-- Second, some polygons may contain North or South pole (or both) as a cap on 80° latitude for
-  example (`POLYGON(((0, 80), (90, 80), (-90, 80), (0, 80)))`).  
-  Into WGS84 crs, this polygon is just a line between `(-90, 80)` and `(90, 80)`. A circle search centered on North pole
-  with a radius lower than 10° (ie more than 1000 km) will not found previously given polygon.  
-  To make this fully functional with WGS84, algorithm exploits the fact that Elasticsearch takes into account all
-  longitudes at 90° latitude (as if North and South pole were strings and not just a single point). After having
-  determined that polygon is around a pole using Hipparchus framework (https://www.hipparchus.org), a polygon reaching
-  North pole using complete longitude amplitude is added on top of current polygon.  
-  Previous polygon normalization is then:
-  `POLYGON((0, 80), (90, 80), (180, 80), (180, 90), (-180, 90), (-180, 80), (-90, 80), (0, 80))`.
-
-In theory, a convex polygon containing both poles should be well normalized but it would be a good idea to use a
-MultiPolygon intersecting initial polygon with equator.
-
-Of course, MultiPolygon Polygons components are all normalized and aggregated to produce normalized MultiPolygon.
-
-
+| Name                          | Type    | Description                                                                                                                               |
+|-------------------------------|---------|-------------------------------------------------------------------------------------------------------------------------------------------|
+| dataObjectsFilesAccessGranted | boolean | true if granted Access for data object files; otherwise denied access                                                                     |
+| dataObjectsAccessGranted      | boolean | true if granted Access for data objects; otherwise denied access                                                                          |
+| licence                       | text    | Licence for dataset                                                                                                                       |
+| virtualId                     | text    | Virtual identifier of URN type in order to indicate if this is the last version (format: URN:StringId:DATASET:tenant:UUID(entityId):LAST) |
+| providerId                    | text    | Provider identifier                                                                                                                       |
+| entityType                    | text    | Entity type : DATASET                                                                                                                     |
+| id                            | text    | Identifier of Uniform Resource Name type (format: URN:StringId:DATASET:tenant:UUID(entityId):Vversion[,order][:REVrevision])              |
+| label                         | text    | Label of dataset                                                                                                                          |
+| model                         | text    | Model name of entity (identical with name property of model)                                                                              |
+| files                         | Object  | Product-related entity files                                                                                                              |
+| tags                          | text    | List of tags                                                                                                                              |
+| version                       | integer | Entity version                                                                                                                            |
+| type                          | text    | Feature                                                                                                                                   |
+| properties                    | Object  | DATA model attributes                                                                                                                     |
 
