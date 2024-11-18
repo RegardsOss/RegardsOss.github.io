@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="generator" content="Docusaurus v3.5.2">
 <title data-rh="true">Version 2.0.0 | REGARDS</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:url" content="https://RegardsOss.github.io/release-notes/v2.0.0"><meta data-rh="true" property="og:locale" content="en"><meta data-rh="true" name="docusaurus_locale" content="en"><meta data-rh="true" name="docsearch:language" content="en"><meta data-rh="true" name="docusaurus_version" content="current"><meta data-rh="true" name="docusaurus_tag" content="docs-release-notes-current"><meta data-rh="true" name="docsearch:version" content="current"><meta data-rh="true" name="docsearch:docusaurus_tag" content="docs-release-notes-current"><meta data-rh="true" property="og:title" content="Version 2.0.0 | REGARDS"><meta data-rh="true" name="description" content="Released on : 15/11/2024"><meta data-rh="true" property="og:description" content="Released on : 15/11/2024"><link data-rh="true" rel="icon" href="/img/logos/regards-png/regards-favicon.png"><link data-rh="true" rel="canonical" href="https://RegardsOss.github.io/release-notes/v2.0.0"><link data-rh="true" rel="alternate" href="https://RegardsOss.github.io/release-notes/v2.0.0" hreflang="en"><link data-rh="true" rel="alternate" href="https://RegardsOss.github.io/release-notes/v2.0.0" hreflang="x-default"><link data-rh="true" rel="preconnect" href="https://BP0ACDVAUR-dsn.algolia.net" crossorigin="anonymous"><link rel="search" type="application/opensearchdescription+xml" title="REGARDS" href="/opensearch.xml"><link rel="stylesheet" href="/assets/css/styles.cf04207a.css">
-<script src="/assets/js/runtime~main.8f7024ee.js" defer="defer"></script>
+<script src="/assets/js/runtime~main.30e3618f.js" defer="defer"></script>
 <script src="/assets/js/main.df1bfec3.js" defer="defer"></script>
 </head>
 <body class="navigation-with-keyboard">
@@ -72,8 +72,63 @@ To do so, the plugin configuration is modified from the previous version. You ha
 the <a href="/docs/setup/swarm/migration/1.15-to-2.0">plugin configuration migration guide</a>.</p>
 <h2 class="anchor anchorWithStickyNavbar_LWe7" id="bug-fixes">Bug fixes<a href="#bug-fixes" class="hash-link" aria-label="Direct link to Bug fixes" title="Direct link to Bug fixes">​</a></h2>
 <ul>
-<li>Fix fem-edit HMI plugin to allow feature updates from user HMI.</li>
-<li>Fix display of abstract HTML pages in entities description page from user HMI.</li>
+<li>HMI<!-- -->
+<ul>
+<li>Fixes fem-edit HMI plugin to allow feature updates from user HMI</li>
+<li>Fixes display of abstract HTML pages in entities description page from user HMI.</li>
+<li>Fixes a problem displaying the map for certain geometries</li>
+<li>Fixes a plugin configuration problem that was causing the web interface to crash</li>
+<li>Fixes display of STAC exemple urls in search protocols configuration section</li>
+<li>Fixes display of users last connection date in &quot;Users&quot; section of admin HMI.</li>
+</ul>
+</li>
+<li>rs-fem :<!-- -->
+<ul>
+<li>Fixes update of dissemniation info for features when ack is required</li>
+<li>Fixes a problem where information could be lost during update requests</li>
+<li>Fixes a problem with unblocking delete requests waiting to be broadcast</li>
+<li>Fixes a possible issue during deletion jobs</li>
+</ul>
+</li>
+<li>rs-admin :<!-- -->
+<ul>
+<li>Fixes a problem during deletion of blocked account</li>
+<li>Fixes a problem sending emails associated with unread notifications when too many notifications are in the database</li>
+</ul>
+</li>
+<li>rs-notifier :<!-- -->
+<ul>
+<li>Fixes update microservice configuration when deployed with multiple instances.</li>
+</ul>
+</li>
+<li>rs-catalog :<!-- -->
+<ul>
+<li>Fixes search with special catacters</li>
+<li>Fixes a pagination problem when the result contains more than 10000 results. This problem could cause duplicate entries to appear in search results</li>
+<li>Fixes a problem on search queries with a search criterion on a list of values for a given attribute that made Elasticsearch queries too long</li>
+<li>Multidownload plugin : Fixes a possible error when maximum number of downloadable files is reached</li>
+</ul>
+</li>
+<li>rs-lta-manager :<!-- -->
+<ul>
+<li>Fixes a problem with the formatting of product attributes when sendong a submission request</li>
+</ul>
+</li>
+<li>rs-storage :<!-- -->
+<ul>
+<li>In reference storage requests, the service now checks that the checksum supplied is a valid checksum</li>
+</ul>
+</li>
+<li>rs-dam :<!-- -->
+<ul>
+<li>Fixes a problem where crawlers could be stuck in a Running state after a restart of the service</li>
+</ul>
+</li>
+<li>rs-dataprovider :<!-- -->
+<ul>
+<li>Fixes a problem with the configuration of acquisition chains, which meant that some invalid configurations could be accepted.</li>
+</ul>
+</li>
 </ul></div></article><nav class="pagination-nav docusaurus-mt-lg" aria-label="Docs pages"><a class="pagination-nav__link pagination-nav__link--prev" href="/release-notes"><div class="pagination-nav__sublabel">Previous</div><div class="pagination-nav__label">Introduction</div></a><a class="pagination-nav__link pagination-nav__link--next" href="/release-notes/v1.15.2"><div class="pagination-nav__sublabel">Next</div><div class="pagination-nav__label">Version 1.15.2</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href="#features" class="table-of-contents__link toc-highlight">Features</a><ul><li><a href="#dependencies-updates" class="table-of-contents__link toc-highlight">Dependencies updates</a></li><li><a href="#docker-images-version-updates" class="table-of-contents__link toc-highlight">Docker images version updates</a></li><li><a href="#auto-retry-amqp-message-failure" class="table-of-contents__link toc-highlight">Auto retry amqp message failure</a></li><li><a href="#create-basket-using-text-file" class="table-of-contents__link toc-highlight">Create basket using text file</a></li><li><a href="#add-filters-to-order-files" class="table-of-contents__link toc-highlight">Add filters to order files</a></li></ul></li><li><a href="#deprecation" class="table-of-contents__link toc-highlight">Deprecation</a><ul><li><a href="#authentication" class="table-of-contents__link toc-highlight">Authentication</a></li></ul></li><li><a href="#breaking-change" class="table-of-contents__link toc-highlight">Breaking change</a><ul><li><a href="#deployment" class="table-of-contents__link toc-highlight">Deployment</a></li><li><a href="#rest-api" class="table-of-contents__link toc-highlight">REST API</a></li><li><a href="#plugins" class="table-of-contents__link toc-highlight">Plugins</a></li></ul></li><li><a href="#bug-fixes" class="table-of-contents__link toc-highlight">Bug fixes</a></li></ul></div></div></div></div></main></div></div></div><footer class="footer footer--dark"><div class="container_grid_bQnQ"><div class="col_1_KTIr"><p><strong>A framework and a set of plugins to build scientific archives.</strong></p><p>REGARDS is an Open Source data valorization product, highly flexible to various themes, modular, efficient, long-lasting, evolutionary and scalable, aims at providing services to Mission Centers and laboratories, and is able to deal with huge amount of data. <br>Our goal is to allow a strong commitment from user community in the development of modules and plugins.</p><p><strong>We welcome <a href="https://github.com/RegardsOss/RegardsOss.github.io/blob/master/CONTRIBUTING.md">your contributions</a> to make these documents better.</strong></p><div><img src="/img/logos/courbe-institutionnelle-signature_y110-inverser.png"></div></div><div class="col_2_Jonb"><h4 class="footer__title">Users</h4><ul class="footer__items"><li class="footer__item"><a class="footer__link-item" href="/docs/user-guide">Manual</a></li></ul></div><div class="col_2_Jonb"><h4 class="footer__title">Developpers</h4><ul class="footer__items"><li class="footer__item"><a href="/docs/setup" class="footer__link-item" target="_blank" rel="noopener noreferrer">Install</a></li><li class="footer__item"><a href="/docs/development/frontend/introduction/setup" class="footer__link-item" target="_blank" rel="noopener noreferrer">Web UI</a></li></ul></div><div class="col_2_Jonb"><h4 class="footer__title">More</h4><ul class="footer__items"><li class="footer__item"><a href="https://github.com/RegardsOss/" target="_blank" rel="noopener noreferrer" class="footer__link-item">GitHub</a></li></ul></div></div><div class="footer__bottom text--center"><div class="footer__copyright">Copyright © 2024 REGARDS, OSS. Built with Docusaurus.</div></div></footer></div>
 </body>
 </html>
