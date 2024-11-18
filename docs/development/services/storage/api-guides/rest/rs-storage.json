@@ -216,6 +216,14 @@
       },
       "FileLocationDto": {
         "properties": {
+          "fileArchiveStatus": {
+            "enum": [
+              "STORED",
+              "TO_STORE",
+              "TO_DELETE"
+            ],
+            "type": "string"
+          },
           "pendingActionRemaining": {
             "type": "boolean"
           },
@@ -1070,7 +1078,7 @@
       "name": "GPL-3.0"
     },
     "title": "MICROSERVICE STORAGE",
-    "version": "1.16.1"
+    "version": "2.0.0"
   },
   "openapi": "3.0.1",
   "paths": {
@@ -2691,12 +2699,14 @@
         ]
       }
     },
-    "/storages/retry/{source}/{session}": {
-      "get": {
+    "/storages/retry": {
+      "post": {
+        "description": "Retry all file requests that are in an error state for the specified source and session.",
         "operationId": "retryErrorsBySourceAndSession",
         "parameters": [
           {
-            "in": "path",
+            "description": "Source name to retry",
+            "in": "query",
             "name": "source",
             "required": true,
             "schema": {
@@ -2704,7 +2714,8 @@
             }
           },
           {
-            "in": "path",
+            "description": "Session name to retry",
+            "in": "query",
             "name": "session",
             "required": true,
             "schema": {
@@ -2714,9 +2725,10 @@
         ],
         "responses": {
           "200": {
-            "description": "OK"
+            "description": "File requests in error state for the given source and session were retried successfully."
           }
         },
+        "summary": "Retry file requests in error state for a source and session",
         "tags": [
           "storage-location-controller"
         ]

@@ -610,9 +610,14 @@
           "type": {
             "description": "Geometry object type",
             "enum": [
+              "Unlocated",
               "Point",
+              "MultiPoint",
+              "LineString",
+              "MultiLineString",
               "Polygon",
-              "MultiPolygon"
+              "MultiPolygon",
+              "GeometryCollection"
             ],
             "type": "string"
           }
@@ -742,6 +747,7 @@
               "MANUAL",
               "REPLACE"
             ],
+            "example": "INC_VERSION",
             "type": "string"
           }
         },
@@ -2091,7 +2097,8 @@
               ],
               "type": "string"
             },
-            "type": "array"
+            "type": "array",
+            "uniqueItems": true
           }
         },
         "required": [
@@ -2564,7 +2571,7 @@
       "name": "GPL-3.0"
     },
     "title": "MICROSERVICE INGEST",
-    "version": "1.16.1"
+    "version": "2.0.0"
   },
   "openapi": "3.0.1",
   "paths": {

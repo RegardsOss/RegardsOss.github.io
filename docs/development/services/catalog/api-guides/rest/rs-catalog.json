@@ -627,13 +627,24 @@
       "DatasetFeature": {
         "properties": {
           "bbox": {
+            "description": "Geometry bounding box. List of points coordinates [xmin, ymin, xmax, ymax]",
+            "example": [
+              -122.7,
+              45.51,
+              -122.64,
+              45.53
+            ],
             "items": {
+              "description": "Geometry bounding box. List of points coordinates [xmin, ymin, xmax, ymax]",
               "format": "double",
               "type": "number"
             },
             "type": "array"
           },
           "crs": {
+            "default": "WGS84",
+            "description": "Coordinate Reference System",
+            "example": "WGS84",
             "type": "string"
           },
           "dataObjectsAccessGranted": {
@@ -657,6 +668,8 @@
             "$ref": "#/components/schemas/IGeometry"
           },
           "id": {
+            "description": "Provider identifier for the submitted product.",
+            "example": "RawProduct_001",
             "type": "string"
           },
           "label": {
@@ -671,9 +684,6 @@
           "model": {
             "type": "string"
           },
-          "normalizedGeometry": {
-            "$ref": "#/components/schemas/IGeometry"
-          },
           "providerId": {
             "type": "string"
           },
@@ -685,6 +695,12 @@
             "uniqueItems": true
           },
           "type": {
+            "description": "Type of the feature entity.",
+            "enum": [
+              "Feature",
+              "FeatureCollection"
+            ],
+            "example": "Feature",
             "type": "string"
           },
           "version": {
@@ -789,13 +805,24 @@
       "EntityFeature": {
         "properties": {
           "bbox": {
+            "description": "Geometry bounding box. List of points coordinates [xmin, ymin, xmax, ymax]",
+            "example": [
+              -122.7,
+              45.51,
+              -122.64,
+              45.53
+            ],
             "items": {
+              "description": "Geometry bounding box. List of points coordinates [xmin, ymin, xmax, ymax]",
               "format": "double",
               "type": "number"
             },
             "type": "array"
           },
           "crs": {
+            "default": "WGS84",
+            "description": "Coordinate Reference System",
+            "example": "WGS84",
             "type": "string"
           },
           "entityType": {
@@ -813,6 +840,8 @@
             "$ref": "#/components/schemas/IGeometry"
           },
           "id": {
+            "description": "Provider identifier for the submitted product.",
+            "example": "RawProduct_001",
             "type": "string"
           },
           "label": {
@@ -823,9 +852,6 @@
           },
           "model": {
             "type": "string"
-          },
-          "normalizedGeometry": {
-            "$ref": "#/components/schemas/IGeometry"
           },
           "providerId": {
             "type": "string"
@@ -838,6 +864,12 @@
             "uniqueItems": true
           },
           "type": {
+            "description": "Type of the feature entity.",
+            "enum": [
+              "Feature",
+              "FeatureCollection"
+            ],
+            "example": "Feature",
             "type": "string"
           },
           "version": {
@@ -1209,6 +1241,17 @@
             "writeOnly": true
           },
           "type": {
+            "description": "Geometry object type",
+            "enum": [
+              "Unlocated",
+              "Point",
+              "MultiPoint",
+              "LineString",
+              "MultiLineString",
+              "Polygon",
+              "MultiPolygon",
+              "GeometryCollection"
+            ],
             "type": "string"
           }
         },
@@ -2744,7 +2787,7 @@
       "name": "GPL-3.0"
     },
     "title": "MICROSERVICE CATALOG",
-    "version": "1.16.1"
+    "version": "2.0.0"
   },
   "openapi": "3.0.1",
   "paths": {

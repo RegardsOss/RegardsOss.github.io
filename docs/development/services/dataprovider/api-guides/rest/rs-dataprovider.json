@@ -4,19 +4,19 @@
       "AccessRightInformationDto": {
         "properties": {
           "dataRights": {
+            "description": "Information package access rights description.",
             "type": "string"
           },
           "licence": {
+            "description": "Information package license.",
             "type": "string"
           },
           "publicReleaseDate": {
+            "description": "Information package release date.",
             "format": "date-time",
             "type": "string"
           }
         },
-        "required": [
-          "dataRights"
-        ],
         "type": "object"
       },
       "AcquisitionFile": {
@@ -368,6 +368,7 @@
         "type": "object"
       },
       "ContentInformationDto": {
+        "description": "Package associated files.",
         "properties": {
           "dataObject": {
             "$ref": "#/components/schemas/OAISDataObjectDto"
@@ -529,15 +530,21 @@
         "type": "object"
       },
       "EventDto": {
+        "description": "Information package history.",
         "properties": {
           "comment": {
+            "description": "Event description.",
+            "example": "package creation",
             "type": "string"
           },
           "date": {
+            "description": "Event submission date.",
             "format": "date-time",
             "type": "string"
           },
           "type": {
+            "description": "Event type.",
+            "example": "Creation",
             "type": "string"
           }
         },
@@ -562,12 +569,31 @@
         "type": "object"
       },
       "IGeometry": {
+        "description": "Information package geometry in GeoJSON RFC 7946 Format.",
+        "example": {
+          "coordinates": [
+            125.6,
+            10.1
+          ],
+          "type": "Point"
+        },
         "properties": {
           "crs": {
             "type": "string",
             "writeOnly": true
           },
           "type": {
+            "description": "Geometry object type",
+            "enum": [
+              "Unlocated",
+              "Point",
+              "MultiPoint",
+              "LineString",
+              "MultiLineString",
+              "Polygon",
+              "MultiPolygon",
+              "GeometryCollection"
+            ],
             "type": "string"
           }
         },
@@ -608,6 +634,7 @@
       "InformationPackageProperties": {
         "properties": {
           "contentInformations": {
+            "description": "Package associated files.",
             "items": {
               "$ref": "#/components/schemas/ContentInformationDto"
             },
@@ -615,7 +642,15 @@
           },
           "descriptiveInformation": {
             "additionalProperties": {
+              "description": "A group key/value containing all specific information about the package.",
+              "example": {
+                "property1": "value1"
+              },
               "type": "object"
+            },
+            "description": "A group key/value containing all specific information about the package.",
+            "example": {
+              "property1": "value1"
             },
             "type": "object"
           },
@@ -754,21 +789,34 @@
         "type": "object"
       },
       "OAISDataObjectDto": {
+        "description": "File information.",
         "properties": {
           "algorithm": {
+            "description": "File checksum algorithm.",
+            "enum": [
+              "MD5"
+            ],
+            "example": "MD5",
             "type": "string"
           },
           "checksum": {
+            "description": "File checksum.",
+            "example": "145ff4e2fb057359fe66bd398aef3f9b",
             "type": "string"
           },
           "fileSize": {
+            "description": "File size bytes.",
+            "example": 120568,
             "format": "int64",
             "type": "integer"
           },
           "filename": {
+            "description": "File name.",
+            "example": "data_file.raw",
             "type": "string"
           },
           "locations": {
+            "description": "File locations.",
             "items": {
               "$ref": "#/components/schemas/OAISDataObjectLocationDto"
             },
@@ -776,6 +824,7 @@
             "uniqueItems": true
           },
           "regardsDataType": {
+            "description": "File type.",
             "enum": [
               "RAWDATA",
               "QUICKLOOK_SD",
@@ -799,14 +848,21 @@
         "type": "object"
       },
       "OAISDataObjectLocationDto": {
+        "description": "File locations.",
         "properties": {
           "storage": {
+            "description": "Storage location name or null if file is not stored yet.",
+            "example": "Local",
+            "nullable": true,
             "type": "string"
           },
           "storePath": {
+            "description": "Required store path on the target storage location or null to let storage service handle path.",
             "type": "string"
           },
           "url": {
+            "description": "Url of the file",
+            "example": "file:/products/2024/data_file.raw",
             "pattern": "\\b[a-zA-Z1-9]+://?[-a-zA-Z0-9+&@#/%'?=~_|!:,.;]*[-a-zA-Z0-9+&@#/%'=~_|]",
             "type": "string"
           }
@@ -1142,14 +1198,17 @@
         "type": "object"
       },
       "PreservationDescriptionInformationDto": {
+        "description": "Preservation Description Information.",
         "properties": {
           "accessRightInformation": {
             "$ref": "#/components/schemas/AccessRightInformationDto"
           },
           "contextInformation": {
             "additionalProperties": {
+              "description": "Additional properties of package context information key/value.",
               "type": "object"
             },
+            "description": "Additional properties of package context information key/value.",
             "type": "object"
           },
           "fixityInformation": {
@@ -1163,8 +1222,10 @@
           },
           "referenceInformation": {
             "additionalProperties": {
+              "description": "Additional properties of package reference information key/value.",
               "type": "string"
             },
+            "description": "Additional properties of package reference information key/value.",
             "type": "object"
           }
         },
@@ -1242,6 +1303,7 @@
         "type": "object"
       },
       "ProvenanceInformationDto": {
+        "description": "Package provenance information",
         "properties": {
           "additional": {
             "additionalProperties": {
@@ -1263,6 +1325,7 @@
             "type": "string"
           },
           "history": {
+            "description": "Package history information.",
             "items": {
               "$ref": "#/components/schemas/EventDto"
             },
@@ -1272,18 +1335,17 @@
             "type": "string"
           },
           "originUrn": {
+            "description": "URN of the origin package. Used to link the package with an existing package on an other catalog.",
             "type": "string"
           },
           "proposal": {
             "type": "string"
           }
         },
-        "required": [
-          "history"
-        ],
         "type": "object"
       },
       "RepresentationInformationDto": {
+        "description": "File display mode metadata.",
         "properties": {
           "environmentDescription": {
             "$ref": "#/components/schemas/EnvironmentDescriptionDto"
@@ -1357,30 +1419,46 @@
         "type": "object"
       },
       "SIPDto": {
+        "description": "SIP (Submission Information Package",
         "properties": {
           "bbox": {
+            "description": "Geometry bounding box. List of points coordinates [xmin, ymin, xmax, ymax]",
+            "example": [
+              -122.7,
+              45.51,
+              -122.64,
+              45.53
+            ],
             "items": {
+              "description": "Geometry bounding box. List of points coordinates [xmin, ymin, xmax, ymax]",
               "format": "double",
               "type": "number"
             },
             "type": "array"
           },
           "crs": {
+            "default": "WGS84",
+            "description": "Coordinate Reference System",
+            "example": "WGS84",
             "type": "string"
           },
           "geometry": {
             "$ref": "#/components/schemas/IGeometry"
           },
           "history": {
+            "description": "Information package history.",
             "items": {
               "$ref": "#/components/schemas/EventDto"
             },
             "type": "array"
           },
           "id": {
+            "description": "Provider identifier for the submitted product.",
+            "example": "RawProduct_001",
             "type": "string"
           },
           "ipType": {
+            "description": "Information package type.",
             "enum": [
               "COLLECTION",
               "DATA",
@@ -1388,20 +1466,11 @@
             ],
             "type": "string"
           },
-          "lastEvent": {
-            "$ref": "#/components/schemas/EventDto"
-          },
-          "normalizedGeometry": {
-            "$ref": "#/components/schemas/IGeometry"
-          },
           "properties": {
             "$ref": "#/components/schemas/InformationPackageProperties"
           },
           "ref": {
             "$ref": "#/components/schemas/SIPReference"
-          },
-          "submissionEvent": {
-            "$ref": "#/components/schemas/EventDto"
           }
         },
         "required": [
@@ -1410,14 +1479,17 @@
         "type": "object"
       },
       "SIPReference": {
+        "description": "Used to provide SIP content in a json formated file.",
         "properties": {
           "algorithm": {
+            "description": "Checksum algorithm of the json file containing SIP.",
             "type": "string"
           },
           "checksum": {
             "type": "string"
           },
           "url": {
+            "description": "URL of the json file containing SIP.",
             "format": "url",
             "type": "string"
           }
@@ -1583,8 +1655,10 @@
         "type": "object"
       },
       "SemanticDto": {
+        "description": "File semantic information",
         "properties": {
           "description": {
+            "description": "Short description of file content",
             "type": "string"
           }
         },
@@ -1631,11 +1705,16 @@
         "type": "object"
       },
       "SyntaxDto": {
+        "description": "File syntax information",
         "properties": {
           "description": {
+            "description": "Short description of file syntax",
+            "example": "Scientific raw data",
             "type": "string"
           },
           "height": {
+            "description": "File height in pixels if file is an image",
+            "example": 180,
             "format": "double",
             "type": "number"
           },
@@ -1643,9 +1722,12 @@
             "type": "string"
           },
           "name": {
+            "description": "File name",
             "type": "string"
           },
           "width": {
+            "description": "File width in pixels if file is an image",
+            "example": 180,
             "format": "double",
             "type": "number"
           }
@@ -1727,7 +1809,7 @@
       "name": "GPL-3.0"
     },
     "title": "MICROSERVICE DATAPROVIDER",
-    "version": "1.16.1"
+    "version": "2.0.0"
   },
   "openapi": "3.0.1",
   "paths": {

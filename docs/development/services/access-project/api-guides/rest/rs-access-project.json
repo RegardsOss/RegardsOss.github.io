@@ -358,6 +358,17 @@
             "writeOnly": true
           },
           "type": {
+            "description": "Geometry object type",
+            "enum": [
+              "Unlocated",
+              "Point",
+              "MultiPoint",
+              "LineString",
+              "MultiLineString",
+              "Polygon",
+              "MultiPolygon",
+              "GeometryCollection"
+            ],
             "type": "string"
           }
         },
@@ -1541,6 +1552,9 @@
       },
       "ToponymDTO": {
         "properties": {
+          "boundingBox": {
+            "type": "string"
+          },
           "businessId": {
             "type": "string"
           },
@@ -1854,7 +1868,7 @@
       "name": "GPL-3.0"
     },
     "title": "MICROSERVICE ACCESS",
-    "version": "1.16.1"
+    "version": "2.0.0"
   },
   "openapi": "3.0.1",
   "paths": {
