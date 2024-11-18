@@ -40,6 +40,12 @@ You can also edit an encrypt file.
 ansible-vault edit --ask-vault-pass <file.encryted>
 ```
 
+:::info nano editor
+You can use the nano editor using : 
+`env EDITOR=nano ansible-vault edit --ask-vault-pass <file.encryted>`
+:::
+
+
 ## docker_nodes Vault file
 
 Here is an exemple of a Vault file that you can store inside `inventories/<inventory name>/group_vars/docker_nodes/vault`

@@ -46,75 +46,41 @@ Use one of these command, depending on the type of deployment and the number of 
 ```bash
 # Install REGARDS on one server - using demo inventory
 # Not recommended
-cp -R ../../demo/* ./
+cp -R ../demo/* ./
 
 # Install REGARDS on one server when you don't want any security activated. 
 # In that case, you need to setup SWARM by YOURSELF, as this is trivial and documented out there
 # Use it when you install REGARDS on your own developper PC and not a distant server.
 # Not recommended
-cp -R ../../demo-insecure/* ./
+cp -R ../demo-insecure/* ./
 
 # Install REGARDS on several servers - for testing purpose
-cp -R ../../demo-multihosts/* ./
+cp -R ../multihosts/* ./
 
 # Install REGARDS on serveral servers - this instance won't have a lot of load
-cp -R ../../demo-standard/* ./
+cp -R ../standard/* ./
 
 # Install REGARDS on serveral servers - this instance will be onload (lot of products / files / ...)
-cp -R ../../demo-performance/* ./
+cp -R ../performance/* ./
 ```
 
-### Initialize the host file
+### Initialize the hosts file
 
-Now you need to configure where you want to install REGARDS by editing the `host` file.
+Now you need to configure where you want to install REGARDS by editing the `hosts` file.
 
 #### Customise inventory properties
 
 #### Customise a demo's based inventory
 
-Edit the file `regards-cnes/group_vars/all/main.yml` with :
-
-| Variable                                | Description                                                                                                                            |
-|:----------------------------------------|:---------------------------------------------------------------------------------------------------------------------------------------|
-| `global_stack.master_node_host_name`    | Server hostname where the regards stack is installed. For local installation you can use the `hostname` unix command to find it        |
-| `global_stack.workdir`                  | REGARDS swarm stack install directory                                                                                                  |
-| `global_stack.docker.workdir`           | Docker working directory                                                                                                               |
-| `global_stack.docker.network_interface` | Name of the network interface used to access to your server. For local installation you can use the `ifconfig` unix command to find it |
-| `global_regards.version`                | Version of REGARDS to install                                                                                                          |
-| `global_regards.project_name`           | Name of the first project created on REGARDS automagically                                                                             |
+_Not yet released._
 
 #### Customise a demo's based inventory
 
-Edit the file `regards-cnes/group_vars/all/main.yml` with :
-
-| Variable                                | Description                                                                                                                            |
-|:----------------------------------------|:---------------------------------------------------------------------------------------------------------------------------------------|
-| `global_stack.master_node_host_name`    | Server hostname where the regards stack is installed. For local installation you can use the `hostname` unix command to find it        |
-| `global_stack.workdir`                  | REGARDS swarm stack install directory                                                                                                  |
-| `global_stack.docker.workdir`           | Docker working directory                                                                                                               |
-| `global_stack.docker.network_interface` | Name of the network interface used to access to your server. For local installation you can use the `ifconfig` unix command to find it |
-| `global_regards.your_user`              | The name of your user. All REGARDS process and created files will be owned by your linux user                                          |
-| `global_regards.your_user_id`           | The id related to your user. Runs the command `id` to get that value                                                                   |
-| `global_regards.version`                | Version of REGARDS to install                                                                                                          |
-| `global_regards.project_name`           | Name of the first project created on REGARDS automagically                                                                             |
+_Not yet released._
 
 #### Customise a multihosts's based inventory
 
-Edit the file `regards-cnes/group_vars/all/main.yml` with :
-
-| Variable                                | Description                                                                                                                            |
-|:----------------------------------------|:---------------------------------------------------------------------------------------------------------------------------------------|
-| `global_stack.master_node_host_name`    | Server hostname where the regards stack is installed. For local installation you can use the `hostname` unix command to find it        |
-| `global_stack.workdir`                  | REGARDS swarm stack install directory                                                                                                  |
-| `global_stack.docker.workdir`           | Docker working directory                                                                                                               |
-| `global_stack.docker.network_interface` | Name of the network interface used to access to your server. For local installation you can use the `ifconfig` unix command to find it |
-| `global_regards.version`                | Version of REGARDS to install                                                                                                          |
-| `global_regards.project_name`           | Name of the first project created on REGARDS automagically                                                                             |
-
-:::caution
-In multi nodes deployment mode, the `global_stack.workdir` value have to be the same accessible directory on each
-node (e.g. NFS mount).
-:::
+_Not yet released._
 
 #### Customise a standard based inventory
 
