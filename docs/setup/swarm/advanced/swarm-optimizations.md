@@ -109,6 +109,7 @@ Recommended value between `10 and 100`.
 | Ansible property: <br/>`group_docker_mservices.storage.configuration.entities_per_job`  <br/> REGARDS property:<br/> `regards.storage.cache.requests.per.job`      | Number of file availibility requests to handle in one Storage process | 100     |
 | Ansible property: <br/>`group_docker_mservices.storage.configuration.entities_per_job`  <br/> REGARDS property:<br/> `regards.storage.deletion.requests.per.job`   | Number of deletion requests to handle in one Storage process          | 100     |
 | Ansible property: <br/>`group_docker_mservices.storage.configuration.entities_per_job`  <br/> REGARDS property:<br/> `regards.storage.storage.requests.per.job`    | Number of files to store requests to handle in one Storage process    | 100     |
+| Ansible property: <br/>`group_docker_mservices.storage.configuration.restoration_availability_bulk_limit`  <br/> REGARDS property:<br/> `regards.storage.availability.request.product.bulk.limit`    | Maximum number of products inside a single availibility request. This limitation exists to avoid too many access to the storage location at a time.    | 100     |
 
 ### Data Management optimization
 
