@@ -4,6 +4,10 @@ title: Deploy required microservices
 slug: /setup/swarm/advanced/microservice-setup
 ---
 
+:::info
+This documentation page may be outdated
+:::
+
 ## Update inventory with microservices you need
 
 :::info

@@ -46,11 +46,11 @@ Default microservice configurations:
 | rs-admin           | 512m        | None                           | 5 per tenant of the instance     |
 | rs-admin-instance  | 512m        | None                           | 5 per instance                   |
 | rs-access-project  | 512m        | None                           | 5 per tenant of the instance     |
-| rs-access-instance | 512m        | None                           | 5 per instance                   |
+| rs-access-instance | 512m        | None                           | 3 per instance                   |
 | rs-dam             | 1280m       | None                           | 5 per tenant of the instance     |
 | rs-ingest          | 1536m       | 5                              | 5 per tenant of the instance     |
 | rs-fem             | 1024m       | 5                              | 5 per tenant of the instance     |
-| rs-notifier        | 1280m       | 5                              | 5 per tenant of the instance     |
+| rs-notifier        | 1280m       | 5                              | 10 per tenant of the instance    |
 | rs-storage         | 1024m       | 5                              | 5 per tenant of the instance     |
 | rs-dataprovider    | 1024m       | 5                              | 5 per tenant of the instance     |
 | rs-catalog         | 1024m       | 5                              | 5 per tenant of the instance     |

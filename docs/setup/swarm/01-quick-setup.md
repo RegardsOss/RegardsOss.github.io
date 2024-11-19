@@ -4,6 +4,10 @@ title: Quick setup
 slug: /setup/
 ---
 
+:::info
+This documentation page may be outdated
+:::
+
 ## Introduction
 
 This section introduce how to deploy a REGARDS stack thanks to ansible on a docker swarm environment.  

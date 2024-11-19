@@ -48,15 +48,15 @@ group_config_mservices:
     instance:
       host: database-inst.cnes.fr
       port: 5432
+      db: <instance database name>
       user: <some user>
       password: "{{ regards_vault.group_config_mservices.postgres.instance.password }}"
-      db: <instance database name>
     init_project:
       host: database-first-project.cnes.fr
       port: 5432
+      db: <first project database name>
       user: <some user>
       password: "{{ regards_vault.group_config_mservices.init_project.instance.password }}"
-      db: <first project database name>
 ```
 
 - remove the Postgres service that was deployed inside `group_docker_cots`
