@@ -135,29 +135,29 @@ The following tables show the structure of stocked entity in Elasticsearch index
 
 #### Entity for DATA type
 
-| Nom                        | Type                              | Description                                                                                                               |
-|----------------------------|-----------------------------------|---------------------------------------------------------------------------------------------------------------------------|
-| type                       | text                              | Entity type: DATA                                                                                                         |                                                                                                                 |
-| creationDate               | Date (format: date_optional_time) | Creation date of entity                                                                                                   |
-| lastUpdate                 | Date (format: date_optional_time) | Update date of entity                                                                                                     | |
-| dataSourceId               | long                              | Data source identifier                                                                                                    |
-| datasetModelNames          | text                              | List of dataset model names                                                                                               |
-| groups                     | text                              | List of group names for access right                                                                                      |
-| id                         | long                              | Entity technical identifier for database                                                                                  |
-| internal                   | boolean                           | true if a entity of DATA type is internal(created from AIP) or false, external (created from external database)           |
-| ipId                       | text                              | Identifier of Uniform Resource Name type (format: URN:StringId:DATA:tenant:UUID(entityId):Vversion[,order][:REVrevision]) |
-| metadata                   | Object(see details below)         | Information about a group access to a specific dataset for data objects                                                   |
-| model                      | Object                            | Entity model                                                                                                              |
-| model.description          | text                              | Model description                                                                                                         |
-| _model.id_                 | long                              | Model technical identifier for database                                                                                   |
-| _model.name_               | text                              | Model name (identical with model property of feature)                                                                     |
-| _model.type_               | text                              | Model type : DATA                                                                                                         |
-| newPoint                   | geo_point                         | Bounding box north west point                                                                                             |
-| setPoint                   | geo_point                         | Bounding box south east point                                                                                             |
-| openSearchSubsettingClause | text                              | Representation of the above subsetting clause as an OpenSearch string request                                             | 
-| tags                       | text                              | List of tags (included related dataset)                                                                                   |
-| wgs84                      | geo_shape                         | Geometry projection on WGS84 crs                                                                                          |
-| feature                    | Object(see details below)         | Raw entity feature                                                                                                        |
+| Nom                        | Type                              | Description                                                                                                             |
+|----------------------------|-----------------------------------|-------------------------------------------------------------------------------------------------------------------------|
+| type                       | text                              | Entity type: DATA                                                                                                       |                                                                                                                 |
+| creationDate               | Date (format: date_optional_time) | Creation date of entity                                                                                                 |
+| lastUpdate                 | Date (format: date_optional_time) | Update date of entity                                                                                                   |
+| dataSourceId               | long                              | Data source identifier                                                                                                  |
+| datasetModelNames          | text                              | List of dataset model names                                                                                             |
+| groups                     | text                              | List of group names for access right                                                                                    |
+| id                         | long                              | Entity technical identifier for database                                                                                |
+| internal                   | boolean                           | true if a entity of DATA type is internal(created from AIP) or false, external (created from external database)         |
+| ipId                       | text                              | Identifier of Uniform Resource Name type (format: `URN:StringId:DATA:tenant:UUID(entityId):version[,order][:revision]`) |
+| metadata                   | Object(see details below)         | Information about a group access to a specific dataset for data objects                                                 |
+| model                      | Object                            | Entity model                                                                                                            |
+| model.description          | text                              | Model description                                                                                                       |
+| _model.id_                 | long                              | Model technical identifier for database                                                                                 |
+| _model.name_               | text                              | Model name (identical with model property of feature)                                                                   |
+| _model.type_               | text                              | Model type : DATA                                                                                                       |
+| newPoint                   | geo_point                         | Bounding box north west point                                                                                           |
+| setPoint                   | geo_point                         | Bounding box south east point                                                                                           |
+| openSearchSubsettingClause | text                              | Representation of the above subsetting clause as an OpenSearch string request                                           | 
+| tags                       | text                              | List of tags (included related dataset)                                                                                 |
+| wgs84                      | geo_shape                         | Geometry projection on WGS84 crs                                                                                        |
+| feature                    | Object(see details below)         | Raw entity feature                                                                                                      |
 
 Metadata for **DATA** type of entity
 
@@ -171,67 +171,67 @@ Metadata for **DATA** type of entity
 
 Feature for **DATA** type of entity
 
-| Name                             | Type    | Description                                                                                                                            |
-|----------------------------------|---------|----------------------------------------------------------------------------------------------------------------------------------------|
-| sessionOwner                     | text    | Session owner                                                                                                                          |
-| Session                          | text    | Session name                                                                                                                           |
-| virtualId                        | text    | Virtual identifier of URN type in order to indicate if this is the last version (format: URN:StringId:DATA:tenant:UUID(entityId):LAST) |
-| providerId                       | text    | Provider identifier                                                                                                                    |
-| entityType                       | text    | Entity type : DATA                                                                                                                     |
-| label                            | text    | Entity label (sometimes identical provider identifier property)                                                                        |
-| model                            | text    | Model name of entity (identical with name property of model)                                                                           |
-| files                            | Object  | Product-related entity files (example: thumbnail, quicklook, rawdata...)                                                               |
-| tags                             | text    | List of tags (included dataset identifier)                                                                                             |
-| last                             | boolean | true if this the last version; otherwise false                                                                                         |
-| version                          | text    | Entity version                                                                                                                         |
-| id                               | text    | Identifier of Uniform Resource Name type (identical with IpId property)                                                                |
-| geometry                         | Object  | Information package geometry in GeoJSON RFC 7946 Format                                                                                |
-| _geometry.coordinates_           | double  | Geometry coordinates                                                                                                                   |
-| _geometry.type_                  | text    | Geometry type (Point, MultiPoint, LineString, Polygon, MultiPolygon...)                                                                |
-| _geometry.bbox_                  | array   | Geometry bounding box. List of points coordinates [xmin, ymin, xmax, ymax] in Double type.                                             |
-| _geometry.crs_                   | text    | Coordinate reference system. If not specified, WGS84 is considered as the default CRS                                                  |
-| normalizedGeometry               | Object  | Geometry but normalized to be used on a cylindrical project                                                                            |
-| _normalizedGeometry.coordinates_ | doi     | Normalized geometry coordinates                                                                                                        |
-| _normalizedGeometry.type_        | text    | Normalized geometry type (Point, MultiPoint, LineString, Polygon, MultiPolygon...)                                                     |
-| _normalizedGeometry.bbox_        | array   | Geometry bounding box. List of points coordinates [xmin, ymin, xmax, ymax] in Double type.                                             |
-| _normalizedGeometry.crs_         | text    | Coordinate reference system. If not specified, WGS84 is considered as the default CRS                                                  |
-| type                             | text    | Feature                                                                                                                                |
-| crs                              | text    | Coordinate Reference System (default value: WGS84)                                                                                     |
-| properties                       | Object  | DATA model attributes                                                                                                                  |
+| Name                             | Type    | Description                                                                                                                              |
+|----------------------------------|---------|------------------------------------------------------------------------------------------------------------------------------------------|
+| sessionOwner                     | text    | Session owner                                                                                                                            |
+| Session                          | text    | Session name                                                                                                                             |
+| virtualId                        | text    | Virtual identifier of URN type in order to indicate if this is the last version (format: `URN:StringId:DATA:tenant:UUID(entityId):LAST`) |
+| providerId                       | text    | Provider identifier                                                                                                                      |
+| entityType                       | text    | Entity type : DATA                                                                                                                       |
+| label                            | text    | Entity label (sometimes identical provider identifier property)                                                                          |
+| model                            | text    | Model name of entity (identical with name property of model)                                                                             |
+| files                            | Object  | Product-related entity files (example: thumbnail, quicklook, rawdata...)                                                                 |
+| tags                             | text    | List of tags (included dataset identifier)                                                                                               |
+| last                             | boolean | true if this the last version; otherwise false                                                                                           |
+| version                          | text    | Entity version                                                                                                                           |
+| id                               | text    | Identifier of Uniform Resource Name type (identical with IpId property)                                                                  |
+| geometry                         | Object  | Information package geometry in GeoJSON RFC 7946 Format                                                                                  |
+| _geometry.coordinates_           | double  | Geometry coordinates                                                                                                                     |
+| _geometry.type_                  | text    | Geometry type (Point, MultiPoint, LineString, Polygon, MultiPolygon...)                                                                  |
+| _geometry.bbox_                  | array   | Geometry bounding box. List of points coordinates [xmin, ymin, xmax, ymax] in Double type.                                               |
+| _geometry.crs_                   | text    | Coordinate reference system. If not specified, WGS84 is considered as the default CRS                                                    |
+| normalizedGeometry               | Object  | Geometry but normalized to be used on a cylindrical project                                                                              |
+| _normalizedGeometry.coordinates_ | doi     | Normalized geometry coordinates                                                                                                          |
+| _normalizedGeometry.type_        | text    | Normalized geometry type (Point, MultiPoint, LineString, Polygon, MultiPolygon...)                                                       |
+| _normalizedGeometry.bbox_        | array   | Geometry bounding box. List of points coordinates [xmin, ymin, xmax, ymax] in Double type.                                               |
+| _normalizedGeometry.crs_         | text    | Coordinate reference system. If not specified, WGS84 is considered as the default CRS                                                    |
+| type                             | text    | Feature                                                                                                                                  |
+| crs                              | text    | Coordinate Reference System (default value: WGS84)                                                                                       |
+| properties                       | Object  | DATA model attributes                                                                                                                    |
 
 #### Entity for DATASET type
 
-| Nom                               | Type                              | Description                                                                                                                  |
-|-----------------------------------|-----------------------------------|------------------------------------------------------------------------------------------------------------------------------|
-| type                              | text                              | Entity type: DATASET                                                                                                         |                                                                                                                 |
-| creationDate                      | Date (format: date_optional_time) | Creation date of entity                                                                                                      |
-| lastUpdate                        | Date (format: date_optional_time) | Update date of entity                                                                                                        |
-| dataModel                         | text                              | Model of Data type for entities included in this dataset                                                                     |
-| dataSourceId                      | long                              | Data source identifier                                                                                                       | |
-| groups                            | text                              | List of group names for access right                                                                                         |
-| id                                | long                              | Entity technical identifier for database                                                                                     |
-| internal                          | boolean                           | true if a entity of DATA type is internal(created from AIP) or false, external (created from external database)              |
-| ipId                              | text                              | Identifier of Uniform Resource Name type (format: URN:StringId:DATASET:tenant:UUID(entityId):Vversion[,order][:REVrevision]) |
-| metadata                          | Object(see details below)         | Information about a group access to a specific dataset for data objects                                                      |
-| model                             | Object                            | Entity model                                                                                                                 |
-| _model.description_               | text                              | Model description                                                                                                            |
-| _model.id_                        | long                              | Model technical identifier for database                                                                                      |
-| _model.name_                      | text                              | Model name (identical with model property of feature)                                                                        |
-| _model.type_                      | text                              | Model type : DATASET                                                                                                         |
-| newPoint                          | geo_point                         | Bounding box north west point                                                                                                |
-| setPoint                          | geo_point                         | Bounding box south east point                                                                                                |
-| openSearchSubsettingClause        | text                              | Representation of the above subsetting clause as an OpenSearch string request                                                |
-| plgConfDataSource                 | Object                            | Plugin configuration for the extension point (IDataSourcePlugin interface)                                                   |
-| _plgConfDataSource.active_        | boolean                           | Active or not the plugin                                                                                                     |
-| _plgConfDataSource.businessId_    | text                              | Plugin business identifier                                                                                                   |
-| _plgConfDataSource.label_         | text                              | Plugin label                                                                                                                 |
-| _plgConfDataSource.parameters_    | nested                            | Configuration parameters of the plugin                                                                                       |
-| _plgConfDataSource.pluginId_      | text                              | Plugin identifier                                                                                                            |
-| _plgConfDataSource.priorityOrder_ | long                              | Priority order of the plugin.                                                                                                |
-| _plgConfDataSource.version_       | text                              | Plugin version                                                                                                               |
-| tags                              | text                              | List of tags                                                                                                                 |
-| wgs84                             | geo_shape                         | Geometry projection on WGS84 crs                                                                                             |
-| feature                           | Object(see details below)         | Raw entity feature                                                                                                           |  
+| Nom                               | Type                              | Description                                                                                                             |
+|-----------------------------------|-----------------------------------|-------------------------------------------------------------------------------------------------------------------------|
+| type                              | text                              | Entity type: DATASET                                                                                                    |                                                                                                                 |
+| creationDate                      | Date (format: date_optional_time) | Creation date of entity                                                                                                 |
+| lastUpdate                        | Date (format: date_optional_time) | Update date of entity                                                                                                   |
+| dataModel                         | text                              | Model of Data type for entities included in this dataset                                                                |
+| dataSourceId                      | long                              | Data source identifier                                                                                                  |
+| groups                            | text                              | List of group names for access right                                                                                    |
+| id                                | long                              | Entity technical identifier for database                                                                                |
+| internal                          | boolean                           | true if a entity of DATA type is internal(created from AIP) or false, external (created from external database)         |
+| ipId                              | text                              | Identifier of Uniform Resource Name type (format: `URN:StringId:DATA:tenant:UUID(entityId):version[,order][:revision]`) |
+| metadata                          | Object(see details below)         | Information about a group access to a specific dataset for data objects                                                 |
+| model                             | Object                            | Entity model                                                                                                            |
+| _model.description_               | text                              | Model description                                                                                                       |
+| _model.id_                        | long                              | Model technical identifier for database                                                                                 |
+| _model.name_                      | text                              | Model name (identical with model property of feature)                                                                   |
+| _model.type_                      | text                              | Model type : DATASET                                                                                                    |
+| newPoint                          | geo_point                         | Bounding box north west point                                                                                           |
+| setPoint                          | geo_point                         | Bounding box south east point                                                                                           |
+| openSearchSubsettingClause        | text                              | Representation of the above subsetting clause as an OpenSearch string request                                           |
+| plgConfDataSource                 | Object                            | Plugin configuration for the extension point (IDataSourcePlugin interface)                                              |
+| _plgConfDataSource.active_        | boolean                           | Active or not the plugin                                                                                                |
+| _plgConfDataSource.businessId_    | text                              | Plugin business identifier                                                                                              |
+| _plgConfDataSource.label_         | text                              | Plugin label                                                                                                            |
+| _plgConfDataSource.parameters_    | nested                            | Configuration parameters of the plugin                                                                                  |
+| _plgConfDataSource.pluginId_      | text                              | Plugin identifier                                                                                                       |
+| _plgConfDataSource.priorityOrder_ | long                              | Priority order of the plugin.                                                                                           |
+| _plgConfDataSource.version_       | text                              | Plugin version                                                                                                          |
+| tags                              | text                              | List of tags                                                                                                            |
+| wgs84                             | geo_shape                         | Geometry projection on WGS84 crs                                                                                        |
+| feature                           | Object(see details below)         | Raw entity feature                                                                                                      |  
 
 Metadata for **DATASET** type of entity
 
@@ -246,20 +246,20 @@ Metadata for **DATASET** type of entity
 
 Feature for **DATASET** type of entities
 
-| Name                          | Type    | Description                                                                                                                               |
-|-------------------------------|---------|-------------------------------------------------------------------------------------------------------------------------------------------|
-| dataObjectsFilesAccessGranted | boolean | true if granted Access for data object files; otherwise denied access                                                                     |
-| dataObjectsAccessGranted      | boolean | true if granted Access for data objects; otherwise denied access                                                                          |
-| licence                       | text    | Licence for dataset                                                                                                                       |
-| virtualId                     | text    | Virtual identifier of URN type in order to indicate if this is the last version (format: URN:StringId:DATASET:tenant:UUID(entityId):LAST) |
-| providerId                    | text    | Provider identifier                                                                                                                       |
-| entityType                    | text    | Entity type : DATASET                                                                                                                     |
-| id                            | text    | Identifier of Uniform Resource Name type (format: URN:StringId:DATASET:tenant:UUID(entityId):Vversion[,order][:REVrevision])              |
-| label                         | text    | Label of dataset                                                                                                                          |
-| model                         | text    | Model name of entity (identical with name property of model)                                                                              |
-| files                         | Object  | Product-related entity files                                                                                                              |
-| tags                          | text    | List of tags                                                                                                                              |
-| version                       | integer | Entity version                                                                                                                            |
-| type                          | text    | Feature                                                                                                                                   |
-| properties                    | Object  | DATA model attributes                                                                                                                     |
+| Name                          | Type    | Description                                                                                                                                 |
+|-------------------------------|---------|---------------------------------------------------------------------------------------------------------------------------------------------|
+| dataObjectsFilesAccessGranted | boolean | true if granted Access for data object files; otherwise denied access                                                                       |
+| dataObjectsAccessGranted      | boolean | true if granted Access for data objects; otherwise denied access                                                                            |
+| licence                       | text    | Licence for dataset                                                                                                                         |
+| virtualId                     | text    | Virtual identifier of URN type in order to indicate if this is the last version (format: `URN:StringId:DATASET:tenant:UUID(entityId):LAST`) |
+| providerId                    | text    | Provider identifier                                                                                                                         |
+| entityType                    | text    | Entity type : DATASET                                                                                                                       |
+| id                            | text    | Identifier of Uniform Resource Name type (format: `URN:StringId:DATA:tenant:UUID(entityId):version[,order][:revision]`)                     |
+| label                         | text    | Label of dataset                                                                                                                            |
+| model                         | text    | Model name of entity (identical with name property of model)                                                                                |
+| files                         | Object  | Product-related entity files                                                                                                                |
+| tags                          | text    | List of tags                                                                                                                                |
+| version                       | integer | Entity version                                                                                                                              |
+| type                          | text    | Feature                                                                                                                                     |
+| properties                    | Object  | DATA model attributes                                                                                                                       |
 
