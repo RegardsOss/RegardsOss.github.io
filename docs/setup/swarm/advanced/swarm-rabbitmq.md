@@ -15,6 +15,10 @@ information
 The REGARDS playbooks generates a definition file that is imported by the RabbitMQ
 service. [Click here to get more info about this format](https://www.rabbitmq.com/docs/definitions).
 :::
+:::danger RabbitMQ updates and reboots
+Every time you change the RabbitMQ configuration inside your inventory, you must shutdown REGARDS before running the
+playbook to deploy the changes.
+:::
 
 ## Cluster configuration
 

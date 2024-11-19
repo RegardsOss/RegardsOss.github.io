@@ -26,6 +26,7 @@ We assume you have successfully deployed REGARDS using the [Quick setup](../01-q
 - [MinIO](swarm-minio.md) shows you how to deploy a MinIO server for your regards swarm stack.
 - [Microservices optimizations](swarm-optimizations.md) provides you all the possible inventory configurations to
   optimize microservices.
+- [Microservices configurations](swarm-other-configs.md) shows you how to configure REGARDS microservices.
 - [Ansible Vault](ansible-vault.md) allows you to crypt passwords inside your inventory and commit them on Git safely. *
   *Highly recommended**
 - [Mount volumes, configs...](swarm-volumes.md) allows you to describe volumes, configs and secrets files containers
