@@ -19,13 +19,13 @@ REGARDS software has been designed to meet several use-cases, allowing you to us
 you need and ignoring others components.
 :::
 
-**Core REGARDS system** is the [Meta catalog services group](02-meta-catalog-services.md). You can then add the
-functional groups below as required :
+**Core REGARDS system** is the [Meta catalog services group](02-meta-catalog-services.md).  
+You can then add the functional groups below as required :
 
-- [OAIS catalog services](03-oais-catalog-services.md) introduces you the internal catalog that stores **OAIS products
-  **.
-- [GeoJson catalog services](04-geojson-catalog-services.md) introduces you the internal catalog that stores **GeoJSON
-  products**.
+- [OAIS catalog services](03-oais-catalog-services.md) introduces you the internal catalog that stores 
+  **OAIS products**.
+- [GeoJson catalog services](04-geojson-catalog-services.md) introduces you the internal catalog that stores 
+  **GeoJSON products**.
 - [Product restitution services](05-product-restitution-services.md) introduces you how to retrieve stored products
   through the meta catalog.
 
