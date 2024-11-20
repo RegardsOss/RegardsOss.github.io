@@ -6,6 +6,18 @@ slug: /development/services/storage/configuration/import-export
 sidebar_position: 1
 ---
 
+## Storage import specificity
+
+On `resetBeforeImport`:
+
+- storage only resets its dynamic tenants settings when you set `resetBeforeImport` to true
+- storage does not remove any existing storage location
+
+When you import a storage location:
+
+- if it exists, it does not check your new storage location and just ignore it
+- if the storage location does not exist, it creates it
+
 ## Request
 
 To configure rs-storage settings, send a `POST` request on update operation of dynamic-tenant-setting-controller (
