@@ -27,7 +27,7 @@ L'écran **_Ajouter un nouveau fournisseur de service_** est découpé en deux p
   - **_Firstname mapping field_** est le nom du champs JSON présent dans la réponse à un appel au endpoint "user info" permettant à Regards de récupérer le prénom de l'utilisateur.
   - **_Lastname mapping field_** est le nom du champs JSON présent dans la réponse à un appel au endpoint "user info" permettant à Regards de récupérer le nom de l'utilisateur.
   - **_revoke endpoint URL_** est l'URL du endpoint HTTP du service d'authentification externe permettant d'invalider le token Oauth2 en fin de sessions, lors d'une déconnexion de l'utilisateur.
-  - **_Allow insecure SSL connection_** permet d'autoriser l'utilisation de serveur SSO non sécurisé via HTTPS. **`Attention, l'utilisation de cette propriété n'est pas conseillé pour un environement de production`**
+  - **_Allow insecure SSL connection_** permet d'autoriser l'utilisation de serveur SSO non sécurisé via HTTPS. **Attention, l'utilisation de cette propriété n'est pas conseillé pour un environement de production**
 
 ### Exemple de configuration avec un serveur keycloak
 

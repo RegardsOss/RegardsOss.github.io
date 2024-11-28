@@ -188,6 +188,7 @@ references its given location. Nevertheless, **with this system you must provide
   on [rs-storage microservice](../../../storage/overview). If not, the file will be considered as
   **Offline** and will not be accessible for download.
 - **File size in bytes** : Regards will not access the file by itself so the information must be provided.
+- **metadata.storages** should be an empty array, as you want to reference these files and not copy them
 
 :::info
 This exemple is the way to ask **rs-fem** microservice to only reference the files in your product without moving any
