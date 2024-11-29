@@ -29,7 +29,7 @@ Vous pouvez consulter le guide sur [la configuration des différents types de pl
 
 ## Diffusion OAIS
 
-Ce service permet de [diffuser les produits GeoJSON](../4_1-ingest/oais-dissemination.md).
+Ce service permet de [diffuser les produits OAIS](../4_1-ingest/oais-dissemination.md).
 
 ## Diffusion GeoJSON
 
