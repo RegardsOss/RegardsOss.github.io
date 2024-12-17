@@ -68,7 +68,7 @@ For the purposes of this microservice, the GeoJSON structure is extended with th
                 "dataType": "RAWDATA",
                 "mimeType": "application/zip",
                 "filename": "file.zip",
-                "filesize": "8013",
+                "filesize": 8013,
                 "algorithm": "MD5",
                 "checksum": "4e188bd8a6288164c25c3728ce394927"
             }
