@@ -16,6 +16,12 @@ configuration guide](../../common/import-export-configuration.md), it will help 
 file payload that you can send to the
 [import configuration endpoint](../api-guides/rest/rs-delivery-api-swagger.mdx#tag/module-manager-controller/operation/importConfiguration).
 
+| Configuration type | Available | Description |
+| ------------------ | --------- | ----------- |
+| Import configuration in json format | True | |
+| Export configuration in json format | True | |
+| Reset configuration before import | False | Not implemented yet |
+
 This configuration can also be imported or exported
 through [administrator UI](../../../../user-documentation/2-project-configuration/microservices.md).
 

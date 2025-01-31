@@ -13,6 +13,11 @@ It's a configuration per tenant.
 See [this REST endpoint](../api-guides/rest/api-swagger#tag/module-manager-controller/operation/importConfiguration) to 
 import a configuration.
 
+| Configuration type | Available | Description |
+| ------------------ | --------- | ----------- |
+| Import configuration in json format | True |  |
+| Export configuration in json format | True |  |
+| Reset configuration before import | True |  |
 
 ## OpenSearch Plugin configuration
 

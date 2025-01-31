@@ -9,6 +9,12 @@ sidebar_position: 1
 Microservices settings regroup a set of settings that are specific by [tenant](../../../concepts/03-multitenant.md)
 and stored in the microservice database.
 
+| Configuration type | Available | Description |
+| ------------------ | --------- | ----------- |
+| Import configuration in json format | True | |
+| Export configuration in json format | True | |
+| Reset configuration before import | False | Not implemented yet |
+
 ## Import/Export API
 
 The import export is not possible for the order microservice.

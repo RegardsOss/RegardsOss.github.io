@@ -14,6 +14,13 @@ for each setting that needs to be set. The configuration is stored in database f
 This configuration can also be imported or exported
 through [administrator HMI](../../../../user-documentation/2-project-configuration/microservices.md).
 
+| Configuration type | Available | Description |
+| ------------------ | --------- | ----------- |
+| Import configuration in json format | False | Not implemented yet |
+| Export configuration in json format | False | Not implemented yet |
+| Reset configuration before import | False | Reset before import is not activated here, as this requires the data catalogue to be reset to zero. |
+
+
 Dynamic settings for `Data management` microservice are :
 
 | Name                   | Type    | Default Value | Description                                                                                            |

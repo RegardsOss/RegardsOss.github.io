@@ -3,6 +3,7 @@ id: backend-authentication-static-configuration
 title: Authentication static configuration
 sidebar_label: Static configuration
 slug: /development/backend/services/authentication/configuration/static-configuration
+sidebar_position: 2
 ---
 
 Static configuration is the microservice configuration set before microservice startup in a property file.

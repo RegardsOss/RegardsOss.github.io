@@ -2,6 +2,7 @@
 title: Static configuration
 sidebar_label: Static configuration
 slug: /development/services/access-instance/configuration
+sidebar_position: 2
 ---
 
 Static configuration is the microservice configuration set before microservice startup in a property file.

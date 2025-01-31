@@ -18,6 +18,12 @@ file payload that you can send to the
 This configuration can also be imported or exported
 through the [administrator UI](../../../../user-documentation/2-project-configuration/microservices.md).
 
+| Configuration type | Available | Description |
+| ------------------ | --------- | ----------- |
+| Import configuration in json format | True | Not implemented yet |
+| Export configuration in json format | True | Not implemented yet |
+| Reset configuration before import | False | Not implemented yet |
+
 To configure **rs-fem** settings, send a `POST` request to import configuration file in JSON format  (
 see [REST API documentation](../api-guides/rest/rs-fem-api-swagger.mdx#tag/module-manager-controller/operation/importConfiguration))
 for each setting that needs to be set.
