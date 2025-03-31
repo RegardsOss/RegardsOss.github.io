@@ -8,8 +8,9 @@ Tout utilisateur d'un projet est associé à une instance de REGARDS, ainsi, un 
 Depuis le menu ***Account*** de l'interface d'administration, vous pourrez :
 
 
-- ***<img src="/images/user-documentation/regards-icons/admin/list.png" alt="link" height="25" width="25"/> [Voir la liste des utilisateurs](#-lister-les-comptes-utilisateurs), [valider](#-valider-un-compte-utilisateur), [editer](#-editer-un-compte-utilisateur) et [supprimer](#-supprimer-un-compte-utilisateur) un compte.***
-- ***<img src="/images/user-documentation/regards-icons/admin/gear-wheel.png" alt="link" height="25" width="25"/>  [Paramétrer les demandes de création de compte](#-paramétrer-les-demandes-de-création-de-compte).***
+- ***<img src="/images/user-documentation/regards-icons/admin/list.png" alt="link" height="25" width="25"/> [Voir la 
+  liste des utilisateurs](#lister-les-comptes-utilisateurs), [valider](#valider-un-compte-utilisateur), [éditer](#editer-un-compte-utilisateur), [réactiver](#réactiver-un-compte-utilisateur) et [supprimer](#supprimer-un-compte-utilisateur) un compte.***
+- ***<img src="/images/user-documentation/regards-icons/admin/gear-wheel.png" alt="link" height="25" width="25"/>  [Paramétrer les demandes de création de compte](#paramétrer-les-demandes-de-création-de-compte).***
 
 <div align="center">
   <img src="/images/user-documentation/v1.7/1-global-configuration/accounts-menu.png" alt="interface admin" width="300"/> 
@@ -52,6 +53,20 @@ Il est possible d'éditer un compte, pour cela, utiliser l'icone présentée dan
 
 <div align="center">
   <img src="/images/user-documentation/v1.7/1-global-configuration/account-edition.png" alt="account validation" width="800"/> 
+</div>
+
+#### Réactiver un compte utilisateur
+
+Si la configuration du serveur spécifie une [durée de vie des comptes](../../..
+/development/services/admin-instance/configuration/static_configuration.md), les comptes ayant dépassé cette durée
+de validité sont automatiquement passés en état "Inactif".
+
+Il est possible de réactiver un compte à l'aide de l'icone ci-dessous. Un compte réactivé a la même durée de vie
+que s'il venait d'être créé.
+
+<div align="center">
+  <img src="/images/user-documentation/v2.1/1-global-configuration/account-reactivation.png" alt="account validation" 
+width="800"/> 
 </div>
 
 #### Supprimer un compte utilisateur
