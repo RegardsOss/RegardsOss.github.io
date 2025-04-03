@@ -1576,7 +1576,7 @@
       "name": "GPL-3.0"
     },
     "title": "MICROSERVICE ADMIN",
-    "version": "2.0.0"
+    "version": "2.1.0"
   },
   "openapi": "3.0.1",
   "paths": {
@@ -2389,6 +2389,32 @@
       }
     },
     "/resources/microservices/{microservicename}": {
+      "delete": {
+        "description": "Delete microservice resources for all active tenants",
+        "operationId": "deleteMicroserviceEndpoints",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "microservicename",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Resources successfully deleted."
+          },
+          "403": {
+            "description": "Access denied."
+          }
+        },
+        "summary": "Delete microservice resources for all active tenants",
+        "tags": [
+          "microservice-resource-controller"
+        ]
+      },
       "get": {
         "operationId": "getAllResourceAccessesByMicroservice",
         "parameters": [

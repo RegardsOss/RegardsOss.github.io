@@ -654,7 +654,7 @@
       "name": "GPL-3.0"
     },
     "title": "MICROSERVICE ACCESS INSTANCE",
-    "version": "2.0.0"
+    "version": "2.1.0"
   },
   "openapi": "3.0.1",
   "paths": {
