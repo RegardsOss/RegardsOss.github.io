@@ -12,7 +12,7 @@ Regards has another microservice with similar functionalities, `rs-access-projec
 with [multitenant](../../concepts/03-multitenant.md) conpect to handle configuration of projects or tenant user UI.
 
 There are two versions of this microservice. One (`rs-access-instance`) is compatible with toponym management and
-requires a postgres database with the postgis extension installed, and the other (`rs-access-instance-light`) is not
+requires a postgres database with the postgis extension installed, and the other (`rs-access-instance-light`) is 
 compatible with a standard postgres database :
 
 - `rs-access-instance` responsibilities :
