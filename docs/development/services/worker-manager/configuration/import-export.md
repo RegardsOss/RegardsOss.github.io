@@ -1,7 +1,7 @@
 ---
 title: Configuration Importation/Exportation
 sidebar_label: Importation/Exportation
-slug: /development/backend/services/worker-manager/configuration/import_export
+slug: /development/services/worker-manager/configuration/import_export
 sidebar_position: 1
 ---
 

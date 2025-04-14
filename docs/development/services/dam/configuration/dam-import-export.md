@@ -1,7 +1,7 @@
 ---
 title: Configuration Importation/Exportation
 sidebar_label: Importation/Exportation
-slug: /development/backend/services/dam/configuration/import-export
+slug: /development/services/dam/configuration/import-export
 sidebar_position: 1
 ---
 

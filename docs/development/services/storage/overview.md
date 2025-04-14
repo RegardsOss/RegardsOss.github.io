@@ -73,7 +73,7 @@ To learn how the microservice is configured with **static parameters from proper
 see the [Configuration section](./configuration/storage-static-configuration.md).
 
 To understand the **configuration of specific tenants** (projects),
-see the [Import/export configuration section](./configuration/storage-import-export.md).
+see the [Import/export configuration section](./configuration/storage-static-configuration.md).
 
 ## How to access source code
 

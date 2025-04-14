@@ -1,7 +1,8 @@
 ---
+id: backend-storage-import-export-configuration
 title: Configuration Importation/Exportation
 sidebar_label: Importation/Exportation
-slug: /development/backend/services/storage/configuration/import-export
+slug: /development/services/storage/configuration/import-export
 sidebar_position: 1
 ---
 
