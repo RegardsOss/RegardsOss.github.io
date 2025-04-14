@@ -1,7 +1,7 @@
 ---
-id: backend-dataprovider-import-export
-title: Dataprovider Import/Export
-sidebar_label: Import/Export
+title: Configuration Importation/Exportation
+sidebar_label: Importation/Exportation
+sidebar_position: 1
 slug: /development/backend/services/dataprovider/configuration/import-export
 ---
 
@@ -10,20 +10,21 @@ and stored in the microservice database.
 
 ## Import/Export API
 
-To configure some microservice settings for a specific tenant, you need to follow the [generic Import/Export service
+To configure `rs-dataprovider` settings for a specific tenant, you need to follow the [generic Import/Export service
 configuration guide](../../common/import-export-configuration.md), it will help you understand the expected JSON
 file payload that you can send to the
 [import configuration endpoint](../api-guides/dataprovider-api-swagger.mdx#tag/module-manager-controller/operation/importConfiguration).
 
-
-| Configuration type | Available | Description |
-| ------------------ | --------- | ----------- |
-| Import configuration in json format | True | |
-| Export configuration in json format | True | |
-| Reset configuration before import | False | Not implemented yet |
+| Configuration type                  | Available | Description         |
+|-------------------------------------|-----------|---------------------|
+| Import configuration in json format | True      |                     |
+| Export configuration in json format | True      |                     |
+| Reset configuration before import   | False     | Not implemented yet |
 
 This configuration can also be imported or exported
 through the [administrator UI](../../../../user-documentation/2-project-configuration/microservices.md).
+
+## Example
 
 ```json title='rs-dataprovider configuration example'
 {
@@ -45,11 +46,14 @@ through the [administrator UI](../../../../user-documentation/2-project-configur
           "key": "fr.cnes.regards.modules.acquisition.domain.chain.AcquisitionProcessingChain",
           "value": {
             "label": "Departements francais",
-            "active": true, // This parameter is not taken in account when importing configuration.
+            "active": true,
+            // This parameter is not taken in account when importing configuration.
             "mode": "MANUAL",
             "periodicity": "0 * * * * *",
-            "ingestChain": "Departements", // name of the ingest chain in INGEST service
-            "storages": [ // configure storages per dataType.
+            "ingestChain": "Departements",
+            // name of the ingest chain in INGEST service
+            "storages": [
+              // configure storages per dataType.
               {
                 "pluginBusinessId": "Local",
                 "storePath": "",

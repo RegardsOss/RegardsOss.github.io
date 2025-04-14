@@ -1,27 +1,40 @@
 ---
-id: backend-dam-import-export
 title: Configuration Importation/Exportation
 sidebar_label: Importation/Exportation
-slug: /development/services/dam/configuration/import-export
+slug: /development/backend/services/dam/configuration/import-export
+sidebar_position: 1
 ---
 
-## Request
+Microservices settings regroup a set of settings that are specific by [tenant](../../../concepts/03-multitenant.md)
+and stored in the microservice database.
 
-To configure `rs-dam` settings, send a `POST` request on update operation of dynamic-tenant-setting-controller (
-see [rest api documentation](../api-guides/rest/dam-api-swagger.mdx#tag/module-manager-controller/operation/importConfiguration))
-for each setting that needs to be set. The configuration is stored in database for each tenant or project.
+## Import/Export API
+
+To configure `rs-dam` settings for a specific tenant, you need to follow the [generic Import/Export service
+configuration guide](../../common/import-export-configuration.md), it will help you understand the expected JSON
+file payload that you can send to the
+[import configuration endpoint](../api-guides/rest/dam-api-swagger.mdx#tag/module-manager-controller/operation/importConfiguration).
 
 This configuration can also be imported or exported
-through [administrator HMI](../../../../user-documentation/2-project-configuration/microservices.md).
+through [administrator UI](../../../../user-documentation/2-project-configuration/microservices.md).
 
-| Configuration type | Available | Description |
-| ------------------ | --------- | ----------- |
-| Import configuration in json format | False | Not implemented yet |
-| Export configuration in json format | False | Not implemented yet |
-| Reset configuration before import | False | Reset before import is not activated here, as this requires the data catalogue to be reset to zero. |
+When you import a plugin configuration, dataset (`resetBeforeImport` to false) :
 
+- update dynamic tenant settings
+- if the plugin configuration exists (_businessId_ exists), it updates it
+- if the plugin configuration does not exist (_businessId_ does not exist), it creates it
+- if the dataset exists (_feature.id_ or _feature.providerId_ exist), it updates it
+- if the dataset does not exist (_feature.id_ or _feature.providerId_ do not exist), it creates it
 
-Dynamic settings for `Data management` microservice are :
+When you set `resetBeforeImport` to true :
+
+- `rs-dam` resets only its dynamic tenant settings by applying the default values
+- `rs-dam` does not remove any existing plugin configurations, datasets (same behaviour with `resetBeforeImport` to
+  false with plugin configurations, datasets)
+
+## Configurable parameters
+
+Dynamic settings for `rs-dam` microservice are :
 
 | Name                   | Type    | Default Value | Description                                                                                            |
 |------------------------|---------|---------------|--------------------------------------------------------------------------------------------------------|
@@ -30,7 +43,7 @@ Dynamic settings for `Data management` microservice are :
 | storage_subdirectory   | String  |               | Name of the subdirectory in the storage location when delegating storage actions to the Storage module |
 | store_files            | Boolean | false         | Controls whether AIP entities are sent to Storage module to be stored                                  |
 
-## Plugins configuration format
+### Plugins configuration format
 
 | Name          | Type    | Description                                                                   |
 |---------------|---------|-------------------------------------------------------------------------------|
@@ -42,13 +55,15 @@ Dynamic settings for `Data management` microservice are :
 | active        | Boolean | Enable or disable plugin configuration                                        |
 | parameters    | Object  | Json format of the plugin configuration parameters (specific for each plugin) | 
 
-## Dataset configuration format
+### Dataset configuration format
 
 | Name       | Type           | Description                                                                                                                                                                        |
 |------------|----------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | datasource | String         | Data source identifier                                                                                                                                                             |
 | subsetting | String         | Subsetting for the dataset. Products meeting only this criterion will represent the dataset. If you do not specify anything, all the elements of the data source will be included. |
 | feature    | DatasetFeature | Feature must be set and must fit the model                                                                                                                                         |
+
+## Example
 
 ```json title='rs-dam configuration file example'
 {

@@ -1,23 +1,22 @@
 ---
-id: backend-catalog-import-export
-title: Import/Export
-sidebar_label: Import/Export
+title: Configuration Importation/Exportation
+sidebar_label: Importation/Exportation
 slug: /development/backend/services/catalog/configuration/import-export
+sidebar_position: 1
 ---
 
-## Configuration
+Microservices settings regroup a set of settings that are specific by [tenant](../../../concepts/03-multitenant.md)
+and stored in the microservice database.
 
-Dynamic settings can be updated by exporting and importing a JSON configuration file through the admin API or admin interface.
-It's a configuration per tenant.
+## Import/Export API
 
-See [this REST endpoint](../api-guides/rest/api-swagger#tag/module-manager-controller/operation/importConfiguration) to 
-import a configuration.
+To configure `rs-catalog` settings for a specific tenant, you need to follow the [generic Import/Export service
+configuration guide](../../common/import-export-configuration.md), it will help you understand the expected JSON
+file payload that you can send to the
+[import configuration endpoint](../api-guides/rest/catalog-api-swagger.mdx#tag/module-manager-controller/operation/importConfiguration).
 
-| Configuration type | Available | Description |
-| ------------------ | --------- | ----------- |
-| Import configuration in json format | True |  |
-| Export configuration in json format | True |  |
-| Reset configuration before import | True |  |
+This configuration can also be imported or exported
+through [administrator HMI](../../../../user-documentation/2-project-configuration/microservices.md).
 
 ## OpenSearch Plugin configuration
 
@@ -81,11 +80,10 @@ With `ParameterConfiguration` containing the following parameters:
             "searchTitle": "{search title}",
             "searchDescription": "{search description}",
             "tags": "{list of tags}",
-            "shortName" : "{engine short name}",
+            "shortName": "{engine short name}",
             "longName": "{engine long name}",
             "image": "{url of an icon}",
             "attribution": "{engine attribution}"
-                    
           }
         },
         {
@@ -210,71 +208,79 @@ With `EODAGConfiguration` containing the following parameters:
 
 ```json title="Catalog STAC plugin configuration example"
 {
-        "pluginId": "stac",
-        "label": "{label}",
-        "businessId": "{uniqueIdentifier}",
-        "version": "1.0.0",
-        "priorityOrder": 1,
-        "active": true,
-        "parameters": [{
-                "name": "stac-api-title",
-                "type": "STRING",
-                "value": "{stac root title}"
-            },
-            {
-                "name": "stac-api-description",
-                "type": "STRING",
-                "value": "{stac root description}"
-            },
-            {
-                "name": "stac-api-root-static-collection-title",
-                "type": "STRING",
-                "value": "{static collection root label}"
-            },
-            {
-                "name": "stac-api-root-dynamic-collection-title",
-                "type": "STRING",
-              "value": "{dynamic collection root label}"
-            },
-            {
-                "name": "stac-api-datetime-property",
-                "type": "POJO",
-                "value": {
-                    "sourcePropertyPath": "datetime"
-                }
-            },
-            {
-                "name": "stac-properties",
-                "type": "COLLECTION",
-                "value": [{
-                        "stacPropertyName": "{property1}",
-                        "sourcePropertyPath": "{path property1}",
-                        "stacComputeSummary": "{true or false}",
-                        "stacPropertyExtension": "{property1 extension}",
-                        "stacDynamicCollectionLevel": 1
-                    },
-                    {
-                      "stacPropertyName": "{property2}",
-                      "sourcePropertyPath": "{path property2}",
-                      "stacComputeSummary": "{true or false}",
-                      "stacPropertyExtension": "{property2 extension}",
-                      "stacDynamicCollectionLevel": 1
-                    }
-                ]
-            },
-            {
-                "name": "stac-collection-dataset-properties",
-                "type": "COLLECTION",
-                "value": [{
-                    "license": "{license name}",
-                    "datasetUrns": ["{URN of the dataset}"],
-                   "keywords": ["{keyword1}", "{keyword2}"]
-                }]
-            }
-        ]
+  "pluginId": "stac",
+  "label": "{label}",
+  "businessId": "{uniqueIdentifier}",
+  "version": "1.0.0",
+  "priorityOrder": 1,
+  "active": true,
+  "parameters": [
+    {
+      "name": "stac-api-title",
+      "type": "STRING",
+      "value": "{stac root title}"
+    },
+    {
+      "name": "stac-api-description",
+      "type": "STRING",
+      "value": "{stac root description}"
+    },
+    {
+      "name": "stac-api-root-static-collection-title",
+      "type": "STRING",
+      "value": "{static collection root label}"
+    },
+    {
+      "name": "stac-api-root-dynamic-collection-title",
+      "type": "STRING",
+      "value": "{dynamic collection root label}"
+    },
+    {
+      "name": "stac-api-datetime-property",
+      "type": "POJO",
+      "value": {
+        "sourcePropertyPath": "datetime"
+      }
+    },
+    {
+      "name": "stac-properties",
+      "type": "COLLECTION",
+      "value": [
+        {
+          "stacPropertyName": "{property1}",
+          "sourcePropertyPath": "{path property1}",
+          "stacComputeSummary": "{true or false}",
+          "stacPropertyExtension": "{property1 extension}",
+          "stacDynamicCollectionLevel": 1
+        },
+        {
+          "stacPropertyName": "{property2}",
+          "sourcePropertyPath": "{path property2}",
+          "stacComputeSummary": "{true or false}",
+          "stacPropertyExtension": "{property2 extension}",
+          "stacDynamicCollectionLevel": 1
+        }
+      ]
+    },
+    {
+      "name": "stac-collection-dataset-properties",
+      "type": "COLLECTION",
+      "value": [
+        {
+          "license": "{license name}",
+          "datasetUrns": [
+            "{URN of the dataset}"
+          ],
+          "keywords": [
+            "{keyword1}",
+            "{keyword2}"
+          ]
+        }
+      ]
     }
+  ]
+}
 ```
-
 
 ## Catalog services plugins configuration
 

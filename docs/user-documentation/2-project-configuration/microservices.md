@@ -4,7 +4,9 @@ title: Manage microservices
 slug: /user-guide/project-configuration/microservices/
 ---
 
-_Le panneau ***Microservices*** vous permet d'avoir une vision globale des différents microservices du système, de leur état de fonctionnement, et de leur configuration. Sur cette page vous pouvez retrouver la liste de tous les microservices utilisés dans REGARDS._
+_Le panneau ***Microservices*** vous permet d'avoir une vision globale des différents microservices du système, de leur
+état de fonctionnement, et de leur configuration. Sur cette page vous pouvez retrouver la liste de tous les
+microservices utilisés dans REGARDS._
 
 <div align="center">
   <img src="/images/user-documentation/v1.4/2-project-configuration/microservices/microservices-configure.png" alt="configuration microservices" width="800"/> 
@@ -22,5 +24,9 @@ Depuis cet écran, vous pourrez :
   <img src="/images/user-documentation/v1.4/2-project-configuration/microservices/microservices-import-export.png" alt="configuration microservices" width="800"/> 
 </div>
 
-A partir de cette page vous pouvez télécharger la configuration du microservice en appuyant sur le bouton ***Export*** à droite de l'écran.
-Vous pouvez également importer un nouveau fichier de configuration en appuyant sur le bouton ***Import from file***.
+A partir de cette page vous pouvez télécharger la configuration du microservice en appuyant sur le bouton ***Export*** à
+droite de l'écran.
+Vous pouvez également importer un nouveau fichier de configuration en appuyant sur le bouton ***Import from file*** (se
+reporter sur chaque microservice pour obtenir des informations spécifiques : onglet `Developers` > menu `Services` > ..
+_sélection microservice_.. > menu `Configuration`)
+menu .

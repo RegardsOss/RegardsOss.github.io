@@ -10,7 +10,7 @@ and stored in the microservice database.
 
 ## Import/Export API
 
-To configure some microservice settings for a specific tenant, you need to follow the [generic Import/Export service
+To configure `rs-fem` settings for a specific tenant, you need to follow the [generic Import/Export service
 configuration guide](../../common/import-export-configuration.md), it will help you understand the expected JSON
 file payload that you can send to the
 [import configuration endpoint](../api-guides/rest/rs-fem-api-swagger.mdx#tag/module-manager-controller/operation/importConfiguration).
@@ -18,23 +18,14 @@ file payload that you can send to the
 This configuration can also be imported or exported
 through the [administrator UI](../../../../user-documentation/2-project-configuration/microservices.md).
 
-| Configuration type | Available | Description |
-| ------------------ | --------- | ----------- |
-| Import configuration in json format | True | Not implemented yet |
-| Export configuration in json format | True | Not implemented yet |
-| Reset configuration before import | False | Not implemented yet |
-
-To configure **rs-fem** settings, send a `POST` request to import configuration file in JSON format  (
-see [REST API documentation](../api-guides/rest/rs-fem-api-swagger.mdx#tag/module-manager-controller/operation/importConfiguration))
-for each setting that needs to be set.
-
 ## Configurable parameters
 
 Two main features can be managed through this configuration:
+
 * Activate the **notifications** for feature requests
 * Activate and configure **dumps** for products
 
-The parameters that can be configured this way are the following :
+Dynamic settings for `rs-fem` microservice are :
 
 | Name                 | Type           | Default value | Description                                                     |
 |----------------------|----------------|---------------|-----------------------------------------------------------------|
@@ -51,12 +42,6 @@ With DumpParameters containing the following parameters:
 | dumpLocation   | string  | `""`               | Location where to save the dump files |
 
 ## Example
-
-```bash
-curl https://regards.com/api/v1/rs-fem/microservice/configuration --data "@rs-fem-config.json" \
- -H "Authorization: Bearer <token>" \
- -H "Content-Type: application/json"
-```
 
 ```json title='Content of file rs-fem-config.json'
 {

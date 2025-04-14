@@ -24,8 +24,8 @@ scratch.
 
 | Endpoint                    | Verb | Description                                     |
 |-----------------------------|------|-------------------------------------------------|
-| /microservice/configuration | POST | Export configuration by providing a json file   |
-| /microservice/configuration | GET  | Import configuration by downloading a json file |
+| /microservice/configuration | POST | Import configuration by providing a json file   |
+| /microservice/configuration | GET  | Export configuration by downloading a json file |
 
 :::info
 By default these endpoints are only available to project administrators.
@@ -33,7 +33,7 @@ By default these endpoints are only available to project administrators.
 
 ### Parameters
 
-For Export, add your file in a multipart request using the name `file`.
+For Import, add your file in a multipart request using the name `file`.
 
 ```bash title="Example of curl request to import configuration"
 curl https://regards.fr/api/v1/rs-dam/microservice/configuration  \

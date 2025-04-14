@@ -1,49 +1,38 @@
 ---
-id: backend-storage-import-export
 title: Configuration Importation/Exportation
 sidebar_label: Importation/Exportation
-slug: /development/services/storage/configuration/import-export
+slug: /development/backend/services/storage/configuration/import-export
 sidebar_position: 1
 ---
 
+Microservices settings regroup a set of settings that are specific by [tenant](../../../concepts/03-multitenant.md)
+and stored in the microservice database.
+
 ## Import/Export API
 
-To configure some microservice settings for a specific tenant, you need to follow the [generic Import/Export service
+To configure `rs-storage` settings for a specific tenant, you need to follow the [generic Import/Export service
 configuration guide](../../common/import-export-configuration.md), it will help you understand the expected JSON
 file payload that you can send to the
 [import configuration endpoint](../api-guides/rest/storage-api-swagger.mdx#tag/module-manager-controller/operation/importConfiguration).
 
-| Configuration type | Available | Description |
-| ------------------ | --------- | ----------- |
-| Import configuration in json format | True | |
-| Export configuration in json format | True | |
-| Reset configuration before import | False | Not implemented yet |
-
 This configuration can also be imported or exported
 through the [administrator UI](../../../../user-documentation/2-project-configuration/microservices.md).
 
-On `resetBeforeImport`:
+When you import a plugin configuration, dataset (`resetBeforeImport` to false) :
 
-- storage only resets its dynamic tenants settings when you set `resetBeforeImport` to true
-- storage does not remove any existing storage location
+- update dynamic tenant settings
+- if the storage location exists (_name_ exists), it returns an error
+- if the storage location does not exist (_name_ does not exist), it creates it
 
-When you import a storage location:
+When you set `resetBeforeImport` to true :
 
-- if it exists, it does not check your new storage location and just ignore it
-- if the storage location does not exist, it creates it
-
-## Request
-
-To configure rs-storage settings, send a `POST` request on update operation of dynamic-tenant-setting-controller (
-see [rest api documentation](../api-guides/rest/storage-api-swagger.mdx#tag/module-manager-controller/operation/importConfiguration))
-for each setting that needs to be set. The configuration is stored in database for each tenant or project.
-
-This configuration can also be imported or exported
-through [administrator HMI](../../../../user-documentation/2-project-configuration/microservices.md).
-
-## Configurable parameter
+- `rs-storage` resets only its dynamic tenants settings
+- `rs-storage` does not remove any existing storage location (same behaviour with `resetBeforeImport` to
+  false with storage location)
 
 ## Configurable parameters
+
+Dynamic settings for `rs-storage` microservice are :
 
 | Name            | Type                   | Default value   | Description                                                                                 |
 |-----------------|------------------------|-----------------|---------------------------------------------------------------------------------------------|
@@ -52,7 +41,7 @@ through [administrator HMI](../../../../user-documentation/2-project-configurati
 | maxQuota        | Integer (in kilobytes) | -1 (unlimited)  | Default max quota (quantity of data that can be downloaded by a user) for RAWDATA download. |
 | cacheMaxSize    | Integer (in Bytes)     | 500000000       | Maximum size of the cache before it is cleaned                                              |
 
-## Storage Location Configuration
+### Storage Location Configuration
 
 | Name              | Type                 | Description                                                                         |
 |-------------------|----------------------|-------------------------------------------------------------------------------------|
@@ -61,7 +50,7 @@ through [administrator HMI](../../../../user-documentation/2-project-configurati
 | priority          | Plugin configuration | Higher priorities will be accessed first if a file is stored on multiple locations. |
 | allocatedSizeInKo | Integer              | Size of the location. If full, no more file can be added.                           |
 
-## Plugins configuration format
+### Plugins configuration format
 
 | Name          | Type    | Description                                                                   |
 |---------------|---------|-------------------------------------------------------------------------------|
@@ -73,7 +62,7 @@ through [administrator HMI](../../../../user-documentation/2-project-configurati
 | active        | Boolean | Enable or disable plugin configuration                                        |
 | parameters    | Object  | Json format of the plugin configuration parameters (specific for each plugin) | 
 
-## Local plugin specific parameters
+### Local plugin specific parameters
 
 | Parameter Name                      | Type                | Default   | Description                                                                                    | 
 |-------------------------------------|---------------------|-----------|------------------------------------------------------------------------------------------------|
@@ -83,7 +72,7 @@ through [administrator HMI](../../../../user-documentation/2-project-configurati
 | Local_Storage_Max_Zip_Size          | Integer (in bytes ) | 500000000 | Maximal size of an archive, no more files will be added once it reaches this size              |
 | File_Naming_Strategy                | Enum (String)       | CHECKSUM  | Either CHECKSUM or FILENAME, determine how the file will be named on the file system           |
 
-## S3 plugin specific parameters
+### S3 plugin specific parameters
 
 | Parameter Name                             | Type                   | Default  | Description                                                                                                      | 
 |--------------------------------------------|------------------------|----------|------------------------------------------------------------------------------------------------------------------|
@@ -98,7 +87,7 @@ through [administrator HMI](../../../../user-documentation/2-project-configurati
 | S3_Allow_Deletion                          | Boolean                | false    | If false, the files won't be deleted from the file system when they are deleted from regards                     |
 | File_Naming_Strategy                       | Enum (String)          | CHECKSUM | Either CHECKSUM or FILENAME, determine how the file will be named on the file system                             |
 
-## S3 Glacier plugin specific parameters
+### S3 Glacier plugin specific parameters
 
 | Parameter Name                                 | Type                   | Default  | Description                                                                                                       | 
 |------------------------------------------------|------------------------|----------|-------------------------------------------------------------------------------------------------------------------|

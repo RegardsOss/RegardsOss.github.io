@@ -5,27 +5,34 @@ slug: /development/backend/services/ingest/configuration/import-export
 sidebar_position: 1
 ---
 
-
 Microservices settings regroup a set of settings that are specific by [tenant](../../../concepts/03-multitenant.md)
 and stored in the microservice database.
 
 ## Import/Export API
 
-To configure some microservice settings for a specific tenant, you need to follow the [generic Import/Export service
+To configure `rs-ingest` settings for a specific tenant, you need to follow the [generic Import/Export service
 configuration guide](../../common/import-export-configuration.md), it will help you understand the expected JSON
 file payload that you can send to the
 [import configuration endpoint](../api-guides/rest/api-swagger.mdx#tag/module-manager-controller/operation/importConfiguration).
 
-| Configuration type | Available | Description |
-| ------------------ | --------- | ----------- |
-| Import configuration in json format | True | |
-| Export configuration in json format | True | |
-| Reset configuration before import | False | Not implemented yet |
-
 This configuration can also be imported or exported
 through [administrator UI](../../../../user-documentation/2-project-configuration/microservices.md).
 
+When you import a plugin configuration, dataset (`resetBeforeImport` to false) :
+
+- update dynamic tenant settings
+- if the ingest chain exists (_name_ exists), it returns an error
+- if the ingest chain does not exist (_name_ does not exist), it creates it
+
+When you set `resetBeforeImport` to true :
+
+- `rs-ingest` resets only its dynamic tenant settings by applying the default values
+- `rs-ingest` does not remove any existing ingest chain (same behaviour with `resetBeforeImport` to
+  false with ingest chain)
+
 ## Configurable parameters
+
+Dynamic settings for `rs-ingest` microservice are :
 
 | Name                  | Type    | Default value                                                                                    | Description                                                                                                                                                   |
 |-----------------------|---------|--------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -34,7 +41,7 @@ through [administrator UI](../../../../user-documentation/2-project-configuratio
 | dump_parameters       | Object  | `{<br/>"isActiveModule":true,<br/>"cronTrigger":"0 0 0 1-7 * SUN",<br/>"dumpLocation":""<br/>}"` | Dump parameters.                                                                                                                                              |
 | last_dump_req_date    | Date    |                                                                                                  | Date of the last dump of AIP done                                                                                                                             |
 
-## Ingest chains
+### Ingest chains
 
 In the configuration file you can import/export ingest chains configuration. To do so you have to define all parameters
 of an ingest chain with all the associated plugins.
@@ -49,7 +56,7 @@ of an ingest chain with all the associated plugins.
 | tagPlugin                | Object | Selected AIP tag  plugin configuration                |
 | postProcessingPlugin     | Object | Selected post processing plugin configuration         |
 
-## Plugins configuration format
+### Plugins configuration format
 
 | Name          | Type    | Description                                                                   |
 |---------------|---------|-------------------------------------------------------------------------------|
