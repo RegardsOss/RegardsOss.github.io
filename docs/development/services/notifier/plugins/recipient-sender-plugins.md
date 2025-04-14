@@ -363,7 +363,22 @@ Here is an example that send a product to the WorkerManager on the same instance
 
 ### Dissemination ACK Sender
 
-This plugin is designed to send acknowledge messages to OAIS catalog and FEM catalog.
+This plugin is designed to send acknowledge messages to OAIS catalog and FEM catalog through AMQP messages.
+:::info
+The exchange and queue do not need to be created manually. If they don't exist, the plugin will create them before submitting the messages. However, if you're using an existing queue and exchange, both must be created in the following way: 
+Exchange : 
+ - virtual host: regards.multitenant.manager
+ - Type: fanout
+ - Name: geojson-ack-test
+
+Queue : 
+ - virtual host : regards.multitenant.manager
+ - Type: Classic
+ - Arguments : 
+   - x-dead-letter-exchange : regards.DLX / String
+   - x-dead-letter-routing-key : regards.DLQ / String
+   - x-max-priority : 255 / Number
+:::
 
 :::danger
 This plugin does not inherit from
@@ -381,6 +396,7 @@ Configuration parameters, common to GeoJSON FEM catalog or OAIS catalog usage, a
 |----------------|--------|---------------|:--------:|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | senderLabel    | String |               |          | Acknowledge sender label. Used by destination system to identify the current system                                                                                                                                                      |
 | recipientLabel | String |               |          | External service identifier we want to notify the products to - this information is sent back to the emitter that contacted Notifier<br /> When not specified, the emitter wont know what's the recipient label that received its events |
+| propertyPathToUrn | String | | Y | By default do not use this parameter. Alternative property from which to extract the origin catalog urn. By default the origin urn is read from the property originUrn of the feature. In some cases, the origin urn can be stored in another section of your data model. |
 
 #### GeoJSON FEM catalog usage
 
@@ -404,19 +420,14 @@ This plugin let you override following configuration:
     "active": true,
     "parameters": [
       {
-        "name": "exchange",
-        "type": "STRING",
-        "value": "{exchange name to use}"
-      },
-      {
-        "name": "queueName",
-        "type": "STRING",
-        "value": "{queue name to use}"
-      },
-      {
         "name": "recipientLabel",
         "type": "STRING",
         "value": "{identifier of the recipient}"
+      },
+      {
+        "name": "senderLabel",
+        "type": "STRING",
+        "value": "{name of current platform used on destination system to acknowledge the dissemination}"
       },
       {
         "name": "description",
@@ -427,11 +438,6 @@ This plugin let you override following configuration:
         "name": "directNotificationEnabled",
         "type": "BOOLEAN",
         "value": "{true or false}"
-      },
-      {
-        "name": "senderLabel",
-        "type": "STRING",
-        "value": "{name of current platform used on destination system to acknowledge the dissemination}"
       },
       {
         "name": "featureDisseminationExchange",
@@ -470,19 +476,14 @@ This plugin let you override following configuration:
     "active": true,
     "parameters": [
       {
-        "name": "exchange",
-        "type": "STRING",
-        "value": "{exchange name to use}"
-      },
-      {
-        "name": "queueName",
-        "type": "STRING",
-        "value": "{queue name to use}"
-      },
-      {
         "name": "recipientLabel",
         "type": "STRING",
         "value": "{identifier of the recipient}"
+      },
+      {
+        "name": "senderLabel",
+        "type": "STRING",
+        "value": "{name of current platform used on destination system to acknowledge the dissemination}"
       },
       {
         "name": "description",
@@ -493,11 +494,6 @@ This plugin let you override following configuration:
         "name": "directNotificationEnabled",
         "type": "BOOLEAN",
         "value": "{true or false}"
-      },
-      {
-        "name": "senderLabel",
-        "type": "STRING",
-        "value": "{name of current platform used on destination system to acknowledge the dissemination}"
       },
       {
         "name": "aipDisseminationExchange",
