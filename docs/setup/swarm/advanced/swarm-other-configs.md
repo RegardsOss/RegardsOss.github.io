@@ -68,8 +68,8 @@ group_config_mservices:
 
 | Path                                           | Type     | Description                                                |
 |:-----------------------------------------------|:---------|:-----------------------------------------------------------|
-| `group_docker_mservices.password_config.regex` | `Regex`  | Regex used by the backend service to validate new password |
-| `group_docker_mservices.password_config.info`  | `String` | Password information displayed to users                    |
+| `group_docker_mservices.password_config.regex` | `Regex`  | Regex used by the backend service to validate new password (Default ^(?=.*[0-9])(?=.*[a-zA-Z])(?!.* ).{8,16}$) |
+| `group_docker_mservices.password_config.info`  | `String` | Password information displayed to users (Default Password must contain at least one letter, one digit and must be 8-16 characters)                     |
 
 ### Account and password validity
 
@@ -81,8 +81,8 @@ group_config_mservices:
 
 | Path                                                       | Type  | Description                                                                                           |
 |:-----------------------------------------------------------|:------|:------------------------------------------------------------------------------------------------------|
-| `group_docker_mservices.account_validity_in_days`          | `Int` | Number of days before an account will be deactivated. If you provide 0, this check is disabled        |
-| `group_docker_mservices.account_password_validity_in_days` | `Int` | Number of days before an account password must be generated. If you provide 0, this check is disabled |
+| `group_docker_mservices.account_validity_in_days`          | `Int` | Number of days before an account will be deactivated (Default 355 days). If you provide 0, this check is disabled        |
+| `group_docker_mservices.account_password_validity_in_days` | `Int` | Number of days before an account password must be generated (Default 350 days). If you provide 0, this check is disabled |
 
 ### Token validity
 
@@ -148,3 +148,26 @@ group_config_mservices:
 |:----------------------------------------------------------|:------|:-----------------------------------------------------------------------------------------|
 | `group_docker_mservices.session.retention_days`           | `Int` | Number of retention days of inactive sessions (agent side) in days. Default to 5 days    |
 | `group_docker_mservices.session.dashboard_retention_days` | `Int` | Number of retention days of inactive sessions (manager side) in days. Default to 30 days |
+
+
+### Open microservices ports
+
+All REGARDS services use internal ports on the docker network to operate. However, if you wish, you can open these ports outside the network. To do this, here's the configuration you'll need to carry out in your inventory for the target microservice(s) and the list of existing ports. 
+
+| Internal port | Iventory property | Usage |
+| -------- | ------------------------- | ----- |
+| 90XX     | http                      | Jetty server port of the microservice to receive all REST requests |
+| 10500    | jdwp                      | Enable remote debugging port |
+| 180XX    | jmx                       | Enables remote monitoring and management through Java Management Extensions. |
+| 8081     | metrics                   | Enable access to actuator metrics |
+
+The example below shows how to configure these ports for the storage service
+
+```yml
+group_docker_mservices:
+  storage:
+    http: 9750
+    jdwp: 9751
+    jmx: 9752
+    metrics: 9753
+```
