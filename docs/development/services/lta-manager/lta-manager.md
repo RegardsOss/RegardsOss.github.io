@@ -21,9 +21,12 @@ To do so, `LTA Manager` or `rs-lta-manager` provides these functionalities:
   and `rs-storage`.
 
 :::info Mandatory
-`LTA Manager` or `rs-lta-manager` need a worker to transform LTA request to SIP.
+`LTA Manager` or `rs-lta-manager` needs a worker to transform LTA request to SIP.
 This worker must be deployed and registered in
 the [rs-worker-manager microservice](../../services/worker-manager/overview.md).
+
+If the `rs-worker-manager` microservice is not configured with this worker, the `rs-lta-manager` service will not 
+work as expected.
 :::
 
 | Concept                                                                           | Compatibility | Description                                     |

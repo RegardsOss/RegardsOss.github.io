@@ -55,3 +55,68 @@ Nevertheless, only two versioning methods are available with `LTA Manager`, **RE
 When you submit a creation request you can provide a parameter to choose the versioning mode. Please refer to
 the [AMQP Guide](./api-guides/amqp/amqp-submit-product.md) and
 the [Rest API Guide](./api-guides/rest/rest-create-product.mdx).
+
+## Worker Manager configuration
+
+
+The `lta-manager` service can only operate if the `worker-manager` service is properly configured.
+Indeed, `lta-manager` delegates the product creation requests to `worker-manager`, which is responsible for starting the
+appropriate workers.
+
+For general instructions on how to configure the worker-manager service, refer to the
+[Worker Manager configuration section](/docs/development/services/worker-manager/configuration/import_export)
+
+This workflow involves two specific workers:
+
+* **lta-product-zip-extraction-worker**
+* **lta-sip-generator-worker**
+
+You must therefore configure two `workerType` entries corresponding to these workers, as well as a `workflowType` that
+defines their execution sequence.
+
+```json title='rs-worker-manager configuration for lta workers example'
+{
+  "microservice": "rs-worker-manager",
+  "modules": [
+    ...
+      "configuration": [
+        {
+          "key": "fr.cnes.regards.modules.workermanager.dto.WorkflowConfigDto",
+          "value": {
+            "workflowType": "lta-request",
+            "steps": [
+              {
+                "stepNumber": 1,
+                "workerType": "lta-product-zip-extraction-worker"
+              },
+              {
+                "stepNumber": 2,
+                "workerType": "lta-sip-generator-worker"
+              }
+            ]
+          }
+        },
+        {
+          "key": "fr.cnes.regards.modules.workermanager.dto.WorkerConfigDto",
+          "value": {
+            "workerType": "lta-product-zip-extraction-worker",
+            "contentTypeInputs": [
+              "lta-to-extract-request"
+            ],
+            "contentTypeOutput": "lta-extracted-request"
+          }
+        },
+        {
+          "key": "fr.cnes.regards.modules.workermanager.dto.WorkerConfigDto",
+          "value": {
+            "workerType": "lta-sip-generator-worker",
+            "contentTypeInputs": [
+              "lta-extracted-request"
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}
+```

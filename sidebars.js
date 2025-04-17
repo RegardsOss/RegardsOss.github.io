@@ -70,6 +70,7 @@ module.exports = {
             "user-documentation/project-configuration/project-configuration-users-authentication-ldap",
           ],
         },
+        "user-documentation/project-configuration/project-configuration-roles",
         "user-documentation/project-configuration/project-configuration-user-interface",
         "user-documentation/project-configuration/project-configuration-microservices",
         "user-documentation/project-configuration/project-configuration-storages",
@@ -177,6 +178,7 @@ module.exports = {
         "user-documentation/order-data/order-processing",
         "user-documentation/order-data/order-monitor-orders",
         "user-documentation/order-data/order-settings",
+        "user-documentation/order-data/delivery-settings",
       ],
     },
     {

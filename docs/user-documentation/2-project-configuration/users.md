@@ -83,31 +83,7 @@ Lorsqu'un utilisateur demande l'accès au projet, il est automatiquement associ�
 #### Rôles des utilisateurs
 
 Les rôles utilisateur permettent de définir les fonctionnalités accessibles pour un utilisateur donné.
-En cliquant sur le bouton <img src="/images/user-documentation/regards-icons/admin/list.png" alt="list" height="25" width="25"/> **_List_** de la carte **_Roles_**, vous verrez les cinq rôles proposés par défaut :
-
-- **_Public_** : attribué aux utilisateurs non connectés. Les utilisateurs de ce rôle n'ont qu'un accès de consultation.
-- **_Registered users_** : attribué aux utilisateurs enregistrés. Les utilisateurs de ce rôle peuvent consulter, télécharger et commander des données.
-- **_Operator_** : attribué aux exploitants. Les utilisateurs de ce rôle se voient autorisé l'accès à un nombre limité de fonction d'administration lié à l'exploitation du projet.
-- **_Administrator_** : attribué aux administrateurs du projet. Les utilisateurs de ce rôle ont accès à toutes les fonctionnalités d'administration du projet.
-- **_Super Administrator_** : rôle spécial permettant d'outrepasser n'importe quelle interdiction d'accès aux fonctionnalités et aux données.
-
-Vous pouvez décider d'ajouter des rôles supplémentaires, en reprenant les concepts de ces cinq rôles, afin de les personnaliser. Appuyez sur le bouton **_Add_** de la carte **_Roles_**. Donnez un nom au nouveau rôle et choisissez le niveau d'accès, puis appuyez sur le bouton **_Save_**.
-
-<div align="center">
-  <img src="/images/user-documentation/v1.4/2-project-configuration/users/add-role.png" alt="add role" width="800"/>
-</div>
-
-Retournez ensuite dans la page listant les rôles et appuyez sur le bouton <img src="/images/user-documentation/regards-icons/admin/link.png" alt="link" height="25" width="25"/> **_Configure resources access_** du rôle en question.
-
-<div align="center">
-  <img src="/images/user-documentation/v1.4/2-project-configuration/users/role-list.png" alt="role list" width="800"/>
-</div>
-
-Pour chaque microservice, vous pourrez gérer individuellement l'accès à chaque endpoint REST. Notez que vous pouvez seulement activer ou désactiver l'accès aux endpoints nécessitant un role supérieur à celui configuré dans le modèle de base.
-
-<div align="center">
-  <img src="/images/user-documentation/v1.4/2-project-configuration/users/authorize-role-actions.png" alt="add role" width="800"/>
-</div>
+Ils sont détaillés sur la page [Manage roles](./roles.md).
 
 #### Groupes d'accès aux données
 

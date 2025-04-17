@@ -13,13 +13,16 @@ _Vous avez la possibilité de configurer les paramètres d'ingestion des SIPs (S
 Les paramètres disponibles sont les suivants :
 
 - **Enable notifications** permet de notifier les autres services lors de la création de l'AIP
+- **Number of days before SIPs deletion** durée de rétention du contenu des SIPs en base de données. Correspond au 
+  nombre de jours pendant lesquels le contenu des SIPs est conservé en base de données avant leur suppression 
+  automatique.
 - **Date field** correspond à la date de création du dernier dump
 - **Enable module** détermine si l'on doit activer la création des dumps
 - **Cron trigger** détermine la fréquence de création des dumps
 - **Dump location** est l'emplacement dans lequel doit être placé les dumps
 
 <div align="center">
-    <img src="/images/user-documentation/v1.6/4_1-ingest/ingest-settings.png" alt="search tools" width="800"/> 
+    <img src="/images/user-documentation/v2.1/4_1-ingest/ingest-settings.png" alt="search tools" width="800"/> 
 </div>
 
 :::info
