@@ -8,15 +8,15 @@ Dans REGARDS, et comme expliqué dans les concepts de base, les **modèles de do
 
 :::info
 Il est donc **obligatoire**, avant toute utilisation de REGARDS, de **bien réfléchir à la structure des données** que votre catalogue devra contenir.
-Vous pouvez pour cela utiliser un ou plusieurs modèles de données.
+Vous pouvez pour cela, vous pouvez utiliser un ou plusieurs modèles de données.
 :::
 
-Une fois un modèle de données défini, les seules actions possibles sont : 
+Une fois un modèle de données défini les seules actions possiles sont : 
  - Ajouter un nouvel attribut
  - Ajouter un nouveau fragment
 
 Les modèles de données sont associés aux **attributs**. Tout attribut créé ne peut être modifié que sur certains aspects.
-Un fois un attribut créé, il est **impossible** de modifier : 
+Un fois un attrbut créé, il est **impossible** de modifier : 
  - Son **nom**
  - Son **type**
  - Le **fragment** dans lequel il est

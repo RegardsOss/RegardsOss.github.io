@@ -37,7 +37,10 @@ Dans un modèle de données, vous allez configurer :
 :::warning Modification d'un modèle de données
 Attention, il est fortement conseillé de **bien réfléchir à la structure de vos produits et aux modèles de données** avant de commencer à peupler votre catalogue.  
 En effet, toute modification, à l'exception de l'ajout d'un nouvel attribut à un modèle, nécessitera la reconstruction complète du catalogue REGARDS.  
-En fonction de la volumétrie de votre catalogue, cette opération peut être plus ou moins longue. À ce jour, il faut en moyenne compter **12 heures** pour la reconstruction complète d'un catalogue de **10 millions de produits**.  
+
+A noter, si vous ajoutez un attribut à un modèle de données existant et que vous voulez que cet attribut soit renseigné pour tous les produits déjà existants, il est alors nécessaire de complétement reconstruire votre index. Pour ce faire, utilisez la fonction de [reconstruction de l'index](../5-crawler/reset-catalog.md).
+
+En fonction de la volumétrie de votre catalogue, cette opération peut être plus ou moins longue. À ce jour, il faut en moyenne compter **12 heures** pour la reconstruction complète d'un catalogue de **10 millions de produits** et environ **50 attributs**.
 
 De plus, la **modification du type** d'un attribut existant est aujourd'hui **interdite**. Si un attribut change de type, vous serez obligé de créer un nouvel attribut avec un nom différent.
 :::
@@ -165,6 +168,6 @@ Tout comme pour la création d'un modèle, vous avez deux moyens pour modifier u
 
 :::warning
 Attention, comme expliqué dans la section restriction de ce document, seul l'ajout d'un nouvel attribut au modèle est possible.  
-Dans le cas où, via importation de modèle XML, vous modifiez ou supprimez un attribut, la modification sera ignorée.
+Dans le cas où, via importation de modèle XML, vous modifiez ou supprimez un attribut. La modification sera ignorée.
 :::
 

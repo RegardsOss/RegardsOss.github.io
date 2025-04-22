@@ -128,7 +128,7 @@ Vous pouvez si vous le souhaitez, ajouter des informations liées à la collecti
 
 **Etape 3. Associer des collections**
 
-Vous pourrez lier des collections entre elles. Pour ce faire, recherchez dans la liste de gauche celles que vous voulez associer et ajoutez-les. Vous pouvez également ajouter des tags pour les identifier rapidement dans le catalogue.
+Vous pourrez lier cette collection entre elles. Pour ce faire, recherchez dans la liste de gauche celles que vous voulez associer et ajoutez-les. Vous pouvez également ajouter des tags pour les identifier rapidement dans le catalogue.
 
 <div align="center">
   <img src="/images/user-documentation/v1.4/3-data-organization/dataset-collection/collection-create-3.png" alt="step 3" width="800"/> 
