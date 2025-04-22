@@ -87,7 +87,7 @@ and [Workdir configuration](#workdir-configuration).
 ### Data inputs
 
 Data inputs configuration allow you to define a Docker Swarm volume that is automatically mounted on dataprovider, fem,
-ingest and storage services.  
+ingest, storage and downloader services.  
 It allows REGARDS to access to your data.
 
 ```yml
@@ -136,7 +136,7 @@ group_docker_mounts:
 
 Once Docker swarm volumes are defined, either from [Volume definition](#volume-definition)
 or [Data inputs](#data-inputs), you can attach them using the `volumes` property inside any service definition. Data
-inputs are automatically attached to dataprovider, fem, ingest and storage services.
+inputs are automatically attached to dataprovider, fem, ingest, storage and downloader services.
 
 ```yml
 group_docker_mservices:

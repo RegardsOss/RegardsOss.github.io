@@ -52,6 +52,7 @@ Default microservice configurations:
 | rs-fem             | 1024m       | 5                              | 5 per tenant of the instance     |
 | rs-notifier        | 1280m       | 5                              | 10 per tenant of the instance    |
 | rs-storage         | 1024m       | 5                              | 5 per tenant of the instance     |
+| rs-downloader      | 1024m       | 5                              | 5 per tenant of the instance     |
 | rs-dataprovider    | 1024m       | 5                              | 5 per tenant of the instance     |
 | rs-catalog         | 1024m       | 5                              | 5 per tenant of the instance     |
 | rs-order           | 1280m       | 5                              | 5 per tenant of the instance     |
@@ -110,6 +111,15 @@ Recommended value between `10 and 100`.
 | Ansible property: <br/>`group_docker_mservices.storage.configuration.entities_per_job`  <br/> REGARDS property:<br/> `regards.storage.deletion.requests.per.job`   | Number of deletion requests to handle in one Storage process          | 100     |
 | Ansible property: <br/>`group_docker_mservices.storage.configuration.entities_per_job`  <br/> REGARDS property:<br/> `regards.storage.storage.requests.per.job`    | Number of files to store requests to handle in one Storage process    | 100     |
 | Ansible property: <br/>`group_docker_mservices.storage.configuration.restoration_availability_bulk_limit`  <br/> REGARDS property:<br/> `regards.storage.availability.request.product.bulk.limit`    | Maximum number of products inside a single availibility request. This limitation exists to avoid too many access to the storage location at a time.    | 100     |
+
+### Downloader optimization
+
+| Properties                                                                                                                                                         | Description                                                           | default |
+|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------|:----------------------------------------------------------------------|:--------|
+| Ansible property: <br/>`group_docker_mservices.downloader.configuration.jetty_threadpool_max`  <br/> REGARDS property:<br/> `jetty.threadPool.maxThreads`                |
+Maximum number of parallel REST requests on the service. Aka number of downloads.  | 200     |
+| Ansible property: <br/>`group_docker_mservices.downloader.configuration.database_max_pool_size`  <br/> REGARDS property:<br/> `regards.jpa.multitenant.maxPoolSize`| Maximum number of parallel database connections usable                             | 5       |
+
 
 ### Data Management optimization
 

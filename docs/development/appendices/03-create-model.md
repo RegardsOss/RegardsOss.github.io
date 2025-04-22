@@ -13,25 +13,25 @@ slug: /development/appendices/create-model/
     <name>Departement</name>
     <description>Départements francais</description>
     <type>DATA</type>
-    <attribute alterable="true" optional="false">
+    <attribute alterable="true" optional="false" indexed="true">
         <label>File size</label>
         <name>FileSize</name>
         <description>File size</description>
         <type unit="octet">LONG</type>
     </attribute>
-    <attribute alterable="true" optional="false">
+    <attribute alterable="true" optional="false" indexed="true">
         <label>Code</label>
         <name>Code</name>
         <type unit="unitless">STRING</type>
     </attribute>
-    <attribute alterable="true" optional="false">
+    <attribute alterable="true" optional="false" indexed="true">
         <label>name attribute</label>
         <name>Name</name>
         <type unit="unitless">STRING</type>
     </attribute>
     <fragment>
         <name>system</name>
-        <attribute alterable="true" optional="true">
+        <attribute alterable="true" optional="true" indexed="false">
             <label>Checksum</label>
             <name>checksum</name>
             <type unit="unitless">STRING</type>
@@ -98,7 +98,7 @@ slug: /development/appendices/create-model/
     <name>Pays</name>
     <description>Pays</description>
     <type>DATASET</type>
-    <attribute alterable="true" optional="false">
+    <attribute alterable="true" optional="false" indexed="true">
         <label>number of data</label>
         <name>count</name>
         <type unit="unitless">LONG</type>
@@ -118,18 +118,18 @@ slug: /development/appendices/create-model/
     <name>Mission</name>
     <description>Mission</description>
     <type>COLLECTION</type>
-    <attribute alterable="true" optional="false">
+    <attribute alterable="true" optional="false" indexed="true">
         <label>data start date</label>
         <name>start_date</name>
         <description>date at which the acquisition of the data has started</description>
         <type unit="unitless">DATE_ISO8601</type>
     </attribute>
-    <attribute alterable="true" optional="false">
+    <attribute alterable="true" optional="false" indexed="true">
         <label>name attribute</label>
         <name>Name</name>
         <type unit="unitless">STRING</type>
     </attribute>
-    <attribute alterable="true" optional="true">
+    <attribute alterable="true" optional="true" indexed="true">
         <label>description</label>
         <name>description</name>
         <type unit="unitless">STRING</type>
@@ -143,17 +143,17 @@ slug: /development/appendices/create-model/
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <fragment>
     <name>system</name>
-    <attribute alterable="true" optional="true">
+    <attribute alterable="true" optional="true" indexed="true">
         <label>Checksum</label>
         <name>checksum</name>
         <type unit="unitless">STRING</type>
     </attribute>
-    <attribute alterable="true" optional="false">
+    <attribute alterable="true" optional="false" indexed="true">
         <label>Change date</label>
         <name>change_date</name>
         <type unit="unitless">DATE_ISO8601</type>
     </attribute>
-    <attribute alterable="true" optional="true">
+    <attribute alterable="true" optional="true" indexed="true">
         <label>LOM URL</label>
         <name>lom_url</name>
         <type unit="unitless">STRING</type>
@@ -289,6 +289,7 @@ slug: /development/appendices/create-model/
             <xs:attribute name="alterable" type="xs:boolean"
                           default="true"/>
             <xs:attribute name="optional" type="xs:boolean" default="false"/>
+            <xs:attribute name="indexed" type="xs:boolean" default="true"/>
             <xs:attribute name="group" type="xs:string"/>
         </xs:complexType>
     </xs:element>

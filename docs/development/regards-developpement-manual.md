@@ -35,6 +35,7 @@ You will find relevant information to help you **to interact or develop on the R
       these SIPs to the rs-ingest service.
     - [Delivery](./services/delivery/delivery-overview.md): **Delivery** or **rs-delivery** microservice manage products
       orders delivery to configured locations.
+    - [Downloader](./downloader/overview.md): **Downloader** or **rs-downloader** microservice manages the file downloads.
     - [Feature manager (rs-fem)](./services/fem/overview.md) : **Feature manager** or **rs-fem** microservice is used to
       manage products in GeoJson format
     - [Gateway](./services/gateway/gateway.md): **Gateway** or **rs-gateway** manage the front proxy for the

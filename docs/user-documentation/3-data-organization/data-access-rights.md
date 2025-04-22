@@ -1,6 +1,6 @@
 ---
 id: data-organization-data-access-rights
-title: Configure data access rights
+title: Data access rights
 slug: /user-guide/data-organization/data-access-rights/
 ---
 

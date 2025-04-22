@@ -30,6 +30,8 @@ group_docker_mservices:
   #    tag: "{{ group_docker_tags.back }}"
   #  storage:
   #    tag: "{{ group_docker_tags.back }}"
+  #  downloader:
+  #    tag: "{{ group_docker_tags.back }}"
   #  order:
   #    tag: "{{ group_docker_tags.back }}"
   #  ingest:
@@ -58,6 +60,25 @@ group_docker_mservices:
 ```
 
 It means to the playbook that the microservice storage will be activated on the next deployment.
+
+### Scale up microservices
+
+Most microservices are horizontally scalable. In other words, it's possible to deploy several instances of the same service to optimize performance.
+
+::: info
+Before increasing the number of instances of a service, please make sure that the service is scalable in its description page.
+For example [here for the rs-fem service](../../../development/services/fem/overview.md) in the **Horizontal Scalability** section.
+:::
+
+To do this, after activating a microservice in your inventory, you can specify the number of instances to be deployed by adding the following configuration.
+```yml
+# Stack
+group_docker_mservices:
+  storage:
+    tag: "{{ group_docker_tags.back }}"
+    replicas: 5
+```
+By default, if the property is not specified, only one instance of the service will be deployed.
 
 ### Active Plugins
 
@@ -189,6 +210,29 @@ storage:
 ```
 
 This microservice requires : `FEM` or `Ingest`
+
+### File download management
+
+The Downloader microservice receives all download requests from both Order and Catalog services.  
+
+This microservice is always called by another REGARDS microservice. As access to the file is strictly controlled by access rights, any call to this service made by an entity other than a REGARDS service will be refused.
+
+This microservice uses the same plugins as the Storage microservice to access files on many storages.
+
+Activate the Downloader microservice :
+
+```yml
+# Replace
+#  Downloader:
+#    tag: "{{ group_docker_tags.back }}"
+# By
+Downloader:
+  tag: "{{ group_docker_tags.back }}"
+```
+
+:::info
+If you have many users, we strongly recommend deploying several instances of the downloader service. By default, each instance of the downloader service can handle 500 downloads in parallel.
+:::
 
 ### Internal and external notification management
 

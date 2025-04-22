@@ -26,6 +26,7 @@ or a blacklist to restrict access to microservices that are not used by users wh
 | rs-access-instance    | Yes                               |                               |               |
 | rs-access-project     | Yes                               |                               |               |
 | rs-storage            |                                   | Yes                           |               |
+| rs-downloader         |                                   | Yes                           |               |
 | rs-order              | Yes                               |                               |               |
 | rs-ingest             |                                   | Yes                           |               |
 | rs-dataprovider       |                                   | Yes                           |               |

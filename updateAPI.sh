@@ -48,3 +48,4 @@ importMServiceControllers rs-processing          processing
 importMServiceControllers rs-storage             storage
 importMServiceControllers rs-worker-manager      worker-manager
 importMServiceControllers rs-delivery            delivery
+importMServiceControllers rs-downloader          downloader

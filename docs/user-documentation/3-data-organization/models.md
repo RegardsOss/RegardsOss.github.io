@@ -1,10 +1,12 @@
 ---
 id: data-organization-model-configuration
-title: Model configuration
+title: Data Models
 slug: /user-guide/data-organization/models/
 ---
 
-_Les modèles de données sont indispensables à REGARDS. Ils peuvent être utilisés dans les collections, les jeux de données ou encore servir à définir le processus automatisé d'aspiration de données vers le catalogue.
+## Définition
+
+_Les modèles de données sont indispensables à REGARDS. Ils peuvent être utilisés dans les jeux de données ou encore servir à définir le processus automatisé d'aspiration de données vers le catalogue.
 La gestion des modèles de données s'effectue depuis l'onglet ***Data models***. Vous trouverez quatre cartes :_
 
 - **_Models_** _sont des fichiers au format XML définissant la structure des données attendues dans REGARDS. Ils sont composés d'un ensemble d'attributs._
@@ -19,6 +21,27 @@ La gestion des modèles de données s'effectue depuis l'onglet ***Data models***
 Dans la partie suivante, vous apprendrez à créer et gérer un modèle de données étape par étape.
 
 ---
+
+## Restrictions
+
+Dans REGARDS, et comme expliqué dans les [concepts de base](../../overview/concepts/02-meta-catalog.md#model), les modèles de données sont la notion clé pour la mise en place de votre catalogue.  
+Ils définissent non seulement la manière dont votre catalogue sera construit, mais aussi comment il pourra être consulté.
+
+Dans un modèle de données, vous allez configurer :  
+- **La liste des attributs de métadonnées** de l'ensemble de vos produits.  
+- **Le type de ces attributs**, ce qui permettra d'optimiser les recherches et d'assurer un affichage adapté dans les différentes interfaces utilisateur (IHMs).  
+- **Les restrictions sur chaque attribut**, afin de valider en amont que les métadonnées de vos produits correspondent bien à vos attentes avant leur ajout au catalogue.  
+- **La notion de "recherchabilité"** : pour optimiser la vitesse de recherche, vous devez préciser lors de la création de votre modèle de données quels attributs seront recherchables.  
+- **Le caractère optionnel ou obligatoire des attributs**, pour garantir que certaines informations essentielles seront toujours renseignées, tandis que d'autres pourront rester facultatives selon les besoins.  
+
+:::warning Modification d'un modèle de données
+Attention, il est fortement conseillé de **bien réfléchir à la structure de vos produits et aux modèles de données** avant de commencer à peupler votre catalogue.  
+En effet, toute modification, à l'exception de l'ajout d'un nouvel attribut à un modèle, nécessitera la reconstruction complète du catalogue REGARDS.  
+En fonction de la volumétrie de votre catalogue, cette opération peut être plus ou moins longue. À ce jour, il faut en moyenne compter **12 heures** pour la reconstruction complète d'un catalogue de **10 millions de produits**.  
+
+De plus, la **modification du type** d'un attribut existant est aujourd'hui **interdite**. Si un attribut change de type, vous serez obligé de créer un nouvel attribut avec un nom différent.
+:::
+
 
 ## Créer un modèle
 
@@ -132,3 +155,16 @@ Les boutons d'action vous permette d'effectuer différentes tâches :
 :::info
 Vous pouvez filtrer les modèles par nom pour les rechercher plus facilement dans la liste
 :::
+
+## Modifier un modèle de données
+
+Tout comme pour la création d'un modèle, vous avez deux moyens pour modifier un modèle de données.
+
+- Au travers l'IHM d'administration et en utilisant l'icone **Editer** du modèle souhaité comme indiqué dans la section précédente de cette page.
+- Au travers d'un fichier XML. Lire [Create a model](../../development/appendices/03-create-model.md) pour écrire ce fichier. Ce modèle de données peut-être importé au travers de l'IHM d'administration de REGARDS ou directement au travers de son [API REST](../../development/services/dam/api-guides/rest/create-or-update-model.md)
+
+:::warning
+Attention, comme expliqué dans la section restriction de ce document, seul l'ajout d'un nouvel attribut au modèle est possible.  
+Dans le cas où, via importation de modèle XML, vous modifiez ou supprimez un attribut, la modification sera ignorée.
+:::
+

@@ -93,6 +93,7 @@ tenant.
 [200]	dam
 [200]	processing
 [200]	storage
+[200]	downloader
 [200]	authentication
 [200]	ingest
 [200]	admin_instance
