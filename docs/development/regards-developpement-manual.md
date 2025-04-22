@@ -28,14 +28,16 @@ You will find relevant information to help you **to interact or develop on the R
       **rs-authentication** microservice manage [project or tenant](./concepts/03-multitenant.md) users authentication.
     - [Catalog](services/catalog/overview.md): **Catalog** or **rs-catalog** microservice is used to consult
       products in the Regards meta-catalogue
-    - [Data management (rs-dam)](./services/overview.md): **Data management** or **rs-dam** microservice mainly handle
+    - [Data management (rs-dam)](./services/dam/overview.md): **Data management** or **rs-dam** microservice mainly 
+      handle
       meta catalog population.
     - [Data provider](./services/dataprovider/dataprovider-overview.md) : **Data provider** or **rs-data-provider**
       microservice is used to detect files on disk, create products in SIP format from these files and finally send
       these SIPs to the rs-ingest service.
     - [Delivery](./services/delivery/delivery-overview.md): **Delivery** or **rs-delivery** microservice manage products
       orders delivery to configured locations.
-    - [Downloader](./downloader/overview.md): **Downloader** or **rs-downloader** microservice manages the file downloads.
+    - [Downloader](./services/downloader/overview.md): **Downloader** or **rs-downloader** microservice manages the 
+      file downloads.
     - [Feature manager (rs-fem)](./services/fem/overview.md) : **Feature manager** or **rs-fem** microservice is used to
       manage products in GeoJson format
     - [Gateway](./services/gateway/gateway.md): **Gateway** or **rs-gateway** manage the front proxy for the
