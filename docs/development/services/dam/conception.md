@@ -131,9 +131,9 @@ microservice properties with the properties `regards.access.rights.update.cron`.
 
 ## Elasticsearch index representation
 
-The following tables show the structure of stocked entity in Elasticsearch index of REGARDS.
+The following tables show the structure of stocked entities in Elasticsearch index of REGARDS.
 
-#### Entity for DATA type
+#### Entity(product) for DATA type
 
 | Nom                        | Type                              | Description                                                                                                             |
 |----------------------------|-----------------------------------|-------------------------------------------------------------------------------------------------------------------------|
@@ -161,43 +161,55 @@ The following tables show the structure of stocked entity in Elasticsearch index
 
 Metadata for **DATA** type of entity
 
-| Name                            | Type    | Description                                           |
-|---------------------------------|---------|-------------------------------------------------------|
-| groups                          | Map     | Map of group names with access right for dataset      |
-| groups.\<name\>.dataset         | text    | Identifier of Uniform Resource Name type for dataset  |
-| groups.\<name\>.dataAccessRight | boolean | true if access right for the dataset; otherwise false |
-| modelNames                      | Map     | Map of model names with dataset URN                   |
-| modelNames.\<name\>.\<URN\>     | text    | Identifier of Uniform Resource Name type for dataset  |
+| Name                              | Type    | Description                                           |
+|-----------------------------------|---------|-------------------------------------------------------|
+| groups                            | Map     | Map of group names with access right for dataset      |
+| groups.\<name\>.dataset           | text    | Identifier of Uniform Resource Name type for dataset  |
+| _groups.\<name\>.dataAccessRight_ | boolean | true if access right for the dataset; otherwise false |
+| modelNames                        | Map     | Map of model names with dataset URN                   |
+| _modelNames.\<name\>.\<URN\>_     | text    | Identifier of Uniform Resource Name type for dataset  |
 
 Feature for **DATA** type of entity
 
-| Name                             | Type    | Description                                                                                                                              |
-|----------------------------------|---------|------------------------------------------------------------------------------------------------------------------------------------------|
-| sessionOwner                     | text    | Session owner                                                                                                                            |
-| Session                          | text    | Session name                                                                                                                             |
-| virtualId                        | text    | Virtual identifier of URN type in order to indicate if this is the last version (format: `URN:StringId:DATA:tenant:UUID(entityId):LAST`) |
-| providerId                       | text    | Provider identifier                                                                                                                      |
-| entityType                       | text    | Entity type : DATA                                                                                                                       |
-| label                            | text    | Entity label (sometimes identical provider identifier property)                                                                          |
-| model                            | text    | Model name of entity (identical with name property of model)                                                                             |
-| files                            | Object  | Product-related entity files (example: thumbnail, quicklook, rawdata...)                                                                 |
-| tags                             | text    | List of tags (included dataset identifier)                                                                                               |
-| last                             | boolean | true if this the last version; otherwise false                                                                                           |
-| version                          | text    | Entity version                                                                                                                           |
-| id                               | text    | Identifier of Uniform Resource Name type (identical with IpId property)                                                                  |
-| geometry                         | Object  | Information package geometry in GeoJSON RFC 7946 Format                                                                                  |
-| _geometry.coordinates_           | double  | Geometry coordinates                                                                                                                     |
-| _geometry.type_                  | text    | Geometry type (Point, MultiPoint, LineString, Polygon, MultiPolygon...)                                                                  |
-| _geometry.bbox_                  | array   | Geometry bounding box. List of points coordinates [xmin, ymin, xmax, ymax] in Double type.                                               |
-| _geometry.crs_                   | text    | Coordinate reference system. If not specified, WGS84 is considered as the default CRS                                                    |
-| normalizedGeometry               | Object  | Geometry but normalized to be used on a cylindrical project                                                                              |
-| _normalizedGeometry.coordinates_ | doi     | Normalized geometry coordinates                                                                                                          |
-| _normalizedGeometry.type_        | text    | Normalized geometry type (Point, MultiPoint, LineString, Polygon, MultiPolygon...)                                                       |
-| _normalizedGeometry.bbox_        | array   | Geometry bounding box. List of points coordinates [xmin, ymin, xmax, ymax] in Double type.                                               |
-| _normalizedGeometry.crs_         | text    | Coordinate reference system. If not specified, WGS84 is considered as the default CRS                                                    |
-| type                             | text    | Feature                                                                                                                                  |
-| crs                              | text    | Coordinate Reference System (default value: WGS84)                                                                                       |
-| properties                       | Object  | DATA model attributes                                                                                                                    |
+| Name                             | Type                    | Description                                                                                                                              |
+|----------------------------------|-------------------------|------------------------------------------------------------------------------------------------------------------------------------------|
+| sessionOwner                     | text                    | Session owner                                                                                                                            |
+| Session                          | text                    | Session name                                                                                                                             |
+| virtualId                        | text                    | Virtual identifier of URN type in order to indicate if this is the last version (format: `URN:StringId:DATA:tenant:UUID(entityId):LAST`) |
+| providerId                       | text                    | Provider identifier                                                                                                                      |
+| entityType                       | text                    | Entity type : DATA                                                                                                                       |
+| label                            | text                    | Entity label (sometimes identical provider identifier property)                                                                          |
+| model                            | text                    | Model name of entity (identical with name property of model)                                                                             |
+| files                            | Map<DataType, DataFile> | Product-related entity files (example: thumbnail, quicklook, rawdata...)                                                                 |
+| _DataType_                       | text                    | Enum of data type (RAWDATA, QUICKLOOK_SD, QUICKLOOK_MD, QUICKLOOK_HD, DOCUMENT, THUMBNAIL...)                                            |
+| _DataFile_                       | Object                  | Data for file                                                                                                                            |
+| _DataFile.dataType_              | text                    | Enum of data type (RAWDATA, QUICKLOOK_SD, QUICKLOOK_MD, QUICKLOOK_HD, DOCUMENT, THUMBNAIL...)                                            |
+| _DataFile.reference_             | boolean                 | False indicates if the file is stored physical in REGARDS, otherwise true REGARDS doesn't store in REGARDS, only reference.              |
+| _DataFile.uri_                   | text                    | Uniform Resource identifier of file in order to download. This URI is created by REGARDS.                                                |
+| _DataFile.mimeType_              | text                    | Mime type of file                                                                                                                        |
+| _DataFile.online_                | boolean                 | True indicates file is on line, otherwise near line for storage service                                                                  |
+| _DataFile.checksum_              | text                    | Checksum of file                                                                                                                         |
+| _DataFile.digestAlgorithm_       | text                    | Algorithm for checksum of file                                                                                                           |
+| _DataFile.filesize_              | double                  | Size of file                                                                                                                             |
+| _DataFile.filename_              | text                    | File name                                                                                                                                |
+| _DataFile.types_                 | array                   | Custom data file types                                                                                                                   |
+| tags                             | text                    | List of tags (included dataset identifier)                                                                                               |
+| last                             | boolean                 | true if this the last version; otherwise false                                                                                           |
+| version                          | text                    | Entity version                                                                                                                           |
+| id                               | text                    | Identifier of Uniform Resource Name type (identical with IpId property)                                                                  |
+| geometry                         | Object                  | Information package geometry in GeoJSON RFC 7946 Format                                                                                  |
+| _geometry.coordinates_           | double                  | Geometry coordinates                                                                                                                     |
+| _geometry.type_                  | text                    | Geometry type (Point, MultiPoint, LineString, Polygon, MultiPolygon...)                                                                  |
+| _geometry.bbox_                  | array                   | Geometry bounding box. List of points coordinates [xmin, ymin, xmax, ymax] in Double type.                                               |
+| _geometry.crs_                   | text                    | Coordinate reference system. If not specified, WGS84 is considered as the default CRS                                                    |
+| normalizedGeometry               | Object                  | Geometry but normalized to be used on a cylindrical project                                                                              |
+| _normalizedGeometry.coordinates_ | doi                     | Normalized geometry coordinates                                                                                                          |
+| _normalizedGeometry.type_        | text                    | Normalized geometry type (Point, MultiPoint, LineString, Polygon, MultiPolygon...)                                                       |
+| _normalizedGeometry.bbox_        | array                   | Geometry bounding box. List of points coordinates [xmin, ymin, xmax, ymax] in Double type.                                               |
+| _normalizedGeometry.crs_         | text                    | Coordinate reference system. If not specified, WGS84 is considered as the default CRS                                                    |
+| type                             | text                    | Feature                                                                                                                                  |
+| crs                              | text                    | Coordinate Reference System (default value: WGS84)                                                                                       |
+| properties                       | Object                  | DATA model attributes                                                                                                                    |
 
 #### Entity for DATASET type
 
@@ -235,31 +247,43 @@ Feature for **DATA** type of entity
 
 Metadata for **DATASET** type of entity
 
-| Name                                                                  | Type    | Description                                                                 |
-|-----------------------------------------------------------------------|---------|-----------------------------------------------------------------------------|
-| dataObjectsGroups                                                     | Map     | Map of group names with access right for dataset                            |
-| dataObjectsGroups.\<name\>.groupName                                  | text    | Group name                                                                  |
-| dataObjectsGroups.\<name\>.dataFileAccess                             | boolean | true if access right for files of product; otherwise false                  |
-| dataObjectsGroups.\<name\>.dataObjectAccess                           | boolean | true if access right for objects of products; otherwise false               |
-| dataObjectsGroups.\<name\>.dataAccess                                 | boolean | true if access right for data of products; otherwise false                  |
-| dataObjectsGroups.\<name\>.metaDataObjectAccessFilterPluginBusinessId | String  | Plugin identifier for the extension point :  IDataObjectAccessFilterPlugins |
+| Name                                                                    | Type    | Description                                                                 |
+|-------------------------------------------------------------------------|---------|-----------------------------------------------------------------------------|
+| dataObjectsGroups                                                       | Map     | Map of group names with access right for dataset                            |
+| _dataObjectsGroups.\<name\>.groupName_                                  | text    | Group name                                                                  |
+| _dataObjectsGroups.\<name\>.dataFileAccess_                             | boolean | true if access right for files of product; otherwise false                  |
+| _dataObjectsGroups.\<name\>.dataObjectAccess_                           | boolean | true if access right for objects of products; otherwise false               |
+| _dataObjectsGroups.\<name\>.dataAccess_                                 | boolean | true if access right for data of products; otherwise false                  |
+| _dataObjectsGroups.\<name\>.metaDataObjectAccessFilterPluginBusinessId_ | String  | Plugin identifier for the extension point :  IDataObjectAccessFilterPlugins |
 
 Feature for **DATASET** type of entities
 
-| Name                          | Type    | Description                                                                                                                                 |
-|-------------------------------|---------|---------------------------------------------------------------------------------------------------------------------------------------------|
-| dataObjectsFilesAccessGranted | boolean | true if granted Access for data object files; otherwise denied access                                                                       |
-| dataObjectsAccessGranted      | boolean | true if granted Access for data objects; otherwise denied access                                                                            |
-| licence                       | text    | Licence for dataset                                                                                                                         |
-| virtualId                     | text    | Virtual identifier of URN type in order to indicate if this is the last version (format: `URN:StringId:DATASET:tenant:UUID(entityId):LAST`) |
-| providerId                    | text    | Provider identifier                                                                                                                         |
-| entityType                    | text    | Entity type : DATASET                                                                                                                       |
-| id                            | text    | Identifier of Uniform Resource Name type (format: `URN:StringId:DATA:tenant:UUID(entityId):version[,order][:revision]`)                     |
-| label                         | text    | Label of dataset                                                                                                                            |
-| model                         | text    | Model name of entity (identical with name property of model)                                                                                |
-| files                         | Object  | Product-related entity files                                                                                                                |
-| tags                          | text    | List of tags                                                                                                                                |
-| version                       | integer | Entity version                                                                                                                              |
-| type                          | text    | Feature                                                                                                                                     |
-| properties                    | Object  | DATA model attributes                                                                                                                       |
+| Name                          | Type                    | Description                                                                                                                                 |
+|-------------------------------|-------------------------|---------------------------------------------------------------------------------------------------------------------------------------------|
+| dataObjectsFilesAccessGranted | boolean                 | true if granted Access for data object files; otherwise denied access                                                                       |
+| dataObjectsAccessGranted      | boolean                 | true if granted Access for data objects; otherwise denied access                                                                            |
+| licence                       | text                    | Licence for dataset                                                                                                                         |
+| virtualId                     | text                    | Virtual identifier of URN type in order to indicate if this is the last version (format: `URN:StringId:DATASET:tenant:UUID(entityId):LAST`) |
+| providerId                    | text                    | Provider identifier                                                                                                                         |
+| entityType                    | text                    | Entity type : DATASET                                                                                                                       |
+| id                            | text                    | Identifier of Uniform Resource Name type (format: `URN:StringId:DATA:tenant:UUID(entityId):version[,order][:revision]`)                     |
+| label                         | text                    | Label of dataset                                                                                                                            |
+| model                         | text                    | Model name of entity (identical with name property of model)                                                                                |
+| files                         | Map<DataType, DataFile> | Dataset-related entity files (example: thumbnail, quicklook, rawdata...)                                                                    |
+| _DataType_                    | text                    | Enum of data type (RAWDATA, QUICKLOOK_SD, QUICKLOOK_MD, QUICKLOOK_HD, DOCUMENT, THUMBNAIL...)                                               |
+| _DataFile_                    | Object                  | Data for file                                                                                                                               |
+| _DataFile.dataType_           | text                    | Enum of data type (RAWDATA, QUICKLOOK_SD, QUICKLOOK_MD, QUICKLOOK_HD, DOCUMENT, THUMBNAIL...)                                               |
+| _DataFile.reference_          | boolean                 | False indicates if the file is stored physical in REGARDS, otherwise true REGARDS doesn't store in REGARDS, only reference.                 |
+| _DataFile.uri_                | text                    | Uniform Resource identifier of file in order to download. This URI is created by REGARDS.                                                   |
+| _DataFile.mimeType_           | text                    | Mime type of file                                                                                                                           |
+| _DataFile.online_             | boolean                 | True indicates file is on line, otherwise near line for storage service                                                                     |
+| _DataFile.checksum_           | text                    | Checksum of file                                                                                                                            |
+| _DataFile.digestAlgorithm_    | text                    | Algorithm for checksum of file                                                                                                              |
+| _DataFile.filesize_           | double                  | Size of file                                                                                                                                |
+| _DataFile.filename_           | text                    | File name                                                                                                                                   |
+| _DataFile.types_              | array                   | Custom data file types                                                                                                                      |
+| tags                          | text                    | List of tags                                                                                                                                |
+| version                       | integer                 | Entity version                                                                                                                              |
+| type                          | text                    | Feature                                                                                                                                     |
+| properties                    | Object                  | DATA model attributes                                                                                                                       |
 
