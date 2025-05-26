@@ -48,9 +48,13 @@ Si vous êtes un nouvel utilisateur, vous pouvez vous enregistrer sur l'interfac
   <img src="/images/user-documentation/v1.4/2-project-configuration/users/new-user.png" alt="new user" width="800"/> 
 </div>
 
-Suivant la configuration de votre projet, deux actions sont possibles suite à votre demande :
+Une fois les informations remplies, vous devez confirmer votre adresse en cliquant sur le lien de confirmation 
+reçu à l'adresse email que vous avez indiquée.
 
-- **votre compte est automatiquement créé**, dans ce cas, activez votre compte avec le mail reçu à l'adresse renseignée, vous pourrez ensuite vous connecter à l'interface. En tant qu'utilisateur enregistré, vous n'aurez accès qu'à un nombre très limité de fonctionnalités. Il vous faut demander à l'administrateur de votre projet de vous fournir un rôle plus élevé si vous en avez le besoin.
+Suivant la configuration de votre projet, deux actions sont possibles suite à votre démarche :
+
+- **votre compte est automatiquement créé**, dans ce cas, vous pourrez directement vous connecter à l'interface.
+  En tant qu'utilisateur enregistré, vous n'aurez accès qu'à un nombre très limité de fonctionnalités. Il vous faut demander à l'administrateur de votre projet de vous fournir un rôle plus élevé si vous en avez le besoin.
 - **votre compte n'est pas créé automatiquement** et doit attendre d'être approuvé par un administrateur. Vous recevrez un mail une fois que l'administrateur aura approuvé votre compte.
 
 #### Création de compte par un administrateur
@@ -59,6 +63,12 @@ Si vous êtes un administrateur de projet, vous avez la possibilité de créer d
 
 :::info
 Si l'utilisateur possède déjà un compte au niveau instance, cochez la case **_The user already has a REGARDS user account_**, vous n'aurez pas à compléter tous les champs.
+:::
+
+:::warning
+L'adresse email renseignée par un administrateur ne donne pas lieu à l'envoi d'un email de vérification à 
+l'utilisateur. Il revient à l'administrateur de s'assurer de l'exactitude de l'adresse email et de l'accord de 
+l'utilisateur d'utiliser cette adresse.
 :::
 
 Remplissez les champs suivants :
@@ -110,12 +120,12 @@ Au travers de ces modes de visualisation vous pourrez effectuer de nombreuses ac
   - Modifier les groupes d'accès associés à l'utilisateur
 
 - <img src="/images/user-documentation/regards-icons/admin/delete.png" alt="delete" height="25" width="25"/> <b><i>Remove</i></b> pour supprimer un utilisateur
-- <img src="/images/user-documentation/regards-icons/admin/email.png" alt="enable user" height="25" width="25"/> <b><i>Email confirmation</i></b> pour envoyer la demande de confirmation par email
 
 De plus via l'icone <img src="/images/user-documentation/regards-icons/admin/csv-export.png" alt="edit" height="25" width="25"/> vous pouvez exporter la liste des utilisateurs au format csv.
 
 <div align="center">
-  <img src="/images/user-documentation/v1.7/2-project-configuration/users/user-list.png" alt="user settings" width="800"/>
+  <img src="/images/user-documentation/v2.2/2-project-configuration/users/user-list.png" alt="user settings" 
+width="800"/>
 </div>
 
 
@@ -131,7 +141,8 @@ De plus via l'icone <img src="/images/user-documentation/regards-icons/admin/csv
 - <img src="/images/user-documentation/regards-icons/admin/delete.png" alt="delete" height="25" width="25"/> <b><i>Remove</i></b> pour supprimer un utilisateur
 
 <div align="center">
-  <img src="/images/user-documentation/v1.7/2-project-configuration/users/user-list-quota.png" alt="user settings" width="800"/>
+  <img src="/images/user-documentation/v2.2/2-project-configuration/users/user-list-quota.png" alt="user settings" 
+width="800"/>
 </div>
 
 
@@ -146,7 +157,8 @@ De plus via l'icone <img src="/images/user-documentation/regards-icons/admin/csv
 - <img src="/images/user-documentation/regards-icons/admin/delete.png" alt="delete" height="25" width="25"/> <b><i>Remove</i></b> pour supprimer un utilisateur
 
 <div align="center">
-  <img src="/images/user-documentation/v1.7/2-project-configuration/users/user-list-access.png" alt="user settings" width="800"/>
+  <img src="/images/user-documentation/v2.2/2-project-configuration/users/user-list-access.png" alt="user settings" 
+width="800"/>
 </div>
 
 :::info

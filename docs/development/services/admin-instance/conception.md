@@ -12,13 +12,18 @@ specifically used in the Regards instance and attached to the instance database.
 
 ## Module : accessrights-instance
 
-This module aims to handle access rights for users of Regards. It specifically manages user accounts. One same account
+This module aims at handling access rights for Regards users. It specifically manages user accounts. One 
+same account
 can have different project users for each project, so one account can be linked to several projects.  
 Accounts are transverse to all projects and so are persisted in an instance database.
 
 :::info
 To delete a user account, no project user associated with this account must still be associated with a project.
 :::
+
+The following state diagram outlines the various states an account goes through during its lifetime:
+
+![access_account_state_diagram](src/access_account_state_diagram.png)
 
 ## Module : emails-instance
 
