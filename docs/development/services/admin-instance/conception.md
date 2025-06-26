@@ -56,21 +56,22 @@ instance database.
 
 This module is used to manage the functionalities linked to the various tenants/projects created in Regards with their
 connection to the database.
-Each project/tenant is made up of a list of microservices based on the requirements of the missions to be carried out.
-These microservices each use a database (one database per microservice) or a database schema (one database with one
-schema per microservice) to store the information required for its operation.  
-Consequently, this module manages the technical information (driver, username, password, url, etc.) relating to the
-connection
-to the databases.
+
+For each combination of a project/tenant and a microservice that this project requires, it is possible to use a 
+different database. This module manages the technical information (driver, username, password, url, etc.) relating 
+to the connection to the databases. The database information for a couple (project, microservice) is called a 
+**Project Connection**.
+
+:::info
+It is not required to use a different database for each combination of a project/tenant and a microservice. Most of the
+time, it is perfectly fine to use the same database for all microservices of a given project (each microservice uses 
+their own schema, so they can live together in the same database). However, it is required to use a different 
+database for each project.
+:::
 
 At start-up, an initial project is already present in the Regards application.
 
 :::info
-Before creating a new project, you must first create the corresponding new database in the
+Before creating a new project, you must first create the corresponding new database(s) in the
 Regards PostgreSQL database.
 :::
-
-
-
-
-

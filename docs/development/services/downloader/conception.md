@@ -10,6 +10,12 @@ slug: /development/services/downloader/conception/
 
 The Downloader microservice is developed using exactly the [same source code](https://github.com/RegardsOss/regards-backend/tree/master/rs-storage) as the Storage microservice.
 
+:::warning
+Contrary to other micro-services, Downloader does not use its own schema and database: it uses the same ones as the 
+Storage microservice. This means that there is not specific
+[project connection](../admin-instance/conception.md#module--project-instance) for it.
+:::
+
 The difference between the two microservices lies in the activation or non-activation of a **downloader** profile.
 
 The “downloader” profile enables you to disable all Storage service functions that are not dedicated to downloading.
