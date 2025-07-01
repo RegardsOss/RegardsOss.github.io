@@ -2,6 +2,7 @@
   "components": {
     "schemas": {
       "Account": {
+        "description": "Account details to update",
         "properties": {
           "authenticationFailedCounter": {
             "format": "int64",
@@ -53,7 +54,8 @@
               "INACTIVE_PASSWORD",
               "ACTIVE",
               "LOCKED",
-              "PENDING"
+              "PENDING",
+              "EMAIL_VERIFICATION"
             ],
             "type": "string"
           }
@@ -66,37 +68,25 @@
         "type": "object"
       },
       "AccountNPassword": {
+        "description": "The account details",
         "properties": {
           "account": {
             "$ref": "#/components/schemas/Account"
           },
+          "originUrl": {
+            "description": "The URL of the app from where the account creation request was issued. This field is mandatory only if the account status is left unspecified, or set to `EMAIL_VERIFICATION`.",
+            "type": "string"
+          },
           "password": {
+            "description": "The initial password of the account.",
             "type": "string"
           },
           "project": {
-            "type": "string"
-          }
-        },
-        "type": "object"
-      },
-      "AccountSearchParameters": {
-        "properties": {
-          "email": {
+            "description": "An optional project to associate the account to.",
             "type": "string"
           },
-          "firstName": {
-            "type": "string"
-          },
-          "lastName": {
-            "type": "string"
-          },
-          "origin": {
-            "type": "string"
-          },
-          "project": {
-            "type": "string"
-          },
-          "status": {
+          "requestLink": {
+            "description": "The URL to redirect the user to the password verification interface. This field is mandatory only if the account status is left unspecified, or set to `EMAIL_VERIFICATION`.",
             "type": "string"
           }
         },
@@ -148,6 +138,28 @@
           },
           "value": {
             "type": "object"
+          }
+        },
+        "type": "object"
+      },
+      "EmailVerificationTokenDto": {
+        "properties": {
+          "expiryDate": {
+            "description": "The token expiration date.",
+            "format": "date-time",
+            "type": "string"
+          },
+          "originUrl": {
+            "description": "The URL of the app from where the request was issued.",
+            "type": "string"
+          },
+          "requestLink": {
+            "description": "The URL to redirect the user to the account created interface.",
+            "type": "string"
+          },
+          "token": {
+            "description": "The token value.",
+            "type": "string"
           }
         },
         "type": "object"
@@ -669,8 +681,10 @@
         "type": "object"
       },
       "Password": {
+        "description": "An object containing the password",
         "properties": {
           "password": {
+            "description": "The password",
             "type": "string"
           }
         },
@@ -685,30 +699,38 @@
         "type": "object"
       },
       "PerformChangePasswordDto": {
+        "description": "The old and the new passwords",
         "properties": {
           "newPassword": {
+            "description": "The new password of the user.",
             "type": "string"
           },
           "oldPassword": {
+            "description": "The current password of the user.",
             "type": "string"
           }
         },
         "type": "object"
       },
       "PerformResetPasswordDto": {
+        "description": "The token and the new password",
         "properties": {
           "newPassword": {
+            "description": "The new password of the user.",
             "type": "string"
           },
           "token": {
+            "description": "The reset token that was provided in the email received by the user.",
             "type": "string"
           }
         },
         "type": "object"
       },
       "PerformUnlockAccountDto": {
+        "description": "An object containing the unlock token",
         "properties": {
           "token": {
+            "description": "The unlock token that was provided in the email received by the user to unlock their account.",
             "type": "string"
           }
         },
@@ -821,11 +843,14 @@
         "type": "object"
       },
       "RequestAccountUnlockDto": {
+        "description": "Description of the unlock account request",
         "properties": {
           "originUrl": {
+            "description": "The URL of the app from where the request was issued.",
             "type": "string"
           },
           "requestLink": {
+            "description": "The URL to redirect the user to the unlock account interface.",
             "type": "string"
           }
         },
@@ -836,11 +861,14 @@
         "type": "object"
       },
       "RequestResetPasswordDto": {
+        "description": "Description of the email reset request",
         "properties": {
           "originUrl": {
+            "description": "The URL of the app from where the request was issued.",
             "type": "string"
           },
           "requestLink": {
+            "description": "The URL to redirect the user to the reset password interface.",
             "type": "string"
           }
         },
@@ -1202,28 +1230,98 @@
       "name": "GPL-3.0"
     },
     "title": "MICROSERVICE ADMIN INSTANCE",
-    "version": "2.1.0"
+    "version": "2.2.0"
   },
   "openapi": "3.0.1",
   "paths": {
     "/accounts": {
       "get": {
+        "description": "Retrieve the list of accounts on the instance",
         "operationId": "retrieveAccountList",
         "parameters": [
           {
+            "description": "Zero-based page index (0..N)",
             "in": "query",
-            "name": "pageable",
-            "required": true,
+            "name": "page",
+            "required": false,
             "schema": {
-              "$ref": "#/components/schemas/Pageable"
+              "default": 0,
+              "minimum": 0,
+              "type": "integer"
+            }
+          },
+          {
+            "description": "The size of the page to be returned",
+            "in": "query",
+            "name": "size",
+            "required": false,
+            "schema": {
+              "default": 10,
+              "minimum": 1,
+              "type": "integer"
+            }
+          },
+          {
+            "description": "Sorting criteria in the format: property,(asc|desc). Default sort order is ascending. Multiple sort criteria are supported.",
+            "in": "query",
+            "name": "sort",
+            "required": false,
+            "schema": {
+              "default": [
+                "id,ASC"
+              ],
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
             }
           },
           {
             "in": "query",
-            "name": "parameters",
-            "required": true,
+            "name": "email",
+            "required": false,
             "schema": {
-              "$ref": "#/components/schemas/AccountSearchParameters"
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "lastName",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "firstName",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "status",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "project",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "origin",
+            "required": false,
+            "schema": {
+              "type": "string"
             }
           }
         ],
@@ -1236,14 +1334,26 @@
                 }
               }
             },
-            "description": "OK"
+            "description": "The list of accounts."
+          },
+          "403": {
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/PagedModelEntityModelAccount"
+                }
+              }
+            },
+            "description": "The caller is not an instance administrator."
           }
         },
+        "summary": "Get Accounts",
         "tags": [
           "accounts-controller"
         ]
       },
       "post": {
+        "description": "Create a new account.",
         "operationId": "createAccount",
         "requestBody": {
           "content": {
@@ -1256,7 +1366,7 @@
           "required": true
         },
         "responses": {
-          "200": {
+          "201": {
             "content": {
               "*/*": {
                 "schema": {
@@ -1264,9 +1374,30 @@
                 }
               }
             },
-            "description": "OK"
+            "description": "The account was created."
+          },
+          "400": {
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/EntityModelAccount"
+                }
+              }
+            },
+            "description": "Some parameters are invalid. If the account status is unspecified or set to `EMAIL_CONFIRMATION`, the body fields `originUrl` and `requestLink` are mandatory. If the field `project` is specified, it must be the name of an existing project."
+          },
+          "403": {
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/EntityModelAccount"
+                }
+              }
+            },
+            "description": "The caller is not an instance administrator."
           }
         },
+        "summary": "Create Account",
         "tags": [
           "accounts-controller"
         ]
@@ -1274,9 +1405,11 @@
     },
     "/accounts/account/{account_email}": {
       "get": {
+        "description": "Retrieve details of the account with the specified email.",
         "operationId": "retrieveAccounByEmail",
         "parameters": [
           {
+            "description": "The account email",
             "in": "path",
             "name": "account_email",
             "required": true,
@@ -1294,9 +1427,30 @@
                 }
               }
             },
-            "description": "OK"
+            "description": "Account details"
+          },
+          "403": {
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/EntityModelAccount"
+                }
+              }
+            },
+            "description": "The caller is not an instance administrator."
+          },
+          "404": {
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/EntityModelAccount"
+                }
+              }
+            },
+            "description": "No account exists with the specified email."
           }
         },
+        "summary": "Get Account By Email",
         "tags": [
           "accounts-controller"
         ]
@@ -1304,6 +1458,7 @@
     },
     "/accounts/origins": {
       "get": {
+        "description": "Return all possible origins for an account",
         "operationId": "getOrigins",
         "responses": {
           "200": {
@@ -1317,9 +1472,23 @@
                 }
               }
             },
-            "description": "OK"
+            "description": "The list of all possible origins."
+          },
+          "403": {
+            "content": {
+              "*/*": {
+                "schema": {
+                  "items": {
+                    "type": "string"
+                  },
+                  "type": "array"
+                }
+              }
+            },
+            "description": "The caller is not an instance administrator."
           }
         },
+        "summary": "List Origins",
         "tags": [
           "accounts-controller"
         ]
@@ -1327,6 +1496,7 @@
     },
     "/accounts/password": {
       "get": {
+        "description": "Retrieve the list of password rules applicable to all new passwords set by users.",
         "operationId": "getPasswordRules",
         "responses": {
           "200": {
@@ -1337,14 +1507,16 @@
                 }
               }
             },
-            "description": "OK"
+            "description": "The list of password rules in user-displayable form"
           }
         },
+        "summary": "Get Password Rules",
         "tags": [
           "accounts-controller"
         ]
       },
       "post": {
+        "description": "Verify that the specified password meets the password requirements.",
         "operationId": "checkPassword",
         "requestBody": {
           "content": {
@@ -1365,9 +1537,42 @@
                 }
               }
             },
-            "description": "OK"
+            "description": "Whether the provided password meets the requirements"
           }
         },
+        "summary": "Check Password Validity",
+        "tags": [
+          "accounts-controller"
+        ]
+      }
+    },
+    "/accounts/verifyEmail/{token}": {
+      "get": {
+        "description": "Confirm an account email using the specified email verification token.",
+        "operationId": "verifyEmail",
+        "parameters": [
+          {
+            "description": "The verification token that was generated for the verification email",
+            "in": "path",
+            "name": "token",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "The email was successfully confirmed."
+          },
+          "403": {
+            "description": "The token has expired."
+          },
+          "404": {
+            "description": "The token is unknown (this may happen when the user has already confirmed their email with this token)"
+          }
+        },
+        "summary": "Verify Email",
         "tags": [
           "accounts-controller"
         ]
@@ -1375,9 +1580,11 @@
     },
     "/accounts/{account_email}/accept": {
       "put": {
+        "description": "Accept an access request for an account in PENDING status.",
         "operationId": "acceptAccount",
         "parameters": [
           {
+            "description": "The account email",
             "in": "path",
             "name": "account_email",
             "required": true,
@@ -1388,9 +1595,16 @@
         ],
         "responses": {
           "200": {
-            "description": "OK"
+            "description": "The account was successfully accepted."
+          },
+          "403": {
+            "description": "The caller is not an instance administrator, or the account is not currently in PENDING status."
+          },
+          "404": {
+            "description": "No account exists for the provided email."
           }
         },
+        "summary": "Accept Account",
         "tags": [
           "accounts-controller"
         ]
@@ -1398,9 +1612,11 @@
     },
     "/accounts/{account_email}/active": {
       "put": {
+        "description": "Activate an account in status INACTIVE.",
         "operationId": "activeAccount",
         "parameters": [
           {
+            "description": "The account email",
             "in": "path",
             "name": "account_email",
             "required": true,
@@ -1411,9 +1627,16 @@
         ],
         "responses": {
           "200": {
-            "description": "OK"
+            "description": "The account was successfully activated."
+          },
+          "403": {
+            "description": "The caller is not an instance administrator, or the account is not currently inactive."
+          },
+          "404": {
+            "description": "No account exists for the provided email."
           }
         },
+        "summary": "Activate Account",
         "tags": [
           "accounts-controller"
         ]
@@ -1421,9 +1644,11 @@
     },
     "/accounts/{account_email}/changePassword": {
       "put": {
+        "description": "Changes the user password, given their current password.",
         "operationId": "performChangePassword",
         "parameters": [
           {
+            "description": "The account email",
             "in": "path",
             "name": "account_email",
             "required": true,
@@ -1443,10 +1668,17 @@
           "required": true
         },
         "responses": {
-          "200": {
-            "description": "OK"
+          "204": {
+            "description": "The password was successfully changed."
+          },
+          "400": {
+            "description": "The new password does not meet the password requirements."
+          },
+          "404": {
+            "description": "No user with the specified email exists, or the current password is invalid."
           }
         },
+        "summary": "Change Password",
         "tags": [
           "accounts-controller"
         ]
@@ -1454,9 +1686,11 @@
     },
     "/accounts/{account_email}/inactive": {
       "put": {
+        "description": "Deactivate an account in status ACTIVE.",
         "operationId": "inactiveAccount",
         "parameters": [
           {
+            "description": "The account email",
             "in": "path",
             "name": "account_email",
             "required": true,
@@ -1467,9 +1701,16 @@
         ],
         "responses": {
           "200": {
-            "description": "OK"
+            "description": "The account was successfully deactivated."
+          },
+          "403": {
+            "description": "The caller is not an instance administrator, or the account is not currently active."
+          },
+          "404": {
+            "description": "No account exists for the provided email."
           }
         },
+        "summary": "Deactivate Account",
         "tags": [
           "accounts-controller"
         ]
@@ -1477,9 +1718,11 @@
     },
     "/accounts/{account_email}/link/{project}": {
       "put": {
+        "description": "Link an account to a project.",
         "operationId": "link",
         "parameters": [
           {
+            "description": "The account email",
             "in": "path",
             "name": "account_email",
             "required": true,
@@ -1488,6 +1731,7 @@
             }
           },
           {
+            "description": "The project name",
             "in": "path",
             "name": "project",
             "required": true,
@@ -1498,9 +1742,19 @@
         ],
         "responses": {
           "200": {
-            "description": "OK"
+            "description": "The account was successfully linked to the project."
+          },
+          "400": {
+            "description": "No project exists with the provided name."
+          },
+          "403": {
+            "description": "The caller is not an instance administrator."
+          },
+          "404": {
+            "description": "No account exists for the provided email."
           }
         },
+        "summary": "Link to Project",
         "tags": [
           "accounts-controller"
         ]
@@ -1508,9 +1762,11 @@
     },
     "/accounts/{account_email}/origin/{origin}": {
       "put": {
+        "description": "Updates the origin of an account.",
         "operationId": "updateOrigin",
         "parameters": [
           {
+            "description": "The account email",
             "in": "path",
             "name": "account_email",
             "required": true,
@@ -1519,6 +1775,7 @@
             }
           },
           {
+            "description": "The new origin. If this string is empty, the origin is not updated.",
             "in": "path",
             "name": "origin",
             "required": true,
@@ -1529,9 +1786,16 @@
         ],
         "responses": {
           "200": {
-            "description": "OK"
+            "description": "The account origin was successfully updated."
+          },
+          "403": {
+            "description": "The caller is not an instance administrator."
+          },
+          "404": {
+            "description": "No account exists for the provided email."
           }
         },
+        "summary": "Update Origin",
         "tags": [
           "accounts-controller"
         ]
@@ -1539,9 +1803,11 @@
     },
     "/accounts/{account_email}/refuse": {
       "put": {
+        "description": "Refuse an access request for an account in PENDING status.",
         "operationId": "refuseAccount",
         "parameters": [
           {
+            "description": "The account email",
             "in": "path",
             "name": "account_email",
             "required": true,
@@ -1552,9 +1818,16 @@
         ],
         "responses": {
           "200": {
-            "description": "OK"
+            "description": "The account was successfully refused."
+          },
+          "403": {
+            "description": "The caller is not an instance administrator, or the account is not currently in PENDING status."
+          },
+          "404": {
+            "description": "No account exists for the provided email."
           }
         },
+        "summary": "Refuse Account",
         "tags": [
           "accounts-controller"
         ]
@@ -1562,9 +1835,11 @@
     },
     "/accounts/{account_email}/resetPassword": {
       "post": {
+        "description": "Send to the user an email containing a link with limited validity to reset its password.",
         "operationId": "requestResetPassword",
         "parameters": [
           {
+            "description": "The account email",
             "in": "path",
             "name": "account_email",
             "required": true,
@@ -1584,18 +1859,24 @@
           "required": true
         },
         "responses": {
-          "200": {
-            "description": "OK"
+          "204": {
+            "description": "The request was successfully taken into account."
+          },
+          "404": {
+            "description": "No user with the specified email exists."
           }
         },
+        "summary": "Send Password Reset Email",
         "tags": [
           "accounts-controller"
         ]
       },
       "put": {
+        "description": "Change an account password using a reset token that was received by email.",
         "operationId": "performResetPassword",
         "parameters": [
           {
+            "description": "The account email",
             "in": "path",
             "name": "account_email",
             "required": true,
@@ -1615,10 +1896,17 @@
           "required": true
         },
         "responses": {
-          "200": {
-            "description": "OK"
+          "204": {
+            "description": "The password was successfully changed."
+          },
+          "403": {
+            "description": "The token does not match the account, or the token has expired."
+          },
+          "404": {
+            "description": "No user with the specified email exists, or the token is invalid."
           }
         },
+        "summary": "Reset Password",
         "tags": [
           "accounts-controller"
         ]
@@ -1626,9 +1914,11 @@
     },
     "/accounts/{account_email}/unlink/{project}": {
       "put": {
+        "description": "Unlink an account from a project.",
         "operationId": "unlink",
         "parameters": [
           {
+            "description": "The account email",
             "in": "path",
             "name": "account_email",
             "required": true,
@@ -1637,6 +1927,7 @@
             }
           },
           {
+            "description": "The project name",
             "in": "path",
             "name": "project",
             "required": true,
@@ -1647,9 +1938,19 @@
         ],
         "responses": {
           "200": {
-            "description": "OK"
+            "description": "The account was successfully linked to the project."
+          },
+          "400": {
+            "description": "No project exists with the provided name."
+          },
+          "403": {
+            "description": "The caller is not an instance administrator."
+          },
+          "404": {
+            "description": "No account exists for the provided email."
           }
         },
+        "summary": "Unlink from Project",
         "tags": [
           "accounts-controller"
         ]
@@ -1657,9 +1958,11 @@
     },
     "/accounts/{account_email}/unlockAccount": {
       "post": {
+        "description": "Send to the user an email containing a link with limited validity to unlock their account.",
         "operationId": "requestUnlockAccount",
         "parameters": [
           {
+            "description": "The account email",
             "in": "path",
             "name": "account_email",
             "required": true,
@@ -1679,18 +1982,27 @@
           "required": true
         },
         "responses": {
-          "200": {
-            "description": "OK"
+          "204": {
+            "description": "The request was successfully taken into account."
+          },
+          "403": {
+            "description": "The account is not locked."
+          },
+          "404": {
+            "description": "No user with the specified email exists."
           }
         },
+        "summary": "Send Unlock Account Email",
         "tags": [
           "accounts-controller"
         ]
       },
       "put": {
+        "description": "Unlock a locked account using an unlock token that was received by email.",
         "operationId": "performUnlockAccount",
         "parameters": [
           {
+            "description": "The account email",
             "in": "path",
             "name": "account_email",
             "required": true,
@@ -1710,10 +2022,17 @@
           "required": true
         },
         "responses": {
-          "200": {
-            "description": "OK"
+          "204": {
+            "description": "The account was successfully unlocked."
+          },
+          "403": {
+            "description": "The account is not locked, or the token has expired."
+          },
+          "404": {
+            "description": "No user with the specified email exists, or the token is invalid."
           }
         },
+        "summary": "Unlock Account",
         "tags": [
           "accounts-controller"
         ]
@@ -1721,9 +2040,11 @@
     },
     "/accounts/{account_email}/validate": {
       "get": {
+        "description": "Verify that the provided password is valid for the account with the specified email.",
         "operationId": "validatePassword",
         "parameters": [
           {
+            "description": "The account email",
             "in": "path",
             "name": "account_email",
             "required": true,
@@ -1732,6 +2053,7 @@
             }
           },
           {
+            "description": "The candidate password",
             "in": "query",
             "name": "password",
             "required": true,
@@ -1749,9 +2071,106 @@
                 }
               }
             },
-            "description": "OK"
+            "description": "Whether the provided password matches the account password."
+          },
+          "403": {
+            "content": {
+              "*/*": {
+                "schema": {
+                  "type": "boolean"
+                }
+              }
+            },
+            "description": "The caller is not an instance administrator."
+          },
+          "404": {
+            "content": {
+              "*/*": {
+                "schema": {
+                  "type": "boolean"
+                }
+              }
+            },
+            "description": "No account exists for the provided email."
           }
         },
+        "summary": "Verify Password",
+        "tags": [
+          "accounts-controller"
+        ]
+      }
+    },
+    "/accounts/{account_email}/verification/resend": {
+      "get": {
+        "description": "Send a new verification email for an account. Such an email is automatically sent upon account creation, but an administrator may resend it if the validation token has expired.",
+        "operationId": "resendVerificationEmail",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "account_email",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "The email was successfully sent."
+          },
+          "403": {
+            "description": "The caller is not an instance administrator, or the user has already confirmed their email."
+          },
+          "404": {
+            "description": "No user with the specified email exists."
+          }
+        },
+        "summary": "Send Verification Email.",
+        "tags": [
+          "accounts-controller"
+        ]
+      }
+    },
+    "/accounts/{account_email}/verification/reset": {
+      "post": {
+        "description": "Resets the account with the specified email to the `EMAIL_VERIFICATION` state, with the provided token details.  \nThis endpoint is meant for migration purpose only.",
+        "operationId": "resetEmailVerificationStatus",
+        "parameters": [
+          {
+            "description": "The account email",
+            "in": "path",
+            "name": "account_email",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/EmailVerificationTokenDto"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "204": {
+            "description": "The account state was successfully reset."
+          },
+          "403": {
+            "description": "The caller is not an instance administrator."
+          },
+          "404": {
+            "description": "No account exists with the specified email."
+          },
+          "409": {
+            "description": "The account is already in `EMAIL_VERIFICATION` state."
+          }
+        },
+        "summary": "Reverify Email",
         "tags": [
           "accounts-controller"
         ]
@@ -1759,9 +2178,11 @@
     },
     "/accounts/{account_id}": {
       "delete": {
+        "description": "Delete the account with the specified ID.  \n*Note*: It is not possible to delete an account that is referenced at least one project.",
         "operationId": "removeAccount",
         "parameters": [
           {
+            "description": "ID of the account",
             "in": "path",
             "name": "account_id",
             "required": true,
@@ -1772,18 +2193,27 @@
           }
         ],
         "responses": {
-          "200": {
-            "description": "OK"
+          "204": {
+            "description": "The account was successfully deleted."
+          },
+          "403": {
+            "description": "The caller is not an instance administrator, or the account is referenced by at least one project."
+          },
+          "404": {
+            "description": "No account exists with the specified ID."
           }
         },
+        "summary": "Delete Account",
         "tags": [
           "accounts-controller"
         ]
       },
       "get": {
+        "description": "Retrieve details of the account with the specified ID.",
         "operationId": "retrieveAccount",
         "parameters": [
           {
+            "description": "ID of the account",
             "in": "path",
             "name": "account_id",
             "required": true,
@@ -1802,17 +2232,40 @@
                 }
               }
             },
-            "description": "OK"
+            "description": "Account details"
+          },
+          "403": {
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/EntityModelAccount"
+                }
+              }
+            },
+            "description": "The caller is not an instance administrator."
+          },
+          "404": {
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/EntityModelAccount"
+                }
+              }
+            },
+            "description": "No account exists with the specified ID."
           }
         },
+        "summary": "Get Account By ID",
         "tags": [
           "accounts-controller"
         ]
       },
       "put": {
+        "description": "Update details for the account with the specified ID.",
         "operationId": "updateAccount",
         "parameters": [
           {
+            "description": "ID of the account",
             "in": "path",
             "name": "account_id",
             "required": true,
@@ -1841,9 +2294,30 @@
                 }
               }
             },
-            "description": "OK"
+            "description": "The account was successfully updated."
+          },
+          "403": {
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/EntityModelAccount"
+                }
+              }
+            },
+            "description": "The caller is not an instance administrator."
+          },
+          "404": {
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/EntityModelAccount"
+                }
+              }
+            },
+            "description": "No account exists with the specified ID."
           }
         },
+        "summary": "Update Account",
         "tags": [
           "accounts-controller"
         ]

@@ -734,7 +734,7 @@
       "name": "GPL-3.0"
     },
     "title": "MICROSERVICE AUTHENTICATION",
-    "version": "2.1.0"
+    "version": "2.2.0"
   },
   "openapi": "3.0.1",
   "paths": {
@@ -1007,7 +1007,7 @@
         "responses": {
           "200": {
             "content": {
-              "*/*": {
+              "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/Authentication"
                 }
@@ -1017,7 +1017,7 @@
           },
           "400": {
             "content": {
-              "*/*": {
+              "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/Authentication"
                 }
@@ -1026,7 +1026,7 @@
             "description": "Authentication denied."
           }
         },
-        "summary": "Oauth2 authentication endpoint.",
+        "summary": "Oauth2 authentication.",
         "tags": [
           "token-controller"
         ]
@@ -1831,7 +1831,7 @@
         "responses": {
           "200": {
             "content": {
-              "*/*": {
+              "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/Authentication"
                 }
@@ -1841,7 +1841,7 @@
           },
           "401": {
             "content": {
-              "*/*": {
+              "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/Authentication"
                 }
@@ -1857,7 +1857,7 @@
           },
           "404": {
             "content": {
-              "*/*": {
+              "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/Authentication"
                 }

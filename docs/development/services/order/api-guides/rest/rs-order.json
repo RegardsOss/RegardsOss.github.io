@@ -507,6 +507,9 @@
       },
       "OrderDataFile": {
         "properties": {
+          "additionalFields": {
+            "type": "object"
+          },
           "checksum": {
             "type": "string"
           },
@@ -1111,7 +1114,7 @@
       "name": "GPL-3.0"
     },
     "title": "MICROSERVICE ORDER",
-    "version": "2.1.0"
+    "version": "2.2.0"
   },
   "openapi": "3.0.1",
   "paths": {

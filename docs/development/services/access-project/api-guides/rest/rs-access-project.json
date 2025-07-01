@@ -1239,8 +1239,7 @@
               "ACCESS_DENIED",
               "ACCESS_GRANTED",
               "ACCESS_INACTIVE",
-              "WAITING_ACCOUNT_ACTIVE",
-              "WAITING_EMAIL_VERIFICATION"
+              "WAITING_ACCOUNT_ACTIVE"
             ],
             "type": "string"
           }
@@ -1833,8 +1832,7 @@
                 "ACCESS_DENIED",
                 "ACCESS_GRANTED",
                 "ACCESS_INACTIVE",
-                "WAITING_ACCOUNT_ACTIVE",
-                "WAITING_EMAIL_VERIFICATION"
+                "WAITING_ACCOUNT_ACTIVE"
               ],
               "type": "string"
             },
@@ -1868,7 +1866,7 @@
       "name": "GPL-3.0"
     },
     "title": "MICROSERVICE ACCESS",
-    "version": "2.1.0"
+    "version": "2.2.0"
   },
   "openapi": "3.0.1",
   "paths": {
@@ -1986,31 +1984,6 @@
         "summary": "Update the settings",
         "tags": [
           "Access settings controller"
-        ]
-      }
-    },
-    "/accesses/verifyEmail/{token}": {
-      "get": {
-        "description": "Confirm the registration by email with the given token",
-        "operationId": "verifyEmail",
-        "parameters": [
-          {
-            "in": "path",
-            "name": "token",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK"
-          }
-        },
-        "summary": "Confirm the registration",
-        "tags": [
-          "Registration controller"
         ]
       }
     },
@@ -4246,31 +4219,6 @@
           }
         },
         "summary": "Create a project user",
-        "tags": [
-          "Project users controller"
-        ]
-      }
-    },
-    "/users/email/{email}/verification/resend": {
-      "get": {
-        "description": "Send a new verification email for a user creation",
-        "operationId": "sendVerificationEmail",
-        "parameters": [
-          {
-            "in": "path",
-            "name": "email",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK"
-          }
-        },
-        "summary": "Valid a user creation",
         "tags": [
           "Project users controller"
         ]
