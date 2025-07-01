@@ -155,7 +155,16 @@ module.exports = {
           items: [
             "user-documentation/catalog-consultation/catalog-protocols-intro",
             "user-documentation/catalog-consultation/catalog-protocols-opensearch",
-            "user-documentation/catalog-consultation/catalog-protocols-stac",
+            {
+              type: "category",
+              label: "STAC protocol",
+              items: [
+                "user-documentation/catalog-consultation/protocol-stac/catalog-protocols-stac-description",
+                "user-documentation/catalog-consultation/protocol-stac/catalog-protocols-stac-conf-plugin",
+                "user-documentation/catalog-consultation/protocol-stac/catalog-protocols-stac-dynamic",
+                "user-documentation/catalog-consultation/protocol-stac/catalog-protocols-stac-collection",
+              ],
+            }
           ],
         },
       ],

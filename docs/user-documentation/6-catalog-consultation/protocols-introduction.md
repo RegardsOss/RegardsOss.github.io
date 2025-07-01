@@ -26,4 +26,4 @@ Si vous souhaitez ajouter un autre format de communication, vous pouvez dévelop
 
 Deux protocoles sont actuellements disponibles avec REGARDS :
   - [Opensearch](./opensearch)
-  - [STAC](./stac)
+  - [STAC](./stac/introduction)
