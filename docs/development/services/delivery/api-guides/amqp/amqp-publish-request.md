@@ -67,12 +67,13 @@ Example :
     "queries": [
       "providerId:xxxxx"
     ],
-    "filters": [
-      {
-        "dataTypes": [],
-        "filenameRegExp": ""
-      }
-    ]
+    "filters": {
+      "dataTypes": [
+        "RAWDATA",
+        "QUICKLOOK"
+      ],
+      "filenameRegExp": ""
+    }
   }
 }
 ```
