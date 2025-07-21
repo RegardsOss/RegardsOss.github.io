@@ -93,12 +93,12 @@ has been uploaded to the S3 server.
 }
 ```
 
-| Parameter     | Type   | Optional | Description                                                        |
-|---------------|--------|:--------:|--------------------------------------------------------------------|
-| correlationId | String |    No    | Request identifier.                                                |
-| status        | String |    No    | The delivery request has been processed successfully.              |
-| url           | String |    No    | S3 formatted zip location (s3://bucket/correlationId/zipName.zip). |
-| md5           | String |    No    | Zip checksum in MD5 format.                                        |
+| Parameter     | Type   | Optional | Description                                                                                                                                                                                                                               |
+|---------------|--------|:--------:|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| correlationId | String |    No    | Request identifier.                                                                                                                                                                                                                       |
+| status        | String |    No    | The delivery request has been processed successfully.                                                                                                                                                                                     |
+| url           | String |    No    | S3 formatted zip location (s3://bucket/correlationId/zipName.zip). The naming conventions for the zip file and its contents are described in the [Manual](../../../../../../user-guide/order-data/settings-delivery#format-de-livraison). |
+| md5           | String |    No    | Zip checksum in MD5 format.                                                                                                                                                                                                               |
 
 #### DENIED body
 

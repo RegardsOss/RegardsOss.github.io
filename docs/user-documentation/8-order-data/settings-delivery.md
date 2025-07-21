@@ -31,3 +31,16 @@ Les paramètres disponibles sont les suivants :
 :::info
 L'icone <img src="/images/user-documentation/regards-icons/admin/default-value.png" alt="edit" height="25" width="25"/> permet de remettre la valeur par défaut à un champ donné. La barre bleue présente à côté d'un paramètre signifie que sa valeur actuelle diffère de la valeur par défaut.
 :::
+
+## Format de livraison
+
+Les commandes sont livrées sur le serveur S3 (exemple: MinIO) au format zip, avec les conventions suivantes :
+
+1. Si tous les fichiers commandés concernent le même produit :
+   * Nom du zip : `<id_produit>_v<version>.zip`
+   * Contenu du fichier : tous les fichiers commandés à la racine du zip
+2. Si plusieurs produits sont concernés par la commande :
+   * Nom du zip : `delivery-<correlationId>.zip` (`correlationId` est spécifié lors de la
+     [commande initiale](../../development/backend/services/delivery/api-guides/amqp/publish-a-delivery-request#body))
+   * Contenu du fichier : un répertoire par produit, nommé `<id_produit>_v<version>`, contenant les fichiers associés 
+     à ce produit 
