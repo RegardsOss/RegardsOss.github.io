@@ -154,12 +154,12 @@ group_config_mservices:
 
 All REGARDS services use internal ports on the docker network to operate. However, if you wish, you can open these ports outside the network. To do this, here's the configuration you'll need to carry out in your inventory for the target microservice(s) and the list of existing ports. 
 
-| Internal port | Iventory property | Usage |
-| -------- | ------------------------- | ----- |
-| 90XX     | http                      | Jetty server port of the microservice to receive all REST requests |
-| 10500    | jdwp                      | Enable remote debugging port |
-| 180XX    | jmx                       | Enables remote monitoring and management through Java Management Extensions. |
-| 8081     | metrics                   | Enable access to actuator metrics |
+| Internal port | Inventory property | Usage |
+| -------- |--------------------| ----- |
+| 90XX     | http               | Jetty server port of the microservice to receive all REST requests |
+| 10500    | jdwp               | Enable remote debugging port |
+| 180XX    | jmx                | Enables remote monitoring and management through Java Management Extensions. |
+| 8081     | metrics            | Enable access to actuator metrics |
 
 The example below shows how to configure these ports for the storage service
 
@@ -171,3 +171,18 @@ group_docker_mservices:
     jmx: 9752
     metrics: 9753
 ```
+### Global Timeouts
+
+You can customize the server response timeout using the following configuration in the microservice rs-gateway :
+
+```yml
+group_docker_mservices:
+  gateway:
+    configuration:
+      response_timeout: 90s
+```
+
+| Path                                                            | Type       | Description                                                                                        |
+|:----------------------------------------------------------------|:-----------|:---------------------------------------------------------------------------------------------------|
+| `group_docker_mservices.gateway.configuration.response_timeout` | `Duration` | Maximum time allowed for a request to return a response. Beyond this time, an error response with status `504 Gateway Timeout` is returned. If no unit is specified, the value is assumed to be in milliseconds. Default to `60s` (60 seconds). |
+

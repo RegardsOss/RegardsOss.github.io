@@ -20,8 +20,7 @@ Static configuration for `rs-Admin-Instance` service is :
 | regards.accounts.validity.check.cron        | string  | `0 * * * * ?`        | Cron expression defining when accounts are audited to deactivate the accounts that are past the account validity duration or whose password has expired. The default is once per minute.                                                                                                                                                                                              |
 :::info
 Some of these properties are customizable in ansible
-inventory. [see installation guide](../../../../setup/swarm/advanced/swarm-optimizations.md#dataprovider-optimization).
-link
+inventory. [See installation guide](../../../../setup/swarm/advanced/swarm-optimizations.md#dataprovider-optimization).
 
 To make missing properties customizable, you have to update regards ansible playbook : the regards-mconfig role.
 :::
