@@ -165,9 +165,13 @@ format of each product notification between `rs-fem` and `rs-notifier` :
 ```json
 {
   "metadata": {
-    "action": "",
+    "action": "UPDATED",
     "sessionOwner": "",
-    "session": ""
+    "session": "",
+    "changedAttributes": [
+      "properties.system.archive_url",
+      "files"
+    ]
   },
   "payload": {
     "type": "Feature",
@@ -183,8 +187,26 @@ format of each product notification between `rs-fem` and `rs-notifier` :
     "geometry": {},
     "bbox": [],
     "crs": "",
-    "files": [],
-    "properties": {}
+    "files": [
+      {
+        "locations": [
+          {
+            "storage": "",
+            "url": ""
+          }
+        ],
+        "attributes": {
+          "dataType": "RAWDATA",
+          "mimeType": "text/plain",
+          "filesize": 97
+        }
+      }
+    ],
+    "properties": {
+      "system": {
+        "archive_url": "s3:/storage5566/82653"
+      }
+    }
   }
 }
 ```
@@ -192,11 +214,13 @@ format of each product notification between `rs-fem` and `rs-notifier` :
 The **payload section** contains the product that has been notified and the **metadata section** contains the following 
 information:
 
-| Parameter    | Type     | description                                                                                                                                                  |
-|--------------|----------|--------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| action       | `String` | Indicates the action on the product that triggered the notification.<br/> Possible values are`CREATED`, `UPDATED`, `DELETED`, `ALREADY_DELETED`, `NOTIFIED`. |
-| sessionOwner | `String` | Session Owner that created the product                                                                                                                       |
-| session      | `String` | Session in which the product was created                                                                                                                     |
+| Parameter         | Type       | description                                                                                                                                                                                                             |
+|-------------------|------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| action            | `String`   | Indicates the action on the product that triggered the notification.<br/> Possible values are `CREATED`, `UPDATED`, `DELETED`, `ALREADY_DELETED`, `NOTIFIED`.                                                           |
+| sessionOwner      | `String`   | Session Owner that created the product                                                                                                                                                                                  |
+| session           | `String`   | Session in which the product was created                                                                                                                                                                                |
+| changedAttributes | `String[]` | List of payload attributes that are updated (set, modified or unset). Only defined when `action` is `UPDATED`. The list of attributes is limited to `files` and any sub-fields of `properties`. See the example above.  |
+
 
 You can then use this information (metadata and payload sections) to configure the
 [rs-notifier service](../notifier/overview.md) to send the feature to the required recipients.
