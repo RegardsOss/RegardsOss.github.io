@@ -28,29 +28,46 @@ Each Elasticsearch index stores products for each project or tenant created in t
 
 ![](./src/dam.svg)
 
+## Main points of data modification in Elasticsearch
+
+The data stored in Elasticsearch consist of Datasets and DataObjects. DataObjects can originate from various sources depending on the selected plugin (OAIS, FEM, external database, etc.).
+
+In REGARDS, there are several ways to add, modify, or delete objects stored in Elasticsearch:
+1. Through the `CrawlingJob` (data crawler/harvester), which will be detailed in the [following sections](#crawling-job-crawlonedatasourcejob).
+2. When a Dataset is updated OR when access rights to a Dataset are modified, a `DatasetEvent` is triggered and processed by rs-dam to update the Dataset stored in Elasticsearch, as well as all DataObjects linked to this Dataset.
+3. When a product is deleted from the OAIS or FEM catalogs, a `FeatureEvent` is generated and processed by rs-dam, which immediately requests the deletion of the dataObject from ElasticSearch.
+
 ## Meta catalog population
 
-A scheduler is launched to iterate through each configured datasource, and `Data Management` performs the following
-tasks:
+A scheduler is launched at a configurable interval to iterate through each configured datasource and create a job `CrawlOneDatasourceJob` if needed. This allows independent and parallel management of data ingestion for each datasource. The scheduling frequency can be adjusted by the user (see the [static configuration](./configuration/dam-static-configuration.md))
 
-1. **Retrieve new products from the catalog**: Using an implementation of the `IDataSourcePlugin` interface, the system
-   retrieves new products and transforms the datasource-specific product format into the REGARDS standard format.
+### Crawling Job (CrawlOneDatasourceJob)
 
-2. **Insert or update products in the Elasticsearch index**: New or updated products are inserted into or modified
-   within the appropriate Elasticsearch index.
+The main steps performed by each job are:
 
-3. **Update access groups for products**: If needed, access groups are updated for products using an implementation of
-   the `IDataObjectAccessFilterPlugin` interface to apply any necessary product filtering.
+#### 1. Retrieve new products from the catalog
+ Using an implementation of the `IDataSourcePlugin` interface, the system retrieves new products and transforms the datasource-specific product format into the REGARDS standard format. See more details [below](#retrieve-new-products-from-data-sources)
 
-4. **Compute calculated attributes**: If the data model contains calculated attributes, these are computed using an
-   implementation of the `IComputedAttribute` interface.
+#### 2. Insert or update products in the Elasticsearch index
+ New or updated products retrieved in step 1 are inserted or updated in the appropriate Elasticsearch index using upsert requests. The upsert operation ensures that a product is either created or updated in a single atomic operation, depending on its existence. See more details [below](#insert-or-update-new-products-in-meta-catalog)
 
-:::info
-Products aspiration is sequential, one data source after another.
+:::note 
+Upsert requests are sent in parallel to Elasticsearch to improve performance. Each upsert request contains a configurable batch of products, and the number of parallel requests is also configurable to optimize throughput according to the cluster's capacity.
 :::
-Crawling is performed sequentially. The execution frequency is configurable by the user (
-see [Monitoring UI](../../../user-documentation/5-crawler/monitor-crawling.md)). The system determines the next
-datasource to be ingested by REGARDS.
+:::warning
+ Ensure that the Hikari connection pool size (regards.jpa.multitenant.maxPoolSize) is STRICTLY GREATER than the Elasticsearch threadpool size (regards.elasticsearch.threadpool.size) to avoid connection starvation. Otherwise, rs-dam may enter in deadlock state, with all threads waiting for a connection from the pool, and no thread available to release a connection.
+:::
+
+#### 3. Update access groups for products
+The update of access groups is performed using a dedicated Painless script in Elasticsearch, allowing all necessary changes to be applied in a single update request on the Elasticsearch side. This is achieved by sending an 'update by query' request to Elasticsearch, specifying the script id. This single request allows Elasticsearch to apply the script to all documents matching the filter—typically all the data ingested in the previous step—thus efficiently updating access groups for a large set of products at once. See more details [below](#3-update-access-groups-for-products)
+:::note 
+If needed (depending on access rights configuration), access groups are updated for products using an implementation of the `IDataObjectAccessFilterPlugin` interface to apply any custom product filtering. This operation cannot be performed by the update group script and must be manually calculated by REGARDS, updating each document individually. 
+:::
+
+
+#### 4. Compute calculated attributes
+If the data model contains calculated attributes, these are computed using an implementation of the `IComputedAttribute` interface.
+
 
 ### Retrieve new products from data sources
 
@@ -64,7 +81,7 @@ The following types of crawlers are available:
 
 - **AIP Crawlers**: These crawlers allow crawling of SIPs from the `rs-ingest` microservice. Incremental ingestion uses
   the last data update.
-- **Feature Crawlers**: These crawlers allow crawling of features from the `rs-frm` microservice. Incremental ingestion
+- **Feature Crawlers**: These crawlers allow crawling of features from the `rs-fem` microservice. Incremental ingestion
   uses the last data update.
 - **Database Crawlers**: These crawlers allow crawling of data from an external database, with the following modes:
     - Non-incremental ingestion (not recommended)
@@ -93,16 +110,7 @@ see [UI](../../../user-documentation/5-crawler/configure-database.md)). The Post
 **Dataset** and **Data** entities are stored in a different Elasticsearch index for each project/tenant in
 REGARDS application. There is only one index for each tenant.
 
-The **Data** entities are never stored in the REGARDS database.
-The **Dataset** entities are stored in the REGARDS database with the following information :
 
-- creation date and update date,
-- Identifier of the Uniform Resource Name (example: URN:AIP:**DATASET**:validation:
-  39c574a0-2ad6-4f47-9f4a-251d494892b1:V1)
-- model of the products in this dataset
-- Identifier of the dataset model
-- Identifier of the plugin used to load products from a data source
-- sub-setting criterion setting on a Dataset for Elasticsearch
 
 ### Access rights calculation for dataset
 
@@ -130,6 +138,17 @@ The periodicity of re-calculation of dynamic plugins is set to once a day by def
 microservice properties with the properties `regards.access.rights.update.cron`. The value is in standard cron format.
 
 ## Elasticsearch index representation
+
+**Data** entities are never stored in the REGARDS database, only in Elasticsearch.  
+**Dataset** entities are stored in the REGARDS database with the following information:
+
+- creation date and update date,
+- Identifier of the Uniform Resource Name (example: URN:AIP:**DATASET**:validation:
+  39c574a0-2ad6-4f47-9f4a-251d494892b1:V1)
+- model of the products in this dataset
+- Identifier of the dataset model
+- Identifier of the plugin used to load products from a data source
+- sub-setting criterion setting on a Dataset for Elasticsearch
 
 The following tables show the structure of stocked entities in Elasticsearch index of REGARDS.
 

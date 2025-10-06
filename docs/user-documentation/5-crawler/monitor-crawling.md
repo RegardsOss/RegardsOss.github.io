@@ -4,7 +4,7 @@ title: Monitor crawling
 slug: /user-guide/crawler/monitor-crawling/
 ---
 
-Pour suivre les aspirations de données, cliquez sur ***Ajout de données*** dans le menu latéral de REGARDS, puis dans la carte ***Crawling***, cliquez sur <img src="/images/user-documentation/regards-icons/admin/monitor.png" alt="monitor" height="25" width="25"/> ***Monitor data crawling*** .
+Pour suivre les aspirations de données dans le catalogue REGARDS (Elasticsearch), cliquez sur ***Ajout de données*** dans le menu latéral de REGARDS, puis dans la carte ***Crawling***, cliquez sur <img src="/images/user-documentation/regards-icons/admin/monitor.png" alt="monitor" height="25" width="25"/> ***Monitor data crawling*** .
 
 ---
 
@@ -30,9 +30,11 @@ Plusieurs informations sont disponibles :
   - _INACTIVE_, si l'aspiration de données n'est pas activée
 - ***Number of entities*** indique le nombre de données traitées lors de la dernière aspiration.
 - ***Next ingest date*** affiche la prochaine date d'aspiration de données prévue.
+- ***Last entity ingested date*** indique la date de la dernière entité aspirée, seulement si l'aspiration est incrémentale et par date (ce qui est le cas par défaut pour les aspirations de type FEM et OAIS). Cette date correspond à la date de dernière modification.
 
 Il y a également des boutons d'action :
 
 - <img src="/images/user-documentation/regards-icons/admin/refresh.png" alt="refresh" height="20" width="100"/> le bouton <b><i>Refresh</i></b> mets à jour les informations de la page
-- <img src="/images/user-documentation/regards-icons/admin/clock.png" alt="clock" height="30" width="30"/> les boutons <b><i>Schedule an ingestion</i></b> permettent de démarrer une nouvelle aspiration. Cela n'a un impact que sur les nouvelles données n'ayant pas encore été aspirées. Cette fonctionnalité est utile si vous ne souhaitez pas attendre la prochaine aspiration programmée.
-- <img src="/images/user-documentation/regards-icons/admin/delete.png" alt="reset" height="30" width="30"/> les boutons <b><i>Delete</i></b> suppriment les données aspirées dans le catalogue et relancent l'aspiration de la totalité de la source.
+- <img src="/images/user-documentation/regards-icons/admin/clock.png" alt="clock" height="30" width="30"/> les boutons <b><i>Schedule an ingestion</i></b> permettent de démarrer une nouvelle aspiration. Cela n'a un impact que sur les nouvelles données n'ayant pas encore été aspirées. Cette fonctionnalité est utile si vous ne souhaitez pas attendre la prochaine aspiration programmée.  
+Dans le cas d'une aspiration incrémentale par date (ce qui est le cas pour les aspirations de type FEM ou OAIS), il est possible de renseigner une date à laquelle l'aspiration reprendra son aspiration. Cette date correspond à la date de dernière modification des entités.
+- <img src="/images/user-documentation/regards-icons/admin/delete.png" alt="reset" height="30" width="30"/> les boutons <b><i>Delete</i></b> relancent l'aspiration de la totalité de la source. Les données déjà aspirées ne sont pas supprimées mais susceptibles d'être mises à jour.
