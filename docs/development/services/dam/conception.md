@@ -46,7 +46,7 @@ A scheduler is launched at a configurable interval to iterate through each confi
 The main steps performed by each job are:
 
 #### 1. Retrieve new products from the catalog
- Using an implementation of the `IDataSourcePlugin` interface, the system retrieves new products and transforms the datasource-specific product format into the REGARDS standard format. See more details [below](#retrieve-new-products-from-data-sources)
+ Using an implementation of the [IDataSourcePlugin interface](https://github.com/RegardsOss/regards-backend/blob/master/rs-dam/dam/dam-domain/src/main/java/fr/cnes/regards/modules/dam/domain/datasources/plugins/IDataSourcePlugin.java), the system retrieves new products and transforms the datasource-specific product format into the REGARDS standard format. See more details [below](#retrieve-new-products-from-data-sources)
 
 #### 2. Insert or update products in the Elasticsearch index
  New or updated products retrieved in step 1 are inserted or updated in the appropriate Elasticsearch index using upsert requests. The upsert operation ensures that a product is either created or updated in a single atomic operation, depending on its existence. See more details [below](#insert-or-update-new-products-in-meta-catalog)
@@ -136,6 +136,70 @@ Dynamic plugins (see extension point with `IDataObjectAccessFilterPlugins` inter
 rights every day. Access rights will be applied to data filtered by the OpenSearch query.
 The periodicity of re-calculation of dynamic plugins is set to once a day by default, but it is configurable in the
 microservice properties with the properties `regards.access.rights.update.cron`. The value is in standard cron format.
+
+## Meta catalog reindexation
+
+Reindexation allows rebuilding the Elasticsearch index of a tenant from its data sources, ensuring that the meta 
+catalog remains consistent, and aligned with the latest data models.
+
+Each tenant/project in REGARDS has its own Elasticsearch index, referenced by an **alias**.
+During a reindexation, a **new index** is created, populated, and validated before it replaces the current one — ensuring 
+that the meta catalog REGARDS remains available without interruption.
+
+### Process overview
+
+When a reindexation is triggered, the process follows these main steps:
+
+#### 1. Create a new index
+
+A new Elasticsearch index is created for the tenant, using the latest model mappings and settings.
+The index name is automatically generated and associated to the tenant’s alias entry (`EsIndexAlias` entity) as the 
+**building index**. An alias points to exactly one index.
+
+The tenant’s alias follows the naming convention: [PROJECT_NAME]_alias.
+Each new building index created for this tenant follows the pattern [PROJECT_NAME]_XXXXX_X, where the final digit increments with every new rebuild.
+
+**Example** :
+Project/tenant : _projectA_
+Alias name: _projectA_alias_
+Current index: _projectA_3472e9_3_
+Building index: _projectA_3472e9_4_
+
+#### 2. Populate the new index
+
+All active data sources of the tenant are crawled using the same ingestion workflow as the standard `CrawlingJob`.
+Products are retrieved, transformed into REGARDS entities (DATA DATASET or COLLECTION), and inserted into the 
+**building index**.
+
+#### 3. Wait for all ingestion jobs to finish
+
+Once ingestion starts, the system monitors the running jobs associated with the building index until all have 
+completed twice.
+This ensures that the index is fully populated and consistent before activation.
+
+#### 4. Switch aliases
+
+When the new index is ready, `rs-dam` performs an alias switch. The alias is updated to point to the new index ; the 
+previous index is obsolete and is ready to be deleted.
+This operation is transparent for end users: **queries using the alias never experience downtime**.
+
+#### 5. Clean up old indexes
+Once the alias has been switched, the old index (previously referenced as current) is deleted to free resources.
+The old ingestions and the jobs they are associated with are removed too.
+
+### Alias management and consistency
+
+The mapping between tenants and their indexes is persisted in the REGARDS database through the entity `EsIndexAlias`:
+
+| Nom      | Type | Description                                                         |
+|----------|------|---------------------------------------------------------------------|
+| alias    | text | The logical name used by REGARDS to query Elasticsearch             |                                                                                                                 |
+| current  | text | The name of the currently active index for the tenant               |
+| building | text | The name of the index currently being populated during reindexation |
+
+The alias switch updates the `current` field to the new index name and clears the `building` field once completed.
+
+Caching mechanisms ensure quick access to alias information while keeping the database as the source of truth.
 
 ## Elasticsearch index representation
 
