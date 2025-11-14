@@ -28,6 +28,10 @@ module.exports = {
             }
         },
     },
+    markdown: {
+        mermaid: true,
+    },
+    themes: ['@docusaurus/theme-mermaid'],
     themeConfig: {
         algolia: {
             appId: 'BP0ACDVAUR',
@@ -141,6 +145,9 @@ module.exports = {
                 },
             ],
             copyright: `Copyright © ${new Date().getFullYear()} REGARDS, OSS. Built with Docusaurus.`,
+        },
+        mermaid: {
+            theme: {light: 'forest', dark: 'forest'},
         },
     },
     plugins: [

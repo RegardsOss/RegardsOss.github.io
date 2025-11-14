@@ -142,3 +142,41 @@ You can learn more in the [processing microservice section](../processing/overvi
 Here under is the state diagram of the order process :
 
 ![](./src/ord_state_diagram.png)
+
+## Order main tables
+
+The following entity relationship diagram shows the main entities (and table name in parentheses) that represent an 
+order.
+
+```mermaid
+erDiagram
+
+  Order 1--0+ DatasetTask : order_id
+  DatasetTask 1--0+ FilesTask : parent_id
+  FilesTask 1--0+ OrderDataFile : files_task_id
+  FilesTask 1--1 ta_task_job_info : task_info_id
+  JobInfo 1--1 ta_task_job_info : job_info_id
+
+  Order["Order (t_order)"] { 
+    long id
+  }
+  DatasetTask["DatasetTask (t_dataset_task)"]
+  FilesTask["FilesTask (t_files_task)"] {
+    long order_id
+  }
+  OrderDataFile["OrderDataFile (t_data_file)"] {
+    long order_id
+  }
+  JobInfo["JobInfo (t_job_info)"] {
+    uuid id
+  }
+```
+*This entity-relationship diagram uses the
+[Crow's foot notation](https://en.wikipedia.org/wiki/Entity%E2%80%93relationship_model#Crow's_foot_notation).*  
+*The box labels show the entity class, and the corresponding table name in parenthesis.*
+
+* **Order**: an entire order.
+* **DatasetTask**: the task for one dataset of the order, may be composed of one or several sub-orders.
+* **FilesTask**: a sub-order, either internal (files are stored by REGARDS) or external (files are only referenced by REGARDS). An
+  internal sub-order is  associated to one `StorageFilesJob` job and optionally one `ProcessExecutionJob` job.
+* **OrderDataFile**: one file in a sub-order.
