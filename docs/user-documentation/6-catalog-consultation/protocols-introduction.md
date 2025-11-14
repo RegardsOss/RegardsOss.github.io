@@ -20,10 +20,13 @@ Cliquez sur le bouton <img src="/images/user-documentation/regards-icons/admin/l
   <img src="/images/user-documentation/v1.4/6-catalog-consultation/protocols/protocol-update.png" alt="protocol list" width="800"/> 
 </div>
 
-Vous constaterez qu'il existe déjà un protocole de recherche par défaut et non supprimable ***REGARDS search protocol***. Il est interne à REGARDS et utilisé pour faire toutes les recherches dans le catalogue, néanmoins, il n'est pas interopérable avec d'autres services web. Si vous avez besoin de le rendre compatible avec des services autres que REGARDS, suivez les étapes ci-dessous pour créer un plugin de recherche basé sur un protocole largement utilisé Opensearch.
+Vous constaterez qu'il existe déjà un protocole de recherche par défaut et non supprimable ***REGARDS search protocol***.
+Il est interne à REGARDS et utilisé pour faire toutes les recherches dans le catalogue, néanmoins, il n'est pas
+interopérable avec d'autres services web. Si vous avez besoin de le rendre compatible avec des services autres que
+REGARDS, consultez les rubriques consacrées aux plug-ins de protocoles :
+
+- [OpenSearch](./opensearch)
+- [STAC](./stac/introduction)
+
 
 Si vous souhaitez ajouter un autre format de communication, vous pouvez développer votre propre plugin.
-
-Deux protocoles sont actuellements disponibles avec REGARDS :
-  - [Opensearch](./opensearch)
-  - [STAC](./stac/introduction)

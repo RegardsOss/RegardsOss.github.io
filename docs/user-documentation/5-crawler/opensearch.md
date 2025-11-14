@@ -4,10 +4,10 @@ title: Crawl data from opensearch web source
 slug: /user-guide/crawler/configure-datasources/opensearch/
 ---
 
-*Peuplez le catalogue avec les données issues d'une source web Opensearch*
+*Peuplez le catalogue avec les données issues d'une source web OpenSearch*
 
 :::caution
-Avant de pouvoir configurer une source de données depuis une source Opensearch, vous devez obligatoirement avoir [créé un modèle de données](../3-data-organization/models.md) de type ***Data***, il servira à mettre en correspondance vos données et le modèle utilisé par le catalogue
+Avant de pouvoir configurer une source de données depuis une source OpenSearch, vous devez obligatoirement avoir [créé un modèle de données](../3-data-organization/models.md) de type ***Data***, il servira à mettre en correspondance vos données et le modèle utilisé par le catalogue
 :::
 
 ---
@@ -40,9 +40,9 @@ Depuis le menu ***Add data*** et la carte ***Crawling***, cliquez sur ***Map dat
    </div>
    - Appuyez sur ***Next***
 3. ***Results configuration***
-   - ***Total results fields***, sélectionne le nom de l'attribut opensearch contenant le nombre de résultats
-   - ***Page size field*** , sélectionne le nom de l'attribut opensearch contenant le nombre maximal d'objets récupérés
-   - ***Regards Model***, le modèle utilisé pour faire correspondre les résultats de la requête opensearch au catalogue. Renseignez les noms des champs à récupérer en complétant les attributs standards, communs à toutes les données, les fichiers associés et les attributs dynamiques propres au modèle, par exemple :
+   - ***Total results fields***, sélectionne le nom de l'attribut OpenSearch contenant le nombre de résultats
+   - ***Page size field*** , sélectionne le nom de l'attribut OpenSearch contenant le nombre maximal d'objets récupérés
+   - ***Regards Model***, le modèle utilisé pour faire correspondre les résultats de la requête OpenSearch au catalogue. Renseignez les noms des champs à récupérer en complétant les attributs standards, communs à toutes les données, les fichiers associés et les attributs dynamiques propres au modèle, par exemple :
 
 <div align="center">
  <img src="/images/user-documentation/v1.4/5-crawler/crawler-opensearch-step-3-example.png" alt="example" width="800"/> 
