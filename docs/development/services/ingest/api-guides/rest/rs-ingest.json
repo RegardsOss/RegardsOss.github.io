@@ -16,115 +16,34 @@
         },
         "type": "object"
       },
-      "AIPDto": {
-        "properties": {
-          "bbox": {
-            "description": "Geometry bounding box. List of points coordinates [xmin, ymin, xmax, ymax]",
-            "example": [
-              -122.7,
-              45.51,
-              -122.64,
-              45.53
-            ],
-            "items": {
-              "description": "Geometry bounding box. List of points coordinates [xmin, ymin, xmax, ymax]",
-              "format": "double",
-              "type": "number"
-            },
-            "type": "array"
-          },
-          "crs": {
-            "default": "WGS84",
-            "description": "Coordinate Reference System",
-            "example": "WGS84",
-            "type": "string"
-          },
-          "geometry": {
-            "$ref": "#/components/schemas/IGeometry"
-          },
-          "history": {
-            "description": "Information package history.",
-            "items": {
-              "$ref": "#/components/schemas/EventDto"
-            },
-            "type": "array"
-          },
-          "id": {
-            "description": "Provider identifier for the submitted product.",
-            "example": "RawProduct_001",
-            "type": "string"
-          },
-          "ipType": {
-            "description": "Information package type.",
-            "enum": [
-              "COLLECTION",
-              "DATA",
-              "DATASET"
-            ],
-            "type": "string"
-          },
-          "properties": {
-            "$ref": "#/components/schemas/InformationPackageProperties"
-          },
-          "providerId": {
-            "type": "string"
-          },
-          "sipId": {
-            "type": "string"
-          },
-          "sipIdUrn": {
-            "type": "string"
-          },
-          "type": {
-            "description": "Type of the feature entity.",
-            "enum": [
-              "Feature",
-              "FeatureCollection"
-            ],
-            "example": "Feature",
-            "type": "string"
-          },
-          "version": {
-            "format": "int32",
-            "type": "integer"
-          }
-        },
-        "required": [
-          "ipType",
-          "providerId",
-          "type"
-        ],
-        "type": "object"
-      },
-      "AIPEntityLight": {
+      "AIPEntityLightRawDto": {
         "properties": {
           "aip": {
-            "$ref": "#/components/schemas/AIPDto"
+            "$ref": "#/components/schemas/JsonObject"
           },
           "aipId": {
+            "description": "The AIP Internal identifier (generated URN) identifying the product during its complete lifecycle (technical identifier).",
+            "example": "URN:AIP:DATA:IAS:fe9714af-5aca-316b-80c7-874847e918d2:V1",
             "type": "string"
           },
-          "aipIdUrn": {
+          "category": {
+            "description": "The category associated to the AIP.",
             "type": "string"
-          },
-          "categories": {
-            "items": {
-              "type": "string"
-            },
-            "type": "array",
-            "uniqueItems": true
           },
           "creationDate": {
+            "description": "The creation date of the AIP.",
             "format": "date-time",
             "type": "string"
           },
           "disseminationInfos": {
+            "description": "The list of dissemination information of the AIP.",
             "items": {
               "$ref": "#/components/schemas/DisseminationInfo"
             },
             "type": "array"
           },
           "disseminationStatus": {
+            "description": "The dissemination status of the AIP.",
             "enum": [
               "NONE",
               "PENDING",
@@ -133,10 +52,12 @@
             "type": "string"
           },
           "id": {
+            "description": "Unique identifier of the product in database",
             "format": "int64",
             "type": "integer"
           },
           "ipType": {
+            "description": "The type of the AIP.",
             "enum": [
               "COLLECTION",
               "DATA",
@@ -145,25 +66,32 @@
             "type": "string"
           },
           "last": {
+            "description": "Indicates if this AIP is the last version of the product.",
             "type": "boolean"
           },
           "lastUpdate": {
+            "description": "The last update date of the AIP.",
             "format": "date-time",
             "type": "string"
           },
           "originUrn": {
+            "description": "Optional parameter showing that the entity come from another entity in an external catalog.",
             "type": "string"
           },
           "providerId": {
+            "description": "Identifier given by the provider to identify the product (business identifier)",
             "type": "string"
           },
           "session": {
+            "description": "Session name in which the product was created",
             "type": "string"
           },
           "sessionOwner": {
+            "description": "Session Owner that created the product",
             "type": "string"
           },
           "state": {
+            "description": "The state of the AIP.",
             "enum": [
               "GENERATED",
               "STORED",
@@ -172,38 +100,29 @@
             "type": "string"
           },
           "storages": {
+            "description": "Storage lists used by this AIP to store its files. Files are stored in one or more of storage listed here.",
             "items": {
+              "description": "Storage lists used by this AIP to store its files. Files are stored in one or more of storage listed here.",
               "type": "string"
             },
             "type": "array",
             "uniqueItems": true
           },
           "tags": {
+            "description": "The list of tags associated to the AIP.",
             "items": {
+              "description": "The list of tags associated to the AIP.",
               "type": "string"
             },
             "type": "array",
             "uniqueItems": true
           },
           "version": {
+            "description": "The version number of the AIP. This number is incremented at each new version of the AIP for a given product.",
             "format": "int32",
-            "maximum": 999,
-            "minimum": 1,
             "type": "integer"
           }
         },
-        "required": [
-          "aip",
-          "aipId",
-          "creationDate",
-          "disseminationStatus",
-          "lastUpdate",
-          "providerId",
-          "session",
-          "sessionOwner",
-          "state",
-          "version"
-        ],
         "type": "object"
       },
       "AIPUpdateParametersDto": {
@@ -212,6 +131,8 @@
             "items": {
               "type": "string"
             },
+            "maxItems": 1,
+            "minItems": 0,
             "type": "array"
           },
           "addTags": {
@@ -345,6 +266,7 @@
         "type": "object"
       },
       "DisseminationInfo": {
+        "description": "The list of dissemination information of the AIP.",
         "properties": {
           "ackDate": {
             "format": "date-time",
@@ -394,10 +316,10 @@
         },
         "type": "object"
       },
-      "EntityModelAIPEntityLight": {
+      "EntityModelAIPEntityLightRawDto": {
         "properties": {
           "content": {
-            "$ref": "#/components/schemas/AIPEntityLight"
+            "$ref": "#/components/schemas/AIPEntityLightRawDto"
           },
           "links": {
             "items": {
@@ -692,12 +614,20 @@
         "properties": {
           "categories": {
             "items": {
-              "description": "Category to add to generated AIP or empty.",
-              "example": "January-2024",
+              "description": "Deprecated, use `category` instead. For backward compatibility, a single-value list is accepted provided that `category` is not also specified.",
               "type": "string"
             },
+            "maxItems": 1,
+            "minItems": 0,
             "type": "array",
             "uniqueItems": true
+          },
+          "category": {
+            "description": "Category associated with the generated AIP. May be empty.",
+            "example": "SATELLITE_LAMBDA",
+            "maxLength": 128,
+            "minLength": 0,
+            "type": "string"
           },
           "ingestChain": {
             "description": "Ingest chain label to be used to process SIPs.",
@@ -798,6 +728,310 @@
           "name",
           "validationPlugin"
         ],
+        "type": "object"
+      },
+      "JsonArray": {
+        "properties": {
+          "asBigDecimal": {
+            "type": "number"
+          },
+          "asBigInteger": {
+            "type": "integer"
+          },
+          "asBoolean": {
+            "type": "boolean"
+          },
+          "asByte": {
+            "format": "byte",
+            "type": "string"
+          },
+          "asCharacter": {
+            "deprecated": true,
+            "type": "string"
+          },
+          "asDouble": {
+            "format": "double",
+            "type": "number"
+          },
+          "asFloat": {
+            "format": "float",
+            "type": "number"
+          },
+          "asInt": {
+            "format": "int32",
+            "type": "integer"
+          },
+          "asJsonArray": {
+            "$ref": "#/components/schemas/JsonArray"
+          },
+          "asJsonNull": {
+            "$ref": "#/components/schemas/JsonNull"
+          },
+          "asJsonObject": {
+            "$ref": "#/components/schemas/JsonObject"
+          },
+          "asJsonPrimitive": {
+            "$ref": "#/components/schemas/JsonPrimitive"
+          },
+          "asLong": {
+            "format": "int64",
+            "type": "integer"
+          },
+          "asNumber": {
+            "type": "number"
+          },
+          "asShort": {
+            "format": "int32",
+            "type": "integer"
+          },
+          "asString": {
+            "type": "string"
+          },
+          "empty": {
+            "type": "boolean"
+          },
+          "jsonArray": {
+            "type": "boolean"
+          },
+          "jsonNull": {
+            "type": "boolean"
+          },
+          "jsonObject": {
+            "type": "boolean"
+          },
+          "jsonPrimitive": {
+            "type": "boolean"
+          }
+        },
+        "type": "object"
+      },
+      "JsonNull": {
+        "properties": {
+          "asBigDecimal": {
+            "type": "number"
+          },
+          "asBigInteger": {
+            "type": "integer"
+          },
+          "asBoolean": {
+            "type": "boolean"
+          },
+          "asByte": {
+            "format": "byte",
+            "type": "string"
+          },
+          "asCharacter": {
+            "deprecated": true,
+            "type": "string"
+          },
+          "asDouble": {
+            "format": "double",
+            "type": "number"
+          },
+          "asFloat": {
+            "format": "float",
+            "type": "number"
+          },
+          "asInt": {
+            "format": "int32",
+            "type": "integer"
+          },
+          "asJsonArray": {
+            "$ref": "#/components/schemas/JsonArray"
+          },
+          "asJsonNull": {
+            "$ref": "#/components/schemas/JsonNull"
+          },
+          "asJsonObject": {
+            "$ref": "#/components/schemas/JsonObject"
+          },
+          "asJsonPrimitive": {
+            "$ref": "#/components/schemas/JsonPrimitive"
+          },
+          "asLong": {
+            "format": "int64",
+            "type": "integer"
+          },
+          "asNumber": {
+            "type": "number"
+          },
+          "asShort": {
+            "format": "int32",
+            "type": "integer"
+          },
+          "asString": {
+            "type": "string"
+          },
+          "jsonArray": {
+            "type": "boolean"
+          },
+          "jsonNull": {
+            "type": "boolean"
+          },
+          "jsonObject": {
+            "type": "boolean"
+          },
+          "jsonPrimitive": {
+            "type": "boolean"
+          }
+        },
+        "type": "object"
+      },
+      "JsonObject": {
+        "description": "The raw product AIP",
+        "properties": {
+          "asBigDecimal": {
+            "type": "number"
+          },
+          "asBigInteger": {
+            "type": "integer"
+          },
+          "asBoolean": {
+            "type": "boolean"
+          },
+          "asByte": {
+            "format": "byte",
+            "type": "string"
+          },
+          "asCharacter": {
+            "deprecated": true,
+            "type": "string"
+          },
+          "asDouble": {
+            "format": "double",
+            "type": "number"
+          },
+          "asFloat": {
+            "format": "float",
+            "type": "number"
+          },
+          "asInt": {
+            "format": "int32",
+            "type": "integer"
+          },
+          "asJsonArray": {
+            "$ref": "#/components/schemas/JsonArray"
+          },
+          "asJsonNull": {
+            "$ref": "#/components/schemas/JsonNull"
+          },
+          "asJsonObject": {
+            "$ref": "#/components/schemas/JsonObject"
+          },
+          "asJsonPrimitive": {
+            "$ref": "#/components/schemas/JsonPrimitive"
+          },
+          "asLong": {
+            "format": "int64",
+            "type": "integer"
+          },
+          "asNumber": {
+            "type": "number"
+          },
+          "asShort": {
+            "format": "int32",
+            "type": "integer"
+          },
+          "asString": {
+            "type": "string"
+          },
+          "empty": {
+            "type": "boolean"
+          },
+          "jsonArray": {
+            "type": "boolean"
+          },
+          "jsonNull": {
+            "type": "boolean"
+          },
+          "jsonObject": {
+            "type": "boolean"
+          },
+          "jsonPrimitive": {
+            "type": "boolean"
+          }
+        },
+        "type": "object"
+      },
+      "JsonPrimitive": {
+        "properties": {
+          "asBigDecimal": {
+            "type": "number"
+          },
+          "asBigInteger": {
+            "type": "integer"
+          },
+          "asBoolean": {
+            "type": "boolean"
+          },
+          "asByte": {
+            "format": "byte",
+            "type": "string"
+          },
+          "asCharacter": {
+            "deprecated": true,
+            "type": "string"
+          },
+          "asDouble": {
+            "format": "double",
+            "type": "number"
+          },
+          "asFloat": {
+            "format": "float",
+            "type": "number"
+          },
+          "asInt": {
+            "format": "int32",
+            "type": "integer"
+          },
+          "asJsonArray": {
+            "$ref": "#/components/schemas/JsonArray"
+          },
+          "asJsonNull": {
+            "$ref": "#/components/schemas/JsonNull"
+          },
+          "asJsonObject": {
+            "$ref": "#/components/schemas/JsonObject"
+          },
+          "asJsonPrimitive": {
+            "$ref": "#/components/schemas/JsonPrimitive"
+          },
+          "asLong": {
+            "format": "int64",
+            "type": "integer"
+          },
+          "asNumber": {
+            "type": "number"
+          },
+          "asShort": {
+            "format": "int32",
+            "type": "integer"
+          },
+          "asString": {
+            "type": "string"
+          },
+          "boolean": {
+            "type": "boolean"
+          },
+          "jsonArray": {
+            "type": "boolean"
+          },
+          "jsonNull": {
+            "type": "boolean"
+          },
+          "jsonObject": {
+            "type": "boolean"
+          },
+          "jsonPrimitive": {
+            "type": "boolean"
+          },
+          "number": {
+            "type": "boolean"
+          },
+          "string": {
+            "type": "boolean"
+          }
+        },
         "type": "object"
       },
       "Link": {
@@ -1112,11 +1346,11 @@
         },
         "type": "object"
       },
-      "PagedModelEntityModelAIPEntityLight": {
+      "PagedModelEntityModelAIPEntityLightRawDto": {
         "properties": {
           "content": {
             "items": {
-              "$ref": "#/components/schemas/EntityModelAIPEntityLight"
+              "$ref": "#/components/schemas/EntityModelAIPEntityLightRawDto"
             },
             "type": "array"
           },
@@ -1782,12 +2016,8 @@
       },
       "SIPEntity": {
         "properties": {
-          "categories": {
-            "items": {
-              "type": "string"
-            },
-            "type": "array",
-            "uniqueItems": true
+          "category": {
+            "type": "string"
           },
           "checksum": {
             "type": "string"
@@ -2064,6 +2294,39 @@
         "required": [
           "description"
         ],
+        "type": "object"
+      },
+      "SliceMetadata": {
+        "properties": {
+          "number": {
+            "format": "int64",
+            "type": "integer"
+          },
+          "size": {
+            "format": "int64",
+            "type": "integer"
+          }
+        },
+        "type": "object"
+      },
+      "SlicedModelEntityModelAIPEntityLightRawDto": {
+        "properties": {
+          "content": {
+            "items": {
+              "$ref": "#/components/schemas/EntityModelAIPEntityLightRawDto"
+            },
+            "type": "array"
+          },
+          "links": {
+            "items": {
+              "$ref": "#/components/schemas/Link"
+            },
+            "type": "array"
+          },
+          "page": {
+            "$ref": "#/components/schemas/SliceMetadata"
+          }
+        },
         "type": "object"
       },
       "StorageDto": {
@@ -2571,7 +2834,7 @@
       "name": "GPL-3.0"
     },
     "title": "MICROSERVICE INGEST",
-    "version": "2.2.0"
+    "version": "2.3.0"
   },
   "openapi": "3.0.1",
   "paths": {
@@ -2606,7 +2869,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/PagedModelEntityModelAIPEntityLight"
+                  "$ref": "#/components/schemas/PagedModelEntityModelAIPEntityLightRawDto"
                 }
               }
             },
@@ -2695,6 +2958,50 @@
           }
         },
         "summary": "Create dissemination creator job",
+        "tags": [
+          "aip-controller"
+        ]
+      }
+    },
+    "/aips/slice": {
+      "post": {
+        "description": "Return a slice of AIPs matching criterias.",
+        "operationId": "searchAIPsSlice",
+        "parameters": [
+          {
+            "description": "Sorting and page configuration",
+            "in": "query",
+            "name": "pageable",
+            "required": true,
+            "schema": {
+              "$ref": "#/components/schemas/Pageable"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SearchAIPsParameters"
+              }
+            }
+          },
+          "description": "Set of search criterias.",
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SlicedModelEntityModelAIPEntityLightRawDto"
+                }
+              }
+            },
+            "description": "All AIPs were retrieved."
+          }
+        },
+        "summary": "Get AIPs slice",
         "tags": [
           "aip-controller"
         ]

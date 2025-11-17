@@ -254,12 +254,8 @@
           "active": {
             "type": "boolean"
           },
-          "categories": {
-            "items": {
-              "type": "string"
-            },
-            "type": "array",
-            "uniqueItems": true
+          "category": {
+            "type": "string"
           },
           "fileInfos": {
             "items": {
@@ -334,7 +330,6 @@
         },
         "required": [
           "active",
-          "categories",
           "fileInfos",
           "generateSipPluginConf",
           "ingestChain",
@@ -1809,7 +1804,7 @@
       "name": "GPL-3.0"
     },
     "title": "MICROSERVICE DATAPROVIDER",
-    "version": "2.2.0"
+    "version": "2.3.0"
   },
   "openapi": "3.0.1",
   "paths": {

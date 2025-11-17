@@ -1023,6 +1023,9 @@
       },
       "DatasourceIngestion": {
         "properties": {
+          "building": {
+            "type": "boolean"
+          },
           "cursor": {
             "$ref": "#/components/schemas/CrawlingCursor"
           },
@@ -1033,10 +1036,18 @@
             "format": "int32",
             "type": "integer"
           },
+          "jobId": {
+            "format": "uuid",
+            "type": "string"
+          },
           "label": {
             "type": "string"
           },
           "lastIngestDate": {
+            "format": "date-time",
+            "type": "string"
+          },
+          "lastSuccessfulIngestDate": {
             "format": "date-time",
             "type": "string"
           },
@@ -2646,7 +2657,7 @@
       "name": "GPL-3.0"
     },
     "title": "MICROSERVICE DAM",
-    "version": "2.2.0"
+    "version": "2.3.0"
   },
   "openapi": "3.0.1",
   "paths": {
@@ -3584,6 +3595,15 @@
             "schema": {
               "type": "string"
             }
+          },
+          {
+            "in": "query",
+            "name": "from",
+            "required": false,
+            "schema": {
+              "format": "date-time",
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -4351,40 +4371,68 @@
     },
     "/index": {
       "delete": {
+        "description": "Deletes and recreates the full catalog index for the current tenant.",
         "operationId": "recreateIndex",
         "responses": {
           "200": {
             "description": "OK"
           }
         },
+        "summary": "Reindex the whole catalog",
         "tags": [
-          "index-controller"
+          "Elasticsearch index controller"
+        ]
+      }
+    },
+    "/index/building": {
+      "get": {
+        "description": "Returns true if a building index exists for the current tenant, false otherwise.",
+        "operationId": "hasBuilding",
+        "responses": {
+          "200": {
+            "content": {
+              "*/*": {
+                "schema": {
+                  "type": "boolean"
+                }
+              }
+            },
+            "description": "OK"
+          }
+        },
+        "summary": "Check if a building index exists",
+        "tags": [
+          "Elasticsearch index controller"
         ]
       }
     },
     "/index/index/update/collections": {
       "post": {
+        "description": "Triggers reindexing of all collections for the current tenant.",
         "operationId": "updateCollections",
         "responses": {
           "200": {
             "description": "OK"
           }
         },
+        "summary": "Update all collections",
         "tags": [
-          "index-controller"
+          "Elasticsearch index controller"
         ]
       }
     },
     "/index/index/update/datasets": {
       "post": {
+        "description": "Triggers reindexing of all datasets for the current tenant.",
         "operationId": "updateDatasets",
         "responses": {
           "200": {
             "description": "OK"
           }
         },
+        "summary": "Update all datasets",
         "tags": [
-          "index-controller"
+          "Elasticsearch index controller"
         ]
       }
     },

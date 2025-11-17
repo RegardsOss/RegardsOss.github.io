@@ -65,10 +65,10 @@
         },
         "type": "object"
       },
-      "EntityModelFeatureEntityDto": {
+      "EntityModelFeatureEntityRawDto": {
         "properties": {
           "content": {
-            "$ref": "#/components/schemas/FeatureEntityDto"
+            "$ref": "#/components/schemas/FeatureEntityRawDto"
           },
           "links": {
             "items": {
@@ -370,61 +370,43 @@
         },
         "type": "object"
       },
-      "FeatureDisseminationInfoDto": {
-        "properties": {
-          "ackDate": {
-            "format": "date-time",
-            "type": "string"
-          },
-          "blocking": {
-            "type": "boolean"
-          },
-          "label": {
-            "type": "string"
-          },
-          "requestDate": {
-            "format": "date-time",
-            "type": "string"
-          }
-        },
-        "type": "object"
-      },
-      "FeatureEntityDto": {
+      "FeatureEntityRawDto": {
         "properties": {
           "disseminationPending": {
+            "description": "Whether the product has pending dissemination tasks",
             "type": "boolean"
           },
-          "disseminationsInfo": {
-            "items": {
-              "$ref": "#/components/schemas/FeatureDisseminationInfoDto"
-            },
-            "type": "array",
-            "uniqueItems": true
-          },
           "feature": {
-            "$ref": "#/components/schemas/Feature"
+            "$ref": "#/components/schemas/JsonObject"
           },
           "id": {
+            "description": "Unique identifier of the product in database",
             "format": "int64",
             "type": "integer"
           },
           "lastUpdate": {
+            "description": "Date of the last update of the product",
             "format": "date-time",
             "type": "string"
           },
           "providerId": {
+            "description": "Identifier given by the provider to identify the product (business identifier)",
             "type": "string"
           },
           "session": {
+            "description": "Session name in which the product was created",
             "type": "string"
           },
           "source": {
+            "description": "Session Owner that created the product",
             "type": "string"
           },
           "urn": {
+            "description": "URN identifying the product during its complete lifecycle (technical identifier)",
             "type": "string"
           },
           "version": {
+            "description": "Version of the product",
             "format": "int32",
             "type": "integer"
           }
@@ -755,6 +737,310 @@
         },
         "type": "object"
       },
+      "JsonArray": {
+        "properties": {
+          "asBigDecimal": {
+            "type": "number"
+          },
+          "asBigInteger": {
+            "type": "integer"
+          },
+          "asBoolean": {
+            "type": "boolean"
+          },
+          "asByte": {
+            "format": "byte",
+            "type": "string"
+          },
+          "asCharacter": {
+            "deprecated": true,
+            "type": "string"
+          },
+          "asDouble": {
+            "format": "double",
+            "type": "number"
+          },
+          "asFloat": {
+            "format": "float",
+            "type": "number"
+          },
+          "asInt": {
+            "format": "int32",
+            "type": "integer"
+          },
+          "asJsonArray": {
+            "$ref": "#/components/schemas/JsonArray"
+          },
+          "asJsonNull": {
+            "$ref": "#/components/schemas/JsonNull"
+          },
+          "asJsonObject": {
+            "$ref": "#/components/schemas/JsonObject"
+          },
+          "asJsonPrimitive": {
+            "$ref": "#/components/schemas/JsonPrimitive"
+          },
+          "asLong": {
+            "format": "int64",
+            "type": "integer"
+          },
+          "asNumber": {
+            "type": "number"
+          },
+          "asShort": {
+            "format": "int32",
+            "type": "integer"
+          },
+          "asString": {
+            "type": "string"
+          },
+          "empty": {
+            "type": "boolean"
+          },
+          "jsonArray": {
+            "type": "boolean"
+          },
+          "jsonNull": {
+            "type": "boolean"
+          },
+          "jsonObject": {
+            "type": "boolean"
+          },
+          "jsonPrimitive": {
+            "type": "boolean"
+          }
+        },
+        "type": "object"
+      },
+      "JsonNull": {
+        "properties": {
+          "asBigDecimal": {
+            "type": "number"
+          },
+          "asBigInteger": {
+            "type": "integer"
+          },
+          "asBoolean": {
+            "type": "boolean"
+          },
+          "asByte": {
+            "format": "byte",
+            "type": "string"
+          },
+          "asCharacter": {
+            "deprecated": true,
+            "type": "string"
+          },
+          "asDouble": {
+            "format": "double",
+            "type": "number"
+          },
+          "asFloat": {
+            "format": "float",
+            "type": "number"
+          },
+          "asInt": {
+            "format": "int32",
+            "type": "integer"
+          },
+          "asJsonArray": {
+            "$ref": "#/components/schemas/JsonArray"
+          },
+          "asJsonNull": {
+            "$ref": "#/components/schemas/JsonNull"
+          },
+          "asJsonObject": {
+            "$ref": "#/components/schemas/JsonObject"
+          },
+          "asJsonPrimitive": {
+            "$ref": "#/components/schemas/JsonPrimitive"
+          },
+          "asLong": {
+            "format": "int64",
+            "type": "integer"
+          },
+          "asNumber": {
+            "type": "number"
+          },
+          "asShort": {
+            "format": "int32",
+            "type": "integer"
+          },
+          "asString": {
+            "type": "string"
+          },
+          "jsonArray": {
+            "type": "boolean"
+          },
+          "jsonNull": {
+            "type": "boolean"
+          },
+          "jsonObject": {
+            "type": "boolean"
+          },
+          "jsonPrimitive": {
+            "type": "boolean"
+          }
+        },
+        "type": "object"
+      },
+      "JsonObject": {
+        "description": "The raw product",
+        "properties": {
+          "asBigDecimal": {
+            "type": "number"
+          },
+          "asBigInteger": {
+            "type": "integer"
+          },
+          "asBoolean": {
+            "type": "boolean"
+          },
+          "asByte": {
+            "format": "byte",
+            "type": "string"
+          },
+          "asCharacter": {
+            "deprecated": true,
+            "type": "string"
+          },
+          "asDouble": {
+            "format": "double",
+            "type": "number"
+          },
+          "asFloat": {
+            "format": "float",
+            "type": "number"
+          },
+          "asInt": {
+            "format": "int32",
+            "type": "integer"
+          },
+          "asJsonArray": {
+            "$ref": "#/components/schemas/JsonArray"
+          },
+          "asJsonNull": {
+            "$ref": "#/components/schemas/JsonNull"
+          },
+          "asJsonObject": {
+            "$ref": "#/components/schemas/JsonObject"
+          },
+          "asJsonPrimitive": {
+            "$ref": "#/components/schemas/JsonPrimitive"
+          },
+          "asLong": {
+            "format": "int64",
+            "type": "integer"
+          },
+          "asNumber": {
+            "type": "number"
+          },
+          "asShort": {
+            "format": "int32",
+            "type": "integer"
+          },
+          "asString": {
+            "type": "string"
+          },
+          "empty": {
+            "type": "boolean"
+          },
+          "jsonArray": {
+            "type": "boolean"
+          },
+          "jsonNull": {
+            "type": "boolean"
+          },
+          "jsonObject": {
+            "type": "boolean"
+          },
+          "jsonPrimitive": {
+            "type": "boolean"
+          }
+        },
+        "type": "object"
+      },
+      "JsonPrimitive": {
+        "properties": {
+          "asBigDecimal": {
+            "type": "number"
+          },
+          "asBigInteger": {
+            "type": "integer"
+          },
+          "asBoolean": {
+            "type": "boolean"
+          },
+          "asByte": {
+            "format": "byte",
+            "type": "string"
+          },
+          "asCharacter": {
+            "deprecated": true,
+            "type": "string"
+          },
+          "asDouble": {
+            "format": "double",
+            "type": "number"
+          },
+          "asFloat": {
+            "format": "float",
+            "type": "number"
+          },
+          "asInt": {
+            "format": "int32",
+            "type": "integer"
+          },
+          "asJsonArray": {
+            "$ref": "#/components/schemas/JsonArray"
+          },
+          "asJsonNull": {
+            "$ref": "#/components/schemas/JsonNull"
+          },
+          "asJsonObject": {
+            "$ref": "#/components/schemas/JsonObject"
+          },
+          "asJsonPrimitive": {
+            "$ref": "#/components/schemas/JsonPrimitive"
+          },
+          "asLong": {
+            "format": "int64",
+            "type": "integer"
+          },
+          "asNumber": {
+            "type": "number"
+          },
+          "asShort": {
+            "format": "int32",
+            "type": "integer"
+          },
+          "asString": {
+            "type": "string"
+          },
+          "boolean": {
+            "type": "boolean"
+          },
+          "jsonArray": {
+            "type": "boolean"
+          },
+          "jsonNull": {
+            "type": "boolean"
+          },
+          "jsonObject": {
+            "type": "boolean"
+          },
+          "jsonPrimitive": {
+            "type": "boolean"
+          },
+          "number": {
+            "type": "boolean"
+          },
+          "string": {
+            "type": "boolean"
+          }
+        },
+        "type": "object"
+      },
       "Link": {
         "properties": {
           "deprecation": {
@@ -930,11 +1216,11 @@
         },
         "type": "object"
       },
-      "PagedModelEntityModelFeatureEntityDto": {
+      "PagedModelEntityModelFeatureEntityRawDto": {
         "properties": {
           "content": {
             "items": {
-              "$ref": "#/components/schemas/EntityModelFeatureEntityDto"
+              "$ref": "#/components/schemas/EntityModelFeatureEntityRawDto"
             },
             "type": "array"
           },
@@ -1343,6 +1629,39 @@
         },
         "type": "object"
       },
+      "SliceMetadata": {
+        "properties": {
+          "number": {
+            "format": "int64",
+            "type": "integer"
+          },
+          "size": {
+            "format": "int64",
+            "type": "integer"
+          }
+        },
+        "type": "object"
+      },
+      "SlicedModelEntityModelFeatureEntityRawDto": {
+        "properties": {
+          "content": {
+            "items": {
+              "$ref": "#/components/schemas/EntityModelFeatureEntityRawDto"
+            },
+            "type": "array"
+          },
+          "links": {
+            "items": {
+              "$ref": "#/components/schemas/Link"
+            },
+            "type": "array"
+          },
+          "page": {
+            "$ref": "#/components/schemas/SliceMetadata"
+          }
+        },
+        "type": "object"
+      },
       "StorageMetadata": {
         "properties": {
           "pluginBusinessId": {
@@ -1583,7 +1902,7 @@
       "name": "GPL-3.0"
     },
     "title": "MICROSERVICE FEM",
-    "version": "2.2.0"
+    "version": "2.3.0"
   },
   "openapi": "3.0.1",
   "paths": {
@@ -1618,7 +1937,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/PagedModelEntityModelFeatureEntityDto"
+                  "$ref": "#/components/schemas/PagedModelEntityModelFeatureEntityRawDto"
                 }
               }
             },
@@ -1627,7 +1946,7 @@
         },
         "summary": "Get features",
         "tags": [
-          "feature-entity-controller"
+          "Feature entity Controller"
         ]
       }
     },
@@ -1653,7 +1972,7 @@
         },
         "summary": "Delete features according to search parameters",
         "tags": [
-          "feature-entity-controller"
+          "Feature entity Controller"
         ]
       }
     },
@@ -1679,7 +1998,60 @@
         },
         "summary": "Notify features to given recipients according to search parameters",
         "tags": [
-          "feature-entity-controller"
+          "Feature entity Controller"
+        ]
+      }
+    },
+    "/admin/features/slice": {
+      "post": {
+        "description": "Return a slice of features matching criteria. Optionally exclude dissemination info.",
+        "operationId": "searchFeaturesSlice",
+        "parameters": [
+          {
+            "description": "Sorting and page configuration",
+            "in": "query",
+            "name": "pageable",
+            "required": true,
+            "schema": {
+              "$ref": "#/components/schemas/Pageable"
+            }
+          },
+          {
+            "in": "query",
+            "name": "includeDisseminationInfo",
+            "required": false,
+            "schema": {
+              "default": true,
+              "type": "boolean"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SearchFeatureSimpleEntityParameters"
+              }
+            }
+          },
+          "description": "Set of search criteria.",
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SlicedModelEntityModelFeatureEntityRawDto"
+                }
+              }
+            },
+            "description": "All features were retrieved."
+          }
+        },
+        "summary": "Get features",
+        "tags": [
+          "Feature entity Controller"
         ]
       }
     },
@@ -1703,7 +2075,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/FeatureEntityDto"
+                  "$ref": "#/components/schemas/FeatureEntityRawDto"
                 }
               }
             },
@@ -1712,7 +2084,7 @@
         },
         "summary": "Retrieve one feature by its urn",
         "tags": [
-          "feature-entity-controller"
+          "Feature entity Controller"
         ]
       }
     },

@@ -328,7 +328,8 @@
               "TO_DO",
               "PENDING",
               "DELAYED",
-              "ERROR"
+              "ERROR",
+              "SUCCESS"
             ],
             "type": "string"
           },
@@ -1081,7 +1082,7 @@
       "name": "GPL-3.0"
     },
     "title": "MICROSERVICE STORAGE",
-    "version": "2.2.0"
+    "version": "2.3.0"
   },
   "openapi": "3.0.1",
   "paths": {
@@ -2213,7 +2214,8 @@
                 "TO_DO",
                 "PENDING",
                 "DELAYED",
-                "ERROR"
+                "ERROR",
+                "SUCCESS"
               ],
               "type": "string"
             }
@@ -2263,7 +2265,8 @@
                 "TO_DO",
                 "PENDING",
                 "DELAYED",
-                "ERROR"
+                "ERROR",
+                "SUCCESS"
               ],
               "type": "string"
             }
@@ -2799,7 +2802,8 @@
                 "TO_DO",
                 "PENDING",
                 "DELAYED",
-                "ERROR"
+                "ERROR",
+                "SUCCESS"
               ],
               "type": "string"
             }

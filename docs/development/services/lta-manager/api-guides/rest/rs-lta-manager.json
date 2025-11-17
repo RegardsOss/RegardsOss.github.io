@@ -1062,7 +1062,7 @@
       "name": "GPL-3.0"
     },
     "title": "MICROSERVICE LTA MANAGER",
-    "version": "2.2.0"
+    "version": "2.3.0"
   },
   "openapi": "3.0.1",
   "paths": {
