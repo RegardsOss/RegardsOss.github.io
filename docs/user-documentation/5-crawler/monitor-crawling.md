@@ -38,9 +38,11 @@ Il y a également des boutons d'action :
 - <img src="/images/user-documentation/regards-icons/admin/clock.png" alt="clock" height="30" width="30"/> les boutons <b><i>Schedule an ingestion</i></b> permettent de démarrer une nouvelle aspiration. Cela n'a un impact que sur les nouvelles données n'ayant pas encore été aspirées. Cette fonctionnalité est utile si vous ne souhaitez pas attendre la prochaine aspiration programmée.  
 Dans le cas d'une aspiration incrémentale par date (ce qui est le cas pour les aspirations de type FEM ou OAIS), il est possible de renseigner une date à laquelle l'aspiration reprendra son aspiration. Cette date correspond à la date de dernière modification des entités.
 - <img src="/images/user-documentation/regards-icons/admin/delete.png" alt="reset" height="30" width="30"/> les 
-boutons <b><i>Delete</i></b> relancent l'aspiration de la totalité de la source. Les données déjà aspirées ne sont 
-pas supprimées mais susceptibles d'être mises à jour. Le catalogue reste donc toujours disponible, qu'il y ait une 
-réindexation en cours ou pas.
+boutons <b><i>Delete</i></b> relancent l'aspiration de la totalité de la source de données correspondantes. 
+Contrairement à une réindexation 
+complète, seules les données de la datasource concernée sont aspirées. Les éventuelles modifications de modèles ne sont 
+pas prises en compte lors de cette aspiration. Les données de la datasource déjà aspirées ne sont pas supprimées mais 
+susceptibles d'être mises à jour. Le catalogue reste toujours disponible pendant cette aspiration.
 
 ## En cas de réindexation en cours
 
