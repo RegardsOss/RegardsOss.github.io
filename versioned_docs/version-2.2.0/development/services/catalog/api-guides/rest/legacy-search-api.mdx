@@ -1,0 +1,63 @@
+---
+title: Legacy search API
+sidebar_label: Legacy Search API
+slug: /development/backend/services/catalog/api-guides/rest/legacy-search-api
+sidebar_position: 1
+---
+import RegardsApiSchema from '/src/redoc/RegardsApiSchema';
+import Spec from './rs-catalog.json';
+
+## Introduction
+
+This section describes how to search products from REGARDS meta catalog with specific lucene API.
+
+## REST API
+
+### How to
+
+The [Regards REST API concept](../../../../concepts/05-rest-api.md) describes how REST interfaces must be handled to
+submit requests.
+
+### Endpoints
+
+| description                                            | url                                                                   | verb |
+|--------------------------------------------------------|-----------------------------------------------------------------------|------|
+| Search entities                                        | `/api/v1/rs-catalog/engines/legacy/entities/search`                   | GET  |
+| Get a single entity from its Unique Resource Name      | `/api/v1/rs-catalog/engines/legacy/entities/{urn}`                    | GET  |
+| Search collections                                     | `/api/v1/rs-catalog/engines/legacy/collections/search`                | GET  |
+| Get a single collection from its Unique Resource Name  | `/api/v1/rs-catalog/engines/legacy/collections/{urn}`                 | GET  |
+| Search documents                                       | `/api/v1/rs-catalog/engines/legacy/documents/search`                  | GET  |
+| Get a single document from its Unique Resource Name    | `/api/v1/rs-catalog/engines/legacy/documents/{urn}`                   | GET  |
+| Search datasets                                        | `/api/v1/rs-catalog/engines/legacy/datasets/search`                   | GET  |
+| Get a single dataset from its Unique Resource Name     | `/api/v1/rs-catalog/engines/legacy/datasets/{urn}`                    | GET  |
+| Search data objects                                    | `/api/v1/rs-catalog/engines/legacy/dataobjects/search`                | GET  |
+| Get a single data object from its Unique Resource Name | `/api/v1/rs-catalog/engines/legacy/dataobjects/{urn}`                 | GET  |
+| Search data objects returning datasets                 | `/api/v1/rs-catalog/engines/legacy/dataobjects/datasets/search`       | GET  |
+| Search data objects in the specified dataset           | `/api/v1/rs-catalog/engines/legacy/datasets/{urn}/dataobjects/search` | GET  |
+
+### Query parameters
+
+| value    | description                                                                                                                                                                                                                            |
+|----------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `q`      | The search query in [lucene query format](../../../../appendices/02-create-lucene-query.md) for example `altitude:[1000 TO 2000] OR name:sensor-*`                                                                                     |
+| `facets` | The array of attribute names                                                                                                                                                                                                           |
+| `page`   | Page you want to retrieve, 0 indexed and default to 0                                                                                                                                                                                  |
+| `size`   | Size of the page you want to retrieve, defaults to 20                                                                                                                                                                                  |
+| `sort`   | Properties that should be sorted by in the format `property,property(,ASC/DESC)`. <br/>Default sort direction is ascending. Use multiple `sort` parameters if you want to switch directions, e.g. `?sort=firstname&sort=lastname,asc.` |
+
+### Using CURL to run search requests
+
+To be able to run search request with cURL tool, you have to encode url parameters. To do so, you can use the here under
+cURL syntaxe to run GET request with encoded parameters :
+
+```bash
+curl -G 'http://<host>/api/v1//rs-catalog/engines/legacy/dataobjects/search' \
+--data-urlencode "q=(param1:test OR param2:test)" \
+-H 'Authorization: Bearer <token>' -H 'Accept: application/json'
+```
+
+### Query parameter
+
+The query parameter is a String containing search criteria on attributs models formated
+with [lucene format](../../../../appendices/02-create-lucene-query.md).
+To know the list of queryable attributs refer to the associated Data Model in **rs-dam** microservice.

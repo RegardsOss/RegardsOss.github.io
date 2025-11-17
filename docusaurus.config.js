@@ -1,5 +1,5 @@
 // Indicates the version of /docs /releases_notes.. folders
-const currentVersion = "2.2.0";
+const currentVersion = "2.3.0";
 // Indicates the version displayed by default while browsing on the website
 // Default value: "current"
 // You can provide the last version to create a next version unreleased
@@ -47,8 +47,7 @@ module.exports = {
                 alt: "Site Logo",
                 src: "img/logos/regards-svg/regards-white.svg",
             },
-            items: [
-                {
+            items: [{
                     type: 'doc',
                     docId: 'overview/functional-overview/overview',
                     label: 'Overview',
@@ -76,12 +75,10 @@ module.exports = {
                     type: "docsVersionDropdown",
                     position: "right",
                     dropdownActiveClassDisabled: true,
-                    dropdownItemsAfter: [
-                        {
-                            to: "/versions",
-                            label: "All versions",
-                        },
-                    ],
+                    dropdownItemsAfter: [{
+                        to: "/versions",
+                        label: "All versions",
+                    }, ],
                 },
                 {
                     to: "roadmap/",
@@ -111,20 +108,16 @@ module.exports = {
         },
         footer: {
             style: "dark",
-            links: [
-                {
+            links: [{
                     title: "Users",
-                    items: [
-                        {
-                            label: "Manual",
-                            to: "/docs/user-guide/",
-                        },
-                    ],
+                    items: [{
+                        label: "Manual",
+                        to: "/docs/user-guide/",
+                    }, ],
                 },
                 {
                     title: "Developpers",
-                    items: [
-                        {
+                    items: [{
                             label: "Install",
                             href: "/docs/setup/",
                         },
@@ -136,18 +129,16 @@ module.exports = {
                 },
                 {
                     title: "More",
-                    items: [
-                        {
-                            label: "GitHub",
-                            href: "https://github.com/RegardsOss/",
-                        },
-                    ],
+                    items: [{
+                        label: "GitHub",
+                        href: "https://github.com/RegardsOss/",
+                    }, ],
                 },
             ],
             copyright: `Copyright © ${new Date().getFullYear()} REGARDS, OSS. Built with Docusaurus.`,
         },
         mermaid: {
-            theme: {light: 'forest', dark: 'forest'},
+            theme: { light: 'forest', dark: 'forest' },
         },
     },
     plugins: [
