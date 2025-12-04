@@ -30,44 +30,71 @@ Each Elasticsearch index stores products for each project or tenant created in t
 
 ## Main points of data modification in Elasticsearch
 
-The data stored in Elasticsearch consist of Datasets and DataObjects. DataObjects can originate from various sources depending on the selected plugin (OAIS, FEM, external database, etc.).
+The data stored in Elasticsearch consist of Datasets and DataObjects. DataObjects can originate from various sources
+depending on the selected plugin (OAIS, FEM, external database, etc.).
 
 In REGARDS, there are several ways to add, modify, or delete objects stored in Elasticsearch:
-1. Through the `CrawlingJob` (data crawler/harvester), which will be detailed in the [following sections](#crawling-job-crawlonedatasourcejob).
-2. When a Dataset is updated OR when access rights to a Dataset are modified, a `DatasetEvent` is triggered and processed by rs-dam to update the Dataset stored in Elasticsearch, as well as all DataObjects linked to this Dataset.
-3. When a product is deleted from the OAIS or FEM catalogs, a `FeatureEvent` is generated and processed by rs-dam, which immediately requests the deletion of the dataObject from ElasticSearch.
+
+1. Through the `CrawlingJob` (data crawler/harvester), which will be detailed in
+   the [following sections](#crawling-job-crawlonedatasourcejob).
+2. When a Dataset is updated OR when access rights to a Dataset are modified, a `DatasetEvent` is triggered and
+   processed by rs-dam to update the Dataset stored in Elasticsearch, as well as all DataObjects linked to this Dataset.
+3. When a product is deleted from the OAIS or FEM catalogs, a `FeatureEvent` is generated and processed by rs-dam, which
+   immediately requests the deletion of the dataObject from ElasticSearch.
 
 ## Meta catalog population
 
-A scheduler is launched at a configurable interval to iterate through each configured datasource and create a job `CrawlOneDatasourceJob` if needed. This allows independent and parallel management of data ingestion for each datasource. The scheduling frequency can be adjusted by the user (see the [static configuration](./configuration/dam-static-configuration.md))
+A scheduler is launched at a configurable interval to iterate through each configured datasource and create a job
+`CrawlOneDatasourceJob` if needed. This allows independent and parallel management of data ingestion for each
+datasource. The scheduling frequency can be adjusted by the user (see
+the [static configuration](./configuration/dam-static-configuration.md))
 
 ### Crawling Job (CrawlOneDatasourceJob)
 
 The main steps performed by each job are:
 
 #### 1. Retrieve new products from the catalog
- Using an implementation of the [IDataSourcePlugin interface](https://github.com/RegardsOss/regards-backend/blob/master/rs-dam/dam/dam-domain/src/main/java/fr/cnes/regards/modules/dam/domain/datasources/plugins/IDataSourcePlugin.java), the system retrieves new products and transforms the datasource-specific product format into the REGARDS standard format. See more details [below](#retrieve-new-products-from-data-sources)
+
+Using an implementation of
+the [IDataSourcePlugin interface](https://github.com/RegardsOss/regards-backend/blob/master/rs-dam/dam/dam-domain/src/main/java/fr/cnes/regards/modules/dam/domain/datasources/plugins/IDataSourcePlugin.java),
+the system retrieves new products and transforms the datasource-specific product format into the REGARDS standard
+format. See more details [below](#retrieve-new-products-from-data-sources)
 
 #### 2. Insert or update products in the Elasticsearch index
- New or updated products retrieved in step 1 are inserted or updated in the appropriate Elasticsearch index using upsert requests. The upsert operation ensures that a product is either created or updated in a single atomic operation, depending on its existence. See more details [below](#insert-or-update-new-products-in-meta-catalog)
 
-:::note 
-Upsert requests are sent in parallel to Elasticsearch to improve performance. Each upsert request contains a configurable batch of products, and the number of parallel requests is also configurable to optimize throughput according to the cluster's capacity.
+New or updated products retrieved in step 1 are inserted or updated in the appropriate Elasticsearch index using upsert
+requests. The upsert operation ensures that a product is either created or updated in a single atomic operation,
+depending on its existence. See more details [below](#insert-or-update-new-products-in-meta-catalog)
+
+:::note
+Upsert requests are sent in parallel to Elasticsearch to improve performance. Each upsert request contains a
+configurable batch of products, and the number of parallel requests is also configurable to optimize throughput
+according to the cluster's capacity.
 :::
 :::warning
- Ensure that the Hikari connection pool size (regards.jpa.multitenant.maxPoolSize) is STRICTLY GREATER than the Elasticsearch threadpool size (regards.elasticsearch.threadpool.size) to avoid connection starvation. Otherwise, rs-dam may enter in deadlock state, with all threads waiting for a connection from the pool, and no thread available to release a connection.
+Ensure that the Hikari connection pool size (regards.jpa.multitenant.maxPoolSize) is STRICTLY GREATER than the
+Elasticsearch threadpool size (regards.elasticsearch.threadpool.size) to avoid connection starvation. Otherwise, rs-dam
+may enter in deadlock state, with all threads waiting for a connection from the pool, and no thread available to release
+a connection.
 :::
 
 #### 3. Update access groups for products
-The update of access groups is performed using a dedicated Painless script in Elasticsearch, allowing all necessary changes to be applied in a single update request on the Elasticsearch side. This is achieved by sending an 'update by query' request to Elasticsearch, specifying the script id. This single request allows Elasticsearch to apply the script to all documents matching the filter—typically all the data ingested in the previous step—thus efficiently updating access groups for a large set of products at once. See more details [below](#3-update-access-groups-for-products)
-:::note 
-If needed (depending on access rights configuration), access groups are updated for products using an implementation of the `IDataObjectAccessFilterPlugin` interface to apply any custom product filtering. This operation cannot be performed by the update group script and must be manually calculated by REGARDS, updating each document individually. 
+
+The update of access groups is performed using a dedicated Painless script in Elasticsearch, allowing all necessary
+changes to be applied in a single update request on the Elasticsearch side. This is achieved by sending an 'update by
+query' request to Elasticsearch, specifying the script id. This single request allows Elasticsearch to apply the script
+to all documents matching the filter—typically all the data ingested in the previous step—thus efficiently updating
+access groups for a large set of products at once. See more details [below](#3-update-access-groups-for-products)
+:::note
+If needed (depending on access rights configuration), access groups are updated for products using an implementation of
+the `IDataObjectAccessFilterPlugin` interface to apply any custom product filtering. This operation cannot be performed
+by the update group script and must be manually calculated by REGARDS, updating each document individually.
 :::
 
-
 #### 4. Compute calculated attributes
-If the data model contains calculated attributes, these are computed using an implementation of the `IComputedAttribute` interface.
 
+If the data model contains calculated attributes, these are computed using an implementation of the `IComputedAttribute`
+interface.
 
 ### Retrieve new products from data sources
 
@@ -110,8 +137,6 @@ see [UI](../../../user-documentation/5-crawler/configure-database.md)). The Post
 **Dataset** and **Data** entities are stored in a different Elasticsearch index for each project/tenant in
 REGARDS application. There is only one index for each tenant.
 
-
-
 ### Access rights calculation for dataset
 
 :::note
@@ -139,11 +164,12 @@ microservice properties with the properties `regards.access.rights.update.cron`.
 
 ## Meta catalog reindexation
 
-Reindexation allows rebuilding the Elasticsearch index of a tenant from its data sources, ensuring that the meta 
+Reindexation allows rebuilding the Elasticsearch index of a tenant from its data sources, ensuring that the meta
 catalog remains consistent, and aligned with the latest data models.
 
 Each tenant/project in REGARDS has its own Elasticsearch index, referenced by an **alias**.
-During a reindexation, a **new index** is created, populated, and validated before it replaces the current one — ensuring 
+During a reindexation, a **new index** is created, populated, and validated before it replaces the current one —
+ensuring
 that the meta catalog REGARDS remains available without interruption.
 
 ### Process overview
@@ -153,11 +179,12 @@ When a reindexation is triggered, the process follows these main steps:
 #### 1. Create a new index
 
 A new Elasticsearch index is created for the tenant, using the latest model mappings and settings.
-The index name is automatically generated and associated to the tenant’s alias entry (`EsIndexAlias` entity) as the 
+The index name is automatically generated and associated to the tenant’s alias entry (`EsIndexAlias` entity) as the
 **building index**. An alias points to exactly one index.
 
 The tenant’s alias follows the naming convention: [PROJECT_NAME]_alias.
-Each new building index created for this tenant follows the pattern [PROJECT_NAME]_XXXXX_X, where the final digit increments with every new rebuild.
+Each new building index created for this tenant follows the pattern [PROJECT_NAME]_XXXXX_X, where the final digit
+increments with every new rebuild.
 
 **Example** :
 Project/tenant : _projectA_
@@ -168,22 +195,23 @@ Building index: _projectA_3472e9_4_
 #### 2. Populate the new index
 
 All active data sources of the tenant are crawled using the same ingestion workflow as the standard `CrawlingJob`.
-Products are retrieved, transformed into REGARDS entities (DATA DATASET or COLLECTION), and inserted into the 
+Products are retrieved, transformed into REGARDS entities (DATA DATASET or COLLECTION), and inserted into the
 **building index**.
 
 #### 3. Wait for all ingestion jobs to finish
 
-Once ingestion starts, the system monitors the running jobs associated with the building index until all have 
+Once ingestion starts, the system monitors the running jobs associated with the building index until all have
 completed twice.
 This ensures that the index is fully populated and consistent before activation.
 
 #### 4. Switch aliases
 
-When the new index is ready, `rs-dam` performs an alias switch. The alias is updated to point to the new index ; the 
+When the new index is ready, `rs-dam` performs an alias switch. The alias is updated to point to the new index ; the
 previous index is obsolete and is ready to be deleted.
 This operation is transparent for end users: **queries using the alias never experience downtime**.
 
 #### 5. Clean up old indexes
+
 Once the alias has been switched, the old index (previously referenced as current) is deleted to free resources.
 The old ingestions and the jobs they are associated with are removed too.
 
@@ -212,7 +240,7 @@ Caching mechanisms ensure quick access to alias information while keeping the da
 - model of the products in this dataset
 - Identifier of the dataset model
 - Identifier of the plugin used to load products from a data source
-- sub-setting criterion setting on a Dataset for Elasticsearch
+- sub-setting criterion setting on a dataset for Elasticsearch
 
 The following tables show the structure of stocked entities in Elasticsearch index of REGARDS.
 
@@ -231,14 +259,14 @@ The following tables show the structure of stocked entities in Elasticsearch ind
 | ipId                       | text                              | Identifier of Uniform Resource Name type (format: `URN:StringId:DATA:tenant:UUID(entityId):version[,order][:revision]`) |
 | metadata                   | Object(see details below)         | Information about a group access to a specific dataset for data objects                                                 |
 | model                      | Object                            | Entity model                                                                                                            |
-| model.description          | text                              | Model description                                                                                                       |
+| _model.description_        | text                              | Model description                                                                                                       |
 | _model.id_                 | long                              | Model technical identifier for database                                                                                 |
 | _model.name_               | text                              | Model name (identical with model property of feature)                                                                   |
 | _model.type_               | text                              | Model type : DATA                                                                                                       |
-| newPoint                   | geo_point                         | Bounding box north west point                                                                                           |
-| setPoint                   | geo_point                         | Bounding box south east point                                                                                           |
+| nwPoint                    | geo_point                         | Bounding box north west point                                                                                           |
+| sePoint                    | geo_point                         | Bounding box south east point                                                                                           |
 | openSearchSubsettingClause | text                              | Representation of the above subsetting clause as an OpenSearch string request                                           | 
-| tags                       | text                              | List of tags (included related dataset)                                                                                 |
+| tags                       | text                              | List of tags (related dataset identifiers)                                                                              |
 | wgs84                      | geo_shape                         | Geometry projection on WGS84 crs                                                                                        |
 | feature                    | Object(see details below)         | Raw entity feature                                                                                                      |
 
@@ -247,7 +275,7 @@ Metadata for **DATA** type of entity
 | Name                              | Type    | Description                                           |
 |-----------------------------------|---------|-------------------------------------------------------|
 | groups                            | Map     | Map of group names with access right for dataset      |
-| groups.\<name\>.dataset           | text    | Identifier of Uniform Resource Name type for dataset  |
+| _groups.\<name\>.dataset_         | text    | Identifier of Uniform Resource Name type for dataset  |
 | _groups.\<name\>.dataAccessRight_ | boolean | true if access right for the dataset; otherwise false |
 | modelNames                        | Map     | Map of model names with dataset URN                   |
 | _modelNames.\<name\>.\<URN\>_     | text    | Identifier of Uniform Resource Name type for dataset  |
@@ -276,7 +304,7 @@ Feature for **DATA** type of entity
 | _DataFile.filesize_              | double                    | Size of file                                                                                                                             |
 | _DataFile.filename_              | text                      | File name                                                                                                                                |
 | _DataFile.types_                 | array                     | Custom data file types                                                                                                                   |
-| tags                             | text                      | List of tags (included dataset identifier)                                                                                               |
+| tags                             | text                      | List of tags (related dataset identifiers)                                                                                               |
 | last                             | boolean                   | true if this the last version; otherwise false                                                                                           |
 | version                          | text                      | Entity version                                                                                                                           |
 | id                               | text                      | Identifier of Uniform Resource Name type (identical with IpId property)                                                                  |
@@ -313,8 +341,6 @@ Feature for **DATA** type of entity
 | _model.id_                        | long                              | Model technical identifier for database                                                                                 |
 | _model.name_                      | text                              | Model name (identical with model property of feature)                                                                   |
 | _model.type_                      | text                              | Model type : DATASET                                                                                                    |
-| newPoint                          | geo_point                         | Bounding box north west point                                                                                           |
-| setPoint                          | geo_point                         | Bounding box south east point                                                                                           |
 | openSearchSubsettingClause        | text                              | Representation of the above subsetting clause as an OpenSearch string request                                           |
 | plgConfDataSource                 | Object                            | Plugin configuration for the extension point (IDataSourcePlugin interface)                                              |
 | _plgConfDataSource.active_        | boolean                           | Active or not the plugin                                                                                                |
