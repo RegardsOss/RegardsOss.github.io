@@ -152,7 +152,8 @@ order.
 erDiagram
 
   Order 1--0+ DatasetTask : order_id
-  DatasetTask 1--0+ FilesTask : parent_id
+  DatasetTask zero or one--1 AbstractReliantTask : id
+  AbstractReliantTask 1--0+ FilesTask : parent_id
   FilesTask 1--0+ OrderDataFile : files_task_id
   FilesTask 1--1 ta_task_job_info : task_info_id
   JobInfo 1--1 ta_task_job_info : job_info_id
@@ -161,6 +162,7 @@ erDiagram
     long id
   }
   DatasetTask["DatasetTask (t_dataset_task)"]
+  AbstractReliantTask["AbstractReliantTask (t_task)"]
   FilesTask["FilesTask (t_files_task)"] {
     long order_id
   }
@@ -177,6 +179,7 @@ erDiagram
 
 * **Order**: an entire order.
 * **DatasetTask**: the task for one dataset of the order, may be composed of one or several sub-orders.
+* **AbstractReliantTask**: parent class of `DatasetTask`, but realized as a separate table in database
 * **FilesTask**: a sub-order, either internal (files are stored by REGARDS) or external (files are only referenced by REGARDS). An
   internal sub-order is  associated to one `StorageFilesJob` job and optionally one `ProcessExecutionJob` job.
 * **OrderDataFile**: one file in a sub-order.
