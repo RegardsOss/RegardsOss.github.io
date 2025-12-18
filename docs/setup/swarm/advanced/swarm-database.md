@@ -5,8 +5,9 @@ slug: /setup/swarm/advanced/postgres-database/
 sidebar_position: 4
 ---
 
-Supported Postgres version: 11  
-Posgis extension: Facultative
+Supported Postgres versions: 11-15  
+Posgis extension: Facultative  
+SSL connection: Supported
 
 ### Configure phppgadmin
 
@@ -51,12 +52,38 @@ group_config_mservices:
       db: <instance database name>
       user: <some user>
       password: "{{ regards_vault.group_config_mservices.postgres.instance.password }}"
+      ssl:
+        mode: disable | allow | prefer | require
     init_project:
       host: database-first-project.cnes.fr
       port: 5432
       db: <first project database name>
       user: <some user>
       password: "{{ regards_vault.group_config_mservices.init_project.instance.password }}"
+```
+
+The option `ssl.mode` can be omitted, its default value being `prefer`. More details about this value and other 
+supported value are available in 
+[Postgres documentation](https://www.postgresql.org/docs/current/libpq-ssl.html#LIBPQ-SSL-PROTECTION) under the section
+*Table 32.1. SSL Mode Descriptions*.
+
+- (optional) use a different database for the `rs-processing` microservice
+
+By default, `rs-processing` uses the database defined under the section `group_config_mservices.postgres.instance`.
+To use a different database for this microservice, add this section:
+
+```yaml
+group_config_mservices:
+  [ ... ]
+  processing:
+    db:
+      host: database-processing.cnes.fr
+      port: 5432
+      db: <processing database name>
+      user: <some user>
+      password: "{{ regards_vault.group_config_mservices.postgres.processing.password }}"
+      ssl:
+        mode: disable | allow | prefer | require
 ```
 
 - remove the Postgres service that was deployed inside `group_docker_cots`
