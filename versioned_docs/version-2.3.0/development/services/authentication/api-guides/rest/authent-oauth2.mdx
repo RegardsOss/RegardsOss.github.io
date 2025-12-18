@@ -1,0 +1,98 @@
+---
+id: backend-authentication-token-oauth2
+title: Get JWT Token
+sidebar_label: Get JWT Token
+slug: /development/backend/services/authentication/api-guides/retrieve-token-oauth2/
+---
+
+## Introduction
+
+This section describes how to authenticate through `rs-authentication` microservice and retrieve a JWT Token.
+JWT token is mandatory to access every REGARDS microservice REST API.
+
+## REST API
+
+### How to
+
+The [Regards REST API concept](../../../../concepts/05-rest-api.md) describes how REST interfaces must be handled to
+submit requests.
+
+### Endpoint
+
+| Endpoint                                                                  | Verb |
+|---------------------------------------------------------------------------|------|
+| [/oauth/token](./authentication-api-swagger.mdx#tag/aip-controller/operation/searchAIPs) | POST |
+
+### Request headers
+
+```json
+{
+  "Content-Type": "application/json;charset=UTF-8",
+  "Accept": "application/json",
+  "Authorization": "Basic Y2xpZW50OnNlY3JldA=="
+}
+```
+
+### Query parameters
+
+The only query parameter needed is the scope parameter containing the
+[project or tenant](../../../../concepts/03-multitenant.md) to authenticate to.
+
+| Parameter    | Type   | Optional | Description                                                                                |
+|--------------|--------|:--------:|--------------------------------------------------------------------------------------------|
+| `scope`      | String |    No    | The REGARDS [project or tenant](../../../../concepts/03-multitenant.md) to authenticate to |
+
+
+### Body parameters
+
+| Parameter    | Type   | Optional | Description                                                                                |
+|--------------|--------|:--------:|--------------------------------------------------------------------------------------------|
+| `grant-type` | String |    No    | The authentication grant_type. REGARDS only allows `password` value                        |
+| `scope`      | String |    No    | The REGARDS [project or tenant](../../../../concepts/03-multitenant.md) to authenticate to |
+| `username`   | String |    No    | User login                                                                                 |
+| `password`   | String |    No    | User password                                                                              |
+
+### Response
+
+Below is a response exemple. The `access_token` is the token you will need to access every REGARDS API endpoints.
+
+```json
+{
+  "access_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.ey...",
+  "email": "user@regards.fr",
+  "expires_in": 43199,
+  "role": "USER_ROLE",
+  "scope": "project1",
+  "sub": "user@regards.fr",
+  "tenant": "project1",
+  "token_type": "bearer"
+}
+```
+
+| Parameter    | Type   | Description                                                 |
+|--------------|--------|-------------------------------------------------------------|
+| access_token | String | The JWT token to use in rest api                            |
+| email        | String | email of the authenticated user                             |
+| expires_in   | Number | The generated token will expires in this number os seconds  | 
+| role         | String | Role of the authenticated user                              |
+| scope        | String | [project or tenant](../../../../concepts/03-multitenant.md) |
+| sub          | String | Login of the authenticated user                             |
+| tenant       | String | [project or tenant](../../../../concepts/03-multitenant.md) |
+| token_type   | String | Always **bearer**                                           |
+
+### Example with cURL
+
+You can access authentication endpoint with a `cURL` request to the RS-AUTHENTICATION microservice
+
+```bash
+curl '<host>/api/v1/rs-authentication/oauth/token?scope=<scope>' \
+--header 'Authorization: Basic Y2xpZW50OnNlY3JldA==' \
+--header 'Content-Type: application/json' \
+-d '{"username": "my_username","password": "my_password","grant_type": "password"}'
+```
+
+## Token usage
+
+To lean how to use retrieved token to access all REGARDS microservices rest endpoints see
+[REST API Guide section](../../../../concepts/05-rest-api.md). 
+

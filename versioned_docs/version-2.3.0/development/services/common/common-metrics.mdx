@@ -1,0 +1,125 @@
+## Available metrics
+
+This section describes the available metrics provided by the Micrometer Java library.
+
+All available metrics can be accessed through the actuator endpoint inside the microservice Docker container. By default, the actuator port is not exposed outside of the Docker container.
+
+To retrieve the metrics, you can use the following curl command:
+
+```bash
+curl http://localhost:8081/actuator/metrics?scope=tenant
+```
+
+Where `tenant` is the name of your project.
+
+The `8081` port is fixed for all REGARDS microservice deployments.
+
+:::info
+By default the 8081 port is not open in the microservices docker containers. So if you want to access it outside the docker network, 
+you need to open it as describe in the [Microservice configuration manual](../../../setup/swarm/advanced/microservices-configs#open-microservices-ports).
+:::
+
+## General Metrics  
+
+Provides metrics about running spring boot application.
+
+| Metric label | Type  | Description |
+| ------------ | ----  | ----------- |
+| application.ready.time | Timer | Time elapsed in seconds from application startup to readiness for requests. |
+| application.started.time | Timer | Time elapsed in seconds from application startup to the completion of initialization. |
+| disk.free | Gauge | Available disk space on the system in bytes. |
+| disk.total | Gauge | Total disk size in bytes. |
+| process.cpu.time | Timer | Total CPU time consumed by the process in nanoseconds. |
+| process.cpu.usage | Gauge | Percentage of CPU usage by the current process (between 0 and 1). |
+| process.files.max | Gauge | Maximum number of open files allowed for the process. |
+| process.files.open | Gauge | Current number of open files by the process. |
+| process.start.time | Gauge | Timestamp of process start time in seconds since Unix epoch. |
+| process.uptime | Timer | Time the process has been running in seconds. |
+| system.cpu.count | Gauge | Total number of CPU cores available on the system. |
+| system.cpu.usage | Gauge | Average CPU usage of the system (between 0 and 1). |
+| system.load.average.1m | Gauge | System load average over the last minute. |
+| tasks.scheduled.execution | Counter | Total number of scheduled tasks executed. |
+| tasks.scheduled.execution.active | Gauge | Current number of scheduled tasks running. |
+
+## JVM Metrics  
+
+Provides metrics about the JVM running the spring boot application.
+
+| Metric label | Type  | Description |
+| ------------ | ----  | ----------- |
+| jvm.buffer.count | Gauge | Number of memory buffers used by the JVM. |
+| jvm.buffer.memory.used | Gauge | Amount of memory used by buffers in bytes. |
+| jvm.buffer.total.capacity | Gauge | Total capacity of buffers in bytes. |
+| jvm.classes.loaded | Gauge | Total number of classes loaded by the JVM. |
+| jvm.classes.unloaded | Counter | Total number of classes unloaded by the JVM. |
+| jvm.compilation.time | Counter | Total time spent in JIT compilation in milliseconds. |
+| jvm.gc.live.data.size | Gauge | Current size of live data after garbage collection. |
+| jvm.gc.max.data.size | Gauge | Maximum size of live data allowed. |
+| jvm.gc.memory.allocated | Counter | Total amount of memory allocated by the GC in bytes. |
+| jvm.gc.memory.promoted | Counter | Total amount of memory promoted to old generation. |
+| jvm.gc.overhead | Gauge | Percentage of JVM time spent on garbage collection. |
+| jvm.gc.pause | Timer | Duration of garbage collection pauses. |
+| jvm.info | Gauge | Information about the running JVM version. |
+| jvm.memory.committed | Gauge | Memory allocated by the JVM in bytes. |
+| jvm.memory.max | Gauge | Maximum memory allocated by the JVM in bytes. |
+| jvm.memory.usage.after.gc | Gauge | Memory usage after garbage collection. |
+| jvm.memory.used | Gauge | Memory currently used by the JVM in bytes. |
+| jvm.threads.daemon | Gauge | Number of daemon threads. |
+| jvm.threads.live | Gauge | Number of currently active threads. |
+| jvm.threads.peak | Gauge | Peak number of active threads. |
+| jvm.threads.started | Counter | Total number of threads created since startup. |
+| jvm.threads.states | Gauge | Distribution of threads by state (RUNNABLE, BLOCKED, WAITING, etc.). |
+
+## Jetty Metrics  
+
+Provides metrics about the Jetty server used by spring boot application.
+
+| Metric label | Type  | Description |
+| ------------ | ----  | ----------- |
+| jetty.connections.bytes.in | Counter | Total number of bytes received by Jetty connections. |
+| jetty.connections.bytes.out | Counter | Total number of bytes sent by Jetty connections. |
+| jetty.connections.current | Gauge | Current number of active Jetty connections. |
+| jetty.connections.max | Gauge | Maximum number of Jetty connections observed. |
+| jetty.connections.messages.in | Counter | Total number of messages received by Jetty. |
+| jetty.connections.messages.out | Counter | Total number of messages sent by Jetty. |
+| jetty.connections.request | Counter | Total number of HTTP requests handled by Jetty. |
+| jetty.threads.busy | Gauge | Number of currently busy threads in Jetty. |
+| jetty.threads.config.max | Gauge | Maximum number of configured threads in Jetty. |
+| jetty.threads.config.min | Gauge | Minimum number of configured threads in Jetty. |
+| jetty.threads.current | Gauge | Total number of current threads used by Jetty. |
+| jetty.threads.idle | Gauge | Number of idle threads in Jetty. |
+| jetty.threads.jobs | Counter | Total number of jobs executed by Jetty threads. |
+
+## Database Access Metrics  
+
+Provides metrics about the all the accesses to the microservice database.
+
+| Metric label | Type  | Description |
+| ------------ | ----  | ----------- |
+| hikaricp.connections | Gauge | Current number of connections managed by HikariCP. |
+| hikaricp.connections.acquire | Timer | Average time taken to acquire a connection from the pool. |
+| hikaricp.connections.active | Gauge | Number of currently active connections. |
+| hikaricp.connections.creation | Counter | Total number of created connections. |
+| hikaricp.connections.idle | Gauge | Number of idle connections available in the pool. |
+| hikaricp.connections.max | Gauge | Maximum number of connections allowed in the pool. |
+| hikaricp.connections.min | Gauge | Minimum number of connections maintained in the pool. |
+| hikaricp.connections.pending | Gauge | Number of pending requests for a connection. |
+| hikaricp.connections.timeout | Counter | Number of connections that timed out due to unavailability. |
+| hikaricp.connections.usage | Gauge | Percentage of time connections are in use. |
+| http.client.requests | Counter | Total number of HTTP requests sent by the client. |
+| http.client.requests.active | Gauge | Current number of ongoing HTTP client requests. |
+| http.server.requests | Counter | Total number of HTTP requests received by the server. |
+| http.server.requests.active | Gauge | Current number of ongoing HTTP server requests. |
+| jdbc.connections.active | Gauge | Current number of active JDBC connections. |
+| jdbc.connections.idle | Gauge | Number of idle JDBC connections. |
+| jdbc.connections.max | Gauge | Maximum number of JDBC connections opened simultaneously. |
+| jdbc.connections.min | Gauge | Minimum number of JDBC connections kept open. |
+| spring.data.repository.invocations | Counter | Total number of Spring Data repository invocations. |
+
+## Common REGARDS metrics
+
+| Metric label | Type  | Description |
+| ------------ | ----  | ----------- |
+| regards_job_creation_count | Counter | Number of job creation |
+| regards_job_done_count | Counter | Number of terminated jobs |
+| regards_running_job_count | Counter | Number of running jobs |
