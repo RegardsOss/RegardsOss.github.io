@@ -2657,7 +2657,7 @@
       "name": "GPL-3.0"
     },
     "title": "MICROSERVICE DAM",
-    "version": "2.3.0"
+    "version": "2.3.1"
   },
   "openapi": "3.0.1",
   "paths": {
@@ -4096,6 +4096,7 @@
         ]
       },
       "post": {
+        "description": "Create a datasource, ie a plugin configuration of type IDataSourcePlugin",
         "operationId": "createDataSource",
         "requestBody": {
           "content": {
@@ -4119,6 +4120,40 @@
             "description": "OK"
           }
         },
+        "summary": "Create a datasource",
+        "tags": [
+          "data-source-controller"
+        ]
+      }
+    },
+    "/datasources/exists/{pluginId}": {
+      "get": {
+        "description": "Return true if a datasource with the same pluginId exists",
+        "operationId": "datasourceWithsamePluginExists",
+        "parameters": [
+          {
+            "description": "The plugin id",
+            "in": "path",
+            "name": "pluginId",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "*/*": {
+                "schema": {
+                  "type": "boolean"
+                }
+              }
+            },
+            "description": "True if a datasource with the same pluginId exists"
+          }
+        },
+        "summary": "Check if a datasource with the same pluginId exists",
         "tags": [
           "data-source-controller"
         ]

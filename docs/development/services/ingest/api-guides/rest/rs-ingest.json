@@ -2834,7 +2834,7 @@
       "name": "GPL-3.0"
     },
     "title": "MICROSERVICE INGEST",
-    "version": "2.3.0"
+    "version": "2.3.1"
   },
   "openapi": "3.0.1",
   "paths": {
@@ -3001,7 +3001,7 @@
             "description": "All AIPs were retrieved."
           }
         },
-        "summary": "Get AIPs slice",
+        "summary": "Get AIPs",
         "tags": [
           "aip-controller"
         ]
