@@ -71,6 +71,11 @@ pour la qualification, 10 bases de données pour l'exploitation, 1 base de donn�
 qualification et 1 base de données pour la partie Instance en exploitation.
 :::
 
+<div align="center">
+    <img src="/images/user-documentation/v2.4/1-global-configuration/database-connection.png" alt="database" 
+width="800"/> 
+</div>
+
 Les informations suivantes vous seront alors demandées :
 
 - ***Database ip address*** *[Obligatoire]*, hôte de la base de données posgres
@@ -79,6 +84,10 @@ Les informations suivantes vous seront alors demandées :
 - ***User*** *[Obligatoire]*, identifiant de connexion à la base de données. Cet utilisateur doit avoir les **droits de
   création et suppression des schémas** de la base de données spécifiée ci-dessus
 - ***Password*** *[Obligatoire]*, mot de passe de connexion à la base de données
+- ***SSL mode***, mode de sécurisation de la connexion à la base de données. La valeur par défaut est ***require***. 
+  Deux valeurs sont possibles :
+  - ***require*** : la connexion à la base de données doit obligatoirement être établie via SSL/TLS. Si une connexion sécurisée ne peut pas être négociée, la connexion échoue.
+  - ***prefer*** : le client tente d'abord d'établir une connexion SSL/TLS. Si ce n'est pas possible, il bascule sur une connexion non chiffrée.
 
 Une fois cette étape terminée, vous obtiendrez la liste des connexions aux schémas de la base de données. L'état de
 chacune d'entre elles est indiqué par le ***Configuration status***. Après un temps d'initialisation, nécessaire à la

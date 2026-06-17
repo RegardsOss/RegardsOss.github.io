@@ -62,9 +62,11 @@ group_config_mservices:
       password: "{{ regards_vault.group_config_mservices.init_project.instance.password }}"
 ```
 
-The option `ssl.mode` can be omitted, its default value being `prefer`. More details about this value and other 
-supported value are available in 
-[Postgres documentation](https://www.postgresql.org/docs/current/libpq-ssl.html#LIBPQ-SSL-PROTECTION) under the section
+The default value of the `ssl.mode` option is `require`. This enforces a secure (TLS) connection. If the database does 
+not support TLS connections, this value must be changed. 
+
+More details about this value and other supported value 
+are available in [Postgres documentation](https://www.postgresql.org/docs/current/libpq-ssl.html#LIBPQ-SSL-PROTECTION) under the section
 *Table 32.1. SSL Mode Descriptions*.
 
 - (optional) use a different database for the `rs-processing` microservice
