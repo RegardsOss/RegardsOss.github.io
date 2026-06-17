@@ -85,8 +85,8 @@ This diagram does not describe the handling of errors that may occur at differen
 
 ### Quota
 
-The quota represents the total amount of data (in bytes) a user can download before needing to wait to download more
-files.
+The quota represents the total number of **files** a user can download. Each downloaded file costs **1 quota unit**,
+regardless of its size.
 
 When downloading a file using the [Catalog](../catalog/overview.md) microservice, the storage microservice checks
 whether the user has exceeded their **maximum quota**. If the quota is exceeded, the download is blocked, and an error
