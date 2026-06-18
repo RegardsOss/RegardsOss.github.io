@@ -10,16 +10,21 @@ slug: /user-guide/catalog/protocols/opensearch
 
 ### Description
 
-Il est possible d'intérroger le catalogue REGARDS grâce au protocol [OpenSearch](https://github.com/dewitt/opensearch). 
+Il est possible d'intérroger le catalogue REGARDS grâce au protocol [OpenSearch](https://github.com/dewitt/opensearch).
 
-### Configuration 
+### Configuration
 
-Cliquez sur le bouton <img src="/images/user-documentation/regards-icons/admin/add.png" alt="add" height="25" width="25"/> ***Add*** de la carte ***Search protocols***.
+Cliquez sur le
+bouton <img src="/images/user-documentation/regards-icons/admin/add.png" alt="add" height="25" width="25"/> ***Add*** de
+la carte ***Search protocols***.
 Vous serez redirigé vers l'écran ***Configure search protocol***, renseignez les paramètres suivants :
 
 - ***Label*** la description de votre protocole qui apparaîtra dans la liste des protocoles
-- Sélectionnez ***Use this search protocol for every search on catalog*** pour que ce protocole soit utilisé sur l'ensemble des données du catalogue ou ***Use this search protocol only for search on the selected dataset***, pour restreindre la recherche à un jeu de données en particulier. Dans ce cas, choisissez-le dans la liste déroulante.
-- Cliquez sur le bouton ***Choose a search protocol*** et appuyez sur ***opensearch*** puis ***New configuration***, un nouveau bloc de configuration s'affichera.
+- Sélectionnez ***Use this search protocol for every search on catalog*** pour que ce protocole soit utilisé sur
+  l'ensemble des données du catalogue ou ***Use this search protocol only for search on the selected dataset***, pour
+  restreindre la recherche à un jeu de données en particulier. Dans ce cas, choisissez-le dans la liste déroulante.
+- Cliquez sur le bouton ***Choose a search protocol*** et appuyez sur ***opensearch*** puis ***New configuration***, un
+  nouveau bloc de configuration s'affichera.
 
 <div align="center">
   <img src="/images/user-documentation/v1.4/6-catalog-consultation/protocols/protocol-create.png" alt="protocol create" width="800"/> 
@@ -28,30 +33,41 @@ Vous serez redirigé vers l'écran ***Configure search protocol***, renseignez l
 Remplissez ensuite tous les champs relatifs au protocole OpenSearch:
 
 :::info
-Pour plus d'informations sur le protocole ***OpenSearch***, lisez la description suivante sur [github](https://github.com/dewitt/opensearch/blob/master/opensearch-1-1-draft-6.md).
+Pour plus d'informations sur le protocole ***OpenSearch***, lisez la description suivante
+sur [github](https://github.com/dewitt/opensearch/blob/master/opensearch-1-1-draft-6.md).
 :::
 
-- ***Label*** *[Obligatoire]*, le nom de protocole dans REGARDS. Ce nom sera utilisé comme discriminant dans l'url de recherche avec : http://regards/api/v1/rs-catalog/label/dataobjects/search.
+- ***Label*** *[Obligatoire]*, le nom de protocole dans REGARDS. Ce nom sera utilisé comme discriminant dans l'url de
+  recherche avec : http://regards/api/v1/rs-catalog/label/dataobjects/search.
 
 - Les paramètres du search engine *[Optionnel]*
   - ***Title***, un nom identifiant votre search engine
-  - ***Description***, une brève description du search engine. Elle doit faire 1024 caractères ou moins et ne doit pas contenir de HTML ou autre tag.
+  - ***Description***, une brève description du search engine. Elle doit faire 1024 caractères ou moins et ne doit pas
+    contenir de HTML ou autre tag.
   - ***Email***, le contact en charge du search engine
   - ***Tags*** , une collection de mots utilisés pour identifier le search engine
-  - ***Short name***, un nom identifiant votre search engine. Il doit faire 16 caractères ou moins et ne doit pas contenir de HTML ou autre tag.
-  - ***Long name***, un nom identifiant votre search engine. Il doit faire 48 caractères ou moins et ne doit pas contenir de HTML ou autre tag.
-  - ***Image***, l'icône utilisée pour votre search engine. Quand cela est possible, ajoutez une image 16x16 de type image/x-icon (comme des /favicon.ico) et une image 64x64 de type image/jpeg ou image/png
+  - ***Short name***, un nom identifiant votre search engine. Il doit faire 16 caractères ou moins et ne doit pas
+    contenir de HTML ou autre tag.
+  - ***Long name***, un nom identifiant votre search engine. Il doit faire 48 caractères ou moins et ne doit pas
+    contenir de HTML ou autre tag.
+  - ***Image***, l'icône utilisée pour votre search engine. Quand cela est possible, ajoutez une image 16x16 de type
+    image/x-icon (comme des /favicon.ico) et une image 64x64 de type image/jpeg ou image/png
   - ***Attribution***, les organisations que l'on peut citer pour dans le développement du search engine
   - ***Path of the attribute in data model for the last update date***, la dernière date de modification des métadonnées
 
 Rendre les extensions compatibles
 
-- ***Open search time extension*** *[Optionnel]*, rend le protocole compatible à l'extension standard OpenSearch *time*. En cochant cette case, vous devrez renseigner la façon de récupérer les paramètres _start_ et _end_ dans le tableau ***Parameters configuration***. N'hésitez à vous appuyer sur les différents tooltips pour vous aidez.
-- ***Open search regards extension*** *[Optionnel]*, tous les attributs autres que ceux standard au protocole OpenSearch sont mappés avec l'extension _regards_
-- ***Open search media extension*** *[Optionnel]*, ajoute des liens de référencement à tous les fichiers associés aux données comme les thumbnails, les données brutes, les documents, etc.
+- ***Open search time extension*** *[Optionnel]*, rend le protocole compatible à l'extension standard OpenSearch *time*.
+  En cochant cette case, vous devrez renseigner la façon de récupérer les paramètres _start_ et _end_ dans le tableau
+  ***Parameters configuration***. N'hésitez à vous appuyer sur les différents tooltips pour vous aidez.
+- ***Open search regards extension*** *[Optionnel]*, tous les attributs autres que ceux standard au protocole OpenSearch
+  sont mappés avec l'extension _regards_
+- ***Open search media extension*** *[Optionnel]*, ajoute des liens de référencement à tous les fichiers associés aux
+  données comme les thumbnails, les données brutes, les documents, etc.
 
 :::info
-Le protocole est compatible à l'extension geo par défaut depuis le chemin properties.geometry du modèle. Néanmoins vous pouvez changer le chemin d'accès en le paramétrant dans le tableau ***Parameters configuration***
+Le protocole est compatible à l'extension geo par défaut depuis le chemin properties.geometry du modèle. Néanmoins vous
+pouvez changer le chemin d'accès en le paramétrant dans le tableau ***Parameters configuration***
 :::
 
 Exemple de configuration de l'extension _time_ dans le tableau ***Parameters configuration*** :
@@ -72,16 +88,20 @@ Exemple de configuration de l'extension _time_ dans le tableau ***Parameters con
   - ***Limit number of possible values*** *[Optionnel]* : -
   - ***Full json path of the associated REGARDS attribute*** *[Obligatoire]* : properties.stop_date
 
-Une fois votre configuration terminée, appuyez sur le bouton ***Create*** et retrouvez votre protocole dans la liste des protocoles de recherche.
+Une fois votre configuration terminée, appuyez sur le bouton ***Create*** et retrouvez votre protocole dans la liste des
+protocoles de recherche.
 
-En cliquant sur le bouton info, vous pourrez accéder au endpoint de recherche afin de vérifier le fonctionnement du protocole et de récupérer le descripteur.
+En cliquant sur le bouton info, vous pourrez accéder au endpoint de recherche afin de vérifier le fonctionnement du
+protocole et de récupérer le descripteur.
 
 <div align="center">
   <img src="/images/user-documentation/v1.4/6-catalog-consultation/protocols/protocol-info.png" alt="protocol info" width="800"/> 
 </div>
 
 :::caution
-Pensez à rendre vos jeux de données disponibles depuis l'extérieur en autorisant l'accès aux jeux de données et objets pour le groupe public. Pour plus d'informations, référez-vous à la page [Configure data access rights](../3-data-organization/data-access-rights.md)
+Pensez à rendre vos jeux de données disponibles depuis l'extérieur en autorisant l'accès aux jeux de données et objets
+pour le groupe public. Pour plus d'informations, référez-vous à la
+page [Configure data access rights](../3-data-organization/data-access-rights.md)
 :::
 
 ### Utilisation
@@ -89,7 +109,7 @@ Pensez à rendre vos jeux de données disponibles depuis l'extérieur en autoris
 #### Obtention de l'ensemble des champs interrogeables
 
 Une fois votre protocole de recherche OpenSearch configuré, vous pouvez accéder dans un premier temps au fichier
-`opensearchdescription.xml` qui permet à tout système de connaître le moyen d'interroger le catalogue REGARDS avec 
+`opensearchdescription.xml` qui permet à tout système de connaître le moyen d'interroger le catalogue REGARDS avec
 l'URL suivante :
 
 ```
@@ -97,6 +117,7 @@ http://regards.fr/api/v1/rs-catalog/engines/opensearch/dataobjects/search/opense
 ```
 
 Cette URL est également accessible depuis le site d'administration de REGARDS :
+
 * se rendre dans la page *Accès aux données*
 * dans la carte *Protocoles de recherche*, cliquer sur l'icône *Lister*
 * sur la ligne dont le protocole est `opensearch`, cliquer sur l'icône *Informations d'accès*
@@ -105,6 +126,7 @@ Cette URL est également accessible depuis le site d'administration de REGARDS :
 Ce fichier contient alors la description au format :
 
 ```xml
+
 <OpenSearchDescription xmlns:parameters="http://a9.com/-/spec/opensearch/extensions/parameters/1.0/" xmlns="http://a9.com/-/spec/opensearch/1.1/">
   <Description>description</Description>
   <Contact>regards@c-s.fr</Contact>
@@ -132,7 +154,7 @@ Ce fichier contient alors la description au format :
     <parameters:Parameter name="radius" value="{geo:radius}" title="Latitude expressed in decimal degrees (EPSG:4326) - should be used with geo:lon" minInclusive="1"/>
     <parameters:Parameter name="maxRecords" value="{count}" title="Number of results returned per page (default 20, max 1000)" minInclusive="1" maxInclusive="1000"/>
     <parameters:Parameter name="page" value="{startPage}" title="Results page to return" minInclusive="1"/>
-  </Url> 
+  </Url>
   <Url template="http://regards/api/v1/rs-catalog/engines/label/dataobjects/search?q={searchTerms}&start={time:start}&end={time:end}&geometry={geo:geometry}&box={geo:box}&lon={geo:lon}&lat={geo:lat}&radius={geo:radius}&maxRecords={count}&page={startPage}&scope=project" type="application/json" rel="results">
     <parameters:Parameter name="q" value="{searchTerms}" title="Free text search"/>
     <parameters:Parameter name="start" value="{time:start}" minimum="0" maximum="1" minInclusive="1990-01-01T00:00:00.000Z" maxInclusive="2023-09-05T23:19:31.000Z"/>
@@ -156,7 +178,7 @@ Ce fichier contient alors la description au format :
 
 #### Exemple simple
 
-Une fois ce descripteur obtenu vous pouvez effectuer des requêtes sur le catalogue REGARDS grâce aux URL fournies et en 
+Une fois ce descripteur obtenu vous pouvez effectuer des requêtes sur le catalogue REGARDS grâce aux URL fournies et en
 utilisant les paramètre de recherche définis.
 Voici un exemple de requête et le résultat associé au format json:
 
@@ -173,7 +195,7 @@ http://regards/api/v1/rs-catalog/engines/label/dataobjects/search?start_date=201
     "query": {
       "searchFilters": {
         "maxRecords": "2",
-        "page": "0",                                                                   
+        "page": "0"
       }
     },
     "description": "description",
@@ -236,8 +258,8 @@ http://regards/api/v1/rs-catalog/engines/label/dataobjects/search?start_date=201
 
 #### Exemple avec requête Lucene intégrée
 
-Le paramètre `q` de la requête OpenSearch est interprété par REGARDS comme une 
-[requête lucene](../../../../development/appendices/lucene-query). Celle-ci est utile dans le cas où une requête 
+Le paramètre `q` de la requête OpenSearch est interprété par REGARDS comme une
+[requête lucene](../../development/appendices/02-create-lucene-query.md). Celle-ci est utile dans le cas où une requête
 OpenSearch ne permet pas d'exprimer certains critères, tels qu'une comparaison numérique ou de date.  
 L'exemple suivant illustre une requête permettant d'obtenir tous les produits créés après la date du 15 juillet 2025,
 16:35:00 :
@@ -247,8 +269,8 @@ https://regards.cnes.fr/api/v1/rs-catalog/engines/opensearch/entities/search?q=_
 ```
 
 Le paramètre `q` de l'URL ci-dessus correspond à la version URL-encodée de `_creationDate:{2025-07-15T16:35:00Z TO *}`,
-qui est la requête Lucene portant sur le champ `_creationDate` et qui inclut toutes les dates supérieures à 
+qui est la requête Lucene portant sur le champ `_creationDate` et qui inclut toutes les dates supérieures à
 `2025-07-15T16:35:00Z`.
 
-**NOTE** : Il est aussi possible de substituer le paramètre `token=<token>` pour l'authentification à REGARDS dans 
+**NOTE** : Il est aussi possible de substituer le paramètre `token=<token>` pour l'authentification à REGARDS dans
 les exemples ci-dessus par le header `Authorization: Bearer <token>`.

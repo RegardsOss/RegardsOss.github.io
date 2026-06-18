@@ -1,8 +1,8 @@
 ---
-id: appendices-lucene-query
+id: appendices-create-lucene-query
 title: Lucene query format
 sidebar_label: Lucene query format
-slug: /development/appendices/lucene-query/
+slug: /development/appendices/create-lucene-query/
 ---
 
 

@@ -8,12 +8,13 @@ sidebar_position: 1
 
 ## Overview
 
-`Catalog` (or `rs-catalog`) microservice is used to consult the 
+`Catalog` (or `rs-catalog`) microservice is used to consult the
 [meta-catalog](../../../overview/functional-overview/02-meta-catalog-services.md).
 
 Several functionalities are enabled by this service:
 
-* Searching for [products](../../../overview/concepts/01-products.md) with search criteria, respecting user access rights
+* Searching for [products](../../../overview/concepts/01-products.md) with search criteria, respecting user access
+  rights
 * Downloading product files
 * Retrieving datasets and collections information
 * Compatibility with search standards like STAC or OpenSearch through dedicated plugins
@@ -23,8 +24,8 @@ These functionalities ensure that user access rights are respected.
 
 ### Related REGARDS services
 
-* **Storage** : Some operations eventually are under `Storage` service's responsibility. This is the case for 
-  downloading, restoring or checking availability of products. When one of these operation is needed, `Catalog` 
+* **Storage** : Some operations eventually are under `Storage` service's responsibility. This is the case for
+  downloading, restoring or checking availability of products. When one of these operation is needed, `Catalog`
   calls `Storage` through a Storage REST Client.
 
 ## Conception
@@ -41,16 +42,16 @@ You can learn how the service works with the [How it works section](./conception
 
 You can learn how to **operate** with the microservice thanks to **API Guides** :
 
-- **Legacy** Search API [using REST API](./api-guides/rest/legacy-search-api.mdx) shows you how to make search requests
+- **Legacy** Search API [using REST API](./api-guides/rest/legacy-search-api) shows you how to make search requests
   with default REGARDS lucene based engine.
 - **OpenSearch** API [using REST API](./api-guides/rest/opensearch-api.mdx) shows you how to make search requests
-    with OpenSearch engine.
+  with OpenSearch engine.
 - **STAC** Search API [using REST API](./api-guides/rest/stac-search-api.mdx) shows you how to make search requests
   with STAC engine.
-- Complex Search [using REST API](./api-guides/rest/complex-search-api.mdx) shows you how to elaborate complex requests 
+- Complex Search [using REST API](./api-guides/rest/complex-search-api.mdx) shows you how to elaborate complex requests
   on the catalog with many search requests.
-- **Download** products [using REST API](./api-guides/rest/download-product-file-api) 
-- Product files **restoration** [using REST API](./api-guides/rest/file-restoration-api) shows you how to 
+- **Download** products [using REST API](./api-guides/rest/download-product-file-api)
+- Product files **restoration** [using REST API](./api-guides/rest/file-restoration-api) shows you how to
   make a product available for downloading if it is not.
 
 ## Plugins
@@ -70,6 +71,7 @@ see [Import/export configuration section](./configuration/catalog-import-export.
 ## How to access through HMI
 
 You can follow the **User manuel** to learn about the administrator HMI related functionalities :
+
 - [how to use browse the catalog](../../../../user-guide/catalog/use).
 - [How to configure the catalog](../../../../user-guide/catalog/configuration)
 - [How to configure search protocols](../../../../user-guide/catalog/protocols/introduction)

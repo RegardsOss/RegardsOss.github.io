@@ -4,8 +4,6 @@ sidebar_label: Legacy Search API
 slug: /development/backend/services/catalog/api-guides/rest/legacy-search-api
 sidebar_position: 1
 ---
-import RegardsApiSchema from '/src/redoc/RegardsApiSchema';
-import Spec from './rs-catalog.json';
 
 ## Introduction
 
@@ -39,7 +37,7 @@ submit requests.
 
 | value    | description                                                                                                                                                                                                                            |
 |----------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `q`      | The search query in [lucene query format](../../../../appendices/02-create-lucene-query.md) for example `altitude:[1000 TO 2000] OR name:sensor-*`                                                                                     |
+| `q`      | The search query in [Lucene guide](../../../../../development/appendices/02-create-lucene-query.md) for example `altitude:[1000 TO 2000] OR name:sensor-*`                                                                             |
 | `facets` | The array of attribute names                                                                                                                                                                                                           |
 | `page`   | Page you want to retrieve, 0 indexed and default to 0                                                                                                                                                                                  |
 | `size`   | Size of the page you want to retrieve, defaults to 20                                                                                                                                                                                  |
@@ -59,5 +57,5 @@ curl -G 'http://<host>/api/v1//rs-catalog/engines/legacy/dataobjects/search' \
 ### Query parameter
 
 The query parameter is a String containing search criteria on attributs models formated
-with [lucene format](../../../../appendices/02-create-lucene-query.md).
+with [Lucene guide](../../../../appendices/02-create-lucene-query.md).
 To know the list of queryable attributs refer to the associated Data Model in **rs-dam** microservice.

@@ -56,7 +56,7 @@ Delivery requests have to be published to REGARDS Rabbitmq exchange:
 | filters.datatypes      | String         |   Yes    | List of REGARDS datatypes to filter files from ordered products. Datatypes can be either `RAWDATA` or `QUICKLOOK`.                              |
 | filters.filenameRegExp | String         |   Yes    | Regular expression to filter files by their names from ordered products.                                                                        |
 
-Example : 
+Example :
 
 ```json
 {
@@ -79,9 +79,10 @@ Example :
 ```
 
 :::caution queries format
-Queries parameter is a list of String formatted [lucene query](../../../../appendices/02-create-lucene-query.md).
-To be accurate, you have to ensure that requested parameters are existing REGARDS attributes. Attributes are composed 
-of **Standard attributes** and **Models attributes**. In the given example, the queried attribute **providerId** is a 
+Queries parameter is a list of String
+formatted [Lucene guide](../../../../appendices/02-create-lucene-query.md).
+To be accurate, you have to ensure that requested parameters are existing REGARDS attributes. Attributes are composed
+of **Standard attributes** and **Models attributes**. In the given example, the queried attribute **providerId** is a
 standard attribute always available for search.  
 To learn more about Queryable attributes see [Data management documentation](../../../dam/overview.md).
 :::

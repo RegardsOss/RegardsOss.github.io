@@ -11,9 +11,9 @@ These plugins allow to define if a product should be sent according to its conte
 
 Here is the list of documented plugins:
 
-- [Default Rule Matcher](#default-rule-matcher) allows sending a notification if its content json properties match 
+- [Default Rule Matcher](#default-rule-matcher) allows sending a notification if its content json properties match
   specific values
-- [Lucene Rule Matcher](#lucene-rule-matcher) allows sending a notification if its content or its metadata match 
+- [Lucene Rule Matcher](#lucene-rule-matcher) allows sending a notification if its content or its metadata match
   given Lucene expressions
 
 All the plugins implements
@@ -55,9 +55,9 @@ Configuration parameters are:
         "name": "attributeValueToSeek",
         "type": "STRING",
         "value": "REGARDS-NOTIF-AIP"
-    ]
-  }
-}
+        ]
+      }
+    }
 ```
 
 ### Lucene Rule Matcher
@@ -72,7 +72,8 @@ Configuration parameters are:
 | metadata_rule | String | Lucene expression to seek inside the metadata of the input |
 
 :::info Lucene queries
-You can check the [Lucene guide](../../../../appendices/lucene-query) to create your lucene query
+You can check the [Lucene guide](../../../../development/appendices/02-create-lucene-query.md) to create your lucene
+query
 :::
 
 ```json title='Lucene Rule matcher plugin configuration example'

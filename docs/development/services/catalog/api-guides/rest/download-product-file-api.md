@@ -5,7 +5,8 @@ slug: /development/backend/services/catalog/api-guides/rest/download-product-fil
 sidebar_position: 5
 ---
 
-_This page assumes you know how [to authenticate](../../../../services/authentication/api-guides/rest/authent-oauth2.mdx) your REST API
+_This page assumes you know
+how [to authenticate](../../../../services/authentication/api-guides/rest/authent-oauth2.mdx) your REST API
 requests_
 
 This section introduces you the API provided by REGARDS to download product files.
@@ -14,10 +15,11 @@ This section introduces you the API provided by REGARDS to download product file
 
 When a product is available for the user, the user can download it with a request to the `Catalog` service.
 When the service receives such a request, several steps are performed:
-* First, the service checks the access rights of the product. It ensures that the user has the rights to download the 
+
+* First, the service checks the access rights of the product. It ensures that the user has the rights to download the
   product and that the license of the dataset of the product has been accepted.
-* If users has the proper rights and has not reached its download quota, the `Catalog` service calls the `Storage` 
-  service through its REST Client. `Storage` is the microservice responsible for retrieving the product from its 
+* If users has the proper rights and has not reached its download quota, the `Catalog` service calls the `Storage`
+  service through its REST Client. `Storage` is the microservice responsible for retrieving the product from its
   storage location.
 
 This guide introduce you **2 endpoints** related to downloading:
@@ -27,7 +29,7 @@ This guide introduce you **2 endpoints** related to downloading:
 
 ## Search products and files
 
-REGARDS offers many ways to search product, you can refer to [Search engine guide](legacy-search-api.mdx).
+REGARDS offers many ways to search product, you can refer to [Search engine guide](legacy-search-api).
 
 ```json title="A nearline product file - standard lucene search engine"
 {
@@ -80,14 +82,14 @@ to download.
 
 ### Endpoint
 
-| Endpoint                                                                                                     | Verb |
-|--------------------------------------------------------------------------------------------------------------|------|
+| Endpoint                                                                                                       | Verb |
+|----------------------------------------------------------------------------------------------------------------|------|
 | [`/downloads/{aip_id}/files/{checksum}`](./api-swagger#tag/catalog-download-controller/operation/downloadFile) | GET  |
 
 Download is possible only if:
 
 * the file is [available](file-restoration-api#check-product-availability-endpoint)
-* user has access right 
+* user has access right
 * user didn't reach its download quotas yet.
 * license of the dataset has been accepted (needed if license is not public)
 
