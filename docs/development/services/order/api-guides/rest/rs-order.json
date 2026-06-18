@@ -1,6 +1,314 @@
 {
   "components": {
     "schemas": {
+      "AccessGroup": {
+        "properties": {
+          "id": {
+            "format": "int64",
+            "type": "integer"
+          },
+          "identifiable": {
+            "type": "boolean"
+          },
+          "isInternal": {
+            "type": "boolean"
+          },
+          "isPublic": {
+            "type": "boolean"
+          },
+          "name": {
+            "maxLength": 32,
+            "minLength": 3,
+            "pattern": "[a-zA-Z_][0-9a-zA-Z_]*",
+            "type": "string"
+          }
+        },
+        "required": [
+          "name"
+        ],
+        "type": "object"
+      },
+      "AccessGroupEvent": {
+        "properties": {
+          "accessGroup": {
+            "$ref": "#/components/schemas/AccessGroup"
+          },
+          "action": {
+            "enum": [
+              "DELETE",
+              "CREATE"
+            ],
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "AccessRightEvent": {
+        "properties": {
+          "accessGroupName": {
+            "type": "string"
+          },
+          "accessLevel": {
+            "enum": [
+              "NO_ACCESS",
+              "RESTRICTED_ACCESS",
+              "CUSTOM_ACCESS",
+              "FULL_ACCESS"
+            ],
+            "type": "string"
+          },
+          "dataAccessLevel": {
+            "enum": [
+              "NO_ACCESS",
+              "INHERITED_ACCESS",
+              "CUSTOM_ACCESS"
+            ],
+            "type": "string"
+          },
+          "dataAccessPluginLabel": {
+            "type": "string"
+          },
+          "datasetIpId": {
+            "type": "string"
+          },
+          "datasetLabel": {
+            "type": "string"
+          },
+          "eventType": {
+            "enum": [
+              "CREATE",
+              "DELETE",
+              "UPDATE"
+            ],
+            "type": "string"
+          },
+          "forceAssociatedEntitiesUpdate": {
+            "type": "boolean"
+          },
+          "roleToNotify": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "Address": {
+        "properties": {
+          "exchangeName": {
+            "type": "string"
+          },
+          "routingKey": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "AttributeCacheRefreshEvent": {
+        "type": "object"
+      },
+      "AttributeModelCreated": {
+        "properties": {
+          "attributeName": {
+            "type": "string"
+          },
+          "attributeProperties": {
+            "additionalProperties": {
+              "type": "string"
+            },
+            "type": "object"
+          },
+          "esMappping": {
+            "type": "string"
+          },
+          "fragmentName": {
+            "type": "string"
+          },
+          "fullJsonPath": {
+            "type": "string"
+          },
+          "indexed": {
+            "type": "boolean"
+          },
+          "propertyType": {
+            "enum": [
+              "STRING",
+              "JSON",
+              "INTEGER",
+              "DOUBLE",
+              "DATE_ISO8601",
+              "URL",
+              "BOOLEAN",
+              "STRING_ARRAY",
+              "INTEGER_ARRAY",
+              "DOUBLE_ARRAY",
+              "DATE_ARRAY",
+              "INTEGER_RANGE",
+              "INTEGER_INTERVAL",
+              "DOUBLE_RANGE",
+              "DOUBLE_INTERVAL",
+              "DATE_RANGE",
+              "DATE_INTERVAL",
+              "LONG",
+              "LONG_RANGE",
+              "LONG_INTERVAL",
+              "LONG_ARRAY",
+              "OBJECT"
+            ],
+            "type": "string"
+          },
+          "restrictionType": {
+            "enum": [
+              "NO_RESTRICTION",
+              "PATTERN",
+              "ENUMERATION",
+              "DATE_ISO8601",
+              "INTEGER_RANGE",
+              "LONG_RANGE",
+              "DOUBLE_RANGE",
+              "URL",
+              "GEOMETRY",
+              "JSON_SCHEMA"
+            ],
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "AttributeModelDeleted": {
+        "properties": {
+          "attributeName": {
+            "type": "string"
+          },
+          "attributeProperties": {
+            "additionalProperties": {
+              "type": "string"
+            },
+            "type": "object"
+          },
+          "esMappping": {
+            "type": "string"
+          },
+          "fragmentName": {
+            "type": "string"
+          },
+          "fullJsonPath": {
+            "type": "string"
+          },
+          "indexed": {
+            "type": "boolean"
+          },
+          "propertyType": {
+            "enum": [
+              "STRING",
+              "JSON",
+              "INTEGER",
+              "DOUBLE",
+              "DATE_ISO8601",
+              "URL",
+              "BOOLEAN",
+              "STRING_ARRAY",
+              "INTEGER_ARRAY",
+              "DOUBLE_ARRAY",
+              "DATE_ARRAY",
+              "INTEGER_RANGE",
+              "INTEGER_INTERVAL",
+              "DOUBLE_RANGE",
+              "DOUBLE_INTERVAL",
+              "DATE_RANGE",
+              "DATE_INTERVAL",
+              "LONG",
+              "LONG_RANGE",
+              "LONG_INTERVAL",
+              "LONG_ARRAY",
+              "OBJECT"
+            ],
+            "type": "string"
+          },
+          "restrictionType": {
+            "enum": [
+              "NO_RESTRICTION",
+              "PATTERN",
+              "ENUMERATION",
+              "DATE_ISO8601",
+              "INTEGER_RANGE",
+              "LONG_RANGE",
+              "DOUBLE_RANGE",
+              "URL",
+              "GEOMETRY",
+              "JSON_SCHEMA"
+            ],
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "AttributeModelUpdated": {
+        "properties": {
+          "attributeName": {
+            "type": "string"
+          },
+          "attributeProperties": {
+            "additionalProperties": {
+              "type": "string"
+            },
+            "type": "object"
+          },
+          "esMappping": {
+            "type": "string"
+          },
+          "fragmentName": {
+            "type": "string"
+          },
+          "fullJsonPath": {
+            "type": "string"
+          },
+          "indexed": {
+            "type": "boolean"
+          },
+          "propertyType": {
+            "enum": [
+              "STRING",
+              "JSON",
+              "INTEGER",
+              "DOUBLE",
+              "DATE_ISO8601",
+              "URL",
+              "BOOLEAN",
+              "STRING_ARRAY",
+              "INTEGER_ARRAY",
+              "DOUBLE_ARRAY",
+              "DATE_ARRAY",
+              "INTEGER_RANGE",
+              "INTEGER_INTERVAL",
+              "DOUBLE_RANGE",
+              "DOUBLE_INTERVAL",
+              "DATE_RANGE",
+              "DATE_INTERVAL",
+              "LONG",
+              "LONG_RANGE",
+              "LONG_INTERVAL",
+              "LONG_ARRAY",
+              "OBJECT"
+            ],
+            "type": "string"
+          },
+          "restrictionType": {
+            "enum": [
+              "NO_RESTRICTION",
+              "PATTERN",
+              "ENUMERATION",
+              "DATE_ISO8601",
+              "INTEGER_RANGE",
+              "LONG_RANGE",
+              "DOUBLE_RANGE",
+              "URL",
+              "GEOMETRY",
+              "JSON_SCHEMA"
+            ],
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
       "BasketDatasetSelectionDto": {
         "properties": {
           "datasetIpid": {
@@ -149,6 +457,94 @@
         ],
         "type": "object"
       },
+      "BroadcastEntityEvent": {
+        "properties": {
+          "aipIds": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "eventType": {
+            "enum": [
+              "CREATE",
+              "DELETE",
+              "INDEXED",
+              "INDEX_ERROR",
+              "UPDATE"
+            ],
+            "type": "string"
+          },
+          "ipIds": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "writeOnly": true
+          }
+        },
+        "type": "object"
+      },
+      "BroadcastPluginConfEvent": {
+        "properties": {
+          "action": {
+            "enum": [
+              "DELETE",
+              "CREATE",
+              "UPDATE",
+              "DISABLE",
+              "ACTIVATE"
+            ],
+            "type": "string"
+          },
+          "label": {
+            "type": "string"
+          },
+          "pluginBusinnessId": {
+            "type": "string"
+          },
+          "pluginConfId": {
+            "format": "int64",
+            "type": "integer"
+          },
+          "pluginTypes": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "uniqueItems": true
+          }
+        },
+        "type": "object"
+      },
+      "CancelRequestEvent": {
+        "properties": {
+          "groupsToCancel": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          }
+        },
+        "type": "object"
+      },
+      "DatasetEvent": {
+        "properties": {
+          "ipIds": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "roleToNotify": {
+            "type": "string"
+          },
+          "userToNotify": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
       "DatasetTaskDto": {
         "properties": {
           "datasetLabel": {
@@ -182,6 +578,21 @@
         },
         "type": "object"
       },
+      "DatasourceEvent": {
+        "properties": {
+          "datasourceId": {
+            "format": "int64",
+            "type": "integer"
+          },
+          "type": {
+            "enum": [
+              "DELETED"
+            ],
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
       "DatesRangeRestriction": {
         "description": "Filter on creation date",
         "properties": {
@@ -194,6 +605,25 @@
             "description": "Keep entities having date less than",
             "format": "date-time",
             "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "Digest": {
+        "properties": {
+          "method": {
+            "type": "string"
+          },
+          "value": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "DownloadedOutputFilesEvent": {
+        "properties": {
+          "outputFileUrls": {
+            "$ref": "#/components/schemas/ListURL"
           }
         },
         "type": "object"
@@ -347,6 +777,429 @@
         },
         "type": "object"
       },
+      "ExecResultHandlerResultEvent": {
+        "properties": {
+          "resultEvent": {
+            "$ref": "#/components/schemas/PExecutionResultEvent"
+          },
+          "source": {
+            "type": "object"
+          },
+          "timestamp": {
+            "format": "int64",
+            "type": "integer"
+          },
+          "updatedOrderDataFiles": {
+            "$ref": "#/components/schemas/ListOrderDataFile"
+          }
+        },
+        "type": "object"
+      },
+      "FeatureEvent": {
+        "properties": {
+          "featureId": {
+            "type": "string"
+          },
+          "type": {
+            "enum": [
+              "CREATED",
+              "UPDATED",
+              "DELETE"
+            ],
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "FileArchiveRequestEvent": {
+        "properties": {
+          "checksum": {
+            "type": "string"
+          },
+          "fileCachePath": {
+            "type": "string"
+          },
+          "fileName": {
+            "type": "string"
+          },
+          "fileSize": {
+            "format": "int64",
+            "type": "integer"
+          },
+          "fileStorageRequestId": {
+            "format": "int64",
+            "type": "integer"
+          },
+          "finalArchiveParentUrl": {
+            "type": "string"
+          },
+          "storage": {
+            "type": "string"
+          },
+          "storageSubDirectory": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "FileArchiveResponseEvent": {
+        "properties": {
+          "checksum": {
+            "type": "string"
+          },
+          "fileUrl": {
+            "type": "string"
+          },
+          "requestId": {
+            "format": "int64",
+            "type": "integer"
+          },
+          "storage": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "FileAvailableEvent": {
+        "properties": {
+          "available": {
+            "description": "File availability",
+            "type": "boolean"
+          },
+          "checksum": {
+            "type": "string"
+          },
+          "expiration_date": {
+            "description": "Indicate date when the file will be not available anymore.",
+            "format": "date-time",
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "FileCopyDto": {
+        "properties": {
+          "checksum": {
+            "type": "string"
+          },
+          "session": {
+            "type": "string"
+          },
+          "sessionOwner": {
+            "type": "string"
+          },
+          "storage": {
+            "type": "string"
+          },
+          "subDirectory": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "FileDeletionDto": {
+        "properties": {
+          "checksum": {
+            "type": "string"
+          },
+          "forceDelete": {
+            "type": "boolean"
+          },
+          "owner": {
+            "type": "string"
+          },
+          "session": {
+            "type": "string"
+          },
+          "sessionOwner": {
+            "type": "string"
+          },
+          "storage": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "FileLocationDto": {
+        "properties": {
+          "fileArchiveStatus": {
+            "enum": [
+              "STORED",
+              "TO_STORE",
+              "TO_DELETE"
+            ],
+            "type": "string"
+          },
+          "pendingActionRemaining": {
+            "type": "boolean"
+          },
+          "storage": {
+            "type": "string"
+          },
+          "url": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "FileReferenceDto": {
+        "properties": {
+          "additionalFields": {
+            "type": "object"
+          },
+          "checksum": {
+            "type": "string"
+          },
+          "groupIds": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "uniqueItems": true
+          },
+          "id": {
+            "format": "int64",
+            "type": "integer"
+          },
+          "location": {
+            "$ref": "#/components/schemas/FileLocationDto"
+          },
+          "metaInfo": {
+            "$ref": "#/components/schemas/FileReferenceMetaInfoDto"
+          },
+          "nearlineConfirmed": {
+            "type": "boolean"
+          },
+          "originStorage": {
+            "type": "string"
+          },
+          "owners": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "referenced": {
+            "type": "boolean"
+          },
+          "storageDate": {
+            "format": "date-time",
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "FileReferenceEvent": {
+        "properties": {
+          "additionalFields": {
+            "type": "object"
+          },
+          "checksum": {
+            "type": "string"
+          },
+          "groupIds": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "uniqueItems": true
+          },
+          "id": {
+            "format": "int64",
+            "type": "integer"
+          },
+          "location": {
+            "$ref": "#/components/schemas/FileLocationDto"
+          },
+          "message": {
+            "type": "string"
+          },
+          "metaInfo": {
+            "$ref": "#/components/schemas/FileReferenceMetaInfoDto"
+          },
+          "nearlineConfirmed": {
+            "type": "boolean"
+          },
+          "originStorage": {
+            "type": "string"
+          },
+          "owners": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "referenced": {
+            "type": "boolean"
+          },
+          "storageDate": {
+            "format": "date-time",
+            "type": "string"
+          },
+          "type": {
+            "enum": [
+              "COPIED",
+              "COPY_ERROR",
+              "STORED",
+              "STORE_ERROR",
+              "DELETED_FOR_OWNER",
+              "FULLY_DELETED",
+              "DELETION_ERROR",
+              "AVAILABLE",
+              "AVAILABILITY_ERROR"
+            ],
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "FileReferenceMetaInfoDto": {
+        "properties": {
+          "algorithm": {
+            "type": "string"
+          },
+          "checksum": {
+            "type": "string"
+          },
+          "fileName": {
+            "type": "string"
+          },
+          "fileSize": {
+            "format": "int64",
+            "type": "integer"
+          },
+          "height": {
+            "format": "int32",
+            "type": "integer"
+          },
+          "mimeType": {
+            "type": "string"
+          },
+          "type": {
+            "type": "string"
+          },
+          "width": {
+            "format": "int32",
+            "type": "integer"
+          }
+        },
+        "type": "object"
+      },
+      "FileReferenceRequestDto": {
+        "properties": {
+          "algorithm": {
+            "type": "string"
+          },
+          "checksum": {
+            "type": "string"
+          },
+          "fileName": {
+            "type": "string"
+          },
+          "fileSize": {
+            "format": "int64",
+            "type": "integer"
+          },
+          "height": {
+            "format": "int32",
+            "type": "integer"
+          },
+          "mimeType": {
+            "type": "string"
+          },
+          "owner": {
+            "type": "string"
+          },
+          "session": {
+            "type": "string"
+          },
+          "sessionOwner": {
+            "type": "string"
+          },
+          "storage": {
+            "type": "string"
+          },
+          "type": {
+            "type": "string"
+          },
+          "url": {
+            "type": "string"
+          },
+          "width": {
+            "format": "int32",
+            "type": "integer"
+          }
+        },
+        "required": [
+          "algorithm",
+          "checksum",
+          "fileName",
+          "fileSize",
+          "mimeType",
+          "owner",
+          "storage",
+          "url"
+        ],
+        "type": "object"
+      },
+      "FileReferenceUpdateEvent": {
+        "properties": {
+          "checksum": {
+            "type": "string"
+          },
+          "storage": {
+            "type": "string"
+          },
+          "updatedFile": {
+            "$ref": "#/components/schemas/FileReferenceDto"
+          }
+        },
+        "type": "object"
+      },
+      "FileRequestsGroupEvent": {
+        "properties": {
+          "errors": {
+            "items": {
+              "$ref": "#/components/schemas/RequestResultInfoDto"
+            },
+            "type": "array",
+            "uniqueItems": true
+          },
+          "groupId": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          },
+          "state": {
+            "enum": [
+              "GRANTED",
+              "DENIED",
+              "SUCCESS",
+              "ERROR"
+            ],
+            "type": "string"
+          },
+          "success": {
+            "items": {
+              "$ref": "#/components/schemas/RequestResultInfoDto"
+            },
+            "type": "array",
+            "uniqueItems": true
+          },
+          "type": {
+            "enum": [
+              "AVAILABILITY",
+              "COPY",
+              "DELETION",
+              "REFERENCE",
+              "STORAGE"
+            ],
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
       "FileSelectionDescriptionDto": {
         "properties": {
           "fileNamePattern": {
@@ -366,6 +1219,187 @@
         },
         "type": "object"
       },
+      "FileStorageRequestDto": {
+        "properties": {
+          "algorithm": {
+            "type": "string"
+          },
+          "checksum": {
+            "type": "string"
+          },
+          "fileName": {
+            "type": "string"
+          },
+          "metaInfo": {
+            "$ref": "#/components/schemas/FileReferenceMetaInfoDto"
+          },
+          "mimeType": {
+            "type": "string"
+          },
+          "optionalSubDirectory": {
+            "type": "string"
+          },
+          "originUrl": {
+            "type": "string"
+          },
+          "owner": {
+            "type": "string"
+          },
+          "reference": {
+            "type": "boolean"
+          },
+          "session": {
+            "type": "string"
+          },
+          "sessionOwner": {
+            "type": "string"
+          },
+          "storage": {
+            "type": "string"
+          },
+          "subDirectory": {
+            "type": "string"
+          },
+          "type": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "algorithm",
+          "checksum",
+          "fileName",
+          "mimeType",
+          "originUrl",
+          "owner",
+          "storage"
+        ],
+        "type": "object"
+      },
+      "FilesCopyEvent": {
+        "properties": {
+          "files": {
+            "items": {
+              "$ref": "#/components/schemas/FileCopyDto"
+            },
+            "type": "array",
+            "uniqueItems": true
+          },
+          "groupId": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "FilesDeletionEvent": {
+        "properties": {
+          "files": {
+            "items": {
+              "$ref": "#/components/schemas/FileDeletionDto"
+            },
+            "type": "array",
+            "uniqueItems": true
+          },
+          "groupId": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "FilesReferenceEvent": {
+        "properties": {
+          "files": {
+            "items": {
+              "$ref": "#/components/schemas/FileReferenceRequestDto"
+            },
+            "type": "array",
+            "uniqueItems": true
+          },
+          "groupId": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "FilesRestorationRequestEvent": {
+        "properties": {
+          "availabilityHours": {
+            "format": "int32",
+            "type": "integer"
+          },
+          "checksums": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "uniqueItems": true
+          },
+          "groupId": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "FilesRetryRequestEvent": {
+        "properties": {
+          "groupId": {
+            "type": "string"
+          },
+          "owners": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "type": {
+            "enum": [
+              "AVAILABILITY",
+              "COPY",
+              "DELETION",
+              "REFERENCE",
+              "STORAGE"
+            ],
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "FilesStorageRequestEvent": {
+        "properties": {
+          "files": {
+            "items": {
+              "$ref": "#/components/schemas/FileStorageRequestDto"
+            },
+            "type": "array",
+            "uniqueItems": true
+          },
+          "groupId": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "FinalEvent": {
+        "properties": {
+          "final": {
+            "type": "boolean"
+          },
+          "outputFiles": {
+            "$ref": "#/components/schemas/SeqPOutputFile"
+          },
+          "step": {
+            "$ref": "#/components/schemas/PStepFinal"
+          }
+        },
+        "type": "object"
+      },
+      "FragmentDeletedEvent": {
+        "properties": {
+          "fragmentName": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
       "GenericResponseBody": {
         "properties": {
           "message": {
@@ -376,6 +1410,88 @@
               "type": "object"
             },
             "type": "object"
+          }
+        },
+        "type": "object"
+      },
+      "IPluginParam": {
+        "properties": {
+          "dynamic": {
+            "type": "boolean"
+          },
+          "name": {
+            "type": "string"
+          },
+          "type": {
+            "enum": [
+              "STRING",
+              "BYTE",
+              "SHORT",
+              "INTEGER",
+              "LONG",
+              "FLOAT",
+              "DOUBLE",
+              "BOOLEAN",
+              "MAP",
+              "COLLECTION",
+              "POJO",
+              "PLUGIN",
+              "REGARDS_ENTITY_MODEL"
+            ],
+            "type": "string"
+          },
+          "value": {
+            "type": "object"
+          }
+        },
+        "type": "object"
+      },
+      "IntermediaryEvent": {
+        "properties": {
+          "final": {
+            "type": "boolean"
+          },
+          "step": {
+            "$ref": "#/components/schemas/PStepIntermediary"
+          }
+        },
+        "type": "object"
+      },
+      "JobEvent": {
+        "properties": {
+          "jobClassName": {
+            "type": "string"
+          },
+          "jobEventType": {
+            "enum": [
+              "ABORTED",
+              "FAILED",
+              "RUNNING",
+              "SUCCEEDED"
+            ],
+            "type": "string"
+          },
+          "jobId": {
+            "format": "uuid",
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "LicenseEvent": {
+        "properties": {
+          "action": {
+            "enum": [
+              "ACCEPT",
+              "RESET"
+            ],
+            "type": "string"
+          },
+          "licenseLink": {
+            "type": "string"
+          },
+          "user": {
+            "type": "string"
           }
         },
         "type": "object"
@@ -412,6 +1528,112 @@
         },
         "type": "object"
       },
+      "ListOrderDataFile": {
+        "properties": {
+          "async": {
+            "type": "boolean"
+          },
+          "distinct": {
+            "type": "boolean"
+          },
+          "empty": {
+            "type": "boolean"
+          },
+          "lazy": {
+            "type": "boolean"
+          },
+          "memoized": {
+            "type": "boolean"
+          },
+          "orNull": {
+            "$ref": "#/components/schemas/OrderDataFile"
+          },
+          "ordered": {
+            "type": "boolean"
+          },
+          "sequential": {
+            "type": "boolean"
+          },
+          "singleValued": {
+            "type": "boolean"
+          },
+          "traversableAgain": {
+            "type": "boolean"
+          }
+        },
+        "type": "object"
+      },
+      "ListString": {
+        "properties": {
+          "async": {
+            "type": "boolean"
+          },
+          "distinct": {
+            "type": "boolean"
+          },
+          "empty": {
+            "type": "boolean"
+          },
+          "lazy": {
+            "type": "boolean"
+          },
+          "memoized": {
+            "type": "boolean"
+          },
+          "orNull": {
+            "type": "string"
+          },
+          "ordered": {
+            "type": "boolean"
+          },
+          "sequential": {
+            "type": "boolean"
+          },
+          "singleValued": {
+            "type": "boolean"
+          },
+          "traversableAgain": {
+            "type": "boolean"
+          }
+        },
+        "type": "object"
+      },
+      "ListURL": {
+        "properties": {
+          "async": {
+            "type": "boolean"
+          },
+          "distinct": {
+            "type": "boolean"
+          },
+          "empty": {
+            "type": "boolean"
+          },
+          "lazy": {
+            "type": "boolean"
+          },
+          "memoized": {
+            "type": "boolean"
+          },
+          "orNull": {
+            "format": "url",
+            "type": "string"
+          },
+          "ordered": {
+            "type": "boolean"
+          },
+          "sequential": {
+            "type": "boolean"
+          },
+          "singleValued": {
+            "type": "boolean"
+          },
+          "traversableAgain": {
+            "type": "boolean"
+          }
+        },
+        "type": "object"
+      },
       "MaintenanceInfo": {
         "properties": {
           "active": {
@@ -420,6 +1642,836 @@
           "lastUpdate": {
             "format": "date-time",
             "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "MapStringString": {
+        "properties": {
+          "async": {
+            "type": "boolean"
+          },
+          "distinct": {
+            "type": "boolean"
+          },
+          "empty": {
+            "type": "boolean"
+          },
+          "lazy": {
+            "type": "boolean"
+          },
+          "memoized": {
+            "type": "boolean"
+          },
+          "orNull": {
+            "$ref": "#/components/schemas/Tuple2StringString"
+          },
+          "ordered": {
+            "type": "boolean"
+          },
+          "sequential": {
+            "type": "boolean"
+          },
+          "singleValued": {
+            "type": "boolean"
+          },
+          "traversableAgain": {
+            "type": "boolean"
+          }
+        },
+        "type": "object"
+      },
+      "MessageProperties": {
+        "properties": {
+          "appId": {
+            "type": "string"
+          },
+          "clusterId": {
+            "type": "string"
+          },
+          "consumerQueue": {
+            "type": "string"
+          },
+          "consumerTag": {
+            "type": "string"
+          },
+          "contentEncoding": {
+            "type": "string"
+          },
+          "contentLength": {
+            "format": "int64",
+            "type": "integer"
+          },
+          "contentType": {
+            "type": "string"
+          },
+          "correlationId": {
+            "type": "string"
+          },
+          "delay": {
+            "deprecated": true,
+            "format": "int32",
+            "type": "integer"
+          },
+          "delayLong": {
+            "format": "int64",
+            "type": "integer"
+          },
+          "deliveryMode": {
+            "enum": [
+              "NON_PERSISTENT",
+              "PERSISTENT"
+            ],
+            "type": "string"
+          },
+          "deliveryTag": {
+            "format": "int64",
+            "type": "integer"
+          },
+          "expiration": {
+            "type": "string"
+          },
+          "finalRetryForMessageWithNoId": {
+            "type": "boolean"
+          },
+          "headers": {
+            "additionalProperties": {
+              "type": "object"
+            },
+            "type": "object"
+          },
+          "inferredArgumentType": {
+            "properties": {
+              "typeName": {
+                "type": "string"
+              }
+            },
+            "type": "object"
+          },
+          "lastInBatch": {
+            "type": "boolean"
+          },
+          "messageCount": {
+            "format": "int32",
+            "type": "integer"
+          },
+          "messageId": {
+            "type": "string"
+          },
+          "priority": {
+            "format": "int32",
+            "type": "integer"
+          },
+          "projectionUsed": {
+            "type": "boolean"
+          },
+          "publishSequenceNumber": {
+            "format": "int64",
+            "type": "integer"
+          },
+          "receivedDelay": {
+            "deprecated": true,
+            "format": "int32",
+            "type": "integer"
+          },
+          "receivedDelayLong": {
+            "format": "int64",
+            "type": "integer"
+          },
+          "receivedDeliveryMode": {
+            "enum": [
+              "NON_PERSISTENT",
+              "PERSISTENT"
+            ],
+            "type": "string"
+          },
+          "receivedExchange": {
+            "type": "string"
+          },
+          "receivedRoutingKey": {
+            "type": "string"
+          },
+          "receivedUserId": {
+            "type": "string"
+          },
+          "redelivered": {
+            "type": "boolean"
+          },
+          "replyTo": {
+            "type": "string"
+          },
+          "replyToAddress": {
+            "$ref": "#/components/schemas/Address"
+          },
+          "targetBean": {
+            "type": "object"
+          },
+          "targetMethod": {
+            "properties": {
+              "accessible": {
+                "deprecated": true,
+                "type": "boolean"
+              },
+              "annotatedExceptionTypes": {
+                "items": {
+                  "properties": {
+                    "annotations": {
+                      "items": {
+                        "type": "object"
+                      },
+                      "type": "array"
+                    },
+                    "declaredAnnotations": {
+                      "items": {
+                        "type": "object"
+                      },
+                      "type": "array"
+                    },
+                    "type": {
+                      "properties": {
+                        "typeName": {
+                          "type": "string"
+                        }
+                      },
+                      "type": "object"
+                    }
+                  },
+                  "type": "object"
+                },
+                "type": "array"
+              },
+              "annotatedParameterTypes": {
+                "items": {
+                  "properties": {
+                    "annotations": {
+                      "items": {
+                        "type": "object"
+                      },
+                      "type": "array"
+                    },
+                    "declaredAnnotations": {
+                      "items": {
+                        "type": "object"
+                      },
+                      "type": "array"
+                    },
+                    "type": {
+                      "properties": {
+                        "typeName": {
+                          "type": "string"
+                        }
+                      },
+                      "type": "object"
+                    }
+                  },
+                  "type": "object"
+                },
+                "type": "array"
+              },
+              "annotatedReceiverType": {
+                "properties": {
+                  "annotations": {
+                    "items": {
+                      "type": "object"
+                    },
+                    "type": "array"
+                  },
+                  "declaredAnnotations": {
+                    "items": {
+                      "type": "object"
+                    },
+                    "type": "array"
+                  },
+                  "type": {
+                    "properties": {
+                      "typeName": {
+                        "type": "string"
+                      }
+                    },
+                    "type": "object"
+                  }
+                },
+                "type": "object"
+              },
+              "annotatedReturnType": {
+                "properties": {
+                  "annotations": {
+                    "items": {
+                      "type": "object"
+                    },
+                    "type": "array"
+                  },
+                  "declaredAnnotations": {
+                    "items": {
+                      "type": "object"
+                    },
+                    "type": "array"
+                  },
+                  "type": {
+                    "properties": {
+                      "typeName": {
+                        "type": "string"
+                      }
+                    },
+                    "type": "object"
+                  }
+                },
+                "type": "object"
+              },
+              "annotations": {
+                "items": {
+                  "type": "object"
+                },
+                "type": "array"
+              },
+              "bridge": {
+                "type": "boolean"
+              },
+              "declaredAnnotations": {
+                "items": {
+                  "type": "object"
+                },
+                "type": "array"
+              },
+              "default": {
+                "type": "boolean"
+              },
+              "defaultValue": {
+                "type": "object"
+              },
+              "genericExceptionTypes": {
+                "items": {
+                  "properties": {
+                    "typeName": {
+                      "type": "string"
+                    }
+                  },
+                  "type": "object"
+                },
+                "type": "array"
+              },
+              "genericParameterTypes": {
+                "items": {
+                  "properties": {
+                    "typeName": {
+                      "type": "string"
+                    }
+                  },
+                  "type": "object"
+                },
+                "type": "array"
+              },
+              "genericReturnType": {
+                "properties": {
+                  "typeName": {
+                    "type": "string"
+                  }
+                },
+                "type": "object"
+              },
+              "modifiers": {
+                "format": "int32",
+                "type": "integer"
+              },
+              "name": {
+                "type": "string"
+              },
+              "parameterAnnotations": {
+                "items": {
+                  "items": {
+                    "type": "object"
+                  },
+                  "type": "array"
+                },
+                "type": "array"
+              },
+              "parameterCount": {
+                "format": "int32",
+                "type": "integer"
+              },
+              "parameters": {
+                "items": {
+                  "properties": {
+                    "annotatedType": {
+                      "properties": {
+                        "annotations": {
+                          "items": {
+                            "type": "object"
+                          },
+                          "type": "array"
+                        },
+                        "declaredAnnotations": {
+                          "items": {
+                            "type": "object"
+                          },
+                          "type": "array"
+                        },
+                        "type": {
+                          "properties": {
+                            "typeName": {
+                              "type": "string"
+                            }
+                          },
+                          "type": "object"
+                        }
+                      },
+                      "type": "object"
+                    },
+                    "annotations": {
+                      "items": {
+                        "type": "object"
+                      },
+                      "type": "array"
+                    },
+                    "declaredAnnotations": {
+                      "items": {
+                        "type": "object"
+                      },
+                      "type": "array"
+                    },
+                    "declaringExecutable": {
+                      "properties": {
+                        "accessible": {
+                          "deprecated": true,
+                          "type": "boolean"
+                        },
+                        "annotatedExceptionTypes": {
+                          "items": {
+                            "properties": {
+                              "annotations": {
+                                "items": {
+                                  "type": "object"
+                                },
+                                "type": "array"
+                              },
+                              "declaredAnnotations": {
+                                "items": {
+                                  "type": "object"
+                                },
+                                "type": "array"
+                              },
+                              "type": {
+                                "properties": {
+                                  "typeName": {
+                                    "type": "string"
+                                  }
+                                },
+                                "type": "object"
+                              }
+                            },
+                            "type": "object"
+                          },
+                          "type": "array"
+                        },
+                        "annotatedParameterTypes": {
+                          "items": {
+                            "properties": {
+                              "annotations": {
+                                "items": {
+                                  "type": "object"
+                                },
+                                "type": "array"
+                              },
+                              "declaredAnnotations": {
+                                "items": {
+                                  "type": "object"
+                                },
+                                "type": "array"
+                              },
+                              "type": {
+                                "properties": {
+                                  "typeName": {
+                                    "type": "string"
+                                  }
+                                },
+                                "type": "object"
+                              }
+                            },
+                            "type": "object"
+                          },
+                          "type": "array"
+                        },
+                        "annotatedReceiverType": {
+                          "properties": {
+                            "annotations": {
+                              "items": {
+                                "type": "object"
+                              },
+                              "type": "array"
+                            },
+                            "declaredAnnotations": {
+                              "items": {
+                                "type": "object"
+                              },
+                              "type": "array"
+                            },
+                            "type": {
+                              "properties": {
+                                "typeName": {
+                                  "type": "string"
+                                }
+                              },
+                              "type": "object"
+                            }
+                          },
+                          "type": "object"
+                        },
+                        "annotatedReturnType": {
+                          "properties": {
+                            "annotations": {
+                              "items": {
+                                "type": "object"
+                              },
+                              "type": "array"
+                            },
+                            "declaredAnnotations": {
+                              "items": {
+                                "type": "object"
+                              },
+                              "type": "array"
+                            },
+                            "type": {
+                              "properties": {
+                                "typeName": {
+                                  "type": "string"
+                                }
+                              },
+                              "type": "object"
+                            }
+                          },
+                          "type": "object"
+                        },
+                        "annotations": {
+                          "items": {
+                            "type": "object"
+                          },
+                          "type": "array"
+                        },
+                        "declaredAnnotations": {
+                          "items": {
+                            "type": "object"
+                          },
+                          "type": "array"
+                        },
+                        "genericExceptionTypes": {
+                          "items": {
+                            "properties": {
+                              "typeName": {
+                                "type": "string"
+                              }
+                            },
+                            "type": "object"
+                          },
+                          "type": "array"
+                        },
+                        "genericParameterTypes": {
+                          "items": {
+                            "properties": {
+                              "typeName": {
+                                "type": "string"
+                              }
+                            },
+                            "type": "object"
+                          },
+                          "type": "array"
+                        },
+                        "modifiers": {
+                          "format": "int32",
+                          "type": "integer"
+                        },
+                        "name": {
+                          "type": "string"
+                        },
+                        "parameterAnnotations": {
+                          "items": {
+                            "items": {
+                              "type": "object"
+                            },
+                            "type": "array"
+                          },
+                          "type": "array"
+                        },
+                        "parameterCount": {
+                          "format": "int32",
+                          "type": "integer"
+                        },
+                        "synthetic": {
+                          "type": "boolean"
+                        },
+                        "typeParameters": {
+                          "items": {
+                            "properties": {
+                              "annotatedBounds": {
+                                "items": {
+                                  "properties": {
+                                    "annotations": {
+                                      "items": {
+                                        "type": "object"
+                                      },
+                                      "type": "array"
+                                    },
+                                    "declaredAnnotations": {
+                                      "items": {
+                                        "type": "object"
+                                      },
+                                      "type": "array"
+                                    },
+                                    "type": {
+                                      "properties": {
+                                        "typeName": {
+                                          "type": "string"
+                                        }
+                                      },
+                                      "type": "object"
+                                    }
+                                  },
+                                  "type": "object"
+                                },
+                                "type": "array"
+                              },
+                              "annotations": {
+                                "items": {
+                                  "type": "object"
+                                },
+                                "type": "array"
+                              },
+                              "bounds": {
+                                "items": {
+                                  "properties": {
+                                    "typeName": {
+                                      "type": "string"
+                                    }
+                                  },
+                                  "type": "object"
+                                },
+                                "type": "array"
+                              },
+                              "declaredAnnotations": {
+                                "items": {
+                                  "type": "object"
+                                },
+                                "type": "array"
+                              },
+                              "genericDeclaration": {
+                                "type": "object"
+                              },
+                              "name": {
+                                "type": "string"
+                              },
+                              "typeName": {
+                                "type": "string"
+                              }
+                            },
+                            "type": "object"
+                          },
+                          "type": "array"
+                        },
+                        "varArgs": {
+                          "type": "boolean"
+                        }
+                      },
+                      "type": "object"
+                    },
+                    "implicit": {
+                      "type": "boolean"
+                    },
+                    "modifiers": {
+                      "format": "int32",
+                      "type": "integer"
+                    },
+                    "name": {
+                      "type": "string"
+                    },
+                    "namePresent": {
+                      "type": "boolean"
+                    },
+                    "parameterizedType": {
+                      "properties": {
+                        "typeName": {
+                          "type": "string"
+                        }
+                      },
+                      "type": "object"
+                    },
+                    "synthetic": {
+                      "type": "boolean"
+                    },
+                    "varArgs": {
+                      "type": "boolean"
+                    }
+                  },
+                  "type": "object"
+                },
+                "type": "array"
+              },
+              "synthetic": {
+                "type": "boolean"
+              },
+              "typeParameters": {
+                "items": {
+                  "properties": {
+                    "annotatedBounds": {
+                      "items": {
+                        "properties": {
+                          "annotations": {
+                            "items": {
+                              "type": "object"
+                            },
+                            "type": "array"
+                          },
+                          "declaredAnnotations": {
+                            "items": {
+                              "type": "object"
+                            },
+                            "type": "array"
+                          },
+                          "type": {
+                            "properties": {
+                              "typeName": {
+                                "type": "string"
+                              }
+                            },
+                            "type": "object"
+                          }
+                        },
+                        "type": "object"
+                      },
+                      "type": "array"
+                    },
+                    "annotations": {
+                      "items": {
+                        "type": "object"
+                      },
+                      "type": "array"
+                    },
+                    "bounds": {
+                      "items": {
+                        "properties": {
+                          "typeName": {
+                            "type": "string"
+                          }
+                        },
+                        "type": "object"
+                      },
+                      "type": "array"
+                    },
+                    "declaredAnnotations": {
+                      "items": {
+                        "type": "object"
+                      },
+                      "type": "array"
+                    },
+                    "name": {
+                      "type": "string"
+                    },
+                    "typeName": {
+                      "type": "string"
+                    }
+                  },
+                  "type": "object"
+                },
+                "type": "array"
+              },
+              "varArgs": {
+                "type": "boolean"
+              }
+            },
+            "type": "object"
+          },
+          "timestamp": {
+            "format": "date-time",
+            "type": "string"
+          },
+          "type": {
+            "type": "string"
+          },
+          "userId": {
+            "type": "string"
+          },
+          "xdeathHeader": {
+            "items": {
+              "additionalProperties": {
+                "type": "object"
+              },
+              "type": "object"
+            },
+            "type": "array"
+          }
+        },
+        "type": "object"
+      },
+      "MimeType": {
+        "properties": {
+          "charset": {
+            "type": "string"
+          },
+          "concrete": {
+            "type": "boolean"
+          },
+          "parameters": {
+            "additionalProperties": {
+              "type": "string"
+            },
+            "type": "object"
+          },
+          "subtype": {
+            "type": "string"
+          },
+          "subtypeSuffix": {
+            "type": "string"
+          },
+          "type": {
+            "type": "string"
+          },
+          "wildcardSubtype": {
+            "type": "boolean"
+          },
+          "wildcardType": {
+            "type": "boolean"
+          }
+        },
+        "type": "string"
+      },
+      "ModelChangeEvent": {
+        "properties": {
+          "model": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "ModelGsonReadyEvent": {
+        "properties": {
+          "source": {
+            "type": "object"
+          },
+          "timestamp": {
+            "format": "int64",
+            "type": "integer"
+          }
+        },
+        "type": "object"
+      },
+      "ModelJsonReadyEvent": {
+        "properties": {
+          "source": {
+            "type": "object"
+          },
+          "timestamp": {
+            "format": "int64",
+            "type": "integer"
+          }
+        },
+        "type": "object"
+      },
+      "ModelJsoniterReadyEvent": {
+        "properties": {
+          "source": {
+            "type": "object"
+          },
+          "timestamp": {
+            "format": "int64",
+            "type": "integer"
           }
         },
         "type": "object"
@@ -503,6 +2555,266 @@
             "$ref": "#/components/schemas/ModuleInformation"
           }
         },
+        "type": "object"
+      },
+      "NotDatasetEntityEvent": {
+        "properties": {
+          "ipIds": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "roleToNotify": {
+            "type": "string"
+          },
+          "userToNotify": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "NotificationDTO": {
+        "properties": {
+          "level": {
+            "enum": [
+              "INFO",
+              "WARNING",
+              "ERROR",
+              "FATAL"
+            ],
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          },
+          "mimeType": {
+            "properties": {
+              "charset": {
+                "type": "string"
+              },
+              "concrete": {
+                "type": "boolean"
+              },
+              "parameters": {
+                "additionalProperties": {
+                  "type": "string"
+                },
+                "type": "object"
+              },
+              "subtype": {
+                "type": "string"
+              },
+              "subtypeSuffix": {
+                "type": "string"
+              },
+              "type": {
+                "type": "string"
+              },
+              "wildcardSubtype": {
+                "type": "boolean"
+              },
+              "wildcardType": {
+                "type": "boolean"
+              }
+            },
+            "type": "string"
+          },
+          "projectUserRecipients": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "uniqueItems": true
+          },
+          "roleRecipients": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "uniqueItems": true
+          },
+          "sender": {
+            "type": "string"
+          },
+          "title": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "NotificationEvent": {
+        "properties": {
+          "notification": {
+            "$ref": "#/components/schemas/NotificationDTO"
+          }
+        },
+        "required": [
+          "notification"
+        ],
+        "type": "object"
+      },
+      "NotificationRequestEvent": {
+        "properties": {
+          "messageProperties": {
+            "$ref": "#/components/schemas/MessageProperties"
+          },
+          "metadata": {
+            "description": "The raw metadata",
+            "type": "object"
+          },
+          "payload": {
+            "description": "The raw payload",
+            "type": "object"
+          },
+          "requestDate": {
+            "format": "date-time",
+            "type": "string"
+          },
+          "requestId": {
+            "type": "string"
+          },
+          "requestOwner": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "messageProperties",
+          "payload"
+        ],
+        "type": "object"
+      },
+      "OrderAmqpExchanges": {
+        "enum": [
+          "regards.broadcast.fr.cnes.regards.framework.jpa.multitenant.event.TenantConnectionConfigurationCreated",
+          "regards.broadcast.fr.cnes.regards.framework.jpa.multitenant.event.TenantConnectionConfigurationUpdated",
+          "regards.broadcast.fr.cnes.regards.framework.jpa.multitenant.event.TenantConnectionConfigurationDeleted",
+          "regards.broadcast.fr.cnes.regards.framework.jpa.multitenant.event.TenantConnectionFailed",
+          "regards.broadcast.fr.cnes.regards.modules.project.domain.ProjectUpdateEvent",
+          "regards.broadcast.fr.cnes.regards.modules.accessrights.domain.projects.events.LicenseEvent",
+          "regards.broadcast.fr.cnes.regards.modules.accessrights.domain.projects.events.ProjectUserEvent",
+          "regards.broadcast.fr.cnes.regards.framework.security.event.RoleEvent",
+          "regards.broadcast.fr.cnes.regards.framework.security.event.ResourceAccessInit",
+          "regards.broadcast.fr.cnes.regards.framework.security.event.ResourceAccessEvent",
+          "regards.broadcast.fr.cnes.regards.framework.amqp.event.notification.NotificationEvent",
+          "regards.broadcast.fr.cnes.regards.framework.amqp.event.notifier.NotificationRequestEvent",
+          "regards.broadcast.fr.cnes.regards.framework.amqp.event.tenant.TenantDeletedEvent",
+          "regards.broadcast.fr.cnes.regards.framework.amqp.event.tenant.TenantCreatedEvent",
+          "regards.broadcast.rs-order.fr.cnes.regards.framework.modules.jobs.domain.event.JobEvent",
+          "regards.broadcast.rs-order.fr.cnes.regards.framework.modules.jobs.domain.event.StopJobEvent",
+          "regards.broadcast.fr.cnes.regards.modules.order.amqp.input.OrderRequestDtoEvent",
+          "regards.broadcast.fr.cnes.regards.modules.order.amqp.input.OrderCancelRequestDtoEvent",
+          "regards.broadcast.fr.cnes.regards.modules.order.amqp.output.OrderResponseDtoEvent",
+          "regards.broadcast.fr.cnes.regards.framework.modules.workspace.domain.WorkspaceMonitoringEvent",
+          "regards.broadcast.fr.cnes.regards.modules.processing.event.RightsPluginConfigurationEvent",
+          "regards.broadcast.rs-order.fr.cnes.regards.framework.modules.plugins.domain.event.BroadcastPluginConfEvent",
+          "regards.broadcast.rs-order.fr.cnes.regards.framework.modules.plugins.domain.event.PluginConfClearCacheEvent",
+          "regards.broadcast.fr.cnes.regards.framework.modules.plugins.domain.event.PluginConfEvent",
+          "regards.broadcast.fr.cnes.regards.modules.processing.domain.events.PExecutionResultEvent",
+          "regards.broadcast.fr.cnes.regards.modules.processing.domain.events.PExecutionRequestEvent",
+          "regards.broadcast.fr.cnes.regards.modules.processing.domain.events.DownloadedOutputFilesEvent",
+          "regards.broadcast.fr.cnes.regards.modules.dam.domain.dataaccess.accessgroup.event.AccessGroupEvent",
+          "regards.broadcast.fr.cnes.regards.modules.dam.domain.dataaccess.accessgroup.event.PublicAccessGroupEvent",
+          "regards.broadcast.fr.cnes.regards.modules.dam.domain.dataaccess.accessright.event.AccessRightEvent",
+          "regards.broadcast.rs-order.fr.cnes.regards.modules.dam.domain.datasources.event.DatasourceEvent",
+          "regards.broadcast.rs-order.fr.cnes.regards.modules.dam.domain.entities.event.DatasetEvent",
+          "regards.broadcast.rs-order.fr.cnes.regards.modules.dam.domain.entities.event.NotDatasetEntityEvent",
+          "regards.broadcast.fr.cnes.regards.modules.dam.domain.entities.event.BroadcastEntityEvent",
+          "regards.broadcast.fr.cnes.regards.modules.dam.dto.FeatureEvent",
+          "regards.broadcast.fr.cnes.regards.modules.model.domain.event.AttributeModelDeleted",
+          "regards.broadcast.fr.cnes.regards.modules.model.domain.event.AttributeModelUpdated",
+          "regards.broadcast.fr.cnes.regards.modules.model.domain.event.FragmentDeletedEvent",
+          "regards.broadcast.fr.cnes.regards.modules.model.domain.event.AttributeModelCreated",
+          "regards.broadcast.fr.cnes.regards.modules.model.dto.event.AttributeCacheRefreshEvent",
+          "regards.broadcast.fr.cnes.regards.modules.model.dto.event.ModelChangeEvent",
+          "regards.broadcast.fr.cnes.regards.modules.filecatalog.amqp.input.FilesReferenceEvent",
+          "regards.broadcast.fr.cnes.regards.modules.filecatalog.amqp.input.FilesDeletionEvent",
+          "regards.broadcast.fr.cnes.regards.modules.filecatalog.amqp.input.FilesStorageRequestEvent",
+          "regards.broadcast.fr.cnes.regards.modules.filecatalog.amqp.input.CancelRequestEvent",
+          "regards.broadcast.fr.cnes.regards.modules.filecatalog.amqp.input.FileArchiveResponseEvent",
+          "regards.broadcast.fr.cnes.regards.modules.filecatalog.amqp.input.FilesRetryRequestEvent",
+          "regards.broadcast.fr.cnes.regards.modules.filecatalog.amqp.input.FilesCopyEvent",
+          "regards.broadcast.fr.cnes.regards.modules.filecatalog.amqp.input.FilesRestorationRequestEvent",
+          "regards.broadcast.fr.cnes.regards.modules.filecatalog.amqp.input.QuotaUpdateEvent",
+          "regards.broadcast.fr.cnes.regards.modules.filecatalog.amqp.output.FileReferenceEvent",
+          "regards.broadcast.fr.cnes.regards.modules.filecatalog.amqp.output.FileArchiveRequestEvent",
+          "regards.broadcast.fr.cnes.regards.modules.filecatalog.amqp.output.FileRequestsGroupEvent",
+          "regards.broadcast.fr.cnes.regards.modules.filecatalog.amqp.output.FileReferenceUpdateEvent"
+        ],
+        "type": "string",
+        "x-enum-varnames": [
+          "TENANT_CONNECTION_CONFIGURATION_CREATED",
+          "TENANT_CONNECTION_CONFIGURATION_UPDATED",
+          "TENANT_CONNECTION_CONFIGURATION_DELETED",
+          "TENANT_CONNECTION_FAILED",
+          "PROJECT_UPDATE_EVENT",
+          "LICENSE_EVENT",
+          "PROJECT_USER_EVENT",
+          "ROLE_EVENT",
+          "RESOURCE_ACCESS_INIT",
+          "RESOURCE_ACCESS_EVENT",
+          "NOTIFICATION_EVENT",
+          "NOTIFICATION_REQUEST_EVENT",
+          "TENANT_DELETED_EVENT",
+          "TENANT_CREATED_EVENT",
+          "JOB_EVENT",
+          "STOP_JOB_EVENT",
+          "ORDER_REQUEST_DTO_EVENT",
+          "ORDER_CANCEL_REQUEST_DTO_EVENT",
+          "ORDER_RESPONSE_DTO_EVENT",
+          "WORKSPACE_MONITORING_EVENT",
+          "RIGHTS_PLUGIN_CONFIGURATION_EVENT",
+          "BROADCAST_PLUGIN_CONF_EVENT",
+          "PLUGIN_CONF_CLEAR_CACHE_EVENT",
+          "PLUGIN_CONF_EVENT",
+          "PEXECUTION_RESULT_EVENT",
+          "PEXECUTION_REQUEST_EVENT",
+          "DOWNLOADED_OUTPUT_FILES_EVENT",
+          "ACCESS_GROUP_EVENT",
+          "PUBLIC_ACCESS_GROUP_EVENT",
+          "ACCESS_RIGHT_EVENT",
+          "DATASOURCE_EVENT",
+          "DATASET_EVENT",
+          "NOT_DATASET_ENTITY_EVENT",
+          "BROADCAST_ENTITY_EVENT",
+          "FEATURE_EVENT",
+          "ATTRIBUTE_MODEL_DELETED",
+          "ATTRIBUTE_MODEL_UPDATED",
+          "FRAGMENT_DELETED_EVENT",
+          "ATTRIBUTE_MODEL_CREATED",
+          "ATTRIBUTE_CACHE_REFRESH_EVENT",
+          "MODEL_CHANGE_EVENT",
+          "FILES_REFERENCE_EVENT",
+          "FILES_DELETION_EVENT",
+          "FILES_STORAGE_REQUEST_EVENT",
+          "CANCEL_REQUEST_EVENT",
+          "FILE_ARCHIVE_RESPONSE_EVENT",
+          "FILES_RETRY_REQUEST_EVENT",
+          "FILES_COPY_EVENT",
+          "FILES_RESTORATION_REQUEST_EVENT",
+          "QUOTA_UPDATE_EVENT",
+          "FILE_REFERENCE_EVENT",
+          "FILE_ARCHIVE_REQUEST_EVENT",
+          "FILE_REQUESTS_GROUP_EVENT",
+          "FILE_REFERENCE_UPDATE_EVENT"
+        ]
+      },
+      "OrderCancelRequestDtoEvent": {
+        "properties": {
+          "correlationId": {
+            "maxLength": 255,
+            "minLength": 0,
+            "type": "string"
+          },
+          "orderId": {
+            "format": "int64",
+            "type": "integer"
+          }
+        },
+        "required": [
+          "correlationId",
+          "orderId"
+        ],
         "type": "object"
       },
       "OrderDataFile": {
@@ -774,6 +3086,37 @@
         ],
         "type": "object"
       },
+      "OrderRequestDtoEvent": {
+        "properties": {
+          "correlationId": {
+            "maxLength": 255,
+            "minLength": 0,
+            "type": "string"
+          },
+          "filters": {
+            "$ref": "#/components/schemas/OrderRequestFilters"
+          },
+          "queries": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "sizeLimitInBytes": {
+            "format": "int64",
+            "type": "integer"
+          },
+          "user": {
+            "maxLength": 128,
+            "minLength": 0,
+            "type": "string"
+          }
+        },
+        "required": [
+          "queries"
+        ],
+        "type": "object"
+      },
       "OrderRequestFilters": {
         "properties": {
           "dataTypes": {
@@ -850,6 +3193,302 @@
         ],
         "type": "object"
       },
+      "OrderResponseDtoEvent": {
+        "properties": {
+          "correlationId": {
+            "type": "string"
+          },
+          "downloadLink": {
+            "type": "string"
+          },
+          "errorType": {
+            "enum": [
+              "INVALID_CONTENT",
+              "FORBIDDEN",
+              "ORDER_LIMIT_REACHED",
+              "EMPTY_ORDER",
+              "INTERNAL_ERROR"
+            ],
+            "type": "string"
+          },
+          "errors": {
+            "format": "int32",
+            "type": "integer"
+          },
+          "message": {
+            "type": "string"
+          },
+          "orderId": {
+            "format": "int64",
+            "type": "integer"
+          },
+          "status": {
+            "enum": [
+              "GRANTED",
+              "DENIED",
+              "SUBORDER_DONE",
+              "DONE",
+              "FAILED"
+            ],
+            "type": "string"
+          },
+          "subOrderId": {
+            "format": "int64",
+            "type": "integer"
+          },
+          "totalSubOrders": {
+            "format": "int32",
+            "type": "integer"
+          }
+        },
+        "required": [
+          "correlationId",
+          "status"
+        ],
+        "type": "object"
+      },
+      "OutputFileEvent": {
+        "properties": {
+          "final": {
+            "type": "boolean"
+          },
+          "outputFiles": {
+            "$ref": "#/components/schemas/SeqPOutputFile"
+          }
+        },
+        "type": "object"
+      },
+      "PExecutionRequestEvent": {
+        "properties": {
+          "batchId": {
+            "format": "uuid",
+            "type": "string"
+          },
+          "executionCorrelationId": {
+            "type": "string"
+          },
+          "inputFiles": {
+            "$ref": "#/components/schemas/SeqPInputFile"
+          }
+        },
+        "type": "object"
+      },
+      "PExecutionResultEvent": {
+        "properties": {
+          "batchCorrelationId": {
+            "type": "string"
+          },
+          "batchId": {
+            "format": "uuid",
+            "type": "string"
+          },
+          "executionCorrelationId": {
+            "type": "string"
+          },
+          "executionId": {
+            "format": "uuid",
+            "type": "string"
+          },
+          "finalStatus": {
+            "enum": [
+              "SUCCESS",
+              "FAILURE",
+              "CANCELLED",
+              "TIMED_OUT",
+              "CLEANUP",
+              "PENDING",
+              "RUNNING",
+              "PREPARE",
+              "REGISTERED"
+            ],
+            "type": "string"
+          },
+          "messages": {
+            "$ref": "#/components/schemas/SeqString"
+          },
+          "outputs": {
+            "$ref": "#/components/schemas/SeqPOutputFileDTO"
+          },
+          "processId": {
+            "format": "uuid",
+            "type": "string"
+          },
+          "processInfo": {
+            "$ref": "#/components/schemas/MapStringString"
+          }
+        },
+        "type": "object"
+      },
+      "PInputFile": {
+        "properties": {
+          "bytes": {
+            "format": "int64",
+            "type": "integer"
+          },
+          "checksum": {
+            "type": "string"
+          },
+          "contentType": {
+            "type": "string"
+          },
+          "fileName": {
+            "type": "string"
+          },
+          "inputCorrelationId": {
+            "type": "string"
+          },
+          "localRelativePath": {
+            "type": "string"
+          },
+          "metadata": {
+            "$ref": "#/components/schemas/MapStringString"
+          },
+          "parameterName": {
+            "type": "string"
+          },
+          "url": {
+            "format": "url",
+            "type": "string"
+          }
+        },
+        "required": [
+          "bytes",
+          "checksum",
+          "fileName",
+          "localRelativePath",
+          "metadata",
+          "url"
+        ],
+        "type": "object"
+      },
+      "POutputFile": {
+        "properties": {
+          "checksum": {
+            "$ref": "#/components/schemas/Digest"
+          },
+          "created": {
+            "format": "date-time",
+            "type": "string"
+          },
+          "deleted": {
+            "type": "boolean"
+          },
+          "downloaded": {
+            "type": "boolean"
+          },
+          "execId": {
+            "format": "uuid",
+            "type": "string"
+          },
+          "id": {
+            "format": "uuid",
+            "type": "string"
+          },
+          "inputCorrelationIds": {
+            "$ref": "#/components/schemas/ListString"
+          },
+          "name": {
+            "type": "string"
+          },
+          "persisted": {
+            "type": "boolean"
+          },
+          "size": {
+            "format": "int64",
+            "type": "integer"
+          },
+          "url": {
+            "format": "url",
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "POutputFileDTO": {
+        "properties": {
+          "checksumMethod": {
+            "type": "string"
+          },
+          "checksumValue": {
+            "type": "string"
+          },
+          "execId": {
+            "format": "uuid",
+            "type": "string"
+          },
+          "id": {
+            "format": "uuid",
+            "type": "string"
+          },
+          "inputCorrelationIds": {
+            "$ref": "#/components/schemas/ListString"
+          },
+          "name": {
+            "type": "string"
+          },
+          "size": {
+            "format": "int64",
+            "type": "integer"
+          },
+          "url": {
+            "format": "url",
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "PStepFinal": {
+        "properties": {
+          "message": {
+            "type": "string"
+          },
+          "status": {
+            "enum": [
+              "SUCCESS",
+              "FAILURE",
+              "CANCELLED",
+              "TIMED_OUT",
+              "CLEANUP",
+              "PENDING",
+              "RUNNING",
+              "PREPARE",
+              "REGISTERED"
+            ],
+            "type": "string"
+          },
+          "time": {
+            "format": "date-time",
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "PStepIntermediary": {
+        "properties": {
+          "message": {
+            "type": "string"
+          },
+          "status": {
+            "enum": [
+              "SUCCESS",
+              "FAILURE",
+              "CANCELLED",
+              "TIMED_OUT",
+              "CLEANUP",
+              "PENDING",
+              "RUNNING",
+              "PREPARE",
+              "REGISTERED"
+            ],
+            "type": "string"
+          },
+          "time": {
+            "format": "date-time",
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
       "PageMetadata": {
         "properties": {
           "number": {
@@ -906,7 +3545,7 @@
             },
             "type": "array"
           },
-          "page": {
+          "metadata": {
             "$ref": "#/components/schemas/PageMetadata"
           }
         },
@@ -926,7 +3565,7 @@
             },
             "type": "array"
           },
-          "page": {
+          "metadata": {
             "$ref": "#/components/schemas/PageMetadata"
           }
         },
@@ -946,8 +3585,246 @@
             },
             "type": "array"
           },
-          "page": {
+          "metadata": {
             "$ref": "#/components/schemas/PageMetadata"
+          }
+        },
+        "type": "object"
+      },
+      "PluginConfClearCacheEvent": {
+        "type": "object"
+      },
+      "PluginConfEvent": {
+        "properties": {
+          "action": {
+            "enum": [
+              "DELETE",
+              "CREATE",
+              "UPDATE",
+              "DISABLE",
+              "ACTIVATE"
+            ],
+            "type": "string"
+          },
+          "label": {
+            "type": "string"
+          },
+          "pluginBusinnessId": {
+            "type": "string"
+          },
+          "pluginConfId": {
+            "format": "int64",
+            "type": "integer"
+          },
+          "pluginTypes": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "uniqueItems": true
+          }
+        },
+        "type": "object"
+      },
+      "PluginConfiguration": {
+        "properties": {
+          "active": {
+            "type": "boolean"
+          },
+          "businessId": {
+            "pattern": "[0-9a-zA-Z_-]*",
+            "type": "string"
+          },
+          "iconUrl": {
+            "format": "url",
+            "type": "string"
+          },
+          "id": {
+            "format": "int64",
+            "type": "integer"
+          },
+          "identifiable": {
+            "type": "boolean"
+          },
+          "interfaceNames": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "uniqueItems": true
+          },
+          "isActive": {
+            "type": "boolean",
+            "writeOnly": true
+          },
+          "label": {
+            "type": "string"
+          },
+          "metaData": {
+            "$ref": "#/components/schemas/PluginMetaData"
+          },
+          "metaDataAndPluginId": {
+            "$ref": "#/components/schemas/PluginMetaData"
+          },
+          "parameters": {
+            "items": {
+              "$ref": "#/components/schemas/IPluginParam"
+            },
+            "type": "array",
+            "uniqueItems": true
+          },
+          "pluginClassName": {
+            "type": "string"
+          },
+          "pluginId": {
+            "type": "string"
+          },
+          "priorityOrder": {
+            "format": "int32",
+            "type": "integer"
+          },
+          "version": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "label",
+          "priorityOrder"
+        ],
+        "type": "object"
+      },
+      "PluginMetaData": {
+        "properties": {
+          "author": {
+            "type": "string"
+          },
+          "contact": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "interfaceNames": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "uniqueItems": true
+          },
+          "licence": {
+            "type": "string",
+            "writeOnly": true
+          },
+          "license": {
+            "type": "string"
+          },
+          "markdown": {
+            "type": "string"
+          },
+          "owner": {
+            "type": "string"
+          },
+          "parameters": {
+            "items": {
+              "$ref": "#/components/schemas/PluginParamDescriptor"
+            },
+            "type": "array"
+          },
+          "pluginClassName": {
+            "type": "string"
+          },
+          "pluginId": {
+            "type": "string"
+          },
+          "url": {
+            "type": "string"
+          },
+          "userMarkdown": {
+            "type": "string"
+          },
+          "version": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "PluginParamDescriptor": {
+        "properties": {
+          "defaultValue": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "keyLabel": {
+            "type": "string"
+          },
+          "label": {
+            "type": "string"
+          },
+          "markdown": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "optional": {
+            "type": "boolean"
+          },
+          "parameterizedSubTypes": {
+            "items": {
+              "enum": [
+                "STRING",
+                "BYTE",
+                "SHORT",
+                "INTEGER",
+                "LONG",
+                "FLOAT",
+                "DOUBLE",
+                "BOOLEAN",
+                "MAP",
+                "COLLECTION",
+                "POJO",
+                "PLUGIN",
+                "REGARDS_ENTITY_MODEL"
+              ],
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "pluginType": {
+            "type": "string"
+          },
+          "sensible": {
+            "type": "boolean"
+          },
+          "sensitive": {
+            "type": "boolean",
+            "writeOnly": true
+          },
+          "type": {
+            "enum": [
+              "STRING",
+              "BYTE",
+              "SHORT",
+              "INTEGER",
+              "LONG",
+              "FLOAT",
+              "DOUBLE",
+              "BOOLEAN",
+              "MAP",
+              "COLLECTION",
+              "POJO",
+              "PLUGIN",
+              "REGARDS_ENTITY_MODEL"
+            ],
+            "type": "string"
+          },
+          "unconfigurable": {
+            "type": "boolean"
+          },
+          "userMarkdown": {
+            "type": "string"
           }
         },
         "type": "object"
@@ -967,7 +3844,181 @@
         },
         "type": "object"
       },
+      "ProcessPluginConfigurationRightsDTO": {
+        "properties": {
+          "pluginConfiguration": {
+            "$ref": "#/components/schemas/PluginConfiguration"
+          },
+          "rights": {
+            "$ref": "#/components/schemas/Rights"
+          }
+        },
+        "type": "object"
+      },
+      "Project": {
+        "properties": {
+          "crs": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "host": {
+            "type": "string"
+          },
+          "icon": {
+            "type": "string"
+          },
+          "id": {
+            "format": "int64",
+            "type": "integer"
+          },
+          "identifiable": {
+            "type": "boolean"
+          },
+          "isAccessible": {
+            "type": "boolean"
+          },
+          "isDeleted": {
+            "type": "boolean"
+          },
+          "isPoleToBeManaged": {
+            "type": "boolean"
+          },
+          "isPublic": {
+            "type": "boolean"
+          },
+          "label": {
+            "type": "string"
+          },
+          "licenceLink": {
+            "type": "string"
+          },
+          "licenseLink": {
+            "type": "string",
+            "writeOnly": true
+          },
+          "name": {
+            "pattern": "[a-zA-Z0-9-_]*",
+            "type": "string"
+          }
+        },
+        "required": [
+          "crs",
+          "description",
+          "label",
+          "name"
+        ],
+        "type": "object"
+      },
+      "ProjectUpdateEvent": {
+        "properties": {
+          "project": {
+            "$ref": "#/components/schemas/Project"
+          }
+        },
+        "type": "object"
+      },
+      "ProjectUserEvent": {
+        "properties": {
+          "action": {
+            "enum": [
+              "CREATE",
+              "DELETE",
+              "UPDATE"
+            ],
+            "type": "string"
+          },
+          "email": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "PublicAccessGroupEvent": {
+        "properties": {
+          "accessGroup": {
+            "$ref": "#/components/schemas/AccessGroup"
+          },
+          "action": {
+            "enum": [
+              "DELETE",
+              "CREATE"
+            ],
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "QuotaUpdateEvent": {
+        "properties": {
+          "currentQuotaByEmail": {
+            "additionalProperties": {
+              "format": "int64",
+              "type": "integer"
+            },
+            "type": "object"
+          }
+        },
+        "type": "object"
+      },
+      "RawMessageEvent": {
+        "properties": {
+          "body": {
+            "format": "byte",
+            "type": "string"
+          },
+          "messageProperties": {
+            "$ref": "#/components/schemas/MessageProperties"
+          }
+        },
+        "type": "object"
+      },
+      "RequestResultInfoDto": {
+        "properties": {
+          "errorCause": {
+            "type": "string"
+          },
+          "groupId": {
+            "type": "string"
+          },
+          "requestChecksum": {
+            "type": "string"
+          },
+          "requestOwners": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "uniqueItems": true
+          },
+          "requestStorage": {
+            "type": "string"
+          },
+          "requestStorePath": {
+            "type": "string"
+          },
+          "resultFile": {
+            "$ref": "#/components/schemas/FileReferenceDto"
+          }
+        },
+        "type": "object"
+      },
       "ResourceAccess": {
+        "type": "object"
+      },
+      "ResourceAccessEvent": {
+        "properties": {
+          "microservice": {
+            "type": "string"
+          },
+          "roleName": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "ResourceAccessInit": {
         "type": "object"
       },
       "ResourceMapping": {
@@ -1006,6 +4057,39 @@
         },
         "type": "object"
       },
+      "Rights": {
+        "properties": {
+          "datasets": {
+            "$ref": "#/components/schemas/ListString"
+          },
+          "linkedToAllDatasets": {
+            "type": "boolean"
+          },
+          "role": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "RightsPluginConfigurationEvent": {
+        "properties": {
+          "after": {
+            "$ref": "#/components/schemas/ProcessPluginConfigurationRightsDTO"
+          },
+          "before": {
+            "$ref": "#/components/schemas/ProcessPluginConfigurationRightsDTO"
+          },
+          "type": {
+            "enum": [
+              "CREATE",
+              "UPDATE",
+              "DELETE"
+            ],
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
       "RoleAuthority": {
         "properties": {
           "authority": {
@@ -1018,6 +4102,14 @@
             "type": "array"
           },
           "roleName": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "RoleEvent": {
+        "properties": {
+          "role": {
             "type": "string"
           }
         },
@@ -1038,6 +4130,268 @@
           "waitingForUser": {
             "description": "Filter on waiting for user",
             "type": "boolean"
+          }
+        },
+        "type": "object"
+      },
+      "SeqPInputFile": {
+        "properties": {
+          "async": {
+            "type": "boolean"
+          },
+          "distinct": {
+            "type": "boolean"
+          },
+          "empty": {
+            "type": "boolean"
+          },
+          "lazy": {
+            "type": "boolean"
+          },
+          "memoized": {
+            "type": "boolean"
+          },
+          "orNull": {
+            "$ref": "#/components/schemas/PInputFile"
+          },
+          "ordered": {
+            "type": "boolean"
+          },
+          "sequential": {
+            "type": "boolean"
+          },
+          "singleValued": {
+            "type": "boolean"
+          },
+          "traversableAgain": {
+            "type": "boolean"
+          }
+        },
+        "type": "object"
+      },
+      "SeqPOutputFile": {
+        "properties": {
+          "async": {
+            "type": "boolean"
+          },
+          "distinct": {
+            "type": "boolean"
+          },
+          "empty": {
+            "type": "boolean"
+          },
+          "lazy": {
+            "type": "boolean"
+          },
+          "memoized": {
+            "type": "boolean"
+          },
+          "orNull": {
+            "$ref": "#/components/schemas/POutputFile"
+          },
+          "ordered": {
+            "type": "boolean"
+          },
+          "sequential": {
+            "type": "boolean"
+          },
+          "singleValued": {
+            "type": "boolean"
+          },
+          "traversableAgain": {
+            "type": "boolean"
+          }
+        },
+        "type": "object"
+      },
+      "SeqPOutputFileDTO": {
+        "properties": {
+          "async": {
+            "type": "boolean"
+          },
+          "distinct": {
+            "type": "boolean"
+          },
+          "empty": {
+            "type": "boolean"
+          },
+          "lazy": {
+            "type": "boolean"
+          },
+          "memoized": {
+            "type": "boolean"
+          },
+          "orNull": {
+            "$ref": "#/components/schemas/POutputFileDTO"
+          },
+          "ordered": {
+            "type": "boolean"
+          },
+          "sequential": {
+            "type": "boolean"
+          },
+          "singleValued": {
+            "type": "boolean"
+          },
+          "traversableAgain": {
+            "type": "boolean"
+          }
+        },
+        "type": "object"
+      },
+      "SeqString": {
+        "properties": {
+          "async": {
+            "type": "boolean"
+          },
+          "distinct": {
+            "type": "boolean"
+          },
+          "empty": {
+            "type": "boolean"
+          },
+          "lazy": {
+            "type": "boolean"
+          },
+          "memoized": {
+            "type": "boolean"
+          },
+          "orNull": {
+            "type": "string"
+          },
+          "ordered": {
+            "type": "boolean"
+          },
+          "sequential": {
+            "type": "boolean"
+          },
+          "singleValued": {
+            "type": "boolean"
+          },
+          "traversableAgain": {
+            "type": "boolean"
+          }
+        },
+        "type": "object"
+      },
+      "StopJobEvent": {
+        "properties": {
+          "jobId": {
+            "format": "uuid",
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "TenantConnection": {
+        "properties": {
+          "driverClassName": {
+            "type": "string"
+          },
+          "errorCause": {
+            "type": "string"
+          },
+          "password": {
+            "type": "string"
+          },
+          "sslMode": {
+            "enum": [
+              "REQUIRE",
+              "PREFER"
+            ],
+            "type": "string"
+          },
+          "state": {
+            "enum": [
+              "ENABLED",
+              "DISABLED",
+              "CONNECTING",
+              "ERROR"
+            ],
+            "type": "string"
+          },
+          "tenant": {
+            "type": "string"
+          },
+          "url": {
+            "type": "string"
+          },
+          "userName": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "tenant"
+        ],
+        "type": "object"
+      },
+      "TenantConnectionConfigurationCreated": {
+        "properties": {
+          "microserviceName": {
+            "type": "string"
+          },
+          "tenant": {
+            "$ref": "#/components/schemas/TenantConnection"
+          }
+        },
+        "type": "object"
+      },
+      "TenantConnectionConfigurationDeleted": {
+        "properties": {
+          "microserviceName": {
+            "type": "string"
+          },
+          "tenant": {
+            "$ref": "#/components/schemas/TenantConnection"
+          }
+        },
+        "type": "object"
+      },
+      "TenantConnectionConfigurationUpdated": {
+        "properties": {
+          "microserviceName": {
+            "type": "string"
+          },
+          "tenant": {
+            "$ref": "#/components/schemas/TenantConnection"
+          }
+        },
+        "type": "object"
+      },
+      "TenantConnectionFailed": {
+        "properties": {
+          "microserviceName": {
+            "type": "string"
+          },
+          "tenant": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "TenantCreatedEvent": {
+        "properties": {
+          "tenant": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "TenantDeletedEvent": {
+        "properties": {
+          "tenant": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "Tuple2StringString": {
+        "properties": {
+          "_1": {
+            "type": "string"
+          },
+          "_2": {
+            "type": "string"
           }
         },
         "type": "object"
@@ -1094,6 +4448,9 @@
           "values"
         ],
         "type": "object"
+      },
+      "WorkspaceMonitoringEvent": {
+        "type": "object"
       }
     },
     "securitySchemes": {
@@ -1114,7 +4471,7 @@
       "name": "GPL-3.0"
     },
     "title": "MICROSERVICE ORDER",
-    "version": "2.3.1"
+    "version": "2.4.0"
   },
   "openapi": "3.0.1",
   "paths": {
