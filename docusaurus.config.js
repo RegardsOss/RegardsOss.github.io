@@ -4,7 +4,7 @@ const currentVersion = "2.3.1";
 // Default value: "current"
 // You can provide the last version to create a next version unreleased
 // if currentVersion is 1.14.0, you can write here 1.13.0 and 1.14.0 will be unreleased and hide by default
-const stableVersion = "2.2.0";
+const stableVersion = "2.3.0";
 
 module.exports = {
     title: "REGARDS",
@@ -48,11 +48,11 @@ module.exports = {
                 src: "img/logos/regards-svg/regards-white.svg",
             },
             items: [{
-                    type: 'doc',
-                    docId: 'overview/functional-overview/overview',
-                    label: 'Overview',
-                    position: 'left',
-                },
+                type: 'doc',
+                docId: 'overview/functional-overview/overview',
+                label: 'Overview',
+                position: 'left',
+            },
                 {
                     type: 'doc',
                     docId: 'user-documentation/overview/overview',
@@ -78,7 +78,7 @@ module.exports = {
                     dropdownItemsAfter: [{
                         to: "/versions",
                         label: "All versions",
-                    }, ],
+                    },],
                 },
                 {
                     to: "roadmap/",
@@ -109,18 +109,18 @@ module.exports = {
         footer: {
             style: "dark",
             links: [{
-                    title: "Users",
-                    items: [{
-                        label: "Manual",
-                        to: "/docs/user-guide/",
-                    }, ],
-                },
+                title: "Users",
+                items: [{
+                    label: "Manual",
+                    to: "/docs/user-guide/",
+                },],
+            },
                 {
                     title: "Developpers",
                     items: [{
-                            label: "Install",
-                            href: "/docs/setup/",
-                        },
+                        label: "Install",
+                        href: "/docs/setup/",
+                    },
                         {
                             label: "Web UI",
                             href: "/docs/development/frontend/introduction/setup/",
@@ -132,13 +132,13 @@ module.exports = {
                     items: [{
                         label: "GitHub",
                         href: "https://github.com/RegardsOss/",
-                    }, ],
+                    },],
                 },
             ],
             copyright: `Copyright © ${new Date().getFullYear()} REGARDS, OSS. Built with Docusaurus.`,
         },
         mermaid: {
-            theme: { light: 'forest', dark: 'forest' },
+            theme: {light: 'forest', dark: 'forest'},
         },
     },
     plugins: [

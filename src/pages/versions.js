@@ -9,79 +9,107 @@ import React from "react";
 import useDocusaurusContext from "@docusaurus/useDocusaurusContext";
 import Layout from "@theme/Layout";
 import {
-  useLatestVersion,
-  useVersions,
+    useLatestVersion,
+    useVersions,
 } from '@docusaurus/plugin-content-docs/client';
 
 function Version() {
-  const { siteConfig } = useDocusaurusContext();
-  const versions = useVersions();
-  const latestVersion = useLatestVersion();
-  const currentVersion = versions.find((version) => version.name === 'current');
+    const {siteConfig} = useDocusaurusContext();
+    const versions = useVersions();
+    console.log("Versions:", versions);
 
-  const pastVersions = versions.filter(
-    (version) => version !== latestVersion && version.name !== "current"
-  );
+    const latestVersion = useLatestVersion();
+    console.log("latestVersion:", latestVersion);
 
-  return (
-    <Layout
-      title="Versions"
-      description="REGARDS Versions page listing all documented site versions"
-    >
-      <main className="container margin-vert--lg">
-        <h1>REGARDS documentation versions</h1>
+    const currentVersion = versions.find((version) => version.name === 'current');
+    console.log("currentVersion:", currentVersion);
 
-        {currentVersion && (
-          <div className="margin-bottom--lg">
-            <h3 id="latest">Current version (Stable)</h3>
-            <p>
-              Here you can find the documentation for current released version.
-            </p>
-            <table>
-              <tbody>
-                <tr>
-                  <th>{currentVersion.label}</th>
-                  <td>
-                    <a href={`${currentVersion.path}/user-guide`}>Documentation</a>
-                  </td>
-                  <td>
-                    <a href={`release-notes/v${currentVersion.label}`}>
-                      Release Notes
-                    </a>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        )}
-        {pastVersions.length > 0 && (
-          <div className="margin-bottom--lg">
-            <h3 id="archive">Past versions (Not maintained anymore)</h3>
-            <p>
-              Here you can find documentation for previous versions of REGARDS.
-            </p>
-            <table>
-              <tbody>
-                {pastVersions.map((version) => (
-                  <tr key={version.name}>
-                    <th>{version.label}</th>
-                    <td>
-                      <a href={`${version.path}/user-guide`}>Documentation</a>
-                    </td>
-                    <td>
-                      <a href={`release-notes/v${version.label}`}>
-                        Release Notes
-                      </a>
-                    </td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-        )}
-      </main>
-    </Layout>
-  );
+    const pastVersions = versions.filter(
+        (version) => version !== latestVersion && version.name !== "current"
+    );
+    console.log("pastVersions:", pastVersions);
+
+    return (
+        <Layout
+            title="Versions"
+            description="REGARDS Versions page listing all documented site versions"
+        >
+            <main className="container margin-vert--lg">
+                <h1>REGARDS documentation versions</h1>
+
+                {currentVersion && (
+                    <div className="margin-bottom--lg">
+                        <h3 id="latest">Current version (Stable)</h3>
+                        <p>
+                            Here you can find the documentation for current released version.
+                        </p>
+                        <table>
+                            <tbody>
+                            <tr>
+                                <th>{currentVersion.label}</th>
+                                <td>
+                                    <a href={`${currentVersion.path}/user-guide`}>Documentation</a>
+                                </td>
+                                <td>
+                                    <a href={`release-notes/v${currentVersion.label}`}>
+                                        Release Notes
+                                    </a>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                )}
+                {pastVersions.length > 0 && (
+                    <div className="margin-bottom--lg">
+                        <h3 id="archive">Past versions (Maintained anymore)</h3>
+                        <p>
+                            Here you can find documentation for previous versions of REGARDS.
+                        </p>
+                        <table>
+                            <tbody>
+                            {pastVersions.map((version) => (
+                                <tr key={version.name}>
+                                    <th>{version.label}</th>
+                                    <td>
+                                        <a href={`${version.path}/user-guide`}>Documentation</a>
+                                    </td>
+                                    <td>
+                                        <a href={`release-notes/v${version.label}`}>
+                                            Release Notes
+                                        </a>
+                                    </td>
+                                </tr>
+                            ))}
+                            </tbody>
+                        </table>
+                    </div>
+                )}
+                {
+                    /*TODO : to be defined versions not maintened by CS TMA team*/
+                    <div className="margin-bottom--lg">
+                        <h3 id="archive">Past versions (Not maintained anymore)</h3>
+                        <p>
+                            Here you can find documentation for previous versions of REGARDS.
+                        </p>
+                        <table>
+                            <tbody>
+                            <tr>
+                                <th>X.Y.Z</th>
+                                <td>
+                                    Documentation
+                                </td>
+                                <td>
+                                    Release Notes
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                }
+            </main>
+        </Layout>
+    );
 }
 
 export default Version;
