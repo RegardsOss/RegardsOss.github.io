@@ -1,10 +1,17 @@
 #!/bin/bash -e
 
+only_neo=false
+if [ "$1" = "--only-neo" ]; then
+  only_neo=true
+  shift
+fi
+
 if [ "$#" != 2 ]; then
    echo "oops $#"
-   echo "updateAPI.sh [server] [version]"
+   echo "updateAPI.sh [--only-neo] [server] [version]"
    echo "exemple : ./updateAPI.sh https://regards.cnes.fr 1.15.0"
    echo "C-S : ./updateAPI.sh https://validation-regards.cloud-espace.si.c-s.fr 1.15.0"
+   echo "Neo only : ./updateAPI.sh --only-neo https://regards.cnes.fr 1.15.0"
    exit 1
 fi
 
@@ -31,21 +38,28 @@ function importMServiceControllers
   mv ./docs/development/services/$folder_name/api-guides/rest/$microservice.json.formated  ./docs/development/services/$folder_name/api-guides/rest/$microservice.json
 }
 
-importMServiceControllers rs-access-instance     access-instance
-importMServiceControllers rs-access-project      access-project
-importMServiceControllers rs-admin               admin
-importMServiceControllers rs-admin-instance      admin-instance
-importMServiceControllers rs-authentication      authentication
-importMServiceControllers rs-catalog             catalog
-importMServiceControllers rs-dam                 dam
-importMServiceControllers rs-dataprovider        dataprovider
-importMServiceControllers rs-fem                 fem
-importMServiceControllers rs-ingest              ingest
-importMServiceControllers rs-lta-manager         lta-manager
-importMServiceControllers rs-notifier            notifier
-importMServiceControllers rs-order               order
-importMServiceControllers rs-processing          processing
-importMServiceControllers rs-storage             storage
-importMServiceControllers rs-worker-manager      worker-manager
-importMServiceControllers rs-delivery            delivery
-importMServiceControllers rs-downloader          downloader
+if [ "$only_neo" = true ]; then
+  importMServiceControllers rs-file-access        neo-storage/file-access
+  importMServiceControllers rs-file-packager      neo-storage/file-packager
+  importMServiceControllers rs-file-catalog       neo-storage/file-catalog
+else
+  importMServiceControllers rs-access-instance     access-instance
+  importMServiceControllers rs-access-project      access-project
+  importMServiceControllers rs-admin               admin
+  importMServiceControllers rs-admin-instance      admin-instance
+  importMServiceControllers rs-authentication      authentication
+  importMServiceControllers rs-catalog             catalog
+  importMServiceControllers rs-dam                 dam
+  importMServiceControllers rs-dataprovider        dataprovider
+  importMServiceControllers rs-fem                 fem
+  importMServiceControllers rs-ingest              ingest
+  importMServiceControllers rs-lta-manager         lta-manager
+  importMServiceControllers rs-notifier            notifier
+  importMServiceControllers rs-order               order
+  importMServiceControllers rs-processing          processing
+  importMServiceControllers rs-storage             storage
+  importMServiceControllers rs-worker-manager      worker-manager
+  importMServiceControllers rs-delivery            delivery
+  importMServiceControllers rs-downloader          downloader
+fi
+
