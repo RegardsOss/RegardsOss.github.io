@@ -8,11 +8,11 @@ slug: /development/backend/framework/starters/encryption/
 
 ## Purpose
 
-This stater enables encryption, and decryption, for sensible plugin parameters and databases password.
+This starter enables encryption, and decryption, for sensible plugin parameters and databases password.
 
 ## Configuration
 
-Add stater dependency to your POM (version depends on the REGARDS BOM)
+Add starter dependency to your POM (version depends on the REGARDS BOM)
 
 ```xml
 <dependency>
@@ -21,7 +21,7 @@ Add stater dependency to your POM (version depends on the REGARDS BOM)
 </dependency>
 ```
 
-This stater defines its own properties. It can be found in CipherProperties class.
+This starter defines its own properties. It can be found in CipherProperties class.
 ```properties
 regards.cipher.key-location=<path to cipher key>
 regards.cipher.iv=<value of initialization vector>
