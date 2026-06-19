@@ -44,7 +44,7 @@ submit requests.
 ```bash
 curl -X DELETE https://regards.com/api/v1/rs-fem/features --data "@request.json" \
  -H "Authorization: Bearer <token>" \
- -H "Content-Type: application/json"
+ -H "Content-Type: application/geo+json"
 ```
 
 ```json title='Example of deletion request'
@@ -61,7 +61,7 @@ curl -X DELETE https://regards.com/api/v1/rs-fem/features --data "@request.json"
 * **Code:** 201 Created
 
 :::info
-The success return codes only means that your request has been granted an will be processed soon.
+The success return codes only means that your request has been granted and will be processed soon.
 :::
 
 **Response Body:**
@@ -72,14 +72,14 @@ The success return codes only means that your request has been granted an will b
 | denied  | `Map<String, String>` | Couples FeatureId/cause for denied requests      |
 | message | `List<String>`        | Error messages information                       |
 
-```json title='Example of creation response'
+```json title='Example of deletion response'
 
 {
   "granted": {
     "ProductId001": "request-id-001"
   },
   "denied": {
-    "ProductId002": "Missing parameter cloud_coverage"
+    "ProductId002": "Request id already exists"
   },
   "messages": []
 }

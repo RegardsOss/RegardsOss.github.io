@@ -24,7 +24,7 @@ To find out how to configure plugins, and in particular how to associate a recip
 
 - [Configure recipient plugins](../plugins/recipient-sender-plugins.md)
 - [Configure rule plugins](../plugins/rule-matcher-plugins.md)
-- [Associate recipients and rules](../plugins/notifier-intro-plugins.md)
+- [Associate recipients and rules](../plugins/overview.md)
 
 ## Example
 

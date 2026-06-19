@@ -36,7 +36,7 @@ You can learn how to **operate** with the microservice thanks to **API Guides** 
 
 See the following sections to learn how to use the plugins:
 
-* [Notifier plugins overview](./plugins/notifier-intro-plugins.md) shows you how to configure Notifier. **Highly
+* [Notifier plugins overview](plugins/overview.md) shows you how to configure Notifier. **Highly
   recommended**
 * [Rule matchers guide](./plugins/rule-matcher-plugins.md)
 * [Recipient senders guide](./plugins/recipient-sender-plugins.md)

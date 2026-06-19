@@ -16,8 +16,8 @@ For a REGARDS client using message queuing, responses are sent for each change o
 - `DENIED` : Your request has been denied (possibly malformed request).
 - `GRANTED` : Your request has been granted and will be processed soon
 - `ERROR` : Processing of your granted request finished in error status.
-- `SUCCESS` : Processing of your granted request finished with success. Your SIP as been successfully ingest, AIP
-  generated and associated files stored.
+- `SUCCESS` : Processing of your granted request finished with success. The product was successfully deleted. 
+  If the storage policy states so, the associated files have been deleted.
 
 ![sequence](../../sources/feature-request-nominal.png)
 

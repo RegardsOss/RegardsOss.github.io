@@ -25,7 +25,7 @@ La configuration d'un service peut-être
 téléchargée et importée depuis l'écran accessible en cliquant sur l'icône <Icon path={mdiSwapVertical} size={1.3} />
 du service concerné.
 
-Vous pouvez consulter le guide sur [la configuration des différents types de plugins](../../development/services/notifier/plugins/notifier-intro-plugins.md)
+Vous pouvez consulter le guide sur [la configuration des différents types de plugins](../../development/services/notifier/plugins/overview.md)
 
 ## Diffusion OAIS
 

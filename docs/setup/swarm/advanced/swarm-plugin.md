@@ -43,7 +43,7 @@ The documentation of every microservice list all available OSS plugins and their
 Here is some examples:
 
 - [rs-dam or DataManagement plugins](../../../development/services/dam/plugins/overview.md)
-- [rs-notifier plugins](../../../development/services/notifier/plugins/overview.md)
+- [rs-notifier plugins](../../../development/services/notifier/plugins/listing.md)
 - [rs-ingest plugins](../../../development/services/ingest/plugins/overview.md)
 - [rs-catalog plugins](../../../development/services/catalog/plugins/overview.md)
 - ...

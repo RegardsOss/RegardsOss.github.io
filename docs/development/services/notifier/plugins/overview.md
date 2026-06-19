@@ -1,33 +1,74 @@
 ---
-title: Plugins
-sidebar_label: Available plugins
-slug: /development/backend/services/notifier/plugins/listing
-sidebar_position: 2
+id: backend-notifier-plugins-intro
+title: Notifier plugins overview
+sidebar_label: Overview
+slug: /development/backend/services/notifier/plugins/intro
+sidebar_position: 1
 ---
 
-:::info developers advice
-If you want to create your own implementation of one of these extension points, you need to extend the specific
-interface indicated.
+This section introduces you how to configure the `Notifier` microservice to send messages depending on the product 
+content.
+
+- [Recipient sender plugins](#recipient-sender-plugins) generates the payload to send and send it
+- [Recipients / Rules association](#recipients--rules-association) allows to link a matcher rule to a Recipient sender
+- [Rule matcher plugins](#rule-matcher-plugins) permits or not to diffuse a product based on its product content and
+  metadata
+
+
+## Recipient sender plugins
+
+Sender plugins are used to define:
+
+* Notification content (aka the payload)
+* Recipients to notify
+* Can be directly notified
+
+[Check Recipient sender plugins guide](./recipient-sender-plugins.md) to see available implementation and their
+configuration of this kind of plugin.
+
+## Recipients / Rules association
+
+In order to have a functional notification system, you can :
+* Associate your Recipient sender plugins to your Rule matcher plugins.  
+  **and/or**
+* allow direct notification from your recipient plugin configuration
+
+To associate your Recipient plugin to a Rule matcher plugin, you need to write an association for each of your Rule
+matcher plugin:
+```json
+{
+  "key": "fr.cnes.regards.modules.notifier.dto.conf.RuleRecipientsAssociation",
+  "value": {
+    "ruleId": "{businessId of rule plugin configuration}",
+    "recipientIds": [
+      "{businessId of recipient plugin configuration}"
+    ]
+  }
+}
+```
+
+:::note
+You can associate one rule matcher plugin to many recipient sender plugins.
 :::
 
-## Recipient sender
+## Rule matcher plugins
 
-All the following plugins implements
-the [IRecipientNotifier interface](https://github.com/RegardsOss/regards-backend/blob/master/rs-notifier/notifier/notifier-domain/src/main/java/fr/cnes/regards/modules/notifier/domain/plugin/IRecipientNotifier.java).
+Rules matcher plugins are used to define if a product should be sent according to product content and metadata.
 
-| Plugin image                                                                                                                               | Plugin name            | Description                                                                                                                             |
-|--------------------------------------------------------------------------------------------------------------------------------------------|------------------------|-----------------------------------------------------------------------------------------------------------------------------------------|
-| [**rs-rabbitmq-sender-plugin**](https://github.com/orgs/RegardsOss/packages/container/package/rs-rabbitmq-sender-plugin)                   | RabbitMQSender         | Send notifications to a specific RabbitMQ exchange<br /> See [RabbitMQSender documentation](./recipient-sender-plugins.md)              |
-| [**rs-lta-request-sender-plugin**](https://github.com/orgs/RegardsOss/packages/container/package/rs-lta-request-sender-plugin)             | LtaRequestSender       | Send `LTA manager` requests<br /> See [LtaRequestSender documentation](./recipient-sender-plugins.md)                                   |
-| [**rs-worker-manager-sender-plugin**](https://github.com/orgs/RegardsOss/packages/container/package/rs-worker-manager-sender-plugin)       | WorkerManagerSender    | Send `Worker Manager` requests<br /> See [WorkerManagerSender documentation](./recipient-sender-plugins.md)                             |
-| [**rs-dissemination-ack-sender-plugin**](https://github.com/orgs/RegardsOss/packages/container/package/rs-dissemination-ack-sender-plugin) | DisseminationAckSender | Send GeoJSON or OAIS dissemination acknowledge requests<br /> See [DisseminationAckSender documentation](./recipient-sender-plugins.md) |
+[Check Rule matcher plugins guide](./rule-matcher-plugins.md) to see available implementation and 
+configuration of this kind of plugin.
 
-## Rule matcher
+:::info What's next?
+If the rule matcher plugin accepts the product to notify, it will transfer the product to each **Recipient sender plugin**
+associated with the current rule matcher plugin, following [the association ** Recipients / Rules**](#recipients--rules-association).
+:::
 
-All the following plugins implements
-the [IRuleMatcher interface](https://github.com/RegardsOss/regards-backend/blob/master/rs-notifier/notifier/notifier-domain/src/main/java/fr/cnes/regards/modules/notifier/domain/plugin/IRuleMatcher.java).
+:::note Number of association
+A rule matcher plugin can be associated with `0 to N` Recipient sender plugins
+:::
 
-| Plugin image                                      | Plugin name        | Description                                                                                                                                                |
-|---------------------------------------------------|--------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **Already** provided <br/>inside the microservice | DefaultRuleMatcher | Check into notification content if a json property matches given specific value.  <br /> See [DefaultRuleMatcher documentation](./rule-matcher-plugins.md) |
-| **Already** provided <br/>inside the microservice | LuceneRuleMatcher  | Check if notification content or metadata matches provided lucene expression.  <br /> See [LuceneRuleMatcher documentation](./rule-matcher-plugins.md)     |
+:::danger Notify without checking rule matcher
+A recipient sender plugin can be configured to accept direct notifications. By doing so, the message won't be 
+tested against Rule matcher plugins.
+:::
+

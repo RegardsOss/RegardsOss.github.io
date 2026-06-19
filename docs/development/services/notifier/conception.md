@@ -34,7 +34,7 @@ All requests are then processed as they arrive:
 * All rules are applied to all requests in order to identify target recipients
 * Notifications are then sent to these recipients
 
-Under the hood, all the real work is done by the [plugins](./plugins/notifier-intro-plugins.md).
+Under the hood, all the real work is done by the [plugins](plugins/overview.md).
 
 ## Notification format
 

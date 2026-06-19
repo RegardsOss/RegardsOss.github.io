@@ -17,6 +17,7 @@ Here is the list of documented plugins:
 - [LTA Request Sender](#lta-request-sender)
 - [Worker Manager Sender](#worker-manager-sender)
 - [Dissemination ACK Sender](#dissemination-ack-sender)
+- [Feature Deletion Sender](#feature-deletion-sender)
 
 All the plugins implements
 the [IRecipientNotifier interface](https://github.com/RegardsOss/regards-backend/blob/master/rs-notifier/notifier/notifier-domain/src/main/java/fr/cnes/regards/modules/notifier/domain/plugin/IRecipientNotifier.java).
@@ -509,6 +510,64 @@ This plugin let you override following configuration:
   }
 }
 ```
+
+### Feature Deletion Sender
+
+This plugin sends Feature Deletion Requests to another REGARDS instance or tenant.
+
+It sends an AMQP deletion request to a rs-fem service for each product that it is notified about.
+The product must be a GeoJson feature. The deletion request is sent with the same URN as the notified product.
+
+This notifier is meant to be associated to a rule that only reacts to deletions of a GeoJson product, so it
+propagates the deletion of a feature on the current tenant to another instance of REGARDS that contains the same
+feature.
+
+The plugin supports the following configuration parameters:
+
+| Name            | Type    | Optional | Description                                                                                     |
+|-----------------|---------|:--------:|-------------------------------------------------------------------------------------------------|
+| ackRequired     | boolean |    Y     | When true, the emitter that contacted Notifier will be awaiting for an acknowledgement message. |
+| recipientTenant | string  |    Y     | Value of the recipient tenant if this one is different from the one sending the message.        |
+
+The plugin also supports all parameters defined above in [Common Sender configuration](#common-sender-configuration).
+
+The following example defines a plugin that sends deletion requests to the tenant `tenantB` (specified in 
+`recipientTenant`) whenever the notifier is triggered.
+
+Here, `directNotificationEnabled` is set to `true`, so the notifier will be available in the UI for direct 
+notification under the name `projectB-delete` (specified in `recipientLabel`).
+
+```json title="FemDeletionSender Plugin Configuration Example"
+{
+  "key": "fr.cnes.regards.framework.modules.plugins.domain.PluginConfiguration",
+  "value": {
+    "pluginId": "FemDeletionSender", "version": "1.0.0", "priorityOrder": 0, "active": true,
+    "label": "ProjectBDelete", "businessId": "ProjectBDelete",
+    "parameters": [
+      { "name": "recipientLabel", "type": "STRING", "value": "projectB-delete", "dynamic": false },
+      { "name": "ackRequired", "type": "BOOLEAN", "value": true, "dynamic": false },
+      { "name": "blockingRequired", "type": "BOOLEAN", "value": true, "dynamic": false },
+      { "name": "directNotificationEnabled", "type": "BOOLEAN", "value": true, "dynamic": false },
+      { "name": "recipientTenant", "type": "STRING", "value": "projectB", "dynamic": false },
+      { "name": "exchange", "type": "STRING", "value": "regards.projectB.delete.dissemination", "dynamic": false },
+      { "name": "queueName", "type": "STRING", "value": "regards.projectB.delete.dissemination", "dynamic": false },
+      { "name": "queueDeadLetterRoutingKey", "type": "STRING", "value": "regards.projectB.delete.dissemination.DLQ", "dynamic": false }
+    ]
+  }
+}
+```
+
+Note: the `exchange` and the `queueName` specified in this configuration will be created by the plugin if they do not 
+exist when the first delete request is sent by the plugin.
+
+When configuring REGARDS, you must ensure that the messages sent to this queue are forwarded to the 
+destination instance of REGARDS using a [shovel](../../../../../setup/swarm/advanced/rabbitmq#configure-shovels) 
+configured in RabbitMQ. The shovel must forward the messages to the exchange named
+`regards.broadcast.fr.cnes.regards.modules.feature.dto.event.in.FeatureDeletionRequestEvent` (for more information 
+about this exchange, check out the [Delete Product AMQP API](../../fem/guides/amqp/publish-a-deletion-request)).
+
+If the destination tenant is on the same instance as the current tenant, it is possible to bypass the _shovel_ 
+configuration and directly configure the plugin to use the above exchange in the `exchange` field.
 
 ## Common issue
 
