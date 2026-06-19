@@ -15,13 +15,13 @@ interface indicated.
 All the following plugins implements
 the [IDataSourcePlugin interface](https://github.com/RegardsOss/regards-backend/blob/master/rs-dam/dam/dam-domain/src/main/java/fr/cnes/regards/modules/dam/domain/datasources/plugins/IDataSourcePlugin.java).
 
-| Plugin image                                                                                                                     | Plugin name                        | Description                                                                | 
-|----------------------------------------------------------------------------------------------------------------------------------|------------------------------------|----------------------------------------------------------------------------|
-| [rs-aip-data-source-plugin](https://github.com/orgs/RegardsOss/packages/container/package/rs-aip-datasource-plugin)              | aip-datasource                     | Plugin to crawl products from `rs-ingest` microservice.                    |
-| [rs-feature-datasource-plugin](https://github.com/orgs/RegardsOss/packages/container/package/rs-feature-datasource-plugin)       | feature-datasource                 | Plugin to crawl products from `rs-fem` microservice.                       |
-| [rs-postgresql-datasource-plugin](https://github.com/orgs/RegardsOss/packages/container/package/rs-postgresql-datasource-plugin) | postgresql-datasource-single-table | Plugin to crawl products from a **single table** of a `postgres database`. |
-| [rs-postgresql-datasource-plugin](https://github.com/orgs/RegardsOss/packages/container/package/rs-postgresql-datasource-plugin) | postgresql-datasource              | Plugin to crawl products from **many tables** of a `postgres database`.    |
-| [rs-webservice-datasource-plugin](https://github.com/orgs/RegardsOss/packages/container/package/rs-webservice-datasource-plugin) | webservice-datasource              | Plugin to crawl products from an **Opensearch web service**.               |
+| Plugin image                                                                                                                     | Plugin name                        | Description                                                                                                      | 
+|----------------------------------------------------------------------------------------------------------------------------------|------------------------------------|------------------------------------------------------------------------------------------------------------------|
+| [rs-aip-data-source-plugin](https://github.com/orgs/RegardsOss/packages/container/package/rs-aip-datasource-plugin)              | aip-datasource                     | Plugin to crawl products from `rs-ingest` microservice.                                                          |
+| [rs-feature-datasource-plugin](https://github.com/orgs/RegardsOss/packages/container/package/rs-feature-datasource-plugin)       | feature-datasource                 | Plugin to crawl products from `rs-fem` microservice : [see configuration](rs_feature_datasource_plugin_param.md) |
+| [rs-postgresql-datasource-plugin](https://github.com/orgs/RegardsOss/packages/container/package/rs-postgresql-datasource-plugin) | postgresql-datasource-single-table | Plugin to crawl products from a **single table** of a `postgres database`.                                       |
+| [rs-postgresql-datasource-plugin](https://github.com/orgs/RegardsOss/packages/container/package/rs-postgresql-datasource-plugin) | postgresql-datasource              | Plugin to crawl products from **many tables** of a `postgres database`.                                          |
+| [rs-webservice-datasource-plugin](https://github.com/orgs/RegardsOss/packages/container/package/rs-webservice-datasource-plugin) | webservice-datasource              | Plugin to crawl products from an **Opensearch web service**.                                                     |
 
 ## Access rights plugins
 
