@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkregardsoss_github_io=self.webpackChunkregardsoss_github_io||[]).push([[84483],{84483:(s,e,r)=>{r.r(e),r.d(e,{DocSearchModal:()=>a.He});var a=r(84443)}}]);
