@@ -15,7 +15,6 @@ module.exports = {
     onBrokenLinks: "throw",
     // cannot be used with redocusaurus yet: https://github.com/rohit-gohri/redocusaurus/issues/321
     onBrokenAnchors: "ignore",
-    onBrokenMarkdownLinks: "warn",
     favicon: "img/logos/regards-png/regards-favicon.png",
     organizationName: "RegardsOss",
     projectName: "RegardsOss.github.io",
@@ -30,6 +29,9 @@ module.exports = {
     },
     markdown: {
         mermaid: true,
+        hooks: {
+            onBrokenMarkdownLinks: "warn"
+        }
     },
     themes: ['@docusaurus/theme-mermaid'],
     themeConfig: {
@@ -116,7 +118,7 @@ module.exports = {
                 },],
             },
                 {
-                    title: "Developpers",
+                    title: "Developers",
                     items: [{
                         label: "Install",
                         href: "/docs/setup/",
@@ -157,8 +159,7 @@ module.exports = {
                 id: "release-notes",
                 path: "release_notes/",
                 routeBasePath: 'release-notes/',
-                sidebarPath: require.resolve("./sidebars_release_notes.js"),
-                remarkPlugins: [require("remark-import-partial")],
+                sidebarPath: require.resolve("./sidebars_release_notes.js")
             }
         ]
     ],
@@ -170,7 +171,6 @@ module.exports = {
                     path: "docs",
                     sidebarPath: require.resolve("./sidebars.js"),
                     editUrl: "https://github.com/RegardsOss/RegardsOss.github.io/edit/master",
-                    remarkPlugins: [require("remark-import-partial")],
                     lastVersion: `${stableVersion}`,
                     versions: {
                         current: {
@@ -187,7 +187,7 @@ module.exports = {
         [
             'redocusaurus',
             {
-                debug: Boolean(process.env.DEBUG || process.env.CI),
+                debug: false,
             }
         ],
     ],

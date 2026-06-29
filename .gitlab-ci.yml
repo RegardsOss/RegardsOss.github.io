@@ -1,0 +1,28 @@
+include:
+  - project: $CI_PROJECT_NAMESPACE/regards-ci
+    file: templates/code-workflow.yml
+
+variables:
+  # Set to true to get verbose pipeline log (MAY DISCLOSE SECRETS)
+  CI_DEBUG_TRACE: "false"
+
+stages:
+  - verify
+
+build:
+  stage: verify
+  image: $DOCKER_PUBLIC_IMAGE_PREFIX/node:24.17
+  tags:
+    - $TAG_REGARDS_HEAVY
+  # Cache node_modules to speed up subsequent pipeline runs
+  cache:
+    key:
+      files:
+        - yarn.lock
+    paths:
+      - node_modules/
+      - .yarn-cache/
+  script:
+    - yarn config set cache-folder .yarn-cache
+    - yarn install --immutable
+    - yarn build  

@@ -16,18 +16,18 @@ import {
 function Version() {
     const {siteConfig} = useDocusaurusContext();
     const versions = useVersions();
-    console.log("Versions:", versions);
+    //console.log("Versions:", versions);
 
     const latestVersion = useLatestVersion();
-    console.log("latestVersion:", latestVersion);
+    //console.log("latestVersion:", latestVersion);
 
     const currentVersion = versions.find((version) => version.name === 'current');
-    console.log("currentVersion:", currentVersion);
+    //console.log("currentVersion:", currentVersion);
 
     const pastVersions = versions.filter(
         (version) => version !== latestVersion && version.name !== "current"
     );
-    console.log("pastVersions:", pastVersions);
+    //console.log("pastVersions:", pastVersions);
 
     return (
         <Layout
