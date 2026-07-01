@@ -7,17 +7,21 @@ sidebar_position: 1
 import RegardsApiSchema from '/src/redoc/RegardsApiSchema';
 import Spec from './rs-ingest.json';
 
-## Introduction
 
-This section describes how to submit a new product to the `rs-ingest` service using the REST interfaces.
+This section describes how to **submit a new product** to the OAIS service (`rs-ingest` microservice) of REGARDS with
+**REST interfaces**. The process and the input data are quite similar with [AMQP interfaces](../../../../services/ingest/api-guides/amqp/ingest-amqp-publish-product.mdx) to
+submit a new
+OAIS product.
+
+## Introduction
 
 The diagram below explains the global processing of a new product submission request by REGARDS system.  
 For a REGARDS client using REST interface, the main steps are:
 
-1. Authenticate to REGARDS in order to retrieve a valid token. See
+1. Authenticate to REGARDS in order to retrieve a valid token for user. See
    the [authenticate guide](../../../../services/authentication/api-guides/rest/authent-oauth2.mdx).
-2. Send your product archive request containing product information to RS-INGEST microservice
-3. Retrieve information about your request status from RS-INGEST microservice.
+2. Send your product archive request containing product information to `rs-ingest` microservice
+3. Retrieve information about your request status from `rs-ingest` microservice.
 
 ![sequence](img/sip-request-rest-nominal.png)
 
@@ -66,10 +70,12 @@ Request body parameter is a json formated object.
 In the following example, only one SIP **RawProduct_001** is submitted.
 
 This product contains only one file located on file system at **/products/2024/data_file.raw** that will be stored one
-**Local** Regards data storage. That means that the Regards system and more
+**Local** Regards data storage (`"pluginBusinessId": "Local"`). That means that the Regards system and more
 precisely [rs-storage microservice](../../../storage/overview.md) **must be able to access this file**
 to copy it to the
-destination storage. Storage locations are configured in **storage microservice**.
+destination storage. Storage locations are configured in `rs-storage` microservice.
+The `"targetTypes"` parameter can have the following values: ["THUMBNAIL", "RAWDATA", "QUICKLOOK_SD", "QUICKLOOK_MD",
+ "QUICKLOOK_HD", "OTHER", "DOCUMENT", "DESCRIPTION"]. If no value is specified, it will be all types.
 
 ```json
 {
@@ -152,9 +158,10 @@ As the storage location of the file is provided (`properties.contentInformations
 S3Server`), Regards system will not try to store the file but only
 reference its given location. Nevertheless, **with this system you must provide** :
 
-- **Storage** location name : Should be an existing storage location defined
-  on [rs-storage microservice](../../../storage/overview.md). If not, the file will be considered as
-  **Offline** and will not be accessible for download.
+- **Storage** location : Should be an existing storage location defined
+  on [rs-storage microservice](../../../storage/overview.md).
+   If not, the file will be considered as
+  **Offline** and Regards will create the new storage location Offline in `rs-storage` microservice.
 - **File size in bytes** : Regards will not access the file by itself so the information must be provided.
 
 ```json

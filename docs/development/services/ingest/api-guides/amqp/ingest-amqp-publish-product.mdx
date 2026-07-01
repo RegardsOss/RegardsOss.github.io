@@ -7,7 +7,9 @@ sidebar_position: 1
 import RegardsApiSchema from '/src/redoc/RegardsApiSchema';
 import Spec from '../rest/rs-ingest.json';
 
-This section describes how to **submit a new product** to the OAIS service of REGARDS with **AMQP interfaces**.
+This section describes how to **submit a new product** to the OAIS service (`rs-ingest` microservice) of REGARDS with
+**AMQP interfaces**. The process and the input data are quite similar with REST interfaces to submit a new OAIS
+product.
 
 ## Introduction
 
@@ -17,7 +19,8 @@ For a REGARDS client using message queuing, responses are sent for each change o
 - `DENIED` : Your request has been denied (possibly malformed request).
 - `GRANTED` : Your request has been granted an will be processed soon
 - `ERROR` : Processing of your granted request finished in error status.
-- `SUCCESS` : Processing of your granted request finished with success. Your SIP as been successfully ingest, AIP
+- `SUCCESS` : Processing of your granted request finished with success. Your SIP as been successfully by `rs-ingest`,
+ AIP
   generated and associated files stored.
 
 ![sequence](img/sip-request-nominal.png)
@@ -81,20 +84,26 @@ Submission requests have to be published to REGARDS Rabbitmq exchange:
 
 #### Body
 
+| Parameter | Description                                                                                            |
+|-----------|--------------------------------------------------------------------------------------------------------|
+| requestId | request identifier                                                                                     |
+| metadata  | Contains metadata used by the service to process the SIP                                               |
+| sip       | SIP to submit. You can find more information about **SIP** format in the [REGARDS OAIS appendice](../../../../appendices/01-oais.md).|
+
+
 ```json
 {
-  "sip": {
-    ...
-  },
+  "requestId": "xxx",
   "metadata": {
     ...
   },
-  "requestId": "xxx"
+  "sip": {
+    ...
+  }
 }
 ```
 
-- `sip` content schema properties (To see more detailed information for OAIS SIP format
-  see [Regards OAIS](../../../../appendices/01-oais.md))
+- `sip` content schema properties
 
 <RegardsApiSchema spec={Spec} pointer="#/components/schemas/SIPDto" showExample={false}/>
 
