@@ -72,10 +72,8 @@ configurable batch of products, and the number of parallel requests is also conf
 according to the cluster's capacity.
 :::
 :::warning
-Ensure that the Hikari connection pool size (regards.jpa.multitenant.maxPoolSize) is STRICTLY GREATER than the
-Elasticsearch threadpool size (regards.elasticsearch.threadpool.size) to avoid connection starvation. Otherwise, rs-dam
-may enter in deadlock state, with all threads waiting for a connection from the pool, and no thread available to release
-a connection.
+When enabling parallel indexing, make sure rs-dam connection pool sizing follows the rule documented in
+[rs-dam configuration](#rs-dam-configuration).
 :::
 
 #### 3. Update access groups for products
@@ -95,6 +93,32 @@ by the update group script and must be manually calculated by REGARDS, updating 
 
 If the data model contains calculated attributes, these are computed using an implementation of the `IComputedAttribute`
 interface.
+
+### rs-dam configuration
+
+For the full list of rs-dam properties, see the
+[static configuration](./configuration/dam-static-configuration.md).
+
+#### Connection pool sizing for parallel indexing
+
+The Hikari pool size must be **strictly greater** than the sum of the job pool and the Elasticsearch save pool:
+
+`regards.jpa.multitenant.maxPoolSize > regards.jobs.pool.size + regards.elasticsearch.threadpool.size`
+
+Otherwise, rs-dam may enter a deadlock state, with all threads waiting for a connection from the pool and no thread
+available to release one.
+
+The Hikari pool is per tenant, so the total number of database connections is:
+
+`regards.jpa.multitenant.maxPoolSize x number_of_tenants`
+
+Example of a consistent configuration:
+
+```properties
+regards.jobs.pool.size=2
+regards.elasticsearch.threadpool.size=2
+regards.jpa.multitenant.maxPoolSize=6
+```
 
 ### Retrieve new products from data sources
 
