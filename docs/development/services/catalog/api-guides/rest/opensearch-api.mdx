@@ -111,3 +111,12 @@ curl 'http://<host>/api/v1/rs-catalog/engines/opensearch/entities/search?timeSta
 ### Open Search Query parameters
 
 * Use open search description to discover search queries.
+
+### Open Search Sort parameters
+
+Sort parameters can be provided in the request by passing though a query parameter the sort parameter.
+
+Exemple : 
+```sh
+curl 'http://<host>/api/v1/rs-catalog/engines/opensearch/entities/search?timeStart=2010-05-23T08:16:36.921Z&timeEnd=2022-05-23T08:16:36.921Z&properties.parameter1=value1&sort=properties.system.ingestion_date,asc'
+```
