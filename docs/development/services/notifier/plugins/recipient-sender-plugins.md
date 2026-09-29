@@ -364,21 +364,29 @@ Here is an example that send a product to the WorkerManager on the same instance
 
 ### Dissemination ACK Sender
 
-This plugin is designed to send acknowledge messages to OAIS catalog and FEM catalog through AMQP messages.
-:::info
-The exchange and queue do not need to be created manually. If they don't exist, the plugin will create them before submitting the messages. However, if you're using an existing queue and exchange, both must be created in the following way: 
-Exchange : 
- - virtual host: regards.multitenant.manager
- - Type: fanout
- - Name: geojson-ack-test
+This plugin is designed to send acknowledge messages to OAIS catalog (`rs-ingest` microservice) and GeoJson catalog
+(`rs-fem` microservice) through AMQP messages.
 
-Queue : 
- - virtual host : regards.multitenant.manager
- - Type: Classic
- - Arguments : 
-   - x-dead-letter-exchange : regards.DLX / String
-   - x-dead-letter-routing-key : regards.DLQ / String
-   - x-max-priority : 255 / Number
+:::info
+The exchange and queue do not need to be created manually. If they don't exist, the plugin will create them before
+submitting the messages. However, if you're using an existing queue and exchange, both must be created in the following
+way.
+
+Exchange :
+
+- Virtual host: regards.multitenant.manager
+- Type: fanout
+- Name: geojson-ack-test
+
+Queue :
+
+- Virtual host : regards.multitenant.manager
+- Type: Classic
+- Arguments :
+    - x-dead-letter-exchange : regards.DLX / String
+    - x-dead-letter-routing-key : regards.DLQ / String
+    - x-max-priority : 255 / Number
+
 :::
 
 :::danger
@@ -388,16 +396,16 @@ so [Common Sender config](#common-sender-configuration) parameters are not avail
 :::
 
 :::danger
-You need to define either properties to send to FEM catalog either properties to send to OAIS catalog
+You need to define either properties to send to GeoJson catalog either properties to send to OAIS catalog.
 :::
 
 Configuration parameters, common to GeoJSON FEM catalog or OAIS catalog usage, are:
 
-| Name           | Type   | Default Value | Optional | Description                                                                                                                                                                                                                              |
-|----------------|--------|---------------|:--------:|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| senderLabel    | String |               |          | Acknowledge sender label. Used by destination system to identify the current system                                                                                                                                                      |
-| recipientLabel | String |               |          | External service identifier we want to notify the products to - this information is sent back to the emitter that contacted Notifier<br /> When not specified, the emitter wont know what's the recipient label that received its events |
-| propertyPathToUrn | String | | Y | By default do not use this parameter. Alternative property from which to extract the origin catalog urn. By default the origin urn is read from the property originUrn of the feature. In some cases, the origin urn can be stored in another section of your data model. |
+| Name              | Type   | Default Value | Optional | Description                                                                                                                                                                                                                                                               |
+|-------------------|--------|---------------|:--------:|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| senderLabel       | String |               |          | Acknowledge sender label. Used by destination system to identify the current system                                                                                                                                                                                       |
+| recipientLabel    | String |               |          | External service identifier we want to notify the products to - this information is sent back to the emitter that contacted Notifier<br /> When not specified, the emitter won't know what's the recipient label that received its events                                 |
+| propertyPathToUrn | String |               |    Y     | By default do not use this parameter. Alternative property from which to extract the origin catalog urn. By default the origin urn is read from the property originUrn of the feature. In some cases, the origin urn can be stored in another section of your data model. |
 
 #### GeoJSON FEM catalog usage
 
@@ -531,42 +539,86 @@ The plugin supports the following configuration parameters:
 
 The plugin also supports all parameters defined above in [Common Sender configuration](#common-sender-configuration).
 
-The following example defines a plugin that sends deletion requests to the tenant `tenantB` (specified in 
+The following example defines a plugin that sends deletion requests to the tenant `tenantB` (specified in
 `recipientTenant`) whenever the notifier is triggered.
 
-Here, `directNotificationEnabled` is set to `true`, so the notifier will be available in the UI for direct 
+Here, `directNotificationEnabled` is set to `true`, so the notifier will be available in the UI for direct
 notification under the name `projectB-delete` (specified in `recipientLabel`).
 
 ```json title="FemDeletionSender Plugin Configuration Example"
 {
   "key": "fr.cnes.regards.framework.modules.plugins.domain.PluginConfiguration",
   "value": {
-    "pluginId": "FemDeletionSender", "version": "1.0.0", "priorityOrder": 0, "active": true,
-    "label": "ProjectBDelete", "businessId": "ProjectBDelete",
+    "pluginId": "FemDeletionSender",
+    "version": "1.0.0",
+    "priorityOrder": 0,
+    "active": true,
+    "label": "ProjectBDelete",
+    "businessId": "ProjectBDelete",
     "parameters": [
-      { "name": "recipientLabel", "type": "STRING", "value": "projectB-delete", "dynamic": false },
-      { "name": "ackRequired", "type": "BOOLEAN", "value": true, "dynamic": false },
-      { "name": "blockingRequired", "type": "BOOLEAN", "value": true, "dynamic": false },
-      { "name": "directNotificationEnabled", "type": "BOOLEAN", "value": true, "dynamic": false },
-      { "name": "recipientTenant", "type": "STRING", "value": "projectB", "dynamic": false },
-      { "name": "exchange", "type": "STRING", "value": "regards.projectB.delete.dissemination", "dynamic": false },
-      { "name": "queueName", "type": "STRING", "value": "regards.projectB.delete.dissemination", "dynamic": false },
-      { "name": "queueDeadLetterRoutingKey", "type": "STRING", "value": "regards.projectB.delete.dissemination.DLQ", "dynamic": false }
+      {
+        "name": "recipientLabel",
+        "type": "STRING",
+        "value": "projectB-delete",
+        "dynamic": false
+      },
+      {
+        "name": "ackRequired",
+        "type": "BOOLEAN",
+        "value": true,
+        "dynamic": false
+      },
+      {
+        "name": "blockingRequired",
+        "type": "BOOLEAN",
+        "value": true,
+        "dynamic": false
+      },
+      {
+        "name": "directNotificationEnabled",
+        "type": "BOOLEAN",
+        "value": true,
+        "dynamic": false
+      },
+      {
+        "name": "recipientTenant",
+        "type": "STRING",
+        "value": "projectB",
+        "dynamic": false
+      },
+      {
+        "name": "exchange",
+        "type": "STRING",
+        "value": "regards.projectB.delete.dissemination",
+        "dynamic": false
+      },
+      {
+        "name": "queueName",
+        "type": "STRING",
+        "value": "regards.projectB.delete.dissemination",
+        "dynamic": false
+      },
+      {
+        "name": "queueDeadLetterRoutingKey",
+        "type": "STRING",
+        "value": "regards.projectB.delete.dissemination.DLQ",
+        "dynamic": false
+      }
     ]
   }
 }
 ```
 
-Note: the `exchange` and the `queueName` specified in this configuration will be created by the plugin if they do not 
+Note: the `exchange` and the `queueName` specified in this configuration will be created by the plugin if they do not
 exist when the first delete request is sent by the plugin.
 
-When configuring REGARDS, you must ensure that the messages sent to this queue are forwarded to the 
-destination instance of REGARDS using a [shovel](../../../../../setup/swarm/advanced/rabbitmq#configure-shovels) 
+When configuring REGARDS, you must ensure that the messages sent to this queue are forwarded to the
+destination instance of REGARDS using a [shovel](../../../../../setup/swarm/advanced/rabbitmq#configure-shovels)
 configured in RabbitMQ. The shovel must forward the messages to the exchange named
-`regards.broadcast.fr.cnes.regards.modules.feature.dto.event.in.FeatureDeletionRequestEvent` (for more information 
+`regards.broadcast.fr.cnes.regards.modules.feature.dto.event.in.FeatureDeletionRequestEvent` (for more information
 about this exchange, check out the [Delete Product AMQP API](../../fem/guides/amqp/publish-a-deletion-request)).
 
-If the destination tenant is on the same instance as the current tenant, it is possible to bypass the _shovel_ 
+If the destination tenant is on the same instance as the current tenant, it is possible to bypass the _shovel_
 configuration and directly configure the plugin to use the above exchange in the `exchange` field.
 
 ## Common issue

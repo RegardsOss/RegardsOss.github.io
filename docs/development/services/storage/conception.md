@@ -18,8 +18,8 @@ either be a **reference** or a **physical file** that needs to be stored.
   physical storage is performed by REGARDS when a reference file is saved by the storage microservice. This means that
   if the actual referenced file is altered or deleted, REGARDS will not be able to retrieve the original file.
 * When a file needs to be stored, a link to the file will also be provided. Instead of simply referencing it, the file
-  will be downloaded (or copied) and will now be entirely managed by the microservice. The file at the original location
-  can then be safely deleted or altered.
+  will be downloaded (or copied) and will now be entirely managed by the `rs-Storage` microservice. The file at the
+  original location can then be safely deleted or altered.
 
 ### File Uniqueness
 
@@ -42,9 +42,9 @@ Most functionalities provided by the storage microservice are executed asynchron
 follows:
 
 1. A request is received through an **AMQP** handler or the storage **REST** client. The request is then saved in the
-   storage database.
-2. A scheduler periodically checks if there are any requests that can be processed, and a **job** is submitted to the *
-   *Job Manager**.
+   storage database. Requests in SUCCESS state don't store in the database.
+2. A scheduler periodically checks if there are any requests that can be processed, and a **job** is submitted to the
+   **Job Manager**.
 3. The **Job Manager** (JobService) schedules the **job**.
 4. The job is processed by calling the **Storage Location Plugin** associated with the request.
 5. The [Storage Location Plugin](./plugins/overview.md) executes the physical action on the file concerned by the

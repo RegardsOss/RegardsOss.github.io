@@ -152,7 +152,8 @@ Pour éviter une solicitation régulière de l'utilisateur lors de sous-commande
 le téléchargement de données REGARDS en utilisant l'outil ***REGARDS Downloader***, que vous pouvez obtenir en
 suivant [ce lien](https://github.com/RegardsOss/RegardsDownloader). Une fois installé, vous n'aurez qu'à fournir le
 fichier Metalink que vous pouvez obtenir lors du lancement de la commande dans REGARDS en appuyant sur le bouton
-***Download order metalink file*** depuis l'onglet ***Orders***.
+<img src="/images/user-documentation/regards-icons/user/metalink.png" alt="metalink" width="25"/>***Download order 
+metalink file*** depuis l'onglet ***Orders***.
 :::
 
 :::info

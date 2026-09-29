@@ -6,14 +6,14 @@ sidebar_position: 1
 slug: /development/backend/services/storage/overview/
 ---
 
-The RS-STORAGE microservice is an integral part of the functional
+The `Storage` (or `rs-storage`) microservice is an integral part of the functional
 groups [OAIS Services (Functional overview)](../../../overview/functional-overview/03-oais-catalog-services.md),
 [GeoJson services (Functional overview)](../../../overview/functional-overview/04-geojson-catalog-services.md) and
 [Restitution services](../../../overview/functional-overview/05-product-restitution-services.md).
 
-RS-STORAGE is the service that manages the physical storage and retrieval of files
+The `rs-storage` is the microservice that manages the physical storage and retrieval of files
 
-The storage microservice can handle online, and nearline storage locations.
+This microservice can handle **online**, and **nearline** storage locations.
 
 :::info
 A nearline storage location stores files in an online buffer and periodically transfers the files from the buffer to a
@@ -26,16 +26,18 @@ in REGARDS.
 
 Its main responsibilities are:
 
-* Storing files
-* Retrieving files
-* Deleting files
+* Copying files of a storage system to another
+* Storing files in a storage system
+* Retrieving files from a storage system
+* Deleting files in a storage system
 
 For nearline locations, the following functionalities are also provided:
 
-* Checking the availability of a file
-* Requesting the restoration of a file
+* Checking the availability of a file in a storage system
+* Requesting the restoration of a file from a storage system
 
-Unlike other microservices, the Storage microservice is not intended to be accessed directly by users. The REST APIs are
+Unlike other microservices, the `rs-Storage` microservice is not intended to be accessed directly by users. The REST
+APIs are
 mainly private and are intended for maintenance rather than for performing actual storage or retrieval operations.
 Instead, file storage requests are handled by the [Ingest](../ingest/overview.md)
 or [Feature Manager](../fem/overview.md) microservices, while file retrieval requests are handled by
@@ -44,13 +46,13 @@ the [Catalog](../catalog/overview.md) microservice (to retrieve product files by
 The stored files cannot be accessed through the API because the files access rights are not managed by the storage
 microservice but by the [Data Manager](../dam/overview.md) and [Catalog](../catalog/overview.md) microservices.
 
-The storage microservice depends on its plugins, which serve as interfaces between the microservice and the storage
-system in use (local, online, or nearline).
+The `rs-Storage` microservice depends on its plugins, which serve as interfaces between the microservice and the storage
+system in use (online or nearline).
 
 | Concept                                                                           | Compatibility | Description                                         |
 |-----------------------------------------------------------------------------------|---------------|-----------------------------------------------------|
 | [Multitenant](../../concepts/03-multitenant.md)                                   | Yes           | Can handle multiple tenants/projects                | 
-| [Vertical scalability](../../concepts/07-scalability.md#vertical-scalability)     | Yes           | Uses Jobs system                             | 
+| [Vertical scalability](../../concepts/07-scalability.md#vertical-scalability)     | Yes           | Uses Jobs system                                    | 
 | [Horizontal scalability](../../concepts/07-scalability.md#horizontal-scalability) | No            | Service can not be deployed with multiple instances |
 
 You can learn how the service works with the [conception section](./conception.md).
