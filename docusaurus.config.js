@@ -4,7 +4,7 @@ const currentVersion = "2.4.1";
 // Default value: "current"
 // You can provide the last version to create a next version unreleased
 // if currentVersion is 1.14.0, you can write here 1.13.0 and 1.14.0 will be unreleased and hide by default
-const stableVersion = "2.4.0";
+const stableVersion = "2.3.1";
 
 module.exports = {
     title: "REGARDS",
