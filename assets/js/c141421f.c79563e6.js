@@ -1,0 +1,1 @@
+"use strict";(globalThis.webpackChunkregardsoss_github_io=globalThis.webpackChunkregardsoss_github_io||[]).push([[80957],{40936(s){s.exports=JSON.parse('{"name":"docusaurus-theme-search-algolia","id":"default"}')}}]);

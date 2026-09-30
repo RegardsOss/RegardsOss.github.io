@@ -1,0 +1,1 @@
+"use strict";(globalThis.webpackChunkregardsoss_github_io=globalThis.webpackChunkregardsoss_github_io||[]).push([[76735],{76735(s,e,i){i.d(e,{createEventModelingServices:()=>a.g});var a=i(62968);i(46921)}}]);

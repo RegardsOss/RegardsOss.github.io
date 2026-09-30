@@ -1,0 +1,1 @@
+"use strict";(globalThis.webpackChunkregardsoss_github_io=globalThis.webpackChunkregardsoss_github_io||[]).push([[34737],{34737(s,e,i){i.d(e,{createPieServices:()=>a.f});var a=i(10532);i(46921)}}]);

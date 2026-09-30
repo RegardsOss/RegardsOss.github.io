@@ -1,0 +1,1 @@
+"use strict";(globalThis.webpackChunkregardsoss_github_io=globalThis.webpackChunkregardsoss_github_io||[]).push([[67472],{55513(s){s.exports=JSON.parse('{"title":"Recent posts","items":[]}')}}]);
