@@ -456,6 +456,43 @@
         },
         "type": "object"
       },
+      "DeleteFeatureSimpleEntityParameters": {
+        "properties": {
+          "disseminationStatus": {
+            "description": "Filter on dissemination status",
+            "enum": [
+              "NONE",
+              "PENDING",
+              "DONE"
+            ],
+            "example": "NONE|PENDING|DONE",
+            "type": "string"
+          },
+          "featureIds": {
+            "$ref": "#/components/schemas/ValuesRestrictionLong"
+          },
+          "lastUpdate": {
+            "$ref": "#/components/schemas/DatesRangeRestriction"
+          },
+          "model": {
+            "description": "Filter on model",
+            "type": "string"
+          },
+          "providerIds": {
+            "$ref": "#/components/schemas/ValuesRestrictionString"
+          },
+          "session": {
+            "description": "Filter on session that emitted the request",
+            "example": "Today_Mission1",
+            "type": "string"
+          },
+          "source": {
+            "description": "Filter on source",
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
       "DisseminationAckEvent": {
         "properties": {
           "recipientLabel": {
@@ -588,10 +625,10 @@
         },
         "type": "object"
       },
-      "EntityModelRequestInfoObject": {
+      "EntityModelRequestInfoString": {
         "properties": {
           "content": {
-            "$ref": "#/components/schemas/RequestInfoObject"
+            "$ref": "#/components/schemas/RequestInfoString"
           },
           "links": {
             "items": {
@@ -832,7 +869,7 @@
         "type": "object"
       },
       "FeatureDeletionCollection": {
-        "description": "Contain all Features to handle",
+        "description": "URNs collection to handle with a priority level",
         "properties": {
           "featuresUrns": {
             "items": {
@@ -3059,7 +3096,7 @@
         },
         "type": "object"
       },
-      "MultimapObjectString": {
+      "MultimapStringString": {
         "properties": {
           "empty": {
             "type": "boolean"
@@ -3683,10 +3720,10 @@
         },
         "type": "object"
       },
-      "RequestInfoObject": {
+      "RequestInfoString": {
         "properties": {
           "denied": {
-            "$ref": "#/components/schemas/MultimapObjectString"
+            "$ref": "#/components/schemas/MultimapStringString"
           },
           "granted": {
             "additionalProperties": {
@@ -4516,7 +4553,7 @@
       "name": "GPL-3.0"
     },
     "title": "MICROSERVICE FEM",
-    "version": "2.4.0"
+    "version": "2.4.1"
   },
   "openapi": "3.0.1",
   "paths": {
@@ -4588,19 +4625,19 @@
         },
         "summary": "Get features",
         "tags": [
-          "Feature entity Controller"
+          "GeoJson products controller"
         ]
       }
     },
     "/admin/features/delete": {
       "delete": {
-        "description": "Delete features according to search parameters",
+        "description": "Delete GeoJson products by feature entities according to search parameters",
         "operationId": "deleteFeatures_1",
         "requestBody": {
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/SearchFeatureSimpleEntityParameters"
+                "$ref": "#/components/schemas/DeleteFeatureSimpleEntityParameters"
               }
             }
           },
@@ -4609,12 +4646,15 @@
         },
         "responses": {
           "200": {
-            "description": "Delete features according to search parameters"
+            "description": "The list of GeoJson products according to given search parameters is deleted"
+          },
+          "422": {
+            "description": "The request search parameters syntax is incorrect."
           }
         },
-        "summary": "Delete features according to search parameters",
+        "summary": "Delete GeoJson products",
         "tags": [
-          "Feature entity Controller"
+          "GeoJson products controller"
         ]
       }
     },
@@ -4640,7 +4680,7 @@
         },
         "summary": "Notify features to given recipients according to search parameters",
         "tags": [
-          "Feature entity Controller"
+          "GeoJson products controller"
         ]
       }
     },
@@ -4721,7 +4761,7 @@
         },
         "summary": "Get features",
         "tags": [
-          "Feature entity Controller"
+          "GeoJson products controller"
         ]
       }
     },
@@ -4754,7 +4794,7 @@
         },
         "summary": "Retrieve one feature by its urn",
         "tags": [
-          "Feature entity Controller"
+          "GeoJson products controller"
         ]
       }
     },
@@ -4773,7 +4813,7 @@
     },
     "/features": {
       "delete": {
-        "description": "Publish urns collection to delete and return urns of granted and denied requests",
+        "description": "Publish URNs collection to delete and return URNs of granted and denied requests",
         "operationId": "deleteFeatures",
         "requestBody": {
           "content": {
@@ -4786,18 +4826,18 @@
           "required": true
         },
         "responses": {
-          "200": {
+          "201": {
             "content": {
               "*/*": {
                 "schema": {
-                  "$ref": "#/components/schemas/EntityModelRequestInfoObject"
+                  "type": "string"
                 }
               }
             },
-            "description": "A RequestInfo"
+            "description": "Feature request response information for GeoJson products"
           }
         },
-        "summary": "Publish urns collection to delete and return urns of granted and denied requests",
+        "summary": "Delete GeoJson products",
         "tags": [
           "feature-controller"
         ]
@@ -4816,15 +4856,15 @@
           "required": true
         },
         "responses": {
-          "200": {
+          "201": {
             "content": {
               "*/*": {
                 "schema": {
-                  "$ref": "#/components/schemas/EntityModelRequestInfoObject"
+                  "type": "string"
                 }
               }
             },
-            "description": "A RequestInfo"
+            "description": "Feature request response information for GeoJson products"
           }
         },
         "summary": "Publish a feature collection to update and return urns of granted and denied requests",
@@ -4846,15 +4886,15 @@
           "required": true
         },
         "responses": {
-          "200": {
+          "201": {
             "content": {
               "*/*": {
                 "schema": {
-                  "$ref": "#/components/schemas/EntityModelRequestInfoObject"
+                  "$ref": "#/components/schemas/EntityModelRequestInfoString"
                 }
               }
             },
-            "description": "A RequestInfo"
+            "description": "Feature request response information for GeoJson products"
           }
         },
         "summary": "Publish a new feature and return the request id",

@@ -824,6 +824,78 @@
         },
         "type": "object"
       },
+      "JsonElement": {
+        "properties": {
+          "asBigDecimal": {
+            "type": "number"
+          },
+          "asBigInteger": {
+            "type": "integer"
+          },
+          "asBoolean": {
+            "type": "boolean"
+          },
+          "asByte": {
+            "format": "byte",
+            "type": "string"
+          },
+          "asCharacter": {
+            "deprecated": true,
+            "type": "string"
+          },
+          "asDouble": {
+            "format": "double",
+            "type": "number"
+          },
+          "asFloat": {
+            "format": "float",
+            "type": "number"
+          },
+          "asInt": {
+            "format": "int32",
+            "type": "integer"
+          },
+          "asJsonArray": {
+            "$ref": "#/components/schemas/JsonArray"
+          },
+          "asJsonNull": {
+            "$ref": "#/components/schemas/JsonNull"
+          },
+          "asJsonObject": {
+            "$ref": "#/components/schemas/JsonObject"
+          },
+          "asJsonPrimitive": {
+            "$ref": "#/components/schemas/JsonPrimitive"
+          },
+          "asLong": {
+            "format": "int64",
+            "type": "integer"
+          },
+          "asNumber": {
+            "type": "number"
+          },
+          "asShort": {
+            "format": "int32",
+            "type": "integer"
+          },
+          "asString": {
+            "type": "string"
+          },
+          "jsonArray": {
+            "type": "boolean"
+          },
+          "jsonNull": {
+            "type": "boolean"
+          },
+          "jsonObject": {
+            "type": "boolean"
+          },
+          "jsonPrimitive": {
+            "type": "boolean"
+          }
+        },
+        "type": "object"
+      },
       "JsonNull": {
         "properties": {
           "asBigDecimal": {
@@ -1957,12 +2029,10 @@
       "NotificationEvent": {
         "properties": {
           "metadata": {
-            "description": "The raw metadata",
-            "type": "object"
+            "$ref": "#/components/schemas/JsonElement"
           },
           "payload": {
-            "description": "The raw payload",
-            "type": "object"
+            "$ref": "#/components/schemas/JsonElement"
           }
         },
         "type": "object"
@@ -2022,18 +2092,18 @@
           "regards.broadcast.fr.cnes.regards.framework.amqp.event.notifier.NotificationRequestEvent",
           "regards.broadcast.fr.cnes.regards.framework.amqp.event.tenant.TenantDeletedEvent",
           "regards.broadcast.fr.cnes.regards.framework.amqp.event.tenant.TenantCreatedEvent",
-          "regards.broadcast.fr.cnes.regards.modules.notifier.plugins.ChronosNotificationEvent",
-          "regards.broadcast.fr.cnes.regards.modules.notifier.plugins.AirbusNotificationEvent",
-          "regards.broadcast.fr.cnes.regards.modules.ingest.dto.request.event.DisseminationAckEvent",
           "regards.broadcast.fr.cnes.regards.modules.notifier.plugins.FeatureUpdateEvent",
-          "regards.broadcast.fr.cnes.regards.modules.feature.dto.event.in.FeatureDeletionRequestEvent",
-          "regards.broadcast.fr.cnes.regards.modules.feature.dto.event.in.FeatureCreationRequestEvent",
-          "regards.broadcast.fr.cnes.regards.modules.feature.dto.event.in.AbstractCreationRequestEvent",
-          "regards.broadcast.fr.cnes.regards.modules.feature.dto.event.in.FeatureUpdateRequestEvent",
-          "regards.broadcast.fr.cnes.regards.modules.feature.dto.event.in.FeatureNotificationRequestEvent",
           "regards.broadcast.fr.cnes.regards.modules.feature.dto.event.out.FeatureRequestEvent",
+          "regards.broadcast.fr.cnes.regards.modules.feature.dto.event.in.FeatureUpdateRequestEvent",
+          "regards.broadcast.fr.cnes.regards.modules.ingest.dto.request.event.DisseminationAckEvent",
+          "regards.broadcast.fr.cnes.regards.modules.feature.dto.event.in.AbstractCreationRequestEvent",
+          "regards.broadcast.fr.cnes.regards.modules.feature.dto.event.in.FeatureCreationRequestEvent",
+          "regards.broadcast.fr.cnes.regards.modules.feature.dto.event.in.FeatureDeletionRequestEvent",
+          "regards.broadcast.fr.cnes.regards.modules.feature.dto.event.in.FeatureNotificationRequestEvent",
+          "regards.broadcast.fr.cnes.regards.modules.model.dto.event.ModelChangeEvent",
           "regards.broadcast.fr.cnes.regards.modules.model.dto.event.AttributeCacheRefreshEvent",
-          "regards.broadcast.fr.cnes.regards.modules.model.dto.event.ModelChangeEvent"
+          "regards.broadcast.fr.cnes.regards.modules.notifier.plugins.AirbusNotificationEvent",
+          "regards.broadcast.fr.cnes.regards.modules.notifier.plugins.ChronosNotificationEvent"
         ],
         "type": "string",
         "x-enum-varnames": [
@@ -2060,18 +2130,18 @@
           "NOTIFICATION_REQUEST_EVENT",
           "TENANT_DELETED_EVENT",
           "TENANT_CREATED_EVENT",
-          "CHRONOS_NOTIFICATION_EVENT",
-          "AIRBUS_NOTIFICATION_EVENT",
-          "DISSEMINATION_ACK_EVENT",
           "FEATURE_UPDATE_EVENT",
-          "FEATURE_DELETION_REQUEST_EVENT",
-          "FEATURE_CREATION_REQUEST_EVENT",
-          "ABSTRACT_CREATION_REQUEST_EVENT",
-          "FEATURE_UPDATE_REQUEST_EVENT",
-          "FEATURE_NOTIFICATION_REQUEST_EVENT",
           "FEATURE_REQUEST_EVENT",
+          "FEATURE_UPDATE_REQUEST_EVENT",
+          "DISSEMINATION_ACK_EVENT",
+          "ABSTRACT_CREATION_REQUEST_EVENT",
+          "FEATURE_CREATION_REQUEST_EVENT",
+          "FEATURE_DELETION_REQUEST_EVENT",
+          "FEATURE_NOTIFICATION_REQUEST_EVENT",
+          "MODEL_CHANGE_EVENT",
           "ATTRIBUTE_CACHE_REFRESH_EVENT",
-          "MODEL_CHANGE_EVENT"
+          "AIRBUS_NOTIFICATION_EVENT",
+          "CHRONOS_NOTIFICATION_EVENT"
         ]
       },
       "NotifierClearCacheEvent": {
@@ -2840,7 +2910,7 @@
       "name": "GPL-3.0"
     },
     "title": "MICROSERVICE NOTIFIER",
-    "version": "2.4.0"
+    "version": "2.4.1"
   },
   "openapi": "3.0.1",
   "paths": {

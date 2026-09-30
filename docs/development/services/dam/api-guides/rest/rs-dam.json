@@ -1085,13 +1085,13 @@
           "regards.broadcast.fr.cnes.regards.framework.modules.session.commons.domain.events.SessionDeleteEvent",
           "regards.broadcast.fr.cnes.regards.framework.modules.session.commons.domain.events.SessionStepEvent",
           "regards.broadcast.fr.cnes.regards.framework.modules.session.commons.domain.events.SourceDeleteEvent",
-          "regards.broadcast.fr.cnes.regards.modules.feature.dto.event.in.FeatureDeletionRequestEvent",
-          "regards.broadcast.fr.cnes.regards.modules.feature.dto.event.in.FeatureCreationRequestEvent",
-          "regards.broadcast.fr.cnes.regards.modules.feature.dto.event.in.AbstractCreationRequestEvent",
-          "regards.broadcast.fr.cnes.regards.modules.feature.dto.event.in.DisseminationAckEvent",
+          "regards.broadcast.fr.cnes.regards.modules.feature.dto.event.out.FeatureRequestEvent",
           "regards.broadcast.fr.cnes.regards.modules.feature.dto.event.in.FeatureUpdateRequestEvent",
-          "regards.broadcast.fr.cnes.regards.modules.feature.dto.event.in.FeatureNotificationRequestEvent",
-          "regards.broadcast.fr.cnes.regards.modules.feature.dto.event.out.FeatureRequestEvent"
+          "regards.broadcast.fr.cnes.regards.modules.feature.dto.event.in.DisseminationAckEvent",
+          "regards.broadcast.fr.cnes.regards.modules.feature.dto.event.in.AbstractCreationRequestEvent",
+          "regards.broadcast.fr.cnes.regards.modules.feature.dto.event.in.FeatureCreationRequestEvent",
+          "regards.broadcast.fr.cnes.regards.modules.feature.dto.event.in.FeatureDeletionRequestEvent",
+          "regards.broadcast.fr.cnes.regards.modules.feature.dto.event.in.FeatureNotificationRequestEvent"
         ],
         "type": "string",
         "x-enum-varnames": [
@@ -1146,13 +1146,13 @@
           "SESSION_DELETE_EVENT",
           "SESSION_STEP_EVENT",
           "SOURCE_DELETE_EVENT",
-          "FEATURE_DELETION_REQUEST_EVENT",
-          "FEATURE_CREATION_REQUEST_EVENT",
-          "ABSTRACT_CREATION_REQUEST_EVENT",
-          "DISSEMINATION_ACK_EVENT",
+          "FEATURE_REQUEST_EVENT",
           "FEATURE_UPDATE_REQUEST_EVENT",
-          "FEATURE_NOTIFICATION_REQUEST_EVENT",
-          "FEATURE_REQUEST_EVENT"
+          "DISSEMINATION_ACK_EVENT",
+          "ABSTRACT_CREATION_REQUEST_EVENT",
+          "FEATURE_CREATION_REQUEST_EVENT",
+          "FEATURE_DELETION_REQUEST_EVENT",
+          "FEATURE_NOTIFICATION_REQUEST_EVENT"
         ]
       },
       "DataFileReference": {
@@ -5777,7 +5777,7 @@
       "name": "GPL-3.0"
     },
     "title": "MICROSERVICE DAM",
-    "version": "2.4.0"
+    "version": "2.4.1"
   },
   "openapi": "3.0.1",
   "paths": {

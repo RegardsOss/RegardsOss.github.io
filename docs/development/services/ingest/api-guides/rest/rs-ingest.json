@@ -4725,7 +4725,7 @@
         "type": "object"
       },
       "ValuesRestrictionAIPState": {
-        "description": "Filter on state of aip",
+        "description": "Filter on state of AIP",
         "properties": {
           "ignoreCase": {
             "description": "Only available for String resitrctions. Allow if true, to search values ignoring case. Default false",
@@ -5081,7 +5081,7 @@
         "type": "object"
       },
       "ValuesRestrictionString": {
-        "description": "Filter on identifier of aip",
+        "description": "Filter on identifier of AIP",
         "properties": {
           "ignoreCase": {
             "description": "Only available for String resitrctions. Allow if true, to search values ignoring case. Default false",
@@ -5144,7 +5144,7 @@
       "name": "GPL-3.0"
     },
     "title": "MICROSERVICE INGEST",
-    "version": "2.4.0"
+    "version": "2.4.1"
   },
   "openapi": "3.0.1",
   "paths": {
@@ -5216,7 +5216,7 @@
         },
         "summary": "Get AIPs",
         "tags": [
-          "aip-controller"
+          "OAIS product controller"
         ]
       }
     },
@@ -5236,7 +5236,7 @@
         "responses": {
           "200": {
             "content": {
-              "*/*": {
+              "application/json": {
                 "schema": {
                   "items": {
                     "type": "string"
@@ -5249,12 +5249,41 @@
           }
         },
         "tags": [
-          "aip-controller"
+          "OAIS product controller"
         ]
       }
     },
     "/aips/delete": {
+      "delete": {
+        "description": "Delete OAIS products by AIP entities according to search parameters",
+        "operationId": "deleteAIPS",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/OAISDeletionPayloadDto"
+              }
+            }
+          },
+          "description": "Set of search criteria.",
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "The list of OAIS products according to given search parameters is deleted"
+          },
+          "422": {
+            "description": "The request search parameters syntax is incorrect."
+          }
+        },
+        "summary": "Delete OAIS products",
+        "tags": [
+          "OAIS product controller"
+        ]
+      },
       "post": {
+        "deprecated": true,
+        "description": "Delete OAIS products by AIP entities according to search parameters",
         "operationId": "delete_1",
         "requestBody": {
           "content": {
@@ -5267,12 +5296,16 @@
           "required": true
         },
         "responses": {
-          "200": {
-            "description": "OK"
+          "204": {
+            "description": "The list of OAIS products according to given search parameters is deleted"
+          },
+          "422": {
+            "description": "The request search parameters syntax is incorrect."
           }
         },
+        "summary": "Delete OAIS products",
         "tags": [
-          "aip-controller"
+          "OAIS product controller"
         ]
       }
     },
@@ -5297,7 +5330,7 @@
         },
         "summary": "Create dissemination creator job",
         "tags": [
-          "aip-controller"
+          "OAIS product controller"
         ]
       }
     },
@@ -5369,7 +5402,7 @@
         },
         "summary": "Get AIPs",
         "tags": [
-          "aip-controller"
+          "OAIS product controller"
         ]
       }
     },
@@ -5389,7 +5422,7 @@
         "responses": {
           "200": {
             "content": {
-              "*/*": {
+              "application/json": {
                 "schema": {
                   "items": {
                     "type": "string"
@@ -5402,7 +5435,7 @@
           }
         },
         "tags": [
-          "aip-controller"
+          "OAIS product controller"
         ]
       }
     },
@@ -5422,7 +5455,7 @@
         "responses": {
           "200": {
             "content": {
-              "*/*": {
+              "application/json": {
                 "schema": {
                   "items": {
                     "type": "string"
@@ -5435,7 +5468,7 @@
           }
         },
         "tags": [
-          "aip-controller"
+          "OAIS product controller"
         ]
       }
     },
@@ -5458,7 +5491,7 @@
           }
         },
         "tags": [
-          "aip-controller"
+          "OAIS product controller"
         ]
       }
     },
@@ -5489,7 +5522,7 @@
           }
         },
         "tags": [
-          "aip-controller"
+          "OAIS product controller"
         ]
       }
     },

@@ -2121,7 +2121,7 @@
       "name": "GPL-3.0"
     },
     "title": "MICROSERVICE WORKER MANAGER",
-    "version": "2.4.0"
+    "version": "2.4.1"
   },
   "openapi": "3.0.1",
   "paths": {

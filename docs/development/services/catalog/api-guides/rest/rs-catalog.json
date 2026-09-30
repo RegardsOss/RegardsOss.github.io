@@ -736,13 +736,13 @@
           "regards.broadcast.fr.cnes.regards.modules.model.domain.event.AttributeModelCreated",
           "regards.broadcast.fr.cnes.regards.modules.model.dto.event.AttributeCacheRefreshEvent",
           "regards.broadcast.fr.cnes.regards.modules.model.dto.event.ModelChangeEvent",
-          "regards.broadcast.fr.cnes.regards.modules.feature.dto.event.in.FeatureDeletionRequestEvent",
-          "regards.broadcast.fr.cnes.regards.modules.feature.dto.event.in.FeatureCreationRequestEvent",
-          "regards.broadcast.fr.cnes.regards.modules.feature.dto.event.in.AbstractCreationRequestEvent",
-          "regards.broadcast.fr.cnes.regards.modules.feature.dto.event.in.DisseminationAckEvent",
-          "regards.broadcast.fr.cnes.regards.modules.feature.dto.event.in.FeatureUpdateRequestEvent",
-          "regards.broadcast.fr.cnes.regards.modules.feature.dto.event.in.FeatureNotificationRequestEvent",
           "regards.broadcast.fr.cnes.regards.modules.feature.dto.event.out.FeatureRequestEvent",
+          "regards.broadcast.fr.cnes.regards.modules.feature.dto.event.in.FeatureUpdateRequestEvent",
+          "regards.broadcast.fr.cnes.regards.modules.feature.dto.event.in.DisseminationAckEvent",
+          "regards.broadcast.fr.cnes.regards.modules.feature.dto.event.in.AbstractCreationRequestEvent",
+          "regards.broadcast.fr.cnes.regards.modules.feature.dto.event.in.FeatureCreationRequestEvent",
+          "regards.broadcast.fr.cnes.regards.modules.feature.dto.event.in.FeatureDeletionRequestEvent",
+          "regards.broadcast.fr.cnes.regards.modules.feature.dto.event.in.FeatureNotificationRequestEvent",
           "regards.broadcast.rs-catalog.fr.cnes.regards.framework.modules.jobs.domain.event.JobEvent",
           "regards.broadcast.rs-catalog.fr.cnes.regards.framework.modules.jobs.domain.event.StopJobEvent",
           "regards.broadcast.fr.cnes.regards.framework.modules.workspace.domain.WorkspaceMonitoringEvent"
@@ -794,13 +794,13 @@
           "ATTRIBUTE_MODEL_CREATED",
           "ATTRIBUTE_CACHE_REFRESH_EVENT",
           "MODEL_CHANGE_EVENT",
-          "FEATURE_DELETION_REQUEST_EVENT",
-          "FEATURE_CREATION_REQUEST_EVENT",
-          "ABSTRACT_CREATION_REQUEST_EVENT",
-          "DISSEMINATION_ACK_EVENT",
-          "FEATURE_UPDATE_REQUEST_EVENT",
-          "FEATURE_NOTIFICATION_REQUEST_EVENT",
           "FEATURE_REQUEST_EVENT",
+          "FEATURE_UPDATE_REQUEST_EVENT",
+          "DISSEMINATION_ACK_EVENT",
+          "ABSTRACT_CREATION_REQUEST_EVENT",
+          "FEATURE_CREATION_REQUEST_EVENT",
+          "FEATURE_DELETION_REQUEST_EVENT",
+          "FEATURE_NOTIFICATION_REQUEST_EVENT",
           "JOB_EVENT",
           "STOP_JOB_EVENT",
           "WORKSPACE_MONITORING_EVENT"
@@ -19923,7 +19923,7 @@
       "name": "GPL-3.0"
     },
     "title": "MICROSERVICE CATALOG",
-    "version": "2.4.0"
+    "version": "2.4.1"
   },
   "openapi": "3.0.1",
   "paths": {
