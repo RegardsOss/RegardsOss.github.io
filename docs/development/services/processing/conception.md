@@ -26,7 +26,7 @@ idea behind this architecture:
   input files,
 - a `PInputFile` the description of a file to be used during an execution (it is 
   actually a glorified URL pointing to some data),  
-- a `PStep` is en event occuring during an execution (flagging the execution as 
+- a `PStep` is an event occurring during an execution (flagging the execution as 
   running, in success or in failure),
 - a `POutputFile` is a result of an execution, and may refer to the `PInputFile`s
   which were used to build it.
@@ -83,7 +83,7 @@ A batch is an immutable entity: it never changes once it has been created.
 #### Abusing batches is possible
 
 Once the batch has been created and delivered to the user, the user may use 
-it and abuse it. Theere is for now no limitation of the number of executions
+it and abuse it. There is for now no limitation of the number of executions
 a user can do using the same batch ID. This limitation is not enforced because
 sometimes, the input statistics provided at the batch creation may be
 slightly inexact, and it is hard to predict in advance how many executions
@@ -113,8 +113,8 @@ When the `Processing` service receives the request, it validates it using the
 `PProcess` execution validator, and if accepted, saves it in the service 
 database and then runs it, using the `PProcess` executable and workload engine.
 
-A `Pexecution` is a mutable entity: while running the executable, `PStep`s are
-emmitted and added to the `PExecution`, providing a current status and last update
+A `PExecution` is a mutable entity: while running the executable, `PStep`s are
+emitted and added to the `PExecution`, providing a current status and last update
 timestamp for the execution.
 
 ### `PInputFile`
@@ -131,17 +131,27 @@ A `PInputFile` is an immutable entity.
 ### `PStep`
 
 While running in the context of an execution, the process-supplied `IExecutable` 
-has access to en event notifier, allowing to inform the `Processing` service 
+has access to an event notifier, allowing to inform the `Processing` service 
 that steps have occurred in the execution.
 
 A `PStep` is an immutable entity with the following fields:
 - a status defining the type of step (RUNNING, SUCCESS, FAILURE, etc.).
 - an optional set of output files used if the step is final.
 
-An execution status can be transitory of final. Final statuses are:
-- SUCCESS, 
-- FAILURE, 
-- and TIMED_OUT. 
+An execution status can be transitory or final. The execution state machine uses
+the following statuses:
+
+- `REGISTERED`: the execution has been saved but has not started yet,
+- `PREPARE`: the execution is preparing its inputs and working directory,
+- `RUNNING`: the execution is running,
+- `PENDING`: the execution is temporarily paused or waiting,
+- `CLEANUP`: the execution is cleaning up before success,
+- `SUCCESS`: the execution ended successfully,
+- `FAILURE`: the execution ended with an error,
+- `TIMED_OUT`: no feedback was received within the calculated timeout,
+- `CANCELLED`: the execution was cancelled by a user or an administrator.
+
+Final statuses are `SUCCESS`, `FAILURE`, `TIMED_OUT` and `CANCELLED`.
 
 Once a final status is reached, the execution is considered finished and 
 the `PExecutionResultEvent` is created and sent to the AMQP broker.
@@ -188,6 +198,17 @@ execution. The user is free to download them by whichever means it has. Once
 the download is done, the user notifies `Processing` through AMQP of the
 downloaded files. `Processing` marks them as downloaded.
 
+The notification is a `DownloadedOutputFilesEvent` containing the URLs of the
+downloaded output files:
+
+```json
+{
+  "outputFileUrls": [
+    "file:///shared-storage/output/result.dat"
+  ]
+}
+```
+
 A scheduled service runs at a given periodicity to take all the output files
 marked as downloaded, and delete them from the shared storage space where they
 have been stored, and marks the output files as deleted in the database.
@@ -225,6 +246,52 @@ corresponding `WorkloadEngine`. For instance, in the case of the deployment
 of `Processsing` for launching treatments on orders, the `WorkloadEngine` used
 by all processes is for now based on REGARDS jobs. Launching an execution
 with this engine is just creating a `LaunchingExecutionJob` as `QUEUED`.
+
+### AMQP events
+
+The execution lifecycle is driven by the following AMQP contracts.
+
+#### `PExecutionRequestEvent`
+
+The client publishes this event to start an execution. It contains:
+
+```json
+{
+  "executionCorrelationId": "execution-001",
+  "batchId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+  "inputFiles": []
+}
+```
+
+`inputFiles` contains the `PInputFile` descriptors described above. The
+`executionCorrelationId` is returned unchanged in the result event.
+
+#### `PExecutionResultEvent`
+
+Processing publishes this event when an execution reaches a final status. It contains the execution and batch 
+identifiers, the correlation identifiers, the final status, output files on success, and diagnostic messages on failure.
+
+```json
+{
+  "executionId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+  "executionCorrelationId": "execution-001",
+  "batchId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+  "batchCorrelationId": "batch-001",
+  "processId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+  "finalStatus": "SUCCESS",
+  "outputs": [],
+  "messages": []
+}
+```
+
+For `FAILURE`, `TIMED_OUT` or `CANCELLED`, consumers must use `finalStatus` and `messages` to report the failure. 
+For `SUCCESS`, consumers must process the output descriptors and publish `DownloadedOutputFilesEvent` after the files
+have been downloaded.
+
+#### `DownloadedOutputFilesEvent`
+
+The client publishes this event after downloading output files. Its `outputFileUrls` field contains the URLs to 
+acknowledge. Processing then marks those files as downloaded so that the cleanup job can remove them later.
 
 #### `ExecutionEvent`
 

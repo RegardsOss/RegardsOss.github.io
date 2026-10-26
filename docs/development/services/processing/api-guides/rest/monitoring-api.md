@@ -6,7 +6,7 @@ sidebar_position: 2
 slug: /development/backend/services/processing/api/monitoring/
 ---
 
-## GET `/monitoring/executions`
+## POST `/monitoring/executions`
 
 List the executions present in the processing database, filtered by diverse criteria.
 
@@ -15,13 +15,31 @@ List the executions present in the processing database, filtered by diverse crit
 | Name              | Located in | Description                                              | Required | Schema                                   |
 | ----------------- | ---------- | -------------------------------------------------------- | -------- | ---------------------------------------- |
 | tenant            | query      | The tenant                                               | Yes      | string                                   |
-| status            | query      | The list of execution status                             | Yes      | [ RUNNING, SUCCESS, FAILURE, TIMED_OUT ] |
-| userEmail         | query      | The optional user who launched the executions            | No       | string                                   |
-| processBusinessId | query      | The optional process business ID the executions refer to | No       | string                                   |
-| from              | query      | The execution 'last updated' minimum timestamp           | No       | string                                   |
-| to                | query      | The execution 'last updated' maximum timestamp           | No       | string                                   |
 | page              | query      | The page number                                          | No       | integer                                  |
 | size              | query      | The page size                                            | No       | integer                                  |
+| sort              | query      | Sorting criteria, for example `created,DESC`             | No       | string[]                                 |
+
+### Request body
+
+The request body is a `SearchExecutionEntityParameters` object. All its
+filters are optional.
+
+```json
+{
+  "processBusinessId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+  "userEmail": {
+    "include": ["user@example.com"]
+  },
+  "creationDate": {
+    "after": "2026-01-01T00:00:00Z",
+    "before": "2026-12-31T23:59:59Z"
+  },
+  "status": {
+    "include": ["RUNNING", "SUCCESS"]
+  }
+}
+```
+
 
 ### Responses
 

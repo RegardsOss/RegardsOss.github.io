@@ -34,6 +34,9 @@ Sample request body:
 }
 ```
 
+`tenant`, `user` and `userRole` are retained in the request DTO for the service contract, but the REST controller 
+builds the effective user authorization from the current tenant, authenticated user and authenticated role.
+
 ### Responses
 
 | Code | Description      |

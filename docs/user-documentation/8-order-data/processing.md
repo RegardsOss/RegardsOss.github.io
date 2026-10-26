@@ -14,6 +14,10 @@ slug: /user-guide/order-data/processing/
 Les traitements de données se configurent dans l'interface d'administration depuis le menu ***Commands*** et la carte ***Processing***.
 Vous pourrez ajouter des traitements et surveiller leur déroulement lors de la commande de données.
 
+Avant de créer une configuration, le plugin correspondant doit être déployé et activé dans le microservice 
+`rs-processing`. Il doit également être autorisé pour le rôle utilisateur et, si nécessaire, pour les datasets 
+concernés. Un plugin absent ou non autorisé ne sera pas disponible dans la liste des traitements utilisables.
+
 Actuellement, il n'existe pas de plugins de traitement de données métier dans REGARDS. N'hésitez pas à en développer un pour enrichir la commande de données du catalogue. Vous pourriez par exemple transformer les données et les envoyer vers un autre système qui les traitera de manière différente.
 
 Dans l'exemple suivant, vous serez en mesure d'ajouter un plugin de traitement de données et de l'appliquer lors d'une commande.
@@ -52,6 +56,10 @@ Depuis cette page, vous aurez une vision globale de tous les traitements effectu
 - ***From*** / ***To***, période de temps
 - ***Status***, l'état dans lequel se trouve le traitement.
 
-Les filtres s'appliquent automatique après changement. Appuyez sur ***Clear*** pour supprimer tous les filtres.
+Les filtres s'appliquent automatiquement après chaque changement. Appuyez sur ***Clear*** pour supprimer tous les filtres.
 
 Vous avez également à votre disposition un bouton ***Refresh*** pour actualiser l'état des traitements.
+
+Un traitement peut être en préparation, en cours d'exécution, en attente ou terminé. Les états terminaux sont 
+***SUCCESS***, ***FAILURE***, ***TIMED_OUT*** et ***CANCELLED***. En cas d'échec ou de timeout, consultez le
+message associé avant de relancer la commande.
