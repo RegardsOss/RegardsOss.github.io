@@ -148,19 +148,27 @@ reprendra ensuite et s'arrêtera autant de fois que nécessaire.
 :::
 
 :::info
-Pour éviter une solicitation régulière de l'utilisateur lors de sous-commandes, il existe un moyen automatique de gérer
-le téléchargement de données REGARDS en utilisant l'outil ***REGARDS Downloader***, que vous pouvez obtenir en
-suivant [ce lien](https://github.com/RegardsOss/RegardsDownloader). Une fois installé, vous n'aurez qu'à fournir le
-fichier Metalink que vous pouvez obtenir lors du lancement de la commande dans REGARDS en appuyant sur le bouton
-<img src="/images/user-documentation/regards-icons/user/metalink.png" alt="metalink" width="25"/>***Download order 
-metalink file*** depuis l'onglet ***Orders***.
-:::
-
-:::info
-Il est recommandé d'utiliser l'outil ***REGARDS Downloader*** dans le cas de commandes volumineuses.
+Pour éviter une solicitation régulière de l'utilisateur lors de commandes volumineuses (découpées en sous-commandes),
+il est possible d'effectuer le téléchargement par [fichier metalink](#téléchargement-des-données-par-fichier-metalink).
 :::
 
 :::info
 Vous pourrez également retrouver toutes vos commandes depuis l'interface d'administration. Référez-vous à la
 page [Monitor orders](monitor-orders.md) pour en savoir plus.
 :::
+
+### Téléchargement des données par fichier metalink
+
+Dans le cas de commandes volumineuses, la commande est découpée en sous-commandes et l'utilisation de l'IHM peut
+s'avérer fastidieuse car l'utilisateur doit télécharger manuellement chaque sous-commande. Il est possible 
+d'automatiser ce processus en utilisant à la place le fichier [metalink](https://fr.wikipedia.org/wiki/Metalink) 
+correspondant à votre commande.
+
+Celui-ci peut être récupéré en se rendant dans l'onglet ***Orders*** et en cliquant sur l'icône 
+<img src="/images/user-documentation/regards-icons/user/metalink.png" alt="metalink" width="25"/>***Download order 
+metalink file*** de votre commande.
+
+Le fichier metalink référence l'ensemble des fichiers de votre commande, et peut être exploité par un [outil
+tiers](https://fr.wikipedia.org/wiki/Metalink#Impl%C3%A9mentations)
+capable de télécharger l'ensemble de ces fichiers en une seule opération. Certains outils sont en outre capable de 
+paralléliser plusieurs téléchargements, offrant un gain de temps.

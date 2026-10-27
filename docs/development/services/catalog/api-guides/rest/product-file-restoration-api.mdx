@@ -22,16 +22,15 @@ When a restoration is requested, there are several steps that are performed in t
 responsible for making products available.
 
 
-This guide introduce you **2 endpoints** to make available nearline products in order to download product files
-synchronously :
+This guide introduces **2 endpoints** to make nearline products available, so their files can be downloaded synchronously :
 
-- [Check product availability endpoint](#check-product-availability-endpoint) gives you the status of the file, which indicates if the
-  file can be immediately downloaded
+- [Check product availability endpoint](#check-product-availability-endpoint) returns the current status of the files,
+which indicates if they can be immediately downloaded
 - [Product restoration endpoint](#product-restoration-endpoint) makes nearline product files available to download
 
-## Usercase example
+## User case example
 
-Here is an example of product file you need to restore in order be able to download it.  
+Here is an example of product file you need to restore in order to be able to download it.
 The product is not a reference (`reference=false`) and not online (`online=false`).
 
 ```json title="Some nearline product file - using standard lucene search engine"
@@ -63,16 +62,16 @@ The product is not a reference (`reference=false`) and not online (`online=false
 ```
 
 :::info Product URN
-The value of the attribute `id` is an URN used to by Check product availability and Product restoration endpoints
+The value of the attribute `id` is a URN used by Check product availability and Product restoration endpoints
 :::
 
 ## Check product availability endpoint
 
 There is one endpoint for [check availability of single product](api-swagger#tag/file-availability-controller/operation/fileAvailability)
 and another endpoint for [check availability of multiple products](api-swagger##tag/file-availability-controller/operation/filesAvailability).
-Following example shows response of multiple product endpoint.
+The following example shows a response of the multiple products endpoint.
 
-This endpoint checks for every file of product(s) if the file is available.
+This endpoint checks for every file of the input product(s) if the file is available.
 
 Here is the response format, with an example.
 
@@ -97,17 +96,16 @@ Here is the response format, with an example.
 
 The attribute `available` value can be:
 
-* `true` - it means product file can be direct downloaded
-* `false` - it means product file must be [restored](#3-restore-product) to be downloadable.
+* `true` - meaning the product file can be directly downloaded
+* `false` - meaning the product file must be [restored](#3-restore-product) to be downloadable.
 
-A file available can have an `expiration_date`, meaning that file will be not available after this date. It must
+A file entry can have an `expiration_date`, meaning that the file will be not available after this date. It must
 be [restored](#3-restore-product) again to be downloadable again.
-Expiration date not indicated means REGARDS doesn't know when the file will be unavailable.
+An absent expiration date means that REGARDS does not know when the file will become unavailable.
 
 :::info
-If some product file is missing from the response, it means you don't have access to product file, such product does not
-exist
-or some internal error occurred.  
+If some product file is missing from the response, it means that you don't have access to the product file, or that
+such a product does not exist, or that an internal error occurred.
 In that case, you have to contact REGARDS administrators.
 :::
 
@@ -131,7 +129,7 @@ endpoint [Check product availability endpoint](#check-product-availability-endpo
 available (`available=true`)
 
 :::info
-By doing so, restoration ask storage microservice to make available these files.  
+By doing so, restoration ask storage microservice to make these files available.
 After restoration, these files will be available for a configured time in hours.  
 Number of hours is configurable in catalog microservice.
 :::
@@ -150,4 +148,5 @@ Once the file is restored, you can
 be
 [notified about product restoration using an AMQP message](../../../storage/file-availability-api#file-available-amqp-message)
 
-This message indicate if the restoration has been done successfully. If so, file is now available and ready to download.
+This message indicates if the restoration has been done successfully. If so, file is now available and ready to
+download.

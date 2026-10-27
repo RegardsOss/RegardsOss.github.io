@@ -8,12 +8,11 @@ REGARDS vous permet de [commander vos données](manage-orders.md). Il s'agit d'u
 local un ensemble de données directement depuis le catalogue. REGARDS permet également
 de [gérer les paramètres](settings-orders.md) de vos commandes.
 
-Vous pouvez effectuer cette opération de deux manières :
+Vous pouvez télécharger les données commandées de deux manières :
 
 - depuis l'interface IHM
-- en utilisant le module externe
-  ***REGARDS DOWNLOADER*** ([lien github](https://github.com/RegardsOss/RegardsDownloader)) et un fichier metalink à
-  importer
+- en déléguant le téléchargement des fichiers à un
+  [outil tiers qui gère les fichiers metalink](manage-orders#téléchargement-des-données-par-fichier-metalink)
 
 Lors de la commande de la donnée, vous pouvez également [appliquer des traitements](processing.md) complexes de la
 donnée qui, contrairement aux processing services, s'effectueront de manière asynchrone.

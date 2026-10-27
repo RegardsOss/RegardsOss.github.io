@@ -17,19 +17,20 @@ interface indicated.
 All the following plugins implements
 the [IOnlineStorageLocation interface](https://github.com/RegardsOss/regards-backend/blob/master/rs-file-access/file-access-plugin/file-access-plugin-domain/src/main/java/fr/cnes/regards/modules/fileaccess/plugin/domain/IOnlineStorageLocation.java).
 
-| Plugin image                  | Plugin name | Description                                                                              | 
-|-------------------------------|-------------|------------------------------------------------------------------------------------------|
-| local-storage-location-plugin | Local       | Stores the files on the file system were REGARDS is deployed (uses the file:// protocol) | 
-| s3-storage-plugin             | S3          | Stores the files on an Amazon S3 Tier 2 server.                                          | 
+| Plugin image                  | Plugin name       | Description                                                                              | 
+|-------------------------------|-------------------|------------------------------------------------------------------------------------------|
+| local-storage-location-plugin | [Local](local.md) | Stores the files on the file system were REGARDS is deployed (uses the file:// protocol) | 
+| s3-storage-plugin             | [S3](s3.md)       | Stores the files on an Amazon S3 Tier 2 server.                                          | 
 
 ## Nearline storage location plugins
 
 All the following plugins implements
 the [INearlineStorageLocation interface](https://github.com/RegardsOss/regards-backend/blob/master/rs-file-access/file-access-plugin/file-access-plugin-domain/src/main/java/fr/cnes/regards/modules/fileaccess/plugin/domain/INearlineStorageLocation.java).
 
-| Plugin image      | Plugin name | Description                                               | 
-|-------------------|-------------|-----------------------------------------------------------|
-| s3-storage-plugin | S3Glacier   | Stores the files on an Amazon S3 Tier 3 (glacier) server. | 
+| Plugin image                  | Plugin name                         | Description                                                 | 
+|-------------------------------|-------------------------------------|-------------------------------------------------------------|
+| s3-glacier-storage-plugin     | [S3Glacier](s3glacier.md)           | Stores the files on an Amazon S3 Tier 3 (glacier) server.   | 
+| remote-regards-storage-plugin | [Remote REGARDS](remote-regards.md) | Enables access to files stored on another REGARDS instance. |
 
 ## File Naming Strategy
 
