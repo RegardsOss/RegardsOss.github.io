@@ -138,7 +138,9 @@ large volumes of small files requiring archival.
 
 ## How to Learn More
 
-You can learn how the service works in the [conception section](./file-packager-conception.md).
+You can learn how the service works in the:
+- [conception section](./file-packager-conception.md).
+- [restoration section](./file-packager-restoration.md).
 
 ## How to use
 

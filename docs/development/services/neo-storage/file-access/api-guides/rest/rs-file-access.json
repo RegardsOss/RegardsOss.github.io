@@ -1,2434 +1,36 @@
 {
-  "components": {
-    "schemas": {
-      "AbstractStoragePluginConfigurationDto": {
-        "properties": {
-          "fileNamingStrategy": {
-            "enum": [
-              "FILENAME",
-              "CHECKSUM"
-            ],
-            "type": "string"
-          }
-        },
-        "type": "object"
-      },
-      "Address": {
-        "properties": {
-          "exchangeName": {
-            "type": "string"
-          },
-          "routingKey": {
-            "type": "string"
-          }
-        },
-        "type": "object"
-      },
-      "BroadcastPluginConfEvent": {
-        "properties": {
-          "action": {
-            "enum": [
-              "DELETE",
-              "CREATE",
-              "UPDATE",
-              "DISABLE",
-              "ACTIVATE"
-            ],
-            "type": "string"
-          },
-          "label": {
-            "type": "string"
-          },
-          "pluginBusinnessId": {
-            "type": "string"
-          },
-          "pluginConfId": {
-            "format": "int64",
-            "type": "integer"
-          },
-          "pluginTypes": {
-            "items": {
-              "type": "string"
-            },
-            "type": "array",
-            "uniqueItems": true
-          }
-        },
-        "type": "object"
-      },
-      "CollectEvent": {
-        "properties": {
-          "notRestoredFilePaths": {
-            "items": {
-              "properties": {
-                "absolute": {
-                  "type": "boolean"
-                },
-                "fileSystem": {
-                  "properties": {
-                    "fileStores": {
-                      "type": "object"
-                    },
-                    "open": {
-                      "type": "boolean"
-                    },
-                    "readOnly": {
-                      "type": "boolean"
-                    },
-                    "rootDirectories": {
-                      "type": "string"
-                    },
-                    "separator": {
-                      "type": "string"
-                    },
-                    "userPrincipalLookupService": {
-                      "type": "object"
-                    }
-                  },
-                  "type": "object"
-                },
-                "nameCount": {
-                  "format": "int32",
-                  "type": "integer"
-                }
-              },
-              "type": "string"
-            },
-            "type": "array",
-            "uniqueItems": true
-          },
-          "restoredFilePaths": {
-            "additionalProperties": {
-              "$ref": "#/components/schemas/RestoreLocation"
-            },
-            "type": "object"
-          },
-          "source": {
-            "type": "object"
-          }
-        },
-        "type": "object"
-      },
-      "DownloadQuotaLimitsDto": {
-        "properties": {
-          "email": {
-            "type": "string"
-          },
-          "maxQuota": {
-            "format": "int64",
-            "type": "integer"
-          },
-          "rateLimit": {
-            "format": "int64",
-            "type": "integer"
-          }
-        },
-        "type": "object"
-      },
-      "DynamicTenantSettingDto": {
-        "properties": {
-          "defaultValue": {
-            "type": "object"
-          },
-          "description": {
-            "type": "string"
-          },
-          "name": {
-            "type": "string"
-          },
-          "value": {
-            "type": "object"
-          }
-        },
-        "type": "object"
-      },
-      "DynamicTenantSettingDtoObject": {
-        "properties": {
-          "defaultValue": {
-            "type": "object"
-          },
-          "description": {
-            "type": "string"
-          },
-          "name": {
-            "type": "string"
-          },
-          "value": {
-            "type": "object"
-          }
-        },
-        "type": "object"
-      },
-      "EntityModelDynamicTenantSettingDtoObject": {
-        "properties": {
-          "content": {
-            "$ref": "#/components/schemas/DynamicTenantSettingDtoObject"
-          },
-          "links": {
-            "items": {
-              "$ref": "#/components/schemas/Link"
-            },
-            "type": "array"
-          }
-        },
-        "type": "object"
-      },
-      "EntityModelMapStringMaintenanceInfo": {
-        "properties": {
-          "content": {
-            "additionalProperties": {
-              "$ref": "#/components/schemas/MaintenanceInfo"
-            },
-            "type": "object"
-          },
-          "links": {
-            "items": {
-              "$ref": "#/components/schemas/Link"
-            },
-            "type": "array"
-          }
-        },
-        "type": "object"
-      },
-      "EntityModelPluginConfiguration": {
-        "properties": {
-          "content": {
-            "$ref": "#/components/schemas/PluginConfiguration"
-          },
-          "links": {
-            "items": {
-              "$ref": "#/components/schemas/Link"
-            },
-            "type": "array"
-          }
-        },
-        "type": "object"
-      },
-      "EntityModelPluginMetaData": {
-        "properties": {
-          "content": {
-            "$ref": "#/components/schemas/PluginMetaData"
-          },
-          "links": {
-            "items": {
-              "$ref": "#/components/schemas/Link"
-            },
-            "type": "array"
-          }
-        },
-        "type": "object"
-      },
-      "EntityModelStorageLocationConfigurationDto": {
-        "properties": {
-          "content": {
-            "$ref": "#/components/schemas/StorageLocationConfigurationDto"
-          },
-          "links": {
-            "items": {
-              "$ref": "#/components/schemas/Link"
-            },
-            "type": "array"
-          }
-        },
-        "type": "object"
-      },
-      "EntityModelString": {
-        "properties": {
-          "content": {
-            "type": "string"
-          },
-          "links": {
-            "items": {
-              "$ref": "#/components/schemas/Link"
-            },
-            "type": "array"
-          }
-        },
-        "type": "object"
-      },
-      "EntityModelVoid": {
-        "properties": {
-          "content": {
-            "type": "object"
-          },
-          "links": {
-            "items": {
-              "$ref": "#/components/schemas/Link"
-            },
-            "type": "array"
-          }
-        },
-        "type": "object"
-      },
-      "File-accessAmqpExchanges": {
-        "enum": [
-          "regards.broadcast.fr.cnes.regards.framework.jpa.multitenant.event.TenantConnectionConfigurationCreated",
-          "regards.broadcast.fr.cnes.regards.framework.jpa.multitenant.event.TenantConnectionConfigurationUpdated",
-          "regards.broadcast.fr.cnes.regards.framework.jpa.multitenant.event.TenantConnectionConfigurationDeleted",
-          "regards.broadcast.fr.cnes.regards.framework.jpa.multitenant.event.TenantConnectionFailed",
-          "regards.broadcast.fr.cnes.regards.modules.project.domain.ProjectUpdateEvent",
-          "regards.broadcast.fr.cnes.regards.modules.accessrights.domain.projects.events.LicenseEvent",
-          "regards.broadcast.fr.cnes.regards.modules.accessrights.domain.projects.events.ProjectUserEvent",
-          "regards.broadcast.fr.cnes.regards.framework.security.event.RoleEvent",
-          "regards.broadcast.fr.cnes.regards.framework.security.event.ResourceAccessInit",
-          "regards.broadcast.fr.cnes.regards.framework.security.event.ResourceAccessEvent",
-          "regards.broadcast.fr.cnes.regards.framework.amqp.event.notification.NotificationEvent",
-          "regards.broadcast.fr.cnes.regards.framework.amqp.event.notifier.NotificationRequestEvent",
-          "regards.broadcast.fr.cnes.regards.framework.amqp.event.tenant.TenantDeletedEvent",
-          "regards.broadcast.fr.cnes.regards.framework.amqp.event.tenant.TenantCreatedEvent",
-          "regards.broadcast.rs-file-access.fr.cnes.regards.framework.modules.plugins.domain.event.BroadcastPluginConfEvent",
-          "regards.broadcast.rs-file-access.fr.cnes.regards.framework.modules.plugins.domain.event.PluginConfClearCacheEvent",
-          "regards.broadcast.fr.cnes.regards.framework.modules.plugins.domain.event.PluginConfEvent",
-          "regards.broadcast.fr.cnes.regards.modules.fileaccess.amqp.input.FileStorageRequestReadyToProcessEvent",
-          "regards.broadcast.fr.cnes.regards.modules.fileaccess.amqp.output.StorageWorkerRequestEvent",
-          "regards.broadcast.fr.cnes.regards.modules.fileaccess.amqp.output.StorageResponseEvent",
-          "regards.broadcast.fr.cnes.regards.modules.workermanager.amqp.events.in.WorkerRequestDlqEvent",
-          "regards.broadcast.fr.cnes.regards.modules.workermanager.amqp.events.in.WorkerResponseEvent",
-          "regards.broadcast.fr.cnes.regards.modules.workermanager.amqp.events.in.RequestEvent",
-          "regards.broadcast.fr.cnes.regards.modules.workermanager.amqp.events.in.WorkerHeartBeatEvent",
-          "regards.broadcast.rs-file-access.fr.cnes.regards.modules.workermanager.amqp.events.internal.WorkerConfUpdatedEvent",
-          "regards.broadcast.fr.cnes.regards.modules.workermanager.amqp.events.out.WorkerRequestEvent",
-          "regards.broadcast.fr.cnes.regards.modules.workermanager.amqp.events.out.ResponseEvent",
-          "regards.broadcast.rs-file-access.fr.cnes.regards.framework.modules.jobs.domain.event.JobEvent",
-          "regards.broadcast.rs-file-access.fr.cnes.regards.framework.modules.jobs.domain.event.StopJobEvent",
-          "regards.broadcast.fr.cnes.regards.framework.modules.workspace.domain.WorkspaceMonitoringEvent"
-        ],
-        "type": "string",
-        "x-enum-varnames": [
-          "TENANT_CONNECTION_CONFIGURATION_CREATED",
-          "TENANT_CONNECTION_CONFIGURATION_UPDATED",
-          "TENANT_CONNECTION_CONFIGURATION_DELETED",
-          "TENANT_CONNECTION_FAILED",
-          "PROJECT_UPDATE_EVENT",
-          "LICENSE_EVENT",
-          "PROJECT_USER_EVENT",
-          "ROLE_EVENT",
-          "RESOURCE_ACCESS_INIT",
-          "RESOURCE_ACCESS_EVENT",
-          "NOTIFICATION_EVENT",
-          "NOTIFICATION_REQUEST_EVENT",
-          "TENANT_DELETED_EVENT",
-          "TENANT_CREATED_EVENT",
-          "BROADCAST_PLUGIN_CONF_EVENT",
-          "PLUGIN_CONF_CLEAR_CACHE_EVENT",
-          "PLUGIN_CONF_EVENT",
-          "FILE_STORAGE_REQUEST_READY_TO_PROCESS_EVENT",
-          "STORAGE_WORKER_REQUEST_EVENT",
-          "STORAGE_RESPONSE_EVENT",
-          "WORKER_REQUEST_DLQ_EVENT",
-          "WORKER_RESPONSE_EVENT",
-          "REQUEST_EVENT",
-          "WORKER_HEART_BEAT_EVENT",
-          "WORKER_CONF_UPDATED_EVENT",
-          "WORKER_REQUEST_EVENT",
-          "RESPONSE_EVENT",
-          "JOB_EVENT",
-          "STOP_JOB_EVENT",
-          "WORKSPACE_MONITORING_EVENT"
-        ]
-      },
-      "FileStorageMetaInfoDto": {
-        "properties": {
-          "height": {
-            "format": "int32",
-            "type": "integer"
-          },
-          "mimeType": {
-            "type": "string"
-          },
-          "type": {
-            "type": "string"
-          },
-          "width": {
-            "format": "int32",
-            "type": "integer"
-          }
-        },
-        "type": "object"
-      },
-      "FileStorageRequestReadyToProcessEvent": {
-        "properties": {
-          "activateSmallFilePackaging": {
-            "type": "boolean"
-          },
-          "algorithm": {
-            "type": "string"
-          },
-          "checksum": {
-            "type": "string"
-          },
-          "metadata": {
-            "$ref": "#/components/schemas/FileStorageMetaInfoDto"
-          },
-          "originUrl": {
-            "type": "string"
-          },
-          "owner": {
-            "type": "string"
-          },
-          "reference": {
-            "type": "boolean"
-          },
-          "requestId": {
-            "type": "string"
-          },
-          "session": {
-            "type": "string"
-          },
-          "storage": {
-            "type": "string"
-          },
-          "subDirectory": {
-            "type": "string"
-          }
-        },
-        "type": "object"
-      },
-      "GenericResponseBody": {
-        "properties": {
-          "message": {
-            "type": "string"
-          },
-          "properties": {
-            "additionalProperties": {
-              "type": "object"
-            },
-            "type": "object"
-          }
-        },
-        "type": "object"
-      },
-      "IPluginParam": {
-        "properties": {
-          "dynamic": {
-            "type": "boolean"
-          },
-          "name": {
-            "type": "string"
-          },
-          "type": {
-            "enum": [
-              "STRING",
-              "BYTE",
-              "SHORT",
-              "INTEGER",
-              "LONG",
-              "FLOAT",
-              "DOUBLE",
-              "BOOLEAN",
-              "MAP",
-              "COLLECTION",
-              "POJO",
-              "PLUGIN",
-              "REGARDS_ENTITY_MODEL"
-            ],
-            "type": "string"
-          },
-          "value": {
-            "type": "object"
-          }
-        },
-        "type": "object"
-      },
-      "JobEvent": {
-        "properties": {
-          "jobClassName": {
-            "type": "string"
-          },
-          "jobEventType": {
-            "enum": [
-              "ABORTED",
-              "FAILED",
-              "RUNNING",
-              "SUCCEEDED"
-            ],
-            "type": "string"
-          },
-          "jobId": {
-            "format": "uuid",
-            "type": "string"
-          }
-        },
-        "type": "object"
-      },
-      "LicenseEvent": {
-        "properties": {
-          "action": {
-            "enum": [
-              "ACCEPT",
-              "RESET"
-            ],
-            "type": "string"
-          },
-          "licenseLink": {
-            "type": "string"
-          },
-          "user": {
-            "type": "string"
-          }
-        },
-        "type": "object"
-      },
-      "Link": {
-        "properties": {
-          "deprecation": {
-            "type": "string"
-          },
-          "href": {
-            "type": "string"
-          },
-          "hreflang": {
-            "type": "string"
-          },
-          "media": {
-            "type": "string"
-          },
-          "name": {
-            "type": "string"
-          },
-          "profile": {
-            "type": "string"
-          },
-          "rel": {
-            "type": "string"
-          },
-          "title": {
-            "type": "string"
-          },
-          "type": {
-            "type": "string"
-          }
-        },
-        "type": "object"
-      },
-      "MaintenanceInfo": {
-        "properties": {
-          "active": {
-            "type": "boolean"
-          },
-          "lastUpdate": {
-            "format": "date-time",
-            "type": "string"
-          }
-        },
-        "type": "object"
-      },
-      "MessageProperties": {
-        "properties": {
-          "appId": {
-            "type": "string"
-          },
-          "clusterId": {
-            "type": "string"
-          },
-          "consumerQueue": {
-            "type": "string"
-          },
-          "consumerTag": {
-            "type": "string"
-          },
-          "contentEncoding": {
-            "type": "string"
-          },
-          "contentLength": {
-            "format": "int64",
-            "type": "integer"
-          },
-          "contentType": {
-            "type": "string"
-          },
-          "correlationId": {
-            "type": "string"
-          },
-          "delay": {
-            "deprecated": true,
-            "format": "int32",
-            "type": "integer"
-          },
-          "delayLong": {
-            "format": "int64",
-            "type": "integer"
-          },
-          "deliveryMode": {
-            "enum": [
-              "NON_PERSISTENT",
-              "PERSISTENT"
-            ],
-            "type": "string"
-          },
-          "deliveryTag": {
-            "format": "int64",
-            "type": "integer"
-          },
-          "expiration": {
-            "type": "string"
-          },
-          "finalRetryForMessageWithNoId": {
-            "type": "boolean"
-          },
-          "headers": {
-            "additionalProperties": {
-              "type": "object"
-            },
-            "type": "object"
-          },
-          "inferredArgumentType": {
-            "properties": {
-              "typeName": {
-                "type": "string"
-              }
-            },
-            "type": "object"
-          },
-          "lastInBatch": {
-            "type": "boolean"
-          },
-          "messageCount": {
-            "format": "int32",
-            "type": "integer"
-          },
-          "messageId": {
-            "type": "string"
-          },
-          "priority": {
-            "format": "int32",
-            "type": "integer"
-          },
-          "projectionUsed": {
-            "type": "boolean"
-          },
-          "publishSequenceNumber": {
-            "format": "int64",
-            "type": "integer"
-          },
-          "receivedDelay": {
-            "deprecated": true,
-            "format": "int32",
-            "type": "integer"
-          },
-          "receivedDelayLong": {
-            "format": "int64",
-            "type": "integer"
-          },
-          "receivedDeliveryMode": {
-            "enum": [
-              "NON_PERSISTENT",
-              "PERSISTENT"
-            ],
-            "type": "string"
-          },
-          "receivedExchange": {
-            "type": "string"
-          },
-          "receivedRoutingKey": {
-            "type": "string"
-          },
-          "receivedUserId": {
-            "type": "string"
-          },
-          "redelivered": {
-            "type": "boolean"
-          },
-          "replyTo": {
-            "type": "string"
-          },
-          "replyToAddress": {
-            "$ref": "#/components/schemas/Address"
-          },
-          "targetBean": {
-            "type": "object"
-          },
-          "targetMethod": {
-            "properties": {
-              "accessible": {
-                "deprecated": true,
-                "type": "boolean"
-              },
-              "annotatedExceptionTypes": {
-                "items": {
-                  "properties": {
-                    "annotations": {
-                      "items": {
-                        "type": "object"
-                      },
-                      "type": "array"
-                    },
-                    "declaredAnnotations": {
-                      "items": {
-                        "type": "object"
-                      },
-                      "type": "array"
-                    },
-                    "type": {
-                      "properties": {
-                        "typeName": {
-                          "type": "string"
-                        }
-                      },
-                      "type": "object"
-                    }
-                  },
-                  "type": "object"
-                },
-                "type": "array"
-              },
-              "annotatedParameterTypes": {
-                "items": {
-                  "properties": {
-                    "annotations": {
-                      "items": {
-                        "type": "object"
-                      },
-                      "type": "array"
-                    },
-                    "declaredAnnotations": {
-                      "items": {
-                        "type": "object"
-                      },
-                      "type": "array"
-                    },
-                    "type": {
-                      "properties": {
-                        "typeName": {
-                          "type": "string"
-                        }
-                      },
-                      "type": "object"
-                    }
-                  },
-                  "type": "object"
-                },
-                "type": "array"
-              },
-              "annotatedReceiverType": {
-                "properties": {
-                  "annotations": {
-                    "items": {
-                      "type": "object"
-                    },
-                    "type": "array"
-                  },
-                  "declaredAnnotations": {
-                    "items": {
-                      "type": "object"
-                    },
-                    "type": "array"
-                  },
-                  "type": {
-                    "properties": {
-                      "typeName": {
-                        "type": "string"
-                      }
-                    },
-                    "type": "object"
-                  }
-                },
-                "type": "object"
-              },
-              "annotatedReturnType": {
-                "properties": {
-                  "annotations": {
-                    "items": {
-                      "type": "object"
-                    },
-                    "type": "array"
-                  },
-                  "declaredAnnotations": {
-                    "items": {
-                      "type": "object"
-                    },
-                    "type": "array"
-                  },
-                  "type": {
-                    "properties": {
-                      "typeName": {
-                        "type": "string"
-                      }
-                    },
-                    "type": "object"
-                  }
-                },
-                "type": "object"
-              },
-              "annotations": {
-                "items": {
-                  "type": "object"
-                },
-                "type": "array"
-              },
-              "bridge": {
-                "type": "boolean"
-              },
-              "declaredAnnotations": {
-                "items": {
-                  "type": "object"
-                },
-                "type": "array"
-              },
-              "default": {
-                "type": "boolean"
-              },
-              "defaultValue": {
-                "type": "object"
-              },
-              "genericExceptionTypes": {
-                "items": {
-                  "properties": {
-                    "typeName": {
-                      "type": "string"
-                    }
-                  },
-                  "type": "object"
-                },
-                "type": "array"
-              },
-              "genericParameterTypes": {
-                "items": {
-                  "properties": {
-                    "typeName": {
-                      "type": "string"
-                    }
-                  },
-                  "type": "object"
-                },
-                "type": "array"
-              },
-              "genericReturnType": {
-                "properties": {
-                  "typeName": {
-                    "type": "string"
-                  }
-                },
-                "type": "object"
-              },
-              "modifiers": {
-                "format": "int32",
-                "type": "integer"
-              },
-              "name": {
-                "type": "string"
-              },
-              "parameterAnnotations": {
-                "items": {
-                  "items": {
-                    "type": "object"
-                  },
-                  "type": "array"
-                },
-                "type": "array"
-              },
-              "parameterCount": {
-                "format": "int32",
-                "type": "integer"
-              },
-              "parameters": {
-                "items": {
-                  "properties": {
-                    "annotatedType": {
-                      "properties": {
-                        "annotations": {
-                          "items": {
-                            "type": "object"
-                          },
-                          "type": "array"
-                        },
-                        "declaredAnnotations": {
-                          "items": {
-                            "type": "object"
-                          },
-                          "type": "array"
-                        },
-                        "type": {
-                          "properties": {
-                            "typeName": {
-                              "type": "string"
-                            }
-                          },
-                          "type": "object"
-                        }
-                      },
-                      "type": "object"
-                    },
-                    "annotations": {
-                      "items": {
-                        "type": "object"
-                      },
-                      "type": "array"
-                    },
-                    "declaredAnnotations": {
-                      "items": {
-                        "type": "object"
-                      },
-                      "type": "array"
-                    },
-                    "declaringExecutable": {
-                      "properties": {
-                        "accessible": {
-                          "deprecated": true,
-                          "type": "boolean"
-                        },
-                        "annotatedExceptionTypes": {
-                          "items": {
-                            "properties": {
-                              "annotations": {
-                                "items": {
-                                  "type": "object"
-                                },
-                                "type": "array"
-                              },
-                              "declaredAnnotations": {
-                                "items": {
-                                  "type": "object"
-                                },
-                                "type": "array"
-                              },
-                              "type": {
-                                "properties": {
-                                  "typeName": {
-                                    "type": "string"
-                                  }
-                                },
-                                "type": "object"
-                              }
-                            },
-                            "type": "object"
-                          },
-                          "type": "array"
-                        },
-                        "annotatedParameterTypes": {
-                          "items": {
-                            "properties": {
-                              "annotations": {
-                                "items": {
-                                  "type": "object"
-                                },
-                                "type": "array"
-                              },
-                              "declaredAnnotations": {
-                                "items": {
-                                  "type": "object"
-                                },
-                                "type": "array"
-                              },
-                              "type": {
-                                "properties": {
-                                  "typeName": {
-                                    "type": "string"
-                                  }
-                                },
-                                "type": "object"
-                              }
-                            },
-                            "type": "object"
-                          },
-                          "type": "array"
-                        },
-                        "annotatedReceiverType": {
-                          "properties": {
-                            "annotations": {
-                              "items": {
-                                "type": "object"
-                              },
-                              "type": "array"
-                            },
-                            "declaredAnnotations": {
-                              "items": {
-                                "type": "object"
-                              },
-                              "type": "array"
-                            },
-                            "type": {
-                              "properties": {
-                                "typeName": {
-                                  "type": "string"
-                                }
-                              },
-                              "type": "object"
-                            }
-                          },
-                          "type": "object"
-                        },
-                        "annotatedReturnType": {
-                          "properties": {
-                            "annotations": {
-                              "items": {
-                                "type": "object"
-                              },
-                              "type": "array"
-                            },
-                            "declaredAnnotations": {
-                              "items": {
-                                "type": "object"
-                              },
-                              "type": "array"
-                            },
-                            "type": {
-                              "properties": {
-                                "typeName": {
-                                  "type": "string"
-                                }
-                              },
-                              "type": "object"
-                            }
-                          },
-                          "type": "object"
-                        },
-                        "annotations": {
-                          "items": {
-                            "type": "object"
-                          },
-                          "type": "array"
-                        },
-                        "declaredAnnotations": {
-                          "items": {
-                            "type": "object"
-                          },
-                          "type": "array"
-                        },
-                        "genericExceptionTypes": {
-                          "items": {
-                            "properties": {
-                              "typeName": {
-                                "type": "string"
-                              }
-                            },
-                            "type": "object"
-                          },
-                          "type": "array"
-                        },
-                        "genericParameterTypes": {
-                          "items": {
-                            "properties": {
-                              "typeName": {
-                                "type": "string"
-                              }
-                            },
-                            "type": "object"
-                          },
-                          "type": "array"
-                        },
-                        "modifiers": {
-                          "format": "int32",
-                          "type": "integer"
-                        },
-                        "name": {
-                          "type": "string"
-                        },
-                        "parameterAnnotations": {
-                          "items": {
-                            "items": {
-                              "type": "object"
-                            },
-                            "type": "array"
-                          },
-                          "type": "array"
-                        },
-                        "parameterCount": {
-                          "format": "int32",
-                          "type": "integer"
-                        },
-                        "synthetic": {
-                          "type": "boolean"
-                        },
-                        "typeParameters": {
-                          "items": {
-                            "properties": {
-                              "annotatedBounds": {
-                                "items": {
-                                  "properties": {
-                                    "annotations": {
-                                      "items": {
-                                        "type": "object"
-                                      },
-                                      "type": "array"
-                                    },
-                                    "declaredAnnotations": {
-                                      "items": {
-                                        "type": "object"
-                                      },
-                                      "type": "array"
-                                    },
-                                    "type": {
-                                      "properties": {
-                                        "typeName": {
-                                          "type": "string"
-                                        }
-                                      },
-                                      "type": "object"
-                                    }
-                                  },
-                                  "type": "object"
-                                },
-                                "type": "array"
-                              },
-                              "annotations": {
-                                "items": {
-                                  "type": "object"
-                                },
-                                "type": "array"
-                              },
-                              "bounds": {
-                                "items": {
-                                  "properties": {
-                                    "typeName": {
-                                      "type": "string"
-                                    }
-                                  },
-                                  "type": "object"
-                                },
-                                "type": "array"
-                              },
-                              "declaredAnnotations": {
-                                "items": {
-                                  "type": "object"
-                                },
-                                "type": "array"
-                              },
-                              "genericDeclaration": {
-                                "type": "object"
-                              },
-                              "name": {
-                                "type": "string"
-                              },
-                              "typeName": {
-                                "type": "string"
-                              }
-                            },
-                            "type": "object"
-                          },
-                          "type": "array"
-                        },
-                        "varArgs": {
-                          "type": "boolean"
-                        }
-                      },
-                      "type": "object"
-                    },
-                    "implicit": {
-                      "type": "boolean"
-                    },
-                    "modifiers": {
-                      "format": "int32",
-                      "type": "integer"
-                    },
-                    "name": {
-                      "type": "string"
-                    },
-                    "namePresent": {
-                      "type": "boolean"
-                    },
-                    "parameterizedType": {
-                      "properties": {
-                        "typeName": {
-                          "type": "string"
-                        }
-                      },
-                      "type": "object"
-                    },
-                    "synthetic": {
-                      "type": "boolean"
-                    },
-                    "varArgs": {
-                      "type": "boolean"
-                    }
-                  },
-                  "type": "object"
-                },
-                "type": "array"
-              },
-              "synthetic": {
-                "type": "boolean"
-              },
-              "typeParameters": {
-                "items": {
-                  "properties": {
-                    "annotatedBounds": {
-                      "items": {
-                        "properties": {
-                          "annotations": {
-                            "items": {
-                              "type": "object"
-                            },
-                            "type": "array"
-                          },
-                          "declaredAnnotations": {
-                            "items": {
-                              "type": "object"
-                            },
-                            "type": "array"
-                          },
-                          "type": {
-                            "properties": {
-                              "typeName": {
-                                "type": "string"
-                              }
-                            },
-                            "type": "object"
-                          }
-                        },
-                        "type": "object"
-                      },
-                      "type": "array"
-                    },
-                    "annotations": {
-                      "items": {
-                        "type": "object"
-                      },
-                      "type": "array"
-                    },
-                    "bounds": {
-                      "items": {
-                        "properties": {
-                          "typeName": {
-                            "type": "string"
-                          }
-                        },
-                        "type": "object"
-                      },
-                      "type": "array"
-                    },
-                    "declaredAnnotations": {
-                      "items": {
-                        "type": "object"
-                      },
-                      "type": "array"
-                    },
-                    "name": {
-                      "type": "string"
-                    },
-                    "typeName": {
-                      "type": "string"
-                    }
-                  },
-                  "type": "object"
-                },
-                "type": "array"
-              },
-              "varArgs": {
-                "type": "boolean"
-              }
-            },
-            "type": "object"
-          },
-          "timestamp": {
-            "format": "date-time",
-            "type": "string"
-          },
-          "type": {
-            "type": "string"
-          },
-          "userId": {
-            "type": "string"
-          },
-          "xdeathHeader": {
-            "items": {
-              "additionalProperties": {
-                "type": "object"
-              },
-              "type": "object"
-            },
-            "type": "array"
-          }
-        },
-        "type": "object"
-      },
-      "MimeType": {
-        "properties": {
-          "charset": {
-            "type": "string"
-          },
-          "concrete": {
-            "type": "boolean"
-          },
-          "parameters": {
-            "additionalProperties": {
-              "type": "string"
-            },
-            "type": "object"
-          },
-          "subtype": {
-            "type": "string"
-          },
-          "subtypeSuffix": {
-            "type": "string"
-          },
-          "type": {
-            "type": "string"
-          },
-          "wildcardSubtype": {
-            "type": "boolean"
-          },
-          "wildcardType": {
-            "type": "boolean"
-          }
-        },
-        "type": "string"
-      },
-      "ModuleImportReport": {
-        "properties": {
-          "importErrors": {
-            "items": {
-              "type": "string"
-            },
-            "type": "array",
-            "uniqueItems": true
-          },
-          "moduleInformation": {
-            "$ref": "#/components/schemas/ModuleInformation"
-          },
-          "onlyErrors": {
-            "type": "boolean"
-          }
-        },
-        "type": "object"
-      },
-      "ModuleInformation": {
-        "properties": {
-          "author": {
-            "type": "string"
-          },
-          "description": {
-            "type": "string"
-          },
-          "documentation": {
-            "type": "string"
-          },
-          "id": {
-            "type": "string"
-          },
-          "legalOwner": {
-            "type": "string"
-          },
-          "name": {
-            "type": "string"
-          },
-          "version": {
-            "type": "string"
-          }
-        },
-        "required": [
-          "author",
-          "id",
-          "name",
-          "version"
-        ],
-        "type": "object"
-      },
-      "ModuleReadinessReportObject": {
-        "properties": {
-          "ready": {
-            "type": "boolean"
-          },
-          "reasons": {
-            "items": {
-              "type": "string"
-            },
-            "type": "array"
-          },
-          "specifications": {
-            "type": "object"
-          }
-        },
-        "type": "object"
-      },
-      "ModuleRestartReport": {
-        "properties": {
-          "messages": {
-            "items": {
-              "type": "string"
-            },
-            "type": "array"
-          },
-          "moduleInformation": {
-            "$ref": "#/components/schemas/ModuleInformation"
-          }
-        },
-        "type": "object"
-      },
-      "NotificationDTO": {
-        "properties": {
-          "level": {
-            "enum": [
-              "INFO",
-              "WARNING",
-              "ERROR",
-              "FATAL"
-            ],
-            "type": "string"
-          },
-          "message": {
-            "type": "string"
-          },
-          "mimeType": {
-            "properties": {
-              "charset": {
-                "type": "string"
-              },
-              "concrete": {
-                "type": "boolean"
-              },
-              "parameters": {
-                "additionalProperties": {
-                  "type": "string"
-                },
-                "type": "object"
-              },
-              "subtype": {
-                "type": "string"
-              },
-              "subtypeSuffix": {
-                "type": "string"
-              },
-              "type": {
-                "type": "string"
-              },
-              "wildcardSubtype": {
-                "type": "boolean"
-              },
-              "wildcardType": {
-                "type": "boolean"
-              }
-            },
-            "type": "string"
-          },
-          "projectUserRecipients": {
-            "items": {
-              "type": "string"
-            },
-            "type": "array",
-            "uniqueItems": true
-          },
-          "roleRecipients": {
-            "items": {
-              "type": "string"
-            },
-            "type": "array",
-            "uniqueItems": true
-          },
-          "sender": {
-            "type": "string"
-          },
-          "title": {
-            "type": "string"
-          }
-        },
-        "type": "object"
-      },
-      "NotificationEvent": {
-        "properties": {
-          "notification": {
-            "$ref": "#/components/schemas/NotificationDTO"
-          }
-        },
-        "required": [
-          "notification"
-        ],
-        "type": "object"
-      },
-      "NotificationRequestEvent": {
-        "properties": {
-          "messageProperties": {
-            "$ref": "#/components/schemas/MessageProperties"
-          },
-          "metadata": {
-            "description": "The raw metadata",
-            "type": "object"
-          },
-          "payload": {
-            "description": "The raw payload",
-            "type": "object"
-          },
-          "requestDate": {
-            "format": "date-time",
-            "type": "string"
-          },
-          "requestId": {
-            "type": "string"
-          },
-          "requestOwner": {
-            "type": "string"
-          }
-        },
-        "required": [
-          "messageProperties",
-          "payload"
-        ],
-        "type": "object"
-      },
-      "PluginConfClearCacheEvent": {
-        "type": "object"
-      },
-      "PluginConfEvent": {
-        "properties": {
-          "action": {
-            "enum": [
-              "DELETE",
-              "CREATE",
-              "UPDATE",
-              "DISABLE",
-              "ACTIVATE"
-            ],
-            "type": "string"
-          },
-          "label": {
-            "type": "string"
-          },
-          "pluginBusinnessId": {
-            "type": "string"
-          },
-          "pluginConfId": {
-            "format": "int64",
-            "type": "integer"
-          },
-          "pluginTypes": {
-            "items": {
-              "type": "string"
-            },
-            "type": "array",
-            "uniqueItems": true
-          }
-        },
-        "type": "object"
-      },
-      "PluginConfiguration": {
-        "properties": {
-          "active": {
-            "type": "boolean"
-          },
-          "businessId": {
-            "pattern": "[0-9a-zA-Z_-]*",
-            "type": "string"
-          },
-          "iconUrl": {
-            "format": "url",
-            "type": "string"
-          },
-          "id": {
-            "format": "int64",
-            "type": "integer"
-          },
-          "identifiable": {
-            "type": "boolean"
-          },
-          "interfaceNames": {
-            "items": {
-              "type": "string"
-            },
-            "type": "array",
-            "uniqueItems": true
-          },
-          "isActive": {
-            "type": "boolean",
-            "writeOnly": true
-          },
-          "label": {
-            "type": "string"
-          },
-          "metaData": {
-            "$ref": "#/components/schemas/PluginMetaData"
-          },
-          "metaDataAndPluginId": {
-            "$ref": "#/components/schemas/PluginMetaData"
-          },
-          "parameters": {
-            "items": {
-              "$ref": "#/components/schemas/IPluginParam"
-            },
-            "type": "array",
-            "uniqueItems": true
-          },
-          "pluginClassName": {
-            "type": "string"
-          },
-          "pluginId": {
-            "type": "string"
-          },
-          "priorityOrder": {
-            "format": "int32",
-            "type": "integer"
-          },
-          "version": {
-            "type": "string"
-          }
-        },
-        "required": [
-          "label",
-          "priorityOrder"
-        ],
-        "type": "object"
-      },
-      "PluginConfigurationDto": {
-        "properties": {
-          "active": {
-            "type": "boolean"
-          },
-          "businessId": {
-            "type": "string"
-          },
-          "iconUrl": {
-            "format": "url",
-            "type": "string"
-          },
-          "label": {
-            "type": "string"
-          },
-          "metaData": {
-            "$ref": "#/components/schemas/PluginMetaData"
-          },
-          "parameters": {
-            "items": {
-              "$ref": "#/components/schemas/IPluginParam"
-            },
-            "type": "array",
-            "uniqueItems": true
-          },
-          "pluginId": {
-            "type": "string"
-          },
-          "priorityOrder": {
-            "format": "int32",
-            "type": "integer"
-          },
-          "version": {
-            "type": "string"
-          }
-        },
-        "type": "object"
-      },
-      "PluginMetaData": {
-        "properties": {
-          "author": {
-            "type": "string"
-          },
-          "contact": {
-            "type": "string"
-          },
-          "description": {
-            "type": "string"
-          },
-          "interfaceNames": {
-            "items": {
-              "type": "string"
-            },
-            "type": "array",
-            "uniqueItems": true
-          },
-          "licence": {
-            "type": "string",
-            "writeOnly": true
-          },
-          "license": {
-            "type": "string"
-          },
-          "markdown": {
-            "type": "string"
-          },
-          "owner": {
-            "type": "string"
-          },
-          "parameters": {
-            "items": {
-              "$ref": "#/components/schemas/PluginParamDescriptor"
-            },
-            "type": "array"
-          },
-          "pluginClassName": {
-            "type": "string"
-          },
-          "pluginId": {
-            "type": "string"
-          },
-          "url": {
-            "type": "string"
-          },
-          "userMarkdown": {
-            "type": "string"
-          },
-          "version": {
-            "type": "string"
-          }
-        },
-        "type": "object"
-      },
-      "PluginParamDescriptor": {
-        "properties": {
-          "defaultValue": {
-            "type": "string"
-          },
-          "description": {
-            "type": "string"
-          },
-          "keyLabel": {
-            "type": "string"
-          },
-          "label": {
-            "type": "string"
-          },
-          "markdown": {
-            "type": "string"
-          },
-          "name": {
-            "type": "string"
-          },
-          "optional": {
-            "type": "boolean"
-          },
-          "parameterizedSubTypes": {
-            "items": {
-              "enum": [
-                "STRING",
-                "BYTE",
-                "SHORT",
-                "INTEGER",
-                "LONG",
-                "FLOAT",
-                "DOUBLE",
-                "BOOLEAN",
-                "MAP",
-                "COLLECTION",
-                "POJO",
-                "PLUGIN",
-                "REGARDS_ENTITY_MODEL"
-              ],
-              "type": "string"
-            },
-            "type": "array"
-          },
-          "pluginType": {
-            "type": "string"
-          },
-          "sensible": {
-            "type": "boolean"
-          },
-          "sensitive": {
-            "type": "boolean",
-            "writeOnly": true
-          },
-          "type": {
-            "enum": [
-              "STRING",
-              "BYTE",
-              "SHORT",
-              "INTEGER",
-              "LONG",
-              "FLOAT",
-              "DOUBLE",
-              "BOOLEAN",
-              "MAP",
-              "COLLECTION",
-              "POJO",
-              "PLUGIN",
-              "REGARDS_ENTITY_MODEL"
-            ],
-            "type": "string"
-          },
-          "unconfigurable": {
-            "type": "boolean"
-          },
-          "userMarkdown": {
-            "type": "string"
-          }
-        },
-        "type": "object"
-      },
-      "Project": {
-        "properties": {
-          "crs": {
-            "type": "string"
-          },
-          "description": {
-            "type": "string"
-          },
-          "host": {
-            "type": "string"
-          },
-          "icon": {
-            "type": "string"
-          },
-          "id": {
-            "format": "int64",
-            "type": "integer"
-          },
-          "identifiable": {
-            "type": "boolean"
-          },
-          "isAccessible": {
-            "type": "boolean"
-          },
-          "isDeleted": {
-            "type": "boolean"
-          },
-          "isPoleToBeManaged": {
-            "type": "boolean"
-          },
-          "isPublic": {
-            "type": "boolean"
-          },
-          "label": {
-            "type": "string"
-          },
-          "licenceLink": {
-            "type": "string"
-          },
-          "licenseLink": {
-            "type": "string",
-            "writeOnly": true
-          },
-          "name": {
-            "pattern": "[a-zA-Z0-9-_]*",
-            "type": "string"
-          }
-        },
-        "required": [
-          "crs",
-          "description",
-          "label",
-          "name"
-        ],
-        "type": "object"
-      },
-      "ProjectUpdateEvent": {
-        "properties": {
-          "project": {
-            "$ref": "#/components/schemas/Project"
-          }
-        },
-        "type": "object"
-      },
-      "ProjectUserEvent": {
-        "properties": {
-          "action": {
-            "enum": [
-              "CREATE",
-              "DELETE",
-              "UPDATE"
-            ],
-            "type": "string"
-          },
-          "email": {
-            "type": "string"
-          }
-        },
-        "type": "object"
-      },
-      "RawMessageEvent": {
-        "properties": {
-          "body": {
-            "format": "byte",
-            "type": "string"
-          },
-          "messageProperties": {
-            "$ref": "#/components/schemas/MessageProperties"
-          }
-        },
-        "type": "object"
-      },
-      "RequestEvent": {
-        "properties": {
-          "messageProperties": {
-            "$ref": "#/components/schemas/MessageProperties"
-          }
-        },
-        "required": [
-          "messageProperties"
-        ],
-        "type": "object"
-      },
-      "ResourceAccess": {
-        "type": "object"
-      },
-      "ResourceAccessEvent": {
-        "properties": {
-          "microservice": {
-            "type": "string"
-          },
-          "roleName": {
-            "type": "string"
-          }
-        },
-        "type": "object"
-      },
-      "ResourceAccessInit": {
-        "type": "object"
-      },
-      "ResourceMapping": {
-        "properties": {
-          "autorizedRoles": {
-            "items": {
-              "$ref": "#/components/schemas/RoleAuthority"
-            },
-            "type": "array"
-          },
-          "controllerSimpleName": {
-            "type": "string"
-          },
-          "fullPath": {
-            "type": "string"
-          },
-          "method": {
-            "enum": [
-              "GET",
-              "HEAD",
-              "POST",
-              "PUT",
-              "PATCH",
-              "DELETE",
-              "OPTIONS",
-              "TRACE"
-            ],
-            "type": "string"
-          },
-          "resourceAccess": {
-            "$ref": "#/components/schemas/ResourceAccess"
-          },
-          "resourceMappingId": {
-            "type": "string"
-          }
-        },
-        "type": "object"
-      },
-      "ResponseEvent": {
-        "properties": {
-          "content": {
-            "format": "byte",
-            "type": "string"
-          },
-          "message": {
-            "items": {
-              "type": "string"
-            },
-            "type": "array"
-          },
-          "messageProperties": {
-            "$ref": "#/components/schemas/MessageProperties"
-          },
-          "requestId": {
-            "type": "string"
-          },
-          "state": {
-            "enum": [
-              "SKIPPED",
-              "GRANTED",
-              "DELAYED",
-              "INVALID_CONTENT",
-              "ERROR",
-              "SUCCESS"
-            ],
-            "type": "string"
-          }
-        },
-        "required": [
-          "messageProperties"
-        ],
-        "type": "object"
-      },
-      "RestoreLocation": {
-        "properties": {
-          "finalFilePath": {
-            "properties": {
-              "absolute": {
-                "type": "boolean"
-              },
-              "fileSystem": {
-                "properties": {
-                  "fileStores": {
-                    "type": "object"
-                  },
-                  "open": {
-                    "type": "boolean"
-                  },
-                  "readOnly": {
-                    "type": "boolean"
-                  },
-                  "rootDirectories": {
-                    "type": "string"
-                  },
-                  "separator": {
-                    "type": "string"
-                  },
-                  "userPrincipalLookupService": {
-                    "type": "object"
-                  }
-                },
-                "type": "object"
-              },
-              "nameCount": {
-                "format": "int32",
-                "type": "integer"
-              }
-            },
-            "type": "string"
-          },
-          "restorationLocation": {
-            "properties": {
-              "absolute": {
-                "type": "boolean"
-              },
-              "fileSystem": {
-                "properties": {
-                  "fileStores": {
-                    "type": "object"
-                  },
-                  "open": {
-                    "type": "boolean"
-                  },
-                  "readOnly": {
-                    "type": "boolean"
-                  },
-                  "rootDirectories": {
-                    "type": "string"
-                  },
-                  "separator": {
-                    "type": "string"
-                  },
-                  "userPrincipalLookupService": {
-                    "type": "object"
-                  }
-                },
-                "type": "object"
-              },
-              "nameCount": {
-                "format": "int32",
-                "type": "integer"
-              }
-            },
-            "type": "string"
-          },
-          "temporaryFilePath": {
-            "properties": {
-              "absolute": {
-                "type": "boolean"
-              },
-              "fileSystem": {
-                "properties": {
-                  "fileStores": {
-                    "type": "object"
-                  },
-                  "open": {
-                    "type": "boolean"
-                  },
-                  "readOnly": {
-                    "type": "boolean"
-                  },
-                  "rootDirectories": {
-                    "type": "string"
-                  },
-                  "separator": {
-                    "type": "string"
-                  },
-                  "userPrincipalLookupService": {
-                    "type": "object"
-                  }
-                },
-                "type": "object"
-              },
-              "nameCount": {
-                "format": "int32",
-                "type": "integer"
-              }
-            },
-            "type": "string"
-          }
-        },
-        "type": "object"
-      },
-      "RoleAuthority": {
-        "properties": {
-          "authority": {
-            "type": "string"
-          },
-          "authorizedIpAdresses": {
-            "items": {
-              "type": "string"
-            },
-            "type": "array"
-          },
-          "roleName": {
-            "type": "string"
-          }
-        },
-        "type": "object"
-      },
-      "RoleEvent": {
-        "properties": {
-          "role": {
-            "type": "string"
-          }
-        },
-        "type": "object"
-      },
-      "StopJobEvent": {
-        "properties": {
-          "jobId": {
-            "format": "uuid",
-            "type": "string"
-          }
-        },
-        "type": "object"
-      },
-      "StorageLocationConfigurationDto": {
-        "properties": {
-          "allocatedSizeInKo": {
-            "format": "int64",
-            "type": "integer"
-          },
-          "name": {
-            "type": "string"
-          },
-          "pluginConfiguration": {
-            "$ref": "#/components/schemas/PluginConfigurationDto"
-          },
-          "priority": {
-            "format": "int64",
-            "type": "integer"
-          },
-          "storageType": {
-            "enum": [
-              "ONLINE",
-              "NEARLINE",
-              "OFFLINE",
-              "CACHE"
-            ],
-            "type": "string"
-          }
-        },
-        "type": "object"
-      },
-      "StorageResponseEvent": {
-        "properties": {
-          "checksum": {
-            "type": "string"
-          },
-          "error": {
-            "type": "string"
-          },
-          "errorType": {
-            "enum": [
-              "WORKER_ERROR",
-              "WORKER_RESPONSE_EMPTY",
-              "INVALID_REQUEST_CONTENT",
-              "INACTIVE_WORKER",
-              "UNKNOWN_STORAGE_LOCATION"
-            ],
-            "type": "string"
-          },
-          "fileCachePath": {
-            "type": "string"
-          },
-          "finalArchiveParentUrl": {
-            "type": "string"
-          },
-          "height": {
-            "format": "int32",
-            "type": "integer"
-          },
-          "requestId": {
-            "type": "string"
-          },
-          "requestSuccessful": {
-            "type": "boolean"
-          },
-          "size": {
-            "format": "int64",
-            "type": "integer"
-          },
-          "storedInCache": {
-            "type": "boolean"
-          },
-          "url": {
-            "type": "string"
-          },
-          "width": {
-            "format": "int32",
-            "type": "integer"
-          }
-        },
-        "type": "object"
-      },
-      "StorageWorkerRequestEvent": {
-        "properties": {
-          "activateSmallFilePackaging": {
-            "type": "boolean"
-          },
-          "algorithm": {
-            "type": "string"
-          },
-          "checksum": {
-            "type": "string"
-          },
-          "computeImageSize": {
-            "type": "boolean"
-          },
-          "destinationDirectory": {
-            "type": "string"
-          },
-          "parameters": {
-            "$ref": "#/components/schemas/AbstractStoragePluginConfigurationDto"
-          },
-          "url": {
-            "type": "string"
-          }
-        },
-        "type": "object"
-      },
-      "TenantConnection": {
-        "properties": {
-          "driverClassName": {
-            "type": "string"
-          },
-          "errorCause": {
-            "type": "string"
-          },
-          "password": {
-            "type": "string"
-          },
-          "sslMode": {
-            "enum": [
-              "REQUIRE",
-              "PREFER"
-            ],
-            "type": "string"
-          },
-          "state": {
-            "enum": [
-              "ENABLED",
-              "DISABLED",
-              "CONNECTING",
-              "ERROR"
-            ],
-            "type": "string"
-          },
-          "tenant": {
-            "type": "string"
-          },
-          "url": {
-            "type": "string"
-          },
-          "userName": {
-            "type": "string"
-          }
-        },
-        "required": [
-          "tenant"
-        ],
-        "type": "object"
-      },
-      "TenantConnectionConfigurationCreated": {
-        "properties": {
-          "microserviceName": {
-            "type": "string"
-          },
-          "tenant": {
-            "$ref": "#/components/schemas/TenantConnection"
-          }
-        },
-        "type": "object"
-      },
-      "TenantConnectionConfigurationDeleted": {
-        "properties": {
-          "microserviceName": {
-            "type": "string"
-          },
-          "tenant": {
-            "$ref": "#/components/schemas/TenantConnection"
-          }
-        },
-        "type": "object"
-      },
-      "TenantConnectionConfigurationUpdated": {
-        "properties": {
-          "microserviceName": {
-            "type": "string"
-          },
-          "tenant": {
-            "$ref": "#/components/schemas/TenantConnection"
-          }
-        },
-        "type": "object"
-      },
-      "TenantConnectionFailed": {
-        "properties": {
-          "microserviceName": {
-            "type": "string"
-          },
-          "tenant": {
-            "type": "string"
-          }
-        },
-        "type": "object"
-      },
-      "TenantCreatedEvent": {
-        "properties": {
-          "tenant": {
-            "type": "string"
-          }
-        },
-        "type": "object"
-      },
-      "TenantDeletedEvent": {
-        "properties": {
-          "tenant": {
-            "type": "string"
-          }
-        },
-        "type": "object"
-      },
-      "UserCurrentQuotasDto": {
-        "properties": {
-          "currentQuota": {
-            "format": "int64",
-            "type": "integer"
-          },
-          "currentRate": {
-            "format": "int64",
-            "type": "integer"
-          },
-          "email": {
-            "type": "string"
-          },
-          "maxQuota": {
-            "format": "int64",
-            "type": "integer"
-          },
-          "rateLimit": {
-            "format": "int64",
-            "type": "integer"
-          }
-        },
-        "type": "object"
-      },
-      "WorkerConfUpdatedEvent": {
-        "type": "object"
-      },
-      "WorkerHeartBeatEvent": {
-        "properties": {
-          "heartBeatDate": {
-            "format": "date-time",
-            "type": "string"
-          },
-          "id": {
-            "type": "string"
-          },
-          "type": {
-            "type": "string"
-          }
-        },
-        "type": "object"
-      },
-      "WorkerRequestDlqEvent": {
-        "properties": {
-          "messageProperties": {
-            "$ref": "#/components/schemas/MessageProperties"
-          }
-        },
-        "required": [
-          "messageProperties"
-        ],
-        "type": "object"
-      },
-      "WorkerRequestEvent": {
-        "properties": {
-          "messageProperties": {
-            "$ref": "#/components/schemas/MessageProperties"
-          }
-        },
-        "required": [
-          "messageProperties"
-        ],
-        "type": "object"
-      },
-      "WorkerResponseEvent": {
-        "properties": {
-          "additionalHeaders": {
-            "additionalProperties": {
-              "type": "string"
-            },
-            "type": "object"
-          },
-          "content": {
-            "format": "byte",
-            "type": "string"
-          },
-          "messageProperties": {
-            "$ref": "#/components/schemas/MessageProperties"
-          },
-          "messages": {
-            "items": {
-              "type": "string"
-            },
-            "type": "array"
-          },
-          "requestIdHeader": {
-            "type": "string"
-          },
-          "status": {
-            "enum": [
-              "RUNNING",
-              "INVALID_CONTENT",
-              "SUCCESS",
-              "ERROR"
-            ],
-            "type": "string"
-          }
-        },
-        "required": [
-          "messageProperties"
-        ],
-        "type": "object"
-      },
-      "WorkspaceMonitoringEvent": {
-        "type": "object"
-      }
-    },
-    "securitySchemes": {
-      "REGARDS_OAUTH2": {
-        "flows": {
-          "password": {
-            "scopes": {},
-            "tokenUrl": "https://regardsoss.github.io/api/v1/rs-authentication/oauth/token"
-          }
-        },
-        "type": "oauth2"
-      }
-    }
-  },
+  "openapi": "3.0.1",
   "info": {
+    "title": "MICROSERVICE FILE ACCESS",
     "description": "File Access API",
     "license": {
       "name": "GPL-3.0"
     },
-    "title": "MICROSERVICE FILE ACCESS",
-    "version": "2.4.0"
+    "version": "'@project.version@'"
   },
-  "openapi": "3.0.1",
+  "servers": [
+    {
+      "url": "https://regardsoss.github.io/api/v1/rs-file-access",
+      "description": "Generated server url"
+    }
+  ],
+  "security": [
+    {
+      "REGARDS_OAUTH2": []
+    }
+  ],
   "paths": {
-    "/maintenance": {
+    "/storages/{id}": {
       "get": {
-        "operationId": "retrieveTenantsInMaintenance",
-        "responses": {
-          "200": {
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/EntityModelMapStringMaintenanceInfo"
-                }
-              }
-            },
-            "description": "OK"
-          }
-        },
         "tags": [
-          "maintenance-controller"
-        ]
-      }
-    },
-    "/maintenance/{tenant}/disable": {
-      "put": {
-        "operationId": "unSetMaintenance",
+          "storage-location-configuration-controller"
+        ],
+        "summary": "Retrieve an existing storage location configuration by unique name.",
+        "operationId": "retrieveStorageLocationConfigByName",
         "parameters": [
           {
+            "name": "id",
             "in": "path",
-            "name": "tenant",
             "required": true,
             "schema": {
               "type": "string"
@@ -2437,275 +39,117 @@
         ],
         "responses": {
           "200": {
+            "description": "The requested storage location configuration.",
             "content": {
               "*/*": {
                 "schema": {
-                  "$ref": "#/components/schemas/EntityModelVoid"
+                  "$ref": "#/components/schemas/EntityModelStorageLocationConfigurationDto"
                 }
               }
-            },
-            "description": "OK"
-          }
-        },
-        "tags": [
-          "maintenance-controller"
-        ]
-      }
-    },
-    "/maintenance/{tenant}/enable": {
-      "put": {
-        "operationId": "setMaintenance",
-        "parameters": [
-          {
-            "in": "path",
-            "name": "tenant",
-            "required": true,
-            "schema": {
-              "type": "string"
+            }
+          },
+          "403": {
+            "description": "The endpoint is not accessible for the user.",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/EntityModelStorageLocationConfigurationDto"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "The requested storage location configuration was not found.",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/EntityModelStorageLocationConfigurationDto"
+                }
+              }
             }
           }
-        ],
-        "responses": {
-          "200": {
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/EntityModelVoid"
-                }
-              }
-            },
-            "description": "OK"
-          }
-        },
-        "tags": [
-          "maintenance-controller"
-        ]
-      }
-    },
-    "/microservice/configuration": {
-      "get": {
-        "operationId": "exportConfiguration",
-        "responses": {
-          "200": {
-            "description": "OK"
-          }
-        },
-        "tags": [
-          "module-manager-controller"
-        ]
+        }
       },
-      "post": {
-        "operationId": "importConfiguration",
-        "requestBody": {
-          "content": {
-            "multipart/form-data": {
-              "schema": {
-                "properties": {
-                  "file": {
-                    "format": "binary",
-                    "type": "string"
-                  }
-                },
-                "required": [
-                  "file"
-                ],
-                "type": "object"
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "content": {
-              "*/*": {
-                "schema": {
-                  "items": {
-                    "$ref": "#/components/schemas/ModuleImportReport"
-                  },
-                  "type": "array",
-                  "uniqueItems": true
-                }
-              }
-            },
-            "description": "OK"
-          }
-        },
+      "put": {
         "tags": [
-          "module-manager-controller"
-        ]
-      }
-    },
-    "/microservice/configuration/enabled": {
-      "get": {
-        "operationId": "isConfigurationEnabled",
-        "responses": {
-          "200": {
-            "description": "OK"
-          }
-        },
-        "tags": [
-          "module-manager-controller"
-        ]
-      }
-    },
-    "/microservice/ready": {
-      "get": {
-        "operationId": "isReady",
-        "responses": {
-          "200": {
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/ModuleReadinessReportObject"
-                }
-              }
-            },
-            "description": "OK"
-          }
-        },
-        "tags": [
-          "module-manager-controller"
-        ]
-      }
-    },
-    "/microservice/ready/enabled": {
-      "get": {
-        "operationId": "isReadyEnabled",
-        "responses": {
-          "200": {
-            "description": "OK"
-          }
-        },
-        "tags": [
-          "module-manager-controller"
-        ]
-      }
-    },
-    "/microservice/restart": {
-      "get": {
-        "operationId": "restart",
-        "responses": {
-          "200": {
-            "content": {
-              "*/*": {
-                "schema": {
-                  "items": {
-                    "$ref": "#/components/schemas/ModuleRestartReport"
-                  },
-                  "type": "array",
-                  "uniqueItems": true
-                }
-              }
-            },
-            "description": "OK"
-          }
-        },
-        "tags": [
-          "module-manager-controller"
-        ]
-      }
-    },
-    "/microservice/restart/enabled": {
-      "get": {
-        "operationId": "isRestartEnabled",
-        "responses": {
-          "200": {
-            "description": "OK"
-          }
-        },
-        "tags": [
-          "module-manager-controller"
-        ]
-      }
-    },
-    "/plugins": {
-      "get": {
-        "operationId": "getPlugins",
+          "storage-location-configuration-controller"
+        ],
+        "summary": "Update an existing storage location configuration by unique name.",
+        "operationId": "updateStorageLocationConfigByName",
         "parameters": [
           {
-            "in": "query",
-            "name": "pluginType",
-            "required": false,
+            "name": "id",
+            "in": "path",
+            "required": true,
             "schema": {
               "type": "string"
             }
           }
         ],
+        "requestBody": {
+          "description": "Storage location configuration to be updated.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/StorageLocationConfigurationDto"
+              }
+            }
+          },
+          "required": true
+        },
         "responses": {
           "200": {
+            "description": "The storage location configuration was successfully updated.",
             "content": {
-              "application/json": {
+              "*/*": {
                 "schema": {
-                  "items": {
-                    "$ref": "#/components/schemas/EntityModelPluginMetaData"
-                  },
-                  "type": "array"
+                  "$ref": "#/components/schemas/EntityModelStorageLocationConfigurationDto"
                 }
               }
-            },
-            "description": "OK"
+            }
+          },
+          "403": {
+            "description": "The endpoint is not accessible for the user.",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/EntityModelStorageLocationConfigurationDto"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "The requested storage location configuration was not found.",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/EntityModelStorageLocationConfigurationDto"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "The request is malformed.",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/EntityModelStorageLocationConfigurationDto"
+                }
+              }
+            }
           }
-        },
-        "tags": [
-          "plugin-controller"
-        ]
-      }
-    },
-    "/plugins/cache": {
+        }
+      },
       "delete": {
-        "operationId": "emptyCache",
-        "responses": {
-          "200": {
-            "description": "OK"
-          }
-        },
         "tags": [
-          "plugin-controller"
-        ]
-      }
-    },
-    "/plugins/configs": {
-      "get": {
-        "description": "Return a list of plugin configurations for a specific type",
-        "operationId": "getPluginConfigurationsByType",
-        "parameters": [
-          {
-            "in": "query",
-            "name": "pluginType",
-            "required": false,
-            "schema": {
-              "type": "string"
-            }
-          }
+          "storage-location-configuration-controller"
         ],
-        "responses": {
-          "200": {
-            "content": {
-              "application/json": {
-                "schema": {
-                  "items": {
-                    "$ref": "#/components/schemas/EntityModelPluginConfiguration"
-                  },
-                  "type": "array"
-                }
-              }
-            },
-            "description": "All plugin configurations for a specific type were retrieved."
-          }
-        },
-        "summary": "Get plugin configurations",
-        "tags": [
-          "plugin-controller"
-        ]
-      }
-    },
-    "/plugins/configs/{configBusinessId}": {
-      "get": {
-        "operationId": "getPluginConfigurationDirectAccess",
+        "summary": "Delete an existing storage location configuration dto by unique name.",
+        "operationId": "deleteStorageLocationConfigByName",
         "parameters": [
           {
+            "name": "id",
             "in": "path",
-            "name": "configBusinessId",
             "required": true,
             "schema": {
               "type": "string"
@@ -2714,644 +158,27 @@
         ],
         "responses": {
           "200": {
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/EntityModelPluginConfiguration"
-                }
-              }
-            },
-            "description": "OK"
-          }
-        },
-        "tags": [
-          "plugin-controller"
-        ]
-      }
-    },
-    "/plugins/{pluginId}": {
-      "get": {
-        "operationId": "getPluginMetaDataById",
-        "parameters": [
-          {
-            "in": "path",
-            "name": "pluginId",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/EntityModelPluginMetaData"
-                }
-              }
-            },
-            "description": "OK"
-          }
-        },
-        "tags": [
-          "plugin-controller"
-        ]
-      }
-    },
-    "/plugins/{pluginId}/config": {
-      "get": {
-        "operationId": "getPluginConfigurations",
-        "parameters": [
-          {
-            "in": "path",
-            "name": "pluginId",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "content": {
-              "application/json": {
-                "schema": {
-                  "items": {
-                    "$ref": "#/components/schemas/EntityModelPluginConfiguration"
-                  },
-                  "type": "array"
-                }
-              }
-            },
-            "description": "OK"
-          }
-        },
-        "tags": [
-          "plugin-controller"
-        ]
-      },
-      "post": {
-        "operationId": "savePluginConfiguration",
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/PluginConfiguration"
-              }
-            }
+            "description": "The requested storage location configuration was successfully deleted."
           },
-          "required": true
-        },
-        "responses": {
-          "200": {
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/EntityModelPluginConfiguration"
-                }
-              }
-            },
-            "description": "OK"
-          }
-        },
-        "tags": [
-          "plugin-controller"
-        ]
-      }
-    },
-    "/plugins/{pluginId}/config/{configBusinessId}": {
-      "delete": {
-        "operationId": "deletePluginConfiguration",
-        "parameters": [
-          {
-            "in": "path",
-            "name": "pluginId",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
+          "403": {
+            "description": "The endpoint is not accessible for the user."
           },
-          {
-            "in": "path",
-            "name": "configBusinessId",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
+          "404": {
+            "description": "The requested storage location configuration was not found."
           }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK"
-          }
-        },
-        "tags": [
-          "plugin-controller"
-        ]
-      },
-      "get": {
-        "operationId": "getPluginConfiguration",
-        "parameters": [
-          {
-            "in": "path",
-            "name": "pluginId",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "in": "path",
-            "name": "configBusinessId",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/EntityModelPluginConfiguration"
-                }
-              }
-            },
-            "description": "OK"
-          }
-        },
-        "tags": [
-          "plugin-controller"
-        ]
-      },
-      "put": {
-        "operationId": "updatePluginConfiguration",
-        "parameters": [
-          {
-            "in": "path",
-            "name": "pluginId",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "in": "path",
-            "name": "configBusinessId",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/PluginConfiguration"
-              }
-            }
-          },
-          "required": true
-        },
-        "responses": {
-          "200": {
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/EntityModelPluginConfiguration"
-                }
-              }
-            },
-            "description": "OK"
-          }
-        },
-        "tags": [
-          "plugin-controller"
-        ]
-      }
-    },
-    "/plugintypes": {
-      "get": {
-        "operationId": "getPluginTypes",
-        "parameters": [
-          {
-            "in": "query",
-            "name": "available",
-            "required": false,
-            "schema": {
-              "type": "boolean"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "content": {
-              "application/json": {
-                "schema": {
-                  "items": {
-                    "$ref": "#/components/schemas/EntityModelString"
-                  },
-                  "type": "array"
-                }
-              }
-            },
-            "description": "OK"
-          }
-        },
-        "tags": [
-          "plugin-controller"
-        ]
-      }
-    },
-    "/quota": {
-      "get": {
-        "operationId": "getQuotaLimits_1",
-        "responses": {
-          "200": {
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/DownloadQuotaLimitsDto"
-                }
-              }
-            },
-            "description": "OK"
-          }
-        },
-        "tags": [
-          "download-quota-controller"
-        ]
-      }
-    },
-    "/quota/current": {
-      "get": {
-        "operationId": "getCurrentQuotas",
-        "responses": {
-          "200": {
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/UserCurrentQuotasDto"
-                }
-              }
-            },
-            "description": "OK"
-          }
-        },
-        "tags": [
-          "download-quota-controller"
-        ]
-      }
-    },
-    "/quota/current/{user_email}": {
-      "get": {
-        "operationId": "getCurrentQuotas_1",
-        "parameters": [
-          {
-            "in": "path",
-            "name": "user_email",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/UserCurrentQuotasDto"
-                }
-              }
-            },
-            "description": "OK"
-          }
-        },
-        "tags": [
-          "download-quota-controller"
-        ]
-      }
-    },
-    "/quota/currents": {
-      "post": {
-        "operationId": "getCurrentQuotasList",
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "items": {
-                  "type": "string"
-                },
-                "type": "array"
-              }
-            }
-          },
-          "required": true
-        },
-        "responses": {
-          "200": {
-            "content": {
-              "*/*": {
-                "schema": {
-                  "items": {
-                    "$ref": "#/components/schemas/UserCurrentQuotasDto"
-                  },
-                  "type": "array"
-                }
-              }
-            },
-            "description": "OK"
-          }
-        },
-        "tags": [
-          "download-quota-controller"
-        ]
-      }
-    },
-    "/quota/max": {
-      "get": {
-        "operationId": "getMaxQuota",
-        "responses": {
-          "200": {
-            "content": {
-              "*/*": {
-                "schema": {
-                  "format": "int64",
-                  "type": "integer"
-                }
-              }
-            },
-            "description": "OK"
-          }
-        },
-        "tags": [
-          "download-quota-controller"
-        ]
-      }
-    },
-    "/quota/{user_email}": {
-      "get": {
-        "operationId": "getQuotaLimits_2",
-        "parameters": [
-          {
-            "in": "path",
-            "name": "user_email",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/DownloadQuotaLimitsDto"
-                }
-              }
-            },
-            "description": "OK"
-          }
-        },
-        "tags": [
-          "download-quota-controller"
-        ]
-      },
-      "put": {
-        "operationId": "upsertQuotaLimits",
-        "parameters": [
-          {
-            "in": "path",
-            "name": "user_email",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/DownloadQuotaLimitsDto"
-              }
-            }
-          },
-          "required": true
-        },
-        "responses": {
-          "200": {
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/DownloadQuotaLimitsDto"
-                }
-              }
-            },
-            "description": "OK"
-          }
-        },
-        "tags": [
-          "download-quota-controller"
-        ]
-      }
-    },
-    "/quotas": {
-      "get": {
-        "operationId": "getQuotaLimits",
-        "parameters": [
-          {
-            "in": "query",
-            "name": "user_email",
-            "required": true,
-            "schema": {
-              "items": {
-                "type": "string"
-              },
-              "type": "array"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "content": {
-              "*/*": {
-                "schema": {
-                  "items": {
-                    "$ref": "#/components/schemas/DownloadQuotaLimitsDto"
-                  },
-                  "type": "array"
-                }
-              }
-            },
-            "description": "OK"
-          }
-        },
-        "tags": [
-          "download-quota-controller"
-        ]
-      }
-    },
-    "/regards/{tenant}/datasource/status": {
-      "get": {
-        "operationId": "getDataSourceStatus",
-        "parameters": [
-          {
-            "in": "path",
-            "name": "tenant",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/GenericResponseBody"
-                }
-              }
-            },
-            "description": "OK"
-          }
-        },
-        "tags": [
-          "jpa-multitenant-controller"
-        ]
-      }
-    },
-    "/regards/{tenant}/datasource/test": {
-      "get": {
-        "operationId": "testTenantConnection",
-        "parameters": [
-          {
-            "in": "path",
-            "name": "tenant",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/GenericResponseBody"
-                }
-              }
-            },
-            "description": "OK"
-          }
-        },
-        "tags": [
-          "jpa-multitenant-controller"
-        ]
-      }
-    },
-    "/security/resources": {
-      "get": {
-        "operationId": "getAllResources",
-        "responses": {
-          "200": {
-            "content": {
-              "application/json": {
-                "schema": {
-                  "items": {
-                    "$ref": "#/components/schemas/ResourceMapping"
-                  },
-                  "type": "array"
-                }
-              }
-            },
-            "description": "OK"
-          }
-        },
-        "tags": [
-          "security-resources-controller"
-        ]
-      }
-    },
-    "/settings": {
-      "get": {
-        "operationId": "retrieveAll",
-        "parameters": [
-          {
-            "in": "query",
-            "name": "names",
-            "required": false,
-            "schema": {
-              "items": {
-                "type": "string"
-              },
-              "type": "array",
-              "uniqueItems": true
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "content": {
-              "*/*": {
-                "schema": {
-                  "items": {
-                    "$ref": "#/components/schemas/EntityModelDynamicTenantSettingDtoObject"
-                  },
-                  "type": "array"
-                }
-              }
-            },
-            "description": "OK"
-          }
-        },
-        "tags": [
-          "dynamic-tenant-setting-controller"
-        ]
+        }
       }
     },
     "/settings/{name}": {
-      "delete": {
-        "operationId": "reset",
-        "parameters": [
-          {
-            "in": "path",
-            "name": "name",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/EntityModelDynamicTenantSettingDtoObject"
-                }
-              }
-            },
-            "description": "OK"
-          }
-        },
+      "put": {
         "tags": [
           "dynamic-tenant-setting-controller"
-        ]
-      },
-      "put": {
+        ],
         "operationId": "update",
         "parameters": [
           {
-            "in": "path",
             "name": "name",
+            "in": "path",
             "required": true,
             "schema": {
               "type": "string"
@@ -3370,280 +197,1802 @@
         },
         "responses": {
           "200": {
+            "description": "OK",
             "content": {
               "*/*": {
                 "schema": {
                   "$ref": "#/components/schemas/EntityModelDynamicTenantSettingDtoObject"
                 }
               }
-            },
-            "description": "OK"
+            }
           }
-        },
+        }
+      },
+      "delete": {
         "tags": [
           "dynamic-tenant-setting-controller"
-        ]
+        ],
+        "operationId": "reset",
+        "parameters": [
+          {
+            "name": "name",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/EntityModelDynamicTenantSettingDtoObject"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/quota/{user_email}": {
+      "get": {
+        "tags": [
+          "download-quota-controller"
+        ],
+        "operationId": "getQuotaLimits_2",
+        "parameters": [
+          {
+            "name": "user_email",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/DownloadQuotaLimitsDto"
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "download-quota-controller"
+        ],
+        "operationId": "upsertQuotaLimits",
+        "parameters": [
+          {
+            "name": "user_email",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DownloadQuotaLimitsDto"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/DownloadQuotaLimitsDto"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/plugins/{pluginId}/config/{configBusinessId}": {
+      "get": {
+        "tags": [
+          "plugin-controller"
+        ],
+        "operationId": "getPluginConfiguration",
+        "parameters": [
+          {
+            "name": "pluginId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "configBusinessId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EntityModelPluginConfiguration"
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "plugin-controller"
+        ],
+        "operationId": "updatePluginConfiguration",
+        "parameters": [
+          {
+            "name": "pluginId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "configBusinessId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PluginConfiguration"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EntityModelPluginConfiguration"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "plugin-controller"
+        ],
+        "operationId": "deletePluginConfiguration",
+        "parameters": [
+          {
+            "name": "pluginId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "configBusinessId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/maintenance/{tenant}/enable": {
+      "put": {
+        "tags": [
+          "maintenance-controller"
+        ],
+        "operationId": "setMaintenance",
+        "parameters": [
+          {
+            "name": "tenant",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/EntityModelVoid"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/maintenance/{tenant}/disable": {
+      "put": {
+        "tags": [
+          "maintenance-controller"
+        ],
+        "operationId": "unSetMaintenance",
+        "parameters": [
+          {
+            "name": "tenant",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/EntityModelVoid"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/storages": {
+      "get": {
+        "tags": [
+          "storage-location-configuration-controller"
+        ],
+        "summary": "Retrieve all storage location configurations.",
+        "operationId": "retrieveAllStorageLocationConfigs",
+        "responses": {
+          "200": {
+            "description": "Existing storage location configurations.",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/EntityModelStorageLocationConfigurationDto"
+                  }
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "The endpoint is not accessible for the user.",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/EntityModelStorageLocationConfigurationDto"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "storage-location-configuration-controller"
+        ],
+        "summary": "Create a new storage location configuration.",
+        "operationId": "createStorageLocationConfig",
+        "requestBody": {
+          "description": "Storage location configuration to create.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/StorageLocationConfigurationDto"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "201": {
+            "description": "The storage location configuration was successfully created.",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/EntityModelStorageLocationConfigurationDto"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "The endpoint is not accessible for the user.",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/EntityModelStorageLocationConfigurationDto"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "The request is malformed.",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/EntityModelStorageLocationConfigurationDto"
+                }
+              }
+            }
+          }
+        }
       }
     },
     "/shutdown/immediate": {
       "post": {
+        "tags": [
+          "manager-controller"
+        ],
         "operationId": "immediateShutdown",
         "responses": {
           "200": {
             "description": "OK"
           }
-        },
-        "tags": [
-          "manager-controller"
-        ]
+        }
       }
     },
-    "/storages": {
-      "get": {
-        "operationId": "retrieveAllStorageLocationConfigs",
+    "/quota/currents": {
+      "post": {
+        "tags": [
+          "download-quota-controller"
+        ],
+        "operationId": "getCurrentQuotasList",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "required": true
+        },
         "responses": {
           "200": {
+            "description": "OK",
             "content": {
               "*/*": {
                 "schema": {
+                  "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/EntityModelStorageLocationConfigurationDto"
-                  },
-                  "type": "array"
+                    "$ref": "#/components/schemas/UserCurrentQuotasDto"
+                  }
                 }
               }
-            },
-            "description": "Existing storage location configurations."
-          },
-          "403": {
-            "content": {
-              "*/*": {
-                "schema": {
-                  "items": {
-                    "$ref": "#/components/schemas/EntityModelStorageLocationConfigurationDto"
-                  },
-                  "type": "array"
-                }
-              }
-            },
-            "description": "The endpoint is not accessible for the user."
+            }
           }
-        },
-        "summary": "Retrieve all storage location configurations.",
+        }
+      }
+    },
+    "/plugins/{pluginId}/config": {
+      "get": {
         "tags": [
-          "storage-location-configuration-controller"
-        ]
+          "plugin-controller"
+        ],
+        "operationId": "getPluginConfigurations",
+        "parameters": [
+          {
+            "name": "pluginId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/EntityModelPluginConfiguration"
+                  }
+                }
+              }
+            }
+          }
+        }
       },
       "post": {
-        "operationId": "createStorageLocationConfig",
+        "tags": [
+          "plugin-controller"
+        ],
+        "operationId": "savePluginConfiguration",
         "requestBody": {
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/StorageLocationConfigurationDto"
+                "$ref": "#/components/schemas/PluginConfiguration"
               }
             }
           },
-          "description": "Storage location configuration to create.",
           "required": true
         },
         "responses": {
-          "201": {
+          "200": {
+            "description": "OK",
             "content": {
-              "*/*": {
+              "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/EntityModelStorageLocationConfigurationDto"
+                  "$ref": "#/components/schemas/EntityModelPluginConfiguration"
                 }
               }
-            },
-            "description": "The storage location configuration was successfully created."
-          },
-          "403": {
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/EntityModelStorageLocationConfigurationDto"
-                }
-              }
-            },
-            "description": "The endpoint is not accessible for the user."
-          },
-          "422": {
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/EntityModelStorageLocationConfigurationDto"
-                }
-              }
-            },
-            "description": "The request is malformed."
+            }
           }
-        },
-        "summary": "Create a new storage location configuration.",
-        "tags": [
-          "storage-location-configuration-controller"
-        ]
+        }
       }
     },
-    "/storages/{id}": {
-      "delete": {
-        "operationId": "deleteStorageLocationConfigByName",
-        "parameters": [
-          {
-            "in": "path",
-            "name": "id",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "The requested storage location configuration was successfully deleted."
-          },
-          "403": {
-            "description": "The endpoint is not accessible for the user."
-          },
-          "404": {
-            "description": "The requested storage location configuration was not found."
-          }
-        },
-        "summary": "Delete an existing storage location configuration dto by unique name.",
-        "tags": [
-          "storage-location-configuration-controller"
-        ]
-      },
+    "/microservice/configuration": {
       "get": {
-        "operationId": "retrieveStorageLocationConfigByName",
-        "parameters": [
-          {
-            "in": "path",
-            "name": "id",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
+        "tags": [
+          "module-manager-controller"
         ],
+        "operationId": "exportConfiguration",
         "responses": {
           "200": {
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/EntityModelStorageLocationConfigurationDto"
-                }
-              }
-            },
-            "description": "The requested storage location configuration."
-          },
-          "403": {
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/EntityModelStorageLocationConfigurationDto"
-                }
-              }
-            },
-            "description": "The endpoint is not accessible for the user."
-          },
-          "404": {
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/EntityModelStorageLocationConfigurationDto"
-                }
-              }
-            },
-            "description": "The requested storage location configuration was not found."
+            "description": "OK"
           }
-        },
-        "summary": "Retrieve an existing storage location configuration by unique name.",
-        "tags": [
-          "storage-location-configuration-controller"
-        ]
+        }
       },
-      "put": {
-        "operationId": "updateStorageLocationConfigByName",
-        "parameters": [
-          {
-            "in": "path",
-            "name": "id",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
+      "post": {
+        "tags": [
+          "module-manager-controller"
         ],
+        "operationId": "importConfiguration",
         "requestBody": {
           "content": {
-            "application/json": {
+            "multipart/form-data": {
               "schema": {
-                "$ref": "#/components/schemas/StorageLocationConfigurationDto"
+                "required": [
+                  "file"
+                ],
+                "type": "object",
+                "properties": {
+                  "file": {
+                    "type": "string",
+                    "format": "binary"
+                  }
+                }
               }
             }
-          },
-          "description": "Storage location configuration to be updated.",
-          "required": true
+          }
         },
         "responses": {
           "200": {
+            "description": "OK",
             "content": {
               "*/*": {
                 "schema": {
-                  "$ref": "#/components/schemas/EntityModelStorageLocationConfigurationDto"
+                  "uniqueItems": true,
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/ModuleImportReport"
+                  }
                 }
               }
-            },
-            "description": "The storage location configuration was successfully updated."
-          },
-          "403": {
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/EntityModelStorageLocationConfigurationDto"
-                }
-              }
-            },
-            "description": "The endpoint is not accessible for the user."
-          },
-          "404": {
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/EntityModelStorageLocationConfigurationDto"
-                }
-              }
-            },
-            "description": "The requested storage location configuration was not found."
-          },
-          "422": {
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/EntityModelStorageLocationConfigurationDto"
-                }
-              }
-            },
-            "description": "The request is malformed."
+            }
           }
-        },
-        "summary": "Update an existing storage location configuration by unique name.",
+        }
+      }
+    },
+    "/settings": {
+      "get": {
         "tags": [
-          "storage-location-configuration-controller"
-        ]
+          "dynamic-tenant-setting-controller"
+        ],
+        "operationId": "retrieveAll",
+        "parameters": [
+          {
+            "name": "names",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "uniqueItems": true,
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/EntityModelDynamicTenantSettingDtoObject"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/security/resources": {
+      "get": {
+        "tags": [
+          "security-resources-controller"
+        ],
+        "operationId": "getAllResources",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/ResourceMapping"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/s3-plugin-mock/file/{checksum}/toT3": {
+      "get": {
+        "tags": [
+          "s-3-glacier-mock-controller"
+        ],
+        "operationId": "toT3",
+        "parameters": [
+          {
+            "name": "checksum",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/s3-plugin-mock/file/{checksum}/restore": {
+      "get": {
+        "tags": [
+          "s-3-glacier-mock-controller"
+        ],
+        "operationId": "restore",
+        "parameters": [
+          {
+            "name": "checksum",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/regards/{tenant}/datasource/test": {
+      "get": {
+        "tags": [
+          "jpa-multitenant-controller"
+        ],
+        "operationId": "testTenantConnection",
+        "parameters": [
+          {
+            "name": "tenant",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GenericResponseBody"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/regards/{tenant}/datasource/status": {
+      "get": {
+        "tags": [
+          "jpa-multitenant-controller"
+        ],
+        "operationId": "getDataSourceStatus",
+        "parameters": [
+          {
+            "name": "tenant",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GenericResponseBody"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/quotas": {
+      "get": {
+        "tags": [
+          "download-quota-controller"
+        ],
+        "operationId": "getQuotaLimits",
+        "parameters": [
+          {
+            "name": "user_email",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/DownloadQuotaLimitsDto"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/quota": {
+      "get": {
+        "tags": [
+          "download-quota-controller"
+        ],
+        "operationId": "getQuotaLimits_1",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/DownloadQuotaLimitsDto"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/quota/max": {
+      "get": {
+        "tags": [
+          "download-quota-controller"
+        ],
+        "operationId": "getMaxQuota",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "type": "integer",
+                  "format": "int64"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/quota/current": {
+      "get": {
+        "tags": [
+          "download-quota-controller"
+        ],
+        "operationId": "getCurrentQuotas",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/UserCurrentQuotasDto"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/quota/current/{user_email}": {
+      "get": {
+        "tags": [
+          "download-quota-controller"
+        ],
+        "operationId": "getCurrentQuotas_1",
+        "parameters": [
+          {
+            "name": "user_email",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/UserCurrentQuotasDto"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/plugintypes": {
+      "get": {
+        "tags": [
+          "plugin-controller"
+        ],
+        "operationId": "getPluginTypes",
+        "parameters": [
+          {
+            "name": "available",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "boolean"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/EntityModelString"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/plugins": {
+      "get": {
+        "tags": [
+          "plugin-controller"
+        ],
+        "operationId": "getPlugins",
+        "parameters": [
+          {
+            "name": "pluginType",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/EntityModelPluginMetaData"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/plugins/{pluginId}": {
+      "get": {
+        "tags": [
+          "plugin-controller"
+        ],
+        "operationId": "getPluginMetaDataById",
+        "parameters": [
+          {
+            "name": "pluginId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EntityModelPluginMetaData"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/plugins/configs": {
+      "get": {
+        "tags": [
+          "plugin-controller"
+        ],
+        "summary": "Get plugin configurations",
+        "description": "Return a list of plugin configurations for a specific type",
+        "operationId": "getPluginConfigurationsByType",
+        "parameters": [
+          {
+            "name": "pluginType",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "All plugin configurations for a specific type were retrieved.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/EntityModelPluginConfiguration"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/plugins/configs/{configBusinessId}": {
+      "get": {
+        "tags": [
+          "plugin-controller"
+        ],
+        "operationId": "getPluginConfigurationDirectAccess",
+        "parameters": [
+          {
+            "name": "configBusinessId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EntityModelPluginConfiguration"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/microservice/restart": {
+      "get": {
+        "tags": [
+          "module-manager-controller"
+        ],
+        "operationId": "restart",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "uniqueItems": true,
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/ModuleRestartReport"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/microservice/restart/enabled": {
+      "get": {
+        "tags": [
+          "module-manager-controller"
+        ],
+        "operationId": "isRestartEnabled",
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/microservice/ready": {
+      "get": {
+        "tags": [
+          "module-manager-controller"
+        ],
+        "operationId": "isReady",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/ModuleReadinessReportObject"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/microservice/ready/enabled": {
+      "get": {
+        "tags": [
+          "module-manager-controller"
+        ],
+        "operationId": "isReadyEnabled",
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/microservice/configuration/enabled": {
+      "get": {
+        "tags": [
+          "module-manager-controller"
+        ],
+        "operationId": "isConfigurationEnabled",
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/maintenance": {
+      "get": {
+        "tags": [
+          "maintenance-controller"
+        ],
+        "operationId": "retrieveTenantsInMaintenance",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/EntityModelMapStringMaintenanceInfo"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/plugins/cache": {
+      "delete": {
+        "tags": [
+          "plugin-controller"
+        ],
+        "operationId": "emptyCache",
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
       }
     }
   },
-  "security": [
-    {
-      "REGARDS_OAUTH2": []
+  "components": {
+    "schemas": {
+      "IPluginParam": {
+        "type": "object",
+        "properties": {
+          "dynamic": {
+            "type": "boolean"
+          },
+          "name": {
+            "type": "string"
+          },
+          "value": {
+            "type": "object"
+          },
+          "type": {
+            "type": "string",
+            "enum": [
+              "STRING",
+              "BYTE",
+              "SHORT",
+              "INTEGER",
+              "LONG",
+              "FLOAT",
+              "DOUBLE",
+              "BOOLEAN",
+              "MAP",
+              "COLLECTION",
+              "POJO",
+              "PLUGIN",
+              "REGARDS_ENTITY_MODEL"
+            ]
+          }
+        }
+      },
+      "PluginConfigurationDto": {
+        "type": "object",
+        "properties": {
+          "metaData": {
+            "$ref": "#/components/schemas/PluginMetaData"
+          },
+          "pluginId": {
+            "type": "string"
+          },
+          "label": {
+            "type": "string"
+          },
+          "businessId": {
+            "type": "string"
+          },
+          "version": {
+            "type": "string"
+          },
+          "priorityOrder": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "active": {
+            "type": "boolean"
+          },
+          "iconUrl": {
+            "type": "string",
+            "format": "url"
+          },
+          "parameters": {
+            "uniqueItems": true,
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/IPluginParam"
+            }
+          }
+        }
+      },
+      "PluginMetaData": {
+        "type": "object",
+        "properties": {
+          "pluginClassName": {
+            "type": "string"
+          },
+          "interfaceNames": {
+            "uniqueItems": true,
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "author": {
+            "type": "string"
+          },
+          "pluginId": {
+            "type": "string"
+          },
+          "version": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "markdown": {
+            "type": "string"
+          },
+          "userMarkdown": {
+            "type": "string"
+          },
+          "url": {
+            "type": "string"
+          },
+          "contact": {
+            "type": "string"
+          },
+          "owner": {
+            "type": "string"
+          },
+          "license": {
+            "type": "string"
+          },
+          "parameters": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/PluginParamDescriptor"
+            }
+          },
+          "licence": {
+            "type": "string",
+            "writeOnly": true
+          }
+        }
+      },
+      "PluginParamDescriptor": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "keyLabel": {
+            "type": "string"
+          },
+          "label": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "markdown": {
+            "type": "string"
+          },
+          "userMarkdown": {
+            "type": "string"
+          },
+          "parameterizedSubTypes": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "enum": [
+                "STRING",
+                "BYTE",
+                "SHORT",
+                "INTEGER",
+                "LONG",
+                "FLOAT",
+                "DOUBLE",
+                "BOOLEAN",
+                "MAP",
+                "COLLECTION",
+                "POJO",
+                "PLUGIN",
+                "REGARDS_ENTITY_MODEL"
+              ]
+            }
+          },
+          "type": {
+            "type": "string",
+            "enum": [
+              "STRING",
+              "BYTE",
+              "SHORT",
+              "INTEGER",
+              "LONG",
+              "FLOAT",
+              "DOUBLE",
+              "BOOLEAN",
+              "MAP",
+              "COLLECTION",
+              "POJO",
+              "PLUGIN",
+              "REGARDS_ENTITY_MODEL"
+            ]
+          },
+          "pluginType": {
+            "type": "string"
+          },
+          "defaultValue": {
+            "type": "string"
+          },
+          "optional": {
+            "type": "boolean"
+          },
+          "sensitive": {
+            "type": "boolean",
+            "writeOnly": true
+          },
+          "unconfigurable": {
+            "type": "boolean"
+          },
+          "sensible": {
+            "type": "boolean"
+          }
+        }
+      },
+      "StorageLocationConfigurationDto": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "name": {
+            "type": "string"
+          },
+          "pluginConfiguration": {
+            "$ref": "#/components/schemas/PluginConfigurationDto"
+          },
+          "storageType": {
+            "type": "string",
+            "enum": [
+              "ONLINE",
+              "NEARLINE",
+              "OFFLINE",
+              "CACHE"
+            ]
+          },
+          "priority": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "allocatedSizeInKo": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "useInternalCache": {
+            "type": "boolean"
+          }
+        }
+      },
+      "EntityModelStorageLocationConfigurationDto": {
+        "type": "object",
+        "properties": {
+          "content": {
+            "$ref": "#/components/schemas/StorageLocationConfigurationDto"
+          },
+          "links": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Link"
+            }
+          }
+        }
+      },
+      "Link": {
+        "type": "object",
+        "properties": {
+          "rel": {
+            "type": "string"
+          },
+          "href": {
+            "type": "string"
+          },
+          "hreflang": {
+            "type": "string"
+          },
+          "media": {
+            "type": "string"
+          },
+          "title": {
+            "type": "string"
+          },
+          "type": {
+            "type": "string"
+          },
+          "deprecation": {
+            "type": "string"
+          },
+          "profile": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          }
+        }
+      },
+      "DynamicTenantSettingDto": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "defaultValue": {
+            "type": "object"
+          },
+          "value": {
+            "type": "object"
+          }
+        }
+      },
+      "DynamicTenantSettingDtoObject": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "defaultValue": {
+            "type": "object"
+          },
+          "value": {
+            "type": "object"
+          }
+        }
+      },
+      "EntityModelDynamicTenantSettingDtoObject": {
+        "type": "object",
+        "properties": {
+          "content": {
+            "$ref": "#/components/schemas/DynamicTenantSettingDtoObject"
+          },
+          "links": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Link"
+            }
+          }
+        }
+      },
+      "DownloadQuotaLimitsDto": {
+        "type": "object",
+        "properties": {
+          "email": {
+            "type": "string"
+          },
+          "maxQuota": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "rateLimit": {
+            "type": "integer",
+            "format": "int64"
+          }
+        }
+      },
+      "PluginConfiguration": {
+        "required": [
+          "label",
+          "priorityOrder"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "metaData": {
+            "$ref": "#/components/schemas/PluginMetaData"
+          },
+          "pluginId": {
+            "type": "string"
+          },
+          "label": {
+            "type": "string"
+          },
+          "businessId": {
+            "pattern": "[0-9a-zA-Z_-]*",
+            "type": "string"
+          },
+          "version": {
+            "type": "string"
+          },
+          "priorityOrder": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "active": {
+            "type": "boolean"
+          },
+          "parameters": {
+            "uniqueItems": true,
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/IPluginParam"
+            }
+          },
+          "iconUrl": {
+            "type": "string",
+            "format": "url"
+          },
+          "pluginClassName": {
+            "type": "string"
+          },
+          "metaDataAndPluginId": {
+            "$ref": "#/components/schemas/PluginMetaData"
+          },
+          "isActive": {
+            "type": "boolean",
+            "writeOnly": true
+          },
+          "interfaceNames": {
+            "uniqueItems": true,
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "identifiable": {
+            "type": "boolean"
+          }
+        }
+      },
+      "EntityModelPluginConfiguration": {
+        "type": "object",
+        "properties": {
+          "content": {
+            "$ref": "#/components/schemas/PluginConfiguration"
+          },
+          "links": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Link"
+            }
+          }
+        }
+      },
+      "EntityModelVoid": {
+        "type": "object",
+        "properties": {
+          "content": {
+            "type": "object"
+          },
+          "links": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Link"
+            }
+          }
+        }
+      },
+      "UserCurrentQuotasDto": {
+        "type": "object",
+        "properties": {
+          "email": {
+            "type": "string"
+          },
+          "maxQuota": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "rateLimit": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "currentQuota": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "currentRate": {
+            "type": "integer",
+            "format": "int64"
+          }
+        }
+      },
+      "ModuleImportReport": {
+        "type": "object",
+        "properties": {
+          "moduleInformation": {
+            "$ref": "#/components/schemas/ModuleInformation"
+          },
+          "importErrors": {
+            "uniqueItems": true,
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "onlyErrors": {
+            "type": "boolean"
+          }
+        }
+      },
+      "ModuleInformation": {
+        "required": [
+          "author",
+          "id",
+          "name",
+          "version"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "version": {
+            "type": "string"
+          },
+          "author": {
+            "type": "string"
+          },
+          "legalOwner": {
+            "type": "string"
+          },
+          "documentation": {
+            "type": "string"
+          }
+        }
+      },
+      "ResourceAccess": {
+        "type": "object"
+      },
+      "ResourceMapping": {
+        "type": "object",
+        "properties": {
+          "resourceAccess": {
+            "$ref": "#/components/schemas/ResourceAccess"
+          },
+          "fullPath": {
+            "type": "string"
+          },
+          "controllerSimpleName": {
+            "type": "string"
+          },
+          "method": {
+            "type": "string",
+            "enum": [
+              "GET",
+              "HEAD",
+              "POST",
+              "PUT",
+              "PATCH",
+              "DELETE",
+              "OPTIONS",
+              "TRACE"
+            ]
+          },
+          "resourceMappingId": {
+            "type": "string"
+          },
+          "autorizedRoles": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/RoleAuthority"
+            }
+          }
+        }
+      },
+      "RoleAuthority": {
+        "type": "object",
+        "properties": {
+          "authorizedIpAdresses": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "roleName": {
+            "type": "string"
+          },
+          "authority": {
+            "type": "string"
+          }
+        }
+      },
+      "GenericResponseBody": {
+        "type": "object",
+        "properties": {
+          "message": {
+            "type": "string"
+          },
+          "properties": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "object"
+            }
+          }
+        }
+      },
+      "EntityModelString": {
+        "type": "object",
+        "properties": {
+          "content": {
+            "type": "string"
+          },
+          "links": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Link"
+            }
+          }
+        }
+      },
+      "EntityModelPluginMetaData": {
+        "type": "object",
+        "properties": {
+          "content": {
+            "$ref": "#/components/schemas/PluginMetaData"
+          },
+          "links": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Link"
+            }
+          }
+        }
+      },
+      "ModuleRestartReport": {
+        "type": "object",
+        "properties": {
+          "moduleInformation": {
+            "$ref": "#/components/schemas/ModuleInformation"
+          },
+          "messages": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      },
+      "ModuleReadinessReportObject": {
+        "type": "object",
+        "properties": {
+          "ready": {
+            "type": "boolean"
+          },
+          "reasons": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "specifications": {
+            "type": "object"
+          }
+        }
+      },
+      "EntityModelMapStringMaintenanceInfo": {
+        "type": "object",
+        "properties": {
+          "content": {
+            "type": "object",
+            "additionalProperties": {
+              "$ref": "#/components/schemas/MaintenanceInfo"
+            }
+          },
+          "links": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Link"
+            }
+          }
+        }
+      },
+      "MaintenanceInfo": {
+        "type": "object",
+        "properties": {
+          "active": {
+            "type": "boolean"
+          },
+          "lastUpdate": {
+            "type": "string",
+            "format": "date-time"
+          }
+        }
+      }
+    },
+    "securitySchemes": {
+      "REGARDS_OAUTH2": {
+        "type": "oauth2",
+        "flows": {
+          "password": {
+            "tokenUrl": "https://regardsoss.github.io/api/v1/rs-authentication/oauth/token",
+            "scopes": {
+              "shiryu": "",
+              "projet1": ""
+            }
+          }
+        }
+      }
     }
-  ],
-  "servers": [
-    {
-      "description": "Generated server url",
-      "url": "https://regardsoss.github.io/api/v1/rs-file-access"
-    }
-  ]
+  }
 }

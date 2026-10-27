@@ -1,6 +1,6 @@
 ---
 id: backend-neo-storage-overview
-title: REGARDS neo storage
+title: REGARDS Neo-Storage
 sidebar_label: Overview
 sidebar_position: 1
 slug: /development/backend/services/neo-storage/overview/
@@ -8,7 +8,7 @@ slug: /development/backend/services/neo-storage/overview/
 
 Neo-storage is a set of microservices and workers aimed to replace the [Storage microservice](../storage/overview.md).
 It is designed to be more efficient and easier to maintain, with a focus on scalability and performance, notably,
-every microservice and worker in neo-storage are scalable which was not the case for the storage microservice.
+every microservice and worker in Neo-Storage are scalable which was not the case for the storage microservice.
 
 Neo-storage is an integral part of the functional groups [OAIS Services (Functional overview)](../../../overview/functional-overview/03-oais-catalog-services.md),
 [GeoJson services (Functional overview)](../../../overview/functional-overview/04-geojson-catalog-services.md) and
@@ -102,7 +102,7 @@ Instead, file storage requests are handled by the [Ingest](../ingest/overview.md
 or [Feature Manager](../fem/overview.md) microservices, while file retrieval requests are handled by
 the [Order](../order/overview.md) microservice (to retrieve product files by order) or
 the [Catalog](../catalog/overview.md) microservice (to retrieve product files by direct download).
-The stored files cannot be accessed through the API because the files access rights are not managed by neo-storage
+The stored files cannot be accessed through the API because the files access rights are not managed by Neo-Storage
 microservices but by the [Data Manager](../dam/overview.md) and [Catalog](../catalog/overview.md) microservices.
 
 Neo storage depends on its plugins and workers, which serve as interfaces between the microservices and the storage

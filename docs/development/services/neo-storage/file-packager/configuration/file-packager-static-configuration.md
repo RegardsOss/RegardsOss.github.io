@@ -8,21 +8,34 @@ slug: /development/backend/services/file-packager/configuration/static-configura
 Static configuration refers to the microservice configuration defined in a property file before the microservice starts.
 This configuration is common to all tenants.
 
-The static configuration for the rs-file-packager service is:
+The static configuration for the `rs-file-packager` service is:
 
-| Parameter Name                                                          | Type                 | Default  | Description                                                                                |
-|-------------------------------------------------------------------------|----------------------|----------|--------------------------------------------------------------------------------------------|
-| regards.file.packager.archive.max.size.in.ko                            | Integer (in kB)      | 1024     | Maximum archive size before closing a package and creating the ZIP archive.                |
-| regards.file.packager.archive.max.age.in.hours                          | Integer (in hours)   | 24       | Maximum age of a building package before it is closed and archived.                        |
-| regards.file.packager.store.complete.package.job.page.size              | Integer              | 100      | Page size used when scheduling jobs to store complete packages.                            |
-| regards.file.packager.archive.directory                                 | String (path)        | /archive | Directory shared between file-packager and file-access to build and store archives.        |
-| regards.file.packager.files.archive.request.bulk.size                   | Integer              | 100      | Number of file archive requests handled in a single batch.                                 |
-| regards.file.packager.storage.response.bulk.size                        | Integer              | 50       | Number of storage response events handled in a single batch.                               |
-| regards.file.packager.complete.package.lock.duration.in.seconds         | Integer (in seconds) | 300      | Lock duration for the scheduler that completes packages to avoid concurrent processing.    |
-| regards.file.packager.file.deleting.lock.duration                       | Integer (in seconds) | 60       | Lock duration for the scheduler that deletes local files after archival.                   |
-| regards.file.packager.file.packaging.scheduler.lock.duration.in.seconds | Integer (in seconds) | 300      | Lock duration for the scheduler that associates files to packages and closes old packages. |
-| regards.file.packager.file.packaging.scheduler.page.size                | Integer              | 100      | Page size used when scanning files waiting for packaging.                                  |
-| regards.file.packager.retry.file.packaging.retry.lock.duration          | Integer (in seconds) | 60       | Lock duration for the scheduler that retries packaging operations in error.                |
+| Property name | Type | Default value | Description |
+|---|---|---|---|
+|**Service**|---|---|---|
+| regards.file.packager.archive.max.size.in.ko | Integer | 1024 | Maximum archive size in KB before splitting/handling limits. |
+| regards.file.packager.archive.max.age.in.hours | Integer | 24 | Maximum allowed age of archive before cleanup/completion logic. |
+| regards.file.packager.store.complete.package.job.page.size | Integer | 100 | Page size used by complete package storage job. |
+| regards.file.packager.archive.directory | String | /archive | Base directory for archive storage. |
+| regards.file.packager.copy.max.retry | Integer | 3 | Maximum retry attempts for copy operations. |
+| regards.file.packager.copy.retry.delay.in.ms | Integer | 1000 | Delay between copy retry attempts in milliseconds. |
+|**Service**|---|---|---|
+| regards.file.packager.file.packaging.scheduler.lock.duration.in.seconds | Integer | 300 | Lock duration for file packaging scheduler run. |
+| regards.file.packager.file.packaging.scheduler.page.size | Integer | 100 | Page size for file packaging scheduler processing. |
+| regards.file.packager.retry.file.copy.to.cache.scheduler.lock.duration.in.seconds | Integer | 300 | Lock duration for retry copy-to-cache scheduler. |
+| regards.file.packager.retry.file.copy.to.cache.scheduler.page.size | Integer | 100 | Page size for retry copy-to-cache scheduler processing. |
+| regards.file.packager.retry.file.packaging.scheduler.lock.duration.in.seconds | Integer | 300 | Lock duration for retry file packaging scheduler. |
+| regards.file.packager.retry.file.packaging.scheduler.page.size | Integer | 100 | Page size for retry file packaging scheduler processing. |
+| regards.file.packager.file.copy.to.cache.scheduler.lock.duration.in.seconds | Integer | 300 | Lock duration for file copy-to-cache scheduler. |
+| regards.file.packager.file.copy.to.cache.scheduler.page.size | Integer | 100 | Page size for file copy-to-cache scheduler processing. |
+| regards.file.packager.complete.package.scheduler.lock.duration.in.seconds | Integer | 300 | Lock duration for complete package scheduler. |
+| regards.file.packager.complete.package.scheduler.page.size | Integer | 100 | Page size for complete package scheduler processing. |
+| regards.file.packager.file.deleting.scheduler.lock.duration.in.seconds | Integer | 300 | Lock duration for file deleting scheduler. |
+| regards.file.packager.file.deleting.scheduler.page.size | Integer | 100 | Page size for file deleting scheduler processing. |
+|**Handler**|---|---|---|
+| regards.file.packager.file.archive.request.event.bulk.size | Integer | 100 | Batch size for handling archive request events. |
+| regards.file.packager.file.copy.to.cache.event.bulk.size | Integer | 100 | Batch size for handling copy-to-cache events. |
+| regards.file.packager.storage.response.event.bulk.size | Integer | 1000 | Batch size for handling storage response events. |
 
 :::info
 Some of these properties are customizable in the Ansible inventory ([see the installation guide](../../../../../setup/swarm/advanced/swarm-optimizations.md)).

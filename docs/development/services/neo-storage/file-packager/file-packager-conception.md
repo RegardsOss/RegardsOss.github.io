@@ -118,15 +118,23 @@ Once files are packaged and stored:
 - **Input**: `FileArchiveRequestEvent` containing files to archive
 - **Output**: `FileArchiveCompletionEvent` notifying of completion
 - **Coordination**: File-catalog tracks archive status and notifies requesters
+- **Output**: `RestorePackageResponseEvent` response notifying of file restoration
+
+### With File Cache
+- **Input**: `RestorePackageRequestEvent` request containing files to be restored
 
 ### With File Access
 
 - **Input**: `StorageResponseEvent` confirming archive storage
 - **Output**: `FileStorageRequestReadyToProcessEvent` requesting archive storage
 - **Coordination**: File-access performs actual storage and reports results
+- **Output**: `RestoreRequestEvent` request containing files to be restored
 
 ### With Job System
 
-- **Job Types**: `StoreCompletePackageJob`, `DeleteLocalFilesJob`
+- **Job Types**: `StoreCompletePackageJob`, `DeleteLocalFilesJob`, `CopyFileFromBuildingPackageJob`
 - **Priority**: Jobs use configurable priority levels
 - **Monitoring**: Job status can be monitored through the framework
+- **Input**: `JobEvent` to indicate a job failed or has been aborted.
+
+

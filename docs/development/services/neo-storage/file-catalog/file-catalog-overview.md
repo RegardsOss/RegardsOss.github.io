@@ -6,14 +6,14 @@ sidebar_position: 1
 slug: /development/backend/services/file-catalog/overview/
 ---
 
-**The file catalog microservice** is an integral part of the functional
+The `file-catalog` microservice aka `file-catalog` or `rs-file-catalog` is an integral part of the functional
 groups [OAIS Services (Functional overview)](../../../../overview/functional-overview/03-oais-catalog-services.md),
 [GeoJson services (Functional overview)](../../../../overview/functional-overview/04-geojson-catalog-services.md) and
 [Restitution services](../../../../overview/functional-overview/05-product-restitution-services.md).
 
-**The file catalog microservice** is part of the **Neo-Storage architecture** and replaces part of the former **the storage microservice** responsibilities.
+The `file-catalog` microservice is part of the **Neo-Storage architecture** and replaces part of the former **the storage microservice** responsibilities.
 
-**The file catalog microservice** is the service responsible for managing file metadata, lifecycle, and logical state within the REGARDS
+The `file-catalog` microservice is the service responsible for managing file metadata, lifecycle, and logical state within the REGARDS
 catalog.
 
 Its main responsibilities are:
@@ -28,11 +28,11 @@ Its main responsibilities are:
 
 ## Key Characteristics
 
-The file catalog microservice is designed with the following principles:
+The`file-catalog` microservice is designed with the following principles:
 
 ### Separation of Concerns
 
-**The file catalog microservice** focuses exclusively on **logical file management**. It does not perform physical storage operations —
+The `file-catalog` microservice focuses exclusively on **logical file management**. It does not perform physical storage operations —
 these responsibilities belong to **the file access microservice** and
 **the file packager microservice**.
 
@@ -43,7 +43,7 @@ This clear separation enables:
 
 ### Database Persistence
 
-The core of the file catalog is the **`t_file_reference`** database table, which persists all file metadata and
+The core of the `file-catalog` is the **`t_file_reference`** database table, which persists all file metadata and
 represents the complete logical view of files in the REGARDS catalog. This table contains:
 - File metadata (name, checksum, size, MIME type)
 - Storage location information
@@ -56,7 +56,7 @@ between the logical catalog view and the physical state of files.
 
 ### Request-Based Architecture
 
-File operations in **the file catalog microservice** are asynchronous and request-based:
+File operations in `file-catalog` microservice are asynchronous and request-based:
 - Each operation creates a file request entity
 - Requests are grouped by product using a `groupId`
 - A scheduler processes pending requests periodically
@@ -81,7 +81,8 @@ Files are uniquely identified by their checksum rather than filename. When multi
 ### File Registration
 
 When a product is ingested with files:
-1. **The file catalog** microservice receives storage request events from **the ingest** and **the feature manager** microservices
+1. `file-catalog` microservice receives storage request events from **the ingest** and **the feature manager** 
+microservices
 2. File references are created or updated in the `t_file_reference` table
 3. Deduplication occurs automatically based on checksum
 4. File requests are persisted with status tracking
@@ -102,7 +103,7 @@ For small files requiring packaging:
 
 ## File Types
 
-**The file catalog microservice** manages files according to the three [storage types](../neo-storage-overview.md#storage-types) defined by REGARDS:
+The `file-catalog` microservice manages files according to the three [storage types](../neo-storage-overview.md#storage-types) defined by REGARDS:
 
 ### Reference Files (Offline Storage)
 
@@ -186,7 +187,10 @@ large volumes of file operations.
 
 ## How to Learn More
 
-You can learn how the service works in the [conception section](./file-catalog-conception.md).
+You can learn how the service works in the 
+- [conception section](./file-catalog-conception.md).
+- [restoration section](./file-catalog-restoration.md).
+
 
 ## How to use
 

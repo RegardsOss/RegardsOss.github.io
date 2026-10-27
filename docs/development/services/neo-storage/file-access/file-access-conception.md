@@ -8,8 +8,10 @@ slug: /development/backend/services/file-access/conception/
 
 ## Introduction
 
-The **file-access** microservice is responsible for performing physical file operations on storage systems. Unlike
-[RS-FILE-CATALOG](../file-catalog/file-catalog-conception.md), which manages file metadata and lifecycle, the **file-access** microservice focuses
+The `file-access` microservice is responsible for performing physical file operations on storage systems. Unlike
+[`file-catalog`](../file-catalog/file-catalog-conception.md), which manages file metadata and lifecycle, the 
+`file-access` 
+microservice focuses
 exclusively on the actual interaction with storage backends.
 
 This separation of concerns enables:
@@ -19,7 +21,7 @@ This separation of concerns enables:
 
 ## Architecture Overview
 
-File-access follows a **worker-based architecture** where the microservice coordinates operations but delegates
+`File-access` follows a **worker-based architecture** where the microservice coordinates operations but delegates
 actual file transfers to specialized workers. This design enables horizontal scalability and isolates storage
 operations from the main service to prevent performance degradation during periods of high file storage activity.
 
@@ -28,7 +30,7 @@ operations from the main service to prevent performance degradation during perio
 #### File Access Microservice
 
 The main microservice is responsible for:
-- Receiving storage/retrieval/deletion requests from **file-catalog** or **file-packager**
+- Receiving storage/retrieval/deletion requests from `file-catalog` or `file-packager`
 - Validating requests and determining the appropriate storage plugin
 - Dispatching work to storage workers via AMQP for file storage operations
 - Executing file retrieval, deletion, and availability checks directly through plugins
@@ -75,11 +77,11 @@ handled directly by plugins within the microservice for better response times.
 
 ### File Storage Workflow
 
-When **file-catalog** sends a `FileStorageRequestReadyToProcessEvent`, **file-access** identifies the target storage location and loads the corresponding plugin. The plugin generates worker configuration objects containing storage credentials, target paths, and file source URLs. The microservice publishes `StorageWorkerRequestEvent` messages to the worker manager, which routes them to available workers. Workers download files from source URLs, verify integrity (checksum), extract metadata, and upload files to target storage locations. Small files below the packaging threshold are stored locally instead of being uploaded immediately. Workers send `ResponseEvent` messages back with success/failure status, storage URLs, and extracted metadata. The microservice transforms these into `StorageResponseEvent` messages and sends them back to **file-catalog**.
+When `file-catalog` sends a `FileStorageRequestReadyToProcessEvent`, `file-access` identifies the target storage location and loads the corresponding plugin. The plugin generates worker configuration objects containing storage credentials, target paths, and file source URLs. The microservice publishes `StorageWorkerRequestEvent` messages to the worker manager, which routes them to available workers. Workers download files from source URLs, verify integrity (checksum), extract metadata, and upload files to target storage locations. Small files below the packaging threshold are stored locally instead of being uploaded immediately. Workers send `ResponseEvent` messages back with success/failure status, storage URLs, and extracted metadata. The microservice transforms these into `StorageResponseEvent` messages and sends them back to `file-catalog`.
 
 ## Plugin and Worker Coordination
 
-The relationship between plugins and workers is crucial for understanding **file-access**:
+The relationship between plugins and workers is crucial for understanding `file-access`:
 
 ### Plugin Responsibilities
 - Run **inside the microservice JVM**
@@ -139,7 +141,7 @@ File storage is delegated to independent worker applications. This pattern:
 
 Small files receive special handling before storage:
 - Files below a threshold are stored locally first
-- They are later packaged by **file-packager** for efficient storage
+- They are later packaged by `file-packager` for efficient storage
 - Reduces API calls to expensive nearline storage systems
 - Improves overall storage efficiency and cost
 
@@ -147,7 +149,7 @@ Small files receive special handling before storage:
 
 Each storage location configured in REGARDS requires:
 
-- **A Storage Plugin**: Configured in **file-access** with:
+- **A Storage Plugin**: Configured in `file-access` with:
    - Plugin type (Local, S3, S3Glacier)
    - Storage endpoint and credentials
    - Root storage path
@@ -164,7 +166,7 @@ Workers must be compatible with their corresponding plugins. For example, the **
 
 ## Error Handling and Retry Logic
 
-**File-access** implements robust error handling:
+`File-access` implements robust error handling:
 
 ### Storage Errors
 - **Download failures**: Workers report errors if they cannot download source files
@@ -173,12 +175,12 @@ Workers must be compatible with their corresponding plugins. For example, the **
 - **Worker unavailability**: If no workers are active, requests are marked as errors
 
 ### Retry Mechanism
-- Failed requests remain in the **file-catalog** database
-- **File-catalog** can retry failed operations
+- Failed requests remain in the `file-catalog` database
+- `File-access` can retry failed operations
 - Workers implement exponential backoff for transient errors
 
 ### Response Types
-- **SUCCESS**: File was successfully stored/deleted
+- **SUCCESS**: File was successfully stored/retrieved/deleted
 - **ERROR**: Operation failed with specific error code and message
 - **DELAYED**: Operation was accepted but will be processed later (for throttling)
 - **SKIPPED**: Operation was skipped (e.g., worker inactive)
@@ -188,14 +190,21 @@ Workers must be compatible with their corresponding plugins. For example, the **
 
 ### With File Catalog
 
-- **Input**: `FileStorageRequestReadyToProcessEvent` requesting physical storage
+- **Input**: `FileStorageRequestReadyToProcessEvent` requesting physical storage of a file
 - **Output**: `StorageResponseEvent` confirming storage completion or failure
-- **Small Files**: Responses indicate if files were stored or deferred for packaging
+- **Small Files**: Responses indicate whether files were stored or deferred for packaging
 
 ### With File Packager
 
 - **Input**: `FileStorageRequestReadyToProcessEvent` for archive storage
 - **Output**: `StorageResponseEvent` confirming archive storage
+
+### With File Cache
+
+- **Input**: `DownloadRequestEvent` for file download to the cache
+- **Input**: `RestoreRequestEvent` for file restoration
+- **Output**: `DownloadResponseEvent` confirming file download to the cache
+- **Output**: `RestoreResponseFromAccessEvent` confirming file restoration
 
 ### With Storage Workers
 

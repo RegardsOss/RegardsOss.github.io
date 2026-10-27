@@ -186,3 +186,25 @@ The file catalog microservice manages the complete logical lifecycle of files:
 
 - **Input**: `FileArchiveCompletionEvent` notifying of packaging completion
 - **Output**: `FileArchiveRequestEvent` requesting small file packaging
+
+### With Any
+
+- **Output**: `FileAvailableEvent` broadcast of file availability or non-availability
+
+### With Order
+
+- **Input**: `FilesRestorationRequestEvent` containing files to be restored
+- **Output**: `FileReferenceEvent` notifying of file availability after restoration
+- **Coordination**: Tracking restoration request progress and availability status for requested files
+
+### With File Cache
+
+- **Output**: `RestoreRequestFromCatalogEvent` requesting to restore files from nearline/offline storage
+- **Input**: `RestoreResponseFromCacheEvent` confirming restoration completion or error
+
+### With Job System
+
+- **Job Types**: `StoreCompletePackageJob`, `DeleteLocalFilesJob`
+- **Priority**: Jobs use configurable priority levels
+- **Monitoring**: Job status can be monitored through the framework
+- **Input**: `JobEvent` to indicate a job failed or has been aborted.
