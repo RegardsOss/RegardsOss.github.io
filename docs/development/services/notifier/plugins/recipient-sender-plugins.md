@@ -14,6 +14,7 @@ Here is the list of documented plugins:
 
 - [RabbitMQSender plugin](#rabbitmqsender) allows to send payload to an RabbitMQ exchange, with no transformation
   applied to the input
+- [OaisDeletionRequestSender plugin](#oais-deletion-request-sender) sends OAIS deletion requests to `rs-ingest`
 - [LTA Request Sender](#lta-request-sender)
 - [Worker Manager Sender](#worker-manager-sender)
 - [Dissemination ACK Sender](#dissemination-ack-sender)
@@ -202,6 +203,74 @@ This plugin lets you override the following configuration :
         "type": "STRING",
         "value": "{identifier of the recipient}",
         "dynamic": false
+      }
+    ]
+  }
+}
+```
+
+### OAIS Deletion Request Sender
+
+The `OaisDeletionRequestSender` plugin sends deletion requests for OAIS products to the `rs-ingest` service through
+the `AipDeletionEvent` AMQP event. It extracts the `providerId` from each notified AIP and sends one deletion event
+per notification request.
+
+This plugin is useful when a notification received by `rs-notifier` must delete the corresponding AIP in the same or
+another REGARDS instance. The destination `rs-ingest` handler then processes the request through its regular OAIS
+deletion workflow. See the [`AipDeletionEvent` documentation](../../ingest/conception.md#direct-dissemination-and-aip-deletion-events).
+
+In addition to the [common sender configuration](#common-sender-configuration), the plugin supports:
+
+| Name | Type | Default | Optional | Description |
+| --- | --- | --- | :---: | --- |
+| `recipientTenant` | String | Current tenant | Y | Tenant on which the deletion event must be processed. |
+| `deleteIrrevocably` | Boolean | `true` | Y | Sends `IRREVOCABLY` when `true`, or `BY_STATE` when `false`. |
+| `ackRequired` | Boolean | `false` | Y | Indicates whether the notification sender expects an acknowledgement. |
+
+The inherited `exchange`, `queueName` and `recipientLabel` parameters identify the destination AMQP endpoint and
+recipient. The plugin adds the REGARDS tenant, request identifier, request owner and event type headers to each
+message.
+
+```json title="OaisDeletionRequestSender plugin configuration example"
+{
+  "key": "fr.cnes.regards.framework.modules.plugins.domain.PluginConfiguration",
+  "value": {
+    "pluginId": "OaisDeletionRequestSender",
+    "label": "Delete AIP in destination REGARDS",
+    "businessId": "delete-aip-in-destination",
+    "version": "1.0.0",
+    "priorityOrder": 0,
+    "active": true,
+    "parameters": [
+      {
+        "name": "recipientLabel",
+        "type": "STRING",
+        "value": "delete-aip-in-destination"
+      },
+      {
+        "name": "exchange",
+        "type": "STRING",
+        "value": "regards.broadcast.fr.cnes.regards.modules.ingest.dto.request.event.AipDeletionEvent"
+      },
+      {
+        "name": "queueName",
+        "type": "STRING",
+        "value": "destination-aip-deletion-queue"
+      },
+      {
+        "name": "recipientTenant",
+        "type": "STRING",
+        "value": "destination-tenant"
+      },
+      {
+        "name": "deleteIrrevocably",
+        "type": "BOOLEAN",
+        "value": true
+      },
+      {
+        "name": "ackRequired",
+        "type": "BOOLEAN",
+        "value": false
       }
     ]
   }

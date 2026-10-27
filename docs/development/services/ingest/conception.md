@@ -290,6 +290,51 @@ to [AIP notification acknowledge guide](api-guides/amqp/ingest-amqp-publish-ack.
 With this system Regards administrators can validate using the administrator UI that notifications has been successfully
 handled by recipients.
 
+## Direct dissemination and AIP deletion events
+
+In addition to the product notification flow, `rs-ingest` subscribes to two AMQP events intended for integrations that
+need to disseminate or remove specific AIPs by their `providerId`.
+
+### Direct dissemination event
+
+The `DirectDisseminationHandler` subscribes to the following event exchange:
+
+`regards.broadcast.fr.cnes.regards.modules.ingest.dto.request.event.AipDirectDisseminationEvent`
+
+The handler groups a batch by `recipient`, collects the `providerId` values for each group, and creates one
+dissemination request per recipient. Provider identifiers are searched with a strict match. This allows one AMQP batch
+to request the dissemination of several AIPs to the same recipient while keeping different recipients in separate
+dissemination requests. See the [direct dissemination AMQP guide](api-guides/amqp/ingest-amqp-publish-direct-dissemination.md)
+for the complete exchange, headers and body contract.
+
+### AIP deletion event
+
+The `AipDeletionEventHandler` subscribes to the following event exchange:
+
+`regards.broadcast.fr.cnes.regards.modules.ingest.dto.request.event.AipDeletionEvent`
+
+The event body contains the provider identifier and an optional deletion mode:
+
+```json
+{
+  "providerId": "DS_PHR1A_202604241011256_FR1_PX_E012N42_0307_00596",
+  "deletionMode": "IRREVOCABLY"
+}
+```
+
+If `deletionMode` is omitted or null, `IRREVOCABLY` is used. The supported modes are:
+
+* `IRREVOCABLY`: removes the SIP and its AIPs from the database;
+* `BY_STATE`: keeps the entities and marks them as `DELETED`.
+
+The handler registers an OAIS deletion creator request containing every providerId. The deletion is therefore processed by the regular `rs-ingest` deletion workflow rather than being performed directly by the AMQP handler. All versions of a provider identifier are concerned by the deletion. See
+the [AIP deletion AMQP guide](api-guides/amqp/ingest-amqp-publish-aip-deletion.md) for the complete exchange, headers
+and body contract.
+
+These events can be sent by a custom integration or by the [`OaisDeletionRequestSender` Notifier plugin](../notifier/plugins/recipient-sender-plugins.md#oais-deletion-request-sender). The plugin sends one deletion event for each notified AIP. Its configured exchange and queue are created when the first deletion request is sent if they do not already exist.
+
+When the target tenant is on another REGARDS instance, configure the plugin to publish to a local exchange and queue, then use a RabbitMQ shovel to forward messages from that queue to the target instance's `AipDeletionEvent` exchange. The target tenant must be provided in the event headers. For the exchange contract, see the [AIP deletion AMQP guide](api-guides/amqp/ingest-amqp-publish-aip-deletion.md). If both tenants are on the same instance, the plugin can publish directly to the `AipDeletionEvent` exchange without a shovel.
+
 ## AIP dump
 
 The **rs-ingest** microservice provides a dump functionality of all the AIPs referenced in its catalog.
