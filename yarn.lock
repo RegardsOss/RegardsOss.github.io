@@ -3300,6 +3300,22 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@mermaid-js/layout-elk@npm:^1.0.2":
+  version: 1.0.2
+  resolution: "@mermaid-js/layout-elk@npm:1.0.2"
+  dependencies:
+    d3: "npm:^7.9.0"
+    dagre-d3-es: "npm:7.0.14"
+    dayjs: "npm:^1.11.21"
+    dompurify: "npm:^3.4.17"
+    elkjs: "npm:^0.12.0"
+    katex: "npm:^0.18.0"
+  peerDependencies:
+    mermaid: ^12.0.0
+  checksum: 10/a9d81aa67450955dffd5bea4368d9684b0ae019f9018b1e49d3300b856eea8b90149ea417762619346aa368e4676c6ce4cd8c8b60d121aa7fe5b16e4ffcc1fb7
+  languageName: node
+  linkType: hard
+
 "@mermaid-js/parser@npm:^1.1.1":
   version: 1.1.1
   resolution: "@mermaid-js/parser@npm:1.1.1"
@@ -6211,6 +6227,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"commander@npm:^15.0.0":
+  version: 15.1.0
+  resolution: "commander@npm:15.1.0"
+  checksum: 10/31eb448f2ccccf9c193d33c201fd44d2f5311db3d53c8831f650a7df94fa97bf252c7ac6d9ba4a44fce0ac1b667bc09c58311dbc24a2e98384befe2e6b3ecadf
+  languageName: node
+  linkType: hard
+
 "commander@npm:^2.20.0":
   version: 2.20.3
   resolution: "commander@npm:2.20.3"
@@ -7127,6 +7150,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"dayjs@npm:^1.11.21":
+  version: 1.11.23
+  resolution: "dayjs@npm:1.11.23"
+  checksum: 10/61d29544ca1553369f75541b5abf9c1bb6a978991498923a2d5721c9df3eca513b2c15ff5534de6930dc553de5d6f2b8f8047149f3528df906b21f51df637463
+  languageName: node
+  linkType: hard
+
 "debounce@npm:^1.2.1":
   version: 1.2.1
   resolution: "debounce@npm:1.2.1"
@@ -7456,6 +7486,18 @@ __metadata:
   languageName: node
   linkType: hard
 
+"dompurify@npm:^3.4.17":
+  version: 3.4.17
+  resolution: "dompurify@npm:3.4.17"
+  dependencies:
+    "@types/trusted-types": "npm:^2.0.7"
+  dependenciesMeta:
+    "@types/trusted-types":
+      optional: true
+  checksum: 10/ae03c068bd351d1201a24a9667cb302c65939f45a0c357edec8b84133108e19ac74f355c2d8b0f30baadadd7f0be2db300d269aa80d3ee15872712ca9ff4e1a8
+  languageName: node
+  linkType: hard
+
 "domutils@npm:^2.5.2, domutils@npm:^2.8.0":
   version: 2.8.0
   resolution: "domutils@npm:2.8.0"
@@ -7533,6 +7575,13 @@ __metadata:
   version: 1.5.363
   resolution: "electron-to-chromium@npm:1.5.363"
   checksum: 10/2a2a0e32b9e8a3264839d7f174d1f945007fc3e11f0ce68bf47be31ad5bbd912ad562d15cbcfada9e886d0489a3f039b1fac6fcecf46d75ef1a54425ceb2fadd
+  languageName: node
+  linkType: hard
+
+"elkjs@npm:^0.12.0":
+  version: 0.12.1
+  resolution: "elkjs@npm:0.12.1"
+  checksum: 10/2821902e3c1bf9bf73fa1f7393b7ba0a2252bb4c934f4731f197b0d3362852b953a16d0c3f6003e33ac30f78cc0c16a85ba9bf9d544fc0a1e8ef46ffb3adb811
   languageName: node
   linkType: hard
 
@@ -9509,6 +9558,17 @@ __metadata:
   bin:
     katex: cli.js
   checksum: 10/e0286b45d9e0c8443cf0381205619ecbab3919ea5fb6616408f46f0cb471ce2222e83f46aef52cdaacdcbfd4485e00fcfbcf36bd85a8a9a81e22b45827c27ced
+  languageName: node
+  linkType: hard
+
+"katex@npm:^0.18.0":
+  version: 0.18.10
+  resolution: "katex@npm:0.18.10"
+  dependencies:
+    commander: "npm:^15.0.0"
+  bin:
+    katex: cli.js
+  checksum: 10/cf3349b390754b588a64739e8518400fd5050742af14413c85057144a815021b395bb1e163ff307d3fc0e072a9561da79710cc8e2cff51d964fee8879cc17c7a
   languageName: node
   linkType: hard
 
@@ -12977,6 +13037,7 @@ __metadata:
     "@mdi/js": "npm:^7.4.47"
     "@mdi/react": "npm:^1.6.1"
     "@mdx-js/react": "npm:^3.0.0"
+    "@mermaid-js/layout-elk": "npm:^1.0.2"
     "@types/react": "npm:^19.0.0"
     clsx: "npm:^2.0.0"
     prism-react-renderer: "npm:^2.3.0"
