@@ -1,5 +1,5 @@
 // Indicates the version of /docs /releases_notes.. folders
-const currentVersion = "2.4.1";
+const currentVersion = "2.4.2";
 // Indicates the version displayed by default while browsing on the website
 // Default value: "current"
 // You can provide the last version to create a next version unreleased
