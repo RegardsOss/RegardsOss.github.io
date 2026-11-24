@@ -8,34 +8,34 @@ slug: /development/backend/services/neo-storage/conception/
 
 ## Introduction
 
-### Neo-storage 
+### Neo-storage
 
-**Neo-storage** is a set of microservices and workers aimed to replace the [rs-storage 
+**Neo-storage** is a set of microservices and workers aimed to replace the [rs-storage
 microservice](../storage/overview.md).
-It is designed to be more efficient and easier to maintain, with a focus on scalability and performance, 
-notably, every microservice and worker in **Neo-Storage** is scalable which was not the case for the storage 
+It is designed to be more efficient and easier to maintain, with a focus on scalability and performance,
+notably, every microservice and worker in **Neo-Storage** is scalable which was not the case for the storage
 microservice.
 
 **Neo-Storage** is composed of the following microservices:
-- file-catalog
-- file-access
-- file-packager
-- file-cache
+
+- `file-catalog`
+- `file-access`
+- `file-packager`
+- `file-cache`
 
 and access to the physical storage is handled with the help of plugins and workers:
 
-| Plugin              | Worker                      | Storage type | Description              |
-|---------------------|-----------------------------|--------------|--------------------------|
-| fileaccess-local    | local-storage-worker        | Online       | Access the local file system |
-| fileaccess-s3       | s3-online-storage-worker    | Online       | Access an S3-type server |
-| fileaccess-s3-glacier | s3-glacier-storage-worker | Nearline     | Access an S3-type server |
+| Plugin                | Worker                    | Storage type | Description                  |
+|-----------------------|---------------------------|--------------|------------------------------|
+| fileaccess-local      | local-storage-worker      | Online       | Access the local file system |
+| fileaccess-s3         | s3-online-storage-worker  | Online       | Access an S3-type server     |
+| fileaccess-s3-glacier | s3-glacier-storage-worker | Nearline     | Access an S3-type server     |
 
 Workers are responsible for storing and retrieving files from the physical storage, while plugins are responsible for
-accessing the physical storage. For each storage location used in REGARDS, there needs to be a plugin and a worker to 
+accessing the physical storage. For each storage location used in REGARDS, there needs to be a plugin and a worker to
 access it and store files on it.
-Workers can be scaled to handle multiple requests at the same time, while plugins are not scalable and are used by 
+Workers can be scaled to handle multiple requests at the same time, while plugins are not scalable and are used by
 the microservices to access the physical storage.
-
 
 ### File Reference vs Physical File
 
@@ -45,14 +45,15 @@ either be a **reference** or a **physical file** that needs to be stored.
 
 This distinction corresponds to the three [storage types](./neo-storage-overview.md#storage-types) supported by REGARDS:
 
-* A reference corresponds to [**offline storage**](./neo-storage-overview.md#offline-storage): it is an URL to a file located in a different storage system, 
+* A reference corresponds to [**offline storage**](./neo-storage-overview.md#offline-storage): it is an URL to a file
+  located in a different storage system,
   usually accessed via HTTP.
   Neither physical storage nor any check of the file's existence or integrity is performed by REGARDS.
-  This means that if the actual referenced file is altered or deleted, 
+  This means that if the actual referenced file is altered or deleted,
   REGARDS will not be able to retrieve the original file.
-* A physical file that needs to be stored will be downloaded (or copied) within the storage system of REGARDS and 
-  will be entirely managed by the **Neo-Storage** microservices. 
-  It corresponds to [**online storage**](./neo-storage-overview.md#online-storage) or [**nearline 
+* A physical file that needs to be stored will be downloaded (or copied) within the storage system of REGARDS and
+  will be entirely managed by the **Neo-Storage** microservices.
+  It corresponds to [**online storage**](./neo-storage-overview.md#online-storage) or [**nearline
   storage**](./neo-storage-overview.md#nearline-storage).
   The file at the original location can then be safely deleted or altered.
 
@@ -77,7 +78,8 @@ the request, indicating that all requests were successful or that an error occur
 
 It's more efficient to manage large files than many small files on S3 servers. For this reason, Neo storage allows you
 to store small files locally until they reach a certain size or age. Once this threshold is met, the small files are
-grouped into an archive (package) and then stored in the physical storage location. This process can be activated for any
+grouped into an archive (package) and then stored in the physical storage location. This process can be activated for
+any
 storage location through a worker configuration.
 
 The process is monitored, so it's possible to see in the UI if a file was only stored locally and is waiting to be
@@ -159,7 +161,8 @@ it and store files on it.
 
 ### Write flow (storage)
 
-The following diagram describes the current store workflow as implemented by **file-catalog**, **file-access**, **file-packager** and **the storage workers**.
+The following diagram describes the current store workflow as implemented by **file-catalog**, **file-access**, *
+*file-packager** and **the storage workers**.
 The term "Archive" or "Package" refers to a ZIP file containing small files that have been grouped together for storage.
 
 ```mermaid
@@ -204,16 +207,15 @@ sequenceDiagram
     FCatalog ->> FCatalog: Notify request group
 ```
 
-
 ### Read flow (restoration)
 
 The following diagram describes the current restoration workflow as implemented by:
-- **file-catalog**, 
-- **file-cache**, 
-- **file-access**, 
+
+- **file-catalog**,
+- **file-cache**,
+- **file-access**,
 - **file-packager**,
 - **the storage plugins**.
-
 
 #### Handling of a restoration request of a "small" file packaged in an archive
 
@@ -280,7 +282,6 @@ sequenceDiagram
         FCatalog -->> User: Notifies the user that group restoration is complete
     end
 ```
-
 
 #### Handling of a restoration request of a big file
 

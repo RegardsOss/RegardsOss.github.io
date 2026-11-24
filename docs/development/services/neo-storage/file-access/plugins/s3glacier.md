@@ -38,7 +38,7 @@ REGARDS is deployed).
 | Storage root path                                  | Path (String)          | Root path on the S3 server where the files will be stored (host/pathtobucket/rootPath/subdirectory/checksum)     |
 | MultiPart upload : Size of a part in Mb (>= 5)     | Integer (in megabytes) | For multipart upload, the file will be cut in part of this size                                                  |
 | MultiPart upload : Number of parts read in memory. | Integer                | For multipart upload, number of parts that will be loaded in memory in REGARDS                                   |
-| Enable physical deletion of files                  | Boolean                | If false, the files won't be deleted from the file system when they are deleted from regards                     |
+| Enable physical deletion of files                  | Boolean                | If false, the files won't be deleted from the file system when they are deleted from REGARDS                     |
 | File Naming Strategy                               | Enum (String)          | Either CHECKSUM (default) or FILENAME, determine how the file will be named on the file system                   |
 | Number of availability requests in parallel        | Integer                | Number of parallel tasks for file availability.                                                                  |
 
