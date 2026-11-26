@@ -116,10 +116,10 @@
           "regards.broadcast.fr.cnes.regards.framework.security.event.RoleEvent",
           "regards.broadcast.fr.cnes.regards.framework.security.event.ResourceAccessInit",
           "regards.broadcast.fr.cnes.regards.framework.security.event.ResourceAccessEvent",
-          "regards.broadcast.fr.cnes.regards.framework.amqp.event.notification.NotificationEvent",
-          "regards.broadcast.fr.cnes.regards.framework.amqp.event.notifier.NotificationRequestEvent",
           "regards.broadcast.fr.cnes.regards.framework.amqp.event.tenant.TenantDeletedEvent",
           "regards.broadcast.fr.cnes.regards.framework.amqp.event.tenant.TenantCreatedEvent",
+          "regards.broadcast.fr.cnes.regards.framework.amqp.event.notification.NotificationEvent",
+          "regards.broadcast.fr.cnes.regards.framework.amqp.event.notifier.NotificationRequestEvent",
           "regards.broadcast.fr.cnes.regards.modules.project.domain.ProjectUpdateEvent",
           "regards.broadcast.fr.cnes.regards.framework.jpa.multitenant.event.TenantConnectionConfigurationCreated",
           "regards.broadcast.fr.cnes.regards.framework.jpa.multitenant.event.TenantConnectionConfigurationUpdated",
@@ -137,10 +137,10 @@
           "ROLE_EVENT",
           "RESOURCE_ACCESS_INIT",
           "RESOURCE_ACCESS_EVENT",
-          "NOTIFICATION_EVENT",
-          "NOTIFICATION_REQUEST_EVENT",
           "TENANT_DELETED_EVENT",
           "TENANT_CREATED_EVENT",
+          "NOTIFICATION_EVENT",
+          "NOTIFICATION_REQUEST_EVENT",
           "PROJECT_UPDATE_EVENT",
           "TENANT_CONNECTION_CONFIGURATION_CREATED",
           "TENANT_CONNECTION_CONFIGURATION_UPDATED",
@@ -2367,7 +2367,7 @@
       "name": "GPL-3.0"
     },
     "title": "MICROSERVICE ADMIN INSTANCE",
-    "version": "2.4.1"
+    "version": "2.5.0"
   },
   "openapi": "3.0.1",
   "paths": {
@@ -4129,11 +4129,40 @@
             }
           },
           {
+            "description": "Zero-based page index (0..N)",
             "in": "query",
-            "name": "pageable",
-            "required": true,
+            "name": "page",
+            "required": false,
             "schema": {
-              "$ref": "#/components/schemas/Pageable"
+              "default": 0,
+              "minimum": 0,
+              "type": "integer"
+            }
+          },
+          {
+            "description": "The size of the page to be returned",
+            "in": "query",
+            "name": "size",
+            "required": false,
+            "schema": {
+              "default": 10,
+              "minimum": 1,
+              "type": "integer"
+            }
+          },
+          {
+            "description": "Sorting criteria in the format: property,(asc|desc). Default sort order is ascending. Multiple sort criteria are supported.",
+            "in": "query",
+            "name": "sort",
+            "required": false,
+            "schema": {
+              "default": [
+                "id,ASC"
+              ],
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
             }
           }
         ],

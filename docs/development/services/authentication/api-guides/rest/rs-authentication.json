@@ -58,10 +58,10 @@
       },
       "AuthenticationAmqpExchanges": {
         "enum": [
-          "regards.broadcast.fr.cnes.regards.framework.amqp.event.notification.NotificationEvent",
-          "regards.broadcast.fr.cnes.regards.framework.amqp.event.notifier.NotificationRequestEvent",
           "regards.broadcast.fr.cnes.regards.framework.amqp.event.tenant.TenantDeletedEvent",
           "regards.broadcast.fr.cnes.regards.framework.amqp.event.tenant.TenantCreatedEvent",
+          "regards.broadcast.fr.cnes.regards.framework.amqp.event.notification.NotificationEvent",
+          "regards.broadcast.fr.cnes.regards.framework.amqp.event.notifier.NotificationRequestEvent",
           "regards.broadcast.fr.cnes.regards.framework.security.event.RoleEvent",
           "regards.broadcast.fr.cnes.regards.framework.security.event.ResourceAccessInit",
           "regards.broadcast.fr.cnes.regards.framework.security.event.ResourceAccessEvent",
@@ -79,10 +79,10 @@
         ],
         "type": "string",
         "x-enum-varnames": [
-          "NOTIFICATION_EVENT",
-          "NOTIFICATION_REQUEST_EVENT",
           "TENANT_DELETED_EVENT",
           "TENANT_CREATED_EVENT",
+          "NOTIFICATION_EVENT",
+          "NOTIFICATION_REQUEST_EVENT",
           "ROLE_EVENT",
           "RESOURCE_ACCESS_INIT",
           "RESOURCE_ACCESS_EVENT",
@@ -1937,7 +1937,7 @@
       "name": "GPL-3.0"
     },
     "title": "MICROSERVICE AUTHENTICATION",
-    "version": "2.4.1"
+    "version": "2.5.0"
   },
   "openapi": "3.0.1",
   "paths": {

@@ -136,14 +136,18 @@
           "regards.broadcast.fr.cnes.regards.framework.security.event.RoleEvent",
           "regards.broadcast.fr.cnes.regards.framework.security.event.ResourceAccessInit",
           "regards.broadcast.fr.cnes.regards.framework.security.event.ResourceAccessEvent",
-          "regards.broadcast.fr.cnes.regards.framework.amqp.event.notification.NotificationEvent",
-          "regards.broadcast.fr.cnes.regards.framework.amqp.event.notifier.NotificationRequestEvent",
           "regards.broadcast.fr.cnes.regards.framework.amqp.event.tenant.TenantDeletedEvent",
           "regards.broadcast.fr.cnes.regards.framework.amqp.event.tenant.TenantCreatedEvent",
+          "regards.broadcast.fr.cnes.regards.framework.amqp.event.notification.NotificationEvent",
+          "regards.broadcast.fr.cnes.regards.framework.amqp.event.notifier.NotificationRequestEvent",
           "regards.broadcast.fr.cnes.regards.modules.downloader.service.StoragePluginConfEvent",
           "regards.broadcast.rs-downloader.fr.cnes.regards.framework.modules.jobs.domain.event.JobEvent",
           "regards.broadcast.rs-downloader.fr.cnes.regards.framework.modules.jobs.domain.event.StopJobEvent",
           "regards.broadcast.fr.cnes.regards.framework.modules.workspace.domain.WorkspaceMonitoringEvent",
+          "regards.broadcast.fr.cnes.regards.modules.filecatalog.amqp.output.FileReferenceEvent",
+          "regards.broadcast.fr.cnes.regards.modules.filecatalog.amqp.output.FileArchiveRequestEvent",
+          "regards.broadcast.fr.cnes.regards.modules.filecatalog.amqp.output.FileRequestsGroupEvent",
+          "regards.broadcast.fr.cnes.regards.modules.filecatalog.amqp.output.FileReferenceUpdateEvent",
           "regards.broadcast.fr.cnes.regards.modules.filecatalog.amqp.input.FilesReferenceEvent",
           "regards.broadcast.fr.cnes.regards.modules.filecatalog.amqp.input.FilesDeletionEvent",
           "regards.broadcast.fr.cnes.regards.modules.filecatalog.amqp.input.FilesStorageRequestEvent",
@@ -153,10 +157,6 @@
           "regards.broadcast.fr.cnes.regards.modules.filecatalog.amqp.input.FilesCopyEvent",
           "regards.broadcast.fr.cnes.regards.modules.filecatalog.amqp.input.FilesRestorationRequestEvent",
           "regards.broadcast.fr.cnes.regards.modules.filecatalog.amqp.input.QuotaUpdateEvent",
-          "regards.broadcast.fr.cnes.regards.modules.filecatalog.amqp.output.FileReferenceEvent",
-          "regards.broadcast.fr.cnes.regards.modules.filecatalog.amqp.output.FileArchiveRequestEvent",
-          "regards.broadcast.fr.cnes.regards.modules.filecatalog.amqp.output.FileRequestsGroupEvent",
-          "regards.broadcast.fr.cnes.regards.modules.filecatalog.amqp.output.FileReferenceUpdateEvent",
           "regards.broadcast.rs-downloader.fr.cnes.regards.framework.modules.session.agent.domain.events.StepPropertyUpdateRequestEvent",
           "regards.broadcast.fr.cnes.regards.framework.modules.session.commons.domain.events.SessionDeleteEvent",
           "regards.broadcast.fr.cnes.regards.framework.modules.session.commons.domain.events.SessionStepEvent",
@@ -177,14 +177,18 @@
           "ROLE_EVENT",
           "RESOURCE_ACCESS_INIT",
           "RESOURCE_ACCESS_EVENT",
-          "NOTIFICATION_EVENT",
-          "NOTIFICATION_REQUEST_EVENT",
           "TENANT_DELETED_EVENT",
           "TENANT_CREATED_EVENT",
+          "NOTIFICATION_EVENT",
+          "NOTIFICATION_REQUEST_EVENT",
           "STORAGE_PLUGIN_CONF_EVENT",
           "JOB_EVENT",
           "STOP_JOB_EVENT",
           "WORKSPACE_MONITORING_EVENT",
+          "FILE_REFERENCE_EVENT",
+          "FILE_ARCHIVE_REQUEST_EVENT",
+          "FILE_REQUESTS_GROUP_EVENT",
+          "FILE_REFERENCE_UPDATE_EVENT",
           "FILES_REFERENCE_EVENT",
           "FILES_DELETION_EVENT",
           "FILES_STORAGE_REQUEST_EVENT",
@@ -194,10 +198,6 @@
           "FILES_COPY_EVENT",
           "FILES_RESTORATION_REQUEST_EVENT",
           "QUOTA_UPDATE_EVENT",
-          "FILE_REFERENCE_EVENT",
-          "FILE_ARCHIVE_REQUEST_EVENT",
-          "FILE_REQUESTS_GROUP_EVENT",
-          "FILE_REFERENCE_UPDATE_EVENT",
           "STEP_PROPERTY_UPDATE_REQUEST_EVENT",
           "SESSION_DELETE_EVENT",
           "SESSION_STEP_EVENT",
@@ -367,6 +367,10 @@
           "fileUrl": {
             "type": "string"
           },
+          "packageId": {
+            "format": "int64",
+            "type": "integer"
+          },
           "requestId": {
             "format": "int64",
             "type": "integer"
@@ -464,6 +468,10 @@
             ],
             "type": "string"
           },
+          "packageId": {
+            "format": "int64",
+            "type": "integer"
+          },
           "pendingActionRemaining": {
             "type": "boolean"
           },
@@ -511,7 +519,8 @@
             "items": {
               "type": "string"
             },
-            "type": "array"
+            "type": "array",
+            "uniqueItems": true
           },
           "referenced": {
             "type": "boolean"
@@ -561,7 +570,8 @@
             "items": {
               "type": "string"
             },
-            "type": "array"
+            "type": "array",
+            "uniqueItems": true
           },
           "referenced": {
             "type": "boolean"
@@ -643,6 +653,10 @@
           },
           "owner": {
             "type": "string"
+          },
+          "packageId": {
+            "format": "int64",
+            "type": "integer"
           },
           "session": {
             "type": "string"
@@ -749,9 +763,6 @@
             "$ref": "#/components/schemas/FileReferenceMetaInfoDto"
           },
           "mimeType": {
-            "type": "string"
-          },
-          "optionalSubDirectory": {
             "type": "string"
           },
           "originUrl": {
@@ -2886,7 +2897,7 @@
       "name": "GPL-3.0"
     },
     "title": "MICROSERVICE DOWNLOADER",
-    "version": "2.4.1"
+    "version": "2.5.0"
   },
   "openapi": "3.0.1",
   "paths": {

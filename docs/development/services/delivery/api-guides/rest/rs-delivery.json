@@ -20,10 +20,10 @@
           "regards.broadcast.fr.cnes.regards.framework.security.event.RoleEvent",
           "regards.broadcast.fr.cnes.regards.framework.security.event.ResourceAccessInit",
           "regards.broadcast.fr.cnes.regards.framework.security.event.ResourceAccessEvent",
-          "regards.broadcast.fr.cnes.regards.framework.amqp.event.notification.NotificationEvent",
-          "regards.broadcast.fr.cnes.regards.framework.amqp.event.notifier.NotificationRequestEvent",
           "regards.broadcast.fr.cnes.regards.framework.amqp.event.tenant.TenantDeletedEvent",
           "regards.broadcast.fr.cnes.regards.framework.amqp.event.tenant.TenantCreatedEvent",
+          "regards.broadcast.fr.cnes.regards.framework.amqp.event.notification.NotificationEvent",
+          "regards.broadcast.fr.cnes.regards.framework.amqp.event.notifier.NotificationRequestEvent",
           "regards.broadcast.rs-delivery.fr.cnes.regards.framework.modules.jobs.domain.event.JobEvent",
           "regards.broadcast.rs-delivery.fr.cnes.regards.framework.modules.jobs.domain.event.StopJobEvent",
           "regards.broadcast.fr.cnes.regards.modules.delivery.amqp.input.DeliveryRequestDtoEvent",
@@ -45,10 +45,10 @@
           "ROLE_EVENT",
           "RESOURCE_ACCESS_INIT",
           "RESOURCE_ACCESS_EVENT",
-          "NOTIFICATION_EVENT",
-          "NOTIFICATION_REQUEST_EVENT",
           "TENANT_DELETED_EVENT",
           "TENANT_CREATED_EVENT",
+          "NOTIFICATION_EVENT",
+          "NOTIFICATION_REQUEST_EVENT",
           "JOB_EVENT",
           "STOP_JOB_EVENT",
           "DELIVERY_REQUEST_DTO_EVENT",
@@ -1708,7 +1708,7 @@
       "name": "GPL-3.0"
     },
     "title": "MICROSERVICE DELIVERY",
-    "version": "2.4.1"
+    "version": "2.5.0"
   },
   "openapi": "3.0.1",
   "paths": {

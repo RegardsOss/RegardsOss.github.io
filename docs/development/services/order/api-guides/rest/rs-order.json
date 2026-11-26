@@ -850,6 +850,10 @@
           "fileUrl": {
             "type": "string"
           },
+          "packageId": {
+            "format": "int64",
+            "type": "integer"
+          },
           "requestId": {
             "format": "int64",
             "type": "integer"
@@ -930,6 +934,10 @@
             ],
             "type": "string"
           },
+          "packageId": {
+            "format": "int64",
+            "type": "integer"
+          },
           "pendingActionRemaining": {
             "type": "boolean"
           },
@@ -977,7 +985,8 @@
             "items": {
               "type": "string"
             },
-            "type": "array"
+            "type": "array",
+            "uniqueItems": true
           },
           "referenced": {
             "type": "boolean"
@@ -1027,7 +1036,8 @@
             "items": {
               "type": "string"
             },
-            "type": "array"
+            "type": "array",
+            "uniqueItems": true
           },
           "referenced": {
             "type": "boolean"
@@ -1109,6 +1119,10 @@
           },
           "owner": {
             "type": "string"
+          },
+          "packageId": {
+            "format": "int64",
+            "type": "integer"
           },
           "session": {
             "type": "string"
@@ -1234,9 +1248,6 @@
             "$ref": "#/components/schemas/FileReferenceMetaInfoDto"
           },
           "mimeType": {
-            "type": "string"
-          },
-          "optionalSubDirectory": {
             "type": "string"
           },
           "originUrl": {
@@ -2696,10 +2707,10 @@
           "regards.broadcast.fr.cnes.regards.framework.security.event.RoleEvent",
           "regards.broadcast.fr.cnes.regards.framework.security.event.ResourceAccessInit",
           "regards.broadcast.fr.cnes.regards.framework.security.event.ResourceAccessEvent",
-          "regards.broadcast.fr.cnes.regards.framework.amqp.event.notification.NotificationEvent",
-          "regards.broadcast.fr.cnes.regards.framework.amqp.event.notifier.NotificationRequestEvent",
           "regards.broadcast.fr.cnes.regards.framework.amqp.event.tenant.TenantDeletedEvent",
           "regards.broadcast.fr.cnes.regards.framework.amqp.event.tenant.TenantCreatedEvent",
+          "regards.broadcast.fr.cnes.regards.framework.amqp.event.notification.NotificationEvent",
+          "regards.broadcast.fr.cnes.regards.framework.amqp.event.notifier.NotificationRequestEvent",
           "regards.broadcast.rs-order.fr.cnes.regards.framework.modules.jobs.domain.event.JobEvent",
           "regards.broadcast.rs-order.fr.cnes.regards.framework.modules.jobs.domain.event.StopJobEvent",
           "regards.broadcast.fr.cnes.regards.modules.order.amqp.input.OrderRequestDtoEvent",
@@ -2713,13 +2724,13 @@
           "regards.broadcast.fr.cnes.regards.modules.processing.domain.events.PExecutionResultEvent",
           "regards.broadcast.fr.cnes.regards.modules.processing.domain.events.PExecutionRequestEvent",
           "regards.broadcast.fr.cnes.regards.modules.processing.domain.events.DownloadedOutputFilesEvent",
+          "regards.broadcast.rs-order.fr.cnes.regards.modules.dam.domain.entities.event.DatasetEvent",
+          "regards.broadcast.rs-order.fr.cnes.regards.modules.dam.domain.entities.event.NotDatasetEntityEvent",
+          "regards.broadcast.fr.cnes.regards.modules.dam.domain.entities.event.BroadcastEntityEvent",
           "regards.broadcast.fr.cnes.regards.modules.dam.domain.dataaccess.accessgroup.event.AccessGroupEvent",
           "regards.broadcast.fr.cnes.regards.modules.dam.domain.dataaccess.accessgroup.event.PublicAccessGroupEvent",
           "regards.broadcast.fr.cnes.regards.modules.dam.domain.dataaccess.accessright.event.AccessRightEvent",
           "regards.broadcast.rs-order.fr.cnes.regards.modules.dam.domain.datasources.event.DatasourceEvent",
-          "regards.broadcast.rs-order.fr.cnes.regards.modules.dam.domain.entities.event.DatasetEvent",
-          "regards.broadcast.rs-order.fr.cnes.regards.modules.dam.domain.entities.event.NotDatasetEntityEvent",
-          "regards.broadcast.fr.cnes.regards.modules.dam.domain.entities.event.BroadcastEntityEvent",
           "regards.broadcast.fr.cnes.regards.modules.dam.dto.FeatureEvent",
           "regards.broadcast.fr.cnes.regards.modules.model.domain.event.AttributeModelDeleted",
           "regards.broadcast.fr.cnes.regards.modules.model.domain.event.AttributeModelUpdated",
@@ -2727,6 +2738,10 @@
           "regards.broadcast.fr.cnes.regards.modules.model.domain.event.AttributeModelCreated",
           "regards.broadcast.fr.cnes.regards.modules.model.dto.event.AttributeCacheRefreshEvent",
           "regards.broadcast.fr.cnes.regards.modules.model.dto.event.ModelChangeEvent",
+          "regards.broadcast.fr.cnes.regards.modules.filecatalog.amqp.output.FileReferenceEvent",
+          "regards.broadcast.fr.cnes.regards.modules.filecatalog.amqp.output.FileArchiveRequestEvent",
+          "regards.broadcast.fr.cnes.regards.modules.filecatalog.amqp.output.FileRequestsGroupEvent",
+          "regards.broadcast.fr.cnes.regards.modules.filecatalog.amqp.output.FileReferenceUpdateEvent",
           "regards.broadcast.fr.cnes.regards.modules.filecatalog.amqp.input.FilesReferenceEvent",
           "regards.broadcast.fr.cnes.regards.modules.filecatalog.amqp.input.FilesDeletionEvent",
           "regards.broadcast.fr.cnes.regards.modules.filecatalog.amqp.input.FilesStorageRequestEvent",
@@ -2735,11 +2750,7 @@
           "regards.broadcast.fr.cnes.regards.modules.filecatalog.amqp.input.FilesRetryRequestEvent",
           "regards.broadcast.fr.cnes.regards.modules.filecatalog.amqp.input.FilesCopyEvent",
           "regards.broadcast.fr.cnes.regards.modules.filecatalog.amqp.input.FilesRestorationRequestEvent",
-          "regards.broadcast.fr.cnes.regards.modules.filecatalog.amqp.input.QuotaUpdateEvent",
-          "regards.broadcast.fr.cnes.regards.modules.filecatalog.amqp.output.FileReferenceEvent",
-          "regards.broadcast.fr.cnes.regards.modules.filecatalog.amqp.output.FileArchiveRequestEvent",
-          "regards.broadcast.fr.cnes.regards.modules.filecatalog.amqp.output.FileRequestsGroupEvent",
-          "regards.broadcast.fr.cnes.regards.modules.filecatalog.amqp.output.FileReferenceUpdateEvent"
+          "regards.broadcast.fr.cnes.regards.modules.filecatalog.amqp.input.QuotaUpdateEvent"
         ],
         "type": "string",
         "x-enum-varnames": [
@@ -2753,10 +2764,10 @@
           "ROLE_EVENT",
           "RESOURCE_ACCESS_INIT",
           "RESOURCE_ACCESS_EVENT",
-          "NOTIFICATION_EVENT",
-          "NOTIFICATION_REQUEST_EVENT",
           "TENANT_DELETED_EVENT",
           "TENANT_CREATED_EVENT",
+          "NOTIFICATION_EVENT",
+          "NOTIFICATION_REQUEST_EVENT",
           "JOB_EVENT",
           "STOP_JOB_EVENT",
           "ORDER_REQUEST_DTO_EVENT",
@@ -2770,13 +2781,13 @@
           "PEXECUTION_RESULT_EVENT",
           "PEXECUTION_REQUEST_EVENT",
           "DOWNLOADED_OUTPUT_FILES_EVENT",
+          "DATASET_EVENT",
+          "NOT_DATASET_ENTITY_EVENT",
+          "BROADCAST_ENTITY_EVENT",
           "ACCESS_GROUP_EVENT",
           "PUBLIC_ACCESS_GROUP_EVENT",
           "ACCESS_RIGHT_EVENT",
           "DATASOURCE_EVENT",
-          "DATASET_EVENT",
-          "NOT_DATASET_ENTITY_EVENT",
-          "BROADCAST_ENTITY_EVENT",
           "FEATURE_EVENT",
           "ATTRIBUTE_MODEL_DELETED",
           "ATTRIBUTE_MODEL_UPDATED",
@@ -2784,6 +2795,10 @@
           "ATTRIBUTE_MODEL_CREATED",
           "ATTRIBUTE_CACHE_REFRESH_EVENT",
           "MODEL_CHANGE_EVENT",
+          "FILE_REFERENCE_EVENT",
+          "FILE_ARCHIVE_REQUEST_EVENT",
+          "FILE_REQUESTS_GROUP_EVENT",
+          "FILE_REFERENCE_UPDATE_EVENT",
           "FILES_REFERENCE_EVENT",
           "FILES_DELETION_EVENT",
           "FILES_STORAGE_REQUEST_EVENT",
@@ -2792,11 +2807,7 @@
           "FILES_RETRY_REQUEST_EVENT",
           "FILES_COPY_EVENT",
           "FILES_RESTORATION_REQUEST_EVENT",
-          "QUOTA_UPDATE_EVENT",
-          "FILE_REFERENCE_EVENT",
-          "FILE_ARCHIVE_REQUEST_EVENT",
-          "FILE_REQUESTS_GROUP_EVENT",
-          "FILE_REFERENCE_UPDATE_EVENT"
+          "QUOTA_UPDATE_EVENT"
         ]
       },
       "OrderCancelRequestDtoEvent": {
@@ -4471,7 +4482,7 @@
       "name": "GPL-3.0"
     },
     "title": "MICROSERVICE ORDER",
-    "version": "2.4.1"
+    "version": "2.5.0"
   },
   "openapi": "3.0.1",
   "paths": {

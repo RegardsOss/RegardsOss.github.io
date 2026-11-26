@@ -373,6 +373,32 @@
         },
         "type": "object"
       },
+      "AipDeletionEvent": {
+        "properties": {
+          "deletionMode": {
+            "enum": [
+              "BY_STATE",
+              "IRREVOCABLY"
+            ],
+            "type": "string"
+          },
+          "providerId": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "AipDirectDisseminationEvent": {
+        "properties": {
+          "providerId": {
+            "type": "string"
+          },
+          "recipient": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
       "BroadcastPluginConfEvent": {
         "properties": {
           "action": {
@@ -426,10 +452,10 @@
           "regards.broadcast.fr.cnes.regards.framework.security.event.RoleEvent",
           "regards.broadcast.fr.cnes.regards.framework.security.event.ResourceAccessInit",
           "regards.broadcast.fr.cnes.regards.framework.security.event.ResourceAccessEvent",
-          "regards.broadcast.fr.cnes.regards.framework.amqp.event.notification.NotificationEvent",
-          "regards.broadcast.fr.cnes.regards.framework.amqp.event.notifier.NotificationRequestEvent",
           "regards.broadcast.fr.cnes.regards.framework.amqp.event.tenant.TenantDeletedEvent",
           "regards.broadcast.fr.cnes.regards.framework.amqp.event.tenant.TenantCreatedEvent",
+          "regards.broadcast.fr.cnes.regards.framework.amqp.event.notification.NotificationEvent",
+          "regards.broadcast.fr.cnes.regards.framework.amqp.event.notifier.NotificationRequestEvent",
           "regards.broadcast.fr.cnes.regards.modules.accessrights.domain.projects.events.LicenseEvent",
           "regards.broadcast.fr.cnes.regards.modules.accessrights.domain.projects.events.ProjectUserEvent",
           "regards.broadcast.fr.cnes.regards.framework.jpa.multitenant.event.TenantConnectionConfigurationCreated",
@@ -442,12 +468,14 @@
           "regards.broadcast.fr.cnes.regards.framework.modules.plugins.domain.event.PluginConfEvent",
           "regards.broadcast.rs-dataprovider.fr.cnes.regards.framework.modules.jobs.domain.event.JobEvent",
           "regards.broadcast.rs-dataprovider.fr.cnes.regards.framework.modules.jobs.domain.event.StopJobEvent",
+          "regards.broadcast.fr.cnes.regards.modules.ingest.dto.request.event.AipDirectDisseminationEvent",
           "regards.broadcast.fr.cnes.regards.modules.ingest.dto.request.event.IngestRequestEvent",
           "regards.broadcast.fr.cnes.regards.modules.ingest.dto.request.event.DisseminationAckEvent",
+          "regards.broadcast.fr.cnes.regards.modules.ingest.dto.request.event.AipDeletionEvent",
           "regards.broadcast.fr.cnes.regards.modules.ingest.dto.sip.flow.IngestRequestFlowItem",
+          "regards.broadcast.fr.cnes.regards.modules.notifier.dto.out.NotifierEvent",
           "regards.broadcast.fr.cnes.regards.modules.notifier.dto.in.SpecificRecipientNotificationRequestEvent",
           "regards.broadcast.rs-dataprovider.fr.cnes.regards.modules.notifier.dto.internal.NotifierClearCacheEvent",
-          "regards.broadcast.fr.cnes.regards.modules.notifier.dto.out.NotifierEvent",
           "regards.broadcast.fr.cnes.regards.framework.modules.workspace.domain.WorkspaceMonitoringEvent",
           "regards.broadcast.rs-dataprovider.fr.cnes.regards.framework.modules.session.agent.domain.events.StepPropertyUpdateRequestEvent",
           "regards.broadcast.fr.cnes.regards.framework.modules.session.commons.domain.events.SessionDeleteEvent",
@@ -459,10 +487,10 @@
           "ROLE_EVENT",
           "RESOURCE_ACCESS_INIT",
           "RESOURCE_ACCESS_EVENT",
-          "NOTIFICATION_EVENT",
-          "NOTIFICATION_REQUEST_EVENT",
           "TENANT_DELETED_EVENT",
           "TENANT_CREATED_EVENT",
+          "NOTIFICATION_EVENT",
+          "NOTIFICATION_REQUEST_EVENT",
           "LICENSE_EVENT",
           "PROJECT_USER_EVENT",
           "TENANT_CONNECTION_CONFIGURATION_CREATED",
@@ -475,12 +503,14 @@
           "PLUGIN_CONF_EVENT",
           "JOB_EVENT",
           "STOP_JOB_EVENT",
+          "AIP_DIRECT_DISSEMINATION_EVENT",
           "INGEST_REQUEST_EVENT",
           "DISSEMINATION_ACK_EVENT",
+          "AIP_DELETION_EVENT",
           "INGEST_REQUEST_FLOW_ITEM",
+          "NOTIFIER_EVENT",
           "SPECIFIC_RECIPIENT_NOTIFICATION_REQUEST_EVENT",
           "NOTIFIER_CLEAR_CACHE_EVENT",
-          "NOTIFIER_EVENT",
           "WORKSPACE_MONITORING_EVENT",
           "STEP_PROPERTY_UPDATE_REQUEST_EVENT",
           "SESSION_DELETE_EVENT",
@@ -3593,7 +3623,7 @@
       "name": "GPL-3.0"
     },
     "title": "MICROSERVICE DATAPROVIDER",
-    "version": "2.4.1"
+    "version": "2.5.0"
   },
   "openapi": "3.0.1",
   "paths": {

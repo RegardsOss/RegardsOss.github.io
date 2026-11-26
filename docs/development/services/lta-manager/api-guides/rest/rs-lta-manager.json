@@ -30,6 +30,32 @@
         },
         "type": "object"
       },
+      "AipDeletionEvent": {
+        "properties": {
+          "deletionMode": {
+            "enum": [
+              "BY_STATE",
+              "IRREVOCABLY"
+            ],
+            "type": "string"
+          },
+          "providerId": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "AipDirectDisseminationEvent": {
+        "properties": {
+          "providerId": {
+            "type": "string"
+          },
+          "recipient": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
       "AttributeCacheRefreshEvent": {
         "type": "object"
       },
@@ -772,16 +798,18 @@
           "regards.broadcast.fr.cnes.regards.modules.ltamanager.amqp.input.SubmissionRequestDtoEvent",
           "regards.broadcast.fr.cnes.regards.modules.ltamanager.amqp.output.SubmissionResponseDtoEvent",
           "regards.broadcast.fr.cnes.regards.modules.ltamanager.amqp.output.LtaWorkerRequestDtoEvent",
+          "regards.broadcast.fr.cnes.regards.modules.workermanager.amqp.events.out.WorkerRequestEvent",
+          "regards.broadcast.fr.cnes.regards.modules.workermanager.amqp.events.out.ResponseEvent",
           "regards.broadcast.fr.cnes.regards.modules.workermanager.amqp.events.in.WorkerRequestDlqEvent",
           "regards.broadcast.fr.cnes.regards.modules.workermanager.amqp.events.in.WorkerResponseEvent",
           "regards.broadcast.fr.cnes.regards.modules.workermanager.amqp.events.in.WorkerHeartBeatEvent",
           "regards.broadcast.rs-lta-manager.fr.cnes.regards.modules.workermanager.amqp.events.internal.WorkerConfUpdatedEvent",
-          "regards.broadcast.fr.cnes.regards.modules.workermanager.amqp.events.out.WorkerRequestEvent",
-          "regards.broadcast.fr.cnes.regards.modules.workermanager.amqp.events.out.ResponseEvent",
           "regards.broadcast.fr.cnes.regards.modules.model.dto.event.AttributeCacheRefreshEvent",
           "regards.broadcast.fr.cnes.regards.modules.model.dto.event.ModelChangeEvent",
+          "regards.broadcast.fr.cnes.regards.modules.ingest.dto.request.event.AipDirectDisseminationEvent",
           "regards.broadcast.fr.cnes.regards.modules.ingest.dto.request.event.IngestRequestEvent",
           "regards.broadcast.fr.cnes.regards.modules.ingest.dto.request.event.DisseminationAckEvent",
+          "regards.broadcast.fr.cnes.regards.modules.ingest.dto.request.event.AipDeletionEvent",
           "regards.broadcast.fr.cnes.regards.modules.ingest.dto.sip.flow.IngestRequestFlowItem",
           "regards.broadcast.rs-lta-manager.fr.cnes.regards.framework.modules.plugins.domain.event.BroadcastPluginConfEvent",
           "regards.broadcast.rs-lta-manager.fr.cnes.regards.framework.modules.plugins.domain.event.PluginConfClearCacheEvent",
@@ -789,9 +817,9 @@
           "regards.broadcast.rs-lta-manager.fr.cnes.regards.framework.modules.jobs.domain.event.JobEvent",
           "regards.broadcast.rs-lta-manager.fr.cnes.regards.framework.modules.jobs.domain.event.StopJobEvent",
           "regards.broadcast.fr.cnes.regards.framework.modules.workspace.domain.WorkspaceMonitoringEvent",
+          "regards.broadcast.fr.cnes.regards.modules.notifier.dto.out.NotifierEvent",
           "regards.broadcast.fr.cnes.regards.modules.notifier.dto.in.SpecificRecipientNotificationRequestEvent",
           "regards.broadcast.rs-lta-manager.fr.cnes.regards.modules.notifier.dto.internal.NotifierClearCacheEvent",
-          "regards.broadcast.fr.cnes.regards.modules.notifier.dto.out.NotifierEvent",
           "regards.broadcast.fr.cnes.regards.framework.jpa.multitenant.event.TenantConnectionConfigurationCreated",
           "regards.broadcast.fr.cnes.regards.framework.jpa.multitenant.event.TenantConnectionConfigurationUpdated",
           "regards.broadcast.fr.cnes.regards.framework.jpa.multitenant.event.TenantConnectionConfigurationDeleted",
@@ -802,10 +830,10 @@
           "regards.broadcast.fr.cnes.regards.framework.security.event.RoleEvent",
           "regards.broadcast.fr.cnes.regards.framework.security.event.ResourceAccessInit",
           "regards.broadcast.fr.cnes.regards.framework.security.event.ResourceAccessEvent",
-          "regards.broadcast.fr.cnes.regards.framework.amqp.event.notification.NotificationEvent",
-          "regards.broadcast.fr.cnes.regards.framework.amqp.event.notifier.NotificationRequestEvent",
           "regards.broadcast.fr.cnes.regards.framework.amqp.event.tenant.TenantDeletedEvent",
-          "regards.broadcast.fr.cnes.regards.framework.amqp.event.tenant.TenantCreatedEvent"
+          "regards.broadcast.fr.cnes.regards.framework.amqp.event.tenant.TenantCreatedEvent",
+          "regards.broadcast.fr.cnes.regards.framework.amqp.event.notification.NotificationEvent",
+          "regards.broadcast.fr.cnes.regards.framework.amqp.event.notifier.NotificationRequestEvent"
         ],
         "type": "string",
         "x-enum-varnames": [
@@ -816,16 +844,18 @@
           "SUBMISSION_REQUEST_DTO_EVENT",
           "SUBMISSION_RESPONSE_DTO_EVENT",
           "LTA_WORKER_REQUEST_DTO_EVENT",
+          "WORKER_REQUEST_EVENT",
+          "RESPONSE_EVENT",
           "WORKER_REQUEST_DLQ_EVENT",
           "WORKER_RESPONSE_EVENT",
           "WORKER_HEART_BEAT_EVENT",
           "WORKER_CONF_UPDATED_EVENT",
-          "WORKER_REQUEST_EVENT",
-          "RESPONSE_EVENT",
           "ATTRIBUTE_CACHE_REFRESH_EVENT",
           "MODEL_CHANGE_EVENT",
+          "AIP_DIRECT_DISSEMINATION_EVENT",
           "INGEST_REQUEST_EVENT",
           "DISSEMINATION_ACK_EVENT",
+          "AIP_DELETION_EVENT",
           "INGEST_REQUEST_FLOW_ITEM",
           "BROADCAST_PLUGIN_CONF_EVENT",
           "PLUGIN_CONF_CLEAR_CACHE_EVENT",
@@ -833,9 +863,9 @@
           "JOB_EVENT",
           "STOP_JOB_EVENT",
           "WORKSPACE_MONITORING_EVENT",
+          "NOTIFIER_EVENT",
           "SPECIFIC_RECIPIENT_NOTIFICATION_REQUEST_EVENT",
           "NOTIFIER_CLEAR_CACHE_EVENT",
-          "NOTIFIER_EVENT",
           "TENANT_CONNECTION_CONFIGURATION_CREATED",
           "TENANT_CONNECTION_CONFIGURATION_UPDATED",
           "TENANT_CONNECTION_CONFIGURATION_DELETED",
@@ -846,10 +876,10 @@
           "ROLE_EVENT",
           "RESOURCE_ACCESS_INIT",
           "RESOURCE_ACCESS_EVENT",
-          "NOTIFICATION_EVENT",
-          "NOTIFICATION_REQUEST_EVENT",
           "TENANT_DELETED_EVENT",
-          "TENANT_CREATED_EVENT"
+          "TENANT_CREATED_EVENT",
+          "NOTIFICATION_EVENT",
+          "NOTIFICATION_REQUEST_EVENT"
         ]
       },
       "LtaWorkerRequestDtoEvent": {
@@ -3802,7 +3832,7 @@
       "name": "GPL-3.0"
     },
     "title": "MICROSERVICE LTA MANAGER",
-    "version": "2.4.1"
+    "version": "2.5.0"
   },
   "openapi": "3.0.1",
   "paths": {
