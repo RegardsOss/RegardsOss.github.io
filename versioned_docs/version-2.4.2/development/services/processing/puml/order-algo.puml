@@ -1,0 +1,96 @@
+
+@startuml
+'==== SKIN
+
+autonumber
+skinparam BoxPadding 50
+skinparam style strictuml
+
+'==== DRAMATIS PERSONAE
+
+participant order as "Order"
+participant catalog as "Catalog"
+participant storage as "Storage"
+participant amqp as "RabbitMQ"
+participant processing as "Processing"
+
+
+'==== DIAGRAM
+
+[-> order: createOrder
+activate order
+
+loop for each dataset
+    order -> catalog ++ : opensearch
+    return product features
+
+    alt when processing is selected
+    order -> processing ++ : [HTTP] check processing\non features
+    processing -> processing: check rights/quotas
+    order <-- processing -- : process details:\n- scope (item / sub-order / dataset)\n- cardinality
+    order -> order: save order data files\n corresponding to process outputs
+    end alt
+end loop
+[<-- order: order registered
+loop for each dataset
+    loop for each sub-order
+        loop for each product feature
+            alt internally stored
+                order -> storage ++ : ask for file availability
+                return file available
+            end alt
+            alt no processing selected
+                order -> order: notify available file\nfor download
+            else processing has scope "file"
+                order -> amqp : send processing request on file
+            end alt
+        end loop
+        alt processing has scope "sub-order"
+            order -> amqp : send processing request\non all sub-order files
+        end alt
+    end loop
+    alt processing has scope "dataset"
+        order -> amqp : send processing request\non all dataset files
+    end alt
+end loop
+
+deactivate order
+
+group processing
+    amqp -> processing -- : send processing request
+    activate processing
+    processing -> processing: launch process on files
+    processing -> processing: result files saved\nin shared space
+    processing -> amqp ++ : notify available files\nfor download
+    deactivate processing
+end group
+
+amqp -> order: notify available files\nfor download
+deactivate amqp
+
+
+group metalink
+[-> order ++ : download metalink
+order -> order: generate metalink
+[<-- order -- : return metalink
+end group
+
+loop
+    [-> order ++ : attempt to download file from metalink
+    alt file is not yet available
+        [<-- order: respond with error
+    else file is available
+        order -> order: download file
+        [<-- order: stream downloaded file
+        order -> amqp ++ : file downloaded
+    end alt
+    deactivate order
+end loop
+
+amqp -> processing -- : file downloaded
+activate processing
+processing -> processing: delete result file\nfrom shared storage
+||0||
+deactivate processing
+|||
+@enduml
