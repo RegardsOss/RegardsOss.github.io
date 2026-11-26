@@ -5,12 +5,12 @@ slug: /development/backend/services/ingest/overview/
 sidebar_position: 1
 ---
 
-**Ingest** (or **rs-ingest**) microservice is the service that manage
+The `Ingest` (or `rs-ingest`) microservice is the service that manage
 OAIS [products](../../../overview/concepts/01-products.md). It
 is the main service of
 the [set of OAIS Services (Functional overview)](../../../overview/functional-overview/03-oais-catalog-services.md).   
 It is one of the many data sources that can be
-crawled by **rs-dam** microservice to populate
+crawled by `rs-dam` microservice to populate
 the [meta-catalog](../../../overview/functional-overview/02-meta-catalog-services.md).
 
 This microservice is designed to comply with

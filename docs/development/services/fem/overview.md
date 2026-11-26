@@ -7,12 +7,13 @@ slug: /development/backend/services/fem/overview/
 
 ## Overview
 
-`Feature Manager` or **rs-fem**  is the service that manages [products](../../../overview/concepts/01-products.md) in
+`Feature Manager` (or `rs-fem`) is the service that manages [products](../../../overview/concepts/01-products.md) in
 [GeoJSON format](https://geojson.org/). It is the main service of the
 [Functional overview - GeoJson services](../../../overview/functional-overview/04-geojson-catalog-services.md).
 
 It is one of the many data sources that can be
-crawled by the **rs-dam** microservice to populate the [meta-catalog](../../../overview/concepts/02-meta-catalog.md) as described
+crawled by the **rs-dam** microservice to populate the [meta-catalog](../../../overview/concepts/02-meta-catalog.md) as
+described
 in [Functional overview - Meta catalog Services](../../../overview/functional-overview/02-meta-catalog-services.md).
 
 `Feature Manager` or `rs-fem` responsibilities:
@@ -35,7 +36,8 @@ You can learn how the service works with the [How it works section](./conception
 You can learn how to **operate** with the microservice thanks to **API Guides**:
 
 - Create product [using REST API](./api-guides/rest/rest-create-product.md)
-  or [using AMQP API](./api-guides/amqp/amqp-publish-create-product-request.md) shows you how to submit **Feature requests** to
+  or [using AMQP API](./api-guides/amqp/amqp-publish-create-product-request.md) shows you how to submit **Feature
+  requests** to
   create
   **new products** or create a **new version** of an existing one. Products versioning is explained in this
   [How it works section](./conception.md#versioning)
@@ -44,9 +46,9 @@ You can learn how to **operate** with the microservice thanks to **API Guides**:
 - Delete product [using REST API](guides/rest/delete-product)
   or [using AMQP API](guides/amqp/publish-a-deletion-request) shows you how to delete a
   product.
-- [Publish an acknowledge AMQP request](guides/amqp/publish-acknowledge-request) shows you how to create an 
+- [Publish an acknowledge AMQP request](guides/amqp/publish-acknowledge-request) shows you how to create an
   **Acknowledge request**
-- Get requests [progress through AMQP API](guides/amqp/subscribe-to-requests-responses) shows you how to retrieve 
+- Get requests [progress through AMQP API](guides/amqp/subscribe-to-requests-responses) shows you how to retrieve
   **Feature requests** updates.
 
 ## How to configure

@@ -1,7 +1,7 @@
 ---
 title: Remote REGARDS Plugin
 sidebar_label: Remote REGARDS
-slug: /development/services/storage/plugins/remote-regards
+slug: /development/services/storage/plugins/remote
 sidebar_position: 5
 ---
 
@@ -10,16 +10,16 @@ sidebar_position: 5
 The Remote REGARDS storage plugin enables access to files stored on another instance of REGARDS.
 
 :::info
-Contrary to other storage plugins, this plugin is read-only. This means it only supports retrieving files from 
+Contrary to other storage plugins, this plugin is read-only. This means it only supports retrieving files from
 another REGARDS instance, it does not support storing files on another instance.
 :::
 
 ## Pre-requisites
 
-Using this plugin involves two instances of REGARDS: the **local** instance, where products contain references to 
+Using this plugin involves two instances of REGARDS: the **local** instance, where products contain references to
 the files on the other instance, and the **remote** instance, where files are actually stored.
 
-On the remote instance, only one project may be accessed by an instance of the plugin: this project is called the 
+On the remote instance, only one project may be accessed by an instance of the plugin: this project is called the
 **remote project** (or *remote tenant*).
 
 ### Version requirements
@@ -31,16 +31,16 @@ On the remote instance, only one project may be accessed by an instance of the p
 
 * The local REGARDS instance must be able to access the remote REGARDS instance's public port (by default 443)
 * **One** of these conditions:
-  * The local REGARDS instance must be able to access the remote REGARDS instance's RabbitMQ port
-  * The remote REGARDS instance must be able to access the local REGARDS instance's RabbitMQ port
+    * The local REGARDS instance must be able to access the remote REGARDS instance's RabbitMQ port
+    * The remote REGARDS instance must be able to access the local REGARDS instance's RabbitMQ port
 
 ### Account requirements
 
 * A dedicated account must be created on the remote REGARDS instance for the use of the local REGARDS instance
 * This account must be registered with the *Operator* role in the remote project
-* This account must belong to a group that is given full access by the dataset(s) providing the products that may be 
+* This account must belong to a group that is given full access by the dataset(s) providing the products that may be
   retrieved by the local REGARDS instance
-* The account details (email, password) must be shared with the administrator setting up the plugin on the local 
+* The account details (email, password) must be shared with the administrator setting up the plugin on the local
   instance
 
 ## File URL
@@ -51,10 +51,10 @@ This plugin supports URLs using the following format:
 regards://remoteTenant/providerId/productURN/checksum
 ```
 
-In order to resolve the URL, an instance of the plugin must be configured to associate `remoteTenant` to an actual 
+In order to resolve the URL, an instance of the plugin must be configured to associate `remoteTenant` to an actual
 REGARDS server. The `productURN` and `checksum` parts are used to locate a product and a file on the remote server.
 
-You may configure several storage locations that use this plugin in a single project, provided that each storage 
+You may configure several storage locations that use this plugin in a single project, provided that each storage
 location is configured for a different `remoteTenant` value.
 
 ## Configuration
@@ -78,25 +78,26 @@ location is configured for a different `remoteTenant` value.
 This section may be ignored if all referenced files on the remote project are stored in an **online** storage.
 :::
 
-The plugin requires listening to events emitted by the remote REGARDS instance, so a dedicated message route must be 
+The plugin requires listening to events emitted by the remote REGARDS instance, so a dedicated message route must be
 set up from the remote REGARDS instance to the local REGARDS instance.
 
 This route must forward messages:
-* From the exchange [`regards.storage.file.notification`](../../../backend/services/storage/file-availability-api) (on 
+
+* From the exchange [`regards.storage.file.notification`](../../../backend/services/storage/file-availability-api) (on
   the remote instance) with binding key `regards.file.availability.status.<remoteTenant>`
-* To the queue (on the local instance) configured in the plugin configuration in the `fileNotificationQueue` 
+* To the queue (on the local instance) configured in the plugin configuration in the `fileNotificationQueue`
   parameter (default value: `regards.storage.remote.file.notification.<remoteTenant>`)
 
 To achieve this, the recommended approach is:
 
 1. On the local instance, define a storage location using the Remote REGARDS plugin, and leave the parameters
    `fileNotificationExchange` and `fileNotificationQueue` empty, to use their default value. This will automatically
-   create an exchange and a queue named `regards.storage.remote.file.notification.<remoteTenant>`. 
-2. On the remote instance, define a queue named `regards.storage.file.notification.<remoteTenant>` bound to the 
+   create an exchange and a queue named `regards.storage.remote.file.notification.<remoteTenant>`.
+2. On the remote instance, define a queue named `regards.storage.file.notification.<remoteTenant>` bound to the
    exchange `regards.storage.file.notification` with binding key `regards.file.availability.status.<remoteTenant>`.
 3. Either on the local or the remote instance, define a shovel that forwards messages from the **queue**
-  `regards.storage.file.notification.<remoteTenant>` (on the remote instance) to the **exchange**
-  `regards.storage.remote.file.notification.<remoteTenant>` (on the local instance).
+   `regards.storage.file.notification.<remoteTenant>` (on the remote instance) to the **exchange**
+   `regards.storage.remote.file.notification.<remoteTenant>` (on the local instance).
 
 For all involved queues, exchanges and shovels, the virtual host ("vhost") to use is `regards.multitenant.manager`.
 
@@ -153,6 +154,7 @@ group_docker_cots:
           src-queue: regards.storage.file.notification.<remoteTenant>
           src-uri: amqp:///regards.multitenant.manager
 ```
+
 :::note
 In the above document, `<remoteTenant>`, `<local_rabbit_user>`, `<local_rabbit_password>`,
 `<local_rabbit_instance>`, `<local_rabbit_port>` must be replaced by their actual value.

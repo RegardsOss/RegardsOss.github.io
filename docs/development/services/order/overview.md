@@ -6,11 +6,11 @@ sidebar_position: 1
 slug: /development/backend/services/order/overview/
 ---
 
-The RS-ORDER microservice is the main service of
+The `order` (or `rs-order`) microservice is the main service of
 the [set of Restitution Services (Functional overview)](../../../overview/functional-overview/05-product-restitution-services.md).
 
-The RS-ORDER microservice allows authenticated users to order files from the REGARDS catalog and download them.  
-To do so, RS-ORDER provides these functionalities:
+The `rs-order` microservice allows authenticated users to order files from the REGARDS catalog and download them.  
+To do so, `rs-order` provides these functionalities:
 
 - an user basket - you can add a selection of catalog products to your cart and order them later
 - create order - you can transform your user basket selection into an order

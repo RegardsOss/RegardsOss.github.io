@@ -23,7 +23,7 @@ The diagram below explains how a product creation request is processed.
 
 ![](sources/conception.png)
 
-Throughout the processing of a request in the service, the status of the request changes. 
+Throughout the processing of a request in the service, the status of the request changes.
 The diagram below shows the possible states and the transitions between them.
 
 ![](sources/request_steps_diagram.png)
@@ -33,7 +33,7 @@ The diagram below shows the possible states and the transitions between them.
 When submitting a request to create, modify, delete or notify products, you can specify the priority of your request.
 There are three priorities: **HIGH**, **NORMAL** and **LOW**.
 
-Giving your request a high priority ensures that it will be processed by the service before requests with lower 
+Giving your request a high priority ensures that it will be processed by the service before requests with lower
 priorities.
 
 ## Products metadata validation
@@ -42,7 +42,7 @@ Submitted Feature requests **must** provide an associated **Data Model** in thei
 To validate this model, `rs-fem` microservice keeps a cache of Data Models retrieved from the `rs-dam`
 microservice.
 
-Model validation checks for attributes in **properties.descriptiveInformation** section of the SIP. They have to be 
+Model validation checks for attributes in **properties.descriptiveInformation** section of the SIP. They have to be
 compliant with attributes defined in the given **Data Model**. Validation checks for:
 
 - **Mandatory** attributes,
@@ -55,14 +55,14 @@ Attributes of the data model are validated with **case sensitive** on attributes
 
 To understand versioning, you must be familiar with the two different identifiers of a feature in the `rs-fem` service.
 
-- Provider identifier (or `providerId`) : Is an arbitrary identifier provided by the feature creator owner.
+- Provider identifier (or **providerId**) : Is an arbitrary identifier provided by the feature creator owner.
   It is not a unique identifier for the service, but is used to handle product versioning.
 - **U**niform **R**esource **N**ame (or `urn`) : Is the **unique identifier** of a feature.
 
 The `rs-fem` representation of URN is
 URN:**FEATURE**:`<type\>`:`<tenant\>`:`<uuid\>`:V`<version\>` with :
 
-- **type** : `DATA`, `DATASET` or `COLLECTION`
+- **type** : **DATA**, **DATASET** or **COLLECTION**
 - **tenant**: [tenant or project](../../concepts/03-multitenant.md) in which the product is created.
 - **uid**: Universally unique identifier. Generated from the feature given **providerId**
 - **version** : entity version
@@ -80,14 +80,14 @@ There are several possibilities to update a request, leading to different versio
   [AMQP Guide](./api-guides/amqp/amqp-publish-patch-product-request.md) or
   [REST Guide](./api-guides/rest/rest-patch-product.md).
 * If a **Creation request** is used with the same **providerId** as an existing one, then a new feature is created with
-  an incremented version number. If the **override** parameter in the request metadata is set to `true`, then
+  an incremented version number. If the **override** parameter in the request metadata is set to **true**, then
   the old versioned feature is deleted after the new one creation success. To learn more on how to create a product see
   [AMQP Guide](./api-guides/amqp/amqp-publish-create-product-request.md) or
   [REST Guide](./api-guides/rest/rest-create-product.md).
 * If a **Creation request** is used with the same **providerId** and **urn** as an existing one , it means that a
   feature with the same version already exists. Then, we need to check the **updateIfExists** parameter in the request
   metadata :
-    * If it is set to `true`, then the **feature is updated**, like a patch request.
+    * If it is set to **true**, then the **feature is updated**, like a patch request.
     * Otherwise, an **error is raised**.
 
 Mainly, there is two ways to handle versioning in **rs-fem** service :
@@ -149,8 +149,8 @@ updated by the `rs-fem` microservice with the following parameters:
 
 - **recipient label**: Name of the notification's recipient (as configured in `rs-notifier` service)
 - **dissemination date**: Date of the notification
-- **acknowledge date**: Date of received acknowledgement. If the recipient is not configured to send acknowledgements, 
-  this date is the same as the dissemination date. If the recipient is configured to send acknowledgements, this 
+- **acknowledge date**: Date of received acknowledgement. If the recipient is not configured to send acknowledgements,
+  this date is the same as the dissemination date. If the recipient is configured to send acknowledgements, this
   date is the date on which the acknowledgement is received. This acknowledgement parameter is configured in the
   `rs-notifier` service for each recipient.
 
@@ -159,7 +159,7 @@ notifications.
 
 ### Products notification format
 
-To understand how `rs-notifier` can handle product notifications received from the `rs-fem` microservice, here is the 
+To understand how `rs-notifier` can handle product notifications received from the `rs-fem` microservice, here is the
 format of each product notification between `rs-fem` and `rs-notifier` :
 
 ```json
@@ -211,16 +211,15 @@ format of each product notification between `rs-fem` and `rs-notifier` :
 }
 ```
 
-The **payload section** contains the product that has been notified and the **metadata section** contains the following 
+The **payload section** contains the product that has been notified and the **metadata section** contains the following
 information:
 
-| Parameter         | Type       | description                                                                                                                                                                                                             |
-|-------------------|------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| action            | `String`   | Indicates the action on the product that triggered the notification.<br/> Possible values are `CREATED`, `UPDATED`, `DELETED`, `ALREADY_DELETED`, `NOTIFIED`.                                                           |
-| sessionOwner      | `String`   | Session Owner that created the product                                                                                                                                                                                  |
-| session           | `String`   | Session in which the product was created                                                                                                                                                                                |
-| changedAttributes | `String[]` | List of payload attributes that are updated (set, modified or unset). Only defined when `action` is `UPDATED`. The list of attributes is limited to `files` and any sub-fields of `properties`. See the example above.  |
-
+| Parameter         | Type       | description                                                                                                                                                                                                            |
+|-------------------|------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| action            | `String`   | Indicates the action on the product that triggered the notification.<br/> Possible values are `CREATED`, `UPDATED`, `DELETED`, `ALREADY_DELETED`, `NOTIFIED`.                                                          |
+| sessionOwner      | `String`   | Session Owner that created the product                                                                                                                                                                                 |
+| session           | `String`   | Session in which the product was created                                                                                                                                                                               |
+| changedAttributes | `String[]` | List of payload attributes that are updated (set, modified or unset). Only defined when `action` is `UPDATED`. The list of attributes is limited to `files` and any sub-fields of `properties`. See the example above. |
 
 You can then use this information (metadata and payload sections) to configure the
 [rs-notifier service](../notifier/overview.md) to send the feature to the required recipients.

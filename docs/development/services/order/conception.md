@@ -39,7 +39,8 @@ Products must be linked to a dataset to be accessible to users. (See rs-dam micr
 However, sometimes there are files associated to a dataset, typically containing metadata or descriptions of the
 dataset.
 
-Data type files (RAWDATA) associated with datasets are automatically downloaded when the basket contains a product from that dataset.
+Data type files (RAWDATA) associated with datasets are automatically downloaded when the basket contains a product from
+that dataset.
 
 ## Order creation
 
@@ -64,11 +65,11 @@ That's why several suborders can be required for one order. These jobs will
 
 * External file : A file not managed by REGARDS. REGARDS got only a reference (an url) to this file.
 * Internal file : stored by REGARDS in one of the configured storage.
-:::
+  :::
 
 :::important user quotas
-  Quotas are used only for files stored by REGARDS. Externally stored files don't require a quota, but do require access
-  rights.
+Quotas are used only for files stored by REGARDS. Externally stored files don't require a quota, but do require access
+rights.
 
 REGARDS will retrieve files until all files have been retrieved or the user's download quota has been reached.
 :::
@@ -79,9 +80,11 @@ remains in the **RUNNING** state.
 ## Suborder workflow
 
 There is a maximum number of running storage jobs for a given user (external jobs are not concerned by this limit).
-This number is defined in the service configuration (*regards.order.max.storage.files.jobs.per.user*).
+This number is defined in the service configuration (**regards.order.max.storage.files.jobs.per.user**).
 
-A sub-order is considered as finished once data has been retrieved from rs-storage, and downloaded by the user. That's why an order can be blocked, until the user does a download of the order. The download of an order downloads all data retrieve from rs-storage, and launch remaining sub-orders. In case of big order, multiple download can be required.
+A sub-order is considered as finished once data has been retrieved from rs-storage, and downloaded by the user. That's
+why an order can be blocked, until the user does a download of the order. The download of an order downloads all data
+retrieve from rs-storage, and launch remaining sub-orders. In case of big order, multiple download can be required.
 
 This download can be done on UI or API. See the dedicated [API guide](api-guides/rest/rest-download-ordered-files.md)
 
@@ -91,7 +94,8 @@ In fact, storage jobs ask the storage service to make files available for downlo
 this operation. To learn more, read the nearline [storage documentation](../storage/overview.md). The download operation
 is done by the user.
 
-The maximum number of parallel job (pool size) is defined in the service configuration (*regards.jobs.pool.size*). This
+The maximum number of parallel job (pool size) is defined in the service configuration (**regards.jobs.pool.size**).
+This
 pool is shared by all users of the rs-order microservice.
 
 When a sub-order is finished (all files retrieved by storage service during the job and all files are downloaded by
@@ -108,9 +112,9 @@ The storage jobs are prioritized among all users based on suborder size: smaller
 :::warning sub-order number limit
 
 * Globally : REGARDS cannot launch more than X sub-order in parallel. (X is the jobs pool size,
-  *regards.jobs.pool.size*)
+  **regards.jobs.pool.size**)
 * Per user : A user cannot have more than Y waiting sub-order. That means sub-orders that are finished but not
-  downloaded. (Y is *regards.order.max.storage.files.jobs.per.user*)
+  downloaded. (Y is **regards.order.max.storage.files.jobs.per.user**)
   :::
 
 ## Order final state
@@ -145,7 +149,7 @@ Here under is the state diagram of the order process :
 
 ## Order main tables
 
-The following entity relationship diagram shows the main entities (and table name in parentheses) that represent an 
+The following entity relationship diagram shows the main entities (and table name in parentheses) that represent an
 order.
 
 ```mermaid
@@ -173,13 +177,15 @@ erDiagram
     uuid id
   }
 ```
+
 *This entity-relationship diagram uses the
 [Crow's foot notation](https://en.wikipedia.org/wiki/Entity%E2%80%93relationship_model#Crow's_foot_notation).*  
 *The box labels show the entity class, and the corresponding table name in parenthesis.*
 
 * **Order**: an entire order.
 * **DatasetTask**: the task for one dataset of the order, may be composed of one or several sub-orders.
-* **AbstractReliantTask**: parent class of `DatasetTask`, but realized as a separate table in database
-* **FilesTask**: a sub-order, either internal (files are stored by REGARDS) or external (files are only referenced by REGARDS). An
-  internal sub-order is  associated to one `StorageFilesJob` job and optionally one `ProcessExecutionJob` job.
+* **AbstractReliantTask**: parent class of **DatasetTask**, but realized as a separate table in database
+* **FilesTask**: a sub-order, either internal (files are stored by REGARDS) or external (files are only referenced by
+  REGARDS). An
+  internal sub-order is associated to one **StorageFilesJob** job and optionally one **ProcessExecutionJob** job.
 * **OrderDataFile**: one file in a sub-order.
