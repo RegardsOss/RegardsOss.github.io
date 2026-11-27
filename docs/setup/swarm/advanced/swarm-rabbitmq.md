@@ -43,6 +43,30 @@ group_docker_cots:
 
 This example tells Swarm to deploy a replica of RabbitMQ on every node having a property `type` valued to `cots`.
 
+## Resources limit configuration
+
+Optional configurations can be applied to improve RabbitMQ resource usage and enforce security limits.
+
+```yaml
+group_docker_cots:
+  rabbitmq:
+    containerLimit: 2500m
+    memoryHighWatermark: 0.4
+```
+
+These two parameters allow overriding the default values of RabbitMQ configuration (see https://www.rabbitmq.com/docs/memory) : 
+- total_memory_available_override_value : 2500m
+- vm_memory_high_watermark.relative : 0.4 
+
+```
+group_docker_cots_configuration:
+  rabbitmq:
+    disk_free_limit_absolute: 5GB
+```
+
+This parameter can be used to override the default disk free limit (see https://www.rabbitmq.com/docs/disk-alarms) : 
+ - disk_free_limit.absolute
+
 ## Client port configuration
 
 Client configuration allows external programs to contact the RabbitMQ server deployed.
